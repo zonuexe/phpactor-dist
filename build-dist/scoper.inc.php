@@ -16,11 +16,12 @@ use Isolated\Symfony\Component\Finder\Finder;
 $excludedFiles = array_map(
     static fn (SplFileInfo $fileInfo) => $fileInfo->getPathName(),
     [
-        ...iterator_to_array(Finder::create()->files()->in(__DIR__ . '/lib'), false),
+        // ...iterator_to_array(Finder::create()->files()->in(__DIR__ . '/lib'), false),
     ]
 );
 
-$autoloaderReal = realpath(__DIR__ . '/../vendor/composer/autoload_real.php');
+$autoloaderReal = realpath(__DIR__ . '/vendor/composer/autoload_real.php');
+assert($autoloaderReal !== false);
 
 return [
     'prefix' => $ns = 'Phpactor' . gmdate('Ym'),
@@ -37,8 +38,12 @@ return [
     //
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#finders-and-paths
     'finders' => [
-        Finder::create()->files()->in('lib'),
+        Finder::create()->files()->in('autoload'),
         Finder::create()->files()->in('bin'),
+        Finder::create()->files()->in('ftplugin'),
+        Finder::create()->files()->in('lib'),
+        Finder::create()->files()->in('plugin'),
+        Finder::create()->files()->in('templates'),
         Finder::create()
             ->files()
             ->ignoreVCS(true)
