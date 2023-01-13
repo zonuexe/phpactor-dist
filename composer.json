@@ -1,0 +1,68 @@
+{
+    "name": "zonuexe/phpactor-dist",
+    "description": "PHP refactoring and intellisense tool for text editors",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "ext-pcntl": "*",
+        "ext-posix": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phpactor\\": "lib/"
+        }
+    },
+    "replace": {
+        "phpactor/amp-fswatch": "*",
+        "phpactor/class-mover": "0.2.0",
+        "phpactor/class-to-file": "*",
+        "phpactor/class-to-file-extension": "0.2.2",
+        "phpactor/code-builder": "0.4.3",
+        "phpactor/code-transform": "0.4.3",
+        "phpactor/code-transform-extension": "0.2.2",
+        "phpactor/completion": "*",
+        "phpactor/completion-extension": "0.2.5",
+        "phpactor/completion-rpc-extension": "0.2.3",
+        "phpactor/completion-worse-extension": "0.2.4",
+        "phpactor/composer-autoloader-extension": "0.2.3",
+        "phpactor/config-loader": "0.1.2",
+        "phpactor/console-extension": "0.1.6",
+        "phpactor/container": "*",
+        "phpactor/debug-extension": "*",
+        "phpactor/file-path-resolver": "0.8.3",
+        "phpactor/file-path-resolver-extension": "0.3.4",
+        "phpactor/indexer-extension": "0.3.3",
+        "phpactor/language-server": "*",
+        "phpactor/language-server-extension": "0.6.4",
+        "phpactor/language-server-phpactor-extensions": "0.5.3",
+        "phpactor/language-server-protocol": "*",
+        "phpactor/logging-extension": "0.3.4",
+        "phpactor/map-resolver": "*",
+        "phpactor/name": "0.1.1",
+        "phpactor/path-finder": "0.1.2",
+        "phpactor/phly-event-dispatcher": "*",
+        "phpactor/php-extension": "0.1.1",
+        "phpactor/phpactor": "*",
+        "phpactor/reference-finder": "0.1.6",
+        "phpactor/reference-finder-extension": "0.1.7",
+        "phpactor/reference-finder-rpc-extension": "0.1.5",
+        "phpactor/rpc-extension": "0.2.4",
+        "phpactor/source-code-filesystem": "0.1.8",
+        "phpactor/source-code-filesystem-extension": "0.1.5",
+        "phpactor/tolerant-php-parser": "*",
+        "phpactor/worse-reference-finder": "0.2.6",
+        "phpactor/worse-reference-finder-extension": "0.1.6",
+        "phpactor/worse-reflection-extension": "0.2.5"
+    },
+    "config": {
+        "platform": {
+            "php": "8.0.0"
+        }
+    },
+    "bin": [
+        "bin/phpactor"
+    ],
+    "config": {
+        "sort-packages": true
+    }
+}
