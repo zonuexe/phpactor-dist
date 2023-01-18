@@ -1,0 +1,28 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Tests\Model;
+
+use Phpactor202301\PHPUnit\Framework\TestCase;
+use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\DiagnosticsParser;
+use RuntimeException;
+class DiagnosticsParserTest extends TestCase
+{
+    /**
+     * @dataProvider provideParse
+     */
+    public function testParse(string $phpstanJson, int $count) : void
+    {
+        self::assertCount($count, (new DiagnosticsParser())->parse($phpstanJson));
+    }
+    public function provideParse()
+    {
+        (yield ['{"totals":{"errors":0,"file_errors":1},"files":{"/home/daniel/www/phpactor/language-server-phpstan/test.php":{"errors":1,"messages":[{"message":"Undefined variable: $bar","line":3,"ignorable":true}]}},"errors":[]}', 1]);
+    }
+    public function testExceptionOnNonJsonString() : void
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('stdout was not JSON');
+        (new DiagnosticsParser())->parse('stdout was not JSON');
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Tests\\Model\\DiagnosticsParserTest', 'Phpactor\\Extension\\LanguageServerPhpstan\\Tests\\Model\\DiagnosticsParserTest', \false);

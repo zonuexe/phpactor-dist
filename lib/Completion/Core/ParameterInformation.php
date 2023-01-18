@@ -1,0 +1,27 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Completion\Core;
+
+class ParameterInformation
+{
+    /**
+     * @param string $label
+     *      The label of this signature. Will be shown in
+     *      the UI.
+     *  @param ?string $documentation
+     *      The human-readable doc-comment of this signature. Will be shown
+     *      in the UI but can be omitted.
+     */
+    public function __construct(private string $label, private ?string $documentation = null)
+    {
+    }
+    public function documentation() : ?string
+    {
+        return $this->documentation;
+    }
+    public function label() : string
+    {
+        return $this->label;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\ParameterInformation', 'Phpactor\\Completion\\Core\\ParameterInformation', \false);

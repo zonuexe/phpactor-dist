@@ -1,0 +1,11 @@
+{
+    "name": "acme\/test",
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Phpactor202301\\Acme\\": "src\/"
+        }
+    },
+    "autoload-dev": {}
+}

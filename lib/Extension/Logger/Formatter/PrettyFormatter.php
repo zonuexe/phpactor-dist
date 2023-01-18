@@ -1,0 +1,37 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\Logger\Formatter;
+
+use Phpactor202301\Monolog\Formatter\FormatterInterface;
+use Phpactor202301\Psr\Log\LogLevel;
+class PrettyFormatter implements FormatterInterface
+{
+    public function format(array $record)
+    {
+        $message = \sprintf('[%-7s][%s][%s] %s', \substr(\strtoupper($record['context']['channel'] ?? '???'), 0, 7), $this->color($record['level_name']) . \substr($record['level_name'], 0, 4) . "\x1b[0;0m", "\x1b[1;37m" . \substr($record['datetime']->format('U.u'), 4) . "\x1b[0;0m", $record['message']);
+        return $message . "\n";
+    }
+    public function formatBatch(array $records) : void
+    {
+    }
+    private function color(string $level) : string
+    {
+        switch (\strtolower($level)) {
+            case LogLevel::EMERGENCY:
+            case LogLevel::CRITICAL:
+            case LogLevel::ERROR:
+                return "\x1b[0;31m";
+            case LogLevel::WARNING:
+                return "\x1b[0;33m";
+            case LogLevel::ALERT:
+            case LogLevel::NOTICE:
+                return "\x1b[0;36m";
+            case LogLevel::INFO:
+                return "\x1b[0;32m";
+            case LogLevel::DEBUG:
+                return "\x1b[0;37m";
+        }
+        return "\x1b[0;0m";
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\Logger\\Formatter\\PrettyFormatter', 'Phpactor\\Extension\\Logger\\Formatter\\PrettyFormatter', \false);

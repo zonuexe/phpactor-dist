@@ -1,0 +1,86 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\LanguageServer\Dispatcher;
+
+use Phpactor202301\Phpactor\Container\Extension;
+use Phpactor202301\Phpactor\Container\OptionalExtension;
+use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerSessionExtension;
+use Phpactor202301\Phpactor\Container\PhpactorContainer;
+use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher\MiddlewareDispatcher;
+use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
+use Phpactor202301\Phpactor\Container\Container;
+use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor202301\Phpactor\MapResolver\ResolverErrors;
+use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
+use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
+class PhpactorDispatcherFactory implements DispatcherFactory
+{
+    public function __construct(private Container $container)
+    {
+    }
+    public function create(MessageTransmitter $transmitter, InitializeParams $initializeParams) : Dispatcher
+    {
+        $container = $this->createContainer($initializeParams, $transmitter);
+        return $this->createContainer($initializeParams, $transmitter)->get(MiddlewareDispatcher::class);
+    }
+    protected function createContainer(InitializeParams $params, MessageTransmitter $transmitter) : Container
+    {
+        $container = $this->container;
+        $parameters = $container->getParameters();
+        $parameters[FilePathResolverExtension::PARAM_PROJECT_ROOT] = TextDocumentUri::fromString($this->resolveRootUri($params))->path();
+        $extensionClasses = $container->getParameter(PhpactorContainer::PARAM_EXTENSION_CLASSES);
+        // merge in any language-server specific configuration
+        $parameters = \array_merge($parameters, $container->getParameter(LanguageServerExtension::PARAM_SESSION_PARAMETERS));
+        $container = $this->buildContainer($extensionClasses, \array_merge($parameters, $params->initializationOptions ?? []), $transmitter, $params);
+        return $container;
+    }
+    private function buildContainer(array $extensionClasses, array $parameters, MessageTransmitter $transmitter, InitializeParams $params) : Container
+    {
+        $container = new PhpactorContainer();
+        $extensions = \array_map(function (string $class) : Extension {
+            /** @var Extension $class */
+            return new $class();
+        }, $extensionClasses);
+        $extensions[] = new LanguageServerSessionExtension($transmitter, $params);
+        $resolver = new Resolver(\true);
+        $resolver->setDefaults([PhpactorContainer::PARAM_EXTENSION_CLASSES => $extensionClasses]);
+        foreach ($extensions as $extension) {
+            // This is duplicated in ExtensionDocumentor we should not
+            // continue to add behavior like this here and should extract
+            // this and other special logic.
+            if ($extension instanceof OptionalExtension) {
+                (function (string $key) use($resolver) : void {
+                    $resolver->setDefaults([$key => \false]);
+                    $resolver->setTypes([$key => 'boolean']);
+                })(\sprintf('%s.enabled', $extension->name()));
+            }
+            $extension->configure($resolver);
+        }
+        $parameters = $resolver->resolve($parameters);
+        $container->register(ResolverErrors::class, function () use($resolver) {
+            return $resolver->errors();
+        });
+        foreach ($extensions as $extension) {
+            if ($extension instanceof OptionalExtension) {
+                if (\false === ($parameters[\sprintf('%s.enabled', $extension->name())] ?? \false)) {
+                    continue;
+                }
+            }
+            $extension->load($container);
+        }
+        return $container->build($parameters);
+    }
+    private function resolveRootUri(InitializeParams $params) : string
+    {
+        if (null === $params->rootUri) {
+            throw new ExitSession('Phpactor Language Server must be initialized with a root URI, NULL provided');
+        }
+        return $params->rootUri;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Dispatcher\\PhpactorDispatcherFactory', 'Phpactor\\Extension\\LanguageServer\\Dispatcher\\PhpactorDispatcherFactory', \false);

@@ -1,0 +1,15 @@
+<?php
+
+namespace Phpactor202301;
+
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();
+new Foobar();

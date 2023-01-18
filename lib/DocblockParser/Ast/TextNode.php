@@ -1,0 +1,27 @@
+<?php
+
+namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+
+class TextNode extends Node
+{
+    protected const CHILD_NAMES = ['tokens'];
+    /**
+     * @param Token[] $tokens
+     */
+    public function __construct(public array $tokens)
+    {
+    }
+    public function toString() : string
+    {
+        return \trim(\implode('', \array_filter(\array_map(function (Token $token) {
+            if (\in_array($token->type, [Token::T_PHPDOC_OPEN, Token::T_PHPDOC_CLOSE, Token::T_ASTERISK])) {
+                return \false;
+            }
+            if (\str_contains($token->value, "\n")) {
+                return ' ';
+            }
+            return $token->value;
+        }, $this->tokens))));
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\TextNode', 'Phpactor\\DocblockParser\\Ast\\TextNode', \false);

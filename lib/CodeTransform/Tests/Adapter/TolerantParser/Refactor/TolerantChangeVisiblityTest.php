@@ -1,0 +1,29 @@
+<?php
+
+namespace Phpactor202301\Phpactor\CodeTransform\Tests\Adapter\TolerantParser\Refactor;
+
+use Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\Refactor\TolerantChangeVisiblity;
+use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor202301\Phpactor\CodeTransform\Tests\Adapter\TolerantParser\TolerantTestCase;
+class TolerantChangeVisiblityTest extends TolerantTestCase
+{
+    /**
+     * @dataProvider provideChangeVisibility
+     */
+    public function testExtractExpression(string $test) : void
+    {
+        [$source, $expected, $offsetStart] = $this->sourceExpectedAndOffset(__DIR__ . '/fixtures/' . $test);
+        $extractMethod = new TolerantChangeVisiblity();
+        $transformed = $extractMethod->changeVisiblity(SourceCode::fromString($source), $offsetStart);
+        $this->assertEquals(\trim($expected), \trim($transformed));
+    }
+    public function provideChangeVisibility()
+    {
+        (yield 'no op' => ['changeVisibility1.test']);
+        (yield 'method: from public to protected' => ['changeVisibility2.test']);
+        (yield 'property: from protected to private' => ['changeVisibility3.test']);
+        (yield 'constant: from public to protected' => ['changeVisibility4.test']);
+        (yield 'property: on keyword' => ['changeVisibility5.test']);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Tests\\Adapter\\TolerantParser\\Refactor\\TolerantChangeVisiblityTest', 'Phpactor\\CodeTransform\\Tests\\Adapter\\TolerantParser\\Refactor\\TolerantChangeVisiblityTest', \false);

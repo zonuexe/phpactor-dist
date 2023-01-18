@@ -1,0 +1,1 @@
+public mixed|foo $foobar;

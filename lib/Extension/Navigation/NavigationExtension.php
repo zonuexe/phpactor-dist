@@ -1,0 +1,63 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\Navigation;
+
+use Phpactor202301\Phpactor\Container\ContainerBuilder;
+use Phpactor202301\Phpactor\Container\Extension;
+use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor202301\Phpactor\Container\Container;
+use Phpactor202301\Phpactor\Extension\Navigation\Application\Navigator;
+use Phpactor202301\Phpactor\Extension\Navigation\Navigator\ChainNavigator;
+use Phpactor202301\Phpactor\Extension\Navigation\Handler\NavigateHandler;
+use Phpactor202301\Phpactor\Extension\Navigation\Navigator\PathFinderNavigator;
+use Phpactor202301\Phpactor\Extension\Navigation\Navigator\WorseReflectionNavigator;
+use Phpactor202301\Phpactor\PathFinder\PathFinder;
+class NavigationExtension implements Extension
+{
+    const PATH_FINDER_DESTINATIONS = 'navigator.destinations';
+    const NAVIGATOR_AUTOCREATE = 'navigator.autocreate';
+    const SERVICE_PATH_FINDER = 'navigation.path_finder';
+    public function load(ContainerBuilder $container) : void
+    {
+        $this->registerPathFinder($container);
+        $this->registerNavigators($container);
+        $this->registerRpc($container);
+    }
+    public function configure(Resolver $schema) : void
+    {
+        $schema->setDefaults([self::PATH_FINDER_DESTINATIONS => [], self::NAVIGATOR_AUTOCREATE => []]);
+    }
+    private function registerPathFinder(ContainerBuilder $container) : void
+    {
+        $container->register(self::SERVICE_PATH_FINDER, function (Container $container) {
+            return PathFinder::fromDestinations($container->getParameter(self::PATH_FINDER_DESTINATIONS));
+        });
+        $container->register('application.navigator', function (Container $container) {
+            return new Navigator($container->get('navigation.navigator.chain'), $container->get('application.class_new'), $container->getParameter(self::NAVIGATOR_AUTOCREATE));
+        });
+    }
+    private function registerRpc(ContainerBuilder $container) : void
+    {
+        $container->register('rpc.handler.navigate', function (Container $container) {
+            return new NavigateHandler($container->get('application.navigator'));
+        }, ['rpc.handler' => ['name' => NavigateHandler::NAME]]);
+    }
+    private function registerNavigators(ContainerBuilder $container) : void
+    {
+        $container->register('navigation.navigator.chain', function (Container $container) {
+            $navigators = [];
+            foreach ($container->getServiceIdsForTag('navigation.navigator') as $serviceId => $attrs) {
+                $navigators[] = $container->get($serviceId);
+            }
+            return new ChainNavigator($navigators);
+        });
+        $container->register('navigation.navigator.path_finder', function (Container $container) {
+            return new PathFinderNavigator($container->get(self::SERVICE_PATH_FINDER));
+        }, ['navigation.navigator' => []]);
+        $container->register('navigation.navigator.worse_reflection', function (Container $container) {
+            return new WorseReflectionNavigator($container->get(WorseReflectionExtension::SERVICE_REFLECTOR));
+        }, ['navigation.navigator' => []]);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\NavigationExtension', 'Phpactor\\Extension\\Navigation\\NavigationExtension', \false);

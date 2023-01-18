@@ -1,0 +1,29 @@
+<?php
+
+namespace Phpactor202301\Phpactor\WorseReflection\Tests\Integration\Bridge\TolerantParser\Diagonstics;
+
+use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodProvider;
+use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
+class MissingMethodProviderTest extends DiagnosticsTestCase
+{
+    public function checkInstanceMethod(Diagnostics $diagnostics) : void
+    {
+        self::assertCount(1, $diagnostics);
+        self::assertEquals('Method "bar" does not exist on class "Foobar"', $diagnostics->at(0)->message());
+    }
+    public function checkStaticMethod(Diagnostics $diagnostics) : void
+    {
+        self::assertCount(1, $diagnostics);
+        self::assertEquals('Method "bar" does not exist on class "Foobar"', $diagnostics->at(0)->message());
+    }
+    public function checkInlinedType(Diagnostics $diagnostics) : void
+    {
+        self::assertCount(0, $diagnostics);
+    }
+    protected function provider() : DiagnosticProvider
+    {
+        return new MissingMethodProvider();
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Tests\\Integration\\Bridge\\TolerantParser\\Diagonstics\\MissingMethodProviderTest', 'Phpactor\\WorseReflection\\Tests\\Integration\\Bridge\\TolerantParser\\Diagonstics\\MissingMethodProviderTest', \false);

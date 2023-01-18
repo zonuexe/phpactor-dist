@@ -1,0 +1,37 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\Core\Console\Dumper;
+
+use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+final class IndentedDumper implements Dumper
+{
+    const PADDING = '  ';
+    public function dump(OutputInterface $output, array $data) : void
+    {
+        $this->doDump($output, $data);
+    }
+    private function doDump(OutputInterface $output, array $data, $padding = 0) : void
+    {
+        $style = match ($padding) {
+            1 => 'info',
+            default => 'comment',
+        };
+        foreach ($data as $key => $value) {
+            if (\is_array($value)) {
+                $output->writeln(\sprintf('%s<%s>%s</>:', \str_repeat(self::PADDING, $padding), $style, $key));
+                $this->doDump($output, $value, ++$padding);
+                $padding--;
+                continue;
+            }
+            $output->writeln(\sprintf('%s<%s>%s</>:%s', \str_repeat(self::PADDING, $padding), $style, $key, $this->formatValue($value)));
+        }
+    }
+    private function formatValue($value)
+    {
+        if (\is_bool($value)) {
+            return $value ? 'true' : 'false';
+        }
+        return $value;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Console\\Dumper\\IndentedDumper', 'Phpactor\\Extension\\Core\\Console\\Dumper\\IndentedDumper', \false);

@@ -1,0 +1,163 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Handler;
+
+use Phpactor202301\Amp\CancellationToken;
+use Phpactor202301\Amp\CancelledException;
+use Phpactor202301\Amp\Delayed;
+use Phpactor202301\Amp\Promise;
+use Closure;
+use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
+use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult;
+use Phpactor202301\Phpactor\LanguageServerProtocol\CompletionItem;
+use Phpactor202301\Phpactor\LanguageServerProtocol\CompletionList;
+use Phpactor202301\Phpactor\LanguageServerProtocol\CompletionOptions;
+use Phpactor202301\Phpactor\LanguageServerProtocol\CompletionParams;
+use Phpactor202301\Phpactor\LanguageServerProtocol\InsertTextFormat;
+use Phpactor202301\Phpactor\LanguageServerProtocol\MarkupContent;
+use Phpactor202301\Phpactor\LanguageServerProtocol\MarkupKind;
+use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
+use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor202301\Phpactor\LanguageServerProtocol\SignatureHelpOptions;
+use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor202301\Phpactor\LanguageServerProtocol\TextEdit;
+use Phpactor202301\Phpactor\Completion\Core\Suggestion;
+use Phpactor202301\Phpactor\Completion\Core\TypedCompletorRegistry;
+use Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util\PhpactorToLspCompletionType;
+use Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util\SuggestionNameFormatter;
+use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use function Phpactor202301\Amp\call;
+class CompletionHandler implements Handler, CanRegisterCapabilities
+{
+    /**
+     * @var array<int,Closure(CompletionItem): CompletionItem>
+     */
+    private array $resolve = [];
+    public function __construct(private Workspace $workspace, private TypedCompletorRegistry $registry, private SuggestionNameFormatter $suggestionNameFormatter, private NameImporter $nameImporter, private bool $supportSnippets, private bool $provideTextEdit = \false)
+    {
+    }
+    public function methods() : array
+    {
+        return ['textDocument/completion' => 'completion', 'completionItem/resolve' => 'resolveItem'];
+    }
+    /**
+     * @return Promise<array<CompletionItem>>
+     */
+    public function completion(CompletionParams $params, CancellationToken $token) : Promise
+    {
+        return call(function () use($params, $token) {
+            $this->resolve = [];
+            $textDocument = $this->workspace->get($params->textDocument->uri);
+            $languageId = $textDocument->languageId ?: 'php';
+            $byteOffset = PositionConverter::positionToByteOffset($params->position, $textDocument->text);
+            $suggestions = $this->registry->completorForType($languageId)->complete(TextDocumentBuilder::create($textDocument->text)->language($languageId)->uri($textDocument->uri)->build(), $byteOffset);
+            $items = [];
+            $isIncomplete = \false;
+            foreach ($suggestions as $index => $suggestion) {
+                \assert($suggestion instanceof Suggestion);
+                $name = $this->suggestionNameFormatter->format($suggestion);
+                $nameImporterResult = $this->importClassOrFunctionName($suggestion, $params);
+                [$insertText, $insertTextFormat] = $this->determineInsertTextAndFormat($name, $suggestion, $nameImporterResult);
+                $textEdits = $nameImporterResult->getTextEdits();
+                $item = CompletionItem::fromArray(['label' => $suggestion->label(), 'kind' => PhpactorToLspCompletionType::fromPhpactorType($suggestion->type()), 'insertText' => $insertText, 'sortText' => $this->sortText($suggestion), 'textEdit' => $this->textEdit($suggestion, $insertText, $textDocument), 'additionalTextEdits' => $textEdits, 'insertTextFormat' => $insertTextFormat, 'data' => $index]);
+                $this->resolve[$index] = function (CompletionItem $item) use($suggestion) : CompletionItem {
+                    $documentation = $suggestion->documentation();
+                    $item->documentation = $documentation ? new MarkupContent(MarkupKind::MARKDOWN, $documentation) : null;
+                    $item->detail = $this->formatShortDescription($suggestion);
+                    return $item;
+                };
+                $items[] = $item;
+                try {
+                    $token->throwIfRequested();
+                } catch (CancelledException) {
+                    $this->resolve = [];
+                    $isIncomplete = \true;
+                    break;
+                }
+                (yield new Delayed(0));
+            }
+            $isIncomplete = $isIncomplete || !$suggestions->getReturn();
+            return new CompletionList($isIncomplete, $items);
+        });
+    }
+    /**
+     * @return Promise<CompletionItem>
+     */
+    public function resolveItem(RequestMessage $request) : Promise
+    {
+        return call(function () use($request) {
+            $item = CompletionItem::fromArray($request->params);
+            $item = $this->resolve[$item->data]($item);
+            return $item;
+        });
+    }
+    public function registerCapabiltiies(ServerCapabilities $capabilities) : void
+    {
+        $capabilities->completionProvider = new CompletionOptions([':', '>', '$', '@', '(', '\'', '"']);
+        $capabilities->signatureHelpProvider = new SignatureHelpOptions(['(', ',']);
+        $capabilities->completionProvider->resolveProvider = \true;
+    }
+    /**
+     * @return array{string,InsertTextFormat::*}
+     */
+    private function determineInsertTextAndFormat(string $name, Suggestion $suggestion, NameImporterResult $nameImporterResult) : array
+    {
+        $insertText = $name;
+        $insertTextFormat = InsertTextFormat::PLAIN_TEXT;
+        if ($this->supportSnippets) {
+            $insertText = $suggestion->snippet() ?: $name;
+            $insertTextFormat = $suggestion->snippet() ? InsertTextFormat::SNIPPET : InsertTextFormat::PLAIN_TEXT;
+        }
+        if ($nameImporterResult->isSuccessAndHasAliasedNameImport()) {
+            $alias = $nameImporterResult->getNameImport()->alias();
+            $insertText = \str_replace($name, $alias, $insertText);
+        }
+        return [$insertText, $insertTextFormat];
+    }
+    private function importClassOrFunctionName(Suggestion $suggestion, CompletionParams $params) : NameImporterResult
+    {
+        $suggestionNameImport = $suggestion->nameImport();
+        if (!$suggestionNameImport) {
+            return NameImporterResult::createEmptyResult();
+        }
+        $suggestionType = $suggestion->type();
+        if (!\in_array($suggestionType, ['class', 'function'])) {
+            return NameImporterResult::createEmptyResult();
+        }
+        $textDocument = $this->workspace->get($params->textDocument->uri);
+        $offset = PositionConverter::positionToByteOffset($params->position, $textDocument->text);
+        return ($this->nameImporter)($textDocument, $offset->toInt(), $suggestionType, $suggestionNameImport, \false);
+    }
+    private function textEdit(Suggestion $suggestion, string $insertText, TextDocumentItem $textDocument) : ?TextEdit
+    {
+        if (\false === $this->provideTextEdit) {
+            return null;
+        }
+        $range = $suggestion->range();
+        if (!$range) {
+            return null;
+        }
+        return new TextEdit(new Range(PositionConverter::byteOffsetToPosition($range->start(), $textDocument->text), PositionConverter::byteOffsetToPosition($range->end(), $textDocument->text)), $insertText);
+    }
+    private function formatShortDescription(Suggestion $suggestion) : string
+    {
+        $prefix = '';
+        if ($suggestion->classImport()) {
+            $prefix = '↓ ';
+        }
+        return $prefix . $suggestion->shortDescription();
+    }
+    private function sortText(Suggestion $suggestion) : ?string
+    {
+        if (null === $suggestion->priority()) {
+            return null;
+        }
+        return \sprintf('%04s-%s', $suggestion->priority(), $suggestion->name());
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCompletion\\Handler\\CompletionHandler', 'Phpactor\\Extension\\LanguageServerCompletion\\Handler\\CompletionHandler', \false);

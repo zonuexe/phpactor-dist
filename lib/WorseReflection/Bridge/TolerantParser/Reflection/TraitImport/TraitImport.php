@@ -1,0 +1,27 @@
+<?php
+
+namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
+
+class TraitImport
+{
+    public function __construct(private string $traitName, private array $traitAliases = [])
+    {
+    }
+    public function name() : string
+    {
+        return $this->traitName;
+    }
+    public function traitAliases() : array
+    {
+        return $this->traitAliases;
+    }
+    public function getAlias($name) : TraitAlias
+    {
+        return $this->traitAliases[$name];
+    }
+    public function hasAliasFor($name) : bool
+    {
+        return \array_key_exists($name, $this->traitAliases);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitImport', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitImport', \false);

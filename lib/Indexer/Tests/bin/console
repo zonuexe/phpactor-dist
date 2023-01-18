@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php 
+namespace Phpactor202301;
+
+use Phpactor202301\Acme\Extension\StupidCompletion\StupidCompletionExtension;
+use Phpactor202301\Phpactor\Container\PhpactorContainer;
+use Phpactor202301\Phpactor\Extension\ClassToFile\ClassToFileExtension;
+use Phpactor202301\Phpactor\Extension\Completion\CompletionExtension;
+use Phpactor202301\Phpactor\Extension\ComposerAutoloader\ComposerAutoloaderExtension;
+use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor202301\Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
+use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor202301\Phpactor\Indexer\Extension\IndexerExtension;
+use Phpactor202301\Symfony\Component\Console\Application;
+require __DIR__ . '/../../../../vendor/autoload.php';
+$container = PhpactorContainer::fromExtensions([ConsoleExtension::class, IndexerExtension::class, FilePathResolverExtension::class, LoggingExtension::class, SourceCodeFilesystemExtension::class, WorseReflectionExtension::class, ClassToFileExtension::class, ComposerAutoloaderExtension::class, ReferenceFinderExtension::class], [FilePathResolverExtension::PARAM_APPLICATION_ROOT => __DIR__ . '/../', IndexerExtension::PARAM_INDEX_PATH => __DIR__ . '/../Workspace/cache', IndexerExtension::PARAM_EXCLUDE_PATTERNS => ['cache'], IndexerExtension::PARAM_ENABLED_WATCHERS => ['watchman', 'find'], WorseReflectionExtension::PARAM_ENABLE_CACHE => \true, LoggingExtension::PARAM_ENABLED => \false, LoggingExtension::PARAM_LEVEL => 'debug', LoggingExtension::PARAM_PATH => 'php://stdout']);
+$application = new Application();
+$application->setCommandLoader($container->get(ConsoleExtension::SERVICE_COMMAND_LOADER));
+$application->run();

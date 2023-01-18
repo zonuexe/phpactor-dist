@@ -1,0 +1,81 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Completion\Tests\Integration\Bridge\TolerantParser\WorseReflection;
+
+use Phpactor202301\DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
+use Generator;
+use Phpactor202301\Microsoft\PhpParser\Parser;
+use Phpactor202301\PHPUnit\Framework\TestCase;
+use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TypeSuggestionProvider;
+use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection\DocblockCompletor;
+use Phpactor202301\Phpactor\Completion\Core\Suggestion;
+use Phpactor202301\Phpactor\Name\FullyQualifiedName;
+use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor202301\Phpactor\ReferenceFinder\Search\PredefinedNameSearcher;
+use Phpactor202301\Phpactor\TestUtils\ExtractOffset;
+use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+class DocblockCompletorTest extends TestCase
+{
+    use ArraySubsetAsserts;
+    /**
+     * @dataProvider provideComplete
+     * @param array<string> $expected
+     */
+    public function testComplete(string $source, array $expected) : void
+    {
+        $results = [NameSearchResult::create('class', FullyQualifiedName::fromString('Phpactor202301\\Namespace\\Aardvark'))];
+        [$source, $offset] = ExtractOffset::fromSource($source);
+        $node = (new Parser())->parseSourceFile($source)->getDescendantNodeAtPosition((int) $offset);
+        $suggestions = \iterator_to_array((new DocblockCompletor(new TypeSuggestionProvider(new PredefinedNameSearcher($results)), new Parser()))->complete($node, TextDocumentBuilder::create($source)->build(), ByteOffset::fromInt((int) $offset)), \false);
+        $actualNames = \array_map(fn(Suggestion $s) => $s->name(), $suggestions);
+        foreach ($expected as $expectedName) {
+            if (!\in_array($expectedName, $actualNames)) {
+                self::fail(\sprintf('Expected "%s" to be in set of completion results: "%s"', $expectedName, \implode('", "', $actualNames)));
+            }
+        }
+        $this->addToAssertionCount(1);
+    }
+    /**
+     * @return Generator<mixed>
+     */
+    public function provideComplete() : Generator
+    {
+        (yield 'not in docblock' => ['@param<>', []]);
+        (yield 'in docblock' => ['/** @para<> */', ['@param']]);
+        (yield 'in second-line docblock' => ['* @para<> */', ['@param']]);
+        (yield 'in second-line docblock with more spaces' => ['   *    @para<> */', ['@param']]);
+        (yield 'bare ampersand' => ['   *    @<>', DocblockCompletor::SUPPORTED_TAGS]);
+        (yield 'param type' => ['   *    @param A<> */', ['Aardvark']]);
+        (yield 'param type no match' => ['   *    @param Zed<> */', []]);
+        (yield 'var type match' => ['   *    @var Aar<> */', ['Aardvark']]);
+        (yield 'param variable' => ['<?php /*    @param Foobar $a<> */function bar($aardvark, $foo)', ['$aardvark']]);
+        (yield 'param variable for method' => [<<<'EOT'
+<?php
+class Bar
+{
+    /**
+     * @param string $s<>
+     */
+    private function resolveSingleType(string $search): string
+}
+EOT
+, ['$search']]);
+        (yield 'no var if not param' => ['<?php /*    @var Foobar $a<> */function bar($aardvark, $foo)', []]);
+        (yield 'property docblock for class' => [<<<'EOT'
+<?php
+
+use Foobar;
+
+/**
+ * @property A<>
+ */
+class Bar
+{
+    private function resolveSingleType(string $search): string
+}
+EOT
+, ['Foobar']]);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Completion\\Tests\\Integration\\Bridge\\TolerantParser\\WorseReflection\\DocblockCompletorTest', 'Phpactor\\Completion\\Tests\\Integration\\Bridge\\TolerantParser\\WorseReflection\\DocblockCompletorTest', \false);

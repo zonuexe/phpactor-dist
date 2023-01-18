@@ -1,0 +1,97 @@
+<?php
+
+namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
+
+use Generator;
+use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostic;
+use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostics;
+use Phpactor202301\Phpactor\CodeTransform\Domain\Transformer;
+use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
+use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
+class CompleteConstructor implements Transformer
+{
+    public function __construct(private Reflector $reflector, private Updater $updater, private string $visibility)
+    {
+    }
+    public function transform(SourceCode $source) : TextEdits
+    {
+        $edits = [];
+        $sourceCodeBuilder = SourceCodeBuilder::create();
+        foreach ($this->candidateClasses($source) as $class) {
+            $classBuilder = $sourceCodeBuilder->class($class->name()->short());
+            $methodBuilder = $classBuilder->method('__construct');
+            $constructMethod = $class->methods()->get('__construct');
+            $methodBody = (string) $constructMethod->body();
+            foreach ($constructMethod->parameters()->notPromoted() as $parameter) {
+                if (\preg_match('{this\\s*->' . $parameter->name() . '}', $methodBody)) {
+                    continue;
+                }
+                $methodBuilder->body()->line('$this->' . $parameter->name() . ' = $' . $parameter->name() . ';');
+            }
+            foreach ($constructMethod->parameters()->notPromoted() as $parameter) {
+                if ($parameter->isPromoted()) {
+                    continue;
+                }
+                \assert($parameter instanceof ReflectionParameter);
+                if (\true === $class->properties()->has($parameter->name())) {
+                    continue;
+                }
+                $propertyBuilder = $classBuilder->property($parameter->name());
+                $propertyBuilder->visibility($this->visibility);
+                $parameterType = $parameter->inferredType();
+                if ($parameterType->isDefined()) {
+                    $parameterType = $parameterType->toLocalType($class->scope());
+                    $propertyBuilder->type($parameterType->toPhpString(), $parameterType);
+                    $propertyBuilder->docType((string) $parameterType);
+                }
+            }
+        }
+        return $this->updater->textEditsFor($sourceCodeBuilder->build(), Code::fromString((string) $source));
+    }
+    public function diagnostics(SourceCode $source) : Diagnostics
+    {
+        $diagnostics = [];
+        foreach ($this->candidateClasses($source) as $class) {
+            $constructMethod = $class->methods()->belongingTo($class->name())->get('__construct');
+            \assert($constructMethod instanceof ReflectionMethod);
+            foreach ($constructMethod->parameters()->notPromoted() as $parameter) {
+                \assert($parameter instanceof ReflectionParameter);
+                $frame = $constructMethod->frame();
+                $isUsed = $frame->locals()->byName($parameter->name())->count() > 0;
+                $hasProperty = $class->properties()->has($parameter->name());
+                if ($isUsed && $hasProperty) {
+                    continue;
+                }
+                $diagnostics[] = new Diagnostic(ByteOffsetRange::fromInts($parameter->position()->start(), $parameter->position()->end() + 5 + \strlen($class->name()->__toString())), \sprintf('Parameter "%s" may not have been assigned', $parameter->name()), Diagnostic::WARNING);
+            }
+        }
+        return new Diagnostics($diagnostics);
+    }
+    /**
+     * @return Generator<ReflectionClass>
+     */
+    private function candidateClasses(SourceCode $source) : Generator
+    {
+        $classes = $this->reflector->reflectClassesIn(WorseSourceCode::fromString((string) $source))->classes();
+        foreach ($classes as $class) {
+            if ($class instanceof ReflectionInterface) {
+                continue;
+            }
+            if (!$class->methods()->belongingTo($class->name())->has('__construct')) {
+                continue;
+            }
+            (yield $class);
+        }
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\CompleteConstructor', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\CompleteConstructor', \false);

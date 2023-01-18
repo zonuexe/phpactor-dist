@@ -1,0 +1,88 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\ClassMover\Application\Finder;
+
+use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
+use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use RuntimeException;
+use SplFileInfo;
+class FileFinder
+{
+    public function filesFor(Filesystem $filesystem, ReflectionClassLike $reflection = null, string $memberName = null) : FileList
+    {
+        // if no member name, then we are searching for all members of the
+        // class, and we can't really optimise this...
+        if (null === $reflection || null === $memberName) {
+            return $this->allPhpFiles($filesystem);
+        }
+        $members = $reflection->members();
+        if ($members->byName($memberName)->count() === 0) {
+            throw new RuntimeException(\sprintf('Class has no member named "%s", has the following member names: "%s"', $memberName, \implode('", "', $members->keys())));
+        }
+        $publicMembers = $members->byName($memberName)->byVisibilities([Visibility::public()]);
+        if (\false === $reflection instanceof ReflectionClass || $publicMembers->count() > 0) {
+            // we have public members or a non-class, we need to search the
+            // whole tree, but we can discount any files which do not contain
+            // the member name string.
+            return $this->allPhpFiles($filesystem)->filter(function (SplFileInfo $file) use($memberName) {
+                return \preg_match('{' . $memberName . '}', \file_get_contents($file->getPathname()));
+            });
+        }
+        /** @var ReflectionMember $member */
+        $private = \false;
+        foreach ($members as $member) {
+            if ($member->visibility() == Visibility::private()) {
+                $private = \true;
+            }
+        }
+        return $this->pathsFromReflectionClass($reflection, $private);
+    }
+    private function pathsFromReflectionClass(ReflectionClass $reflection, bool $private)
+    {
+        $path = $reflection->sourceCode()->path();
+        if (empty($path)) {
+            throw new RuntimeException(\sprintf('Source has no path associated with it'));
+        }
+        $filePaths = [$path];
+        $filePaths = $this->traitFilePaths($reflection, $filePaths);
+        if ($private) {
+            return FileList::fromFilePaths($filePaths);
+        }
+        $filePaths = $this->parentFilePaths($reflection, $filePaths);
+        $filePaths = $this->interfaceFilePaths($reflection, $filePaths);
+        return FileList::fromFilePaths($filePaths);
+    }
+    private function allPhpFiles(Filesystem $filesystem)
+    {
+        $filePaths = $filesystem->fileList()->existing()->phpFiles();
+        return $filePaths;
+    }
+    private function parentFilePaths(ReflectionClass $reflection, $filePaths)
+    {
+        $context = $reflection->parent();
+        while ($context) {
+            $filePaths[] = $context->sourceCode()->path();
+            $context = $context->parent();
+        }
+        return $filePaths;
+    }
+    private function traitFilePaths(ReflectionClass $reflection, $filePaths)
+    {
+        foreach ($reflection->traits() as $trait) {
+            $filePaths[] = $trait->sourceCode()->path();
+        }
+        return $filePaths;
+    }
+    private function interfaceFilePaths(ReflectionClass $reflection, $filePaths)
+    {
+        foreach ($reflection->interfaces() as $interface) {
+            $filePaths[] = $interface->sourceCode()->path();
+        }
+        return $filePaths;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Application\\Finder\\FileFinder', 'Phpactor\\Extension\\ClassMover\\Application\\Finder\\FileFinder', \false);

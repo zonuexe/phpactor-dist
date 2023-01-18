@@ -1,0 +1,206 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Rename\Tests\Integration\Adapter\ReferenceFinder;
+
+use Closure;
+use Generator;
+use Phpactor202301\Microsoft\PhpParser\Parser;
+use Phpactor202301\Phpactor\Extension\LanguageServerBridge\TextDocument\FilesystemWorkspaceLocator;
+use Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder\IndexedImplementationFinder;
+use Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder\IndexedReferenceFinder;
+use Phpactor202301\Phpactor\Rename\Adapter\ReferenceFinder\MemberRenamer;
+use Phpactor202301\Phpactor\Rename\Model\Renamer;
+use Phpactor202301\Phpactor\Rename\Tests\RenamerTestCase;
+use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor202301\Phpactor\WorseReflection\Reflector;
+class MemberRenamerTest extends RenamerTestCase
+{
+    /**
+     * @return Generator<string,array{string,Closure(Reflector,Renamer): Generator,Closure(Reflector): void}>
+     */
+    public function provideRename() : Generator
+    {
+        yield from $this->methodRenames();
+        yield from $this->propertyRenames();
+        yield from $this->constantRenames();
+        yield from $this->traitRenames();
+        if (\defined('T_ENUM')) {
+            yield from $this->enumRenames();
+        }
+    }
+    protected function createRenamer() : Renamer
+    {
+        $finder = new IndexedReferenceFinder($this->indexAgent->query(), $this->reflector);
+        return new MemberRenamer($finder, new FilesystemWorkspaceLocator(), new Parser(), new IndexedImplementationFinder($this->indexAgent->query(), $this->reflector));
+    }
+    /**
+     * @return Generator<string,array{string,Closure(Reflector,Renamer): Generator,Closure(Reflector): void}>
+     */
+    private function methodRenames() : Generator
+    {
+        (yield 'method declaration' => ['member_renamer/method_declaration', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $method = $reflection->methods()->get('foobar');
+            return $renamer->rename($reflection->sourceCode(), $method->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectClass('ClassOne');
+            self::assertTrue($reflection->methods()->has('newName'));
+        }]);
+        (yield 'method reference' => ['member_renamer/method_declaration', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $methodCalls = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->methodCalls();
+            $first = $methodCalls->first();
+            \assert($first instanceof ReflectionMethodCall);
+            return $renamer->rename(TextDocumentBuilder::fromUri($this->workspace()->path('project/ClassTwo.php'))->build(), $first->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $methodCalls = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->methodCalls();
+            $first = $methodCalls->first();
+            self::assertEquals('newName', $first->name());
+        }]);
+    }
+    /**
+     * @return Generator<string,array{string,Closure(Reflector,Renamer): Generator,Closure(Reflector): void}>
+     */
+    private function propertyRenames() : Generator
+    {
+        (yield 'property declaration private' => ['member_renamer/property_declaration_private', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $property = $reflection->properties()->get('foobar');
+            return $renamer->rename($reflection->sourceCode(), $property->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectClass('ClassOne');
+            self::assertTrue($reflection->properties()->has('newName'));
+        }]);
+        (yield 'property declaration protected' => ['member_renamer/property_declaration_protected', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $property = $reflection->properties()->get('foobar');
+            return $renamer->rename($reflection->sourceCode(), $property->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->propertyAccesses();
+            $first = $propertyAccesses->first();
+            self::assertEquals('newName', $first->name());
+        }]);
+        (yield 'property declaration public' => ['member_renamer/property_declaration_public', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $property = $reflection->properties()->get('foobar');
+            return $renamer->rename($reflection->sourceCode(), $property->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->propertyAccesses();
+            $first = $propertyAccesses->first();
+            self::assertEquals('newName', $first->name());
+            $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/test.php'))->propertyAccesses();
+            $first = $propertyAccesses->first();
+            self::assertEquals('newName', $first->name());
+        }]);
+        (yield 'property declaration generic' => ['member_renamer/property_declaration_public_generic', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $property = $reflection->properties()->get('foobar');
+            return $renamer->rename($reflection->sourceCode(), $property->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->propertyAccesses();
+            $first = $propertyAccesses->first();
+            self::assertEquals('newName', $first->name());
+            $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/test.php'))->propertyAccesses();
+            $first = $propertyAccesses->first();
+            self::assertEquals('newName', $first->name());
+        }]);
+        // these tests verify that the code works using the current PHP runtime
+        // so fail if the runtime doesn't support promoted properties
+        if (\version_compare(\PHP_VERSION, '8.0', '>=')) {
+            (yield 'property promoted declaration public' => ['member_renamer/property_promoted_declaration_public', function (Reflector $reflector, Renamer $renamer) : Generator {
+                $reflection = $reflector->reflectClass('Phpactor202301\\Test\\ClassOne');
+                $property = $reflection->properties()->get('foobar');
+                return $renamer->rename($reflection->sourceCode(), $property->nameRange()->start(), 'newName');
+            }, function (Reflector $reflector) : void {
+                $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->propertyAccesses();
+                $first = $propertyAccesses->first();
+                self::assertEquals('newName', $first->name());
+                $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/test.php'))->propertyAccesses();
+                $first = $propertyAccesses->first();
+                self::assertEquals('newName', $first->name());
+            }]);
+            (yield 'property declaration public does not rename other members' => ['member_renamer/property_declaration_public_does_not_rename_others', function (Reflector $reflector, Renamer $renamer) : Generator {
+                $reflection = $reflector->reflectClass('ClassOne');
+                $property = $reflection->properties()->get('foobar');
+                return $renamer->rename($reflection->sourceCode(), $property->nameRange()->start(), 'newName');
+            }, function (Reflector $reflector) : void {
+                $reflection = $reflector->reflectClass('ClassOne');
+                self::assertTrue($reflection->properties()->has('barfoo'));
+                self::assertTrue($reflection->properties()->has('bazbar'));
+                self::assertTrue($reflection->properties()->has('newName'));
+            }]);
+        } else {
+            $this->markTestSkipped('< 8.0');
+        }
+    }
+    /**
+     * @return Generator<string,array{string,Closure(Reflector,Renamer): Generator,Closure(Reflector): void}>
+     */
+    private function constantRenames() : Generator
+    {
+        (yield 'constant declaration private' => ['member_renamer/constant_declaration_private', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $constant = $reflection->constants()->get('BAR');
+            return $renamer->rename($reflection->sourceCode(), $constant->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectClass('ClassOne');
+            self::assertTrue($reflection->constants()->has('newName'));
+        }]);
+        (yield 'constant declaration protected' => ['member_renamer/constant_declaration_protected', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $constant = $reflection->constants()->get('BAR');
+            return $renamer->rename($reflection->sourceCode(), $constant->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectClass('ClassOne');
+            self::assertTrue($reflection->constants()->has('newName'));
+            $propertyAccesses = $reflector->navigate($this->workspace()->getContents('project/ClassTwo.php'))->constantAccesses();
+            $first = $propertyAccesses->first();
+            self::assertEquals('newName', $first->name());
+        }]);
+        (yield 'constant declaration public' => ['member_renamer/constant_declaration_public', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectClass('ClassOne');
+            $constant = $reflection->constants()->get('FOO');
+            return $renamer->rename($reflection->sourceCode(), $constant->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectClass('ClassOne');
+            self::assertTrue($reflection->constants()->has('newName'));
+        }]);
+    }
+    /**
+     * @return Generator<string,array{string,Closure(Reflector,Renamer): Generator,Closure(Reflector): void}>
+     */
+    private function enumRenames() : Generator
+    {
+        (yield 'enum case declaration private' => ['member_renamer/enum_case_declaration_private', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectEnum('ClassOne');
+            $enum = $reflection->cases()->get('BAR');
+            return $renamer->rename($reflection->sourceCode(), $enum->nameRange()->start(), 'newName');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectEnum('ClassOne');
+            self::assertTrue($reflection->cases()->has('newName'));
+        }]);
+    }
+    /**
+     * @return Generator<string,array{string,Closure(Reflector,Renamer): Generator,Closure(Reflector): void}>
+     */
+    private function traitRenames() : Generator
+    {
+        (yield 'trait use with insteadof' => ['member_renamer/trait_insteadof', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectTrait('A');
+            $method = $reflection->methods()->get('smallTalk');
+            return $renamer->rename($reflection->sourceCode(), $method->nameRange()->start(), 'foobar');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectTrait('A');
+            self::assertTrue($reflection->methods()->has('foobar'));
+        }]);
+        (yield 'trait use with insteadof rename alias' => ['member_renamer/trait_insteadof', function (Reflector $reflector, Renamer $renamer) : Generator {
+            $reflection = $reflector->reflectTrait('A');
+            return $renamer->rename($reflection->sourceCode(), ByteOffset::fromInt(311), 'foobar');
+        }, function (Reflector $reflector) : void {
+            $reflection = $reflector->reflectTrait('A');
+            self::assertTrue($reflection->methods()->has('foobar'));
+        }]);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Rename\\Tests\\Integration\\Adapter\\ReferenceFinder\\MemberRenamerTest', 'Phpactor\\Rename\\Tests\\Integration\\Adapter\\ReferenceFinder\\MemberRenamerTest', \false);

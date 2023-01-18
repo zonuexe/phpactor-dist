@@ -1,0 +1,1 @@
+public function foo(string $bar, bool|string $foo, Foobar[] $zed): void

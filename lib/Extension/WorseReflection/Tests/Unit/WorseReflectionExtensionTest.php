@@ -1,0 +1,54 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\WorseReflection\Tests\Unit;
+
+use Phpactor202301\PHPUnit\Framework\TestCase;
+use Phpactor202301\Phpactor\Container\Container;
+use Phpactor202301\Phpactor\Container\PhpactorContainer;
+use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor202301\Phpactor\Extension\ClassToFile\ClassToFileExtension;
+use Phpactor202301\Phpactor\Extension\ComposerAutoloader\ComposerAutoloaderExtension;
+use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor202301\Phpactor\WorseReflection\Reflector;
+class WorseReflectionExtensionTest extends TestCase
+{
+    public function testProvideReflector() : void
+    {
+        $reflector = $this->createReflector([FilePathResolverExtension::PARAM_APPLICATION_ROOT => __DIR__ . '/../../../../..']);
+        $this->assertEquals((string) $reflector->reflectClass(__CLASS__)->name(), __CLASS__);
+    }
+    public function testRegistersTaggedFramewalkers() : void
+    {
+        $reflector = $this->createReflector([FilePathResolverExtension::PARAM_APPLICATION_ROOT => __DIR__ . '/../../../../..']);
+        $frame = $reflector->reflectClass(__CLASS__)->methods()->get('testRegistersTaggedFramewalkers')->frame();
+        $this->assertCount(1, $frame->locals()->byName('test_variable'));
+    }
+    public function testProvideReflectorWithStubs() : void
+    {
+        $reflector = $this->createReflector([FilePathResolverExtension::PARAM_APPLICATION_ROOT => __DIR__ . '/../../../../..']);
+        $this->assertEquals((string) $reflector->reflectClass(__CLASS__)->name(), __CLASS__);
+    }
+    public function testProvideReflectorWithStubsAndCustomCacheDir() : void
+    {
+        $reflector = $this->createReflector([FilePathResolverExtension::PARAM_APPLICATION_ROOT => __DIR__, WorseReflectionExtension::PARAM_STUB_DIR => __DIR__ . '/../../../../../vendor/jetbrains/phpstorm-stubs', WorseReflectionExtension::PARAM_STUB_CACHE_DIR => $cachePath = __DIR__ . '/../../stubs']);
+        $this->assertEquals((string) $reflector->reflectClass(__CLASS__)->name(), __CLASS__);
+        $this->assertFileExists($cachePath);
+    }
+    /**
+     * @param array<string,mixed> $params
+     */
+    private function createReflector(array $params = []) : Reflector
+    {
+        $container = $this->createContainer($params);
+        return $container->get(WorseReflectionExtension::SERVICE_REFLECTOR);
+    }
+    /**
+     * @param array<string,mixed> $params
+     */
+    private function createContainer(array $params) : Container
+    {
+        return PhpactorContainer::fromExtensions([WorseReflectionExtension::class, FilePathResolverExtension::class, ClassToFileExtension::class, ComposerAutoloaderExtension::class, LoggingExtension::class, TestExtension::class], $params);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflection\\Tests\\Unit\\WorseReflectionExtensionTest', 'Phpactor\\Extension\\WorseReflection\\Tests\\Unit\\WorseReflectionExtensionTest', \false);

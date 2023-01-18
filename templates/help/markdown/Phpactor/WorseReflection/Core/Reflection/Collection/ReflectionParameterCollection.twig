@@ -1,0 +1,3 @@
+{%- for parameter in object -%}
+{% if typeDefined(parameter.inferredType) %}{{- render(parameter.inferredType) }} {% endif %}${{- parameter.name -}}{% if not loop.last %}, {% endif %}
+{%- endfor -%}

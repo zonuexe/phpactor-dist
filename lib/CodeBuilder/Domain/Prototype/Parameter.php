@@ -1,0 +1,37 @@
+<?php
+
+namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+
+final class Parameter extends Prototype
+{
+    private Type $type;
+    private DefaultValue $defaultValue;
+    public function __construct(private string $name, Type $type = null, DefaultValue $defaultValue = null, private bool $byReference = \false, UpdatePolicy $updatePolicy = null, private bool $isVariadic = \false)
+    {
+        parent::__construct($updatePolicy);
+        $this->type = $type ?: Type::none();
+        $this->defaultValue = $defaultValue ?: DefaultValue::none();
+        $this->updatePolicy = $updatePolicy;
+    }
+    public function name() : string
+    {
+        return $this->name;
+    }
+    public function type() : Type
+    {
+        return $this->type;
+    }
+    public function defaultValue() : DefaultValue
+    {
+        return $this->defaultValue;
+    }
+    public function byReference() : bool
+    {
+        return $this->byReference;
+    }
+    public function isVariadic() : bool
+    {
+        return $this->isVariadic;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Parameter', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Parameter', \false);

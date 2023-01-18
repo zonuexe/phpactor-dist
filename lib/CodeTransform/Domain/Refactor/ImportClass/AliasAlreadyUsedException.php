@@ -1,0 +1,18 @@
+<?php
+
+namespace Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass;
+
+class AliasAlreadyUsedException extends NameAlreadyUsedException
+{
+    private string $name;
+    public function __construct(NameImport $nameImport)
+    {
+        parent::__construct(\sprintf('%s alias "%s" is already used', \ucfirst($nameImport->type()), $nameImport->alias()));
+        $this->name = $nameImport->name()->head()->__toString();
+    }
+    public function name() : string
+    {
+        return $this->name;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Refactor\\ImportClass\\AliasAlreadyUsedException', 'Phpactor\\CodeTransform\\Domain\\Refactor\\ImportClass\\AliasAlreadyUsedException', \false);

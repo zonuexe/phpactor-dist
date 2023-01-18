@@ -1,0 +1,42 @@
+<?php
+
+namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\Twig;
+
+use Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer;
+use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Type;
+use Phpactor202301\Phpactor\WorseReflection\Core\Type as PhpactorType;
+use Phpactor202301\Twig\TwigFilter;
+use Phpactor202301\Twig\Extension\AbstractExtension;
+use Phpactor202301\Phpactor\CodeBuilder\Util\TextFormat;
+use Phpactor202301\Twig\TwigFunction;
+class TwigExtension extends AbstractExtension
+{
+    public function __construct(private TextFormat $textFormat, private WorseTypeRenderer $typeRenderer)
+    {
+    }
+    /**
+     * @return TwigFilter[]
+     */
+    public function getFilters() : array
+    {
+        return [new TwigFilter('indent', [$this, 'indent'])];
+    }
+    /**
+     * @return TwigFunction[]
+     */
+    public function getFunctions() : array
+    {
+        return [new TwigFunction('render_type', function (Type $type) {
+            $originalType = $type->originalType();
+            if ($originalType instanceof PhpactorType) {
+                return $this->typeRenderer->render($originalType);
+            }
+            return $type->__toString();
+        })];
+    }
+    public function indent(string $string, int $level = 0) : string
+    {
+        return $this->textFormat->indent($string, $level);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\Twig\\TwigExtension', 'Phpactor\\CodeBuilder\\Adapter\\Twig\\TwigExtension', \false);
