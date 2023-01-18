@@ -1,0 +1,43 @@
+<?php
+
+namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Simple;
+
+use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFile;
+use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePathCandidates;
+use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use RegexIterator;
+class SimpleClassToFile implements ClassToFile
+{
+    /**
+     * @var string
+     */
+    private $cwd;
+    /**
+     * @var ClassScanner
+     */
+    private $classScanner;
+    public function __construct(string $cwd)
+    {
+        $this->cwd = $cwd;
+        $this->classScanner = new ClassScanner();
+    }
+    public function classToFileCandidates(ClassName $className) : FilePathCandidates
+    {
+        $candidates = [];
+        $pattern = \sprintf('{^.*/%s.php$}', $className->name());
+        $iterator = new RecursiveDirectoryIterator($this->cwd);
+        $iterator = new RecursiveIteratorIterator($iterator);
+        $iterator = new RegexIterator($iterator, $pattern);
+        foreach ($iterator as $phpFile) {
+            $scannedClass = $this->classScanner->getClassNameFromFile($phpFile->getPathName());
+            if ($scannedClass && ClassName::fromString($scannedClass) == $className) {
+                $candidates[] = FilePath::fromString($phpFile->getPathName());
+            }
+        }
+        return FilePathCandidates::fromFilePaths($candidates);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Simple\\SimpleClassToFile', 'Phpactor\\ClassFileConverter\\Adapter\\Simple\\SimpleClassToFile', \false);

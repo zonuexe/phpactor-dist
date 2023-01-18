@@ -1,0 +1,68 @@
+<?php
+
+namespace Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
+
+use Phpactor202301\Microsoft\PhpParser\Node;
+use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
+use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
+use Phpactor202301\Microsoft\PhpParser\Parser;
+use Phpactor202301\Microsoft\PhpParser\Token;
+use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
+use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor202301\Phpactor\TextDocument\TextEdit;
+use Phpactor202301\Phpactor\TextDocument\TextEdits;
+class TolerantChangeVisiblity implements ChangeVisiblity
+{
+    private Parser $parser;
+    public function __construct(Parser $parser = null)
+    {
+        $this->parser = $parser ?: new Parser();
+    }
+    public function changeVisiblity(SourceCode $source, int $offset) : SourceCode
+    {
+        $node = $this->parser->parseSourceFile((string) $source);
+        $node = $node->getDescendantNodeAtPosition($offset);
+        $node = $this->resolveMemberNode($node);
+        if (null === $node) {
+            return $source;
+        }
+        /** @phpstan-ignore-next-line */
+        $textEdit = $this->resolveNewVisiblityTextEdit($node);
+        if (null === $textEdit) {
+            return $source;
+        }
+        return $source->withSource(TextEdits::one($textEdit)->apply($source));
+    }
+    /**
+     * @param MethodDeclaration|PropertyDeclaration|ClassConstDeclaration $node
+     */
+    private function resolveNewVisiblityTextEdit(Node $node) : ?TextEdit
+    {
+        foreach ($node->modifiers as $modifier) {
+            if ($modifier->kind === TokenKind::PublicKeyword) {
+                return $this->visiblityTextEdit($modifier, 'protected');
+            }
+            if ($modifier->kind === TokenKind::ProtectedKeyword) {
+                return $this->visiblityTextEdit($modifier, 'private');
+            }
+            if ($modifier->kind === TokenKind::PrivateKeyword) {
+                return $this->visiblityTextEdit($modifier, 'public');
+            }
+        }
+        return null;
+    }
+    private function visiblityTextEdit(Token $modifier, string $newVisiblity) : TextEdit
+    {
+        return TextEdit::create($modifier->getStartPosition(), $modifier->getWidth(), $newVisiblity);
+    }
+    private function resolveMemberNode(Node $node) : ?Node
+    {
+        if (!($node instanceof MethodDeclaration || $node instanceof PropertyDeclaration || $node instanceof ClassConstDeclaration)) {
+            $node = $node->getFirstAncestor(MethodDeclaration::class, PropertyDeclaration::class, ClassConstDeclaration::class);
+        }
+        return $node;
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantChangeVisiblity', 'Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantChangeVisiblity', \false);

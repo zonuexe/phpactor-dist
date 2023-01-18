@@ -1,0 +1,11 @@
+{% set renderedType = render_type(prototype.type) %}
+{% if prototype.docType != renderedType %}
+/**
+ * @var {{ prototype.docType }}
+ */
+{% endif %}
+{{ prototype.visibility }}
+{%- if renderedType %}
+ {{ renderedType }} 
+{%- endif %}
+ ${{ prototype.name}}{% if prototype.defaultValue.notNone %} = {{ prototype.defaultValue.export }}{% endif %};

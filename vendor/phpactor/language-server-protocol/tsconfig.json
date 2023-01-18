@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "build",
+        "target": "es2019",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "lib": [
+            "es2018"
+        ],
+        "plugins": []
+    },
+    "include": [
+        "ts",
+        "node_modules/vscode/vscode.d.ts"
+    ],
+    "exclude": []
+}

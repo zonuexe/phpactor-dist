@@ -1,0 +1,19 @@
+{
+    "runner.bootstrap": "vendor/autoload.php",
+    "runner.php_disable_ini": true,
+    "runner.path": "tests/Benchmark",
+    "runner.php_config": {
+        "extension": [
+            "ctype",
+            "dom",
+            "iconv",
+            "json",
+            "mbstring",
+            "phar",
+            "simplexml",
+            "tokenizer",
+            "xml",
+            "xmlwriter"
+        ]
+    }
+}

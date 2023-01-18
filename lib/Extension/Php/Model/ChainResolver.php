@@ -1,0 +1,27 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\Php\Model;
+
+use RuntimeException;
+class ChainResolver implements PhpVersionResolver
+{
+    /**
+     * @var PhpVersionResolver[]
+     */
+    private array $versionResolvers;
+    public function __construct(PhpVersionResolver ...$versionResolvers)
+    {
+        $this->versionResolvers = $versionResolvers;
+    }
+    public function resolve() : ?string
+    {
+        foreach ($this->versionResolvers as $versionResolver) {
+            if (!($version = $versionResolver->resolve())) {
+                continue;
+            }
+            return $version;
+        }
+        throw new RuntimeException(\sprintf('%s resolvers could not resolve PHP version', \count($this->versionResolvers)));
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\Php\\Model\\ChainResolver', 'Phpactor\\Extension\\Php\\Model\\ChainResolver', \false);

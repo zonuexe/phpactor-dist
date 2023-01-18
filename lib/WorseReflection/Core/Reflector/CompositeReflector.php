@@ -1,0 +1,100 @@
+<?php
+
+namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+
+use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
+use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
+use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
+class CompositeReflector implements Reflector
+{
+    public function __construct(private ClassReflector $classReflector, private SourceCodeReflector $sourceCodeReflector, private FunctionReflector $functionReflector, private ConstantReflector $constantReflector)
+    {
+    }
+    public function reflectClass($className) : ReflectionClass
+    {
+        return $this->classReflector->reflectClass($className);
+    }
+    public function reflectInterface($className, array $visited = []) : ReflectionInterface
+    {
+        return $this->classReflector->reflectInterface($className, $visited);
+    }
+    public function reflectTrait($className, array $visited = []) : ReflectionTrait
+    {
+        return $this->classReflector->reflectTrait($className, $visited);
+    }
+    public function reflectEnum($className) : ReflectionEnum
+    {
+        return $this->classReflector->reflectEnum($className);
+    }
+    public function reflectClassLike($className, $visited = []) : ReflectionClassLike
+    {
+        return $this->classReflector->reflectClassLike($className, $visited);
+    }
+    public function reflectClassesIn($sourceCode, array $visited = []) : ReflectionClassLikeCollection
+    {
+        return $this->sourceCodeReflector->reflectClassesIn($sourceCode, $visited);
+    }
+    public function reflectOffset($sourceCode, $offset) : ReflectionOffset
+    {
+        return $this->sourceCodeReflector->reflectOffset($sourceCode, $offset);
+    }
+    public function reflectMethodCall($sourceCode, $offset) : ReflectionMethodCall
+    {
+        return $this->sourceCodeReflector->reflectMethodCall($sourceCode, $offset);
+    }
+    public function reflectFunctionsIn($sourceCode) : ReflectionFunctionCollection
+    {
+        return $this->sourceCodeReflector->reflectFunctionsIn($sourceCode);
+    }
+    public function navigate($sourceCode) : ReflectionNavigation
+    {
+        return $this->sourceCodeReflector->navigate($sourceCode);
+    }
+    public function reflectFunction($name) : ReflectionFunction
+    {
+        return $this->functionReflector->reflectFunction($name);
+    }
+    public function sourceCodeForClassLike($className) : SourceCode
+    {
+        return $this->classReflector->sourceCodeForClassLike($className);
+    }
+    public function sourceCodeForFunction($name) : SourceCode
+    {
+        return $this->functionReflector->sourceCodeForFunction($name);
+    }
+    public function diagnostics($sourceCode) : Diagnostics
+    {
+        return $this->sourceCodeReflector->diagnostics($sourceCode);
+    }
+    public function reflectNode($sourceCode, $offset) : ReflectionNode
+    {
+        return $this->sourceCodeReflector->reflectNode($sourceCode, $offset);
+    }
+    public function reflectConstantsIn($sourceCode) : ReflectionDeclaredConstantCollection
+    {
+        return $this->sourceCodeReflector->reflectConstantsIn($sourceCode);
+    }
+    public function reflectConstant($name) : ReflectionDeclaredConstant
+    {
+        return $this->constantReflector->reflectConstant($name);
+    }
+    public function sourceCodeForConstant($name) : SourceCode
+    {
+        return $this->constantReflector->sourceCodeForConstant($name);
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\CompositeReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\CompositeReflector', \false);

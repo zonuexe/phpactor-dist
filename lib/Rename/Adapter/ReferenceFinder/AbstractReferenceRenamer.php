@@ -1,0 +1,82 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Rename\Adapter\ReferenceFinder;
+
+use Generator;
+use Phpactor202301\Microsoft\PhpParser\Node;
+use Phpactor202301\Microsoft\PhpParser\Parser;
+use Phpactor202301\Microsoft\PhpParser\Token;
+use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotRename;
+use Phpactor202301\Phpactor\Rename\Model\LocatedTextEdit;
+use Phpactor202301\Phpactor\Rename\Model\Renamer;
+use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor202301\Phpactor\TextDocument\Location;
+use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor202301\Phpactor\TextDocument\TextEdit as PhpactorTextEdit;
+abstract class AbstractReferenceRenamer implements Renamer
+{
+    public function __construct(private ReferenceFinder $referenceFinder, private TextDocumentLocator $locator, private Parser $parser)
+    {
+    }
+    public function getRenameRange(TextDocument $textDocument, ByteOffset $offset) : ?ByteOffsetRange
+    {
+        $node = $this->parser->parseSourceFile($textDocument->__toString())->getDescendantNodeAtPosition($offset->toInt());
+        return $this->getRenameRangeForNode($node);
+    }
+    public function rename(TextDocument $textDocument, ByteOffset $offset, string $newName) : Generator
+    {
+        $range = $this->getRenameRange($textDocument, $offset);
+        if (null === $range) {
+            return;
+        }
+        $originalName = $this->rangeText($textDocument, $range);
+        yield from $this->doRename($textDocument, $offset, $range, $originalName, $newName);
+    }
+    /**
+     * @return Generator<LocatedTextEdit>
+     */
+    protected function doRename(TextDocument $textDocument, ByteOffset $offset, ByteOffsetRange $range, string $originalName, string $newName) : Generator
+    {
+        foreach ($this->referenceFinder->findReferences($textDocument, $offset) as $reference) {
+            if (!$reference->isSurely()) {
+                continue;
+            }
+            (yield $this->renameEdit($reference->location(), $range, $originalName, $newName));
+        }
+    }
+    protected abstract function getRenameRangeForNode(Node $node) : ?ByteOffsetRange;
+    /**
+     * @param Token|Node $tokenOrNode
+     */
+    protected function offsetRangeFromToken($tokenOrNode, bool $hasDollar) : ?ByteOffsetRange
+    {
+        if (!$tokenOrNode instanceof Token) {
+            return null;
+        }
+        if ($hasDollar) {
+            return ByteOffsetRange::fromInts($tokenOrNode->start + 1, $tokenOrNode->getEndPosition());
+        }
+        return ByteOffsetRange::fromInts($tokenOrNode->start, $tokenOrNode->getEndPosition());
+    }
+    protected function renameEdit(Location $location, ?ByteOffsetRange $range, string $originalName, string $newName) : LocatedTextEdit
+    {
+        $referenceDocument = $this->locator->get($location->uri());
+        $range = $this->getRenameRange($referenceDocument, $location->offset());
+        if (null === $range) {
+            throw new CouldNotRename(\sprintf('Could not find corresponding reference to member name "%s" in document "%s" at offset %s', $originalName, $referenceDocument->uri()->__toString(), $location->offset()->toInt()));
+        }
+        $foundName = $this->rangeText($referenceDocument, $range);
+        if ($foundName !== $originalName) {
+            throw new CouldNotRename(\sprintf('Found referenced name "%s" in "%s" does not match original name "%s", perhaps the text document is out of sync?', $foundName, $referenceDocument->uri()->__toString(), $originalName));
+        }
+        return new LocatedTextEdit($location->uri(), PhpactorTextEdit::create($range->start(), $range->end()->toInt() - $range->start()->toInt(), $newName));
+    }
+    private function rangeText(TextDocument $textDocument, ByteOffsetRange $range) : string
+    {
+        return \substr($textDocument->__toString(), $range->start()->toInt(), $range->end()->toInt() - $range->start()->toInt());
+    }
+}
+\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ReferenceFinder\\AbstractReferenceRenamer', 'Phpactor\\Rename\\Adapter\\ReferenceFinder\\AbstractReferenceRenamer', \false);

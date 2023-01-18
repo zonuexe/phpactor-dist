@@ -1,0 +1,14 @@
+<?php
+
+namespace Phpactor202301\Phpactor\Extension\Behat\Behat\Pattern;
+
+interface PatternPolicy
+{
+    /**
+     * Transforms pattern string to regex.
+     *
+     * @param string $pattern
+     */
+    public function transformPatternToRegex($pattern) : string;
+}
+\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\Pattern\\PatternPolicy', 'Phpactor\\Extension\\Behat\\Behat\\Pattern\\PatternPolicy', \false);

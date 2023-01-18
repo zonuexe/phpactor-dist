@@ -1,0 +1,26 @@
+<?php
+
+/*---------------------------------------------------------------------------------------------
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+namespace Phpactor202301\Microsoft\PhpParser\Node;
+
+use Phpactor202301\Microsoft\PhpParser\ModifiedTypeInterface;
+use Phpactor202301\Microsoft\PhpParser\ModifiedTypeTrait;
+use Phpactor202301\Microsoft\PhpParser\Node;
+use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use Phpactor202301\Microsoft\PhpParser\Token;
+class TraitSelectOrAliasClause extends Node implements ModifiedTypeInterface
+{
+    use ModifiedTypeTrait;
+    /** @var QualifiedName|Node\Expression\ScopedPropertyAccessExpression */
+    public $name;
+    /** @var Token */
+    public $asOrInsteadOfKeyword;
+    /**
+     * @var QualifiedNameList|QualifiedName depends on the keyword
+     */
+    public $targetNameList;
+    const CHILD_NAMES = ['name', 'asOrInsteadOfKeyword', 'modifiers', 'targetNameList'];
+}
