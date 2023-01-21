@@ -41,13 +41,13 @@ return [
         Finder::create()->files()->in('autoload'),
         Finder::create()->files()->in('bin'),
         Finder::create()->files()->in('ftplugin'),
-        Finder::create()->files()->in('lib'),
+        Finder::create()->files()->in('lib')->exclude('Tests'),
         Finder::create()->files()->in('plugin'),
         Finder::create()->files()->in('templates'),
         Finder::create()
             ->files()
             ->ignoreVCS(true)
-            ->notName('/LICENSE|.*\\.md|.*\\.dist|.*\\.neon|Makefile|composer\\.json|composer\\.lock/')
+            ->notName('/LICENSE|.*\\.md|.*\\.dist|.*\\.neon|.*\\.sh|Makefile|composer\\.json|composer\\.lock/')
             ->exclude([
                 'build',
                 'build-dist',
@@ -55,6 +55,7 @@ return [
                 'doc',
                 'tests',
             ])
+            ->notpath('/\\/Tests\\//')
             ->in('vendor'),
         Finder::create()->append([
             'LICENSE',

@@ -2,7 +2,7 @@ COMPOSER ?= composer
 GIT ?= git
 PHP ?= php
 
-import: build copy-files
+import: build remove-files copy-files
 	$(GIT) status
 
 build: clean scoper source
@@ -11,6 +11,11 @@ build: clean scoper source
 	$(COMPOSER) -d source config --unset scripts
 	$(COMPOSER) -d source install --no-dev --optimize-autoloader --classmap-authoritative --ignore-platform-reqs
 	(cd source; $(PHP) -d 'memory_limit=1G' ../build-dist/vendor/bin/php-scoper add-prefix)
+
+build-dist/composer.lock: build-dist/composer.json
+	$(COMPOSER) -d build-dist install
+
+build-dist/vendor/bin/php-scoper: build-dist/composer.lock
 
 clean:
 	$(GIT) -C source clean -xf .
@@ -29,10 +34,8 @@ commit:
 	$(GIT) add -A
 	$(GIT) commit -m "Import Phpactor $(PHPACTOR_REVISION)"
 
-build-dist/composer.lock: build-dist/composer.json
-	$(COMPOSER) -d build-dist install
-
-build-dist/vendor/bin/php-scoper: build-dist/composer.lock
+remove-files:
+	rm -fr -- autoload/* bin/* ftplugin/* lib/* plugin/* templates/* vendor/*
 
 scoper: build-dist/vendor/bin/php-scoper
 
@@ -41,4 +44,4 @@ source: source/composer.json
 source/composer.json:
 	$(GIT) submodule update --init
 
-.PHONY: build clean clobber commit copy-files import scoper
+.PHONY: build clean clobber commit copy-files import remove-files scoper
