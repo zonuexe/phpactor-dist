@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Symfony\WorseReflection;
+namespace Phpactor\Extension\Symfony\WorseReflection;
 
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassStringType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassStringType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\StringLiteralType;
+use Phpactor\WorseReflection\Reflector;
 class SymfonyContainerContextResolver implements MemberContextResolver
 {
     const CONTAINER_CLASS = 'Phpactor202301\\Symfony\\Component\\DependencyInjection\\ContainerInterface';
@@ -55,4 +55,3 @@ class SymfonyContainerContextResolver implements MemberContextResolver
         return TypeFactory::undefined();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Symfony\\WorseReflection\\SymfonyContainerContextResolver', 'Phpactor\\Extension\\Symfony\\WorseReflection\\SymfonyContainerContextResolver', \false);

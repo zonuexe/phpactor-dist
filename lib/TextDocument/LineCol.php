@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use OutOfBoundsException;
 use RuntimeException;
@@ -27,11 +27,11 @@ final class LineCol
         $this->line = $line;
         $this->col = $col;
     }
-    public function toByteOffset(string $text) : ByteOffset
+    public function toByteOffset(string $text) : \Phpactor\TextDocument\ByteOffset
     {
         $linesAndDelims = (array) \preg_split('{(' . self::NEWLINE_PATTERN . ')}', $text, -1, \PREG_SPLIT_DELIM_CAPTURE);
         if (\count($linesAndDelims) === 0) {
-            return ByteOffset::fromInt(\strlen((string) \reset($linesAndDelims)));
+            return \Phpactor\TextDocument\ByteOffset::fromInt(\strlen((string) \reset($linesAndDelims)));
         }
         $lineNb = 1;
         $offset = 0;
@@ -44,16 +44,16 @@ final class LineCol
             }
             if ($lineNb === $this->line()) {
                 $lineSection = \mb_substr($lineOrDelim, 0, $this->col() - 1);
-                return ByteOffset::fromInt($offset + (int) \strlen($lineSection));
+                return \Phpactor\TextDocument\ByteOffset::fromInt($offset + (int) \strlen($lineSection));
             }
             $offset += \strlen((string) $lineOrDelim);
         }
-        return ByteOffset::fromInt(\strlen($text));
+        return \Phpactor\TextDocument\ByteOffset::fromInt(\strlen($text));
     }
-    public static function fromByteOffset(string $text, ByteOffset $byteOffset) : self
+    public static function fromByteOffset(string $text, \Phpactor\TextDocument\ByteOffset $byteOffset) : self
     {
         if ($byteOffset->toInt() > \strlen($text)) {
-            $byteOffset = ByteOffset::fromInt(\strlen($text));
+            $byteOffset = \Phpactor\TextDocument\ByteOffset::fromInt(\strlen($text));
         }
         $lines = \preg_split('{(' . self::NEWLINE_PATTERN . ')}', $text, -1, \PREG_SPLIT_DELIM_CAPTURE);
         if (\false === $lines) {
@@ -88,11 +88,3 @@ final class LineCol
         return $this->line;
     }
 }
-/**
- * Value object for line / column position.
- *
- * Lines and columns start with 1.
- *
- * The "a" in "abcd" would have line "1" and column "1".
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\LineCol', 'Phpactor\\TextDocument\\LineCol', \false);

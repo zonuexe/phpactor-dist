@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionStub;
+namespace Phpactor\WorseReflection\Core\Inference\FunctionStub;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionStub;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\TypeAssertion;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\TypeCombinator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayLiteral;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\FunctionStub;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\TypeAssertion;
+use Phpactor\WorseReflection\Core\Inference\TypeCombinator;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ArrayLiteral;
 class InArrayStub implements FunctionStub
 {
     public function resolve(Frame $frame, NodeContext $context, FunctionArguments $args) : NodeContext
@@ -36,4 +36,3 @@ class InArrayStub implements FunctionStub
         }));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub\\InArrayStub', 'Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub\\InArrayStub', \false);

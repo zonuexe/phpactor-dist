@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ArrayException;
+use Safe\Exceptions\ArrayException;
+
 /**
  * Creates an array by using the values from the
  * keys array as keys and the values from the
@@ -16,15 +17,17 @@ use Phpactor202301\Safe\Exceptions\ArrayException;
  * @throws ArrayException
  *
  */
-function array_combine(array $keys, array $values) : array
+function array_combine(array $keys, array $values): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \array_combine($keys, $values);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * array_flip returns an array in flip
  * order, i.e. keys from array become values and values
@@ -44,15 +47,17 @@ function array_combine(array $keys, array $values) : array
  * @throws ArrayException
  *
  */
-function array_flip(array $array) : array
+function array_flip(array $array): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \array_flip($array);
     if ($result === null) {
         throw ArrayException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * array_replace_recursive replaces the values of
  * array1 with the same values from all the following
@@ -78,9 +83,9 @@ function array_flip(array $array) : array
  * @throws ArrayException
  *
  */
-function array_replace_recursive(array $array1, array ...$params) : array
+function array_replace_recursive(array $array1, array  ...$params): array
 {
-    \error_clear_last();
+    error_clear_last();
     if ($params !== []) {
         $result = \array_replace_recursive($array1, ...$params);
     } else {
@@ -91,6 +96,8 @@ function array_replace_recursive(array $array1, array ...$params) : array
     }
     return $result;
 }
+
+
 /**
  * array_replace replaces the values of
  * array1 with values having the same keys in each of the following
@@ -111,9 +118,9 @@ function array_replace_recursive(array $array1, array ...$params) : array
  * @throws ArrayException
  *
  */
-function array_replace(array $array1, array ...$params) : array
+function array_replace(array $array1, array  ...$params): array
 {
-    \error_clear_last();
+    error_clear_last();
     if ($params !== []) {
         $result = \array_replace($array1, ...$params);
     } else {
@@ -124,6 +131,8 @@ function array_replace(array $array1, array ...$params) : array
     }
     return $result;
 }
+
+
 /**
  * Applies the user-defined callback function to each
  * element of the array. This function will recurse
@@ -146,14 +155,16 @@ function array_replace(array $array1, array ...$params) : array
  * @throws ArrayException
  *
  */
-function array_walk_recursive(array &$array, callable $callback, $userdata = null) : void
+function array_walk_recursive(array &$array, callable $callback, $userdata = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \array_walk_recursive($array, $callback, $userdata);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function sorts an array such that array indices maintain their
  * correlation with the array elements they are associated with.
@@ -168,14 +179,16 @@ function array_walk_recursive(array &$array, callable $callback, $userdata = nul
  * @throws ArrayException
  *
  */
-function arsort(array &$array, int $sort_flags = \SORT_REGULAR) : void
+function arsort(array &$array, int $sort_flags = SORT_REGULAR): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \arsort($array, $sort_flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function sorts an array such that array indices maintain
  * their correlation with the array elements they are associated
@@ -189,14 +202,16 @@ function arsort(array &$array, int $sort_flags = \SORT_REGULAR) : void
  * @throws ArrayException
  *
  */
-function asort(array &$array, int $sort_flags = \SORT_REGULAR) : void
+function asort(array &$array, int $sort_flags = SORT_REGULAR): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \asort($array, $sort_flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * Sorts an array by key in reverse order, maintaining key to data
  * correlations. This is useful mainly for associative arrays.
@@ -208,14 +223,16 @@ function asort(array &$array, int $sort_flags = \SORT_REGULAR) : void
  * @throws ArrayException
  *
  */
-function krsort(array &$array, int $sort_flags = \SORT_REGULAR) : void
+function krsort(array &$array, int $sort_flags = SORT_REGULAR): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \krsort($array, $sort_flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * Sorts an array by key, maintaining key to data correlations. This is
  * useful mainly for associative arrays.
@@ -227,14 +244,16 @@ function krsort(array &$array, int $sort_flags = \SORT_REGULAR) : void
  * @throws ArrayException
  *
  */
-function ksort(array &$array, int $sort_flags = \SORT_REGULAR) : void
+function ksort(array &$array, int $sort_flags = SORT_REGULAR): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ksort($array, $sort_flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * natcasesort is a case insensitive version of
  * natsort.
@@ -247,14 +266,16 @@ function ksort(array &$array, int $sort_flags = \SORT_REGULAR) : void
  * @throws ArrayException
  *
  */
-function natcasesort(array &$array) : void
+function natcasesort(array &$array): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \natcasesort($array);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function implements a sort algorithm that orders alphanumeric strings
  * in the way a human being would while maintaining key/value associations.
@@ -266,14 +287,16 @@ function natcasesort(array &$array) : void
  * @throws ArrayException
  *
  */
-function natsort(array &$array) : void
+function natsort(array &$array): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \natsort($array);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function sorts an array in reverse order (highest to lowest).
  *
@@ -284,14 +307,16 @@ function natsort(array &$array) : void
  * @throws ArrayException
  *
  */
-function rsort(array &$array, int $sort_flags = \SORT_REGULAR) : void
+function rsort(array &$array, int $sort_flags = SORT_REGULAR): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \rsort($array, $sort_flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function shuffles (randomizes the order of the elements in) an array.
  * It uses a pseudo random number generator that is not suitable for
@@ -301,14 +326,16 @@ function rsort(array &$array, int $sort_flags = \SORT_REGULAR) : void
  * @throws ArrayException
  *
  */
-function shuffle(array &$array) : void
+function shuffle(array &$array): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shuffle($array);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function sorts an array.  Elements will be arranged from
  * lowest to highest when this function has completed.
@@ -354,14 +381,16 @@ function shuffle(array &$array) : void
  * @throws ArrayException
  *
  */
-function sort(array &$array, int $sort_flags = \SORT_REGULAR) : void
+function sort(array &$array, int $sort_flags = SORT_REGULAR): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sort($array, $sort_flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function sorts an array such that array indices maintain their
  * correlation with the array elements they are associated with, using a
@@ -376,14 +405,16 @@ function sort(array &$array, int $sort_flags = \SORT_REGULAR) : void
  * @throws ArrayException
  *
  */
-function uasort(array &$array, callable $value_compare_func) : void
+function uasort(array &$array, callable $value_compare_func): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \uasort($array, $value_compare_func);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * uksort will sort the keys of an array using a
  * user-supplied comparison function.  If the array you wish to sort
@@ -396,14 +427,16 @@ function uasort(array &$array, callable $value_compare_func) : void
  * @throws ArrayException
  *
  */
-function uksort(array &$array, callable $key_compare_func) : void
+function uksort(array &$array, callable $key_compare_func): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \uksort($array, $key_compare_func);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }
+
+
 /**
  * This function will sort an array by its values using a user-supplied
  * comparison function.  If the array you wish to sort needs to be sorted by
@@ -421,11 +454,11 @@ function uksort(array &$array, callable $key_compare_func) : void
  * @throws ArrayException
  *
  */
-function usort(array &$array, callable $value_compare_func) : void
+function usort(array &$array, callable $value_compare_func): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \usort($array, $value_compare_func);
-    if ($result === \false) {
+    if ($result === false) {
         throw ArrayException::createFromPhpError();
     }
 }

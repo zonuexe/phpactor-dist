@@ -1,27 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler;
+namespace Phpactor\Extension\LanguageServerReferenceFinder\Handler;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Location as LspLocation;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ReferenceContext;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\LanguageServerReferenceFinderExtension;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\Locations;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\Location as LspLocation;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\ReferenceContext;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
+use Phpactor\Extension\LanguageServerReferenceFinder\LanguageServerReferenceFinderExtension;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\Locations;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class ReferencesHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private ReferenceFinder $finder, private DefinitionLocator $definitionLocator, private LocationConverter $locationConverter, private ClientApi $clientApi, private float $timeoutSeconds = 5.0)
@@ -84,4 +84,3 @@ class ReferencesHandler implements Handler, CanRegisterCapabilities
         return $this->locationConverter->toLspLocations((new Locations($locations))->sorted());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\Handler\\ReferencesHandler', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\Handler\\ReferencesHandler', \false);

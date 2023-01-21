@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\DocumentPrioritizer;
+namespace Phpactor\Completion\Core\DocumentPrioritizer;
 
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\TextDocumentUri;
 /**
  * Prioritize based on the distance between two paths.
  *
  * - Remove the common path segment
  * - Total of remaining elements is the distance
  */
-class ProximityPrioritizer implements DocumentPrioritizer
+class ProximityPrioritizer implements \Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer
 {
     public function priority(?TextDocumentUri $one, ?TextDocumentUri $two) : int
     {
@@ -44,10 +44,3 @@ class ProximityPrioritizer implements DocumentPrioritizer
         return 1 - $weight;
     }
 }
-/**
- * Prioritize based on the distance between two paths.
- *
- * - Remove the common path segment
- * - Total of remaining elements is the distance
- */
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\DocumentPrioritizer\\ProximityPrioritizer', 'Phpactor\\Completion\\Core\\DocumentPrioritizer\\ProximityPrioritizer', \false);

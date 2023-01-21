@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CompletionExtra\Application;
+namespace Phpactor\Extension\CompletionExtra\Application;
 
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Completion\Core\TypedCompletorRegistry;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Completion\Core\TypedCompletorRegistry;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class Complete
 {
     public function __construct(private TypedCompletorRegistry $registry)
@@ -26,4 +26,3 @@ class Complete
         ];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CompletionExtra\\Application\\Complete', 'Phpactor\\Extension\\CompletionExtra\\Application\\Complete', \false);

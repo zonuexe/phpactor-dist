@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Application\Helper;
+namespace Phpactor\Extension\Core\Application\Helper;
 
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 use Phpactor202301\Webmozart\Glob\Glob;
@@ -35,4 +35,3 @@ final class FilesystemHelper
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Application\\Helper\\FilesystemHelper', 'Phpactor\\Extension\\Core\\Application\\Helper\\FilesystemHelper', \false);

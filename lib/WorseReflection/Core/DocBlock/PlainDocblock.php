@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DocBlock;
+namespace Phpactor\WorseReflection\Core\DocBlock;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeResolver;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\TypeResolver;
 use function preg_replace;
-class PlainDocblock implements DocBlock
+class PlainDocblock implements \Phpactor\WorseReflection\Core\DocBlock\DocBlock
 {
     private string $raw;
     public function __construct(string $raw = '')
@@ -28,13 +28,13 @@ class PlainDocblock implements DocBlock
     {
         return \str_contains($this->raw, '@inheritDoc');
     }
-    public function vars() : DocBlockVars
+    public function vars() : \Phpactor\WorseReflection\Core\DocBlock\DocBlockVars
     {
-        return new DocBlockVars([]);
+        return new \Phpactor\WorseReflection\Core\DocBlock\DocBlockVars([]);
     }
-    public function params() : DocBlockParams
+    public function params() : \Phpactor\WorseReflection\Core\DocBlock\DocBlockParams
     {
-        return new DocBlockParams([]);
+        return new \Phpactor\WorseReflection\Core\DocBlock\DocBlockParams([]);
     }
     public function parameterType(string $paramName) : Type
     {
@@ -102,9 +102,8 @@ class PlainDocblock implements DocBlock
     {
         return [];
     }
-    public function withTypeResolver(TypeResolver $classLikeTypeResolver) : DocBlock
+    public function withTypeResolver(TypeResolver $classLikeTypeResolver) : \Phpactor\WorseReflection\Core\DocBlock\DocBlock
     {
         return $this;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DocBlock\\PlainDocblock', 'Phpactor\\WorseReflection\\Core\\DocBlock\\PlainDocblock', \false);

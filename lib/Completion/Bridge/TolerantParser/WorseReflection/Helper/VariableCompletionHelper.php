@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection\Helper;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection\Helper;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable as ParserVariable;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\Variable;
+use Phpactor\WorseReflection\Reflector;
 class VariableCompletionHelper
 {
     public function __construct(protected Reflector $reflector)
@@ -83,4 +83,3 @@ class VariableCompletionHelper
         return \array_reverse(\iterator_to_array($frame->locals()->lessThan($offset)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\Helper\\VariableCompletionHelper', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\Helper\\VariableCompletionHelper', \false);

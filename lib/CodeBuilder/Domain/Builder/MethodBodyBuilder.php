@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Line;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Lines;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\MethodBody;
+use Phpactor\CodeBuilder\Domain\Prototype\Line;
+use Phpactor\CodeBuilder\Domain\Prototype\Lines;
+use Phpactor\CodeBuilder\Domain\Prototype\MethodBody;
 class MethodBodyBuilder
 {
     /**
      * @var Lines[]
      */
     protected array $lines = [];
-    public function __construct(private MethodBuilder $parent)
+    public function __construct(private \Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $parent)
     {
     }
-    public function line(string $text) : MethodBodyBuilder
+    public function line(string $text) : \Phpactor\CodeBuilder\Domain\Builder\MethodBodyBuilder
     {
         $this->lines[] = Line::fromString($text);
         return $this;
@@ -23,9 +23,8 @@ class MethodBodyBuilder
     {
         return MethodBody::fromLines($this->lines);
     }
-    public function end() : MethodBuilder
+    public function end() : \Phpactor\CodeBuilder\Domain\Builder\MethodBuilder
     {
         return $this->parent;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\MethodBodyBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\MethodBodyBuilder', \false);

@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query;
+namespace Phpactor\Indexer\Model\Query;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\AndCriteria;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\FileAbsolutePathBeginsWith;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\IsClassType;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\ShortNameContains;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\ExactShortName;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\FqnBeginsWith;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\IsClass;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\IsConstant;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\IsFunction;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\IsMember;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\OrCriteria;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria\ShortNameBeginsWith;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Query\Criteria\AndCriteria;
+use Phpactor\Indexer\Model\Query\Criteria\FileAbsolutePathBeginsWith;
+use Phpactor\Indexer\Model\Query\Criteria\IsClassType;
+use Phpactor\Indexer\Model\Query\Criteria\ShortNameContains;
+use Phpactor\Indexer\Model\Query\Criteria\ExactShortName;
+use Phpactor\Indexer\Model\Query\Criteria\FqnBeginsWith;
+use Phpactor\Indexer\Model\Query\Criteria\IsClass;
+use Phpactor\Indexer\Model\Query\Criteria\IsConstant;
+use Phpactor\Indexer\Model\Query\Criteria\IsFunction;
+use Phpactor\Indexer\Model\Query\Criteria\IsMember;
+use Phpactor\Indexer\Model\Query\Criteria\OrCriteria;
+use Phpactor\Indexer\Model\Query\Criteria\ShortNameBeginsWith;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\ClassRecord;
 abstract class Criteria
 {
     public abstract function isSatisfiedBy(Record $record) : bool;
@@ -31,11 +31,11 @@ abstract class Criteria
     {
         return new FqnBeginsWith($name);
     }
-    public static function and(Criteria ...$criterias) : AndCriteria
+    public static function and(\Phpactor\Indexer\Model\Query\Criteria ...$criterias) : AndCriteria
     {
         return new AndCriteria(...$criterias);
     }
-    public static function or(Criteria ...$criterias) : OrCriteria
+    public static function or(\Phpactor\Indexer\Model\Query\Criteria ...$criterias) : OrCriteria
     {
         return new OrCriteria(...$criterias);
     }
@@ -84,4 +84,3 @@ abstract class Criteria
         return new FileAbsolutePathBeginsWith($prefix);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\Criteria', 'Phpactor\\Indexer\\Model\\Query\\Criteria', \false);

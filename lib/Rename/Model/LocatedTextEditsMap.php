@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model;
+namespace Phpactor\Rename\Model;
 
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextEdits;
 final class LocatedTextEditsMap
 {
     /**
@@ -27,7 +27,7 @@ final class LocatedTextEditsMap
         }
         return $map;
     }
-    public function withTextEdit(LocatedTextEdit $edit) : self
+    public function withTextEdit(\Phpactor\Rename\Model\LocatedTextEdit $edit) : self
     {
         $map = $this->map;
         $uri = $edit->documentUri();
@@ -43,7 +43,7 @@ final class LocatedTextEditsMap
         $me = $this;
         foreach ($map->toLocatedTextEdits() as $textEdit) {
             foreach ($textEdit->textEdits() as $edit) {
-                $me = $me->withTextEdit(new LocatedTextEdit($textEdit->documentUri(), $edit));
+                $me = $me->withTextEdit(new \Phpactor\Rename\Model\LocatedTextEdit($textEdit->documentUri(), $edit));
             }
         }
         return $me;
@@ -55,9 +55,8 @@ final class LocatedTextEditsMap
     {
         $locatedTextEdits = [];
         foreach ($this->map as $uri => $edits) {
-            $locatedTextEdits[] = new LocatedTextEdits($edits, TextDocumentUri::fromString($uri));
+            $locatedTextEdits[] = new \Phpactor\Rename\Model\LocatedTextEdits($edits, TextDocumentUri::fromString($uri));
         }
         return $locatedTextEdits;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\LocatedTextEditsMap', 'Phpactor\\Rename\\Model\\LocatedTextEditsMap', \false);

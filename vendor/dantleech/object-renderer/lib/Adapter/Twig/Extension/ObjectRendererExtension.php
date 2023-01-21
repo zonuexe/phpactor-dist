@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Adapter\Twig\Extension;
+namespace Phpactor\ObjectRenderer\Adapter\Twig\Extension;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
 use Phpactor202301\Twig\Extension\AbstractExtension;
 use Phpactor202301\Twig\TwigFunction;
 class ObjectRendererExtension extends AbstractExtension
@@ -25,4 +25,3 @@ class ObjectRendererExtension extends AbstractExtension
         })];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Adapter\\Twig\\Extension\\ObjectRendererExtension', 'Phpactor\\ObjectRenderer\\Adapter\\Twig\\Extension\\ObjectRendererExtension', \false);

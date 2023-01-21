@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\DocumentPrioritizer;
+namespace Phpactor\Completion\Core\DocumentPrioritizer;
 
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-class DefaultResultPrioritizer implements DocumentPrioritizer
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\TextDocumentUri;
+class DefaultResultPrioritizer implements \Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer
 {
     public function __construct(private int $priority = Suggestion::PRIORITY_LOW)
     {
@@ -14,4 +14,3 @@ class DefaultResultPrioritizer implements DocumentPrioritizer
         return $this->priority;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\DocumentPrioritizer\\DefaultResultPrioritizer', 'Phpactor\\Completion\\Core\\DocumentPrioritizer\\DefaultResultPrioritizer', \false);

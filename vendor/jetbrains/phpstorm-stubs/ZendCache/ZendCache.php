@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of Zend Cache v.
+
 /**
  * Stores a serializable variable into Shared Memory Cache
  *
@@ -12,9 +11,8 @@ namespace Phpactor202301;
  *
  * @return bool FALSE when stored failed, TRUE otherwise
  */
-function zend_shm_cache_store($key, $value, $ttl = 0)
-{
-}
+function zend_shm_cache_store($key, $value, $ttl = 0) {}
+
 /**
  * Retrieves data stored in the Shared Memory Cache.
  * If the key is not found, returns null.
@@ -23,9 +21,8 @@ function zend_shm_cache_store($key, $value, $ttl = 0)
  *
  * @return mixed|null NULL when no data matching the key is found, else it returns the stored data
  */
-function zend_shm_cache_fetch($key)
-{
-}
+function zend_shm_cache_fetch($key) {}
+
 /**
  * Delete a key from the Shared Memory cache
  *
@@ -33,9 +30,8 @@ function zend_shm_cache_fetch($key)
  *
  * @return mixed|null when no data matching the key is found, else it returns the stored data
  */
-function zend_shm_cache_delete($key)
-{
-}
+function zend_shm_cache_delete($key) {}
+
 /**
  * Clear the entire Shared Memory cache or just the provided namespace.
  *
@@ -43,17 +39,15 @@ function zend_shm_cache_delete($key)
  *
  * @return bool TRUE on success, FALSE otherwise
  */
-function zend_shm_cache_clear($namespace = '')
-{
-}
+function zend_shm_cache_clear($namespace = '') {}
+
 /**
  * Provide the user information about the memory data cache
  *
  * @return array|false FALSE when on failure
  */
-function zend_shm_cache_info()
-{
-}
+function zend_shm_cache_info() {}
+
 /**
  * Stores a serializable variable into Disk Cache
  *
@@ -63,9 +57,8 @@ function zend_shm_cache_info()
  *
  * @return bool FALSE when stored failed, TRUE otherwise
  */
-function zend_disk_cache_store($key, $value, $ttl = 0)
-{
-}
+function zend_disk_cache_store($key, $value, $ttl = 0) {}
+
 /**
  * Retrieves data stored in the Shared Memory Cache
  *
@@ -73,9 +66,8 @@ function zend_disk_cache_store($key, $value, $ttl = 0)
  *
  * @return mixed|null NULL when no data matching the key is found, else it returns the stored data
  */
-function zend_disk_cache_fetch($key)
-{
-}
+function zend_disk_cache_fetch($key) {}
+
 /**
  * Delete a key from the cache
  *
@@ -83,9 +75,8 @@ function zend_disk_cache_fetch($key)
  *
  * @return mixed|null when no data matching the key is found, else it returns the stored data
  */
-function zend_disk_cache_delete($key)
-{
-}
+function zend_disk_cache_delete($key) {}
+
 /**
  * Clear the entire Disk Memory cache or just the provided namespace.
  *
@@ -93,15 +84,13 @@ function zend_disk_cache_delete($key)
  *
  * @return bool TRUE on success, FALSE otherwise
  */
-function zend_disk_cache_clear($namespace = '')
-{
-}
+function zend_disk_cache_clear($namespace = '') {}
+
 /**
  * Provide the user information about the memory data cache
  *
  * @return array|false FALSE when on failure
  */
-function zend_disk_cache_info()
-{
-}
+function zend_disk_cache_info() {}
+
 // End of Zend Cache v.

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+namespace Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 
 use Phpactor202301\Amp\Deferred;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 use RuntimeException;
 final class DeferredResponseWatcher implements ResponseWatcher
 {
@@ -33,4 +33,3 @@ final class DeferredResponseWatcher implements ResponseWatcher
         return $deferred->promise();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\ResponseWatcher\\DeferredResponseWatcher', 'Phpactor\\LanguageServer\\Core\\Server\\ResponseWatcher\\DeferredResponseWatcher', \false);

@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Navigation;
+namespace Phpactor\Extension\Navigation;
 
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\Navigation\Application\Navigator;
-use Phpactor202301\Phpactor\Extension\Navigation\Navigator\ChainNavigator;
-use Phpactor202301\Phpactor\Extension\Navigation\Handler\NavigateHandler;
-use Phpactor202301\Phpactor\Extension\Navigation\Navigator\PathFinderNavigator;
-use Phpactor202301\Phpactor\Extension\Navigation\Navigator\WorseReflectionNavigator;
-use Phpactor202301\Phpactor\PathFinder\PathFinder;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Extension\Navigation\Application\Navigator;
+use Phpactor\Extension\Navigation\Navigator\ChainNavigator;
+use Phpactor\Extension\Navigation\Handler\NavigateHandler;
+use Phpactor\Extension\Navigation\Navigator\PathFinderNavigator;
+use Phpactor\Extension\Navigation\Navigator\WorseReflectionNavigator;
+use Phpactor\PathFinder\PathFinder;
 class NavigationExtension implements Extension
 {
     const PATH_FINDER_DESTINATIONS = 'navigator.destinations';
@@ -60,4 +60,3 @@ class NavigationExtension implements Extension
         }, ['navigation.navigator' => []]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\NavigationExtension', 'Phpactor\\Extension\\Navigation\\NavigationExtension', \false);

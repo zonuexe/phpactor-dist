@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Command;
+namespace Phpactor\Extension\Rpc\Command;
 
-use Phpactor202301\Phpactor\Extension\Rpc\RpcVersion;
+use Phpactor\Extension\Rpc\RpcVersion;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\RequestHandler;
+use Phpactor\Extension\Rpc\Request;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
 use RuntimeException;
 use InvalidArgumentException;
@@ -82,4 +82,3 @@ class RpcCommand extends Command
         \chmod($path, 0700);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Command\\RpcCommand', 'Phpactor\\Extension\\Rpc\\Command\\RpcCommand', \false);

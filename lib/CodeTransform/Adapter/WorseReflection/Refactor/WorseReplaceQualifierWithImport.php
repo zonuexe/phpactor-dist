@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ReplaceQualifierWithImport;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentEdits;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeTransform\Domain\Refactor\ReplaceQualifierWithImport;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\TextDocument\TextDocumentEdits;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Reflector;
 class WorseReplaceQualifierWithImport implements ReplaceQualifierWithImport
 {
     private Parser $parser;
@@ -49,4 +49,3 @@ class WorseReplaceQualifierWithImport implements ReplaceQualifierWithImport
         return $this->updater->textEditsFor($sourceBuilder->build(), Code::fromString((string) $sourceCode));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseReplaceQualifierWithImport', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseReplaceQualifierWithImport', \false);

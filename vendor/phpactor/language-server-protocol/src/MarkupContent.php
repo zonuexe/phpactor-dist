@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -109,28 +109,3 @@ class MarkupContent
         throw $lastException;
     }
 }
-/**
- * A `MarkupContent` literal represents a string value which content is interpreted base on its
- * kind flag. Currently the protocol supports `plaintext` and `markdown` as markup kinds.
- * 
- * If the kind is `markdown` then the value can contain fenced code blocks like in GitHub issues.
- * See https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting
- * 
- * Here is an example how such a string can be constructed using JavaScript / TypeScript:
- * ```ts
- * let markdown: MarkdownContent = {
- *   kind: MarkupKind.Markdown,
- * value: [
- * 		'# Header',
- * 		'Some text',
- * 		'```typescript',
- * 		'someCode();',
- * 		'```'
- * ].join('\n')
- * };
- * ```
- * 
- * *Please Note* that clients might sanitize the return markdown. A client could decide to
- * remove HTML from the markdown to avoid script execution.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\MarkupContent', 'Phpactor\\LanguageServerProtocol\\MarkupContent', \false);

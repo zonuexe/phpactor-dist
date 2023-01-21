@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -29,7 +29,7 @@ class ApplyWorkspaceEditParams
      * @param string|null $label
      * @param WorkspaceEdit $edit
      */
-    public function __construct(WorkspaceEdit $edit, ?string $label = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\WorkspaceEdit $edit, ?string $label = null)
     {
         $this->label = $label;
         $this->edit = $edit;
@@ -40,7 +40,7 @@ class ApplyWorkspaceEditParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['label' => ['names' => [], 'iterable' => \false], 'edit' => ['names' => [WorkspaceEdit::class], 'iterable' => \false]];
+        $map = ['label' => ['names' => [], 'iterable' => \false], 'edit' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceEdit::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -90,7 +90,3 @@ class ApplyWorkspaceEditParams
         throw $lastException;
     }
 }
-/**
- * The parameters passed via a apply workspace edit request.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ApplyWorkspaceEditParams', 'Phpactor\\LanguageServerProtocol\\ApplyWorkspaceEditParams', \false);

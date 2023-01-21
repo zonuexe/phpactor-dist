@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use Phpactor202301\Microsoft\PhpParser\Node\ClassInterfaceClause;
 use Phpactor202301\Microsoft\PhpParser\Node\InterfaceBaseClause;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 /**
  * @extends AbstractReflectionCollection<ReflectionInterface>
  */
-class ReflectionInterfaceCollection extends AbstractReflectionCollection
+class ReflectionInterfaceCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection
 {
     /**
      * @param array<string,bool> $visited
@@ -58,7 +58,3 @@ class ReflectionInterfaceCollection extends AbstractReflectionCollection
         return new self($items);
     }
 }
-/**
- * @extends AbstractReflectionCollection<ReflectionInterface>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionInterfaceCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionInterfaceCollection', \false);

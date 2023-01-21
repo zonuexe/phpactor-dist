@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass;
+namespace Phpactor\CodeTransform\Domain\Refactor\ImportClass;
 
-class NameAlreadyImportedException extends NameAlreadyUsedException
+class NameAlreadyImportedException extends \Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameAlreadyUsedException
 {
     private string $name;
-    public function __construct(NameImport $nameImport, private string $existingName, private string $existingFQN)
+    public function __construct(\Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport $nameImport, private string $existingName, private string $existingFQN)
     {
         parent::__construct(\sprintf('%s "%s" is already imported', \ucfirst($nameImport->type()), $nameImport->name()->head()));
         $this->name = $nameImport->name()->head()->__toString();
@@ -23,4 +23,3 @@ class NameAlreadyImportedException extends NameAlreadyUsedException
         return $this->existingFQN;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Refactor\\ImportClass\\NameAlreadyImportedException', 'Phpactor\\CodeTransform\\Domain\\Refactor\\ImportClass\\NameAlreadyImportedException', \false);

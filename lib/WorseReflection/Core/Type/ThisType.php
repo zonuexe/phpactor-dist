@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-final class ThisType extends StaticType
+final class ThisType extends \Phpactor\WorseReflection\Core\Type\StaticType
 {
     public function __toString() : string
     {
@@ -12,4 +12,3 @@ final class ThisType extends StaticType
         return '$this';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ThisType', 'Phpactor\\WorseReflection\\Core\\Type\\ThisType', \false);

@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * Blackfire extension stubs.
  * @link https://blackfire.io
@@ -13,25 +11,22 @@ final class BlackfireProbe
      *
      * @return \BlackfireProbe
      */
-    public static function getMainInstance()
-    {
-    }
+    public static function getMainInstance() {}
+
     /**
      * Tells whether the probe is currently profiling or not.
      *
      * @return bool
      */
-    public static function isEnabled()
-    {
-    }
+    public static function isEnabled() {}
+
     /**
      * Adds a marker for the Timeline View.
      *
      * @param string $markerName
      */
-    public static function addMarker($markerName = '')
-    {
-    }
+    public static function addMarker($markerName = '') {}
+
     /**
      * BlackfireProbe constructor. SHOULD NOT BE USED DIRECTLY!
      * USE getMainInstance() INSTEAD!
@@ -42,9 +37,8 @@ final class BlackfireProbe
      * @param string|null $envToken The token associated to $envId.
      * @param string|null $agentSocket The URL where profiles will be written (directory, socket or TCP destination).
      */
-    public function __construct($query, $envId = null, $envToken = null, $agentSocket = null)
-    {
-    }
+    public function __construct($query, $envId = null, $envToken = null, $agentSocket = null) {}
+
     /**
      * Tells if the probe is cryptographically verified,
      * i.e. if the signature in X-Blackfire-Query HTTP header or
@@ -52,15 +46,13 @@ final class BlackfireProbe
      *
      * @return bool
      */
-    public function isVerified()
-    {
-    }
+    public function isVerified() {}
+
     /**
      * @param string $configuration
      */
-    public function setConfiguration($configuration)
-    {
-    }
+    public function setConfiguration($configuration) {}
+
     /**
      * Gets the response message/status/line.
      *
@@ -70,17 +62,15 @@ final class BlackfireProbe
      *
      * @return string The response line
      */
-    public function getResponseLine()
-    {
-    }
+    public function getResponseLine() {}
+
     /**
      * Enables manual instrumentation. Starts collecting profiling data.
      *
      * @return bool False if enabling failed.
      */
-    public function enable()
-    {
-    }
+    public function enable() {}
+
     /**
      * Discards collected data and disables instrumentation.
      *
@@ -88,9 +78,8 @@ final class BlackfireProbe
      *
      * @return bool False if the probe was not enabled.
      */
-    public function discard()
-    {
-    }
+    public function discard() {}
+
     /**
      * Disables instrumentation.
      *
@@ -99,26 +88,23 @@ final class BlackfireProbe
      *
      * @return bool False if the probe was not enabled.
      */
-    public function disable()
-    {
-    }
+    public function disable() {}
+
     /**
      * Stops the profiling and forces the collected data to be sent to Blackfire.
      *
      * @return bool False if the probe was not enabled.
      */
-    public function close()
-    {
-    }
+    public function close() {}
+
     /**
      * Creates a sub-query string to create a new profile linked to the current one.
      * Generated query must be set in the X-Blackire-Query HTTP header or in the BLACKFIRE_QUERY environment variable.
      *
      * @return string|null The sub-query or null if the current profile is not the first sample or profiling is disabled.
      */
-    public function createSubProfileQuery()
-    {
-    }
+    public function createSubProfileQuery() {}
+
     /**
      * Sets a custom transaction name for Blackfire Monitoring.
      *
@@ -126,36 +112,26 @@ final class BlackfireProbe
      *
      * @return void
      */
-    public static function setTransactionName(string $transactionName)
-    {
-    }
+    public static function setTransactionName(string $transactionName) {}
+
     /**
      * Disables Blackfire Monitoring instrumentation for a transaction.
      *
      * @return void
      */
-    public static function ignoreTransaction()
-    {
-    }
+    public static function ignoreTransaction() {}
+
     /**
      * Manually starts a transaction. Useful for CLI/Consumer monitoring.
      *
      * @return void
      */
-    public static function startTransaction()
-    {
-    }
+    public static function startTransaction() {}
+
     /**
      * Manually stops a transaction. Useful for CLI/Consumer monitoring.
      *
      * @return void
      */
-    public static function stopTransaction()
-    {
-    }
+    public static function stopTransaction() {}
 }
-/**
- * Blackfire extension stubs.
- * @link https://blackfire.io
- */
-\class_alias('Phpactor202301\\BlackfireProbe', 'BlackfireProbe', \false);

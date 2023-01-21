@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
@@ -9,15 +9,15 @@ use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Docblock;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\CallableNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ClassNode;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\ParsedDocblock;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionScope;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\DocblockParser\Ast\Docblock;
+use Phpactor\DocblockParser\Ast\Type\CallableNode;
+use Phpactor\DocblockParser\Ast\Type\ClassNode;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\ParsedDocblock;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 class UnusedImportProvider implements DiagnosticProvider
 {
     /**
@@ -85,7 +85,7 @@ class UnusedImportProvider implements DiagnosticProvider
             if ($this->usedByAnnotation($contents, $importedName, $imported)) {
                 continue;
             }
-            (yield UnusedImportDiagnostic::for(ByteOffsetRange::fromInts($imported->getStartPosition(), $imported->getEndPosition()), \explode(':', $importedName)[1]));
+            (yield \Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnusedImportDiagnostic::for(ByteOffsetRange::fromInts($imported->getStartPosition(), $imported->getEndPosition()), \explode(':', $importedName)[1]));
         }
         $this->imported = [];
         $this->usedPrefixes = [];
@@ -137,4 +137,3 @@ class UnusedImportProvider implements DiagnosticProvider
         return (string) $definition->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\UnusedImportProvider', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\UnusedImportProvider', \false);

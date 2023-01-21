@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\ClassToFile;
+namespace Phpactor\Rename\Adapter\ClassToFile;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotConvertUriToClass;
-use Phpactor202301\Phpactor\Rename\Model\UriToNameConverter;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\Rename\Model\Exception\CouldNotConvertUriToClass;
+use Phpactor\Rename\Model\UriToNameConverter;
+use Phpactor\TextDocument\TextDocumentUri;
 use RuntimeException;
 class ClassToFileUriToNameConverter implements UriToNameConverter
 {
@@ -22,4 +22,3 @@ class ClassToFileUriToNameConverter implements UriToNameConverter
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ClassToFile\\ClassToFileUriToNameConverter', 'Phpactor\\Rename\\Adapter\\ClassToFile\\ClassToFileUriToNameConverter', \false);

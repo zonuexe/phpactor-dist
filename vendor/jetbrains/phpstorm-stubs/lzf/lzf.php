@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * Compresses the given data string using LZF encoding.
  *
@@ -13,9 +11,8 @@ namespace Phpactor202301;
  *
  * @since 0.1.0
  */
-function lzf_compress($data)
-{
-}
+function lzf_compress($data) {}
+
 /**
  * Decompresses the given data string containing lzf encoded data.
  *
@@ -27,9 +24,8 @@ function lzf_compress($data)
  *
  * @since 0.1.0
  */
-function lzf_decompress($data)
-{
-}
+function lzf_decompress($data) {}
+
 /**
  * Determines what was LZF extension optimized for during compilation.
  *
@@ -39,6 +35,4 @@ function lzf_decompress($data)
  *
  * @since 1.0.0
  */
-function lzf_optimized_for()
-{
-}
+function lzf_optimized_for() {}

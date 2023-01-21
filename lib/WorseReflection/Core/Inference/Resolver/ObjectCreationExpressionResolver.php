@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GenericClassType;
+use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
 class ObjectCreationExpressionResolver implements Resolver
 {
     public function __construct(private GenericMapResolver $resolver)
@@ -52,4 +52,3 @@ class ObjectCreationExpressionResolver implements Resolver
         return new GenericClassType($resolver->reflector(), $classType->name(), $templateMap->toArguments());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ObjectCreationExpressionResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ObjectCreationExpressionResolver', \false);

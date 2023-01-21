@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Status;
+namespace Phpactor\Extension\LanguageServer\Status;
 
 interface StatusProvider
 {
@@ -12,4 +12,3 @@ interface StatusProvider
      */
     public function provide() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Status\\StatusProvider', 'Phpactor\\Extension\\LanguageServer\\Status\\StatusProvider', \false);

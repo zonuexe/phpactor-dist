@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Adapter\Psr;
+namespace Phpactor\ObjectRenderer\Adapter\Psr;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\Exception\ObjectRendererNotFound;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRendererRegistry;
+use Phpactor\ObjectRenderer\Model\Exception\ObjectRendererNotFound;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\ObjectRenderer\Model\ObjectRendererRegistry;
 use Phpactor202301\Psr\Container\ContainerInterface;
 class ContainerObectRendererRegistry implements ObjectRendererRegistry
 {
@@ -35,4 +35,3 @@ class ContainerObectRendererRegistry implements ObjectRendererRegistry
         return $this->container->get($this->aliasToServiceMap[$name]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Adapter\\Psr\\ContainerObectRendererRegistry', 'Phpactor\\ObjectRenderer\\Adapter\\Psr\\ContainerObectRendererRegistry', \false);

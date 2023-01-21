@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
+namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\CodeTransform\Domain\NameWithByteOffset;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ImportAllUnresolvedNamesCommand;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ImportNameCommand;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\CandidateFinder;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\CodeTransform\Domain\NameWithByteOffset;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ImportAllUnresolvedNamesCommand;
+use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ImportNameCommand;
+use Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\CandidateFinder;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Command;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use function Phpactor202301\Amp\call;
 use function Phpactor202301\Amp\delay;
 class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
@@ -87,4 +87,3 @@ class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
         return CodeAction::fromArray(['title' => \sprintf('Import all unresolved names'), 'kind' => 'quickfix.import_all_unresolved_names', 'isPreferred' => \true, 'diagnostics' => [], 'command' => new Command('Import all unresolved names', ImportAllUnresolvedNamesCommand::NAME, [$item->uri])]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\ImportNameProvider', 'Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\ImportNameProvider', \false);

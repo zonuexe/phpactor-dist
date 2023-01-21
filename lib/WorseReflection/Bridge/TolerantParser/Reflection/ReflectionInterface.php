@@ -1,27 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\InterfaceBaseClause;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassHierarchyResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection as CoreReflectionConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection as CoreReflectionInterfaceCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface as CoreReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-class ReflectionInterface extends AbstractReflectionClass implements CoreReflectionInterface
+use Phpactor\WorseReflection\Core\ClassHierarchyResolver;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection as CoreReflectionConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection as CoreReflectionInterfaceCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface as CoreReflectionInterface;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+class ReflectionInterface extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClass implements CoreReflectionInterface
 {
     private ?ReflectionInterfaceCollection $parents = null;
     private ?ClassLikeReflectionMemberCollection $ownMembers = null;
@@ -123,4 +123,3 @@ class ReflectionInterface extends AbstractReflectionClass implements CoreReflect
         return $this->serviceLocator;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionInterface', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionInterface', \false);

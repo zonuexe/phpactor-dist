@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class CodeActionOptions extends WorkDoneProgressOptions
+class CodeActionOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      * CodeActionKinds that this server may return.
@@ -92,9 +92,3 @@ class CodeActionOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Provider options for a [CodeActionRequest](#CodeActionRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeActionOptions', 'Phpactor\\LanguageServerProtocol\\CodeActionOptions', \false);

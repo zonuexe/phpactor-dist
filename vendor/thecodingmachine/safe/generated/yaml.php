@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\YamlException;
+use Safe\Exceptions\YamlException;
+
 /**
  * Convert all or part of a YAML document stream read from a file to a PHP variable.
  *
@@ -24,13 +25,15 @@ use Phpactor202301\Safe\Exceptions\YamlException;
  */
 function yaml_parse_file(string $filename, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \yaml_parse_file($filename, $pos, $ndocs, $callbacks);
-    if ($result === \false) {
+    if ($result === false) {
         throw YamlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Convert all or part of a YAML document stream read from a URL to a PHP variable.
  *
@@ -55,13 +58,15 @@ function yaml_parse_file(string $filename, int $pos = 0, ?int &$ndocs = null, ar
  */
 function yaml_parse_url(string $url, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \yaml_parse_url($url, $pos, $ndocs, $callbacks);
-    if ($result === \false) {
+    if ($result === false) {
         throw YamlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Convert all or part of a YAML document stream to a PHP variable.
  *
@@ -83,9 +88,9 @@ function yaml_parse_url(string $url, int $pos = 0, ?int &$ndocs = null, array $c
  */
 function yaml_parse(string $input, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \yaml_parse($input, $pos, $ndocs, $callbacks);
-    if ($result === \false) {
+    if ($result === false) {
         throw YamlException::createFromPhpError();
     }
     return $result;

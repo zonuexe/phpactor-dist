@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Tag;
+namespace Phpactor\DocblockParser\Ast\Tag;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TagNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\TagNode;
+use Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\TypeNode;
 class ThrowsTag extends TagNode
 {
     protected const CHILD_NAMES = ['tag', 'exceptionClass'];
@@ -12,4 +12,3 @@ class ThrowsTag extends TagNode
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Tag\\ThrowsTag', 'Phpactor\\DocblockParser\\Ast\\Tag\\ThrowsTag', \false);

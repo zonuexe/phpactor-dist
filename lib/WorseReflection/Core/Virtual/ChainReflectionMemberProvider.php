@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Virtual;
+namespace Phpactor\WorseReflection\Core\Virtual;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\HomogeneousReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-class ChainReflectionMemberProvider implements ReflectionMemberProvider
+use Phpactor\WorseReflection\Core\Reflection\Collection\HomogeneousReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+class ChainReflectionMemberProvider implements \Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider
 {
     /**
      * TODO: make private when finished refactoring
@@ -14,7 +14,7 @@ class ChainReflectionMemberProvider implements ReflectionMemberProvider
      * @var ReflectionMemberProvider[]
      */
     public array $providers;
-    public function __construct(ReflectionMemberProvider ...$providers)
+    public function __construct(\Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider ...$providers)
     {
         $this->providers = $providers;
     }
@@ -28,4 +28,3 @@ class ChainReflectionMemberProvider implements ReflectionMemberProvider
         return $virtualMethods;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Virtual\\ChainReflectionMemberProvider', 'Phpactor\\WorseReflection\\Core\\Virtual\\ChainReflectionMemberProvider', \false);

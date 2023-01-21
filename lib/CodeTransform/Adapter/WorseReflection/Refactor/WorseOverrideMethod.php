@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\SourceCode as PhpactorSourceCode;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\OverrideMethod;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Builder\MethodBuilder;
+use Phpactor\CodeBuilder\Domain\Prototype\SourceCode as PhpactorSourceCode;
+use Phpactor\CodeTransform\Domain\Refactor\OverrideMethod;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
 class WorseOverrideMethod implements OverrideMethod
 {
     public function __construct(private Reflector $reflector, private BuilderFactory $factory, private Updater $updater)
@@ -83,4 +83,3 @@ class WorseOverrideMethod implements OverrideMethod
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseOverrideMethod', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseOverrideMethod', \false);

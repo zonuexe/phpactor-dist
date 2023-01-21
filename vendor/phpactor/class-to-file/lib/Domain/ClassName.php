@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Domain;
+namespace Phpactor\ClassFileConverter\Domain;
 
 use function in_array;
 final class ClassName
@@ -50,4 +50,3 @@ final class ClassName
         return in_array($character, [self::DEFAULT_NAMESPACE_SEPARATOR, $additionalNseparator], \true);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Domain\\ClassName', 'Phpactor\\ClassFileConverter\\Domain\\ClassName', \false);

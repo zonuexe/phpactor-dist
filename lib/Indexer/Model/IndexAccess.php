@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use RuntimeException;
 interface IndexAccess
@@ -19,7 +19,6 @@ interface IndexAccess
      *
      * @return TRecord
      */
-    public function get(Record $record) : Record;
-    public function has(Record $record) : bool;
+    public function get(\Phpactor\Indexer\Model\Record $record) : \Phpactor\Indexer\Model\Record;
+    public function has(\Phpactor\Indexer\Model\Record $record) : bool;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\IndexAccess', 'Phpactor\\Indexer\\Model\\IndexAccess', \false);

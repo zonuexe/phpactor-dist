@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -9,7 +9,7 @@ use RuntimeException;
 /**
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class DocumentColorOptions extends WorkDoneProgressOptions
+class DocumentColorOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      *
@@ -79,7 +79,3 @@ class DocumentColorOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentColorOptions', 'Phpactor\\LanguageServerProtocol\\DocumentColorOptions', \false);

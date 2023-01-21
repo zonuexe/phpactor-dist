@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\PHPUnit;
+namespace Phpactor\Extension\PHPUnit;
 
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\CodeTransform\CodeTransformExtension;
-use Phpactor202301\Phpactor\Extension\PHPUnit\CodeTransform\TestGenerator;
-use Phpactor202301\Phpactor\Extension\PHPUnit\FrameWalker\AssertInstanceOfWalker;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\CodeTransform\CodeTransformExtension;
+use Phpactor\Extension\PHPUnit\CodeTransform\TestGenerator;
+use Phpactor\Extension\PHPUnit\FrameWalker\AssertInstanceOfWalker;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
 class PHPUnitExtension implements OptionalExtension
 {
     public function load(ContainerBuilder $container) : void
@@ -37,4 +37,3 @@ class PHPUnitExtension implements OptionalExtension
         }, [CodeTransformExtension::TAG_NEW_CLASS_GENERATOR => ['name' => 'phpunit']]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\PHPUnit\\PHPUnitExtension', 'Phpactor\\Extension\\PHPUnit\\PHPUnitExtension', \false);

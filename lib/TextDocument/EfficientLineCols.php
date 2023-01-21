@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use OutOfBoundsException;
 use RuntimeException;
@@ -29,7 +29,7 @@ final class EfficientLineCols
     public static function fromByteOffsetInts(string $text, array $byteOffsetInts, bool $charOffset = \false) : self
     {
         \sort($byteOffsetInts);
-        $lines = \preg_split('{(' . LineCol::NEWLINE_PATTERN . ')}', $text, -1, \PREG_SPLIT_DELIM_CAPTURE);
+        $lines = \preg_split('{(' . \Phpactor\TextDocument\LineCol::NEWLINE_PATTERN . ')}', $text, -1, \PREG_SPLIT_DELIM_CAPTURE);
         if (\false === $lines) {
             throw new RuntimeException('Failed to preg-split text into lines');
         }
@@ -37,12 +37,12 @@ final class EfficientLineCols
         $lineNb = 0;
         $byteOffset = \array_shift($byteOffsetInts);
         if (null === $byteOffset) {
-            return new EfficientLineCols([]);
+            return new \Phpactor\TextDocument\EfficientLineCols([]);
         }
         $positions = [];
         foreach ($lines as $lineOrDelim) {
             $lineOrDelim = (string) $lineOrDelim;
-            if ((bool) \preg_match('{(' . LineCol::NEWLINE_PATTERN . ')}', (string) $lineOrDelim)) {
+            if ((bool) \preg_match('{(' . \Phpactor\TextDocument\LineCol::NEWLINE_PATTERN . ')}', (string) $lineOrDelim)) {
                 $offset += \strlen($lineOrDelim);
                 continue;
             }
@@ -51,7 +51,7 @@ final class EfficientLineCols
             $end = $offset + \strlen($lineOrDelim);
             while ($byteOffset >= $start && $byteOffset <= $end) {
                 $section = \substr($lineOrDelim, 0, $byteOffset - $start);
-                $positions[$byteOffset] = new LineCol($lineNb, $charOffset ? \strlen($section) + 1 : \mb_strlen($section) + 1);
+                $positions[$byteOffset] = new \Phpactor\TextDocument\LineCol($lineNb, $charOffset ? \strlen($section) + 1 : \mb_strlen($section) + 1);
                 $byteOffset = \array_shift($byteOffsetInts);
                 if (null === $byteOffset) {
                     break;
@@ -60,9 +60,9 @@ final class EfficientLineCols
             $offset = $end;
         }
         /** @var array<int,LineCol> $positions */
-        return new EfficientLineCols($positions);
+        return new \Phpactor\TextDocument\EfficientLineCols($positions);
     }
-    public function get(int $offset) : LineCol
+    public function get(int $offset) : \Phpactor\TextDocument\LineCol
     {
         if (!isset($this->positions[$offset])) {
             throw new OutOfBoundsException(\sprintf('Pre-computed position not known for offset: %s', $offset));
@@ -70,11 +70,3 @@ final class EfficientLineCols
         return $this->positions[$offset];
     }
 }
-/**
- * Efficiently compute line/col positions for batches of byte offsets.
- *
- * This class accepts a list of byte offsets and a text document. It will
- * iterate over the text document _once_ indexing the line/col position of the
- * byte offset.
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\EfficientLineCols', 'Phpactor\\TextDocument\\EfficientLineCols', \false);

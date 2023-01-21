@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ReferenceFinderRpc\Handler;
+namespace Phpactor\Extension\ReferenceFinderRpc\Handler;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class GotoDefinitionHandler implements Handler
 {
     const NAME = 'goto_definition';
@@ -39,4 +39,3 @@ class GotoDefinitionHandler implements Handler
         return OpenFileResponse::fromPathAndOffset($location->uri()->path(), $location->offset()->toInt())->withTarget($arguments[self::PARAM_TARGET]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ReferenceFinderRpc\\Handler\\GotoDefinitionHandler', 'Phpactor\\Extension\\ReferenceFinderRpc\\Handler\\GotoDefinitionHandler', \false);

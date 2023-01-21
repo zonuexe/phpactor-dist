@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Adapter\TolerantParser;
+namespace Phpactor\ClassMover\Adapter\TolerantParser;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\QualifiedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences;
-use Phpactor202301\Phpactor\ClassMover\Domain\ClassReplacer;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\ClassReference;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\ClassMover\Domain\Name\QualifiedName;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences;
+use Phpactor\ClassMover\Domain\ClassReplacer;
+use Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
+use Phpactor\ClassMover\Domain\Reference\ClassReference;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class TolerantClassReplacer implements ClassReplacer
 {
     public function __construct(private Updater $updater)
@@ -84,4 +84,3 @@ class TolerantClassReplacer implements ClassReplacer
         return $this->updater->textEditsFor(SourceCodeBuilder::create()->namespace($qualifiedName->__toString())->build(), Code::fromString($source->__toString()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Adapter\\TolerantParser\\TolerantClassReplacer', 'Phpactor\\ClassMover\\Adapter\\TolerantParser\\TolerantClassReplacer', \false);

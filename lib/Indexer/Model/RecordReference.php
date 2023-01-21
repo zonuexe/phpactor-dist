@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 class RecordReference
 {
@@ -19,11 +19,11 @@ class RecordReference
     {
         return $this->type;
     }
-    public static function fromRecordAndOffset(Record $record, int $offset) : self
+    public static function fromRecordAndOffset(\Phpactor\Indexer\Model\Record $record, int $offset) : self
     {
         return new self($record->recordType(), $record->identifier(), $offset);
     }
-    public static function fromRecordAndOffsetAndContainerType(Record $record, int $offset, ?string $containerType) : self
+    public static function fromRecordAndOffsetAndContainerType(\Phpactor\Indexer\Model\Record $record, int $offset, ?string $containerType) : self
     {
         return new self($record->recordType(), $record->identifier(), $offset, $containerType);
     }
@@ -36,4 +36,3 @@ class RecordReference
         return $this->contaninerType;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\RecordReference', 'Phpactor\\Indexer\\Model\\RecordReference', \false);

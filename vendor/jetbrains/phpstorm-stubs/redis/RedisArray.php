@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php redis extension
  *
@@ -17,66 +15,57 @@ class RedisArray
      * @param string|string[] $hosts Name of the redis array from redis.ini or array of hosts to construct the array with
      * @param null|array      $opts  Array of options
      */
-    public function __construct(string|array $hosts, ?array $opts = null)
-    {
-    }
+    public function __construct(string|array $hosts, ?array $opts = null) {}
+
     /**
      * @return bool|array returns a list of points on continuum; may be useful with custom distributor function.
      */
-    public function _continuum() : bool|array
-    {
-    }
+    public function _continuum(): bool|array {}
+
     /**
      * @return bool|array returns a custom distributor function.
      */
-    public function _distributor() : bool|callable
-    {
-    }
+    public function _distributor(): bool|callable {}
+
     /**
      * @return bool|callable the name of the function used to extract key parts during consistent hashing.
      */
-    public function _function() : bool|callable
-    {
-    }
+    public function _function(): bool|callable {}
+
     /**
      * @return bool|array list of hosts for the selected array or false
      */
-    public function _hosts() : bool|array
-    {
-    }
+    public function _hosts(): bool|array {}
+
     /**
      * @param string $host The host you want to retrieve the instance for
      *
      * @return bool|null|\Redis a redis instance connected to a specific node
      */
-    public function _instance(string $host) : bool|null|\Redis
-    {
-    }
+    public function _instance(string $host): bool|null|Redis {}
+
     /**
      * Use this function when a new node is added and keys need to be rehashed.
      *
      * @return bool|null rehash result
      */
-    public function _rehash(callable $fn = null) : bool|null
-    {
-    }
+    public function _rehash(callable $fn = null): bool|null {}
+
     /**
      * @param string $key The key for which you want to lookup the host
      *
      * @return bool|string|null the host to be used for a certain key
      */
-    public function _target(string $key) : bool|string|null
-    {
-    }
+    public function _target(string $key): bool|string|null {}
+
     /**
      * @param string $host Host
      * @param int    $mode \Redis::MULTI|\Redis::PIPELINE
      *
      * @return bool|string|null the host to be used for a certain key
      */
-    public function multi(string $host, int $mode = \Redis::MULTI) : bool|\RedisArray
-    {
-    }
+    public function multi(string $host, int $mode = Redis::MULTI): bool|RedisArray {}
+
     /**
      * Returns a hosts array of associative array of strings and integers, with the following keys:
      * - redis_version
@@ -217,15 +206,5 @@ class RedisArray
      * $redis->info();
      * </pre>
      */
-    public function info() : bool|array
-    {
-    }
+    public function info(): bool|array {}
 }
-/**
- * Helper autocomplete for php redis extension
- *
- * @mixin \Redis
- *
- * @link   https://github.com/phpredis/phpredis/blob/develop/redis_array.stub.php
- */
-\class_alias('Phpactor202301\\RedisArray', 'RedisArray', \false);

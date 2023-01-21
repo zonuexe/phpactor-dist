@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer;
+namespace Phpactor\Indexer;
 
-use Phpactor202301\Phpactor\Indexer\Model\IndexAccess;
-use Phpactor202301\Phpactor\Indexer\Model\QueryClient;
-use Phpactor202301\Phpactor\Indexer\Model\Indexer;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
+use Phpactor\Indexer\Model\IndexAccess;
+use Phpactor\Indexer\Model\QueryClient;
+use Phpactor\Indexer\Model\Indexer;
+use Phpactor\Indexer\Model\SearchClient;
 interface IndexAgent
 {
     public function search() : SearchClient;
@@ -13,4 +13,3 @@ interface IndexAgent
     public function indexer() : Indexer;
     public function access() : IndexAccess;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\IndexAgent', 'Phpactor\\Indexer\\IndexAgent', \false);

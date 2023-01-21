@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Adapter\Twig;
+namespace Phpactor\ObjectRenderer\Adapter\Twig;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Adapter\Twig\Extension\ObjectRendererExtension;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\Exception\CouldNotRenderObject;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\ObjectRenderer\Adapter\Twig\Extension\ObjectRendererExtension;
+use Phpactor\ObjectRenderer\Model\Exception\CouldNotRenderObject;
+use Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
 use Phpactor202301\Twig\Environment;
 use Phpactor202301\Twig\Error\LoaderError;
 class TwigObjectRenderer implements ObjectRenderer
@@ -38,4 +38,3 @@ class TwigObjectRenderer implements ObjectRenderer
         throw new CouldNotRenderObject(\sprintf('Could not render object "%s" using templates "%s"', \get_class($object), \implode('", "', $templates)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Adapter\\Twig\\TwigObjectRenderer', 'Phpactor\\ObjectRenderer\\Adapter\\Twig\\TwigObjectRenderer', \false);

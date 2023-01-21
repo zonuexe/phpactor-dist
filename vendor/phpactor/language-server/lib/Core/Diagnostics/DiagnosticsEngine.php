@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics;
+namespace Phpactor\LanguageServer\Core\Diagnostics;
 
 use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use function Phpactor202301\Amp\delay;
 class DiagnosticsEngine
 {
@@ -35,7 +35,7 @@ class DiagnosticsEngine
      * @var int
      */
     private $sleepTime;
-    public function __construct(ClientApi $clientApi, DiagnosticsProvider $provider, int $sleepTime = 1000)
+    public function __construct(ClientApi $clientApi, \Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider $provider, int $sleepTime = 1000)
     {
         $this->deferred = new Deferred();
         $this->provider = $provider;
@@ -89,4 +89,3 @@ class DiagnosticsEngine
         $this->deferred->resolve($textDocument);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Diagnostics\\DiagnosticsEngine', 'Phpactor\\LanguageServer\\Core\\Diagnostics\\DiagnosticsEngine', \false);

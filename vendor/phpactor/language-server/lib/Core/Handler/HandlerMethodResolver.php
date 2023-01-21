@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Handler;
+namespace Phpactor\LanguageServer\Core\Handler;
 
 use RuntimeException;
 final class HandlerMethodResolver
 {
-    public function resolveHandlerMethod(Handler $handler, string $languageServerMethod) : string
+    public function resolveHandlerMethod(\Phpactor\LanguageServer\Core\Handler\Handler $handler, string $languageServerMethod) : string
     {
         $handlerMap = $handler->methods();
         if (!\array_key_exists($languageServerMethod, $handlerMap)) {
@@ -18,4 +18,3 @@ final class HandlerMethodResolver
         return $method;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Handler\\HandlerMethodResolver', 'Phpactor\\LanguageServer\\Core\\Handler\\HandlerMethodResolver', \false);

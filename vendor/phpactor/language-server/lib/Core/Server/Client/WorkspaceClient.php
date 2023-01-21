@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Client;
+namespace Phpactor\LanguageServer\Core\Server\Client;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\DTL\Invoke\Invoke;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
 final class WorkspaceClient
 {
     /**
@@ -38,4 +38,3 @@ final class WorkspaceClient
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Client\\WorkspaceClient', 'Phpactor\\LanguageServer\\Core\\Server\\Client\\WorkspaceClient', \false);

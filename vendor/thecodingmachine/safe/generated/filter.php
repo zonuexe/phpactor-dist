@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\FilterException;
+use Safe\Exceptions\FilterException;
+
 /**
  * This function is useful for retrieving many values without
  * repetitively calling filter_input.
@@ -35,21 +36,23 @@ use Phpactor202301\Safe\Exceptions\FilterException;
  * @throws FilterException
  *
  */
-function filter_input_array(int $type, $definition = null, bool $add_empty = \true)
+function filter_input_array(int $type, $definition = null, bool $add_empty = true)
 {
-    \error_clear_last();
-    if ($add_empty !== \true) {
+    error_clear_last();
+    if ($add_empty !== true) {
         $result = \filter_input_array($type, $definition, $add_empty);
     } elseif ($definition !== null) {
         $result = \filter_input_array($type, $definition);
     } else {
         $result = \filter_input_array($type);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilterException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function is useful for retrieving many values without
  * repetitively calling filter_var.
@@ -73,17 +76,17 @@ function filter_input_array(int $type, $definition = null, bool $add_empty = \tr
  * @throws FilterException
  *
  */
-function filter_var_array(array $data, $definition = null, bool $add_empty = \true)
+function filter_var_array(array $data, $definition = null, bool $add_empty = true)
 {
-    \error_clear_last();
-    if ($add_empty !== \true) {
+    error_clear_last();
+    if ($add_empty !== true) {
         $result = \filter_var_array($data, $definition, $add_empty);
     } elseif ($definition !== null) {
         $result = \filter_var_array($data, $definition);
     } else {
         $result = \filter_var_array($data);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilterException::createFromPhpError();
     }
     return $result;

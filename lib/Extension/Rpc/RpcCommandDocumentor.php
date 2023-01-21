@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc;
+namespace Phpactor\Extension\Rpc;
 
-use Phpactor202301\Phpactor\Extension\Debug\Model\DefinitionDocumentor;
-use Phpactor202301\Phpactor\Extension\Debug\Model\Documentor;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Debug\Model\DefinitionDocumentor;
+use Phpactor\Extension\Debug\Model\Documentor;
+use Phpactor\MapResolver\Resolver;
 use RuntimeException;
 class RpcCommandDocumentor implements Documentor
 {
-    public function __construct(private HandlerRegistry $handlerRegistry, private DefinitionDocumentor $definitionDocumentor)
+    public function __construct(private \Phpactor\Extension\Rpc\HandlerRegistry $handlerRegistry, private DefinitionDocumentor $definitionDocumentor)
     {
     }
     public function document(string $commandName = '') : string
@@ -23,7 +23,7 @@ class RpcCommandDocumentor implements Documentor
         }
         return \implode("\n", $docs);
     }
-    private function documentHandler(string $serviceId, Handler $handler) : ?string
+    private function documentHandler(string $serviceId, \Phpactor\Extension\Rpc\Handler $handler) : ?string
     {
         $handlerClass = \get_class($handler);
         $parts = \explode('\\', $handlerClass);
@@ -46,4 +46,3 @@ class RpcCommandDocumentor implements Documentor
         return \implode("\n", $help);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RpcCommandDocumentor', 'Phpactor\\Extension\\Rpc\\RpcCommandDocumentor', \false);

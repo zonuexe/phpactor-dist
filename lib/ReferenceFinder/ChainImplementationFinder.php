@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Locations;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-final class ChainImplementationFinder implements ClassImplementationFinder
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Locations;
+use Phpactor\TextDocument\TextDocument;
+final class ChainImplementationFinder implements \Phpactor\ReferenceFinder\ClassImplementationFinder
 {
     /**
      * @var ClassImplementationFinder[]
@@ -29,9 +29,8 @@ final class ChainImplementationFinder implements ClassImplementationFinder
         }
         return new Locations($locations);
     }
-    private function add(ClassImplementationFinder $finder) : void
+    private function add(\Phpactor\ReferenceFinder\ClassImplementationFinder $finder) : void
     {
         $this->finders[] = $finder;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\ChainImplementationFinder', 'Phpactor\\ReferenceFinder\\ChainImplementationFinder', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model;
+namespace Phpactor\Extension\LanguageServerPsalm\Model;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\Diagnostic;
 use Phpactor202301\Psalm\Config;
 use RuntimeException;
 class DiagnosticsParser
@@ -47,4 +47,3 @@ class DiagnosticsParser
         return DiagnosticSeverity::INFORMATION;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPsalm\\Model\\DiagnosticsParser', 'Phpactor\\Extension\\LanguageServerPsalm\\Model\\DiagnosticsParser', \false);

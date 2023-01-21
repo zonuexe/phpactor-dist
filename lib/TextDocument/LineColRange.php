@@ -1,19 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 final class LineColRange
 {
-    public function __construct(private LineCol $start, private LineCol $end)
+    public function __construct(private \Phpactor\TextDocument\LineCol $start, private \Phpactor\TextDocument\LineCol $end)
     {
     }
-    public function start() : LineCol
+    public function start() : \Phpactor\TextDocument\LineCol
     {
         return $this->start;
     }
-    public function end() : LineCol
+    public function end() : \Phpactor\TextDocument\LineCol
     {
         return $this->end;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\LineColRange', 'Phpactor\\TextDocument\\LineColRange', \false);

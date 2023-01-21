@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -80,7 +80,3 @@ class DocumentOnTypeFormattingClientCapabilities
         throw $lastException;
     }
 }
-/**
- * Client capabilities of a [DocumentOnTypeFormattingRequest](#DocumentOnTypeFormattingRequest).
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentOnTypeFormattingClientCapabilities', 'Phpactor\\LanguageServerProtocol\\DocumentOnTypeFormattingClientCapabilities', \false);

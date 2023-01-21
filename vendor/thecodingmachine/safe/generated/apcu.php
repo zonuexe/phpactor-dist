@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ApcuException;
+use Safe\Exceptions\ApcuException;
+
 /**
  * Retrieves cached information and meta-data from APC's data store.
  *
@@ -13,15 +14,17 @@ use Phpactor202301\Safe\Exceptions\ApcuException;
  * @throws ApcuException
  *
  */
-function apcu_cache_info(bool $limited = \false) : array
+function apcu_cache_info(bool $limited = false): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apcu_cache_info($limited);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcuException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * apcu_cas updates an already existing integer value if the
  * old parameter matches the currently stored value
@@ -33,14 +36,16 @@ function apcu_cache_info(bool $limited = \false) : array
  * @throws ApcuException
  *
  */
-function apcu_cas(string $key, int $old, int $new) : void
+function apcu_cas(string $key, int $old, int $new): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apcu_cas($key, $old, $new);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcuException::createFromPhpError();
     }
 }
+
+
 /**
  * Decreases a stored integer value.
  *
@@ -53,15 +58,17 @@ function apcu_cas(string $key, int $old, int $new) : void
  * @throws ApcuException
  *
  */
-function apcu_dec(string $key, int $step = 1, ?bool &$success = null, int $ttl = 0) : int
+function apcu_dec(string $key, int $step = 1, ?bool &$success = null, int $ttl = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apcu_dec($key, $step, $success, $ttl);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcuException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Increases a stored number.
  *
@@ -74,15 +81,17 @@ function apcu_dec(string $key, int $step = 1, ?bool &$success = null, int $ttl =
  * @throws ApcuException
  *
  */
-function apcu_inc(string $key, int $step = 1, ?bool &$success = null, int $ttl = 0) : int
+function apcu_inc(string $key, int $step = 1, ?bool &$success = null, int $ttl = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apcu_inc($key, $step, $success, $ttl);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcuException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Retrieves APCu Shared Memory Allocation information.
  *
@@ -92,11 +101,11 @@ function apcu_inc(string $key, int $step = 1, ?bool &$success = null, int $ttl =
  * @throws ApcuException
  *
  */
-function apcu_sma_info(bool $limited = \false) : array
+function apcu_sma_info(bool $limited = false): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apcu_sma_info($limited);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcuException::createFromPhpError();
     }
     return $result;

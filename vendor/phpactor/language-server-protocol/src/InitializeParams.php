@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -80,7 +80,7 @@ class InitializeParams
      * @param int|string|null $workDoneToken
      * @param array<WorkspaceFolder>|null $workspaceFolders
      */
-    public function __construct(ClientCapabilities $capabilities, $processId = null, ?array $clientInfo = null, $rootPath = null, $rootUri = null, $initializationOptions = null, $trace = null, $workDoneToken = null, $workspaceFolders = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\ClientCapabilities $capabilities, $processId = null, ?array $clientInfo = null, $rootPath = null, $rootUri = null, $initializationOptions = null, $trace = null, $workDoneToken = null, $workspaceFolders = null)
     {
         $this->processId = $processId;
         $this->clientInfo = $clientInfo;
@@ -98,7 +98,7 @@ class InitializeParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['processId' => ['names' => [], 'iterable' => \false], 'clientInfo' => ['names' => [], 'iterable' => \false], 'rootPath' => ['names' => [], 'iterable' => \false], 'rootUri' => ['names' => [], 'iterable' => \false], 'capabilities' => ['names' => [ClientCapabilities::class], 'iterable' => \false], 'initializationOptions' => ['names' => [], 'iterable' => \false], 'trace' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'workspaceFolders' => ['names' => [], 'iterable' => \false]];
+        $map = ['processId' => ['names' => [], 'iterable' => \false], 'clientInfo' => ['names' => [], 'iterable' => \false], 'rootPath' => ['names' => [], 'iterable' => \false], 'rootUri' => ['names' => [], 'iterable' => \false], 'capabilities' => ['names' => [\Phpactor\LanguageServerProtocol\ClientCapabilities::class], 'iterable' => \false], 'initializationOptions' => ['names' => [], 'iterable' => \false], 'trace' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'workspaceFolders' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -148,7 +148,3 @@ class InitializeParams
         throw $lastException;
     }
 }
-/**
- * Mixins (implemented TS interfaces): _InitializeParams, WorkspaceFoldersInitializeParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\InitializeParams', 'Phpactor\\LanguageServerProtocol\\InitializeParams', \false);

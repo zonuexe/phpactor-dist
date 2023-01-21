@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DocBlock;
+namespace Phpactor\WorseReflection\Core\DocBlock;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\Type;
 interface DocBlock
 {
     public function methods(ReflectionClassLike $declaringClass) : ReflectionMethodCollection;
@@ -19,8 +19,8 @@ interface DocBlock
     public function methodType(string $methodName) : Type;
     public function propertyType(string $methodName) : Type;
     public function parameterType(string $paramName) : Type;
-    public function vars() : DocBlockVars;
-    public function params() : DocBlockParams;
+    public function vars() : \Phpactor\WorseReflection\Core\DocBlock\DocBlockVars;
+    public function params() : \Phpactor\WorseReflection\Core\DocBlock\DocBlockParams;
     public function inherits() : bool;
     public function deprecation() : Deprecation;
     public function templateMap() : TemplateMap;
@@ -37,4 +37,3 @@ interface DocBlock
      */
     public function mixins() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlock', 'Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlock', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 /**
  * Represents the signature of something callable. A signature
@@ -31,14 +31,8 @@ class SignatureInformation
     {
         return $this->label;
     }
-    private function add(ParameterInformation $parameter) : void
+    private function add(\Phpactor\Completion\Core\ParameterInformation $parameter) : void
     {
         $this->parameters[] = $parameter;
     }
 }
-/**
- * Represents the signature of something callable. A signature
- * can have a label, like a function-name, a doc-comment, and
- * a set of parameters.
- */
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\SignatureInformation', 'Phpactor\\Completion\\Core\\SignatureInformation', \false);

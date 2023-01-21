@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, RenameOptions
  */
-class RenameRegistrationOptions extends TextDocumentRegistrationOptions
+class RenameRegistrationOptions extends \Phpactor\LanguageServerProtocol\TextDocumentRegistrationOptions
 {
     /**
      * A document selector to identify the scope of the registration. If set to null
@@ -98,9 +98,3 @@ class RenameRegistrationOptions extends TextDocumentRegistrationOptions
         throw $lastException;
     }
 }
-/**
- * Registration options for a [RenameRequest](#RenameRequest).
- *
- * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, RenameOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\RenameRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\RenameRegistrationOptions', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301;
+namespace {
+use JetBrains\PhpStorm\Deprecated;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
 /**
  * Attaches a custom attribute (key/value pair) to the current transaction and the current span (if enabled).
  *
@@ -29,9 +29,8 @@ use Phpactor202301\JetBrains\PhpStorm\Deprecated;
  *
  * @return bool
  */
-function newrelic_add_custom_parameter(string $key, bool|float|int|string $value) : bool
-{
-}
+function newrelic_add_custom_parameter(string $key, bool|float|int|string $value): bool {}
+
 /**
  * Specify functions or methods for the agent to instrument with custom instrumentation.
  *
@@ -50,9 +49,8 @@ function newrelic_add_custom_parameter(string $key, bool|float|int|string $value
  *
  * @return bool
  */
-function newrelic_add_custom_tracer(string $functionName) : bool
-{
-}
+function newrelic_add_custom_tracer(string $functionName): bool {}
+
 /**
  * Manually specify that a transaction is a background job or a web transaction.
  *
@@ -71,9 +69,8 @@ function newrelic_add_custom_tracer(string $functionName) : bool
  *
  * @return void
  */
-function newrelic_background_job(bool $flag = \true) : void
-{
-}
+function newrelic_background_job(bool $flag = true): void {}
+
 /**
  * Enable or disable the capture of URL parameters.
  *
@@ -88,9 +85,8 @@ function newrelic_background_job(bool $flag = \true) : void
  *
  * @return void
  */
-function newrelic_capture_params(bool $enable_flag = \true) : void
-{
-}
+function newrelic_capture_params(bool $enable_flag = true): void {}
+
 /**
  * Add a custom metric (in milliseconds) to time a component of your app not captured by default.
  *
@@ -110,9 +106,8 @@ function newrelic_capture_params(bool $enable_flag = \true) : void
  *
  * @return bool
  */
-function newrelic_custom_metric(string $metric_name, float $value) : bool
-{
-}
+function newrelic_custom_metric(string $metric_name, float $value): bool {}
+
 /**
  * Disable automatic injection of the browser monitoring snippet on particular pages.
  *
@@ -128,13 +123,11 @@ function newrelic_custom_metric(string $metric_name, float $value) : bool
  *
  * @return bool|null
  */
-function newrelic_disable_autorum() : ?bool
-{
-}
+function newrelic_disable_autorum(): ?bool {}
+
 #[Deprecated(replacement: 'newrelic_capture_params()')]
-function newrelic_enable_params()
-{
-}
+function newrelic_enable_params() {}
+
 /**
  * Stop timing the current transaction, but continue instrumenting it.
  *
@@ -150,9 +143,8 @@ function newrelic_enable_params()
  *
  * @return void
  */
-function newrelic_end_of_transaction() : void
-{
-}
+function newrelic_end_of_transaction(): void {}
+
 /**
  * Stop instrumenting the current transaction immediately.
  *
@@ -174,9 +166,8 @@ function newrelic_end_of_transaction() : void
  *
  * @return bool
  */
-function newrelic_end_transaction(bool $ignore = \false) : bool
-{
-}
+function newrelic_end_transaction(bool $ignore = false): bool {}
+
 /**
  * Returns a browser monitoring snippet to inject at the end of the HTML output.
  *
@@ -193,9 +184,8 @@ function newrelic_end_transaction(bool $ignore = \false) : bool
  *
  * @return string
  */
-function newrelic_get_browser_timing_footer(bool $includeTags = \true) : string
-{
-}
+function newrelic_get_browser_timing_footer(bool $includeTags = true): string {}
+
 /**
  * Returns a browser monitoring snippet to inject in the head of your HTML output.
  *
@@ -212,9 +202,8 @@ function newrelic_get_browser_timing_footer(bool $includeTags = \true) : string
  *
  * @return string
  */
-function newrelic_get_browser_timing_header(bool $includeTags = \true) : string
-{
-}
+function newrelic_get_browser_timing_header(bool $includeTags = true): string {}
+
 /**
  * Ignore the current transaction when calculating Apdex.
  *
@@ -225,9 +214,8 @@ function newrelic_get_browser_timing_header(bool $includeTags = \true) : string
  *
  * @return void
  */
-function newrelic_ignore_apdex() : void
-{
-}
+function newrelic_ignore_apdex(): void {}
+
 /**
  * Do not instrument the current transaction.
  *
@@ -238,9 +226,8 @@ function newrelic_ignore_apdex() : void
  *
  * @return void
  */
-function newrelic_ignore_transaction() : void
-{
-}
+function newrelic_ignore_transaction(): void {}
+
 /**
  * Set custom name for current transaction.
  *
@@ -268,9 +255,8 @@ function newrelic_ignore_transaction() : void
  *
  * @return bool
  */
-function newrelic_name_transaction(string $name) : bool
-{
-}
+function newrelic_name_transaction(string $name): bool {}
+
 /**
  * Use these calls to collect errors that the PHP agent does not collect automatically and to set the callback for
  * your own error and exception handler.
@@ -312,9 +298,14 @@ function newrelic_name_transaction(string $name) : bool
  *
  * @return null
  */
-function newrelic_notice_error(string|\Throwable|\Exception|int $messageOrExceptionOrCode, string|\Throwable|\Exception $errstrOrException = null, string $errfile = null, int $errline = null, string $errcontext = null)
-{
-}
+function newrelic_notice_error(
+    string|Throwable|Exception|int $messageOrExceptionOrCode,
+    string|Throwable|Exception $errstrOrException = null,
+    string $errfile = null,
+    int $errline = null,
+    string $errcontext = null
+) {}
+
 /**
  * Record a custom event with the given name and attributes
  *
@@ -339,9 +330,8 @@ function newrelic_notice_error(string|\Throwable|\Exception|int $messageOrExcept
  *
  * @return void
  */
-function newrelic_record_custom_event(string $name, array $attributes) : void
-{
-}
+function newrelic_record_custom_event(string $name, array $attributes): void {}
+
 /**
  * Set the New Relic application name, which the New Relic UI uses to connect your data to the correct application.
  *
@@ -383,9 +373,8 @@ function newrelic_record_custom_event(string $name, array $attributes) : void
  *
  * @return bool Will return true if the application name was successfully changed.
  */
-function newrelic_set_appname(string $name, string $license, bool $xmit = \false) : bool
-{
-}
+function newrelic_set_appname(string $name, string $license, bool $xmit = false): bool {}
+
 /**
  * Create user-related custom attributes. newrelic_add_custom_parameter is more flexible.
  *
@@ -410,9 +399,8 @@ function newrelic_set_appname(string $name, string $license, bool $xmit = \false
  *
  * @return bool
  */
-function newrelic_set_user_attributes(string $user_value, string $account_value, string $product_value) : bool
-{
-}
+function newrelic_set_user_attributes(string $user_value, string $account_value, string $product_value): bool {}
+
 /**
  * Start a new transaction manually. Usually used after manually ending a transaction with
  * newrelic_end_transaction(),
@@ -437,9 +425,8 @@ function newrelic_set_user_attributes(string $user_value, string $account_value,
  *
  * @return bool
  */
-function newrelic_start_transaction(string $appname, string $license = null) : bool
-{
-}
+function newrelic_start_transaction(string $appname, string $license = null): bool {}
+
 /**
  * Records a datastore segment.
  *
@@ -476,9 +463,8 @@ function newrelic_start_transaction(string $appname, string $license = null) : b
  * @return mixed The return value of $callback is returned. If an error occurs, false is returned, and
  * an error at the E_WARNING level will be triggered
  */
-function newrelic_record_datastore_segment(callable $func, array $parameters) : mixed
-{
-}
+function newrelic_record_datastore_segment(callable $func, array $parameters): mixed {}
+
 /**
  * Accepts an array of distributed trace headers.
  *
@@ -500,9 +486,8 @@ function newrelic_record_datastore_segment(callable $func, array $parameters) : 
  *
  * @return bool
  */
-function newrelic_accept_distributed_trace_headers(array $headers, string $transport_type = 'HTTP') : bool
-{
-}
+function newrelic_accept_distributed_trace_headers(array $headers, string $transport_type = 'HTTP'): bool {}
+
 /**
  * Accepts a distributed trace payload.
  *
@@ -518,9 +503,8 @@ function newrelic_accept_distributed_trace_headers(array $headers, string $trans
  * @return void
  */
 #[Deprecated(replacement: 'newrelic_accept_distributed_trace_headers()')]
-function newrelic_accept_distributed_trace_payload(string $payload) : void
-{
-}
+function newrelic_accept_distributed_trace_payload(string $payload): void {}
+
 /**
  * Accepts a distributed trace payload that includes an HTTPSafe (Base64 encoded) JSON string.
  *
@@ -539,9 +523,11 @@ function newrelic_accept_distributed_trace_payload(string $payload) : void
  * @return bool
  */
 #[Deprecated(replacement: 'newrelic_accept_distributed_trace_headers()')]
-function newrelic_accept_distributed_trace_payload_httpsafe(string $httpsafe_payload, string $transport_type = 'HTTP') : bool
-{
-}
+function newrelic_accept_distributed_trace_payload_httpsafe(
+    string $httpsafe_payload,
+    string $transport_type = 'HTTP'
+): bool {}
+
 /**
  * Attaches a custom attribute (key/value pair) to the current span.
  *
@@ -563,9 +549,8 @@ function newrelic_accept_distributed_trace_payload_httpsafe(string $httpsafe_pay
  *
  * @return bool
  */
-function newrelic_add_custom_span_parameter(string $key, bool|float|int|string $value) : bool
-{
-}
+function newrelic_add_custom_span_parameter(string $key, bool|float|int|string $value): bool {}
+
 /**
  *Creates a distributed trace payload.
  *
@@ -579,9 +564,8 @@ function newrelic_add_custom_span_parameter(string $key, bool|float|int|string $
  * @return     newrelic\DistributedTracePayload
  */
 #[Deprecated(replacement: 'newrelic_insert_distributed_trace_headers()')]
-function newrelic_create_distributed_trace_payload() : \newrelic\DistributedTracePayload
-{
-}
+function newrelic_create_distributed_trace_payload(): newrelic\DistributedTracePayload {}
+
 /**
  * Returns a collection of metadata necessary for linking data to a trace or an entity.
  *
@@ -592,9 +576,8 @@ function newrelic_create_distributed_trace_payload() : \newrelic\DistributedTrac
  *
  * @return array
  */
-function newrelic_get_linking_metadata() : array
-{
-}
+function newrelic_get_linking_metadata(): array {}
+
 /**
  * Returns an associative array containing the identifiers of the current trace and the parent span.
  *
@@ -605,9 +588,8 @@ function newrelic_get_linking_metadata() : array
  *
  * @return array
  */
-function newrelic_get_trace_metadata() : array
-{
-}
+function newrelic_get_trace_metadata(): array {}
+
 /**
  * Inserts W3C Trace Context headers and New Relic Distributed Tracing headers into an outbound array of headers.
  *
@@ -626,9 +608,8 @@ function newrelic_get_trace_metadata() : array
  *
  * @return bool True if any headers were successfully inserted into the provided array, otherwise returns False
  */
-function newrelic_insert_distributed_trace_headers(array $headers) : bool
-{
-}
+function newrelic_insert_distributed_trace_headers(array $headers): bool {}
+
 /**
  * Returns a value indicating whether or not the current transaction is marked as sampled.
  *
@@ -637,34 +618,31 @@ function newrelic_insert_distributed_trace_headers(array $headers) : bool
  *
  * @return bool
  */
-function newrelic_is_sampled() : bool
-{
+function newrelic_is_sampled(): bool {}
 }
-namespace Phpactor202301\newrelic;
 
-/**
- * This object has two methods that will render a distributed trace payload as text.
- *
- * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/#return-values
- * @see newrelic_create_distributed_trace_payload()
- * @since 8.4
- */
-class DistributedTracePayload
-{
+namespace newrelic {
+  /**
+   * This object has two methods that will render a distributed trace payload as text.
+   *
+   * @link https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api/#return-values
+   * @see newrelic_create_distributed_trace_payload()
+   * @since 8.4
+   */
+  class DistributedTracePayload
+  {
     /**
      * Renders the payload as a JSON string
      *
      * @return string
      */
-    public function text() : string
-    {
-    }
+    public function text(): string {}
+
     /**
      * Renders the payload as an string suitable for transport via HTTP (query string, POST param, HTTP headers, etc.)
      *
      * @return string
      */
-    public function httpSafe() : string
-    {
-    }
+    public function httpSafe(): string {}
+  }
 }

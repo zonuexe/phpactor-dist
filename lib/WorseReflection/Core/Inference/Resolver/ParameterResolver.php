@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
@@ -8,18 +8,18 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpr
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\ItemNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
+use Phpactor\WorseReflection\Core\Exception\ItemNotFound;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Reflector;
 class ParameterResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -83,4 +83,3 @@ class ParameterResolver implements Resolver
         return NodeContextFactory::create((string) $node->variableName->getText($node->getFileContents()), $node->variableName->getStartPosition(), $node->variableName->getEndPosition(), ['symbol_type' => Symbol::VARIABLE, 'type' => $reflectionParameter->inferredType(), 'container_type' => $reflectionClass->type()]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ParameterResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ParameterResolver', \false);

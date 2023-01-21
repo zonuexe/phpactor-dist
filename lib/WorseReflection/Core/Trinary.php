@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 class Trinary
 {
@@ -47,4 +47,3 @@ class Trinary
         return $this->isFalse() || $this->isMaybe();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Trinary', 'Phpactor\\WorseReflection\\Core\\Trinary', \false);

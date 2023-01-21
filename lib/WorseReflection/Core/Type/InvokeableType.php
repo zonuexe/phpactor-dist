@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type;
 interface InvokeableType
 {
     /**
@@ -11,4 +11,3 @@ interface InvokeableType
     public function arguments() : array;
     public function returnType() : Type;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\InvokeableType', 'Phpactor\\WorseReflection\\Core\\Type\\InvokeableType', \false);

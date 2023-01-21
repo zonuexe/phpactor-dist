@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Application;
+namespace Phpactor\Extension\WorseReflectionExtra\Application;
 
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
 class ClassReflector
 {
     const FOOBAR = 'foo';
@@ -67,4 +67,3 @@ class ClassReflector
         return $return;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionExtra\\Application\\ClassReflector', 'Phpactor\\Extension\\WorseReflectionExtra\\Application\\ClassReflector', \false);

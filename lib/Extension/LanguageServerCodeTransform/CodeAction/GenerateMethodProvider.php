@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
+namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand\GenerateMethodCommand;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
+use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\GenerateMethodCommand;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Command;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use function Phpactor202301\Amp\call;
 class GenerateMethodProvider implements DiagnosticsProvider, CodeActionProvider
 {
@@ -74,4 +74,3 @@ class GenerateMethodProvider implements DiagnosticsProvider, CodeActionProvider
         return $diagnostics;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\GenerateMethodProvider', 'Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\GenerateMethodProvider', \false);

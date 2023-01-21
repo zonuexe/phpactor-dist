@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\Command;
+namespace Phpactor\Extension\SourceCodeFilesystemExtra\Command;
 
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application\ClassSearch;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FormatHandler;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FilesystemHandler;
+use Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application\ClassSearch;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\Core\Console\Handler\FormatHandler;
+use Phpactor\Extension\Core\Console\Handler\FilesystemHandler;
 class ClassSearchCommand extends Command
 {
     public function __construct(private ClassSearch $search, private DumperRegistry $dumperRegistry)
@@ -32,4 +32,3 @@ class ClassSearchCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\SourceCodeFilesystemExtra\\Command\\ClassSearchCommand', 'Phpactor\\Extension\\SourceCodeFilesystemExtra\\Command\\ClassSearchCommand', \false);

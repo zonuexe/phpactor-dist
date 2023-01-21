@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\IbmDb2Exception;
+use Safe\Exceptions\IbmDb2Exception;
+
 /**
  * Sets or gets the AUTOCOMMIT behavior of the specified connection resource.
  *
@@ -47,17 +48,19 @@ use Phpactor202301\Safe\Exceptions\IbmDb2Exception;
  */
 function db2_autocommit($connection, int $value = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($value !== null) {
         $result = \db2_autocommit($connection, $value);
     } else {
         $result = \db2_autocommit($connection);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Binds a PHP variable to an SQL statement parameter in a statement resource
  * returned by db2_prepare. This function gives you more
@@ -93,9 +96,9 @@ function db2_autocommit($connection, int $value = null)
  * @throws IbmDb2Exception
  *
  */
-function db2_bind_param($stmt, int $parameter_number, string $variable_name, int $parameter_type = null, int $data_type = 0, int $precision = -1, int $scale = 0) : void
+function db2_bind_param($stmt, int $parameter_number, string $variable_name, int $parameter_type = null, int $data_type = 0, int $precision = -1, int $scale = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($scale !== 0) {
         $result = \db2_bind_param($stmt, $parameter_number, $variable_name, $parameter_type, $data_type, $precision, $scale);
     } elseif ($precision !== -1) {
@@ -107,10 +110,12 @@ function db2_bind_param($stmt, int $parameter_number, string $variable_name, int
     } else {
         $result = \db2_bind_param($stmt, $parameter_number, $variable_name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * This function returns an object with read-only properties that return
  * information about the DB2 database client. The following table lists
@@ -220,15 +225,17 @@ function db2_bind_param($stmt, int $parameter_number, string $variable_name, int
  * @throws IbmDb2Exception
  *
  */
-function db2_client_info($connection) : object
+function db2_client_info($connection): object
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_client_info($connection);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function closes a DB2 client connection created with
  * db2_connect and returns the corresponding
@@ -242,14 +249,16 @@ function db2_client_info($connection) : object
  * @throws IbmDb2Exception
  *
  */
-function db2_close($connection) : void
+function db2_close($connection): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_close($connection);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * Commits an in-progress transaction on the specified connection resource and
  * begins a new transaction. PHP applications normally default to AUTOCOMMIT
@@ -261,14 +270,16 @@ function db2_close($connection) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_commit($connection) : void
+function db2_commit($connection): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_commit($connection);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * db2_execute executes an SQL statement that was
  * prepared by db2_prepare.
@@ -293,18 +304,20 @@ function db2_commit($connection) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_execute($stmt, array $parameters = null) : void
+function db2_execute($stmt, array $parameters = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($parameters !== null) {
         $result = \db2_execute($stmt, $parameters);
     } else {
         $result = \db2_execute($stmt);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * Frees the system and database resources that are associated with a result
  * set. These resources are freed implicitly when a script finishes, but you
@@ -315,14 +328,16 @@ function db2_execute($stmt, array $parameters = null) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_free_result($stmt) : void
+function db2_free_result($stmt): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_free_result($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * Frees the system and database resources that are associated with a statement
  * resource. These resources are freed implicitly when a script finishes, but
@@ -333,14 +348,16 @@ function db2_free_result($stmt) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_free_stmt($stmt) : void
+function db2_free_stmt($stmt): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_free_stmt($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * Retrieves the value of a specified option value for a statement resource
  * or a connection resource.
@@ -491,15 +508,17 @@ function db2_free_stmt($stmt) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_get_option($resource, string $option) : string
+function db2_get_option($resource, string $option): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_get_option($resource, $option);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function closes a DB2 client connection created with
  * db2_pconnect and returns the corresponding resources
@@ -522,14 +541,16 @@ function db2_get_option($resource, string $option) : string
  * @throws IbmDb2Exception
  *
  */
-function db2_pclose($resource) : void
+function db2_pclose($resource): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\db2_pclose($resource);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \db2_pclose($resource);
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * Rolls back an in-progress transaction on the specified connection resource and
  * begins a new transaction. PHP applications normally default to AUTOCOMMIT
@@ -541,14 +562,16 @@ function db2_pclose($resource) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_rollback($connection) : void
+function db2_rollback($connection): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_rollback($connection);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }
+
+
 /**
  * This function returns an object with read-only properties that return
  * information about the IBM DB2, Cloudscape, or Apache Derby database server.
@@ -800,15 +823,17 @@ function db2_rollback($connection) : void
  * @throws IbmDb2Exception
  *
  */
-function db2_server_info($connection) : object
+function db2_server_info($connection): object
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_server_info($connection);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets options for a statement resource or a connection resource. You
  * cannot set options for result set resources.
@@ -1186,11 +1211,11 @@ function db2_server_info($connection) : object
  * @throws IbmDb2Exception
  *
  */
-function db2_set_option($resource, array $options, int $type) : void
+function db2_set_option($resource, array $options, int $type): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \db2_set_option($resource, $options, $type);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbmDb2Exception::createFromPhpError();
     }
 }

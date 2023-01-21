@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Name;
 class WorseConstantCompletor implements TolerantCompletor
 {
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
@@ -28,4 +28,3 @@ class WorseConstantCompletor implements TolerantCompletor
         return \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\WorseConstantCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\WorseConstantCompletor', \false);

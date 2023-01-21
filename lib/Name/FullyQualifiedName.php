@@ -1,32 +1,32 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Name;
+namespace Phpactor\Name;
 
-final class FullyQualifiedName implements Name
+final class FullyQualifiedName implements \Phpactor\Name\Name
 {
-    private function __construct(private QualifiedName $qualifiedName)
+    private function __construct(private \Phpactor\Name\QualifiedName $qualifiedName)
     {
     }
     public function __toString() : string
     {
         return $this->qualifiedName->__toString();
     }
-    public static function fromArray(array $parts) : FullyQualifiedName
+    public static function fromArray(array $parts) : \Phpactor\Name\FullyQualifiedName
     {
-        return new self(QualifiedName::fromArray($parts));
+        return new self(\Phpactor\Name\QualifiedName::fromArray($parts));
     }
-    public static function fromString(string $string) : FullyQualifiedName
+    public static function fromString(string $string) : \Phpactor\Name\FullyQualifiedName
     {
-        return new self(QualifiedName::fromString($string));
+        return new self(\Phpactor\Name\QualifiedName::fromString($string));
     }
-    public static function fromQualifiedName(QualifiedName $qualfifiedName) : FullyQualifiedName
+    public static function fromQualifiedName(\Phpactor\Name\QualifiedName $qualfifiedName) : \Phpactor\Name\FullyQualifiedName
     {
         return new self($qualfifiedName);
     }
     /**
      * Reutrn the last element of the name (e.g. the class's short name)
      */
-    public function head() : QualifiedName
+    public function head() : \Phpactor\Name\QualifiedName
     {
         return $this->qualifiedName->head();
     }
@@ -35,25 +35,25 @@ final class FullyQualifiedName implements Name
      *
      * @return FullyQualifiedName
      */
-    public function tail() : Name
+    public function tail() : \Phpactor\Name\Name
     {
         return new self($this->qualifiedName->tail());
     }
     /**
      * @return FullyQualifiedName
      */
-    public function prepend(Name $name) : Name
+    public function prepend(\Phpactor\Name\Name $name) : \Phpactor\Name\Name
     {
         return new self($this->qualifiedName->prepend($name));
     }
     /**
      * @return FullyQualifiedName
      */
-    public function append(Name $name) : Name
+    public function append(\Phpactor\Name\Name $name) : \Phpactor\Name\Name
     {
         return new self($this->qualifiedName->append($name));
     }
-    public function isDescendantOf(Name $name) : bool
+    public function isDescendantOf(\Phpactor\Name\Name $name) : bool
     {
         return $this->qualifiedName->isDescendantOf($name);
     }
@@ -66,4 +66,3 @@ final class FullyQualifiedName implements Name
         return $this->qualifiedName->count();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Name\\FullyQualifiedName', 'Phpactor\\Name\\FullyQualifiedName', \false);

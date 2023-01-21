@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ContextMenu;
+namespace Phpactor\Extension\ContextMenu;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
-use Phpactor202301\Phpactor\Extension\ContextMenu\Handler\ContextMenuHandler;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\ContextMenu\Model\ContextMenu;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
+use Phpactor\Extension\ContextMenu\Handler\ContextMenuHandler;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\Extension\ContextMenu\Model\ContextMenu;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
 class ContextMenuExtension implements Extension
 {
     const SERVICE_REQUEST_HANDLER = 'rpc.request_handler';
@@ -24,4 +24,3 @@ class ContextMenuExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ContextMenu\\ContextMenuExtension', 'Phpactor\\Extension\\ContextMenu\\ContextMenuExtension', \false);

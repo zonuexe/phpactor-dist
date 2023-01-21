@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\MissingType;
 final class Variable
 {
     private string $name;
@@ -15,9 +15,9 @@ final class Variable
     {
         return \sprintf('%s#%s %s %s', $this->name, $this->offset, $this->type, $this->classType ? $this->classType->__toString() : '');
     }
-    public static function fromSymbolContext(NodeContext $symbolContext) : Variable
+    public static function fromSymbolContext(\Phpactor\WorseReflection\Core\Inference\NodeContext $symbolContext) : \Phpactor\WorseReflection\Core\Inference\Variable
     {
-        return new self($symbolContext->symbol()->name(), $symbolContext->symbol()->position()->start(), $symbolContext->type(), $symbolContext->symbol()->symbolType() === Symbol::PROPERTY ? $symbolContext->containerType() : null);
+        return new self($symbolContext->symbol()->name(), $symbolContext->symbol()->position()->start(), $symbolContext->type(), $symbolContext->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::PROPERTY ? $symbolContext->containerType() : null);
     }
     public function name() : string
     {
@@ -65,4 +65,3 @@ final class Variable
         return \sprintf('%s-%s', $this->name(), $this->offset());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Variable', 'Phpactor\\WorseReflection\\Core\\Inference\\Variable', \false);

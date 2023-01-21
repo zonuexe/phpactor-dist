@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Application;
+namespace Phpactor\Extension\WorseReflectionExtra\Application;
 
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Inference\Variable;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\WorseReflection\Core\Reflection\Inference\Variable;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
+use Phpactor\WorseReflection\TypeUtil;
 final class OffsetInfo
 {
     private FilesystemHelper $filesystemHelper;
@@ -40,4 +40,3 @@ final class OffsetInfo
         return $return;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionExtra\\Application\\OffsetInfo', 'Phpactor\\Extension\\WorseReflectionExtra\\Application\\OffsetInfo', \false);

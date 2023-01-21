@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 final class Visibility
 {
@@ -43,4 +43,3 @@ final class Visibility
         return $instance;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Visibility', 'Phpactor\\WorseReflection\\Core\\Visibility', \false);

@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 use RuntimeException;
 class UseStatement
 {
     const TYPE_CLASS = 'class';
     const TYPE_FUNCTION = 'function';
-    public function __construct(private Type $className, private ?string $alias = null, private ?string $type = self::TYPE_CLASS)
+    public function __construct(private \Phpactor\CodeBuilder\Domain\Prototype\Type $className, private ?string $alias = null, private ?string $type = self::TYPE_CLASS)
     {
         if (!\in_array($type, [self::TYPE_CLASS, self::TYPE_FUNCTION])) {
             throw new RuntimeException(\sprintf('Invalid use type'));
@@ -22,15 +22,15 @@ class UseStatement
     }
     public static function fromNameAndAlias(string $type, string $alias = null)
     {
-        return new self(Type::fromString($type), $alias);
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Type::fromString($type), $alias);
     }
     public static function fromNameAliasAndType(string $name, string $alias = null, string $type)
     {
-        return new self(Type::fromString($name), $alias, $type);
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Type::fromString($name), $alias, $type);
     }
     public static function fromType(string $type)
     {
-        return new self(Type::fromString($type));
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Type::fromString($type));
     }
     public function hasAlias() : bool
     {
@@ -40,7 +40,7 @@ class UseStatement
     {
         return $this->alias;
     }
-    public function name() : Type
+    public function name() : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         return $this->className;
     }
@@ -49,4 +49,3 @@ class UseStatement
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\UseStatement', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\UseStatement', \false);

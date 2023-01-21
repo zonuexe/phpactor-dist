@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
-final class NullableType extends Type implements HasEmptyType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Types;
+final class NullableType extends Type implements \Phpactor\WorseReflection\Core\Type\HasEmptyType
 {
     public function __construct(public Type $type)
     {
@@ -21,14 +21,14 @@ final class NullableType extends Type implements HasEmptyType
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof NullableType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\NullableType) {
             return Trinary::true();
         }
         return $this->type->accepts($type);
     }
     public function expandTypes() : Types
     {
-        return new Types([new NullType(), $this->type]);
+        return new Types([new \Phpactor\WorseReflection\Core\Type\NullType(), $this->type]);
     }
     public function allTypes() : Types
     {
@@ -56,7 +56,6 @@ final class NullableType extends Type implements HasEmptyType
     }
     public function map(Closure $mapper) : Type
     {
-        return new NullableType($mapper($this->type));
+        return new \Phpactor\WorseReflection\Core\Type\NullableType($mapper($this->type));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\NullableType', 'Phpactor\\WorseReflection\\Core\\Type\\NullableType', \false);

@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 // Start of password v.
 /**
  * <p>
@@ -39,9 +36,12 @@ namespace Phpactor202301;
  * </ul>
  * @link https://secure.php.net/manual/en/password.constants.php
  */
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-\define("PASSWORD_DEFAULT", "2y");
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
+define("PASSWORD_DEFAULT", "2y");
+
 /**
  * <p>
  * The default cost used for the BCRYPT hashing algorithm.
@@ -55,7 +55,8 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * </li>
  * </ul>
  */
-\define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
+define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
+
 /**
  * <p>
  * The default algorithm to use for hashing if no algorithm is provided.
@@ -78,7 +79,8 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * </li>
  * </ul>
  */
-\define("PASSWORD_BCRYPT", '2y');
+define("PASSWORD_BCRYPT", '2y');
+
 /**
  * PASSWORD_ARGON2I is used to create new password hashes using the Argon2i algorithm.
  *
@@ -93,7 +95,8 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-\define('PASSWORD_ARGON2I', 'argon2i');
+define('PASSWORD_ARGON2I', 'argon2i');
+
 /**
  * PASSWORD_ARGON2ID is used to create new password hashes using the Argon2id algorithm.
  *
@@ -108,29 +111,34 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * Available as of PHP 7.3.0.
  * @since 7.3
  */
-\define('PASSWORD_ARGON2ID', 'argon2id');
+define('PASSWORD_ARGON2ID', 'argon2id');
+
 /**
  * Default amount of memory in bytes that Argon2lib will use while trying to compute a hash.
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-\define('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 65536);
+define('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 65536);
+
 /**
  * Default amount of time that Argon2lib will spend trying to compute a hash.
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-\define('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
+define('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
+
 /**
  * Default number of threads that Argon2lib will use.
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-\define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
+define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
+
 /**
  * @since 7.4
  */
-\define('PASSWORD_ARGON2_PROVIDER', 'standard');
+define('PASSWORD_ARGON2_PROVIDER', 'standard');
+
 /**
  * Returns information about the given hash
  * @link https://secure.php.net/manual/en/function.password-get-info.php
@@ -153,9 +161,8 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
 #[LanguageLevelTypeAware(['8.0' => 'array'], default: '?array')]
-function password_get_info(string $hash)
-{
-}
+function password_get_info(string $hash) {}
+
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
  *
@@ -174,9 +181,8 @@ function password_get_info(string $hash)
  * @since 5.5
  */
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false|null")]
-function password_hash(string $password, string|int|null $algo, array $options = [])
-{
-}
+function password_hash(string $password, string|int|null $algo, array $options = []) {}
+
 /**
  * Checks if the given hash matches the given options.
  * @link https://secure.php.net/manual/en/function.password-needs-rehash.php
@@ -186,9 +192,8 @@ function password_hash(string $password, string|int|null $algo, array $options =
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash(string $hash, string|int|null $algo, array $options = []) : bool
-{
-}
+function password_needs_rehash(string $hash, string|int|null $algo, array $options = []): bool {}
+
 /**
  * Checks if the given hash matches the given options.
  * @link https://secure.php.net/manual/en/function.password-verify.php
@@ -197,15 +202,12 @@ function password_needs_rehash(string $hash, string|int|null $algo, array $optio
  * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
  * @since 5.5
  */
-function password_verify(string $password, string $hash) : bool
-{
-}
+function password_verify(string $password, string $hash): bool {}
+
 /**
  * Return a complete list of all registered password hashing algorithms.
  * @return string[]
  * @since 7.4
  */
-function password_algos() : array
-{
-}
+function password_algos(): array {}
 // End of password v.

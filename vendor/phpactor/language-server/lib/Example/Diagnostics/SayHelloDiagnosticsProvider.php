@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Example\Diagnostics;
+namespace Phpactor\LanguageServer\Example\Diagnostics;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use function Phpactor202301\Amp\call;
 class SayHelloDiagnosticsProvider implements DiagnosticsProvider
 {
@@ -27,4 +27,3 @@ class SayHelloDiagnosticsProvider implements DiagnosticsProvider
         return 'say-hello';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Example\\Diagnostics\\SayHelloDiagnosticsProvider', 'Phpactor\\LanguageServer\\Example\\Diagnostics\\SayHelloDiagnosticsProvider', \false);

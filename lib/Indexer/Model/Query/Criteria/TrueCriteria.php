@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
+namespace Phpactor\Indexer\Model\Query\Criteria;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
 class TrueCriteria extends Criteria
 {
     public function isSatisfiedBy(Record $record) : bool
@@ -11,4 +11,3 @@ class TrueCriteria extends Criteria
         return \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\Criteria\\TrueCriteria', 'Phpactor\\Indexer\\Model\\Query\\Criteria\\TrueCriteria', \false);

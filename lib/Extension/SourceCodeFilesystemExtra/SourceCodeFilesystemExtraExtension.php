@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra;
+namespace Phpactor\Extension\SourceCodeFilesystemExtra;
 
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\Rpc\ClassSearchHandler;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\Command\ClassSearchCommand;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application\ClassSearch;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\Extension\SourceCodeFilesystemExtra\Rpc\ClassSearchHandler;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\SourceCodeFilesystemExtra\Command\ClassSearchCommand;
+use Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application\ClassSearch;
 class SourceCodeFilesystemExtraExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -43,4 +43,3 @@ class SourceCodeFilesystemExtraExtension implements Extension
         }, [RpcExtension::TAG_RPC_HANDLER => ['name' => ClassSearchHandler::NAME]]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\SourceCodeFilesystemExtra\\SourceCodeFilesystemExtraExtension', 'Phpactor\\Extension\\SourceCodeFilesystemExtra\\SourceCodeFilesystemExtraExtension', \false);

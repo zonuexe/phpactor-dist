@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Http;
+declare(strict_types=1);
+
+namespace Swoole\Http;
 
 class Response
 {
@@ -10,21 +11,19 @@ class Response
     public $header;
     public $cookie;
     public $trailer;
-    public function __destruct()
-    {
-    }
+
+    public function __destruct() {}
+
     /**
      * @return mixed
      */
-    public function initHeader()
-    {
-    }
+    public function initHeader() {}
+
     /**
      * @return mixed
      */
-    public function isWritable()
-    {
-    }
+    public function isWritable() {}
+
     /**
      * @param mixed $name
      * @param mixed|null $value
@@ -37,9 +36,8 @@ class Response
      * @param mixed|null $priority
      * @return mixed
      */
-    public function cookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null)
-    {
-    }
+    public function cookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null) {}
+
     /**
      * @param mixed $name
      * @param mixed|null $value
@@ -52,9 +50,8 @@ class Response
      * @param mixed|null $priority
      * @return mixed
      */
-    public function setCookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null)
-    {
-    }
+    public function setCookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null) {}
+
     /**
      * @param mixed $name
      * @param mixed|null $value
@@ -67,133 +64,114 @@ class Response
      * @param mixed|null $priority
      * @return mixed
      */
-    public function rawcookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null)
-    {
-    }
+    public function rawcookie($name, $value = null, $expires = null, $path = null, $domain = null, $secure = null, $httponly = null, $samesite = null, $priority = null) {}
+
     /**
      * @param mixed $http_code
      * @param mixed|null $reason
      * @return mixed
      */
-    public function status($http_code, $reason = null)
-    {
-    }
+    public function status($http_code, $reason = null) {}
+
     /**
      * @param mixed $http_code
      * @param mixed|null $reason
      * @return mixed
      */
-    public function setStatusCode($http_code, $reason = null)
-    {
-    }
+    public function setStatusCode($http_code, $reason = null) {}
+
     /**
      * @param mixed $key
      * @param mixed $value
      * @param mixed|null $format
      * @return mixed
      */
-    public function header($key, $value, $format = null)
-    {
-    }
+    public function header($key, $value, $format = null) {}
+
     /**
      * @param mixed $key
      * @param mixed $value
      * @param mixed|null $format
      * @return mixed
      */
-    public function setHeader($key, $value, $format = null)
-    {
-    }
+    public function setHeader($key, $value, $format = null) {}
+
     /**
      * @param mixed $key
      * @param mixed $value
      * @return mixed
      */
-    public function trailer($key, $value)
-    {
-    }
+    public function trailer($key, $value) {}
+
     /**
      * @return mixed
      */
-    public function ping()
-    {
-    }
+    public function ping() {}
+
     /**
      * @return mixed
      */
-    public function goaway()
-    {
-    }
+    public function goaway() {}
+
     /**
      * @param mixed $content
      * @return mixed
      */
-    public function write($content)
-    {
-    }
+    public function write($content) {}
+
     /**
      * @param mixed|null $content
      * @return mixed
      */
-    public function end($content = null)
-    {
-    }
+    public function end($content = null) {}
+
     /**
      * @param mixed $filename
      * @param mixed|null $offset
      * @param mixed|null $length
      * @return mixed
      */
-    public function sendfile($filename, $offset = null, $length = null)
-    {
-    }
+    public function sendfile($filename, $offset = null, $length = null) {}
+
     /**
      * @param mixed $location
      * @param mixed|null $http_code
      * @return mixed
      */
-    public function redirect($location, $http_code = null)
-    {
-    }
+    public function redirect($location, $http_code = null) {}
+
     /**
      * @return mixed
      */
-    public function detach()
-    {
-    }
+    public function detach() {}
+
     /**
      * @param mixed $server
      * @param mixed|null $fd
      * @return mixed
      */
-    public static function create($server, $fd = null)
-    {
-    }
+    public static function create($server, $fd = null) {}
+
     /**
      * @return mixed
      */
-    public function upgrade()
-    {
-    }
+    public function upgrade() {}
+
     /**
      * @param mixed $data
      * @param mixed|null $opcode
      * @param mixed|null $flags
      * @return mixed
      */
-    public function push($data, $opcode = null, $flags = null)
-    {
-    }
+    public function push($data, $opcode = null, $flags = null) {}
+
     /**
      * @return mixed
      */
-    public function recv()
-    {
-    }
+    public function recv() {}
+
     /**
      * @return mixed
      */
-    public function close()
-    {
-    }
+    public function close() {}
 }

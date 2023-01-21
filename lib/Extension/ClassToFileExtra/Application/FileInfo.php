@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassToFileExtra\Application;
+namespace Phpactor\Extension\ClassToFileExtra\Application;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
 class FileInfo
 {
     public function __construct(private FileToClass $classToFileConverter, private Filesystem $filesystem)
@@ -22,4 +22,3 @@ class FileInfo
         return ['class' => (string) $best, 'class_name' => $best->name(), 'class_namespace' => $best->namespace()];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassToFileExtra\\Application\\FileInfo', 'Phpactor\\Extension\\ClassToFileExtra\\Application\\FileInfo', \false);

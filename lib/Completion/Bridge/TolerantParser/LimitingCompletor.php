@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier\AlwaysQualfifier;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class LimitingCompletor implements TolerantCompletor, TolerantQualifiable
+use Phpactor\Completion\Bridge\TolerantParser\Qualifier\AlwaysQualfifier;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+class LimitingCompletor implements \Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor, \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable
 {
-    public function __construct(private TolerantCompletor $completor, private int $limit = 50)
+    public function __construct(private \Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor $completor, private int $limit = 50)
     {
     }
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
@@ -26,12 +26,11 @@ class LimitingCompletor implements TolerantCompletor, TolerantQualifiable
         }
         return $suggestions->getReturn();
     }
-    public function qualifier() : TolerantQualifier
+    public function qualifier() : \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier
     {
-        if (!$this->completor instanceof TolerantQualifiable) {
+        if (!$this->completor instanceof \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable) {
             return new AlwaysQualfifier();
         }
         return $this->completor->qualifier();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\LimitingCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\LimitingCompletor', \false);

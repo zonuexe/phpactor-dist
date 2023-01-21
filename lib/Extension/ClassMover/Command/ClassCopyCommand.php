@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Command;
+namespace Phpactor\Extension\ClassMover\Command;
 
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassCopy;
+use Phpactor\Extension\ClassMover\Application\ClassCopy;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Phpactor\Extension\ClassMover\Command\Logger\SymfonyConsoleCopyLogger;
+use Phpactor\Extension\ClassMover\Command\Logger\SymfonyConsoleCopyLogger;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Phpactor\Extension\Core\Console\Prompt\Prompt;
+use Phpactor\Extension\Core\Console\Prompt\Prompt;
 use InvalidArgumentException;
 class ClassCopyCommand extends Command
 {
@@ -50,4 +50,3 @@ class ClassCopyCommand extends Command
         throw new InvalidArgumentException(\sprintf('Invalid type "%s", must be one of: "%s"', $type, \implode('", "', [self::TYPE_AUTO, self::TYPE_FILE, self::TYPE_CLASS])));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Command\\ClassCopyCommand', 'Phpactor\\Extension\\ClassMover\\Command\\ClassCopyCommand', \false);

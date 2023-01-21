@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * SQLSRV Extension Stub File.
  *
@@ -10,6 +7,7 @@ namespace Phpactor202301;
  * Documentation taken from {@link http://msdn.microsoft.com/en-us/library/ee229547(v=sql.10).aspx} on Mar 22, 2012.
  * Additional information from using Reflection.
  */
+
 /**
  * Errors generated on the last sqlsrv function call are returned.
  *
@@ -19,7 +17,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_ERR_ERRORS', 0);
+define('SQLSRV_ERR_ERRORS', 0);
+
 /**
  * Warnings generated on the last sqlsrv function call are returned.
  *
@@ -28,7 +27,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_ERR_WARNINGS', 1);
+define('SQLSRV_ERR_WARNINGS', 1);
+
 /**
  * Errors and warnings generated on the last sqlsrv function call are returned.
  *
@@ -39,7 +39,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_ERR_ALL', 2);
+define('SQLSRV_ERR_ALL', 2);
+
 /**
  * Turns on logging of all subsystems.
  *
@@ -48,7 +49,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SYSTEM_ALL', -1);
+define('SQLSRV_LOG_SYSTEM_ALL', -1);
+
 /**
  * Turns logging off.
  *
@@ -57,7 +59,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SYSTEM_OFF', 0);
+define('SQLSRV_LOG_SYSTEM_OFF', 0);
+
 /**
  * Turns on logging of initialization activity.
  *
@@ -66,7 +69,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SYSTEM_INIT', 1);
+define('SQLSRV_LOG_SYSTEM_INIT', 1);
+
 /**
  * Turns on logging of connection activity.
  *
@@ -75,7 +79,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SYSTEM_CONN', 2);
+define('SQLSRV_LOG_SYSTEM_CONN', 2);
+
 /**
  * Turns on logging of statement activity.
  *
@@ -84,7 +89,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SYSTEM_STMT', 4);
+define('SQLSRV_LOG_SYSTEM_STMT', 4);
+
 /**
  * Turns on logging of error functions activity (such as handle_error and handle_warning).
  *
@@ -94,7 +100,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SYSTEM_UTIL', 8);
+define('SQLSRV_LOG_SYSTEM_UTIL', 8);
+
 /**
  * Specifies that errors, warnings, and notices will be logged.
  *
@@ -103,7 +110,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SEVERITY_ALL', -1);
+define('SQLSRV_LOG_SEVERITY_ALL', -1);
+
 /**
  * Specifies that errors will be logged.
  *
@@ -112,7 +120,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SEVERITY_ERROR', 1);
+define('SQLSRV_LOG_SEVERITY_ERROR', 1);
+
 /**
  * Specifies that notices will be logged.
  *
@@ -121,7 +130,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SEVERITY_NOTICE', 4);
+define('SQLSRV_LOG_SEVERITY_NOTICE', 4);
+
 /**
  * Specifies that warnings will be logged.
  *
@@ -130,7 +140,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_LOG_SEVERITY_WARNING', 2);
+define('SQLSRV_LOG_SEVERITY_WARNING', 2);
+
 /**
  * Returns numerically indexed array.
  *
@@ -139,7 +150,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_FETCH_NUMERIC', 1);
+define('SQLSRV_FETCH_NUMERIC', 1);
+
 /**
  * Returns an associative array.
  *
@@ -148,7 +160,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_FETCH_ASSOC', 2);
+define('SQLSRV_FETCH_ASSOC', 2);
+
 /**
  * Returns both a numeric and associative array.
  *
@@ -161,7 +174,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_FETCH_BOTH', 3);
+define('SQLSRV_FETCH_BOTH', 3);
+
 /**
  * Null
  *
@@ -172,7 +186,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PHPTYPE_NULL', 1);
+define('SQLSRV_PHPTYPE_NULL', 1);
+
 /**
  * Integer
  *
@@ -183,7 +198,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PHPTYPE_INT', 2);
+define('SQLSRV_PHPTYPE_INT', 2);
+
 /**
  * Float
  *
@@ -194,7 +210,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PHPTYPE_FLOAT', 3);
+define('SQLSRV_PHPTYPE_FLOAT', 3);
+
 /**
  * Datetime
  *
@@ -205,7 +222,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PHPTYPE_DATETIME', 4);
+define('SQLSRV_PHPTYPE_DATETIME', 4);
+
 /**
  * Binary Encoding
  *
@@ -222,7 +240,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_ENC_BINARY', 'binary');
+define('SQLSRV_ENC_BINARY', 'binary');
+
 /**
  * Character Encoding
  *
@@ -243,7 +262,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_ENC_CHAR', 'char');
+define('SQLSRV_ENC_CHAR', 'char');
+
 /**
  * The column is not nullable.
  *
@@ -254,7 +274,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_NULLABLE_NO', 0);
+define('SQLSRV_NULLABLE_NO', 0);
+
 /**
  * The column is nullable.
  *
@@ -265,7 +286,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_NULLABLE_YES', 1);
+define('SQLSRV_NULLABLE_YES', 1);
+
 /**
  * It is not known if the column is nullable.
  *
@@ -276,7 +298,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_NULLABLE_UNKNOWN', 2);
+define('SQLSRV_NULLABLE_UNKNOWN', 2);
+
 /**
  * bigint.
  *
@@ -286,7 +309,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_BIGINT', -5);
+define('SQLSRV_SQLTYPE_BIGINT', -5);
 /**
  * bit.
  *
@@ -297,7 +320,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_BIT', -7);
+define('SQLSRV_SQLTYPE_BIT', -7);
 /**
  * char.
  *
@@ -307,7 +330,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_CHAR', 1);
+define('SQLSRV_SQLTYPE_CHAR', 1);
 /**
  * datetime.
  *
@@ -317,7 +340,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_DATETIME', 25177693);
+define('SQLSRV_SQLTYPE_DATETIME', 25177693);
 /**
  * decimal.
  *
@@ -327,7 +350,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_DECIMAL', 3);
+define('SQLSRV_SQLTYPE_DECIMAL', 3);
 /**
  * float.
  *
@@ -337,7 +360,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_FLOAT', 6);
+define('SQLSRV_SQLTYPE_FLOAT', 6);
 /**
  * image.
  *
@@ -347,7 +370,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_IMAGE', -4);
+define('SQLSRV_SQLTYPE_IMAGE', -4);
 /**
  * int.
  *
@@ -357,7 +380,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_INT', 4);
+define('SQLSRV_SQLTYPE_INT', 4);
 /**
  * money.
  *
@@ -367,7 +390,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_MONEY', 33564163);
+define('SQLSRV_SQLTYPE_MONEY', 33564163);
 /**
  * nchar.
  *
@@ -377,7 +400,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_NCHAR', -8);
+define('SQLSRV_SQLTYPE_NCHAR', -8);
 /**
  * ntext.
  *
@@ -387,7 +410,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_NTEXT', -10);
+define('SQLSRV_SQLTYPE_NTEXT', -10);
 /**
  * numeric.
  *
@@ -397,7 +420,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_NUMERIC', 2);
+define('SQLSRV_SQLTYPE_NUMERIC', 2);
 /**
  * nvarchar.
  *
@@ -407,7 +430,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_NVARCHAR', -9);
+define('SQLSRV_SQLTYPE_NVARCHAR', -9);
 /**
  * text.
  *
@@ -417,7 +440,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_TEXT', -1);
+define('SQLSRV_SQLTYPE_TEXT', -1);
 /**
  * real.
  *
@@ -427,7 +450,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_REAL', 7);
+define('SQLSRV_SQLTYPE_REAL', 7);
 /**
  * smalldatetime.
  *
@@ -437,7 +460,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_SMALLDATETIME', 8285);
+define('SQLSRV_SQLTYPE_SMALLDATETIME', 8285);
 /**
  * smallint.
  *
@@ -447,7 +470,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_SMALLINT', 5);
+define('SQLSRV_SQLTYPE_SMALLINT', 5);
 /**
  * smallmoney.
  *
@@ -457,7 +480,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_SMALLMONEY', 33559555);
+define('SQLSRV_SQLTYPE_SMALLMONEY', 33559555);
 /**
  * timestamp.
  *
@@ -467,7 +490,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_TIMESTAMP', 4606);
+define('SQLSRV_SQLTYPE_TIMESTAMP', 4606);
 /**
  * tinyint.
  *
@@ -477,7 +500,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_TINYINT', -6);
+define('SQLSRV_SQLTYPE_TINYINT', -6);
 /**
  * udt.
  *
@@ -487,7 +510,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_UDT', -151);
+define('SQLSRV_SQLTYPE_UDT', -151);
 /**
  * uniqueidentifier.
  *
@@ -497,7 +520,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_UNIQUEIDENTIFIER', -11);
+define('SQLSRV_SQLTYPE_UNIQUEIDENTIFIER', -11);
 /**
  * varbinary.
  *
@@ -507,7 +530,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_VARBINARY', -3);
+define('SQLSRV_SQLTYPE_VARBINARY', -3);
 /**
  * varchar.
  *
@@ -517,7 +540,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_VARCHAR', 12);
+define('SQLSRV_SQLTYPE_VARCHAR', 12);
 /**
  * xml.
  *
@@ -527,7 +550,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_XML', -152);
+define('SQLSRV_SQLTYPE_XML', -152);
 /**
  * date.
  *
@@ -537,7 +560,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_DATE', 5211);
+define('SQLSRV_SQLTYPE_DATE', 5211);
 /**
  * time.
  *
@@ -547,7 +570,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_TIME', 58728806);
+define('SQLSRV_SQLTYPE_TIME', 58728806);
 /**
  * datetimeoffset.
  *
@@ -557,7 +580,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_DATETIMEOFFSET', 58738021);
+define('SQLSRV_SQLTYPE_DATETIMEOFFSET', 58738021);
 /**
  * datetime2.
  *
@@ -567,7 +590,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SQLTYPE_DATETIME2', 58734173);
+define('SQLSRV_SQLTYPE_DATETIME2', 58734173);
+
 /**
  * Indicates an input parameter.
  *
@@ -577,7 +601,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PARAM_IN', 1);
+define('SQLSRV_PARAM_IN', 1);
+
 /**
  * Indicates a bidirectional parameter.
  *
@@ -587,7 +612,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PARAM_INOUT', 2);
+define('SQLSRV_PARAM_INOUT', 2);
+
 /**
  * Indicates an output parameter.
  *
@@ -597,7 +623,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_PARAM_OUT', 4);
+define('SQLSRV_PARAM_OUT', 4);
+
 /**
  * Read Uncommitted.
  *
@@ -617,7 +644,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_TXN_READ_UNCOMMITTED', 1);
+define('SQLSRV_TXN_READ_UNCOMMITTED', 1);
 /**
  * Read Committed.
  *
@@ -633,7 +660,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_TXN_READ_COMMITTED', 2);
+define('SQLSRV_TXN_READ_COMMITTED', 2);
 /**
  * Repeatable Read.
  *
@@ -656,7 +683,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_TXN_REPEATABLE_READ', 4);
+define('SQLSRV_TXN_REPEATABLE_READ', 4);
 /**
  * Serializable.
  *
@@ -681,7 +708,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_TXN_SERIALIZABLE', 8);
+define('SQLSRV_TXN_SERIALIZABLE', 8);
 /**
  * Snapshot.
  *
@@ -717,7 +744,8 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_TXN_SNAPSHOT', 32);
+define('SQLSRV_TXN_SNAPSHOT', 32);
+
 /**
  * Specifies the next row.
  *
@@ -736,7 +764,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SCROLL_NEXT', 1);
+define('SQLSRV_SCROLL_NEXT', 1);
 /**
  * Specifies the row before the current row.
  *
@@ -753,7 +781,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SCROLL_PRIOR', 4);
+define('SQLSRV_SCROLL_PRIOR', 4);
 /**
  * Specifies the first row in the result set.
  *
@@ -770,7 +798,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SCROLL_FIRST', 2);
+define('SQLSRV_SCROLL_FIRST', 2);
 /**
  * Specifies the last row in the result set.
  *
@@ -787,7 +815,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SCROLL_LAST', 3);
+define('SQLSRV_SCROLL_LAST', 3);
 /**
  * Specifies the row specified with the offset parameter.
  *
@@ -803,7 +831,7 @@ namespace Phpactor202301;
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SCROLL_ABSOLUTE', 5);
+define('SQLSRV_SCROLL_ABSOLUTE', 5);
 /**
  * Specifies the row specified with the offset parameter from the current row.
  *
@@ -820,7 +848,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_SCROLL_RELATIVE', 6);
+define('SQLSRV_SCROLL_RELATIVE', 6);
+
 /**
  * Lets you move one row at a time starting at the first row of the result set until you reach the end of
  * the result set.
@@ -838,7 +867,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_CURSOR_FORWARD', 'forward');
+define('SQLSRV_CURSOR_FORWARD', 'forward');
 /**
  * Lets you access rows in any order but will not reflect changes in the database.
  *
@@ -851,7 +880,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_CURSOR_STATIC', 'static');
+define('SQLSRV_CURSOR_STATIC', 'static');
 /**
  * Lets you access rows in any order and will reflect changes in the database.
  *
@@ -866,7 +895,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_CURSOR_DYNAMIC', 'dynamic');
+define('SQLSRV_CURSOR_DYNAMIC', 'dynamic');
 /**
  * Lets you access rows in any order.
  *
@@ -882,7 +911,7 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_CURSOR_KEYSET', 'keyset');
+define('SQLSRV_CURSOR_KEYSET', 'keyset');
 /**
  * Lets you access rows in any order.
  *
@@ -897,7 +926,8 @@ namespace Phpactor202301;
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
-\define('SQLSRV_CURSOR_CLIENT_BUFFERED', 'buffered');
+define('SQLSRV_CURSOR_CLIENT_BUFFERED', 'buffered');
+
 /**
  * Creates and opens a connection.
  *
@@ -929,9 +959,8 @@ namespace Phpactor202301;
  * See {@link http://msdn.microsoft.com/en-us/library/ff628167.aspx Connection Options} for a list of the supported keys for the array.
  * @return resource|false A PHP connection resource. If a connection cannot be successfully created and opened, false is returned.
  */
-function sqlsrv_connect($server_name, $connection_info = [])
-{
-}
+function sqlsrv_connect($server_name, $connection_info = []) {}
+
 /**
  * Closes a connection. Frees all resources associated with the connection.
  *
@@ -945,9 +974,8 @@ function sqlsrv_connect($server_name, $connection_info = [])
  * @param resource|null $conn The connection to be closed.
  * @return bool The Boolean value true unless the function is called with an invalid parameter. If the function is called with an invalid parameter, false is returned.
  */
-function sqlsrv_close($conn)
-{
-}
+function sqlsrv_close($conn) {}
+
 /**
  * Commits a transaction that was begun with sqlsrv_begin_transaction.
  *
@@ -967,9 +995,8 @@ function sqlsrv_close($conn)
  * @param resource $conn The connection on which the transaction is active.
  * @return bool A Boolean value: true if the transaction was successfully committed. Otherwise, false.
  */
-function sqlsrv_commit($conn)
-{
-}
+function sqlsrv_commit($conn) {}
+
 /**
  * Begins a database transaction.
  *
@@ -995,9 +1022,8 @@ function sqlsrv_commit($conn)
  * @param resource $conn The connection with which the transaction is associated.
  * @return bool A Boolean value: true if the transaction was successfully begun. Otherwise, false.
  */
-function sqlsrv_begin_transaction($conn)
-{
-}
+function sqlsrv_begin_transaction($conn) {}
+
 /**
  * Rolls back a transaction that was begun with {@see sqlsrv_begin_transaction}.
  *
@@ -1020,9 +1046,8 @@ function sqlsrv_begin_transaction($conn)
  * @param resource $conn The connection on which the transaction is active.
  * @return bool A Boolean value: true if the transaction was successfully rolled back. Otherwise, false.
  */
-function sqlsrv_rollback($conn)
-{
-}
+function sqlsrv_rollback($conn) {}
+
 /**
  * Returns error and/or warning information about the last operation.
  *
@@ -1074,9 +1099,8 @@ function sqlsrv_rollback($conn)
  *
  * If no errors or warnings occur, null is returned.<br />
  */
-function sqlsrv_errors($errorsAndOrWarnings = \SQLSRV_ERR_ALL)
-{
-}
+function sqlsrv_errors($errorsAndOrWarnings = SQLSRV_ERR_ALL) {}
+
 /**
  * Changes the driver error handling and logging configurations.
  *
@@ -1104,9 +1128,8 @@ function sqlsrv_errors($errorsAndOrWarnings = \SQLSRV_ERR_ALL)
  * <li>false (0)</li></ul>
  * @return bool If sqlsrv_configure is called with an unsupported setting or value, the function returns false. Otherwise, the function returns true.
  */
-function sqlsrv_configure($setting, $value)
-{
-}
+function sqlsrv_configure($setting, $value) {}
+
 /**
  * Returns the current value of the specified configuration setting.
  *
@@ -1120,9 +1143,8 @@ function sqlsrv_configure($setting, $value)
  * @param string $setting The configuration setting for which the value is returned.
  * @return mixed|false The value of the setting specified by the $setting parameter. If an invalid setting is specified, false is returned and an error is added to the error collection.
  */
-function sqlsrv_get_config($setting)
-{
-}
+function sqlsrv_get_config($setting) {}
+
 /**
  * Prepares a Transact-SQL query without executing it. Implicitly binds parameters.
  *
@@ -1188,9 +1210,8 @@ function sqlsrv_get_config($setting)
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
  * @return resource|false A statement resource. If the statement resource cannot be created, false is returned.
  */
-function sqlsrv_prepare($conn, $tsql, $params = [], $options = [])
-{
-}
+function sqlsrv_prepare($conn, $tsql, $params = [], $options = []) {}
+
 /**
  * Executes a statement prepared with {@see sqlsrv_prepare}
  *
@@ -1208,9 +1229,8 @@ function sqlsrv_prepare($conn, $tsql, $params = [], $options = [])
  * statement resource, see {@link sqlsrv_prepare() sqlsrv_prepare}.
  * @return bool A Boolean value: true if the statement was successfully executed. Otherwise, false.
  */
-function sqlsrv_execute($stmt)
-{
-}
+function sqlsrv_execute($stmt) {}
+
 /**
  * Prepares and executes a Transact-SQL query.
  *
@@ -1264,9 +1284,8 @@ function sqlsrv_execute($stmt)
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
  * @return resource|false A statement resource. If the statement cannot be created and/or executed, false is returned.
  */
-function sqlsrv_query($conn, $tsql, $params = [], $options = [])
-{
-}
+function sqlsrv_query($conn, $tsql, $params = [], $options = []) {}
+
 /**
  * Makes the next row in a result set available for reading.
  *
@@ -1290,9 +1309,8 @@ function sqlsrv_query($conn, $tsql, $params = [], $options = [])
  * @return bool|null If the next row of the result set was successfully retrieved, true is returned. If there are
  * no more results in the result set, null is returned. If an error occurred, false is returned.
  */
-function sqlsrv_fetch($stmt, $row = null, $offset = null)
-{
-}
+function sqlsrv_fetch($stmt, $row = null, $offset = null) {}
+
 /**
  * Retrieves a field in the current row by index. The PHP return type can be specified.
  *
@@ -1326,9 +1344,8 @@ function sqlsrv_fetch($stmt, $row = null, $offset = null)
  * information about specifying PHP data types,
  * see {@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.
  */
-function sqlsrv_get_field($stmt, $field_index, $get_as_type = null)
-{
-}
+function sqlsrv_get_field($stmt, $field_index, $get_as_type = null) {}
+
 /**
  * Retrieves the next row of data as a numerically indexed array, an associative array, or both.
  *
@@ -1375,9 +1392,8 @@ function sqlsrv_get_field($stmt, $field_index, $get_as_type = null)
  * retrieve. The first record in the result set is 0.
  * @return array|null|false If a row of data is retrieved, an array is returned. If there are no more rows to retrieve, null is returned. If an error occurs, false is returned.
  */
-function sqlsrv_fetch_array($stmt, $fetch_type = null, $row = null, $offset = null)
-{
-}
+function sqlsrv_fetch_array($stmt, $fetch_type = null, $row = null, $offset = null) {}
+
 /**
  * Retrieves the next row of data as an object.
  *
@@ -1409,9 +1425,8 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row = null, $offset = nu
  * The data type of a value in the returned object will be the default PHP data type. For information on default PHP data
  * types, see {@link http://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}.<br />
  */
-function sqlsrv_fetch_object($stmt, $class_name = null, $ctor_params = null, $row = null, $offset = null)
-{
-}
+function sqlsrv_fetch_object($stmt, $class_name = null, $ctor_params = null, $row = null, $offset = null) {}
+
 /**
  * Detects if a result set has one or more rows.
  *
@@ -1424,9 +1439,8 @@ function sqlsrv_fetch_object($stmt, $class_name = null, $ctor_params = null, $ro
  * @return bool If there are rows in the result set, the return value will be true. If there are no rows, or if the
  * function call fails, the return value will be false.
  */
-function sqlsrv_has_rows($stmt)
-{
-}
+function sqlsrv_has_rows($stmt) {}
+
 /**
  * Retrieves the number of fields (columns) on a statemen.
  *
@@ -1441,9 +1455,8 @@ function sqlsrv_has_rows($stmt)
  * @return int|false An integer value that represents the number of fields in the active result set. If an error occurs,
  * the Boolean value false is returned.
  */
-function sqlsrv_num_fields($stmt)
-{
-}
+function sqlsrv_num_fields($stmt) {}
+
 /**
  * Makes the next result of the specified statement active.
  *
@@ -1460,9 +1473,8 @@ function sqlsrv_num_fields($stmt)
  * @return bool|null If the next result was successfully made active, the Boolean value true is returned. If an error occurred in
  * making the next result active, false is returned. If no more results are available, null is returned.
  */
-function sqlsrv_next_result($stmt)
-{
-}
+function sqlsrv_next_result($stmt) {}
+
 /**
  * Retrieves the number of rows in a result set.
  *
@@ -1478,9 +1490,8 @@ function sqlsrv_next_result($stmt)
  * @param resource $stmt The result set for which to count the rows.
  * @return int|false False if there was an error calculating the number of rows. Otherwise, returns the number of rows in the result set.
  */
-function sqlsrv_num_rows($stmt)
-{
-}
+function sqlsrv_num_rows($stmt) {}
+
 /**
  * Returns the number of modified rows.
  *
@@ -1495,9 +1506,8 @@ function sqlsrv_num_rows($stmt)
  * modified, zero (0) is returned. If no information about the number of modified rows is available, negative one (-1)
  * is returned. If an error occurred in retrieving the number of modified rows, false is returned.
  */
-function sqlsrv_rows_affected($stmt)
-{
-}
+function sqlsrv_rows_affected($stmt) {}
+
 /**
  * Provides information about the client.
  *
@@ -1514,9 +1524,8 @@ function sqlsrv_rows_affected($stmt)
  * <li>DriverVer - SQL Server Native Client DLL version: 10.50.xxx (Microsoft Drivers for PHP for SQL Server version 2.0)</li>
  * <li>ExtensionVer - php_sqlsrv.dll version: 2.0.xxxx.x(Microsoft Drivers for PHP for SQL Server version 2.0)</li></ul>
  */
-function sqlsrv_client_info($conn)
-{
-}
+function sqlsrv_client_info($conn) {}
+
 /**
  * Returns information about the server.
  *
@@ -1531,9 +1540,8 @@ function sqlsrv_client_info($conn)
  * <li>SQLServerVersion - The version of SQL Server.</li>
  * <li>SQLServerName - The name of the server.</li></ul>
  */
-function sqlsrv_server_info($conn)
-{
-}
+function sqlsrv_server_info($conn) {}
+
 /**
  * Cancels a statement; discards any pending results for the statement.
  *
@@ -1552,9 +1560,8 @@ function sqlsrv_server_info($conn)
  * @param resource $stmt The statement to be canceled.
  * @return bool A Boolean value: true if the operation was successful. Otherwise, false.
  */
-function sqlsrv_cancel($stmt)
-{
-}
+function sqlsrv_cancel($stmt) {}
+
 /**
  * Closes a statement. Frees all resources associated with the statement.
  *
@@ -1574,9 +1581,8 @@ function sqlsrv_cancel($stmt)
  * @return bool The Boolean value true unless the function is called with an invalid parameter. If the function is
  * called with an invalid parameter, false is returned.
  */
-function sqlsrv_free_stmt($stmt)
-{
-}
+function sqlsrv_free_stmt($stmt) {}
+
 /**
  * Returns field metadata.
  *
@@ -1606,9 +1612,8 @@ function sqlsrv_free_stmt($stmt)
  * See the {@link http://msdn.microsoft.com/en-us/library/cc296197.aspx function documentation} for more information on
  * the keys for each sub-array.
  */
-function sqlsrv_field_metadata($stmt)
-{
-}
+function sqlsrv_field_metadata($stmt) {}
+
 /**
  * Sends up to eight kilobytes (8 KB) of data to the server with each call to the function.
  *
@@ -1626,9 +1631,8 @@ function sqlsrv_field_metadata($stmt)
  * @param resource $stmt A statement resource corresponding to an executed statement.
  * @return bool Boolean : true if there is more data to be sent. Otherwise, false.
  */
-function sqlsrv_send_stream_data($stmt)
-{
-}
+function sqlsrv_send_stream_data($stmt) {}
+
 /**
  * Specifies the encoding of a stream of data from the server.
  *
@@ -1656,9 +1660,8 @@ function sqlsrv_send_stream_data($stmt)
  * @return int Value to use in any place that accepts a SQLSRV_PHPTYPE_* constant to represent a PHP stream with the
  * given encoding.
  */
-function SQLSRV_PHPTYPE_STREAM($encoding)
-{
-}
+function SQLSRV_PHPTYPE_STREAM($encoding) {}
+
 /**
  * Specifies the encoding of a string being received form the server.
  *
@@ -1686,9 +1689,8 @@ function SQLSRV_PHPTYPE_STREAM($encoding)
  * @return int Value to use in any place that accepts a SQLSRV_PHPTYPE_* constant to represent a PHP string with the
  * given encoding.
  */
-function SQLSRV_PHPTYPE_STRING($encoding)
-{
-}
+function SQLSRV_PHPTYPE_STRING($encoding) {}
+
 /**
  * Specifies a SQL Server binary field.
  *
@@ -1700,9 +1702,8 @@ function SQLSRV_PHPTYPE_STRING($encoding)
  * @param int $byteCount Must be between 1 and 8000.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the 'binary' data type.
  */
-function SQLSRV_SQLTYPE_BINARY($byteCount)
-{
-}
+function SQLSRV_SQLTYPE_BINARY($byteCount) {}
+
 /**
  * Specifies a SQL Server varbinary field.
  *
@@ -1714,9 +1715,8 @@ function SQLSRV_SQLTYPE_BINARY($byteCount)
  * @param int|string $byteCount Must be between 1 and 8000 or 'max'.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the varbinary data type.
  */
-function SQLSRV_SQLTYPE_VARBINARY($byteCount)
-{
-}
+function SQLSRV_SQLTYPE_VARBINARY($byteCount) {}
+
 /**
  * Specifies a SQL Server varchar filed.
  *
@@ -1730,9 +1730,8 @@ function SQLSRV_SQLTYPE_VARBINARY($byteCount)
  *
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the varchar data type.
  */
-function SQLSRV_SQLTYPE_VARCHAR($charCount)
-{
-}
+function SQLSRV_SQLTYPE_VARCHAR($charCount) {}
+
 /**
  * Specifies a SQL Server char field.
  *
@@ -1744,9 +1743,8 @@ function SQLSRV_SQLTYPE_VARCHAR($charCount)
  * @param int $charCount Must be between 1 and 8000.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the char data type.
  */
-function SQLSRV_SQLTYPE_CHAR($charCount)
-{
-}
+function SQLSRV_SQLTYPE_CHAR($charCount) {}
+
 /**
  * Specifies a SQL Server nchar field.
  *
@@ -1758,9 +1756,8 @@ function SQLSRV_SQLTYPE_CHAR($charCount)
  * @param int $charCount Must be between 1 and 4000.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the nchar data type.
  */
-function SQLSRV_SQLTYPE_NCHAR($charCount)
-{
-}
+function SQLSRV_SQLTYPE_NCHAR($charCount) {}
+
 /**
  * Specifies a SQL Server nvarchar field.
  *
@@ -1772,9 +1769,8 @@ function SQLSRV_SQLTYPE_NCHAR($charCount)
  * @param int|string $charCount Must be between 1 and 4000 or 'max'.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the nvarchar data type.
  */
-function SQLSRV_SQLTYPE_NVARCHAR($charCount)
-{
-}
+function SQLSRV_SQLTYPE_NVARCHAR($charCount) {}
+
 /**
  * Specifies a SQL Server decimal field.
  *
@@ -1787,9 +1783,8 @@ function SQLSRV_SQLTYPE_NVARCHAR($charCount)
  * @param int $scale Must be between 1 and $precision.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the decimal data type.
  */
-function SQLSRV_SQLTYPE_DECIMAL($precision, $scale)
-{
-}
+function SQLSRV_SQLTYPE_DECIMAL($precision, $scale) {}
+
 /**
  * Specifies a SQL Server numeric field.
  *
@@ -1802,6 +1797,4 @@ function SQLSRV_SQLTYPE_DECIMAL($precision, $scale)
  * @param int $scale Must be between 1 and $precision.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the numeric data type.
  */
-function SQLSRV_SQLTYPE_NUMERIC($precision, $scale)
-{
-}
+function SQLSRV_SQLTYPE_NUMERIC($precision, $scale) {}

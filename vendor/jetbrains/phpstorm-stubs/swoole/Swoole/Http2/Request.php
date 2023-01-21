@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Http2;
+declare(strict_types=1);
+
+namespace Swoole\Http2;
 
 class Request
 {
@@ -10,5 +11,5 @@ class Request
     public $headers;
     public $cookies;
     public $data = '';
-    public $pipeline = \false;
+    public $pipeline = false;
 }

@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc;
+namespace Phpactor\Extension\Rpc;
 
 interface HandlerRegistry
 {
-    public function get($handlerName) : Handler;
+    public function get($handlerName) : \Phpactor\Extension\Rpc\Handler;
     /** @return array<Handler> */
     public function all() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\HandlerRegistry', 'Phpactor\\Extension\\Rpc\\HandlerRegistry', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SemException;
+use Safe\Exceptions\SemException;
+
 /**
  * Checks whether the message queue key exists.
  *
@@ -10,14 +11,16 @@ use Phpactor202301\Safe\Exceptions\SemException;
  * @throws SemException
  *
  */
-function msg_queue_exists(int $key) : void
+function msg_queue_exists(int $key): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \msg_queue_exists($key);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * msg_receive will receive the first message from the
  * specified queue of the type specified by
@@ -89,14 +92,16 @@ function msg_queue_exists(int $key) : void
  * @throws SemException
  *
  */
-function msg_receive($queue, int $desiredmsgtype, ?int &$msgtype, int $maxsize, &$message, bool $unserialize = \true, int $flags = 0, ?int &$errorcode = null) : void
+function msg_receive($queue, int $desiredmsgtype, ?int &$msgtype, int $maxsize, &$message, bool $unserialize = true, int $flags = 0, ?int &$errorcode = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \msg_receive($queue, $desiredmsgtype, $msgtype, $maxsize, $message, $unserialize, $flags, $errorcode);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * msg_remove_queue destroys the message queue specified
  * by the queue.  Only use this function when all
@@ -107,14 +112,16 @@ function msg_receive($queue, int $desiredmsgtype, ?int &$msgtype, int $maxsize, 
  * @throws SemException
  *
  */
-function msg_remove_queue($queue) : void
+function msg_remove_queue($queue): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \msg_remove_queue($queue);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * msg_send sends a message of type
  * msgtype (which MUST be greater than 0) to
@@ -148,14 +155,16 @@ function msg_remove_queue($queue) : void
  * @throws SemException
  *
  */
-function msg_send($queue, int $msgtype, $message, bool $serialize = \true, bool $blocking = \true, ?int &$errorcode = null) : void
+function msg_send($queue, int $msgtype, $message, bool $serialize = true, bool $blocking = true, ?int &$errorcode = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \msg_send($queue, $msgtype, $message, $serialize, $blocking, $errorcode);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * msg_set_queue allows you to change the values of the
  * msg_perm.uid, msg_perm.gid, msg_perm.mode and msg_qbytes fields of the
@@ -173,14 +182,16 @@ function msg_send($queue, int $msgtype, $message, bool $serialize = \true, bool 
  * @throws SemException
  *
  */
-function msg_set_queue($queue, array $data) : void
+function msg_set_queue($queue, array $data): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \msg_set_queue($queue, $data);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * sem_acquire by default blocks (if necessary) until the
  * semaphore can be acquired.  A process attempting to acquire a semaphore which
@@ -200,14 +211,16 @@ function msg_set_queue($queue, array $data) : void
  * @throws SemException
  *
  */
-function sem_acquire($sem_identifier, bool $nowait = \false) : void
+function sem_acquire($sem_identifier, bool $nowait = false): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sem_acquire($sem_identifier, $nowait);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * sem_get returns an id that can be used to
  * access the System V semaphore with the given key.
@@ -233,13 +246,15 @@ function sem_acquire($sem_identifier, bool $nowait = \false) : void
  */
 function sem_get(int $key, int $max_acquire = 1, int $perm = 0666, int $auto_release = 1)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sem_get($key, $max_acquire, $perm, $auto_release);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * sem_release releases the semaphore if it
  * is currently acquired by the calling process, otherwise
@@ -253,14 +268,16 @@ function sem_get(int $key, int $max_acquire = 1, int $perm = 0666, int $auto_rel
  * @throws SemException
  *
  */
-function sem_release($sem_identifier) : void
+function sem_release($sem_identifier): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sem_release($sem_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * sem_remove removes the given semaphore.
  *
@@ -271,14 +288,16 @@ function sem_release($sem_identifier) : void
  * @throws SemException
  *
  */
-function sem_remove($sem_identifier) : void
+function sem_remove($sem_identifier): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sem_remove($sem_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * shm_put_var inserts or updates the
  * variable with the given
@@ -299,14 +318,16 @@ function sem_remove($sem_identifier) : void
  * @throws SemException
  *
  */
-function shm_put_var($shm_identifier, int $variable_key, $variable) : void
+function shm_put_var($shm_identifier, int $variable_key, $variable): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shm_put_var($shm_identifier, $variable_key, $variable);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * Removes a variable with a given variable_key
  * and frees the occupied memory.
@@ -317,14 +338,16 @@ function shm_put_var($shm_identifier, int $variable_key, $variable) : void
  * @throws SemException
  *
  */
-function shm_remove_var($shm_identifier, int $variable_key) : void
+function shm_remove_var($shm_identifier, int $variable_key): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shm_remove_var($shm_identifier, $variable_key);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }
+
+
 /**
  * shm_remove removes the shared memory
  * shm_identifier. All data will be destroyed.
@@ -334,11 +357,11 @@ function shm_remove_var($shm_identifier, int $variable_key) : void
  * @throws SemException
  *
  */
-function shm_remove($shm_identifier) : void
+function shm_remove($shm_identifier): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shm_remove($shm_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw SemException::createFromPhpError();
     }
 }

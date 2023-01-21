@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\Refactor;
+namespace Phpactor\CodeTransform\Domain\Refactor;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextEdits;
 interface ImportName
 {
     public function importName(SourceCode $source, ByteOffset $offset, NameImport $nameImport) : TextEdits;
@@ -14,4 +14,3 @@ interface ImportName
      */
     public function importNameOnly(SourceCode $source, ByteOffset $offset, NameImport $nameImport) : TextEdits;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Refactor\\ImportName', 'Phpactor\\CodeTransform\\Domain\\Refactor\\ImportName', \false);

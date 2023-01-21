@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -97,7 +97,3 @@ class Registration
         throw $lastException;
     }
 }
-/**
- * General parameters to to register for an notification or to register a provider.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\Registration', 'Phpactor\\LanguageServerProtocol\\Registration', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Service;
+namespace Phpactor\LanguageServer\Core\Service;
 
 use ArrayIterator;
 use IteratorAggregate;
 use Countable;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\Exception\UnknownService;
+use Phpactor\LanguageServer\Core\Service\Exception\UnknownService;
 use Traversable;
 /**
  * @implements IteratorAggregate<ServiceProvider>
@@ -16,7 +16,7 @@ final class ServiceProviders implements Countable, IteratorAggregate
      * @var array<string,ServiceProvider>
      */
     private $services = [];
-    public function __construct(ServiceProvider ...$serviceProviders)
+    public function __construct(\Phpactor\LanguageServer\Core\Service\ServiceProvider ...$serviceProviders)
     {
         foreach ($serviceProviders as $serviceProvider) {
             foreach ($serviceProvider->services() as $methodName) {
@@ -42,7 +42,7 @@ final class ServiceProviders implements Countable, IteratorAggregate
     {
         return \array_keys($this->services);
     }
-    public function get(string $serviceName) : ServiceProvider
+    public function get(string $serviceName) : \Phpactor\LanguageServer\Core\Service\ServiceProvider
     {
         $this->assertExists($serviceName);
         return $this->services[$serviceName];
@@ -54,7 +54,3 @@ final class ServiceProviders implements Countable, IteratorAggregate
         }
     }
 }
-/**
- * @implements IteratorAggregate<ServiceProvider>
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Service\\ServiceProviders', 'Phpactor\\LanguageServer\\Core\\Service\\ServiceProviders', \false);

@@ -1,19 +1,21 @@
 <?php
 
-namespace Phpactor202301;
+/**
+ * @since 5.6
+ */
+
+use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
+
+define("ARRAY_FILTER_USE_BOTH", 1);
 
 /**
  * @since 5.6
  */
-use Phpactor202301\JetBrains\PhpStorm\ExpectedValues;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
-\define("ARRAY_FILTER_USE_BOTH", 1);
-/**
- * @since 5.6
- */
-\define("ARRAY_FILTER_USE_KEY", 2);
+define("ARRAY_FILTER_USE_KEY", 2);
+
 /**
  * Merge two or more arrays recursively
  * @link https://php.net/manual/en/function.array-merge-recursive.php
@@ -21,9 +23,12 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * @return array An array of values resulted from merging the arguments together.
  */
 #[Pure]
-function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $arrays, array ...$arrays) : array
-{
-}
+function array_merge_recursive(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] array $arr1,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] array $arrays,
+    array ...$arrays
+): array {}
+
 /**
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
  * If a key from the first array exists in the second array, its value will be replaced by the value from the second array.
@@ -41,9 +46,12 @@ function array_merge_recursive(#[PhpStormStubsElementAvailable(from: '5.3', to: 
  * @return array or null if an error occurs.
  */
 #[Pure]
-function array_replace(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements, array ...$replacements) : array
-{
-}
+function array_replace(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
+    array ...$replacements
+): array {}
+
 /**
  * Replaces elements from passed arrays into the first array recursively
  * @link https://php.net/manual/en/function.array-replace-recursive.php
@@ -56,9 +64,12 @@ function array_replace(array $array, #[PhpStormStubsElementAvailable(from: '5.3'
  * @return array an array, or null if an error occurs.
  */
 #[Pure]
-function array_replace_recursive(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements, array ...$replacements) : array
-{
-}
+function array_replace_recursive(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $replacements,
+    array ...$replacements
+): array {}
+
 /**
  * Return all the keys or a subset of the keys of an array
  * @link https://php.net/manual/en/function.array-keys.php
@@ -74,9 +85,8 @@ function array_replace_recursive(array $array, #[PhpStormStubsElementAvailable(f
  * @return int[]|string[] an array of all the keys in input.
  */
 #[Pure]
-function array_keys(array $array, mixed $filter_value, bool $strict = \false) : array
-{
-}
+function array_keys(array $array, mixed $filter_value, bool $strict = false): array {}
+
 /**
  * Return all the values of an array
  * @link https://php.net/manual/en/function.array-values.php
@@ -87,9 +97,8 @@ function array_keys(array $array, mixed $filter_value, bool $strict = \false) : 
  * @meta
  */
 #[Pure]
-function array_values(array $array) : array
-{
-}
+function array_values(array $array): array {}
+
 /**
  * Counts all the values of an array
  * @link https://php.net/manual/en/function.array-count-values.php
@@ -100,9 +109,8 @@ function array_values(array $array) : array
  * keys and their count as value.
  */
 #[Pure]
-function array_count_values(array $array) : array
-{
-}
+function array_count_values(array $array): array {}
+
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Return the values from a single column in the input array
@@ -114,9 +122,8 @@ function array_count_values(array $array) : array
  * @since 5.5
  */
 #[Pure]
-function array_column(array $array, string|int|null $column_key, string|int|null $index_key = null) : array
-{
-}
+function array_column(array $array, string|int|null $column_key, string|int|null $index_key = null): array {}
+
 /**
  * Return an array with elements in reverse order
  * @link https://php.net/manual/en/function.array-reverse.php
@@ -130,9 +137,8 @@ function array_column(array $array, string|int|null $column_key, string|int|null
  * @meta
  */
 #[Pure]
-function array_reverse(array $array, bool $preserve_keys = \false) : array
-{
-}
+function array_reverse(array $array, bool $preserve_keys = false): array {}
+
 /**
  * Iteratively reduce the array to a single value using a callback function
  * @link https://php.net/manual/en/function.array-reduce.php
@@ -163,9 +169,8 @@ function array_reverse(array $array, bool $preserve_keys = \false) : array
  * </p>
  * @meta
  */
-function array_reduce(array $array, callable $callback, mixed $initial = null) : mixed
-{
-}
+function array_reduce(array $array, callable $callback, mixed $initial = null): mixed {}
+
 /**
  * Pad array to the specified length with a value
  * @link https://php.net/manual/en/function.array-pad.php
@@ -187,9 +192,8 @@ function array_reduce(array $array, callable $callback, mixed $initial = null) :
  * the length of the input then no padding takes place.
  */
 #[Pure]
-function array_pad(array $array, int $length, mixed $value) : array
-{
-}
+function array_pad(array $array, int $length, mixed $value): array {}
+
 /**
  * Exchanges all keys with their associated values in an array
  * @link https://php.net/manual/en/function.array-flip.php
@@ -199,9 +203,8 @@ function array_pad(array $array, int $length, mixed $value) : array
  * @return int[]|string[] Returns the flipped array.
  */
 #[Pure]
-function array_flip(array $array) : array
-{
-}
+function array_flip(array $array): array {}
+
 /**
  * Changes the case of all keys in an array
  * @link https://php.net/manual/en/function.array-change-key-case.php
@@ -216,9 +219,8 @@ function array_flip(array $array) : array
  * @meta
  */
 #[Pure]
-function array_change_key_case(array $array, int $case = \CASE_LOWER) : array
-{
-}
+function array_change_key_case(array $array, int $case = CASE_LOWER): array {}
+
 /**
  * Pick one or more random keys out of an array
  * @link https://php.net/manual/en/function.array-rand.php
@@ -233,9 +235,8 @@ function array_change_key_case(array $array, int $case = \CASE_LOWER) : array
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
  */
-function array_rand(array $array, int $num = 1) : array|string|int
-{
-}
+function array_rand(array $array, int $num = 1): array|string|int {}
+
 /**
  * Removes duplicate values from an array
  * @link https://php.net/manual/en/function.array-unique.php
@@ -268,9 +269,8 @@ function array_rand(array $array, int $num = 1) : array|string|int
  * @meta
  */
 #[Pure]
-function array_unique(array $array, int $flags = \SORT_STRING) : array
-{
-}
+function array_unique(array $array, int $flags = SORT_STRING): array {}
+
 /**
  * Computes the intersection of arrays
  * @link https://php.net/manual/en/function.array-intersect.php
@@ -283,9 +283,8 @@ function array_unique(array $array, int $flags = \SORT_STRING) : array
  * @meta
  */
 #[Pure]
-function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+
 /**
  * Computes the intersection of arrays using keys for comparison
  * @link https://php.net/manual/en/function.array-intersect-key.php
@@ -299,9 +298,8 @@ function array_intersect(array $array, #[PhpStormStubsElementAvailable(from: '5.
  * @meta
  */
 #[Pure]
-function array_intersect_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_intersect_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
  * @link https://php.net/manual/en/function.array-intersect-ukey.php
@@ -319,9 +317,13 @@ function array_intersect_key(array $array, #[PhpStormStubsElementAvailable(from:
  * in all the arguments.
  * @meta
  */
-function array_intersect_ukey(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_intersect_ukey(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
+
 /**
  * Computes the intersection of arrays, compares data by a callback function
  * @link https://php.net/manual/en/function.array-uintersect.php
@@ -345,9 +347,13 @@ function array_intersect_ukey(array $array, #[PhpStormStubsElementAvailable(from
  * that are present in all the arguments.
  * @meta
  */
-function array_uintersect(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_uintersect(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
+
 /**
  * Computes the intersection of arrays with additional index check
  * @link https://php.net/manual/en/function.array-intersect-assoc.php
@@ -360,9 +366,8 @@ function array_uintersect(array $array, #[PhpStormStubsElementAvailable(from: '5
  * @meta
  */
 #[Pure]
-function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+
 /**
  * Computes the intersection of arrays with additional index check, compares data by a callback function
  * @link https://php.net/manual/en/function.array-uintersect-assoc.php
@@ -384,9 +389,13 @@ function array_intersect_assoc(array $array, #[PhpStormStubsElementAvailable(fro
  * array1 that are present in all the arguments.
  * @meta
  */
-function array_uintersect_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_uintersect_assoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
+
 /**
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
  * @link https://php.net/manual/en/function.array-intersect-uassoc.php
@@ -404,9 +413,13 @@ function array_uintersect_assoc(array $array, #[PhpStormStubsElementAvailable(fr
  * in all of the arguments.
  * @meta
  */
-function array_intersect_uassoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_intersect_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
+
 /**
  * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
  * @link https://php.net/manual/en/function.array-uintersect-uassoc.php
@@ -432,9 +445,14 @@ function array_intersect_uassoc(array $array, #[PhpStormStubsElementAvailable(fr
  * @meta
  */
 #[Pure]
-function array_uintersect_uassoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_uintersect_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
+
 /**
  * Computes the difference of arrays
  * @link https://php.net/manual/en/function.array-diff.php
@@ -447,9 +465,8 @@ function array_uintersect_uassoc(array $array, #[PhpStormStubsElementAvailable(f
  * @meta
  */
 #[Pure]
-function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+
 /**
  * Computes the difference of arrays using keys for comparison
  * @link https://php.net/manual/en/function.array-diff-key.php
@@ -465,9 +482,8 @@ function array_diff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', t
  * @meta
  */
 #[Pure]
-function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays): array {}
+
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
  * @link https://php.net/manual/en/function.array-diff-ukey.php
@@ -488,9 +504,13 @@ function array_diff_key(array $array, #[PhpStormStubsElementAvailable(from: '5.3
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_ukey(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_diff_ukey(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
+
 /**
  * Computes the difference of arrays by using a callback function for data comparison
  * @link https://php.net/manual/en/function.array-udiff.php
@@ -514,9 +534,13 @@ function array_diff_ukey(array $array, #[PhpStormStubsElementAvailable(from: '5.
  * that are not present in any of the other arguments.
  * @meta
  */
-function array_udiff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_udiff(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
+
 /**
  * Computes the difference of arrays with additional index check
  * @link https://php.net/manual/en/function.array-diff-assoc.php
@@ -531,9 +555,12 @@ function array_udiff(array $array, #[PhpStormStubsElementAvailable(from: '5.3', 
  * @meta
  */
 #[Pure]
-function array_diff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_diff_assoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
+
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
  * @link https://php.net/manual/en/function.array-udiff-assoc.php
@@ -564,9 +591,13 @@ function array_diff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5
  * comparison.
  * @meta
  */
-function array_udiff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_udiff_assoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
+
 /**
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
  * @link https://php.net/manual/en/function.array-diff-uassoc.php
@@ -587,9 +618,13 @@ function array_udiff_assoc(array $array, #[PhpStormStubsElementAvailable(from: '
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_uassoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_diff_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest,
+): array {}
+
 /**
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
  * @link https://php.net/manual/en/function.array-udiff-uassoc.php
@@ -627,9 +662,14 @@ function array_diff_uassoc(array $array, #[PhpStormStubsElementAvailable(from: '
  * arguments.
  * @meta
  */
-function array_udiff_uassoc(array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func, #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest) : array
-{
-}
+function array_udiff_uassoc(
+    array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] array $array2,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $data_compare_func,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] callable $key_compare_func,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ...$rest
+): array {}
+
 /**
  * Calculate the sum of values in an array
  * @link https://php.net/manual/en/function.array-sum.php
@@ -639,9 +679,8 @@ function array_udiff_uassoc(array $array, #[PhpStormStubsElementAvailable(from: 
  * @return int|float the sum of values as an integer or float.
  */
 #[Pure]
-function array_sum(array $array) : int|float
-{
-}
+function array_sum(array $array): int|float {}
+
 /**
  * Calculate the product of values in an array
  * @link https://php.net/manual/en/function.array-product.php
@@ -651,9 +690,8 @@ function array_sum(array $array) : int|float
  * @return int|float the product as an integer or float.
  */
 #[Pure]
-function array_product(array $array) : int|float
-{
-}
+function array_product(array $array): int|float {}
+
 /**
  * Iterates over each value in the <b>array</b>
  * passing them to the <b>callback</b> function.
@@ -688,9 +726,8 @@ function array_product(array $array) : int|float
  * @return array the filtered array.
  * @meta
  */
-function array_filter(array $array, ?callable $callback, int $mode = 0) : array
-{
-}
+function array_filter(array $array, ?callable $callback, int $mode = 0): array {}
+
 /**
  * Applies the callback to the elements of the given arrays
  * @link https://php.net/manual/en/function.array-map.php
@@ -705,9 +742,13 @@ function array_filter(array $array, ?callable $callback, int $mode = 0) : array
  * after applying the callback function to each one.
  * @meta
  */
-function array_map(?callable $callback, #[PhpStormStubsElementAvailable(from: '8.0')] array $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays, array ...$arrays) : array
-{
-}
+function array_map(
+    ?callable $callback,
+    #[PhpStormStubsElementAvailable(from: '8.0')] array $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $arrays,
+    array ...$arrays
+): array {}
+
 /**
  * Split an array into chunks
  * @link https://php.net/manual/en/function.array-chunk.php
@@ -725,9 +766,8 @@ function array_map(?callable $callback, #[PhpStormStubsElementAvailable(from: '8
  * with each dimension containing size elements.
  */
 #[Pure]
-function array_chunk(array $array, int $length, bool $preserve_keys = \false) : array
-{
-}
+function array_chunk(array $array, int $length, bool $preserve_keys = false): array {}
+
 /**
  * Creates an array by using one array for keys and another for its values
  * @link https://php.net/manual/en/function.array-combine.php
@@ -744,9 +784,8 @@ function array_chunk(array $array, int $length, bool $preserve_keys = \false) : 
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function array_combine(array $keys, array $values)
-{
-}
+function array_combine(array $keys, array $values) {}
+
 /**
  * Checks if the given key or index exists in the array
  * @link https://php.net/manual/en/function.array-key-exists.php
@@ -759,9 +798,8 @@ function array_combine(array $keys, array $values)
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function array_key_exists($key, #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|ArrayObject")] $array) : bool
-{
-}
+function array_key_exists($key, #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|ArrayObject")] $array): bool {}
+
 /**
  * Gets the first key of an array
  *
@@ -773,9 +811,8 @@ function array_key_exists($key, #[LanguageLevelTypeAware(["8.0" => "array"], def
  * @since 7.3
  */
 #[Pure]
-function array_key_first(array $array) : string|int|null
-{
-}
+function array_key_first(array $array): string|int|null {}
+
 /**
  * Gets the last key of an array
  *
@@ -787,9 +824,8 @@ function array_key_first(array $array) : string|int|null
  * @since 7.3
  */
 #[Pure]
-function array_key_last(array $array) : string|int|null
-{
-}
+function array_key_last(array $array): string|int|null {}
+
 /**
  * @link https://secure.php.net/array_is_list
  * @param array $array An array
@@ -798,9 +834,8 @@ function array_key_last(array $array) : string|int|null
  * @since 8.1
  */
 #[Pure]
-function array_is_list(array $array) : bool
-{
-}
+function array_is_list(array $array): bool {}
+
 /**
  * Alias:
  * {@see current}
@@ -809,9 +844,8 @@ function array_is_list(array $array) : bool
  * @return mixed
  */
 #[Pure]
-function pos(object|array $array) : mixed
-{
-}
+function pos(object|array $array): mixed {}
+
 /**
  * Alias:
  * {@see \count}
@@ -821,9 +855,8 @@ function pos(object|array $array) : mixed
  * @return int<0, max>
  */
 #[Pure]
-function sizeof(\Countable|array $value, int $mode = \COUNT_NORMAL) : int
-{
-}
+function sizeof(Countable|array $value, int $mode = COUNT_NORMAL): int {}
+
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
  * @link https://php.net/manual/en/function.array-key-exists.php
@@ -836,9 +869,8 @@ function sizeof(\Countable|array $value, int $mode = \COUNT_NORMAL) : int
  * @return bool true on success or false on failure.
  */
 #[Pure]
-function key_exists($key, array $array) : bool
-{
-}
+function key_exists($key, array $array): bool {}
+
 /**
  * Checks if assertion is <b>FALSE</b>
  * @link https://php.net/manual/en/function.assert.php
@@ -853,23 +885,18 @@ function key_exists($key, array $array) : bool
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
  * @return bool false if the assertion is false, true otherwise.
  */
-function assert(mixed $assertion, #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['7.0' => 'Throwable|string|null'], default: 'string')] $description = null) : bool
-{
-}
+function assert(
+    mixed $assertion,
+    #[PhpStormStubsElementAvailable(from: '7.0')] #[LanguageLevelTypeAware(['7.0' => 'Throwable|string|null'], default: 'string')] $description = null
+): bool {}
+
 /**
  * AssertionError is thrown when an assertion made via {@see assert()} fails.
  * @link https://php.net/manual/en/class.assertionerror.php
  * @since 7.0
  */
-class AssertionError extends \Error
-{
-}
-/**
- * AssertionError is thrown when an assertion made via {@see assert()} fails.
- * @link https://php.net/manual/en/class.assertionerror.php
- * @since 7.0
- */
-\class_alias('Phpactor202301\\AssertionError', 'AssertionError', \false);
+class AssertionError extends Error {}
+
 /**
  * Set/get the various assert flags
  * @link https://php.net/manual/en/function.assert-options.php
@@ -922,9 +949,8 @@ class AssertionError extends \Error
  * </p>
  * @return mixed The original setting of any option.
  */
-function assert_options(int $option, mixed $value) : mixed
-{
-}
+function assert_options(int $option, mixed $value): mixed {}
+
 /**
  * Compares two "PHP-standardized" version number strings
  * @link https://php.net/manual/en/function.version-compare.php
@@ -959,10 +985,28 @@ function assert_options(int $option, mixed $value) : mixed
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
  */
-#[ExpectedValues([-1, 0, 1, \false, \true])]
-function version_compare(string $version1, string $version2, #[ExpectedValues(values: ["<", "lt", "<=", "le", ">", "gt", ">=", "ge", "==", "=", "eq", "!=", "<>", "ne"])] ?string $operator) : int|bool
-{
-}
+#[ExpectedValues([-1, 0, 1, false, true])]
+function version_compare(
+    string $version1,
+    string $version2,
+    #[ExpectedValues(values: [
+               "<",
+               "lt",
+               "<=",
+               "le",
+               ">",
+               "gt",
+               ">=",
+               "ge",
+               "==",
+               "=",
+               "eq",
+               "!=",
+               "<>",
+               "ne"
+           ])] ?string $operator
+): int|bool {}
+
 /**
  * Convert a pathname and a project identifier to a System V IPC key
  * @link https://php.net/manual/en/function.ftok.php
@@ -975,10 +1019,9 @@ function version_compare(string $version1, string $version2, #[ExpectedValues(va
  * @return int On success the return value will be the created key value, otherwise
  * -1 is returned.
  */
-#[Pure(\true)]
-function ftok(string $filename, string $project_id) : int
-{
-}
+#[Pure(true)]
+function ftok(string $filename, string $project_id): int {}
+
 /**
  * Perform the rot13 transform on a string
  * @link https://php.net/manual/en/function.str-rot13.php
@@ -988,19 +1031,17 @@ function ftok(string $filename, string $project_id) : int
  * @return string the ROT13 version of the given string.
  */
 #[Pure]
-function str_rot13(string $string) : string
-{
-}
+function str_rot13(string $string): string {}
+
 /**
  * Retrieve list of registered filters
  * @link https://php.net/manual/en/function.stream-get-filters.php
  * @return list<string> an indexed array containing the name of all stream filters
  * available.
  */
-#[Pure(\true)]
-function stream_get_filters() : array
-{
-}
+#[Pure(true)]
+function stream_get_filters(): array {}
+
 /**
  * Check if a stream is a TTY
  * @link https://php.net/manual/en/function.stream-isatty.php
@@ -1009,9 +1050,8 @@ function stream_get_filters() : array
  * @since 7.2
  */
 #[Pure]
-function stream_isatty($stream) : bool
-{
-}
+function stream_isatty($stream): bool {}
+
 /**
  * Register a user defined stream filter
  * @link https://php.net/manual/en/function.stream-filter-register.php
@@ -1126,18 +1166,16 @@ function stream_isatty($stream) : bool
  * filtername is already defined.
  * </p>
  */
-function stream_filter_register(string $filter_name, string $class) : bool
-{
-}
+function stream_filter_register(string $filter_name, string $class): bool {}
+
 /**
  * Return a bucket object from the brigade for operating on
  * @link https://php.net/manual/en/function.stream-bucket-make-writeable.php
  * @param resource $brigade
  * @return object|null
  */
-function stream_bucket_make_writeable($brigade) : ?object
-{
-}
+function stream_bucket_make_writeable($brigade): ?object {}
+
 /**
  * Prepend bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-prepend.php
@@ -1145,9 +1183,8 @@ function stream_bucket_make_writeable($brigade) : ?object
  * @param object $bucket
  * @return void
  */
-function stream_bucket_prepend($brigade, object $bucket) : void
-{
-}
+function stream_bucket_prepend($brigade, object $bucket): void {}
+
 /**
  * Append bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-append.php
@@ -1155,9 +1192,8 @@ function stream_bucket_prepend($brigade, object $bucket) : void
  * @param object $bucket
  * @return void
  */
-function stream_bucket_append($brigade, object $bucket) : void
-{
-}
+function stream_bucket_append($brigade, object $bucket): void {}
+
 /**
  * Create a new bucket for use on the current stream
  * @link https://php.net/manual/en/function.stream-bucket-new.php
@@ -1165,9 +1201,8 @@ function stream_bucket_append($brigade, object $bucket) : void
  * @param string $buffer
  * @return object
  */
-function stream_bucket_new($stream, string $buffer) : object
-{
-}
+function stream_bucket_new($stream, string $buffer): object {}
+
 /**
  * Add URL rewriter values
  * @link https://php.net/manual/en/function.output-add-rewrite-var.php
@@ -1179,9 +1214,8 @@ function stream_bucket_new($stream, string $buffer) : object
  * </p>
  * @return bool true on success or false on failure.
  */
-function output_add_rewrite_var(string $name, string $value) : bool
-{
-}
+function output_add_rewrite_var(string $name, string $value): bool {}
+
 /**
  * Reset URL rewriter values
  * <table>
@@ -1211,18 +1245,16 @@ function output_add_rewrite_var(string $name, string $value) : bool
  * @link https://php.net/manual/en/function.output-reset-rewrite-vars.php
  * @return bool true on success or false on failure.
  */
-function output_reset_rewrite_vars() : bool
-{
-}
+function output_reset_rewrite_vars(): bool {}
+
 /**
  * Returns directory path used for temporary files
  * @link https://php.net/manual/en/function.sys-get-temp-dir.php
  * @return string the path of the temporary directory.
  * @since 5.2.1
  */
-function sys_get_temp_dir() : string
-{
-}
+function sys_get_temp_dir(): string {}
+
 /**
  * Get the contents of the realpath cache.
  * @link https://php.net/manual/en/function.realpath-cache-get.php
@@ -1232,20 +1264,18 @@ function sys_get_temp_dir() : string
  * the cache.
  * @since 5.3.2
  */
-#[Pure(\true)]
-function realpath_cache_get() : array
-{
-}
+#[Pure(true)]
+function realpath_cache_get(): array {}
+
 /**
  * Get the amount of memory used by the realpath cache.
  * @link https://php.net/manual/en/function.realpath-cache-size.php
  * @return int Returns how much memory realpath cache is using.
  * @since 5.3.2
  */
-#[Pure(\true)]
-function realpath_cache_size() : int
-{
-}
+#[Pure(true)]
+function realpath_cache_size(): int {}
+
 /**
  * It returns the same result as (array) $object, with the
  * exception that it ignores overloaded array casts, such as used by
@@ -1254,9 +1284,8 @@ function realpath_cache_size() : int
  * @return array returns the mangled object properties
  * @since 7.4
  */
-function get_mangled_object_vars(object $object) : array
-{
-}
+function get_mangled_object_vars(object $object): array {}
+
 /**
  * Get the type or object name of a variable
  *
@@ -1275,9 +1304,8 @@ function get_mangled_object_vars(object $object) : array
  * @since 8.0
  */
 #[Pure]
-function get_debug_type(mixed $value) : string
-{
-}
+function get_debug_type(mixed $value): string {}
+
 /**
  * A more obvious and type-safe form of "(int) $resource"
  *
@@ -1286,6 +1314,4 @@ function get_debug_type(mixed $value) : string
  * @since 8.0
  */
 #[Pure]
-function get_resource_id($resource) : int
-{
-}
+function get_resource_id($resource): int {}

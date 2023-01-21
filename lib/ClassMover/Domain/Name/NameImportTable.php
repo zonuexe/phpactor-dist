@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Name;
+namespace Phpactor\ClassMover\Domain\Name;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
+use Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
 use RuntimeException;
 class NameImportTable
 {
     private $importedNameRefs = [];
-    private function __construct(private Namespace_ $namespace, array $importedNamespaceNames)
+    private function __construct(private \Phpactor\ClassMover\Domain\Name\Namespace_ $namespace, array $importedNamespaceNames)
     {
         foreach ($importedNamespaceNames as $importedNamespaceName) {
             $this->addImportedName($importedNamespaceName);
         }
     }
-    public static function fromImportedNameRefs(Namespace_ $namespace, array $importedNameRefs) : NameImportTable
+    public static function fromImportedNameRefs(\Phpactor\ClassMover\Domain\Name\Namespace_ $namespace, array $importedNameRefs) : \Phpactor\ClassMover\Domain\Name\NameImportTable
     {
         return new self($namespace, $importedNameRefs);
     }
-    public function isNameImported(QualifiedName $name)
+    public function isNameImported(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {
@@ -26,7 +26,7 @@ class NameImportTable
         }
         return \false;
     }
-    public function getImportedNameRefFor(QualifiedName $name) : ?ImportedNameReference
+    public function getImportedNameRefFor(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : ?ImportedNameReference
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {
@@ -35,7 +35,7 @@ class NameImportTable
         }
         throw new RuntimeException(\sprintf('Could not find name in import table "%s"', (string) $name));
     }
-    public function resolveClassName(QualifiedName $name)
+    public function resolveClassName(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {
@@ -43,15 +43,15 @@ class NameImportTable
             }
         }
         if (\str_starts_with($name->__toString(), '\\')) {
-            return FullyQualifiedName::fromString($name->__toString());
+            return \Phpactor\ClassMover\Domain\Name\FullyQualifiedName::fromString($name->__toString());
         }
         return $this->namespace->qualify($name);
     }
-    public function namespace() : Namespace_
+    public function namespace() : \Phpactor\ClassMover\Domain\Name\Namespace_
     {
         return $this->namespace;
     }
-    public function isAliased(QualifiedName $name)
+    public function isAliased(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {
@@ -65,4 +65,3 @@ class NameImportTable
         $this->importedNameRefs[] = $importedNameRef;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Name\\NameImportTable', 'Phpactor\\ClassMover\\Domain\\Name\\NameImportTable', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -9,7 +9,7 @@ use RuntimeException;
 /**
  * Mixins (implemented TS interfaces): DeclarationOptions, TextDocumentRegistrationOptions, StaticRegistrationOptions
  */
-class DeclarationRegistrationOptions extends DeclarationOptions
+class DeclarationRegistrationOptions extends \Phpactor\LanguageServerProtocol\DeclarationOptions
 {
     /**
      *
@@ -97,7 +97,3 @@ class DeclarationRegistrationOptions extends DeclarationOptions
         throw $lastException;
     }
 }
-/**
- * Mixins (implemented TS interfaces): DeclarationOptions, TextDocumentRegistrationOptions, StaticRegistrationOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DeclarationRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\DeclarationRegistrationOptions', \false);

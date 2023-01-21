@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -60,7 +60,7 @@ class SymbolInformation
      * @param Location $location
      * @param string|null $containerName
      */
-    public function __construct(string $name, $kind, Location $location, ?bool $deprecated = null, ?string $containerName = null)
+    public function __construct(string $name, $kind, \Phpactor\LanguageServerProtocol\Location $location, ?bool $deprecated = null, ?string $containerName = null)
     {
         $this->name = $name;
         $this->kind = $kind;
@@ -74,7 +74,7 @@ class SymbolInformation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['name' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'location' => ['names' => [Location::class], 'iterable' => \false], 'containerName' => ['names' => [], 'iterable' => \false]];
+        $map = ['name' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'location' => ['names' => [\Phpactor\LanguageServerProtocol\Location::class], 'iterable' => \false], 'containerName' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -124,8 +124,3 @@ class SymbolInformation
         throw $lastException;
     }
 }
-/**
- * Represents information about programming constructs like variables, classes,
- * interfaces etc.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SymbolInformation', 'Phpactor\\LanguageServerProtocol\\SymbolInformation', \false);

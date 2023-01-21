@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application;
+namespace Phpactor\Extension\CodeTransformExtra\Application;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Phpactor;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Phpactor;
+use Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor202301\Webmozart\Glob\Glob;
 use RuntimeException;
-class ClassInflect extends AbstractClassGenerator
+class ClassInflect extends \Phpactor\Extension\CodeTransformExtra\Application\AbstractClassGenerator
 {
     public function generateFromExisting(string $srcPath, string $dest, string $variant = 'default', bool $overwrite = \false) : array
     {
@@ -41,4 +41,3 @@ class ClassInflect extends AbstractClassGenerator
         return $code;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Application\\ClassInflect', 'Phpactor\\Extension\\CodeTransformExtra\\Application\\ClassInflect', \false);

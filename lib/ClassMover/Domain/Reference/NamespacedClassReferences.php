@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 use IteratorAggregate;
 use ArrayIterator;
 use Traversable;
@@ -18,7 +18,7 @@ final class NamespacedClassReferences implements IteratorAggregate
     /**
      * @param ClassReference[] $classRefs
      */
-    private function __construct(private NamespaceReference $namespaceRef, array $classRefs)
+    private function __construct(private \Phpactor\ClassMover\Domain\Reference\NamespaceReference $namespaceRef, array $classRefs)
     {
         foreach ($classRefs as $classRef) {
             $this->add($classRef);
@@ -27,17 +27,17 @@ final class NamespacedClassReferences implements IteratorAggregate
     /**
      * @param ClassReference[] $classRefs
      */
-    public static function fromNamespaceAndClassRefs(NamespaceReference $namespace, array $classRefs) : NamespacedClassReferences
+    public static function fromNamespaceAndClassRefs(\Phpactor\ClassMover\Domain\Reference\NamespaceReference $namespace, array $classRefs) : \Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences
     {
         return new self($namespace, $classRefs);
     }
     public static function empty() : self
     {
-        return new self(NamespaceReference::forRoot(), []);
+        return new self(\Phpactor\ClassMover\Domain\Reference\NamespaceReference::forRoot(), []);
     }
-    public function filterForName(FullyQualifiedName $name) : NamespacedClassReferences
+    public function filterForName(FullyQualifiedName $name) : \Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences
     {
-        return new self($this->namespaceRef, \array_filter($this->classRefs, function (ClassReference $classRef) use($name) {
+        return new self($this->namespaceRef, \array_filter($this->classRefs, function (\Phpactor\ClassMover\Domain\Reference\ClassReference $classRef) use($name) {
             return $classRef->fullName()->isEqualTo($name);
         }));
     }
@@ -49,16 +49,12 @@ final class NamespacedClassReferences implements IteratorAggregate
     {
         return new ArrayIterator($this->classRefs);
     }
-    public function namespaceRef() : NamespaceReference
+    public function namespaceRef() : \Phpactor\ClassMover\Domain\Reference\NamespaceReference
     {
         return $this->namespaceRef;
     }
-    private function add(ClassReference $classRef) : void
+    private function add(\Phpactor\ClassMover\Domain\Reference\ClassReference $classRef) : void
     {
         $this->classRefs[] = $classRef;
     }
 }
-/**
- * @implements IteratorAggregate<ClassReference>
- */
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\NamespacedClassReferences', 'Phpactor\\ClassMover\\Domain\\Reference\\NamespacedClassReferences', \false);

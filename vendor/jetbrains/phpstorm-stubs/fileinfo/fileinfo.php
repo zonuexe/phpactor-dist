@@ -1,29 +1,30 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of fileinfo v.1.0.5
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
+
 class finfo
 {
     /**
      * @param int $flags [optional]
      * @param string $magic_database [optional]
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $magic_database)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $magic_database
+    ) {}
+
     /**
      * @param $options [optional]
      * @param $arg [optional]
      */
     #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-    public function finfo($options, $arg)
-    {
-    }
+    public function finfo($options, $arg) {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Set libmagic configuration options
@@ -34,9 +35,8 @@ class finfo
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function set_flags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags)
-    {
-    }
+    public function set_flags(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags) {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Return information about a file
@@ -56,9 +56,12 @@ class finfo
      */
     #[Pure]
     #[TentativeType]
-    public function file(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = \FILEINFO_NONE, $context = null) : string|false
-    {
-    }
+    public function file(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
+        $context = null
+    ): string|false {}
+
     /**
      * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
      * Return information about a string buffer
@@ -76,11 +79,13 @@ class finfo
      */
     #[Pure]
     #[TentativeType]
-    public function buffer(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = \FILEINFO_NONE, $context = null) : string|false
-    {
-    }
+    public function buffer(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FILEINFO_NONE,
+        $context = null
+    ): string|false {}
 }
-\class_alias('Phpactor202301\\finfo', 'finfo', \false);
+
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Create a new fileinfo resource
@@ -100,9 +105,8 @@ class finfo
  * @return resource|false a magic database resource on success or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(['8.1' => 'finfo|false'], default: 'resource|false')]
-function finfo_open(int $flags = 0, ?string $magic_database = null)
-{
-}
+function finfo_open(int $flags = 0, ?string $magic_database = null) {}
+
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Close fileinfo resource
@@ -112,9 +116,8 @@ function finfo_open(int $flags = 0, ?string $magic_database = null)
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo) : bool
-{
-}
+function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo): bool {}
+
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Set libmagic configuration options
@@ -128,9 +131,8 @@ function finfo_close(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'reso
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, int $flags) : bool
-{
-}
+function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, int $flags): bool {}
+
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Return information about a file
@@ -151,9 +153,8 @@ function finfo_set_flags(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: '
  * @return string|false a textual description of the contents of the
  * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $filename, int $flags = 0, $context) : string|false
-{
-}
+function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $filename, int $flags = 0, $context): string|false {}
+
 /**
  * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Return information about a string buffer
@@ -170,9 +171,8 @@ function finfo_file(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resou
  * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $string, int $flags = \FILEINFO_NONE, $context) : string|false
-{
-}
+function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'resource')] $finfo, string $string, int $flags = FILEINFO_NONE, $context): string|false {}
+
 /**
  * Detect MIME Content-type for a file
  * @link https://php.net/manual/en/function.mime-content-type.php
@@ -182,64 +182,74 @@ function finfo_buffer(#[LanguageLevelTypeAware(['8.1' => 'finfo'], default: 'res
  * @return string|false the content type in MIME format, like
  * text/plain or application/octet-stream.
  */
-function mime_content_type($filename) : string|false
-{
-}
+function mime_content_type($filename): string|false {}
+
 /**
  * No special handling.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_NONE', 0);
+define('FILEINFO_NONE', 0);
+
 /**
  * Follow symlinks.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_SYMLINK', 2);
+define('FILEINFO_SYMLINK', 2);
+
 /**
  * Return the mime type and mime encoding as defined by RFC 2045.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_MIME', 1040);
+define('FILEINFO_MIME', 1040);
+
 /**
  * Return the mime type.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_MIME_TYPE', 16);
+define('FILEINFO_MIME_TYPE', 16);
+
 /**
  * Return the mime encoding of the file.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_MIME_ENCODING', 1024);
+define('FILEINFO_MIME_ENCODING', 1024);
+
 /**
  * Look at the contents of blocks or character special devices.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_DEVICES', 8);
+define('FILEINFO_DEVICES', 8);
+
 /**
  * Return all matches, not just the first.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_CONTINUE', 32);
+define('FILEINFO_CONTINUE', 32);
+
 /**
  * If possible preserve the original access time.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_PRESERVE_ATIME', 128);
+define('FILEINFO_PRESERVE_ATIME', 128);
+
 /**
  * Don't translate unprintable characters to a \ooo octal
  * representation.
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
-\define('FILEINFO_RAW', 256);
+define('FILEINFO_RAW', 256);
+
 /**
  * Returns the file extension appropriate for a the MIME type detected in the file.
  * For types that commonly have multiple file extensions, such as JPEG images, then the return value is multiple extensions speparated by a forward slash e.g.: "jpeg/jpg/jpe/jfif".
  * For unknown types not available in the magic.mime database, then return value is "???". Available since PHP 7.2.0.
  * @since 7.2
  */
-\define('FILEINFO_EXTENSION', 2097152);
+define('FILEINFO_EXTENSION', 2097152);
+
 /**
  * @since 8.2
  */
-\define('FILEINFO_APPLE', 2048);
+define('FILEINFO_APPLE', 2048);
+
 // End of fileinfo v.1.0.5

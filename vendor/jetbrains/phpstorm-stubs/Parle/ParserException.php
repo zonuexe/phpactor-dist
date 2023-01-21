@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Parle;
+namespace Parle;
 
 use Exception;
 use Throwable;
-class ParserException extends Exception implements Throwable
-{
-}
+
+class ParserException extends Exception implements Throwable {}

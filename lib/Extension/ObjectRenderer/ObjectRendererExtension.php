@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ObjectRenderer;
+namespace Phpactor\Extension\ObjectRenderer;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\TemplatePathResolver\PhpVersionPathResolver;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\ObjectRenderer\Extension\ObjectRendererTwigExtension;
-use Phpactor202301\Phpactor\Extension\Php\Model\PhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\CodeBuilder\Domain\TemplatePathResolver\PhpVersionPathResolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\ObjectRenderer\Extension\ObjectRendererTwigExtension;
+use Phpactor\Extension\Php\Model\PhpVersionResolver;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
 use RuntimeException;
 use Phpactor202301\Twig\Environment;
 class ObjectRendererExtension implements Extension
@@ -34,7 +34,7 @@ class ObjectRendererExtension implements Extension
             }, $templatePaths);
             $phpVersion = $container->get(PhpVersionResolver::class)->resolve();
             $paths = (new PhpVersionPathResolver($phpVersion))->resolve($resolvedTemplatePaths);
-            $builder = ObjectRendererBuilder::create()->setLogger(LoggingExtension::channelLogger($container, 'LSP-HOVER'))->enableInterfaceCandidates()->enableAncestoralCandidates()->configureTwig(function (Environment $env) use($container) {
+            $builder = \Phpactor\Extension\ObjectRenderer\ObjectRendererBuilder::create()->setLogger(LoggingExtension::channelLogger($container, 'LSP-HOVER'))->enableInterfaceCandidates()->enableAncestoralCandidates()->configureTwig(function (Environment $env) use($container) {
                 foreach ($container->getServiceIdsForTag(self::TAG_TWIG_EXTENSION) as $serviceId => $_) {
                     $service = $container->get($serviceId);
                     if (!$service instanceof ObjectRendererTwigExtension) {
@@ -51,4 +51,3 @@ class ObjectRendererExtension implements Extension
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ObjectRenderer\\ObjectRendererExtension', 'Phpactor\\Extension\\ObjectRenderer\\ObjectRendererExtension', \false);

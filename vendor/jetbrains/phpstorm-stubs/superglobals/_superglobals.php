@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * @xglobal $GLOBALS array
  * Contains a reference to every variable which is currently available within the global scope of the script.
@@ -11,6 +8,7 @@ namespace Phpactor202301;
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">https://secure.php.net/manual/en/reserved.variables.php</a>
  */
 $GLOBALS = [];
+
 /**
  * @xglobal $_COOKIE array
  * Variables provided to the script via HTTP cookies. Analogous to the old $HTTP_COOKIE_VARS array
@@ -20,6 +18,7 @@ $GLOBALS = [];
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
 $_COOKIE = [];
+
 /**
  * @xglobal $_ENV array
  * @xglobal $HTTP_ENV_VARS array
@@ -36,6 +35,7 @@ $_ENV = [];
  * @removed 5.4
  */
 $HTTP_ENV_VARS = [];
+
 /**
  * @xglobal $_FILES array
  * @xglobal $HTTP_POST_FILES array
@@ -53,6 +53,7 @@ $_FILES = [];
  * @removed 5.4
  */
 $HTTP_POST_FILES = [];
+
 /**
  * @xglobal $_GET array
  * @xglobal $HTTP_GET_VARS array
@@ -69,6 +70,7 @@ $_GET = [];
  * @removed 5.4
  */
 $HTTP_GET_VARS = [];
+
 /**
  * @xglobal $_POST array
  * @xglobal $HTTP_POST_VARS array
@@ -86,6 +88,7 @@ $_POST = [];
  * @removed 5.4
  */
 $HTTP_POST_VARS = [];
+
 /**
  *  @xglobal $_REQUEST array
  * Variables provided to the script via the GET, POST, and COOKIE input mechanisms,
@@ -105,6 +108,7 @@ $HTTP_POST_VARS = [];
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
 $_REQUEST = [];
+
 /**
  * @xglobal $_SERVER array
  * @xglobal $HTTP_SERVER_VARS array
@@ -121,6 +125,7 @@ $_SERVER = [];
  * @removed 5.4
  */
 $HTTP_SERVER_VARS = [];
+
 $_SERVER['PHP_SELF'] = '';
 $_SERVER['argv'] = '';
 $_SERVER['argc'] = '';
@@ -158,6 +163,7 @@ $_SERVER['PHP_AUTH_PW'] = '';
 $_SERVER['AUTH_TYPE'] = '';
 $_SERVER['PATH_INFO'] = '';
 $_SERVER['ORIG_PATH_INFO'] = '';
+
 /**
  *  @xglobal $_SESSION array
  *  @xglobal $HTTP_SESSION_VARS array
@@ -175,6 +181,7 @@ $_SESSION = [];
  * @removed 5.4
  */
 $HTTP_SESSION_VARS = [];
+
 /**
  * @xglobal $argc int
  * @type int<1, max>
@@ -185,6 +192,7 @@ $HTTP_SESSION_VARS = [];
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
 $argc = 0;
+
 /**
  *  @xglobal $argv array
  *
@@ -194,6 +202,7 @@ $argc = 0;
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
 $argv = [1 + 1 => "a" . "b"];
+
 /**
  * @xglobal $HTTP_RAW_POST_DATA string
  *
@@ -206,6 +215,7 @@ $argv = [1 + 1 => "a" . "b"];
  * @removed 7.0
  */
 $HTTP_RAW_POST_DATA = '';
+
 /**
  * @xglobal $http_response_header array
  *
@@ -215,6 +225,7 @@ $HTTP_RAW_POST_DATA = '';
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */
 $http_response_header = [];
+
 /**
  * @xglobal $php_errormsg string
  *  The previous error message

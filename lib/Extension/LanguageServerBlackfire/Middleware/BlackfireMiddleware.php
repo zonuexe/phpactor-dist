@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBlackfire\Middleware;
+namespace Phpactor\Extension\LanguageServerBlackfire\Middleware;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBlackfire\BlackfireProfiler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\Extension\LanguageServerBlackfire\BlackfireProfiler;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 use function Phpactor202301\Amp\call;
 class BlackfireMiddleware implements Middleware
 {
@@ -28,4 +28,3 @@ class BlackfireMiddleware implements Middleware
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBlackfire\\Middleware\\BlackfireMiddleware', 'Phpactor\\Extension\\LanguageServerBlackfire\\Middleware\\BlackfireMiddleware', \false);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser;
+namespace Phpactor\DocblockParser;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tokens;
+use Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\Tokens;
 use RuntimeException;
 final class Lexer
 {
@@ -114,4 +114,3 @@ final class Lexer
         return Token::T_UNKNOWN;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Lexer', 'Phpactor\\DocblockParser\\Lexer', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -28,7 +28,7 @@ class FileOperationFilter
      * @param string|null $scheme
      * @param FileOperationPattern $pattern
      */
-    public function __construct(FileOperationPattern $pattern, ?string $scheme = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\FileOperationPattern $pattern, ?string $scheme = null)
     {
         $this->scheme = $scheme;
         $this->pattern = $pattern;
@@ -39,7 +39,7 @@ class FileOperationFilter
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['scheme' => ['names' => [], 'iterable' => \false], 'pattern' => ['names' => [FileOperationPattern::class], 'iterable' => \false]];
+        $map = ['scheme' => ['names' => [], 'iterable' => \false], 'pattern' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationPattern::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -89,8 +89,3 @@ class FileOperationFilter
         throw $lastException;
     }
 }
-/**
- * A filter to describe in which file operation requests or notifications
- * the server is interested in.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileOperationFilter', 'Phpactor\\LanguageServerProtocol\\FileOperationFilter', \false);

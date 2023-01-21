@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPsalm;
+namespace Phpactor\Extension\LanguageServerPsalm;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\DiagnosticProvider\PsalmDiagnosticProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\Linter;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\Linter\PsalmLinter;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\PsalmConfig;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\PsalmProcess;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\LanguageServerPsalm\DiagnosticProvider\PsalmDiagnosticProvider;
+use Phpactor\Extension\LanguageServerPsalm\Model\Linter;
+use Phpactor\Extension\LanguageServerPsalm\Model\Linter\PsalmLinter;
+use Phpactor\Extension\LanguageServerPsalm\Model\PsalmConfig;
+use Phpactor\Extension\LanguageServerPsalm\Model\PsalmProcess;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
 class LanguageServerPsalmExtension implements OptionalExtension
 {
     public const PARAM_PSALM_BIN = 'language_server_psalm.bin';
@@ -43,4 +43,3 @@ class LanguageServerPsalmExtension implements OptionalExtension
         return 'language_server_psalm';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPsalm\\LanguageServerPsalmExtension', 'Phpactor\\Extension\\LanguageServerPsalm\\LanguageServerPsalmExtension', \false);

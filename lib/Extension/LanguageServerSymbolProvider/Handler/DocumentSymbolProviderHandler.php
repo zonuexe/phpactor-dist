@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Handler;
+namespace Phpactor\Extension\LanguageServerSymbolProvider\Handler;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentSymbolParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentSymbolRequest;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
+use Phpactor\LanguageServerProtocol\DocumentSymbolParams;
+use Phpactor\LanguageServerProtocol\DocumentSymbolRequest;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 class DocumentSymbolProviderHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private DocumentSymbolProvider $provider)
@@ -33,4 +33,3 @@ class DocumentSymbolProviderHandler implements Handler, CanRegisterCapabilities
         $capabilities->documentSymbolProvider = \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerSymbolProvider\\Handler\\DocumentSymbolProviderHandler', 'Phpactor\\Extension\\LanguageServerSymbolProvider\\Handler\\DocumentSymbolProviderHandler', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerDiagnostics\Provider;
+namespace Phpactor\Extension\LanguageServerDiagnostics\Provider;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerDiagnostics\Model\PhpLinter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Extension\LanguageServerDiagnostics\Model\PhpLinter;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextDocumentUri;
 use function Phpactor202301\Amp\call;
 class PhpLintDiagnosticProvider implements DiagnosticsProvider
 {
@@ -26,4 +26,3 @@ class PhpLintDiagnosticProvider implements DiagnosticsProvider
         return 'php-lint';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerDiagnostics\\Provider\\PhpLintDiagnosticProvider', 'Phpactor\\Extension\\LanguageServerDiagnostics\\Provider\\PhpLintDiagnosticProvider', \false);

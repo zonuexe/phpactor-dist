@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassToFileExtra;
+namespace Phpactor\Extension\ClassToFileExtra;
 
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Extension\ClassToFileExtra\Rpc\FileInfoHandler;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\ClassToFileExtra\Command\FileInfoCommand;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\ClassToFileExtra\Application\FileInfo;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Extension\ClassToFileExtra\Rpc\FileInfoHandler;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\ClassToFileExtra\Command\FileInfoCommand;
+use Phpactor\Container\Container;
+use Phpactor\Extension\ClassToFileExtra\Application\FileInfo;
 class ClassToFileExtraExtension implements Extension
 {
     public function load(ContainerBuilder $container) : void
@@ -29,4 +29,3 @@ class ClassToFileExtraExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassToFileExtra\\ClassToFileExtraExtension', 'Phpactor\\Extension\\ClassToFileExtra\\ClassToFileExtraExtension', \false);

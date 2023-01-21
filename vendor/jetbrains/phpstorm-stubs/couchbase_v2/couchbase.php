@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Couchbase extension stubs
  * Gathered from https://docs.couchbase.com/sdk-api/couchbase-php-client-2.3.0/index.html
@@ -7,6 +6,7 @@
  *
  * https://github.com/couchbase/php-couchbase/tree/master/api
  */
+
 /**
  * INI entries:
  *
@@ -60,54 +60,56 @@
  *
  * @package Couchbase
  */
-namespace Phpactor202301\Couchbase;
+
+namespace Couchbase;
 
 /** If igbinary extension was not found during build phase this constant will store 0 */
-\define("Phpactor202301\\Couchbase\\HAVE_IGBINARY", 1);
+define("Couchbase\\HAVE_IGBINARY", 1);
 /** If libz headers was not found during build phase this constant will store 0 */
-\define("Phpactor202301\\Couchbase\\HAVE_ZLIB", 1);
+define("Couchbase\\HAVE_ZLIB", 1);
+
 /** Encodes documents as JSON objects (see INI section for details)
  * @see \Couchbase\basicEncoderV1
  */
-\define("Phpactor202301\\Couchbase\\ENCODER_FORMAT_JSON", 0);
+define("Couchbase\\ENCODER_FORMAT_JSON", 0);
 /** Encodes documents using pecl/igbinary encoder (see INI section for details)
  * @see \Couchbase\basicEncoderV1
  */
-\define("Phpactor202301\\Couchbase\\ENCODER_FORMAT_IGBINARY", 1);
+define("Couchbase\\ENCODER_FORMAT_IGBINARY", 1);
 /** Encodes documents using PHP serialize() (see INI section for details)
  * @see \Couchbase\basicEncoderV1
  */
-\define("Phpactor202301\\Couchbase\\ENCODER_FORMAT_PHP", 2);
+define("Couchbase\\ENCODER_FORMAT_PHP", 2);
+
 /** Do not use compression for the documents
  * @see \Couchbase\basicEncoderV1
  */
-\define("Phpactor202301\\Couchbase\\ENCODER_COMPRESSION_NONE", 0);
+define("Couchbase\\ENCODER_COMPRESSION_NONE", 0);
 /** Use zlib compressor for the documents
  * @see \Couchbase\basicEncoderV1
  */
-\define("Phpactor202301\\Couchbase\\ENCODER_COMPRESSION_ZLIB", 1);
+define("Couchbase\\ENCODER_COMPRESSION_ZLIB", 1);
 /** Use FastLZ compressor for the documents
  * @see \Couchbase\basicEncoderV1
  */
-\define("Phpactor202301\\Couchbase\\ENCODER_COMPRESSION_FASTLZ", 2);
+define("Couchbase\\ENCODER_COMPRESSION_FASTLZ", 2);
+
 /**
  * Compress input using FastLZ algorithm.
  *
  * @param string $data original data
  * @return string compressed binary string
  */
-function fastlzCompress($data)
-{
-}
+function fastlzCompress($data) {}
+
 /**
  * Decompress input using FastLZ algorithm.
  *
  * @param string $data compressed binary string
  * @return string original data
  */
-function fastlzDecompress($data)
-{
-}
+function fastlzDecompress($data) {}
+
 /**
  * Compress input using zlib. Raises Exception when extension compiled without zlib support.
  *
@@ -115,9 +117,8 @@ function fastlzDecompress($data)
  * @return string compressed binary string
  * @see \Couchbase\HAVE_ZLIB
  */
-function zlibCompress($data)
-{
-}
+function zlibCompress($data) {}
+
 /**
  * Compress input using zlib. Raises Exception when extension compiled without zlib support.
  *
@@ -125,9 +126,8 @@ function zlibCompress($data)
  * @return string original data
  * @see \Couchbase\HAVE_ZLIB
  */
-function zlibDecompress($data)
-{
-}
+function zlibDecompress($data) {}
+
 /**
  * Returns value as it received from the server without any transformations.
  *
@@ -140,9 +140,8 @@ function zlibDecompress($data)
  *
  * @see \Couchbase\Bucket::setTranscoder()
  */
-function passthruDecoder($bytes, $flags, $datatype)
-{
-}
+function passthruDecoder($bytes, $flags, $datatype) {}
+
 /**
  * Returns the value, which has been passed and zero as flags and datatype.
  *
@@ -154,9 +153,8 @@ function passthruDecoder($bytes, $flags, $datatype)
  *
  * @see \Couchbase\Bucket::setTranscoder()
  */
-function passthruEncoder($value)
-{
-}
+function passthruEncoder($value) {}
+
 /**
  * Decodes value using \Couchbase\basicDecoderV1.
  *
@@ -170,9 +168,8 @@ function passthruEncoder($value)
  * @see \Couchbase\basicDecoderV1
  * @see \Couchbase\Bucket::setTranscoder()
  */
-function defaultDecoder($bytes, $flags, $datatype)
-{
-}
+function defaultDecoder($bytes, $flags, $datatype) {}
+
 /**
  * Encodes value using \Couchbase\basicDecoderV1.
  *
@@ -184,9 +181,8 @@ function defaultDecoder($bytes, $flags, $datatype)
  * @see \Couchbase\basicDecoderV1
  * @see \Couchbase\Bucket::setTranscoder()
  */
-function defaultEncoder($value)
-{
-}
+function defaultEncoder($value) {}
+
 /**
  * Decodes value according to Common Flags (RFC-20)
  *
@@ -198,9 +194,8 @@ function defaultEncoder($value)
  *
  * @see https://github.com/couchbaselabs/sdk-rfcs RFC-20 at SDK RFCs repository
  */
-function basicDecoderV1($bytes, $flags, $datatype, $options)
-{
-}
+function basicDecoderV1($bytes, $flags, $datatype, $options) {}
+
 /**
  * Encodes value according to Common Flags (RFC-20)
  *
@@ -214,15 +209,13 @@ function basicDecoderV1($bytes, $flags, $datatype, $options)
  *
  * @see https://github.com/couchbaselabs/sdk-rfcs RFC-20 at SDK RFCs repository
  */
-function basicEncoderV1($value, $options)
-{
-}
+function basicEncoderV1($value, $options) {}
+
 /**
  * Exception represeting all errors generated by the extension
  */
-class Exception extends \Exception
-{
-}
+class Exception extends \Exception {}
+
 /**
  * Represents Couchbase Document, which stores metadata and the value.
  *
@@ -236,18 +229,22 @@ class Document
      * @var Exception exception object in case of error, or NULL
      */
     public $error;
+
     /**
      * @var mixed The value stored in the Couchbase.
      */
     public $value;
+
     /**
      * @var int Flags, describing the encoding of the document on the server side.
      */
     public $flags;
+
     /**
      * @var string The last known CAS value of the document
      */
     public $cas;
+
     /**
      * @var MutationToken
      * The optional, opaque mutation token set after a successful mutation.
@@ -261,6 +258,7 @@ class Document
      */
     public $token;
 }
+
 /**
  * A fragment of a JSON Document returned by the sub-document API.
  *
@@ -273,14 +271,17 @@ class DocumentFragment
      * @var Exception exception object in case of error, or NULL
      */
     public $error;
+
     /**
      * @var mixed The value sub-document command returned.
      */
     public $value;
+
     /**
      * @var string The last known CAS value of the document
      */
     public $cas;
+
     /**
      * @var MutationToken
      * The optional, opaque mutation token related to updated document the environment.
@@ -294,6 +295,7 @@ class DocumentFragment
      */
     public $token;
 }
+
 /**
  * Represents a Couchbase Server Cluster.
  *
@@ -311,9 +313,8 @@ class Cluster
      *
      * @param string $connstr connection string
      */
-    public function __construct($connstr)
-    {
-    }
+    public function __construct($connstr) {}
+
     /**
      * Open connection to the Couchbase bucket
      *
@@ -323,9 +324,8 @@ class Cluster
      *
      * @see \Couchbase\Authenticator
      */
-    public function openBucket($name = "default", $password = "")
-    {
-    }
+    public function openBucket($name = "default", $password = "") {}
+
     /**
      * Open management connection to the Couchbase cluster.
      *
@@ -335,9 +335,8 @@ class Cluster
      *
      * @see \Couchbase\Authenticator
      */
-    public function manager($username = null, $password = null)
-    {
-    }
+    public function manager($username = null, $password = null) {}
+
     /**
      * Associate authenticator with Cluster
      *
@@ -348,9 +347,8 @@ class Cluster
      * @see \Couchbase\ClassicAuthenticator
      * @see \Couchbase\PasswordAuthenticator
      */
-    public function authenticate($authenticator)
-    {
-    }
+    public function authenticate($authenticator) {}
+
     /**
      * Create \Couchbase\PasswordAuthenticator from given credentials and associate it with Cluster
      *
@@ -361,10 +359,9 @@ class Cluster
      * @see \Couchbase\Authenticator
      * @see \Couchbase\PasswordAuthenticator
      */
-    public function authenticateAs($username, $password)
-    {
-    }
+    public function authenticateAs($username, $password) {}
 }
+
 /**
  * Provides management capabilities for a Couchbase Server Cluster
  *
@@ -376,21 +373,21 @@ class ClusterManager
      * The user account managed by Couchbase Cluster.
      */
     public const RBAC_DOMAIN_LOCAL = 1;
+
     /**
      * The user account managed by external system (e.g. LDAP).
      */
     public const RBAC_DOMAIN_EXTERNAL = 2;
-    private final function __construct()
-    {
-    }
+
+    final private function __construct() {}
+
     /**
      * Lists all buckets on this cluster.
      *
      * @return array
      */
-    public function listBuckets()
-    {
-    }
+    public function listBuckets() {}
+
     /**
      * Creates new bucket
      *
@@ -404,9 +401,8 @@ class ClusterManager
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-bucket-create.html
      *   More options and details
      */
-    public function createBucket($name, $options = [])
-    {
-    }
+    public function createBucket($name, $options = []) {}
+
     /**
      * Removes a bucket identified by its name.
      *
@@ -415,9 +411,8 @@ class ClusterManager
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-bucket-delete.html
      *   More details
      */
-    public function removeBucket($name)
-    {
-    }
+    public function removeBucket($name) {}
+
     /**
      * Provides information about the cluster.
      *
@@ -429,9 +424,8 @@ class ClusterManager
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-cluster-get.html
      *   Retrieving Cluster Information
      */
-    public function info()
-    {
-    }
+    public function info() {}
+
     /**
      * Lists all users on this cluster.
      *
@@ -442,9 +436,8 @@ class ClusterManager
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
      */
-    public function listUsers($domain = RBAC_DOMAIN_LOCAL)
-    {
-    }
+    public function listUsers($domain = RBAC_DOMAIN_LOCAL) {}
+
     /**
      * Fetch single user by its name
      *
@@ -456,9 +449,8 @@ class ClusterManager
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
      */
-    public function getUser($username, $domain = RBAC_DOMAIN_LOCAL)
-    {
-    }
+    public function getUser($username, $domain = RBAC_DOMAIN_LOCAL) {}
+
     /**
      * Creates new user
      *
@@ -471,9 +463,8 @@ class ClusterManager
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
      */
-    public function upsertUser($name, $settings, $domain = RBAC_DOMAIN_LOCAL)
-    {
-    }
+    public function upsertUser($name, $settings, $domain = RBAC_DOMAIN_LOCAL) {}
+
     /**
      * Removes a user identified by its name.
      *
@@ -485,10 +476,9 @@ class ClusterManager
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
      * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
      */
-    public function removeUser($name, $domain = RBAC_DOMAIN_LOCAL)
-    {
-    }
+    public function removeUser($name, $domain = RBAC_DOMAIN_LOCAL) {}
 }
+
 /**
  * Represents settings for new/updated user.
  *
@@ -506,9 +496,8 @@ class UserSettings
      * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
      *   More details
      */
-    public function fullName($fullName)
-    {
-    }
+    public function fullName($fullName) {}
+
     /**
      * Sets password of the user.
      *
@@ -519,9 +508,8 @@ class UserSettings
      * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
      *   More details
      */
-    public function password($password)
-    {
-    }
+    public function password($password) {}
+
     /**
      * Adds role to the list of the accessible roles of the user.
      *
@@ -533,10 +521,9 @@ class UserSettings
      * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
      *   More details
      */
-    public function role($role, $bucket = null)
-    {
-    }
+    public function role($role, $bucket = null) {}
 }
+
 /**
  * Represents connection to the Couchbase Server
  *
@@ -617,47 +604,46 @@ class UserSettings
 class Bucket
 {
     /** Ping data (Key/Value) service. */
-    public const PINGSVC_KV = 0x1;
+    public const PINGSVC_KV = 0x01;
+
     /** Ping query (N1QL) service. */
-    public const PINGSVC_N1QL = 0x2;
+    public const PINGSVC_N1QL = 0x02;
+
     /** Ping views (Map/Reduce) service. */
-    public const PINGSVC_VIEWS = 0x4;
+    public const PINGSVC_VIEWS = 0x04;
+
     /** Ping full text search (FTS) service. */
-    public const PINGSVC_FTS = 0x8;
-    private final function __construct()
-    {
-    }
+    public const PINGSVC_FTS = 0x08;
+
+    final private function __construct() {}
+
     /**
      * @param string $name
      * @return int
      */
-    private final function __get($name)
-    {
-    }
+    final private function __get($name) {}
+
     /**
      * @param string $name
      * @param int $value
      * @return int
      */
-    private final function __set($name, $value)
-    {
-    }
+    final private function __set($name, $value) {}
+
     /**
      * Returns the name of the bucket for current connection
      *
      * @return string
      */
-    public function getName()
-    {
-    }
+    public function getName() {}
+
     /**
      * Returns an instance of a CouchbaseBucketManager for performing management operations against a bucket.
      *
      * @return BucketManager
      */
-    public function manager()
-    {
-    }
+    public function manager() {}
+
     /**
      * Sets custom encoder and decoder functions for handling serialization.
      *
@@ -669,9 +655,8 @@ class Bucket
      * @see \Couchbase\passthruEncoder
      * @see \Couchbase\passthruDecoder
      */
-    public function setTranscoder($encoder, $decoder)
-    {
-    }
+    public function setTranscoder($encoder, $decoder) {}
+
     /**
      * Retrieves a document
      *
@@ -691,9 +676,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function get($ids, $options = [])
-    {
-    }
+    public function get($ids, $options = []) {}
+
     /**
      * Retrieves a document and locks it.
      *
@@ -715,9 +699,8 @@ class Bucket
      * @see https://forums.couchbase.com/t/is-there-a-way-to-do-pessimistic-locking-for-more-than-30-seconds/10666/3
      *   Forum post about getting server defaults for the $lockTime
      */
-    public function getAndLock($ids, $lockTime, $options = [])
-    {
-    }
+    public function getAndLock($ids, $lockTime, $options = []) {}
+
     /**
      * Retrieves a document and updates its expiration time.
      *
@@ -734,9 +717,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function getAndTouch($ids, $expiry, $options = [])
-    {
-    }
+    public function getAndTouch($ids, $expiry, $options = []) {}
+
     /**
      * Retrieves a document from a replica.
      *
@@ -754,9 +736,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/failure-considerations.html
      *  More about failure considerations.
      */
-    public function getFromReplica($ids, $options = [])
-    {
-    }
+    public function getFromReplica($ids, $options = []) {}
+
     /**
      * Inserts or updates a document, depending on whether the document already exists on the cluster.
      *
@@ -783,9 +764,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function upsert($ids, $value, $options = [])
-    {
-    }
+    public function upsert($ids, $value, $options = []) {}
+
     /**
      * Inserts a document. This operation will fail if the document already exists on the cluster.
      *
@@ -812,9 +792,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function insert($ids, $value, $options = [])
-    {
-    }
+    public function insert($ids, $value, $options = []) {}
+
     /**
      * Replaces a document. This operation will fail if the document does not exists on the cluster.
      *
@@ -842,9 +821,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function replace($ids, $value, $options = [])
-    {
-    }
+    public function replace($ids, $value, $options = []) {}
+
     /**
      * Appends content to a document.
      *
@@ -876,9 +854,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function append($ids, $value, $options = [])
-    {
-    }
+    public function append($ids, $value, $options = []) {}
+
     /**
      * Prepends content to a document.
      *
@@ -910,9 +887,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function prepend($ids, $value, $options = [])
-    {
-    }
+    public function prepend($ids, $value, $options = []) {}
+
     /**
      * Removes the document.
      *
@@ -927,9 +903,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function remove($ids, $options = [])
-    {
-    }
+    public function remove($ids, $options = []) {}
+
     /**
      * Unlocks previously locked document
      *
@@ -946,9 +921,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function unlock($ids, $options = [])
-    {
-    }
+    public function unlock($ids, $options = []) {}
+
     /**
      * Updates document's expiration time.
      *
@@ -965,9 +939,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function touch($ids, $expiry, $options = [])
-    {
-    }
+    public function touch($ids, $expiry, $options = []) {}
+
     /**
      * Increments or decrements a key (based on $delta)
      *
@@ -986,9 +959,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
      *   More details about K/V operations for PHP SDK
      */
-    public function counter($ids, $delta = 1, $options = [])
-    {
-    }
+    public function counter($ids, $delta = 1, $options = []) {}
+
     /**
      * Returns a builder for reading subdocument API.
      *
@@ -998,9 +970,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function lookupIn($id)
-    {
-    }
+    public function lookupIn($id) {}
+
     /**
      * Retrieves specified paths in JSON document
      *
@@ -1014,9 +985,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function retrieveIn($id, ...$paths)
-    {
-    }
+    public function retrieveIn($id, ...$paths) {}
+
     /**
      * Returns a builder for writing subdocument API.
      *
@@ -1027,9 +997,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function mutateIn($id, $cas)
-    {
-    }
+    public function mutateIn($id, $cas) {}
+
     /**
      * Performs a query to Couchbase Server
      *
@@ -1043,9 +1012,8 @@ class Bucket
      * @see \Couchbase\ViewQuery
      * @see \Couchbase\SpatialViewQuery
      */
-    public function query($query, $jsonAsArray = \false)
-    {
-    }
+    public function query($query, $jsonAsArray = false) {}
+
     /**
      * Returns size of the map
      *
@@ -1057,9 +1025,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function mapSize($id)
-    {
-    }
+    public function mapSize($id) {}
+
     /**
      * Add key to the map
      *
@@ -1072,9 +1039,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function mapAdd($id, $key, $value)
-    {
-    }
+    public function mapAdd($id, $key, $value) {}
+
     /**
      * Removes key from the map
      *
@@ -1086,9 +1052,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function mapRemove($id, $key)
-    {
-    }
+    public function mapRemove($id, $key) {}
+
     /**
      * Get an item from a map
      *
@@ -1101,9 +1066,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function mapGet($id, $key)
-    {
-    }
+    public function mapGet($id, $key) {}
+
     /**
      * Returns size of the set
      *
@@ -1115,9 +1079,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function setSize($id)
-    {
-    }
+    public function setSize($id) {}
+
     /**
      * Add value to the set
      *
@@ -1131,9 +1094,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function setAdd($id, $value)
-    {
-    }
+    public function setAdd($id, $value) {}
+
     /**
      * Check if the value exists in the set
      *
@@ -1146,9 +1108,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function setExists($id, $value)
-    {
-    }
+    public function setExists($id, $value) {}
+
     /**
      * Remove value from the set
      *
@@ -1160,9 +1121,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function setRemove($id, $value)
-    {
-    }
+    public function setRemove($id, $value) {}
+
     /**
      * Returns size of the list
      *
@@ -1174,9 +1134,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listSize($id)
-    {
-    }
+    public function listSize($id) {}
+
     /**
      * Add an element to the end of the list
      *
@@ -1188,9 +1147,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listPush($id, $value)
-    {
-    }
+    public function listPush($id, $value) {}
+
     /**
      * Add an element to the beginning of the list
      *
@@ -1202,9 +1160,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listShift($id, $value)
-    {
-    }
+    public function listShift($id, $value) {}
+
     /**
      * Remove an element at the given position
      *
@@ -1216,9 +1173,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listRemove($id, $index)
-    {
-    }
+    public function listRemove($id, $index) {}
+
     /**
      * Get an element at the given position
      *
@@ -1231,9 +1187,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listGet($id, $index)
-    {
-    }
+    public function listGet($id, $index) {}
+
     /**
      * Set an element at the given position
      *
@@ -1246,9 +1201,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listSet($id, $index, $value)
-    {
-    }
+    public function listSet($id, $index, $value) {}
+
     /**
      * Check if the list contains specified value
      *
@@ -1261,9 +1215,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function listExists($id, $value)
-    {
-    }
+    public function listExists($id, $value) {}
+
     /**
      * Returns size of the queue
      *
@@ -1275,9 +1228,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function queueSize($id)
-    {
-    }
+    public function queueSize($id) {}
+
     /**
      * Checks if the queue contains specified value
      *
@@ -1290,9 +1242,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function queueExists($id, $value)
-    {
-    }
+    public function queueExists($id, $value) {}
+
     /**
      * Add an element to the beginning of the queue
      *
@@ -1304,9 +1255,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function queueAdd($id, $value)
-    {
-    }
+    public function queueAdd($id, $value) {}
+
     /**
      * Remove the element at the end of the queue and return it
      *
@@ -1318,9 +1268,8 @@ class Bucket
      * @see https://developer.couchbase.com/documentation/server/current/sdk/subdocument-operations.html
      *   Overview of Sub-Document Operations
      */
-    public function queueRemove($id)
-    {
-    }
+    public function queueRemove($id) {}
+
     /**
      * Try to reach specified services, and measure network latency.
      *
@@ -1336,9 +1285,8 @@ class Bucket
      * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
      *   SDK RFC #34, which describes the feature and report layout.
      */
-    public function ping($services = 0, $reportId = null)
-    {
-    }
+    public function ping($services = 0, $reportId = null) {}
+
     /**
      * Collect and return information about state of internal network connections.
      *
@@ -1348,9 +1296,8 @@ class Bucket
      * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
      *   SDK RFC #34, which describes the feature and report layout.
      */
-    public function diag($reportId = null)
-    {
-    }
+    public function diag($reportId = null) {}
+
     /**
      * Encrypt fields inside specified document.
      *
@@ -1363,9 +1310,8 @@ class Bucket
      *
      * @see https://github.com/couchbase/php-couchbase-encryption
      */
-    public function encryptFields($document, $fieldOptions, $prefix = null)
-    {
-    }
+    public function encryptFields($document, $fieldOptions, $prefix = null) {}
+
     /**
      * Decrypt fields inside specified document.
      *
@@ -1378,18 +1324,16 @@ class Bucket
      *
      * @see https://github.com/couchbase/php-couchbase-encryption
      */
-    public function decryptFields($document, $fieldOptions, $prefix = null)
-    {
-    }
+    public function decryptFields($document, $fieldOptions, $prefix = null) {}
 }
+
 /**
  * Provides management capabilities for the Couchbase Bucket
  */
 class BucketManager
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * Returns information about the bucket
      *
@@ -1402,66 +1346,58 @@ class BucketManager
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-bucket-info.html
      *   Getting Single Bucket Information
      */
-    public function info()
-    {
-    }
+    public function info() {}
+
     /**
      * Flushes the bucket (clears all data)
      */
-    public function flush()
-    {
-    }
+    public function flush() {}
+
     /**
      * Returns all design documents of the bucket.
      *
      * @return array
      */
-    public function listDesignDocuments()
-    {
-    }
+    public function listDesignDocuments() {}
+
     /**
      * Get design document by its name
      *
      * @param string $name name of the design document (without _design/ prefix)
      * @return array
      */
-    public function getDesignDocument($name)
-    {
-    }
+    public function getDesignDocument($name) {}
+
     /**
      * Removes design document by its name
      *
      * @param string $name name of the design document (without _design/ prefix)
      */
-    public function removeDesignDocument($name)
-    {
-    }
+    public function removeDesignDocument($name) {}
+
     /**
      * Creates or replaces design document.
      *
      * @param string $name name of the design document (without _design/ prefix)
      * @param array $document
      */
-    public function upsertDesignDocument($name, $document)
-    {
-    }
+    public function upsertDesignDocument($name, $document) {}
+
     /**
      * Inserts design document and fails if it is exist already.
      *
      * @param string $name name of the design document (without _design/ prefix)
      * @param array $document
      */
-    public function insertDesignDocument($name, $document)
-    {
-    }
+    public function insertDesignDocument($name, $document) {}
+
     /**
      * List all N1QL indexes that are registered for the current bucket.
      *
      * @return array
      */
-    public function listN1qlIndexes()
-    {
-    }
+    public function listN1qlIndexes() {}
+
     /**
      * Create a primary N1QL index.
      *
@@ -1470,9 +1406,8 @@ class BucketManager
      *   will be thrown unless this is set to true.
      * @param bool $defer true to defer index building.
      */
-    public function createN1qlPrimaryIndex($customName = '', $ignoreIfExist = \false, $defer = \false)
-    {
-    }
+    public function createN1qlPrimaryIndex($customName = '', $ignoreIfExist = false, $defer = false) {}
+
     /**
      * Create secondary N1QL index.
      *
@@ -1483,9 +1418,8 @@ class BucketManager
      *   will be thrown unless this is set to true.
      * @param bool $defer true to defer index building.
      */
-    public function createN1qlIndex($name, $fields, $whereClause = '', $ignoreIfExist = \false, $defer = \false)
-    {
-    }
+    public function createN1qlIndex($name, $fields, $whereClause = '', $ignoreIfExist = false, $defer = false) {}
+
     /**
      * Drop the given primary index
      *
@@ -1493,9 +1427,8 @@ class BucketManager
      * @param bool $ignoreIfNotExist if a primary index does not exist, an exception
      *   will be thrown unless this is set to true.
      */
-    public function dropN1qlPrimaryIndex($customName = '', $ignoreIfNotExist = \false)
-    {
-    }
+    public function dropN1qlPrimaryIndex($customName = '', $ignoreIfNotExist = false) {}
+
     /**
      * Drop the given secondary index
      *
@@ -1503,10 +1436,9 @@ class BucketManager
      * @param bool $ignoreIfNotExist if a secondary index does not exist, an exception
      *   will be thrown unless this is set to true.
      */
-    public function dropN1qlIndex($name, $ignoreIfNotExist = \false)
-    {
-    }
+    public function dropN1qlIndex($name, $ignoreIfNotExist = false) {}
 }
+
 /**
  * Interface of authentication containers.
  *
@@ -1514,9 +1446,8 @@ class BucketManager
  * @see \Couchbase\ClassicAuthenticator
  * @see \Couchbase\PasswordAuthenticator
  */
-interface Authenticator
-{
-}
+interface Authenticator {}
+
 /**
  * Authenticator based on login/password credentials.
  *
@@ -1536,19 +1467,17 @@ class ClassicAuthenticator implements Authenticator
      * @param string $username admin username
      * @param string $password admin password
      */
-    public function cluster($username, $password)
-    {
-    }
+    public function cluster($username, $password) {}
+
     /**
      * Registers bucket credentials in the container
      *
      * @param string $name bucket name
      * @param string $password bucket password
      */
-    public function bucket($name, $password)
-    {
-    }
+    public function bucket($name, $password) {}
 }
+
 /**
  * Authenticator based on RBAC feature of Couchbase Server 5+.
  *
@@ -1565,27 +1494,24 @@ class PasswordAuthenticator implements Authenticator
      * @param string $username username
      * @return \Couchbase\PasswordAuthenticator
      */
-    public function username($username)
-    {
-    }
+    public function username($username) {}
+
     /**
      * Sets password
      *
      * @param string $password password
      * @return \Couchbase\PasswordAuthenticator
      */
-    public function password($password)
-    {
-    }
+    public function password($password) {}
 }
+
 /**
  * An object which contains meta information of the document needed to enforce query consistency.
  */
 class MutationToken
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * Creates new mutation token
      *
@@ -1594,50 +1520,44 @@ class MutationToken
      * @param string $vbucketUuid UUID of the partition
      * @param string $sequenceNumber sequence number inside partition
      */
-    public static function from($bucketName, $vbucketId, $vbucketUuid, $sequenceNumber)
-    {
-    }
+    public static function from($bucketName, $vbucketId, $vbucketUuid, $sequenceNumber) {}
+
     /**
      * Returns bucket name
      *
      * @return string
      */
-    public function bucketName()
-    {
-    }
+    public function bucketName() {}
+
     /**
      * Returns partition number
      *
      * @return int
      */
-    public function vbucketId()
-    {
-    }
+    public function vbucketId() {}
+
     /**
      * Returns UUID of the partition
      *
      * @return string
      */
-    public function vbucketUuid()
-    {
-    }
+    public function vbucketUuid() {}
+
     /**
      * Returns the sequence number inside partition
      *
      * @return string
      */
-    public function sequenceNumber()
-    {
-    }
+    public function sequenceNumber() {}
 }
+
 /**
  * Container for mutation tokens.
  */
 class MutationState
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * Create container from the given mutation token holders.
      *
@@ -1646,9 +1566,8 @@ class MutationState
      *
      * @see \Couchbase\MutationToken
      */
-    public static function from($source)
-    {
-    }
+    public static function from($source) {}
+
     /**
      * Update container with the given mutation token holders.
      *
@@ -1656,10 +1575,9 @@ class MutationState
      *
      * @see \Couchbase\MutationToken
      */
-    public function add($source)
-    {
-    }
+    public function add($source) {}
 }
+
 /**
  * Common interface for all View queries
  *
@@ -1675,6 +1593,7 @@ interface ViewQueryEncodable
      */
     public function encode();
 }
+
 /**
  * Represents regular Couchbase Map/Reduce View query
  *
@@ -1691,15 +1610,17 @@ class ViewQuery implements ViewQueryEncodable
 {
     /** Force a view update before returning data */
     public const UPDATE_BEFORE = 1;
+
     /** Allow stale views */
     public const UPDATE_NONE = 2;
+
     /** Allow stale view, update view after it has been accessed. */
     public const UPDATE_AFTER = 3;
     public const ORDER_ASCENDING = 1;
     public const ORDER_DESCENDING = 2;
-    private final function __construct()
-    {
-    }
+
+    final private function __construct() {}
+
     /**
      * Creates a new Couchbase ViewQuery instance for performing a view query.
      *
@@ -1707,44 +1628,39 @@ class ViewQuery implements ViewQueryEncodable
      * @param string $viewName the name of the view to query
      * @return ViewQuery
      */
-    public static function from($designDocumentName, $viewName)
-    {
-    }
+    public static function from($designDocumentName, $viewName) {}
+
     /**
      * Creates a new Couchbase ViewQuery instance for performing a spatial query.
      * @param string $designDocumentName the name of the design document to query
      * @param string $viewName the name of the view to query
      * @return SpatialViewQuery
      */
-    public static function fromSpatial($designDocumentName, $viewName)
-    {
-    }
+    public static function fromSpatial($designDocumentName, $viewName) {}
+
     /**
      * Returns associative array, representing the View query.
      *
      * @return array object which is ready to be serialized.
      */
-    public function encode()
-    {
-    }
+    public function encode() {}
+
     /**
      * Limits the result set to a specified number rows.
      *
      * @param int $limit maximum number of records in the response
      * @return ViewQuery
      */
-    public function limit($limit)
-    {
-    }
+    public function limit($limit) {}
+
     /**
      * Skips a number o records rom the beginning of the result set
      *
      * @param int $skip number of records to skip
      * @return ViewQuery
      */
-    public function skip($skip)
-    {
-    }
+    public function skip($skip) {}
+
     /**
      * Specifies the mode of updating to perorm before and after executing the query
      *
@@ -1755,27 +1671,24 @@ class ViewQuery implements ViewQueryEncodable
      * @see \Couchbase\ViewQuery::UPDATE_NONE
      * @see \Couchbase\ViewQuery::UPDATE_AFTER
      */
-    public function consistency($consistency)
-    {
-    }
+    public function consistency($consistency) {}
+
     /**
      * Orders the results by key as specified
      *
      * @param int $order use contstants ORDER_ASCENDING, ORDER_DESCENDING
      * @return ViewQuery
      */
-    public function order($order)
-    {
-    }
+    public function order($order) {}
+
     /**
      * Specifies whether the reduction function should be applied to results of the query.
      *
      * @param bool $reduce
      * @return ViewQuery
      */
-    public function reduce($reduce)
-    {
-    }
+    public function reduce($reduce) {}
+
     /**
      * Group the results using the reduce function to a group or single row.
      *
@@ -1789,9 +1702,8 @@ class ViewQuery implements ViewQueryEncodable
      *
      * @see \Couchbase\ViewQuery::groupLevel
      */
-    public function group($group)
-    {
-    }
+    public function group($group) {}
+
     /**
      * Specify the group level to be used.
      *
@@ -1804,27 +1716,24 @@ class ViewQuery implements ViewQueryEncodable
      *
      * @see \Couchbase\ViewQuery::group
      */
-    public function groupLevel($groupLevel)
-    {
-    }
+    public function groupLevel($groupLevel) {}
+
     /**
      * Restict results of the query to the specified key
      *
      * @param mixed $key key
      * @return ViewQuery
      */
-    public function key($key)
-    {
-    }
+    public function key($key) {}
+
     /**
      * Restict results of the query to the specified set of keys
      *
      * @param array $keys set of keys
      * @return ViewQuery
      */
-    public function keys($keys)
-    {
-    }
+    public function keys($keys) {}
+
     /**
      * Specifies a range of the keys to return from the index.
      *
@@ -1833,9 +1742,8 @@ class ViewQuery implements ViewQueryEncodable
      * @param bool $inclusiveEnd
      * @return ViewQuery
      */
-    public function range($startKey, $endKey, $inclusiveEnd = \false)
-    {
-    }
+    public function range($startKey, $endKey, $inclusiveEnd = false) {}
+
     /**
      * Specifies start and end document IDs in addition to range limits.
      *
@@ -1846,9 +1754,8 @@ class ViewQuery implements ViewQueryEncodable
      * @param string $endKeyDocumentId document ID
      * @return ViewQuery
      */
-    public function idRange($startKeyDocumentId, $endKeyDocumentId)
-    {
-    }
+    public function idRange($startKeyDocumentId, $endKeyDocumentId) {}
+
     /**
      * Specifies custom options to pass to the server.
      *
@@ -1860,10 +1767,9 @@ class ViewQuery implements ViewQueryEncodable
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
      *   Getting Views Information
      */
-    public function custom($customParameters)
-    {
-    }
+    public function custom($customParameters) {}
 }
+
 /**
  * Represents spatial Couchbase Map/Reduce View query
  *
@@ -1878,35 +1784,31 @@ class ViewQuery implements ViewQueryEncodable
  */
 class SpatialViewQuery implements ViewQueryEncodable
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * Returns associative array, representing the View query.
      *
      * @return array object which is ready to be serialized.
      */
-    public function encode()
-    {
-    }
+    public function encode() {}
+
     /**
      * Limits the result set to a specified number rows.
      *
      * @param int $limit maximum number of records in the response
      * @return SpatialViewQuery
      */
-    public function limit($limit)
-    {
-    }
+    public function limit($limit) {}
+
     /**
      * Skips a number o records rom the beginning of the result set
      *
      * @param int $skip number of records to skip
      * @return SpatialViewQuery
      */
-    public function skip($skip)
-    {
-    }
+    public function skip($skip) {}
+
     /**
      * Specifies the mode of updating to perorm before and after executing the query
      *
@@ -1917,18 +1819,16 @@ class SpatialViewQuery implements ViewQueryEncodable
      * @see \Couchbase\ViewQuery::UPDATE_NONE
      * @see \Couchbase\ViewQuery::UPDATE_AFTER
      */
-    public function consistency($consistency)
-    {
-    }
+    public function consistency($consistency) {}
+
     /**
      * Orders the results by key as specified
      *
      * @param int $order use contstants ORDER_ASCENDING, ORDER_DESCENDING
      * @return SpatialViewQuery
      */
-    public function order($order)
-    {
-    }
+    public function order($order) {}
+
     /**
      * Specifies the bounding box to search within.
      *
@@ -1940,9 +1840,8 @@ class SpatialViewQuery implements ViewQueryEncodable
      * @see \Couchbase\SpatialViewQuery::startRange()
      * @see \Couchbase\SpatialViewQuery::endRange()
      */
-    public function bbox($bbox)
-    {
-    }
+    public function bbox($bbox) {}
+
     /**
      * Specify start range for query
      *
@@ -1952,9 +1851,8 @@ class SpatialViewQuery implements ViewQueryEncodable
      * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
      *   Querying spatial views
      */
-    public function startRange($range)
-    {
-    }
+    public function startRange($range) {}
+
     /**
      * Specify end range for query
      *
@@ -1964,9 +1862,8 @@ class SpatialViewQuery implements ViewQueryEncodable
      * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
      *   Querying spatial views
      */
-    public function endRange($range)
-    {
-    }
+    public function endRange($range) {}
+
     /**
      * Specifies custom options to pass to the server.
      *
@@ -1979,10 +1876,9 @@ class SpatialViewQuery implements ViewQueryEncodable
      * @see https://developer.couchbase.com/documentation/server/current/views/sv-query-parameters.html
      *   Querying spatial views
      */
-    public function custom($customParameters)
-    {
-    }
+    public function custom($customParameters) {}
 }
+
 /**
  * Represents a N1QL query
  *
@@ -2006,6 +1902,7 @@ class N1qlQuery
      * and we also avoid any wait for the index to catch up to the vector.
      */
     public const NOT_BOUNDED = 1;
+
     /**
      * This implements strong consistency per request.
      * Before processing the request, a current vector is obtained.
@@ -2013,36 +1910,39 @@ class N1qlQuery
      * If there are DML statements in the request, RYOW is also applied within the request.
      */
     public const REQUEST_PLUS = 2;
+
     /**
      * This implements strong consistency per statement.
      * Before processing each statement, a current vector is obtained
      * and used as a lower bound for that statement.
      */
     public const STATEMENT_PLUS = 3;
+
     /**
      * Disables profiling. This is the default
      */
     public const PROFILE_NONE = 'off';
+
     /**
      * Enables phase profiling.
      */
     public const PROFILE_PHASES = 'phases';
+
     /**
      * Enables general timing profiling.
      */
     public const PROFILE_TIMINGS = 'timings';
-    private final function __construct()
-    {
-    }
+
+    final private function __construct() {}
+
     /**
      * Creates new N1qlQuery instance directly from the N1QL string.
      *
      * @param string $statement N1QL string
      * @return N1qlQuery
      */
-    public static function fromString($statement)
-    {
-    }
+    public static function fromString($statement) {}
+
     /**
      * Allows to specify if this query is adhoc or not.
      *
@@ -2053,9 +1953,8 @@ class N1qlQuery
      * @param bool $adhoc if query is adhoc, default is true (plain execution)
      * @return N1qlQuery
      */
-    public function adhoc($adhoc)
-    {
-    }
+    public function adhoc($adhoc) {}
+
     /**
      * Allows to pull credentials from the Authenticator
      *
@@ -2066,9 +1965,8 @@ class N1qlQuery
      * @see \Couchbase\Authenticator
      * @see \Couchbase\ClassicAuthenticator
      */
-    public function crossBucket($crossBucket)
-    {
-    }
+    public function crossBucket($crossBucket) {}
+
     /**
      * Specify array of positional parameters
      *
@@ -2080,9 +1978,8 @@ class N1qlQuery
      * @param array $params
      * @return N1qlQuery
      */
-    public function positionalParams($params)
-    {
-    }
+    public function positionalParams($params) {}
+
     /**
      * Specify associative array of named parameters
      *
@@ -2094,9 +1991,8 @@ class N1qlQuery
      * @param array $params
      * @return N1qlQuery
      */
-    public function namedParams($params)
-    {
-    }
+    public function namedParams($params) {}
+
     /**
      * Specifies the consistency level for this query
      *
@@ -2108,9 +2004,8 @@ class N1qlQuery
      * @see \Couchbase\N1qlQuery::STATEMENT_PLUS
      * @see \Couchbase\N1qlQuery::consistentWith()
      */
-    public function consistency($consistency)
-    {
-    }
+    public function consistency($consistency) {}
+
     /**
      * Controls the profiling mode used during query execution
      *
@@ -2120,9 +2015,8 @@ class N1qlQuery
      * @see \Couchbase\N1qlQuery::PROFILE_PHASES
      * @see \Couchbase\N1qlQuery::PROFILE_TIMINGS
      */
-    public function profile($profileType)
-    {
-    }
+    public function profile($profileType) {}
+
     /**
      * Sets mutation state the query should be consistent with
      *
@@ -2131,9 +2025,8 @@ class N1qlQuery
      *
      * @see \Couchbase\MutationState
      */
-    public function consistentWith($state)
-    {
-    }
+    public function consistentWith($state) {}
+
     /**
      * If set to true, it will signal the query engine on the server that only non-data modifying requests
      * are allowed. Note that this rule is enforced on the server and not the SDK side.
@@ -2152,9 +2045,8 @@ class N1qlQuery
      * @param bool $readonly true if readonly should be forced, false is the default and will use the server side default.
      * @return N1qlQuery
      */
-    public function readonly($readonly)
-    {
-    }
+    public function readonly($readonly) {}
+
     /**
      * Advanced: Maximum buffered channel size between the indexer client and the query service for index scans.
      *
@@ -2163,37 +2055,33 @@ class N1qlQuery
      * @param int $scanCap the scan_cap param, use 0 or negative number to disable.
      * @return N1qlQuery
      */
-    public function scanCap($scanCap)
-    {
-    }
+    public function scanCap($scanCap) {}
+
     /**
      * Advanced: Controls the number of items execution operators can batch for Fetch from the KV.
      *
      * @param int $pipelineBatch the pipeline_batch param.
      * @return N1qlQuery
      */
-    public function pipelineBatch($pipelineBatch)
-    {
-    }
+    public function pipelineBatch($pipelineBatch) {}
+
     /**
      * Advanced: Maximum number of items each execution operator can buffer between various operators.
      *
      * @param int $pipelineCap the pipeline_cap param.
      * @return N1qlQuery
      */
-    public function pipelineCap($pipelineCap)
-    {
-    }
+    public function pipelineCap($pipelineCap) {}
+
     /**
      * Allows to override the default maximum parallelism for the query execution on the server side.
      *
      * @param int $maxParallelism the maximum parallelism for this query, 0 or negative values disable it.
      * @return N1qlQuery
      */
-    public function maxParallelism($maxParallelism)
-    {
-    }
+    public function maxParallelism($maxParallelism) {}
 }
+
 /**
  * Represents N1QL index definition
  *
@@ -2205,21 +2093,23 @@ class N1qlIndex
     public const UNSPECIFIED = 0;
     public const GSI = 1;
     public const VIEW = 2;
-    private final function __construct()
-    {
-    }
+
+    final private function __construct() {}
+
     /**
      * Name of the index
      *
      * @var string
      */
     public $name;
+
     /**
      * Is it primary index
      *
      * @var bool
      */
     public $isPrimary;
+
     /**
      * Type of the index
      *
@@ -2230,27 +2120,32 @@ class N1qlIndex
      * @see \Couchbase\N1qlIndex::VIEW
      */
     public $type;
+
     /**
      * The descriptive state of the index
      *
      * @var string
      */
     public $state;
+
     /**
      * The keyspace for the index, typically the bucket name
      * @var string
      */
     public $keyspace;
+
     /**
      * The namespace for the index. A namespace is a resource pool that contains multiple keyspaces
      * @var string
      */
     public $namespace;
+
     /**
      * The fields covered by index
      * @var array
      */
     public $fields;
+
     /**
      * Return the string representation of the index's condition (the WHERE clause
      * of the index), or an empty String if no condition was set.
@@ -2263,6 +2158,7 @@ class N1qlIndex
      */
     public $condition;
 }
+
 /**
  * A builder for subdocument lookups. In order to perform the final set of operations, use the
  * execute() method.
@@ -2275,9 +2171,8 @@ class N1qlIndex
  */
 class LookupInBuilder
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * Get a value inside the JSON document.
      *
@@ -2287,9 +2182,8 @@ class LookupInBuilder
      *     within the document's extended attributes, not the document body.
      * @return LookupInBuilder
      */
-    public function get($path, $options = [])
-    {
-    }
+    public function get($path, $options = []) {}
+
     /**
      * Get a count of values inside the JSON document.
      *
@@ -2301,9 +2195,8 @@ class LookupInBuilder
      *     within the document's extended attributes, not the document body.
      * @return LookupInBuilder
      */
-    public function getCount($path, $options = [])
-    {
-    }
+    public function getCount($path, $options = []) {}
+
     /**
      * Check if a value exists inside the document.
      *
@@ -2315,17 +2208,15 @@ class LookupInBuilder
      *     within the document's extended attributes, not the document body.
      * @return LookupInBuilder
      */
-    public function exists($path, $options = [])
-    {
-    }
+    public function exists($path, $options = []) {}
+
     /**
      * Perform several lookup operations inside a single existing JSON document, using a specific timeout
      * @return DocumentFragment
      */
-    public function execute()
-    {
-    }
+    public function execute() {}
 }
+
 /**
  * A builder for subdocument mutations. In order to perform the final set of operations, use the
  * execute() method.
@@ -2341,9 +2232,9 @@ class MutateInBuilder
     public const FULLDOC_REPLACE = 0;
     public const FULLDOC_UPSERT = 1;
     public const FULLDOC_INSERT = 2;
-    private final function __construct()
-    {
-    }
+
+    final private function __construct() {}
+
     /**
      * Insert a fragment provided the last element of the path doesn't exists.
      *
@@ -2356,9 +2247,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function insert($path, $value, $options = [])
-    {
-    }
+    public function insert($path, $value, $options = []) {}
+
     /**
      * Select mode for new full-document operations.
      *
@@ -2370,9 +2260,8 @@ class MutateInBuilder
      *
      * @param int $mode operation mode
      */
-    public function modeDocument($mode)
-    {
-    }
+    public function modeDocument($mode) {}
+
     /**
      * Insert a fragment, replacing the old value if the path exists.
      *
@@ -2388,9 +2277,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function upsert($path, $value, $options = [])
-    {
-    }
+    public function upsert($path, $value, $options = []) {}
+
     /**
      * Replace an existing value by the given fragment
      *
@@ -2401,9 +2289,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function replace($path, $value, $options = [])
-    {
-    }
+    public function replace($path, $value, $options = []) {}
+
     /**
      * Remove an entry in a JSON document.
      *
@@ -2415,9 +2302,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function remove($path, $options = [])
-    {
-    }
+    public function remove($path, $options = []) {}
+
     /**
      * Prepend to an existing array, pushing the value to the front/first position in the array.
      *
@@ -2430,9 +2316,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayPrepend($path, $value, $options = [])
-    {
-    }
+    public function arrayPrepend($path, $value, $options = []) {}
+
     /**
      * Prepend multiple values at once in an existing array.
      *
@@ -2449,9 +2334,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayPrependAll($path, $values, $options = [])
-    {
-    }
+    public function arrayPrependAll($path, $values, $options = []) {}
+
     /**
      * Append to an existing array, pushing the value to the back/last position in the array.
      *
@@ -2464,9 +2348,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayAppend($path, $value, $options = [])
-    {
-    }
+    public function arrayAppend($path, $value, $options = []) {}
+
     /**
      * Append multiple values at once in an existing array.
      *
@@ -2483,9 +2366,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayAppendAll($path, $values, $options = [])
-    {
-    }
+    public function arrayAppendAll($path, $values, $options = []) {}
+
     /**
      * Insert into an existing array at a specific position
      *
@@ -2498,9 +2380,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayInsert($path, $value, $options = [])
-    {
-    }
+    public function arrayInsert($path, $value, $options = []) {}
+
     /**
      * Insert multiple values at once in an existing array at a specified position.
      *
@@ -2518,9 +2399,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayInsertAll($path, $values, $options = [])
-    {
-    }
+    public function arrayInsertAll($path, $values, $options = []) {}
+
     /**
      * Insert a value in an existing array only if the value
      * isn't already contained in the array (by way of string comparison).
@@ -2534,9 +2414,8 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function arrayAddUnique($path, $value, $options = [])
-    {
-    }
+    public function arrayAddUnique($path, $value, $options = []) {}
+
     /**
      * Increment/decrement a numerical fragment in a JSON document.
      *
@@ -2552,26 +2431,23 @@ class MutateInBuilder
      *     within the document's extended attributes, not the document body.
      * @return MutateInBuilder
      */
-    public function counter($path, $delta, $options = [])
-    {
-    }
+    public function counter($path, $delta, $options = []) {}
+
     /**
      * Change the expiry of the enclosing document as part of the mutation.
      *
      * @param mixed $expiry the new expiry to apply (or 0 to avoid changing the expiry)
      * @return MutateInBuilder
      */
-    public function withExpiry($expiry)
-    {
-    }
+    public function withExpiry($expiry) {}
+
     /**
      * Perform several mutation operations inside a single existing JSON document.
      * @return DocumentFragment
      */
-    public function execute()
-    {
-    }
+    public function execute() {}
 }
+
 /**
  * Represents full text search query
  *
@@ -2583,153 +2459,137 @@ class SearchQuery implements \JsonSerializable
     public const HIGHLIGHT_HTML = 'html';
     public const HIGHLIGHT_ANSI = 'ansi';
     public const HIGHLIGHT_SIMPLE = 'simple';
+
     /**
      * Prepare boolean search query
      *
      * @return BooleanSearchQuery
      */
-    public static function boolean()
-    {
-    }
+    public static function boolean() {}
+
     /**
      * Prepare date range search query
      *
      * @return DateRangeSearchQuery
      */
-    public static function dateRange()
-    {
-    }
+    public static function dateRange() {}
+
     /**
      * Prepare numeric range search query
      *
      * @return NumericRangeSearchQuery
      */
-    public static function numericRange()
-    {
-    }
+    public static function numericRange() {}
+
     /**
      * Prepare term range search query
      *
      * @return TermRangeSearchQuery
      */
-    public static function termRange()
-    {
-    }
+    public static function termRange() {}
+
     /**
      * Prepare boolean field search query
      *
      * @param bool $value
      * @return BooleanFieldSearchQuery
      */
-    public static function booleanField($value)
-    {
-    }
+    public static function booleanField($value) {}
+
     /**
      * Prepare compound conjunction search query
      *
      * @param SearchQueryPart ...$queries list of inner query parts
      * @return ConjunctionSearchQuery
      */
-    public static function conjuncts(...$queries)
-    {
-    }
+    public static function conjuncts(...$queries) {}
+
     /**
      * Prepare compound disjunction search query
      *
      * @param SearchQueryPart ...$queries list of inner query parts
      * @return DisjunctionSearchQuery
      */
-    public static function disjuncts(...$queries)
-    {
-    }
+    public static function disjuncts(...$queries) {}
+
     /**
      * Prepare document ID search query
      *
      * @param string ...$documentIds
      * @return DocIdSearchQuery
      */
-    public static function docId(...$documentIds)
-    {
-    }
+    public static function docId(...$documentIds) {}
+
     /**
      * Prepare match search query
      *
      * @param string $match
      * @return MatchSearchQuery
      */
-    public static function match($match)
-    {
-    }
+    public static function match($match) {}
+
     /**
      * Prepare match all search query
      *
      * @return MatchAllSearchQuery
      */
-    public static function matchAll()
-    {
-    }
+    public static function matchAll() {}
+
     /**
      * Prepare match non search query
      *
      * @return MatchNoneSearchQuery
      */
-    public static function matchNone()
-    {
-    }
+    public static function matchNone() {}
+
     /**
      * Prepare phrase search query
      *
      * @param string ...$terms
      * @return MatchPhraseSearchQuery
      */
-    public static function matchPhrase(...$terms)
-    {
-    }
+    public static function matchPhrase(...$terms) {}
+
     /**
      * Prepare prefix search query
      *
      * @param string $prefix
      * @return PrefixSearchQuery
      */
-    public static function prefix($prefix)
-    {
-    }
+    public static function prefix($prefix) {}
+
     /**
      * Prepare query string search query
      *
      * @param string $queryString
      * @return QueryStringSearchQuery
      */
-    public static function queryString($queryString)
-    {
-    }
+    public static function queryString($queryString) {}
+
     /**
      * Prepare regexp search query
      *
      * @param string $regexp
      * @return RegexpSearchQuery
      */
-    public static function regexp($regexp)
-    {
-    }
+    public static function regexp($regexp) {}
+
     /**
      * Prepare term search query
      *
      * @param string $term
      * @return TermSearchQuery
      */
-    public static function term($term)
-    {
-    }
+    public static function term($term) {}
+
     /**
      * Prepare wildcard search query
      *
      * @param string $wildcard
      * @return WildcardSearchQuery
      */
-    public static function wildcard($wildcard)
-    {
-    }
+    public static function wildcard($wildcard) {}
+
     /**
      * Prepare geo distance search query
      *
@@ -2738,9 +2598,8 @@ class SearchQuery implements \JsonSerializable
      * @param string $distance e.g. "10mi"
      * @return GeoDistanceSearchQuery
      */
-    public static function geoDistance($longitude, $latitude, $distance)
-    {
-    }
+    public static function geoDistance($longitude, $latitude, $distance) {}
+
     /**
      * Prepare geo bounding box search query
      *
@@ -2750,9 +2609,8 @@ class SearchQuery implements \JsonSerializable
      * @param float $bottomRightLatitude
      * @return GeoBoundingBoxSearchQuery
      */
-    public static function geoBoundingBox($topLeftLongitude, $topLeftLatitude, $bottomRightLongitude, $bottomRightLatitude)
-    {
-    }
+    public static function geoBoundingBox($topLeftLongitude, $topLeftLatitude, $bottomRightLongitude, $bottomRightLatitude) {}
+
     /**
      * Prepare term search facet
      *
@@ -2760,9 +2618,8 @@ class SearchQuery implements \JsonSerializable
      * @param int $limit
      * @return TermSearchFacet
      */
-    public static function termFacet($field, $limit)
-    {
-    }
+    public static function termFacet($field, $limit) {}
+
     /**
      * Prepare date range search facet
      *
@@ -2770,9 +2627,8 @@ class SearchQuery implements \JsonSerializable
      * @param int $limit
      * @return DateRangeSearchFacet
      */
-    public static function dateRangeFacet($field, $limit)
-    {
-    }
+    public static function dateRangeFacet($field, $limit) {}
+
     /**
      * Prepare numeric range search facet
      *
@@ -2780,9 +2636,8 @@ class SearchQuery implements \JsonSerializable
      * @param int $limit
      * @return NumericRangeSearchFacet
      */
-    public static function numericRangeFacet($field, $limit)
-    {
-    }
+    public static function numericRangeFacet($field, $limit) {}
+
     /**
      * Prepare an FTS SearchQuery on an index.
      *
@@ -2791,51 +2646,45 @@ class SearchQuery implements \JsonSerializable
      * @param string $indexName the FTS index to search in
      * @param SearchQueryPart $queryPart the body of the FTS query (e.g. a match phrase query)
      */
-    public function __construct($indexName, $queryPart)
-    {
-    }
+    public function __construct($indexName, $queryPart) {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * Add a limit to the query on the number of hits it can return
      *
      * @param int $limit the maximum number of hits to return
      * @return SearchQuery
      */
-    public function limit($limit)
-    {
-    }
+    public function limit($limit) {}
+
     /**
      * Set the number of hits to skip (eg. for pagination).
      *
      * @param int $skip the number of results to skip
      * @return SearchQuery
      */
-    public function skip($skip)
-    {
-    }
+    public function skip($skip) {}
+
     /**
      * Activates the explanation of each result hit in the response
      *
      * @param bool $explain
      * @return SearchQuery
      */
-    public function explain($explain)
-    {
-    }
+    public function explain($explain) {}
+
     /**
      * Sets the server side timeout in milliseconds
      *
      * @param int $serverSideTimeout the server side timeout to apply
      * @return SearchQuery
      */
-    public function serverSideTimeout($serverSideTimeout)
-    {
-    }
+    public function serverSideTimeout($serverSideTimeout) {}
+
     /**
      * Sets the consistency to consider for this FTS query to AT_PLUS and
      * uses the MutationState to parameterize the consistency.
@@ -2845,9 +2694,8 @@ class SearchQuery implements \JsonSerializable
      * @param MutationState $state the mutation state information to work with
      * @return SearchQuery
      */
-    public function consistentWith($state)
-    {
-    }
+    public function consistentWith($state) {}
+
     /**
      * Configures the list of fields for which the whole value should be included in the response.
      *
@@ -2857,9 +2705,8 @@ class SearchQuery implements \JsonSerializable
      * @param string ...$fields
      * @return SearchQuery
      */
-    public function fields(...$fields)
-    {
-    }
+    public function fields(...$fields) {}
+
     /**
      * Configures the highlighting of matches in the response
      *
@@ -2873,9 +2720,8 @@ class SearchQuery implements \JsonSerializable
      * @see \Couchbase\SearchQuery::HIGHLIGHT_ANSI
      * @see \Couchbase\SearchQuery::HIGHLIGHT_SIMPLE
      */
-    public function highlight($style, ...$fields)
-    {
-    }
+    public function highlight($style, ...$fields) {}
+
     /**
      * Configures the list of fields (including special fields) which are used for sorting purposes.
      * If empty, the default sorting (descending by score) is used by the server.
@@ -2892,9 +2738,8 @@ class SearchQuery implements \JsonSerializable
      * @param mixed $sort the fields that should take part in the sorting.
      * @return SearchQuery
      */
-    public function sort(...$sort)
-    {
-    }
+    public function sort(...$sort) {}
+
     /**
      * Adds one SearchFacet to the query
      *
@@ -2912,185 +2757,160 @@ class SearchQuery implements \JsonSerializable
      * @see \Couchbase\NumericRangeSearchFacet
      * @see \Couchbase\DateRangeSearchFacet
      */
-    public function addFacet($name, $facet)
-    {
-    }
+    public function addFacet($name, $facet) {}
 }
+
 /**
  * Common interface for all classes, which could be used as a body of SearchQuery
  *
  * @see \Couchbase\SearchQuery::__construct()
  */
-interface SearchQueryPart
-{
-}
+interface SearchQueryPart {}
+
 /**
  * A FTS query that queries fields explicitly indexed as boolean.
  */
 class BooleanFieldSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return BooleanFieldSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return BooleanFieldSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * A compound FTS query that allows various combinations of sub-queries.
  */
 class BooleanSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return BooleanSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param SearchQueryPart ...$queries
      * @return BooleanSearchQuery
      */
-    public function must(...$queries)
-    {
-    }
+    public function must(...$queries) {}
+
     /**
      * @param SearchQueryPart ...$queries
      * @return BooleanSearchQuery
      */
-    public function mustNot(...$queries)
-    {
-    }
+    public function mustNot(...$queries) {}
+
     /**
      * @param SearchQueryPart ...$queries
      * @return BooleanSearchQuery
      */
-    public function should(...$queries)
-    {
-    }
+    public function should(...$queries) {}
 }
+
 /**
  * A compound FTS query that performs a logical AND between all its sub-queries (conjunction).
  */
 class ConjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return ConjunctionSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param SearchQueryPart ...$queries
      * @return ConjunctionSearchQuery
      */
-    public function every(...$queries)
-    {
-    }
+    public function every(...$queries) {}
 }
+
 /**
  * A compound FTS query that performs a logical OR between all its sub-queries (disjunction). It requires that a
  * minimum of the queries match. The minimum is configurable (default 1).
  */
 class DisjunctionSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return DisjunctionSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param SearchQueryPart ...$queries
      * @return DisjunctionSearchQuery
      */
-    public function either(...$queries)
-    {
-    }
+    public function either(...$queries) {}
+
     /**
      * @param int $min
      * @return DisjunctionSearchQuery
      */
-    public function min($min)
-    {
-    }
+    public function min($min) {}
 }
+
 /**
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
 class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return DateRangeSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return DateRangeSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param int|string $start The strings will be taken verbatim and supposed to be formatted with custom date
      *      time formatter (see dateTimeParser). Integers interpreted as unix timestamps and represented as RFC3339
@@ -3098,9 +2918,8 @@ class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
      * @param bool $inclusive
      * @return DateRangeSearchQuery
      */
-    public function start($start, $inclusive = \true)
-    {
-    }
+    public function start($start, $inclusive = true) {}
+
     /**
      * @param int|string $end The strings will be taken verbatim and supposed to be formatted with custom date
      *      time formatter (see dateTimeParser). Integers interpreted as unix timestamps and represented as RFC3339
@@ -3108,232 +2927,201 @@ class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart
      * @param bool $inclusive
      * @return DateRangeSearchQuery
      */
-    public function end($end, $inclusive = \false)
-    {
-    }
+    public function end($end, $inclusive = false) {}
+
     /**
      * @param string $dateTimeParser
      * @return DateRangeSearchQuery
      */
-    public function dateTimeParser($dateTimeParser)
-    {
-    }
+    public function dateTimeParser($dateTimeParser) {}
 }
+
 /**
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
 class NumericRangeSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return NumericRangeSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return NumericRangeSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param float $min
      * @param bool $inclusive
      * @return NumericRangeSearchQuery
      */
-    public function min($min, $inclusive = \true)
-    {
-    }
+    public function min($min, $inclusive = true) {}
+
     /**
      * @param float $max
      * @param bool $inclusive
      * @return NumericRangeSearchQuery
      */
-    public function max($max, $inclusive = \false)
-    {
-    }
+    public function max($max, $inclusive = false) {}
 }
+
 /**
  * A FTS query that matches on Couchbase document IDs. Useful to restrict the search space to a list of keys (by using
  * this in a compound query).
  */
 class DocIdSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return DocIdSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return DocIdSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param string ...$documentIds
      * @return DocIdSearchQuery
      */
-    public function docIds(...$documentIds)
-    {
-    }
+    public function docIds(...$documentIds) {}
 }
+
 /**
  * A FTS query that matches all indexed documents (usually for debugging purposes).
  */
 class MatchAllSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return MatchAllSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
 }
+
 /**
  * A FTS query that matches 0 document (usually for debugging purposes).
  */
 class MatchNoneSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return MatchNoneSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
 }
+
 /**
  * A FTS query that matches several given terms (a "phrase"), applying further processing
  * like analyzers to them.
  */
 class MatchPhraseSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return MatchPhraseSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return MatchPhraseSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param string $analyzer
      * @return MatchPhraseSearchQuery
      */
-    public function analyzer($analyzer)
-    {
-    }
+    public function analyzer($analyzer) {}
 }
+
 /**
  * A FTS query that matches a given term, applying further processing to it
  * like analyzers, stemming and even #fuzziness(int).
  */
 class MatchSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return MatchSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return MatchSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param string $analyzer
      * @return MatchSearchQuery
      */
-    public function analyzer($analyzer)
-    {
-    }
+    public function analyzer($analyzer) {}
+
     /**
      * @param int $prefixLength
      * @return MatchSearchQuery
      */
-    public function prefixLength($prefixLength)
-    {
-    }
+    public function prefixLength($prefixLength) {}
+
     /**
      * @param int $fuzziness
      * @return MatchSearchQuery
      */
-    public function fuzziness($fuzziness)
-    {
-    }
+    public function fuzziness($fuzziness) {}
 }
+
 /**
  * A FTS query that matches several terms (a "phrase") as is. The order of the terms mater and no further processing is
  * applied to them, so they must appear in the index exactly as provided.  Usually for debugging purposes, prefer
@@ -3341,228 +3129,197 @@ class MatchSearchQuery implements \JsonSerializable, SearchQueryPart
  */
 class PhraseSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return PhraseSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return PhraseSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * A FTS query that allows for simple matching of regular expressions.
  */
 class RegexpSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return RegexpSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return RegexpSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * A FTS query that allows for simple matching using wildcard characters (* and ?).
  */
 class WildcardSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return WildcardSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return WildcardSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * A FTS query that allows for simple matching on a given prefix.
  */
 class PrefixSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return PrefixSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return PrefixSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * A FTS query that performs a search according to the "string query" syntax.
  */
 class QueryStringSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return QueryStringSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
 }
+
 /**
  * A facet that gives the number of occurrences of the most recurring terms in all hits.
  */
 class TermSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return TermSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return TermSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param int $prefixLength
      * @return TermSearchQuery
      */
-    public function prefixLength($prefixLength)
-    {
-    }
+    public function prefixLength($prefixLength) {}
+
     /**
      * @param int $fuzziness
      * @return TermSearchQuery
      */
-    public function fuzziness($fuzziness)
-    {
-    }
+    public function fuzziness($fuzziness) {}
 }
+
 /**
  * A FTS query that matches documents on a range of values. At least one bound is required, and the
  * inclusiveness of each bound can be configured.
  */
 class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return TermRangeSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return TermRangeSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
+
     /**
      * @param string $min
      * @param bool $inclusive
      * @return TermRangeSearchQuery
      */
-    public function min($min, $inclusive = \true)
-    {
-    }
+    public function min($min, $inclusive = true) {}
+
     /**
      * @param string $max
      * @param bool $inclusive
      * @return TermRangeSearchQuery
      */
-    public function max($max, $inclusive = \false)
-    {
-    }
+    public function max($max, $inclusive = false) {}
 }
+
 /**
  * A FTS query that finds all matches from a given location (point) within the given distance.
  *
@@ -3570,59 +3327,51 @@ class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart
  */
 class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return GeoDistanceSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return GeoDistanceSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * A FTS query which allows to match geo bounding boxes.
  */
 class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param float $boost
      * @return GeoBoundingBoxSearchQuery
      */
-    public function boost($boost)
-    {
-    }
+    public function boost($boost) {}
+
     /**
      * @param string $field
      * @return GeoBoundingBoxSearchQuery
      */
-    public function field($field)
-    {
-    }
+    public function field($field) {}
 }
+
 /**
  * Common interface for all search facets
  *
@@ -3631,96 +3380,84 @@ class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart
  * @see \Couchbase\DateRangeSearchFacet
  * @see \Couchbase\NumericRangeSearchFacet
  */
-interface SearchFacet
-{
-}
+interface SearchFacet {}
+
 /**
  * A facet that gives the number of occurrences of the most recurring terms in all hits.
  */
 class TermSearchFacet implements \JsonSerializable, SearchFacet
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
 }
+
 /**
  * A facet that categorizes hits inside date ranges (or buckets) provided by the user.
  */
 class DateRangeSearchFacet implements \JsonSerializable, SearchFacet
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param string $name
      * @param int|string $start
      * @param int|string $end
      * @return DateSearchFacet
      */
-    public function addRange($name, $start, $end)
-    {
-    }
+    public function addRange($name, $start, $end) {}
 }
+
 /**
  * A facet that categorizes hits into numerical ranges (or buckets) provided by the user.
  */
 class NumericRangeSearchFacet implements \JsonSerializable, SearchFacet
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * @return array
      */
-    public function jsonSerialize()
-    {
-    }
+    public function jsonSerialize() {}
+
     /**
      * @param string $name
      * @param float $min
      * @param float $max
      * @return NumericSearchFacet
      */
-    public function addRange($name, $min, $max)
-    {
-    }
+    public function addRange($name, $min, $max) {}
 }
+
 /**
  * Base class for all FTS sort options in querying.
  */
 class SearchSort
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * Sort by the document identifier.
      *
      * @return SearchSortId
      */
-    public static function id()
-    {
-    }
+    public static function id() {}
+
     /**
      * Sort by the hit score.
      *
      * @return SearchSortScore
      */
-    public static function score()
-    {
-    }
+    public static function score() {}
+
     /**
      * Sort by a field in the hits.
      *
@@ -3728,9 +3465,8 @@ class SearchSort
      *
      * @return SearchSortField
      */
-    public static function field($field)
-    {
-    }
+    public static function field($field) {}
+
     /**
      * Sort by geo location.
      *
@@ -3740,18 +3476,16 @@ class SearchSort
      *
      * @return SearchSortGeoDistance
      */
-    public static function geoDistance($field, $longitude, $latitude)
-    {
-    }
+    public static function geoDistance($field, $longitude, $latitude) {}
 }
+
 /**
  * Sort by the document identifier.
  */
 class SearchSortId extends SearchSort implements \JsonSerializable
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * Direction of the sort
      *
@@ -3759,18 +3493,16 @@ class SearchSortId extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortId
      */
-    public function descending($descending)
-    {
-    }
+    public function descending($descending) {}
 }
+
 /**
  * Sort by the hit score.
  */
 class SearchSortScore extends SearchSort implements \JsonSerializable
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * Direction of the sort
      *
@@ -3778,10 +3510,9 @@ class SearchSortScore extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortScore
      */
-    public function descending($descending)
-    {
-    }
+    public function descending($descending) {}
 }
+
 /**
  * Sort by a field in the hits.
  */
@@ -3796,9 +3527,9 @@ class SearchSortField extends SearchSort implements \JsonSerializable
     public const MODE_MAX = "max";
     public const MISSING_FIRST = "first";
     public const MISSING_LAST = "last";
-    private function __construct()
-    {
-    }
+
+    private function __construct() {}
+
     /**
      * Direction of the sort
      *
@@ -3806,9 +3537,8 @@ class SearchSortField extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortField
      */
-    public function descending($descending)
-    {
-    }
+    public function descending($descending) {}
+
     /**
      * Set type of the field
      *
@@ -3819,9 +3549,8 @@ class SearchSortField extends SearchSort implements \JsonSerializable
      * @see SearchSortField::TYPE_NUMBER
      * @see SearchSortField::TYPE_DATE
      */
-    public function type($type)
-    {
-    }
+    public function type($type) {}
+
     /**
      * Set mode of the sort
      *
@@ -3830,9 +3559,8 @@ class SearchSortField extends SearchSort implements \JsonSerializable
      * @see SearchSortField::MODE_MIN
      * @see SearchSortField::MODE_MAX
      */
-    public function mode($mode)
-    {
-    }
+    public function mode($mode) {}
+
     /**
      * Set where the hits with missing field will be inserted
      *
@@ -3841,18 +3569,16 @@ class SearchSortField extends SearchSort implements \JsonSerializable
      * @see SearchSortField::MISSING_FIRST
      * @see SearchSortField::MISSING_LAST
      */
-    public function missing($missing)
-    {
-    }
+    public function missing($missing) {}
 }
+
 /**
  * Sort by a location and unit in the hits.
  */
 class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * Direction of the sort
      *
@@ -3860,9 +3586,8 @@ class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortGeoDistance
      */
-    public function descending($descending)
-    {
-    }
+    public function descending($descending) {}
+
     /**
      * Name of the units
      *
@@ -3870,10 +3595,9 @@ class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
      *
      * @return SearchSortGeoDistance
      */
-    public function unit($unit)
-    {
-    }
+    public function unit($unit) {}
 }
+
 /**
  * Represents a Analytics query (currently experimental support).
  *
@@ -3882,16 +3606,13 @@ class SearchSortGeoDistance extends SearchSort implements \JsonSerializable
  */
 class AnalyticsQuery
 {
-    private final function __construct()
-    {
-    }
+    final private function __construct() {}
+
     /**
      * Creates new AnalyticsQuery instance directly from the string.
      *
      * @param string $statement statement string
      * @return AnalyticsQuery
      */
-    public static function fromString($statement)
-    {
-    }
+    public static function fromString($statement) {}
 }

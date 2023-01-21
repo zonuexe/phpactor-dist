@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\JsonException;
+use Safe\Exceptions\JsonException;
+
 /**
  * Returns a string containing the JSON representation of the supplied
  * value.
@@ -41,15 +42,17 @@ use Phpactor202301\Safe\Exceptions\JsonException;
  * @throws JsonException
  *
  */
-function json_encode($value, int $options = 0, int $depth = 512) : string
+function json_encode($value, int $options = 0, int $depth = 512): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \json_encode($value, $options, $depth);
-    if ($result === \false) {
+    if ($result === false) {
         throw JsonException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the error string of the last json_encode or json_decode
  * call, which did not specify JSON_THROW_ON_ERROR.
@@ -59,11 +62,11 @@ function json_encode($value, int $options = 0, int $depth = 512) : string
  * @throws JsonException
  *
  */
-function json_last_error_msg() : string
+function json_last_error_msg(): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \json_last_error_msg();
-    if ($result === \false) {
+    if ($result === false) {
         throw JsonException::createFromPhpError();
     }
     return $result;

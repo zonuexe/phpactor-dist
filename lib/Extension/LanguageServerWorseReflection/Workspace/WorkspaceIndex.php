@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerWorseReflection\Workspace;
+namespace Phpactor\Extension\LanguageServerWorseReflection\Workspace;
 
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use RuntimeException;
 use function Phpactor202301\Amp\asyncCall;
 use function Phpactor202301\Amp\delay;
@@ -114,4 +114,3 @@ class WorkspaceIndex
         unset($this->documents[(string) $textDocumentUri]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerWorseReflection\\Workspace\\WorkspaceIndex', 'Phpactor\\Extension\\LanguageServerWorseReflection\\Workspace\\WorkspaceIndex', \false);

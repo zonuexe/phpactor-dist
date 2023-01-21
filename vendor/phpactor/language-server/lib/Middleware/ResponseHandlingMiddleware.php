@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 class ResponseHandlingMiddleware implements Middleware
 {
     /**
@@ -31,4 +31,3 @@ class ResponseHandlingMiddleware implements Middleware
         return $handler->handle($request);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\ResponseHandlingMiddleware', 'Phpactor\\LanguageServer\\Middleware\\ResponseHandlingMiddleware', \false);

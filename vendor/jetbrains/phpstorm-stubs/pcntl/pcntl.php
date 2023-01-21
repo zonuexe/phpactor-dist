@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of pcntl v.
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Forks the currently running process
  * @link https://php.net/manual/en/function.pcntl-fork.php
@@ -15,9 +14,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * parent's context, no child process will be created, and a PHP
  * error is raised.
  */
-function pcntl_fork() : int
-{
-}
+function pcntl_fork(): int {}
+
 /**
  * Waits on or returns the status of a forked child
  * @link https://php.net/manual/en/function.pcntl-waitpid.php
@@ -97,9 +95,14 @@ function pcntl_fork() : int
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  */
-function pcntl_waitpid(int $process_id, &$status, int $flags = 0, #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage = []) : int
-{
-}
+function pcntl_waitpid(
+    int $process_id,
+    &$status,
+    int $flags = 0,
+    #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
+= []
+): int {}
+
 /**
  * Waits on or returns the status of a forked child
  * @link https://php.net/manual/en/function.pcntl-wait.php
@@ -144,9 +147,13 @@ function pcntl_waitpid(int $process_id, &$status, int $flags = 0, #[PhpStormStub
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  */
-function pcntl_wait(&$status, int $flags = 0, #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage = []) : int
-{
-}
+function pcntl_wait(
+    &$status,
+    int $flags = 0,
+    #[PhpStormStubsElementAvailable(from: '7.0')] &$resource_usage
+= []
+): int {}
+
 /**
  * Installs a signal handler
  * @link https://php.net/manual/en/function.pcntl-signal.php
@@ -175,17 +182,15 @@ function pcntl_wait(&$status, int $flags = 0, #[PhpStormStubsElementAvailable(fr
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal(int $signal, $handler, bool $restart_syscalls = \true) : bool
-{
-}
+function pcntl_signal(int $signal, $handler, bool $restart_syscalls = true): bool {}
+
 /**
  * Calls signal handlers for pending signals
  * @link https://php.net/manual/en/function.pcntl-signal-dispatch.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal_dispatch() : bool
-{
-}
+function pcntl_signal_dispatch(): bool {}
+
 /**
  * Checks if status code represents a normal exit
  * @link https://php.net/manual/en/function.pcntl-wifexited.php
@@ -196,9 +201,8 @@ function pcntl_signal_dispatch() : bool
  * otherwise.
  */
 #[Pure]
-function pcntl_wifexited(int $status) : bool
-{
-}
+function pcntl_wifexited(int $status): bool {}
+
 /**
  * Checks whether the child process is currently stopped
  * @link https://php.net/manual/en/function.pcntl-wifstopped.php
@@ -209,9 +213,8 @@ function pcntl_wifexited(int $status) : bool
  * currently stopped, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function pcntl_wifstopped(int $status) : bool
-{
-}
+function pcntl_wifstopped(int $status): bool {}
+
 /**
  * Checks whether the status code represents a termination due to a signal
  * @link https://php.net/manual/en/function.pcntl-wifsignaled.php
@@ -222,9 +225,8 @@ function pcntl_wifstopped(int $status) : bool
  * not caught, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function pcntl_wifsignaled(int $status) : bool
-{
-}
+function pcntl_wifsignaled(int $status): bool {}
+
 /**
  * Returns the return code of a terminated child
  * @link https://php.net/manual/en/function.pcntl-wexitstatus.php
@@ -234,17 +236,15 @@ function pcntl_wifsignaled(int $status) : bool
  * @return int|false the return code, as an integer.
  */
 #[Pure]
-function pcntl_wexitstatus(int $status) : int|false
-{
-}
+function pcntl_wexitstatus(int $status): int|false {}
+
 /**
  * @param int $status
  * @return bool
  */
 #[Pure]
-function pcntl_wifcontinued(int $status) : bool
-{
-}
+function pcntl_wifcontinued(int $status): bool {}
+
 /**
  * Returns the signal which caused the child to terminate
  * @link https://php.net/manual/en/function.pcntl-wtermsig.php
@@ -254,9 +254,8 @@ function pcntl_wifcontinued(int $status) : bool
  * @return int|false the signal number, as an integer.
  */
 #[Pure]
-function pcntl_wtermsig(int $status) : int|false
-{
-}
+function pcntl_wtermsig(int $status): int|false {}
+
 /**
  * Returns the signal which caused the child to stop
  * @link https://php.net/manual/en/function.pcntl-wstopsig.php
@@ -266,9 +265,8 @@ function pcntl_wtermsig(int $status) : int|false
  * @return int|false the signal number.
  */
 #[Pure]
-function pcntl_wstopsig(int $status) : int|false
-{
-}
+function pcntl_wstopsig(int $status): int|false {}
+
 /**
  * Executes specified program in current process space
  * @link https://php.net/manual/en/function.pcntl-exec.php
@@ -290,9 +288,8 @@ function pcntl_wstopsig(int $status) : int|false
  * </p>
  * @return bool <b>FALSE</b> on error and does not return on success.
  */
-function pcntl_exec(string $path, array $args = [], array $env_vars = []) : bool
-{
-}
+function pcntl_exec(string $path, array $args = [], array $env_vars = []): bool {}
+
 /**
  * Set an alarm clock for delivery of a signal
  * @link https://php.net/manual/en/function.pcntl-alarm.php
@@ -304,29 +301,26 @@ function pcntl_exec(string $path, array $args = [], array $env_vars = []) : bool
  * remaining before it was to be delivered, or 0 if there
  * was no previously scheduled alarm.
  */
-function pcntl_alarm(int $seconds) : int
-{
-}
+function pcntl_alarm(int $seconds): int {}
+
 /**
  * Retrieve the error number set by the last pcntl function which failed
  * @link https://php.net/manual/en/function.pcntl-get-last-error.php
  * @return int error code.
  * @since 5.3.4
  */
-#[Pure(\true)]
-function pcntl_get_last_error() : int
-{
-}
+#[Pure(true)]
+function pcntl_get_last_error(): int {}
+
 /**
  * Alias of <b>pcntl_get_last_error</b>
  * @link https://php.net/manual/en/function.pcntl-errno.php
  * @return int error code.
  * @since 5.3.4
  */
-#[Pure(\true)]
-function pcntl_errno() : int
-{
-}
+#[Pure(true)]
+function pcntl_errno(): int {}
+
 /**
  * Retrieve the system error message associated with the given errno
  * @link https://php.net/manual/en/function.pcntl-strerror.php
@@ -337,9 +331,8 @@ function pcntl_errno() : int
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pcntl_strerror(int $error_code) : false|string
-{
-}
+function pcntl_strerror(int $error_code): false|string {}
+
 /**
  * Get the priority of any process
  * @link https://php.net/manual/en/function.pcntl-getpriority.php
@@ -355,9 +348,8 @@ function pcntl_strerror(int $error_code) : false|string
  * scheduling.
  */
 #[Pure]
-function pcntl_getpriority(?int $process_id, int $mode = \PRIO_PROCESS) : int|false
-{
-}
+function pcntl_getpriority(?int $process_id, int $mode = PRIO_PROCESS): int|false {}
+
 /**
  * Change the priority of any process
  * @link https://php.net/manual/en/function.pcntl-setpriority.php
@@ -378,9 +370,8 @@ function pcntl_getpriority(?int $process_id, int $mode = \PRIO_PROCESS) : int|fa
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_setpriority(int $priority, ?int $process_id, int $mode = \PRIO_PROCESS) : bool
-{
-}
+function pcntl_setpriority(int $priority, ?int $process_id, int $mode = PRIO_PROCESS): bool {}
+
 /**
  * Sets and retrieves blocked signals
  * @link https://php.net/manual/en/function.pcntl-sigprocmask.php
@@ -403,9 +394,8 @@ function pcntl_setpriority(int $priority, ?int $process_id, int $mode = \PRIO_PR
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_sigprocmask(int $mode, array $signals, &$old_signals) : bool
-{
-}
+function pcntl_sigprocmask(int $mode, array $signals, &$old_signals): bool {}
+
 /**
  * Waits for signals
  * @link https://php.net/manual/en/function.pcntl-sigwaitinfo.php
@@ -444,9 +434,8 @@ function pcntl_sigprocmask(int $mode, array $signals, &$old_signals) : bool
  * </p>
  * @return int|false On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
  */
-function pcntl_sigwaitinfo(array $signals, &$info = []) : int|false
-{
-}
+function pcntl_sigwaitinfo(array $signals, &$info = []): int|false {}
+
 /**
  * Waits for signals, with a timeout
  * @link https://php.net/manual/en/function.pcntl-sigtimedwait.php
@@ -466,9 +455,8 @@ function pcntl_sigwaitinfo(array $signals, &$info = []) : int|false
  * </p>
  * @return int|false On success, <b>pcntl_sigtimedwait</b> returns a signal number.
  */
-function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $nanoseconds = 0) : int|false
-{
-}
+function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $nanoseconds = 0): int|false {}
+
 /**
  * Enable/disable asynchronous signal handling or return the old setting.<br>
  * If the <b>enable</b> parameter is omitted, it returns whether asynchronous
@@ -482,9 +470,11 @@ function pcntl_sigtimedwait(array $signals, &$info = [], int $seconds = 0, int $
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?bool $enable, #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $enable = null) : bool
-{
-}
+function pcntl_async_signals(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] ?bool $enable,
+    #[PhpStormStubsElementAvailable(from: '8.0')] ?bool $enable = null
+): bool {}
+
 /**
  * Get the current handler for specified signal.
  * @link https://www.php.net/manual/en/function.pcntl-signal-get-handler.php
@@ -496,305 +486,360 @@ function pcntl_async_signals(#[PhpStormStubsElementAvailable(from: '5.3', to: '7
  * @return bool|resource
  * @since 7.1
  */
-function pcntl_signal_get_handler(int $signal)
-{
-}
+function pcntl_signal_get_handler(int $signal) {}
+
 /**
  * @param int $flags
  * @return bool
  * @since 7.4
  */
-function pcntl_unshare(int $flags) : bool
-{
-}
-\define('WNOHANG', 1);
-\define('WUNTRACED', 2);
-\define('WCONTINUED', 8);
-\define('SIG_IGN', 1);
-\define('SIG_DFL', 0);
-\define('SIG_ERR', -1);
-\define('SIGHUP', 1);
-\define('SIGINT', 2);
-\define('SIGQUIT', 3);
-\define('SIGILL', 4);
-\define('SIGTRAP', 5);
-\define('SIGABRT', 6);
-\define('SIGIOT', 6);
-\define('SIGBUS', 7);
-\define('SIGFPE', 8);
-\define('SIGKILL', 9);
-\define('SIGUSR1', 10);
-\define('SIGSEGV', 11);
-\define('SIGUSR2', 12);
-\define('SIGPIPE', 13);
-\define('SIGALRM', 14);
-\define('SIGTERM', 15);
-\define('SIGSTKFLT', 16);
-\define('SIGCLD', 17);
-\define('SIGCHLD', 17);
-\define('SIGCONT', 18);
-\define('SIGSTOP', 19);
-\define('SIGTSTP', 20);
-\define('SIGTTIN', 21);
-\define('SIGTTOU', 22);
-\define('SIGURG', 23);
-\define('SIGXCPU', 24);
-\define('SIGXFSZ', 25);
-\define('SIGVTALRM', 26);
-\define('SIGPROF', 27);
-\define('SIGWINCH', 28);
-\define('SIGPOLL', 29);
-\define('SIGIO', 29);
-\define('SIGPWR', 30);
-\define('SIGSYS', 31);
-\define('SIGBABY', 31);
-\define('PRIO_PGRP', 1);
-\define('PRIO_USER', 2);
-\define('PRIO_PROCESS', 0);
+function pcntl_unshare(int $flags): bool {}
+
+define('WNOHANG', 1);
+define('WUNTRACED', 2);
+define('WCONTINUED', 8);
+define('SIG_IGN', 1);
+define('SIG_DFL', 0);
+define('SIG_ERR', -1);
+define('SIGHUP', 1);
+define('SIGINT', 2);
+define('SIGQUIT', 3);
+define('SIGILL', 4);
+define('SIGTRAP', 5);
+define('SIGABRT', 6);
+define('SIGIOT', 6);
+define('SIGBUS', 7);
+define('SIGFPE', 8);
+define('SIGKILL', 9);
+define('SIGUSR1', 10);
+define('SIGSEGV', 11);
+define('SIGUSR2', 12);
+define('SIGPIPE', 13);
+define('SIGALRM', 14);
+define('SIGTERM', 15);
+define('SIGSTKFLT', 16);
+define('SIGCLD', 17);
+define('SIGCHLD', 17);
+define('SIGCONT', 18);
+define('SIGSTOP', 19);
+define('SIGTSTP', 20);
+define('SIGTTIN', 21);
+define('SIGTTOU', 22);
+define('SIGURG', 23);
+define('SIGXCPU', 24);
+define('SIGXFSZ', 25);
+define('SIGVTALRM', 26);
+define('SIGPROF', 27);
+define('SIGWINCH', 28);
+define('SIGPOLL', 29);
+define('SIGIO', 29);
+define('SIGPWR', 30);
+define('SIGSYS', 31);
+define('SIGBABY', 31);
+define('PRIO_PGRP', 1);
+define('PRIO_USER', 2);
+define('PRIO_PROCESS', 0);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SIG_BLOCK', 0);
+define('SIG_BLOCK', 0);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SIG_UNBLOCK', 1);
+define('SIG_UNBLOCK', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SIG_SETMASK', 2);
+define('SIG_SETMASK', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SIGRTMIN', 35);
+define('SIGRTMIN', 35);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SIGRTMAX', 64);
+define('SIGRTMAX', 64);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_USER', 0);
+define('SI_USER', 0);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_KERNEL', 128);
+define('SI_KERNEL', 128);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_QUEUE', -1);
+define('SI_QUEUE', -1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_TIMER', -2);
-\define('SI_MESGQ', -3);
+define('SI_TIMER', -2);
+define('SI_MESGQ', -3);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_ASYNCIO', -4);
+define('SI_ASYNCIO', -4);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_SIGIO', -5);
+define('SI_SIGIO', -5);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SI_TKILL', -6);
+define('SI_TKILL', -6);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('CLD_EXITED', 1);
+define('CLD_EXITED', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('CLD_KILLED', 2);
+define('CLD_KILLED', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('CLD_DUMPED', 3);
+define('CLD_DUMPED', 3);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('CLD_TRAPPED', 4);
+define('CLD_TRAPPED', 4);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('CLD_STOPPED', 5);
+define('CLD_STOPPED', 5);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('CLD_CONTINUED', 6);
+define('CLD_CONTINUED', 6);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('TRAP_BRKPT', 1);
+define('TRAP_BRKPT', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('TRAP_TRACE', 2);
+define('TRAP_TRACE', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('POLL_IN', 1);
+define('POLL_IN', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('POLL_OUT', 2);
+define('POLL_OUT', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('POLL_MSG', 3);
+define('POLL_MSG', 3);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('POLL_ERR', 4);
+define('POLL_ERR', 4);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('POLL_PRI', 5);
+define('POLL_PRI', 5);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('POLL_HUP', 6);
+define('POLL_HUP', 6);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_ILLOPC', 1);
+define('ILL_ILLOPC', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_ILLOPN', 2);
+define('ILL_ILLOPN', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_ILLADR', 3);
+define('ILL_ILLADR', 3);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_ILLTRP', 4);
+define('ILL_ILLTRP', 4);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_PRVOPC', 5);
+define('ILL_PRVOPC', 5);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_PRVREG', 6);
+define('ILL_PRVREG', 6);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_COPROC', 7);
+define('ILL_COPROC', 7);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('ILL_BADSTK', 8);
+define('ILL_BADSTK', 8);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_INTDIV', 1);
+define('FPE_INTDIV', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_INTOVF', 2);
+define('FPE_INTOVF', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_FLTDIV', 3);
+define('FPE_FLTDIV', 3);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_FLTOVF', 4);
+define('FPE_FLTOVF', 4);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_FLTUND', 5);
+define('FPE_FLTUND', 5);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_FLTRES', 6);
+define('FPE_FLTRES', 6);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_FLTINV', 7);
+define('FPE_FLTINV', 7);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('FPE_FLTSUB', 8);
+define('FPE_FLTSUB', 8);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SEGV_MAPERR', 1);
+define('SEGV_MAPERR', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('SEGV_ACCERR', 2);
+define('SEGV_ACCERR', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('BUS_ADRALN', 1);
+define('BUS_ADRALN', 1);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('BUS_ADRERR', 2);
+define('BUS_ADRERR', 2);
+
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-\define('BUS_OBJERR', 3);
-\define('PCNTL_EINTR', 4);
-\define('PCNTL_ECHILD', 10);
-\define('PCNTL_EINVAL', 22);
-\define('PCNTL_EAGAIN', 11);
-\define('PCNTL_ESRCH', 3);
-\define('PCNTL_EACCES', 13);
-\define('PCNTL_EPERM', 1);
-\define('PCNTL_ENOMEM', 12);
-\define('PCNTL_E2BIG', 7);
-\define('PCNTL_EFAULT', 14);
-\define('PCNTL_EIO', 5);
-\define('PCNTL_EISDIR', 21);
-\define('PCNTL_ELIBBAD', 80);
-\define('PCNTL_ELOOP', 40);
-\define('PCNTL_EMFILE', 24);
-\define('PCNTL_ENAMETOOLONG', 36);
-\define('PCNTL_ENFILE', 23);
-\define('PCNTL_ENOENT', 2);
-\define('PCNTL_ENOEXEC', 8);
-\define('PCNTL_ENOTDIR', 20);
-\define('PCNTL_ETXTBSY', 26);
+define('BUS_OBJERR', 3);
+define('PCNTL_EINTR', 4);
+define('PCNTL_ECHILD', 10);
+define('PCNTL_EINVAL', 22);
+define('PCNTL_EAGAIN', 11);
+define('PCNTL_ESRCH', 3);
+define('PCNTL_EACCES', 13);
+define('PCNTL_EPERM', 1);
+define('PCNTL_ENOMEM', 12);
+define('PCNTL_E2BIG', 7);
+define('PCNTL_EFAULT', 14);
+define('PCNTL_EIO', 5);
+define('PCNTL_EISDIR', 21);
+define('PCNTL_ELIBBAD', 80);
+define('PCNTL_ELOOP', 40);
+define('PCNTL_EMFILE', 24);
+define('PCNTL_ENAMETOOLONG', 36);
+define('PCNTL_ENFILE', 23);
+define('PCNTL_ENOENT', 2);
+define('PCNTL_ENOEXEC', 8);
+define('PCNTL_ENOTDIR', 20);
+define('PCNTL_ETXTBSY', 26);
+
 /**
  * @since 7.4
  */
-\define('PCNTL_ENOSPC', 28);
+define('PCNTL_ENOSPC', 28);
+
 /**
  * @since 7.4
  */
-\define('PCNTL_EUSERS', 87);
+define('PCNTL_EUSERS', 87);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWNS', 131072);
+define('CLONE_NEWNS', 131072);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWIPC', 134217728);
+define('CLONE_NEWIPC', 134217728);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWUTS', 67108864);
+define('CLONE_NEWUTS', 67108864);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWNET', 1073741824);
+define('CLONE_NEWNET', 1073741824);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWPID', 536870912);
+define('CLONE_NEWPID', 536870912);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWUSER', 268435456);
+define('CLONE_NEWUSER', 268435456);
+
 /**
  * @since 7.4
  */
-\define('CLONE_NEWCGROUP', 33554432);
+define('CLONE_NEWCGROUP', 33554432);
+
 // End of pcntl v.

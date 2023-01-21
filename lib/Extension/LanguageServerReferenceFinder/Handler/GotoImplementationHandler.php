@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler;
+namespace Phpactor\Extension\LanguageServerReferenceFinder\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ImplementationParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\ReferenceFinder\ClassImplementationFinder;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\ImplementationParams;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\ReferenceFinder\ClassImplementationFinder;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class GotoImplementationHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private ClassImplementationFinder $finder, private LocationConverter $locationConverter)
@@ -36,4 +36,3 @@ class GotoImplementationHandler implements Handler, CanRegisterCapabilities
         $capabilities->implementationProvider = \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\Handler\\GotoImplementationHandler', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\Handler\\GotoImplementationHandler', \false);

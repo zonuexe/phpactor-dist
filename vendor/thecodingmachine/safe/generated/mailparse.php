@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\MailparseException;
+use Safe\Exceptions\MailparseException;
+
 /**
  * Extracts/decodes a message section from the supplied filename.
  *
@@ -25,19 +26,21 @@ use Phpactor202301\Safe\Exceptions\MailparseException;
  * @throws MailparseException
  *
  */
-function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbackfunc = null) : string
+function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbackfunc = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($callbackfunc !== null) {
         $result = \mailparse_msg_extract_part_file($mimemail, $filename, $callbackfunc);
     } else {
         $result = \mailparse_msg_extract_part_file($mimemail, $filename);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MailparseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Frees a MIME resource.
  *
@@ -47,14 +50,16 @@ function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbac
  * @throws MailparseException
  *
  */
-function mailparse_msg_free($mimemail) : void
+function mailparse_msg_free($mimemail): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mailparse_msg_free($mimemail);
-    if ($result === \false) {
+    if ($result === false) {
         throw MailparseException::createFromPhpError();
     }
 }
+
+
 /**
  * Parses a file.
  * This is the optimal way of parsing a mail file that you have on disk.
@@ -70,13 +75,15 @@ function mailparse_msg_free($mimemail) : void
  */
 function mailparse_msg_parse_file(string $filename)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mailparse_msg_parse_file($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw MailparseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Incrementally parse data into the supplied mime mail resource.
  *
@@ -89,14 +96,16 @@ function mailparse_msg_parse_file(string $filename)
  * @throws MailparseException
  *
  */
-function mailparse_msg_parse($mimemail, string $data) : void
+function mailparse_msg_parse($mimemail, string $data): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mailparse_msg_parse($mimemail, $data);
-    if ($result === \false) {
+    if ($result === false) {
         throw MailparseException::createFromPhpError();
     }
 }
+
+
 /**
  * Streams data from the source file pointer, apply
  * encoding and write to the destination file pointer.
@@ -108,11 +117,11 @@ function mailparse_msg_parse($mimemail, string $data) : void
  * @throws MailparseException
  *
  */
-function mailparse_stream_encode($sourcefp, $destfp, string $encoding) : void
+function mailparse_stream_encode($sourcefp, $destfp, string $encoding): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mailparse_stream_encode($sourcefp, $destfp, $encoding);
-    if ($result === \false) {
+    if ($result === false) {
         throw MailparseException::createFromPhpError();
     }
 }

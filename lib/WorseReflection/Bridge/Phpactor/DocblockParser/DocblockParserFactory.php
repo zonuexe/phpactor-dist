@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser;
+namespace Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Docblock as ParserDocblock;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\PlainDocblock;
-use Phpactor202301\Phpactor\DocblockParser\Lexer;
-use Phpactor202301\Phpactor\DocblockParser\Parser;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\DocblockParser\Ast\Docblock as ParserDocblock;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
+use Phpactor\WorseReflection\Core\DocBlock\PlainDocblock;
+use Phpactor\DocblockParser\Lexer;
+use Phpactor\DocblockParser\Parser;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Reflector;
 class DocblockParserFactory implements DocBlockFactory
 {
     const SUPPORTED_TAGS = ['property', 'var', 'param', 'return', 'method', 'deprecated', 'extends', 'implements', 'template', 'template-covariant', 'template-extends', 'mixin', 'throws'];
@@ -31,7 +31,6 @@ class DocblockParserFactory implements DocBlockFactory
         }
         $node = $this->parser->parse($this->lexer->lex($docblock));
         \assert($node instanceof ParserDocblock);
-        return new ParsedDocblock($node, new TypeConverter($this->reflector, $scope), $docblock);
+        return new \Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\ParsedDocblock($node, new \Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\TypeConverter($this->reflector, $scope), $docblock);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\Phpactor\\DocblockParser\\DocblockParserFactory', 'Phpactor\\WorseReflection\\Bridge\\Phpactor\\DocblockParser\\DocblockParserFactory', \false);

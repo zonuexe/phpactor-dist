@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -131,10 +131,3 @@ class FileOperationClientCapabilities
         throw $lastException;
     }
 }
-/**
- * Capabilities relating to events from file operations by the user in the client.
- * 
- * These events do not come from the file system, they come from user operations
- * like renaming a file in the UI.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileOperationClientCapabilities', 'Phpactor\\LanguageServerProtocol\\FileOperationClientCapabilities', \false);

@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 interface TolerantQualifiable
 {
-    public function qualifier() : TolerantQualifier;
+    public function qualifier() : \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\TolerantQualifiable', 'Phpactor\\Completion\\Bridge\\TolerantParser\\TolerantQualifiable', \false);

@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Virtual;
+namespace Phpactor\WorseReflection\Core\Virtual;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\NodeText;
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
-class VirtualReflectionMethod extends VirtualReflectionMember implements ReflectionMethod
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\NodeText;
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Visibility;
+class VirtualReflectionMethod extends \Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMember implements ReflectionMethod
 {
     private Type $type;
     public function __construct(Position $position, ReflectionClassLike $declaringClass, ReflectionClassLike $class, string $name, Frame $frame, DocBlock $docblock, ReflectionScope $scope, Visibility $visiblity, Type $inferredType, Type $type, private ReflectionParameterCollection $parameters, private NodeText $body, private bool $isAbstract, private bool $isStatic, Deprecation $deprecation)
@@ -60,4 +60,3 @@ class VirtualReflectionMethod extends VirtualReflectionMember implements Reflect
         return $new;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionMethod', 'Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionMethod', \false);

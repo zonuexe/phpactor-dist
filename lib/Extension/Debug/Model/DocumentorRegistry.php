@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Debug\Model;
+namespace Phpactor\Extension\Debug\Model;
 
 use InvalidArgumentException;
-use Phpactor202301\Phpactor\Container\Container;
+use Phpactor\Container\Container;
 class DocumentorRegistry
 {
     /**
@@ -12,7 +12,7 @@ class DocumentorRegistry
     public function __construct(private Container $container, private array $documentors)
     {
     }
-    public function get(string $string) : Documentor
+    public function get(string $string) : \Phpactor\Extension\Debug\Model\Documentor
     {
         if (!\array_key_exists($string, $this->documentors)) {
             throw new InvalidArgumentException('Could not find documentor. Available documentors: ' . \implode(', ', \array_keys($this->documentors)));
@@ -20,4 +20,3 @@ class DocumentorRegistry
         return $this->container->get($this->documentors[$string]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Debug\\Model\\DocumentorRegistry', 'Phpactor\\Extension\\Debug\\Model\\DocumentorRegistry', \false);

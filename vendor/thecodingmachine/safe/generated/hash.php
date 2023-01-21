@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\HashException;
+use Safe\Exceptions\HashException;
+
 /**
  *
  *
@@ -30,15 +31,17 @@ use Phpactor202301\Safe\Exceptions\HashException;
  * @throws HashException
  *
  */
-function hash_hkdf(string $algo, string $ikm, int $length = 0, string $info = '', string $salt = '') : string
+function hash_hkdf(string $algo, string $ikm, int $length = 0, string $info = '', string $salt = ''): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \hash_hkdf($algo, $ikm, $length, $info, $salt);
-    if ($result === \false) {
+    if ($result === false) {
         throw HashException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -48,11 +51,11 @@ function hash_hkdf(string $algo, string $ikm, int $length = 0, string $info = ''
  * @throws HashException
  *
  */
-function hash_update_file(\HashContext $hcontext, string $filename, ?\HashContext $scontext = null) : void
+function hash_update_file(\HashContext $hcontext, string $filename, ?\HashContext $scontext = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \hash_update_file($hcontext, $filename, $scontext);
-    if ($result === \false) {
+    if ($result === false) {
         throw HashException::createFromPhpError();
     }
 }

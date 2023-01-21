@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model\Renamer;
+namespace Phpactor\Rename\Model\Renamer;
 
 use Generator;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEdit;
-use Phpactor202301\Phpactor\Rename\Model\Renamer;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Rename\Model\LocatedTextEdit;
+use Phpactor\Rename\Model\Renamer;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextDocument;
 class InMemoryRenamer implements Renamer
 {
     /**
@@ -25,4 +25,3 @@ class InMemoryRenamer implements Renamer
         yield from $this->results;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\Renamer\\InMemoryRenamer', 'Phpactor\\Rename\\Model\\Renamer\\InMemoryRenamer', \false);

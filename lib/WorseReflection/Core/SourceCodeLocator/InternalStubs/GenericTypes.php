@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // stolen from Psalm
+
 /**
  * @template TKey
  * @template TValue
@@ -11,68 +10,49 @@ namespace Phpactor202301;
  *
  * @template-implements Traversable<TKey, TValue>
  */
-class Generator implements \Traversable
-{
+class Generator implements Traversable {
     /**
      * @return ?TValue Can return any type.
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * @return void Any returned value is ignored.
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * @return TKey scalar on success, or null on failure.
      */
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * @return bool The return value will be casted to boolean and then evaluated.
      */
-    public function valid()
-    {
-    }
+    public function valid() {}
+
     /**
      * @return void Any returned value is ignored.
      */
-    public function rewind()
-    {
-    }
+    public function rewind() {}
+
     /**
      * @return TReturn Can return any type.
      */
-    public function getReturn()
-    {
-    }
+    public function getReturn() {}
+
     /**
      * @param TSend $value
      * @return ?TValue Can return any type.
      */
-    public function send($value)
-    {
-    }
+    public function send($value) {}
+
     /**
      * @return ?TValue Can return any type.
      */
-    public function throw(\Throwable $exception)
-    {
-    }
+    public function throw(Throwable $exception) {}
 }
-// stolen from Psalm
-/**
- * @template TKey
- * @template TValue
- * @template TSend
- * @template TReturn
- *
- * @template-implements Traversable<TKey, TValue>
- */
-\class_alias('Phpactor202301\\Generator', 'Generator', \false);
+
 /**
  * Interface to provide accessing objects as arrays.
  * @link http://php.net/manual/en/class.arrayaccess.php
@@ -80,8 +60,8 @@ class Generator implements \Traversable
  * @template TKey
  * @template TValue
  */
-interface ArrayAccess
-{
+interface ArrayAccess {
+
     /**
      * Whether a offset exists
      * @link http://php.net/manual/en/arrayaccess.offsetexists.php
@@ -93,6 +73,7 @@ interface ArrayAccess
      * @since 5.0.0
      */
     public function offsetExists($offset);
+
     /**
      * Offset to retrieve
      * @link http://php.net/manual/en/arrayaccess.offsetget.php
@@ -103,6 +84,7 @@ interface ArrayAccess
      * @since 5.0.0
      */
     public function offsetGet($offset);
+
     /**
      * Offset to set
      * @link http://php.net/manual/en/arrayaccess.offsetset.php
@@ -114,6 +96,7 @@ interface ArrayAccess
      * @since 5.0.0
      */
     public function offsetSet($offset, $value);
+
     /**
      * Offset to unset
      * @link http://php.net/manual/en/arrayaccess.offsetunset.php
@@ -125,14 +108,7 @@ interface ArrayAccess
      */
     public function offsetUnset($offset);
 }
-/**
- * Interface to provide accessing objects as arrays.
- * @link http://php.net/manual/en/class.arrayaccess.php
- *
- * @template TKey
- * @template TValue
- */
-\class_alias('Phpactor202301\\ArrayAccess', 'ArrayAccess', \false);
+
 /**
  * This class allows objects to work as arrays.
  * @link http://php.net/manual/en/class.arrayobject.php
@@ -142,16 +118,17 @@ interface ArrayAccess
  * @template-implements IteratorAggregate<TKey, TValue>
  * @template-implements ArrayAccess<TKey, TValue>
  */
-class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \Countable
-{
+class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Countable {
     /**
      * Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).
      */
     const STD_PROP_LIST = 1;
+
     /**
      * Entries can be accessed as properties (read and write).
      */
     const ARRAY_AS_PROPS = 2;
+
     /**
      * Construct a new array object
      * @link http://php.net/manual/en/arrayobject.construct.php
@@ -162,9 +139,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function __construct($input = null, $flags = 0, $iterator_class = "ArrayIterator")
-    {
-    }
+    public function __construct($input = null, $flags = 0, $iterator_class = "ArrayIterator") { }
+
     /**
      * Returns whether the requested index exists
      * @link http://php.net/manual/en/arrayobject.offsetexists.php
@@ -174,9 +150,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function offsetExists($index)
-    {
-    }
+    public function offsetExists($index) { }
+
     /**
      * Returns the value at the specified index
      * @link http://php.net/manual/en/arrayobject.offsetget.php
@@ -186,9 +161,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function offsetGet($index)
-    {
-    }
+    public function offsetGet($index) { }
+
     /**
      * Sets the value at the specified index to newval
      * @link http://php.net/manual/en/arrayobject.offsetset.php
@@ -199,9 +173,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function offsetSet($index, $newval)
-    {
-    }
+    public function offsetSet($index, $newval) { }
+
     /**
      * Unsets the value at the specified index
      * @link http://php.net/manual/en/arrayobject.offsetunset.php
@@ -211,9 +184,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function offsetUnset($index)
-    {
-    }
+    public function offsetUnset($index) { }
+
     /**
      * Appends the value
      * @link http://php.net/manual/en/arrayobject.append.php
@@ -223,9 +195,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function append($value)
-    {
-    }
+    public function append($value) { }
+
     /**
      * Creates a copy of the ArrayObject.
      * @link http://php.net/manual/en/arrayobject.getarraycopy.php
@@ -235,9 +206,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function getArrayCopy()
-    {
-    }
+    public function getArrayCopy() { }
+
     /**
      * Get the number of public properties in the ArrayObject
      * When the ArrayObject is constructed from an array all properties are public.
@@ -247,9 +217,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function count()
-    {
-    }
+    public function count() { }
+
     /**
      * Gets the behavior flags.
      * @link http://php.net/manual/en/arrayobject.getflags.php
@@ -258,9 +227,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.1.0
      */
-    public function getFlags()
-    {
-    }
+    public function getFlags() { }
+
     /**
      * Sets the behavior flags.
      *
@@ -299,9 +267,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.1.0
      */
-    public function setFlags($flags)
-    {
-    }
+    public function setFlags($flags) { }
+
     /**
      * Sort the entries by value
      * @link http://php.net/manual/en/arrayobject.asort.php
@@ -310,9 +277,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.2.0
      */
-    public function asort()
-    {
-    }
+    public function asort() { }
+
     /**
      * Sort the entries by key
      * @link http://php.net/manual/en/arrayobject.ksort.php
@@ -321,9 +287,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.2.0
      */
-    public function ksort()
-    {
-    }
+    public function ksort() { }
+
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
      * @link http://php.net/manual/en/arrayobject.uasort.php
@@ -340,9 +305,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.2.0
      */
-    public function uasort($cmp_function)
-    {
-    }
+    public function uasort($cmp_function) { }
+
     /**
      * Sort the entries by keys using a user-defined comparison function
      * @link http://php.net/manual/en/arrayobject.uksort.php
@@ -359,9 +323,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.2.0
      */
-    public function uksort($cmp_function)
-    {
-    }
+    public function uksort($cmp_function) { }
+
     /**
      * Sort entries using a "natural order" algorithm
      * @link http://php.net/manual/en/arrayobject.natsort.php
@@ -370,9 +333,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.2.0
      */
-    public function natsort()
-    {
-    }
+    public function natsort() { }
+
     /**
      * Sort an array using a case insensitive "natural order" algorithm
      * @link http://php.net/manual/en/arrayobject.natcasesort.php
@@ -381,9 +343,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.2.0
      */
-    public function natcasesort()
-    {
-    }
+    public function natcasesort() { }
+
     /**
      * Unserialize an ArrayObject
      * @link http://php.net/manual/en/arrayobject.unserialize.php
@@ -393,9 +354,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.3.0
      */
-    public function unserialize($serialized)
-    {
-    }
+    public function unserialize($serialized) { }
+
     /**
      * Serialize an ArrayObject
      * @link http://php.net/manual/en/arrayobject.serialize.php
@@ -404,9 +364,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.3.0
      */
-    public function serialize()
-    {
-    }
+    public function serialize() { }
+
     /**
      * Create a new iterator from an ArrayObject instance
      * @link http://php.net/manual/en/arrayobject.getiterator.php
@@ -415,9 +374,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.0.0
      */
-    public function getIterator()
-    {
-    }
+    public function getIterator() { }
+
     /**
      * Exchange the array for another one.
      * @link http://php.net/manual/en/arrayobject.exchangearray.php
@@ -427,9 +385,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.1.0
      */
-    public function exchangeArray($input)
-    {
-    }
+    public function exchangeArray($input) { }
+
     /**
      * Sets the iterator classname for the ArrayObject.
      * @link http://php.net/manual/en/arrayobject.setiteratorclass.php
@@ -439,9 +396,8 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.1.0
      */
-    public function setIteratorClass($iterator_class)
-    {
-    }
+    public function setIteratorClass($iterator_class) { }
+
     /**
      * Gets the iterator classname for the ArrayObject.
      * @link http://php.net/manual/en/arrayobject.getiteratorclass.php
@@ -450,59 +406,41 @@ class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \C
      *
      * @since 5.1.0
      */
-    public function getIteratorClass()
-    {
-    }
+    public function getIteratorClass() { }
 }
-/**
- * This class allows objects to work as arrays.
- * @link http://php.net/manual/en/class.arrayobject.php
- *
- * @template TKey
- * @template TValue
- * @template-implements IteratorAggregate<TKey, TValue>
- * @template-implements ArrayAccess<TKey, TValue>
- */
-\class_alias('Phpactor202301\\ArrayObject', 'ArrayObject', \false);
-interface Serializable
-{
+
+interface Serializable {
     /**
      * @return null|string
      */
     public function serialize();
+
     /**
      * @param string $data
      * @return void
      */
     public function unserialize($data);
 }
-\class_alias('Phpactor202301\\Serializable', 'Serializable', \false);
+
 /**
  * @template-covariant T as object
  */
 final class WeakReference
 {
     // always fail
-    public function __construct()
-    {
-    }
+    public function __construct() {}
+
     /**
      * @template TIn as object
      * @param TIn $referent
      * @return WeakReference<TIn>
      */
-    public static function create(object $referent) : \WeakReference
-    {
-    }
+    public static function create(object $referent): WeakReference {}
+
     /** @return ?T */
-    public function get() : ?object
-    {
-    }
+    public function get(): ?object {}
 }
-/**
- * @template-covariant T as object
- */
-\class_alias('Phpactor202301\\WeakReference', 'WeakReference', \false);
+
 /**
  * @template TKey of object
  * @template TVal of mixed
@@ -512,69 +450,50 @@ final class WeakReference
  *
  * @since 8.0.0
  */
-final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate, \Traversable
+final class WeakMap implements ArrayAccess, Countable, IteratorAggregate, Traversable
 {
     /**
      * @param TKey $offset
      * @return bool
      */
-    public function offsetExists($offset)
-    {
-    }
+    public function offsetExists($offset) {}
+
     /**
      * @param TKey $offset
      * @return TVal|null
      */
-    public function offsetGet($offset)
-    {
-    }
+    public function offsetGet($offset) {}
+
     /**
      * @param TKey $offset
      * @param TVal $value
      * @return void
      */
-    public function offsetSet($offset, $value)
-    {
-    }
+    public function offsetSet($offset, $value) {}
+
     /**
      * @param TKey $offset
      * @return void
      */
-    public function offsetUnset($offset)
-    {
-    }
+    public function offsetUnset($offset) {}
 }
-/**
- * @template TKey of object
- * @template TVal of mixed
- * @implements ArrayAccess<TKey, TVal>
- * @implements IteratorAggregate<TKey,TVal>
- * @implements Traversable<TKey,TVal>
- *
- * @since 8.0.0
- */
-\class_alias('Phpactor202301\\WeakMap', 'WeakMap', \false);
-#[\Attribute(\Attribute::TARGET_METHOD)]
+
+
+#[Attribute(Attribute::TARGET_METHOD)]
 final class ReturnTypeWillChange
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 }
-\class_alias('Phpactor202301\\ReturnTypeWillChange', 'ReturnTypeWillChange', \false);
-#[\Attribute(\Attribute::TARGET_PARAMETER)]
+
+#[Attribute(Attribute::TARGET_PARAMETER)]
 final class SensitiveParameter
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 }
-\class_alias('Phpactor202301\\SensitiveParameter', 'SensitiveParameter', \false);
-#[\Attribute(\Attribute::TARGET_CLASS)]
+
+#[Attribute(Attribute::TARGET_CLASS)]
 final class AllowDynamicProperties
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 }
-\class_alias('Phpactor202301\\AllowDynamicProperties', 'AllowDynamicProperties', \false);
+

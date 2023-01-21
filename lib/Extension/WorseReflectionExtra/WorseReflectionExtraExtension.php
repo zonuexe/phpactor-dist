@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionExtra;
+namespace Phpactor\Extension\WorseReflectionExtra;
 
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Rpc\OffsetInfoHandler;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Command\OffsetInfoCommand;
-use Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Application\OffsetInfo;
-use Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Application\ClassReflector;
-use Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Command\ClassReflectorCommand;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\Extension\WorseReflectionExtra\Rpc\OffsetInfoHandler;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\Extension\WorseReflectionExtra\Command\OffsetInfoCommand;
+use Phpactor\Extension\WorseReflectionExtra\Application\OffsetInfo;
+use Phpactor\Extension\WorseReflectionExtra\Application\ClassReflector;
+use Phpactor\Extension\WorseReflectionExtra\Command\ClassReflectorCommand;
+use Phpactor\MapResolver\Resolver;
 class WorseReflectionExtraExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -50,4 +50,3 @@ class WorseReflectionExtraExtension implements Extension
         }, [RpcExtension::TAG_RPC_HANDLER => ['name' => OffsetInfoHandler::NAME]]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionExtra\\WorseReflectionExtraExtension', 'Phpactor\\Extension\\WorseReflectionExtra\\WorseReflectionExtraExtension', \false);

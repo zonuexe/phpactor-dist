@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\XmlrpcException;
+use Safe\Exceptions\XmlrpcException;
+
 /**
  * Sets xmlrpc type, base64 or datetime, for a PHP string value.
  *
@@ -11,11 +12,11 @@ use Phpactor202301\Safe\Exceptions\XmlrpcException;
  * @throws XmlrpcException
  *
  */
-function xmlrpc_set_type(&$value, string $type) : void
+function xmlrpc_set_type(&$value, string $type): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xmlrpc_set_type($value, $type);
-    if ($result === \false) {
+    if ($result === false) {
         throw XmlrpcException::createFromPhpError();
     }
 }

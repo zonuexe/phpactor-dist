@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Model;
+namespace Phpactor\ObjectRenderer\Model;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\Exception\ObjectRendererNotFound;
+use Phpactor\ObjectRenderer\Model\Exception\ObjectRendererNotFound;
 interface ObjectRendererRegistry
 {
     /**
      * @throws ObjectRendererNotFound
      */
-    public function get(string $name) : ObjectRenderer;
+    public function get(string $name) : \Phpactor\ObjectRenderer\Model\ObjectRenderer;
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Model\\ObjectRendererRegistry', 'Phpactor\\ObjectRenderer\\Model\\ObjectRendererRegistry', \false);

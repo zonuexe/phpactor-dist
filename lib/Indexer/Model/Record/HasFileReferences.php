@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
 interface HasFileReferences
 {
@@ -17,4 +17,3 @@ interface HasFileReferences
      */
     public function references() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record\\HasFileReferences', 'Phpactor\\Indexer\\Model\\Record\\HasFileReferences', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\MysqlndMsException;
+use Safe\Exceptions\MysqlndMsException;
+
 /**
  * Returns a list of currently configured servers.
  *
@@ -22,15 +23,17 @@ use Phpactor202301\Safe\Exceptions\MysqlndMsException;
  * @throws MysqlndMsException
  *
  */
-function mysqlnd_ms_dump_servers($connection) : array
+function mysqlnd_ms_dump_servers($connection): array
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_ms_dump_servers($connection);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_ms_dump_servers($connection);
+    if ($result === false) {
         throw MysqlndMsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * MySQL Fabric related.
  *
@@ -46,15 +49,17 @@ function mysqlnd_ms_dump_servers($connection) : array
  * @throws MysqlndMsException
  *
  */
-function mysqlnd_ms_fabric_select_global($connection, $table_name) : array
+function mysqlnd_ms_fabric_select_global($connection, $table_name): array
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_ms_fabric_select_global($connection, $table_name);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_ms_fabric_select_global($connection, $table_name);
+    if ($result === false) {
         throw MysqlndMsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * MySQL Fabric related.
  *
@@ -71,15 +76,17 @@ function mysqlnd_ms_fabric_select_global($connection, $table_name) : array
  * @throws MysqlndMsException
  *
  */
-function mysqlnd_ms_fabric_select_shard($connection, $table_name, $shard_key) : array
+function mysqlnd_ms_fabric_select_shard($connection, $table_name, $shard_key): array
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_ms_fabric_select_shard($connection, $table_name, $shard_key);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_ms_fabric_select_shard($connection, $table_name, $shard_key);
+    if ($result === false) {
         throw MysqlndMsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns an array which describes the last used connection from the plugins
  * connection pool currently pointed to by the user connection handle. If using the
@@ -101,11 +108,11 @@ function mysqlnd_ms_fabric_select_shard($connection, $table_name, $shard_key) : 
  * @throws MysqlndMsException
  *
  */
-function mysqlnd_ms_get_last_used_connection($connection) : array
+function mysqlnd_ms_get_last_used_connection($connection): array
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_ms_get_last_used_connection($connection);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_ms_get_last_used_connection($connection);
+    if ($result === false) {
         throw MysqlndMsException::createFromPhpError();
     }
     return $result;

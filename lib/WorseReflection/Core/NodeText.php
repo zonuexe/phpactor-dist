@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 final class NodeText
 {
@@ -11,9 +11,8 @@ final class NodeText
     {
         return $this->nodeText;
     }
-    public static function fromString(string $nodeText) : NodeText
+    public static function fromString(string $nodeText) : \Phpactor\WorseReflection\Core\NodeText
     {
         return new self($nodeText);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\NodeText', 'Phpactor\\WorseReflection\\Core\\NodeText', \false);

@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server;
+namespace Phpactor\LanguageServer\Core\Server;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Client\ClientClient;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Client\DiagnosticsClient;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Client\WindowClient;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Client\WorkDoneProgressClient;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Client\WorkspaceClient;
+use Phpactor\LanguageServer\Core\Server\Client\ClientClient;
+use Phpactor\LanguageServer\Core\Server\Client\DiagnosticsClient;
+use Phpactor\LanguageServer\Core\Server\Client\WindowClient;
+use Phpactor\LanguageServer\Core\Server\Client\WorkDoneProgressClient;
+use Phpactor\LanguageServer\Core\Server\Client\WorkspaceClient;
 final class ClientApi
 {
     /**
      * @var RpcClient
      */
     private $client;
-    public function __construct(RpcClient $client)
+    public function __construct(\Phpactor\LanguageServer\Core\Server\RpcClient $client)
     {
         $this->client = $client;
     }
@@ -38,4 +38,3 @@ final class ClientApi
         return new WorkDoneProgressClient($this->client);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\ClientApi', 'Phpactor\\LanguageServer\\Core\\Server\\ClientApi', \false);

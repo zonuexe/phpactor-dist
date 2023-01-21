@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\Input;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\Response\Input\Input;
 class InputCallbackResponse implements Response
 {
     private array $inputs = [];
@@ -41,4 +41,3 @@ class InputCallbackResponse implements Response
         $this->inputs[] = $input;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\InputCallbackResponse', 'Phpactor\\Extension\\Rpc\\Response\\InputCallbackResponse', \false);

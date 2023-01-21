@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
-class ClosureType extends ReflectedClassType implements ClassLikeType, InvokeableType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Types;
+class ClosureType extends \Phpactor\WorseReflection\Core\Type\ReflectedClassType implements \Phpactor\WorseReflection\Core\Type\ClassLikeType, \Phpactor\WorseReflection\Core\Type\InvokeableType
 {
     private Type $returnType;
     /**
@@ -17,7 +17,7 @@ class ClosureType extends ReflectedClassType implements ClassLikeType, Invokeabl
     public function __construct(ClassReflector $reflector, private array $args = [], ?Type $returnType = null)
     {
         parent::__construct($reflector, ClassName::fromString('Closure'));
-        $this->returnType = $returnType ?? new MissingType();
+        $this->returnType = $returnType ?? new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function __toString() : string
     {
@@ -51,4 +51,3 @@ class ClosureType extends ReflectedClassType implements ClassLikeType, Invokeabl
         return new Types([TypeFactory::reflectedClass($this->reflector, 'Closure'), ...$this->args, $this->returnType]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ClosureType', 'Phpactor\\WorseReflection\\Core\\Type\\ClosureType', \false);

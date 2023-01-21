@@ -1,8 +1,6 @@
 <?php
+declare(strict_types=1);
 
-declare (strict_types=1);
-namespace Phpactor202301\SimpleKafkaClient;
+namespace SimpleKafkaClient;
 
-class Exception extends \Exception
-{
-}
+class Exception extends \Exception {}

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface DiagnosticSeverity
 {
@@ -10,4 +10,3 @@ interface DiagnosticSeverity
     public const INFORMATION = 3;
     public const HINT = 4;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DiagnosticSeverity', 'Phpactor\\LanguageServerProtocol\\DiagnosticSeverity', \false);

@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Coroutine;
+declare(strict_types=1);
+
+namespace Swoole\Coroutine;
 
 class Context extends \ArrayObject
 {

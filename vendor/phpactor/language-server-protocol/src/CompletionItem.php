@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -166,7 +166,7 @@ class CompletionItem
      * @param Command|null $command
      * @param mixed|null $data
      */
-    public function __construct(string $label, $kind = null, ?array $tags = null, ?string $detail = null, $documentation = null, ?bool $deprecated = null, ?bool $preselect = null, ?string $sortText = null, ?string $filterText = null, ?string $insertText = null, $insertTextFormat = null, ?TextEdit $textEdit = null, ?array $additionalTextEdits = null, ?array $commitCharacters = null, ?Command $command = null, $data = null)
+    public function __construct(string $label, $kind = null, ?array $tags = null, ?string $detail = null, $documentation = null, ?bool $deprecated = null, ?bool $preselect = null, ?string $sortText = null, ?string $filterText = null, ?string $insertText = null, $insertTextFormat = null, ?\Phpactor\LanguageServerProtocol\TextEdit $textEdit = null, ?array $additionalTextEdits = null, ?array $commitCharacters = null, ?\Phpactor\LanguageServerProtocol\Command $command = null, $data = null)
     {
         $this->label = $label;
         $this->kind = $kind;
@@ -191,7 +191,7 @@ class CompletionItem
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['label' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'tags' => ['names' => [], 'iterable' => \true], 'detail' => ['names' => [], 'iterable' => \false], 'documentation' => ['names' => [MarkupContent::class], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'preselect' => ['names' => [], 'iterable' => \false], 'sortText' => ['names' => [], 'iterable' => \false], 'filterText' => ['names' => [], 'iterable' => \false], 'insertText' => ['names' => [], 'iterable' => \false], 'insertTextFormat' => ['names' => [], 'iterable' => \false], 'textEdit' => ['names' => [TextEdit::class], 'iterable' => \false], 'additionalTextEdits' => ['names' => [TextEdit::class], 'iterable' => \true], 'commitCharacters' => ['names' => [], 'iterable' => \true], 'command' => ['names' => [Command::class], 'iterable' => \false], 'data' => ['names' => [], 'iterable' => \false]];
+        $map = ['label' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'tags' => ['names' => [], 'iterable' => \true], 'detail' => ['names' => [], 'iterable' => \false], 'documentation' => ['names' => [\Phpactor\LanguageServerProtocol\MarkupContent::class], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'preselect' => ['names' => [], 'iterable' => \false], 'sortText' => ['names' => [], 'iterable' => \false], 'filterText' => ['names' => [], 'iterable' => \false], 'insertText' => ['names' => [], 'iterable' => \false], 'insertTextFormat' => ['names' => [], 'iterable' => \false], 'textEdit' => ['names' => [\Phpactor\LanguageServerProtocol\TextEdit::class], 'iterable' => \false], 'additionalTextEdits' => ['names' => [\Phpactor\LanguageServerProtocol\TextEdit::class], 'iterable' => \true], 'commitCharacters' => ['names' => [], 'iterable' => \true], 'command' => ['names' => [\Phpactor\LanguageServerProtocol\Command::class], 'iterable' => \false], 'data' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -241,8 +241,3 @@ class CompletionItem
         throw $lastException;
     }
 }
-/**
- * A completion item represents a text snippet that is
- * proposed to complete text that is being typed.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CompletionItem', 'Phpactor\\LanguageServerProtocol\\CompletionItem', \false);

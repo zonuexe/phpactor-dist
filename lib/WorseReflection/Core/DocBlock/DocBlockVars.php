@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DocBlock;
+namespace Phpactor\WorseReflection\Core\DocBlock;
 
 use IteratorAggregate;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
 use ArrayIterator;
 use Traversable;
 /**
@@ -36,12 +36,8 @@ class DocBlockVars implements IteratorAggregate
     {
         return new ArrayIterator($this->vars);
     }
-    private function add(DocBlockVar $var) : void
+    private function add(\Phpactor\WorseReflection\Core\DocBlock\DocBlockVar $var) : void
     {
         $this->vars[] = $var;
     }
 }
-/**
- * @implements IteratorAggregate<DocBlockVar>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockVars', 'Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockVars', \false);

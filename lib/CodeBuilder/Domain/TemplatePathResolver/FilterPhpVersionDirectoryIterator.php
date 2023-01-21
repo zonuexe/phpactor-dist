@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\TemplatePathResolver;
+namespace Phpactor\CodeBuilder\Domain\TemplatePathResolver;
 
 use Iterator;
 use FilterIterator;
@@ -30,4 +30,3 @@ class FilterPhpVersionDirectoryIterator extends FilterIterator
         return \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\TemplatePathResolver\\FilterPhpVersionDirectoryIterator', 'Phpactor\\CodeBuilder\\Domain\\TemplatePathResolver\\FilterPhpVersionDirectoryIterator', \false);

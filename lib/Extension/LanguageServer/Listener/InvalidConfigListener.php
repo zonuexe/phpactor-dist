@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Listener;
+namespace Phpactor\Extension\LanguageServer\Listener;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Event\Initialized;
-use Phpactor202301\Phpactor\MapResolver\InvalidMap;
-use Phpactor202301\Phpactor\MapResolver\ResolverErrors;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Event\Initialized;
+use Phpactor\MapResolver\InvalidMap;
+use Phpactor\MapResolver\ResolverErrors;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 class InvalidConfigListener implements ListenerProviderInterface
 {
@@ -34,4 +34,3 @@ class InvalidConfigListener implements ListenerProviderInterface
         return new Success();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Listener\\InvalidConfigListener', 'Phpactor\\Extension\\LanguageServer\\Listener\\InvalidConfigListener', \false);

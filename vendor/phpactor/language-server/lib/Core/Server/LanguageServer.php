@@ -1,27 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server;
+namespace Phpactor\LanguageServer\Core\Server;
 
 use Phpactor202301\Amp\Loop;
 use Phpactor202301\Amp\Promise;
 use Exception;
 use Generator;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Exception\CouldNotCreateMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\ConnectionMessageTransmitter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ShutdownServer;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Parser\LspMessageReader;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\Connection;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\ResourceStreamProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\SocketStreamProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessageFactory;
+use Phpactor\LanguageServer\Core\Rpc\Exception\CouldNotCreateMessage;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\Transmitter\ConnectionMessageTransmitter;
+use Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
+use Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
+use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
+use Phpactor\LanguageServer\Core\Server\Exception\ShutdownServer;
+use Phpactor\LanguageServer\Core\Server\Parser\LspMessageReader;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\Connection;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\ResourceStreamProvider;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\SocketStreamProvider;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessageFactory;
 use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
 use RuntimeException;
 use Throwable;
 use function Phpactor202301\Amp\Promise\any;
@@ -52,13 +52,13 @@ final class LanguageServer
      * @var ServerStats
      */
     private $stats;
-    public function __construct(DispatcherFactory $dispatcherFactory, LoggerInterface $logger, StreamProvider $streamProvider, Initializer $initializer, ?ServerStats $stats = null)
+    public function __construct(DispatcherFactory $dispatcherFactory, LoggerInterface $logger, StreamProvider $streamProvider, \Phpactor\LanguageServer\Core\Server\Initializer $initializer, ?\Phpactor\LanguageServer\Core\Server\ServerStats $stats = null)
     {
         $this->logger = $logger;
         $this->streamProvider = $streamProvider;
         $this->dispatcherFactory = $dispatcherFactory;
         $this->initializer = $initializer;
-        $this->stats = $stats ?: new ServerStats();
+        $this->stats = $stats ?: new \Phpactor\LanguageServer\Core\Server\ServerStats();
     }
     /**
      * Start the language server only. Event loop is not started.
@@ -188,4 +188,3 @@ final class LanguageServer
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\LanguageServer', 'Phpactor\\LanguageServer\\Core\\Server\\LanguageServer', \false);

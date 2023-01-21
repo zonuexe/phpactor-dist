@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams
  */
-class RenameParams extends WorkDoneProgressParams
+class RenameParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The document to rename.
@@ -45,7 +45,7 @@ class RenameParams extends WorkDoneProgressParams
      * @param string $newName
      * @param int|string|null $workDoneToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Position $position, string $newName, $workDoneToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Position $position, string $newName, $workDoneToken = null)
     {
         $this->textDocument = $textDocument;
         $this->position = $position;
@@ -58,7 +58,7 @@ class RenameParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [Position::class], 'iterable' => \false], 'newName' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false], 'newName' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -108,9 +108,3 @@ class RenameParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [RenameRequest](#RenameRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\RenameParams', 'Phpactor\\LanguageServerProtocol\\RenameParams', \false);

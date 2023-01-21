@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBlackfire\Handler;
+namespace Phpactor\Extension\LanguageServerBlackfire\Handler;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\Extension\LanguageServerBlackfire\BlackfireProfiler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\Extension\LanguageServerBlackfire\BlackfireProfiler;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
 class BlackfireHandler implements Handler
 {
     /**
@@ -40,4 +40,3 @@ class BlackfireHandler implements Handler
         return new Success(null);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBlackfire\\Handler\\BlackfireHandler', 'Phpactor\\Extension\\LanguageServerBlackfire\\Handler\\BlackfireHandler', \false);

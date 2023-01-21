@@ -1,22 +1,21 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole;
+declare(strict_types=1);
+
+namespace Swoole;
 
 class ExitException extends Exception
 {
     private $flags = 0;
     private $status = 0;
+
     /**
      * @return mixed
      */
-    public function getFlags()
-    {
-    }
+    public function getFlags() {}
+
     /**
      * @return mixed
      */
-    public function getStatus()
-    {
-    }
+    public function getStatus() {}
 }

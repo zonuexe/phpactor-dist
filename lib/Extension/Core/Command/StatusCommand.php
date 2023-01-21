@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Extension\Core\Application\Status;
+use Phpactor\Extension\Core\Application\Status;
 class StatusCommand extends Command
 {
     public function __construct(private Status $status)
@@ -51,4 +51,3 @@ class StatusCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\StatusCommand', 'Phpactor\\Extension\\Core\\Command\\StatusCommand', \false);

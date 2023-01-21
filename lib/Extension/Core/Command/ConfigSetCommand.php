@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
 use JsonException;
-use Phpactor202301\Phpactor\Extension\Core\Model\ConfigManipulator;
+use Phpactor\Extension\Core\Model\ConfigManipulator;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
@@ -44,4 +44,3 @@ class ConfigSetCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\ConfigSetCommand', 'Phpactor\\Extension\\Core\\Command\\ConfigSetCommand', \false);

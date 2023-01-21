@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 interface TolerantQualifier
@@ -11,4 +11,3 @@ interface TolerantQualifier
      */
     public function couldComplete(Node $node) : ?Node;
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\TolerantQualifier', 'Phpactor\\Completion\\Bridge\\TolerantParser\\TolerantQualifier', \false);

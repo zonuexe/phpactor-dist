@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Navigation\Navigator;
+namespace Phpactor\Extension\Navigation\Navigator;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-class WorseReflectionNavigator implements Navigator
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Reflector;
+class WorseReflectionNavigator implements \Phpactor\Extension\Navigation\Navigator\Navigator
 {
     public function __construct(private Reflector $reflector)
     {
@@ -45,4 +45,3 @@ class WorseReflectionNavigator implements Navigator
         return $destinations;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\Navigator\\WorseReflectionNavigator', 'Phpactor\\Extension\\Navigation\\Navigator\\WorseReflectionNavigator', \false);

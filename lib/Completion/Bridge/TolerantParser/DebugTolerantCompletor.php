@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier\AlwaysQualfifier;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-class DebugTolerantCompletor implements TolerantCompletor, TolerantQualifiable
+use Phpactor\Completion\Bridge\TolerantParser\Qualifier\AlwaysQualfifier;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\ClassName;
+class DebugTolerantCompletor implements \Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor, \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable
 {
-    public function __construct(private TolerantCompletor $innerCompletor)
+    public function __construct(private \Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor $innerCompletor)
     {
     }
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
@@ -21,12 +21,11 @@ class DebugTolerantCompletor implements TolerantCompletor, TolerantQualifiable
         }
         return $generator->getReturn();
     }
-    public function qualifier() : TolerantQualifier
+    public function qualifier() : \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier
     {
-        if ($this->innerCompletor instanceof TolerantQualifiable) {
+        if ($this->innerCompletor instanceof \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable) {
             return $this->innerCompletor->qualifier();
         }
         return new AlwaysQualfifier();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\DebugTolerantCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\DebugTolerantCompletor', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\MethodRunner;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Handler\MethodRunner;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
 use RuntimeException;
 class CancellationMiddleware implements Middleware
 {
@@ -37,4 +37,3 @@ class CancellationMiddleware implements Middleware
         return $handler->handle($message);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\CancellationMiddleware', 'Phpactor\\LanguageServer\\Middleware\\CancellationMiddleware', \false);

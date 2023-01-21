@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Reference;
+namespace Phpactor\Extension\Rpc\Response\Reference;
 
 class Reference
 {
@@ -20,4 +20,3 @@ class Reference
         return ['start' => $this->start, 'end' => $this->end, 'line' => $this->line, 'line_no' => $this->lineNumber, 'col_no' => $this->colNo];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Reference\\Reference', 'Phpactor\\Extension\\Rpc\\Response\\Reference\\Reference', \false);

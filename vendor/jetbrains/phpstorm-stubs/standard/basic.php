@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Loads a php extension at runtime
  * @param string $extension_filename <p>
@@ -39,9 +38,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * @link https://php.net/manual/en/function.dl.php
  */
 #[Deprecated(since: '5.3')]
-function dl(string $extension_filename) : bool
-{
-}
+function dl(string $extension_filename): bool {}
+
 /**
  * Sets the process title
  * @link https://php.net/manual/en/function.cli-set-process-title.php
@@ -51,9 +49,8 @@ function dl(string $extension_filename) : bool
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function cli_set_process_title(string $title) : bool
-{
-}
+function cli_set_process_title(string $title): bool {}
+
 /**
  * Returns the current process title, as set by cli_set_process_title(). Note that this may not exactly match what is shown in ps or top, depending on your operating system.
  *
@@ -61,10 +58,9 @@ function cli_set_process_title(string $title) : bool
  * @return string|null Return a string with the current process title or <b>NULL</b> on error.
  * @since 5.5
  */
-#[Pure(\true)]
-function cli_get_process_title() : ?string
-{
-}
+#[Pure(true)]
+function cli_get_process_title(): ?string {}
+
 /**
  * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
  * @param mixed $value
@@ -73,9 +69,8 @@ function cli_get_process_title() : ?string
  * @link https://php.net/manual/en/function.is-iterable.php
  */
 #[Pure]
-function is_iterable(mixed $value) : bool
-{
-}
+function is_iterable(mixed $value): bool {}
+
 /**
  * Encodes an ISO-8859-1 string to UTF-8
  * @link https://php.net/manual/en/function.utf8-encode.php
@@ -87,9 +82,8 @@ function is_iterable(mixed $value) : bool
  */
 #[Pure]
 #[Deprecated(replacement: "mb_convert_encoding(%parameter0%, 'UTF-8')", since: "8.2")]
-function utf8_encode(string $string) : string
-{
-}
+function utf8_encode(string $string): string {}
+
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
  * to single-byte ISO-8859-1
@@ -102,18 +96,16 @@ function utf8_encode(string $string) : string
  */
 #[Pure]
 #[Deprecated(replacement: "mb_convert_encoding(%parameter0%, 'ISO-8859-1')", since: "8.2")]
-function utf8_decode(string $string) : string
-{
-}
+function utf8_decode(string $string): string {}
+
 /**
  * Clear the most recent error
  * @link https://php.net/manual/en/function.error-clear-last.php
  * @return void
  * @since 7.0
  */
-function error_clear_last() : void
-{
-}
+function error_clear_last(): void {}
+
 /**
  * Get process codepage
  * @link https://php.net/manual/en/function.sapi-windows-cp-get
@@ -125,9 +117,8 @@ function error_clear_last() : void
  * </p>
  * @since 7.1
  */
-function sapi_windows_cp_get(string $kind = "") : int
-{
-}
+function sapi_windows_cp_get(string $kind = ""): int {}
+
 /**
  * Set process codepage
  * @link https://php.net/manual/en/function.sapi-windows-cp-set
@@ -135,9 +126,8 @@ function sapi_windows_cp_get(string $kind = "") : int
  * @return bool Returns <i>true</i> on success or <i>false</i> on failure.
  * @since 7.1
  */
-function sapi_windows_cp_set(int $codepage) : bool
-{
-}
+function sapi_windows_cp_set(int $codepage): bool {}
+
 /**
  * Convert string from one codepage to another
  * @link https://php.net/manual/en/function.sapi-windows-cp-conv.php
@@ -147,18 +137,16 @@ function sapi_windows_cp_set(int $codepage) : bool
  * @return string|null The <i>subject</i> string converted to <i>out_codepage</i>, or <b>null</b> on failure.
  * @since 7.1
  */
-function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject) : ?string
-{
-}
+function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject): ?string {}
+
 /**
  * Indicates whether the codepage is utf-8 compatible
  * @link https://www.php.net/manual/en/function.sapi-windows-cp-is-utf8.php
  * @return bool
  * @since 7.1
  */
-function sapi_windows_cp_is_utf8() : bool
-{
-}
+function sapi_windows_cp_is_utf8(): bool {}
+
 /**
  * Get or set VT100 support for the specified stream associated to an output buffer of a Windows console.
  *
@@ -190,9 +178,8 @@ function sapi_windows_cp_is_utf8() : bool
  * </p>
  * @since 7.2
  */
-function sapi_windows_vt100_support($stream, ?bool $enable = null) : bool
-{
-}
+function sapi_windows_vt100_support($stream, ?bool $enable = null): bool {}
+
 /**
  * Set or remove a CTRL event handler, which allows Windows CLI processes to intercept or ignore CTRL+C and CTRL+BREAK events.
  * Note that in multithreaded environments, this is only possible when called from the main thread.
@@ -215,9 +202,8 @@ function sapi_windows_vt100_support($stream, ?bool $enable = null) : bool
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
-function sapi_windows_set_ctrl_handler(?callable $handler, bool $add = \true) : bool
-{
-}
+function sapi_windows_set_ctrl_handler(?callable $handler, bool $add = true): bool {}
+
 /**
  * Send a CTRL event to another process.
  *
@@ -227,9 +213,8 @@ function sapi_windows_set_ctrl_handler(?callable $handler, bool $add = \true) : 
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 7.4
  */
-function sapi_windows_generate_ctrl_event(int $event, int $pid = 0) : bool
-{
-}
+function sapi_windows_generate_ctrl_event(int $event, int $pid = 0): bool {}
+
 /**
  * The full path and filename of the file. If used inside an include,
  * the name of the included file is returned.
@@ -238,12 +223,14 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0) : bool
  * under some circumstances.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__FILE__', '', \true);
+define('__FILE__', '', true);
+
 /**
  * The current line number of the file.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__LINE__', 0, \true);
+define('__LINE__', 0, true);
+
 /**
  * The class name. (Added in PHP 4.3.0) As of PHP 5 this constant
  * returns the class name as it was declared (case-sensitive). In PHP
@@ -254,20 +241,23 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0) : bool
  * is used in.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__CLASS__', '', \true);
+define('__CLASS__', '', true);
+
 /**
  * The function name. (Added in PHP 4.3.0) As of PHP 5 this constant
  * returns the function name as it was declared (case-sensitive). In
  * PHP 4 its value is always lowercased.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__FUNCTION__', '', \true);
+define('__FUNCTION__', '', true);
+
 /**
  * The class method name. (Added in PHP 5.0.0) The method name is
  * returned as it was declared (case-sensitive).
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__METHOD__', '', \true);
+define('__METHOD__', '', true);
+
 /**
  * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
  * returns the trait as it was declared (case-sensitive). The trait name includes the namespace
@@ -275,7 +265,8 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0) : bool
  * @since 5.4
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__TRAIT__', '', \true);
+define('__TRAIT__', '', true);
+
 /**
  * The directory of the file. If used inside an include,
  * the directory of the included file is returned. This is equivalent
@@ -283,10 +274,11 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0) : bool
  * does not have a trailing slash unless it is the root directory.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__DIR__', '', \true);
+define('__DIR__', '', true);
+
 /**
  * The name of the current namespace (case-sensitive). This constant
  * is defined in compile-time (Added in PHP 5.3.0).
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
-\define('__NAMESPACE__', '', \true);
+define('__NAMESPACE__', '', true);

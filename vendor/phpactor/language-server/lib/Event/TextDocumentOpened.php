@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Event;
+namespace Phpactor\LanguageServer\Event;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
 class TextDocumentOpened
 {
     /**
@@ -18,4 +18,3 @@ class TextDocumentOpened
         return $this->textDocument;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Event\\TextDocumentOpened', 'Phpactor\\LanguageServer\\Event\\TextDocumentOpened', \false);

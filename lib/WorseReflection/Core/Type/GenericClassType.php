@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Resolver\IterableTypeResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
-class GenericClassType extends ReflectedClassType implements IterableType, ClassLikeType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\Resolver\IterableTypeResolver;
+use Phpactor\WorseReflection\Core\Types;
+class GenericClassType extends \Phpactor\WorseReflection\Core\Type\ReflectedClassType implements \Phpactor\WorseReflection\Core\Type\IterableType, \Phpactor\WorseReflection\Core\Type\ClassLikeType
 {
     /**
      * @param Type[] $arguments
@@ -63,7 +63,7 @@ class GenericClassType extends ReflectedClassType implements IterableType, Class
     }
     public function iterableKeyType() : Type
     {
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     /**
      * @param Type[] $arguments
@@ -74,11 +74,10 @@ class GenericClassType extends ReflectedClassType implements IterableType, Class
     }
     public function map(Closure $mapper) : Type
     {
-        return new self($this->reflector, ClassName::fromString((new ReflectedClassType($this->reflector, $this->name))->map($mapper)->__toString()), \array_map(fn(Type $type) => $type->map($mapper), $this->arguments));
+        return new self($this->reflector, ClassName::fromString((new \Phpactor\WorseReflection\Core\Type\ReflectedClassType($this->reflector, $this->name))->map($mapper)->__toString()), \array_map(fn(Type $type) => $type->map($mapper), $this->arguments));
     }
     public function allTypes() : Types
     {
         return new Types([TypeFactory::reflectedClass($this->reflector, $this->name), ...\array_values($this->arguments)]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\GenericClassType', 'Phpactor\\WorseReflection\\Core\\Type\\GenericClassType', \false);

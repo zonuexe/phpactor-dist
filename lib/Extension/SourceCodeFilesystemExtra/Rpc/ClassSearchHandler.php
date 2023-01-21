@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\Rpc;
+namespace Phpactor\Extension\SourceCodeFilesystemExtra\Rpc;
 
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application\ClassSearch;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReturnResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReturnOption;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReturnChoiceResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application\ClassSearch;
+use Phpactor\Extension\Rpc\Response\ReturnResponse;
+use Phpactor\Extension\Rpc\Response\ReturnOption;
+use Phpactor\Extension\Rpc\Response\ReturnChoiceResponse;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
 class ClassSearchHandler implements Handler
 {
     const NAME = 'class_search';
@@ -42,4 +42,3 @@ class ClassSearchHandler implements Handler
         return ReturnChoiceResponse::fromOptions($options);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\SourceCodeFilesystemExtra\\Rpc\\ClassSearchHandler', 'Phpactor\\Extension\\SourceCodeFilesystemExtra\\Rpc\\ClassSearchHandler', \false);

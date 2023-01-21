@@ -3,7 +3,7 @@
 namespace Phpactor202301;
 
 use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutput;
-use Phpactor202301\Phpactor\Application;
+use Phpactor\Application;
 foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
     if (\file_exists($file)) {
         $autoloadFile = $file;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
 use Closure;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 class ClosureMiddleware implements Middleware
 {
     /**
@@ -25,4 +25,3 @@ class ClosureMiddleware implements Middleware
         return $this->closure->__invoke($request, $handler);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\ClosureMiddleware', 'Phpactor\\LanguageServer\\Middleware\\ClosureMiddleware', \false);

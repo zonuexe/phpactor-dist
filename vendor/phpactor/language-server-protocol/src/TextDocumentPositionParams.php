@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -28,7 +28,7 @@ class TextDocumentPositionParams
      * @param TextDocumentIdentifier $textDocument
      * @param Position $position
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Position $position)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Position $position)
     {
         $this->textDocument = $textDocument;
         $this->position = $position;
@@ -39,7 +39,7 @@ class TextDocumentPositionParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [Position::class], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -89,8 +89,3 @@ class TextDocumentPositionParams
         throw $lastException;
     }
 }
-/**
- * A parameter literal used in requests to pass a text document and a position inside that
- * document.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\TextDocumentPositionParams', 'Phpactor\\LanguageServerProtocol\\TextDocumentPositionParams', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model;
+namespace Phpactor\Extension\LanguageServerPhpstan\Model;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\Diagnostic;
 use RuntimeException;
 class DiagnosticsParser
 {
@@ -37,4 +37,3 @@ class DiagnosticsParser
         return $decoded;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Model\\DiagnosticsParser', 'Phpactor\\Extension\\LanguageServerPhpstan\\Model\\DiagnosticsParser', \false);

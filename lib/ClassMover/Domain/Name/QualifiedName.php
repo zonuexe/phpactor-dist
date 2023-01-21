@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Name;
+namespace Phpactor\ClassMover\Domain\Name;
 
 use InvalidArgumentException;
 class QualifiedName
@@ -15,11 +15,11 @@ class QualifiedName
     {
         return \implode('\\', $this->parts);
     }
-    public static function root() : QualifiedName
+    public static function root() : \Phpactor\ClassMover\Domain\Name\QualifiedName
     {
         return new static([]);
     }
-    public function isEqualTo(QualifiedName $name) : bool
+    public function isEqualTo(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : bool
     {
         return $name->__toString() == $this->__toString();
     }
@@ -35,13 +35,13 @@ class QualifiedName
     {
         return \reset($this->parts);
     }
-    public function parentNamespace() : QualifiedName
+    public function parentNamespace() : \Phpactor\ClassMover\Domain\Name\QualifiedName
     {
         $parts = $this->parts;
         \array_pop($parts);
         return new static($parts);
     }
-    public function equals(QualifiedName $qualifiedName)
+    public function equals(\Phpactor\ClassMover\Domain\Name\QualifiedName $qualifiedName)
     {
         return $qualifiedName->__toString() == $this->__toString();
     }
@@ -49,10 +49,10 @@ class QualifiedName
     {
         return \end($this->parts);
     }
-    public function transpose(QualifiedName $name)
+    public function transpose(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
     {
         // both fully qualified names? great, nothing to see here.
-        if ($this instanceof FullyQualifiedName && $name instanceof FullyQualifiedName) {
+        if ($this instanceof \Phpactor\ClassMover\Domain\Name\FullyQualifiedName && $name instanceof \Phpactor\ClassMover\Domain\Name\FullyQualifiedName) {
             return $name;
         }
         // pretty sure there are some holes in this logic..
@@ -75,4 +75,3 @@ class QualifiedName
         return \count($this->parts) === 1;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Name\\QualifiedName', 'Phpactor\\ClassMover\\Domain\\Name\\QualifiedName', \false);

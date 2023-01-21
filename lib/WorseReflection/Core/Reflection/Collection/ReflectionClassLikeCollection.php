@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass as PhpactorReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass as PhpactorReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionClass;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node;
 /**
  * @extends AbstractReflectionCollection<ReflectionClassLike>
  */
-final class ReflectionClassLikeCollection extends AbstractReflectionCollection
+final class ReflectionClassLikeCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection
 {
     /**
      * @param array<string,bool> $visited
@@ -52,10 +52,10 @@ final class ReflectionClassLikeCollection extends AbstractReflectionCollection
         }
         return new static($items);
     }
-    public function classes() : ReflectionClassCollection
+    public function classes() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassCollection
     {
         /** @phpstan-ignore-next-line */
-        return new ReflectionClassCollection(\iterator_to_array($this->byMemberClass(PhpactorReflectionClass::class)));
+        return new \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassCollection(\iterator_to_array($this->byMemberClass(PhpactorReflectionClass::class)));
     }
     public function concrete() : self
     {
@@ -64,7 +64,3 @@ final class ReflectionClassLikeCollection extends AbstractReflectionCollection
         }));
     }
 }
-/**
- * @extends AbstractReflectionCollection<ReflectionClassLike>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionClassLikeCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionClassLikeCollection', \false);

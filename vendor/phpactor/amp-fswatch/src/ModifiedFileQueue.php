@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch;
+namespace Phpactor\AmpFsWatch;
 
 class ModifiedFileQueue
 {
@@ -15,7 +15,7 @@ class ModifiedFileQueue
     {
         $this->queue = $queue;
     }
-    public function enqueue(ModifiedFile $file) : void
+    public function enqueue(\Phpactor\AmpFsWatch\ModifiedFile $file) : void
     {
         \array_unshift($this->queue, $file);
     }
@@ -27,9 +27,8 @@ class ModifiedFileQueue
         }
         return new self(\array_values($new));
     }
-    public function dequeue() : ?ModifiedFile
+    public function dequeue() : ?\Phpactor\AmpFsWatch\ModifiedFile
     {
         return \array_pop($this->queue);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\ModifiedFileQueue', 'Phpactor\\AmpFsWatch\\ModifiedFileQueue', \false);

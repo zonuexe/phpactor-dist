@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\FilesystemException;
+use Safe\Exceptions\FilesystemException;
+
 /**
  * Attempts to change the group of the file filename
  * to group.
@@ -15,14 +16,16 @@ use Phpactor202301\Safe\Exceptions\FilesystemException;
  * @throws FilesystemException
  *
  */
-function chgrp(string $filename, $group) : void
+function chgrp(string $filename, $group): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \chgrp($filename, $group);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Attempts to change the mode of the specified file to that given in
  * mode.
@@ -55,14 +58,16 @@ function chgrp(string $filename, $group) : void
  *
  *
  */
-function chmod(string $filename, int $mode) : void
+function chmod(string $filename, int $mode): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \chmod($filename, $mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Attempts to change the owner of the file filename
  * to user user. Only the superuser may change the
@@ -73,14 +78,16 @@ function chmod(string $filename, int $mode) : void
  * @throws FilesystemException
  *
  */
-function chown(string $filename, $user) : void
+function chown(string $filename, $user): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \chown($filename, $user);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Makes a copy of the file source to
  * dest.
@@ -98,18 +105,20 @@ function chown(string $filename, $user) : void
  * @throws FilesystemException
  *
  */
-function copy(string $source, string $dest, $context = null) : void
+function copy(string $source, string $dest, $context = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \copy($source, $dest, $context);
     } else {
         $result = \copy($source, $dest);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Given a string containing a directory, this function will return the
  * number of bytes available on the corresponding filesystem or disk
@@ -124,15 +133,17 @@ function copy(string $source, string $dest, $context = null) : void
  * @throws FilesystemException
  *
  */
-function disk_free_space(string $directory) : float
+function disk_free_space(string $directory): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \disk_free_space($directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Given a string containing a directory, this function will return the total
  * number of bytes on the corresponding filesystem or disk partition.
@@ -142,15 +153,17 @@ function disk_free_space(string $directory) : float
  * @throws FilesystemException
  *
  */
-function disk_total_space(string $directory) : float
+function disk_total_space(string $directory): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \disk_total_space($directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The file pointed to by handle is closed.
  *
@@ -159,14 +172,16 @@ function disk_total_space(string $directory) : float
  * @throws FilesystemException
  *
  */
-function fclose($handle) : void
+function fclose($handle): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fclose($handle);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * This function forces a write of all buffered output to the resource
  * pointed to by the file handle.
@@ -178,14 +193,16 @@ function fclose($handle) : void
  * @throws FilesystemException
  *
  */
-function fflush($handle) : void
+function fflush($handle): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fflush($handle);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * This function is similar to file, except that
  * file_get_contents returns the file in a
@@ -220,9 +237,9 @@ function fflush($handle) : void
  * @throws FilesystemException
  *
  */
-function file_get_contents(string $filename, bool $use_include_path = \false, $context = null, int $offset = 0, int $maxlen = null) : string
+function file_get_contents(string $filename, bool $use_include_path = false, $context = null, int $offset = 0, int $maxlen = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($maxlen !== null) {
         $result = \file_get_contents($filename, $use_include_path, $context, $offset, $maxlen);
     } elseif ($offset !== 0) {
@@ -232,11 +249,13 @@ function file_get_contents(string $filename, bool $use_include_path = \false, $c
     } else {
         $result = \file_get_contents($filename, $use_include_path);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function is identical to calling fopen,
  * fwrite and fclose successively
@@ -311,19 +330,21 @@ function file_get_contents(string $filename, bool $use_include_path = \false, $c
  * @throws FilesystemException
  *
  */
-function file_put_contents(string $filename, $data, int $flags = 0, $context = null) : int
+function file_put_contents(string $filename, $data, int $flags = 0, $context = null): int
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \file_put_contents($filename, $data, $flags, $context);
     } else {
         $result = \file_put_contents($filename, $data, $flags);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Reads an entire file into an array.
  *
@@ -369,19 +390,21 @@ function file_put_contents(string $filename, $data, int $flags = 0, $context = n
  * @throws FilesystemException
  *
  */
-function file(string $filename, int $flags = 0, $context = null) : array
+function file(string $filename, int $flags = 0, $context = null): array
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \file($filename, $flags, $context);
     } else {
         $result = \file($filename, $flags);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -391,15 +414,17 @@ function file(string $filename, int $flags = 0, $context = null) : array
  * @throws FilesystemException
  *
  */
-function fileatime(string $filename) : int
+function fileatime(string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fileatime($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Gets the inode change time of a file.
  *
@@ -409,15 +434,17 @@ function fileatime(string $filename) : int
  * @throws FilesystemException
  *
  */
-function filectime(string $filename) : int
+function filectime(string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \filectime($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Gets the file inode.
  *
@@ -426,15 +453,17 @@ function filectime(string $filename) : int
  * @throws FilesystemException
  *
  */
-function fileinode(string $filename) : int
+function fileinode(string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fileinode($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns the time when the data blocks of a file were being
  * written to, that is, the time when the content of the file was changed.
@@ -446,15 +475,17 @@ function fileinode(string $filename) : int
  * @throws FilesystemException
  *
  */
-function filemtime(string $filename) : int
+function filemtime(string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \filemtime($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Gets the file owner.
  *
@@ -465,15 +496,17 @@ function filemtime(string $filename) : int
  * @throws FilesystemException
  *
  */
-function fileowner(string $filename) : int
+function fileowner(string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fileowner($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Gets the size for the given file.
  *
@@ -483,15 +516,17 @@ function fileowner(string $filename) : int
  * @throws FilesystemException
  *
  */
-function filesize(string $filename) : int
+function filesize(string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \filesize($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * flock allows you to perform a simple reader/writer
  * model which can be used on virtually every platform (including most Unix
@@ -535,14 +570,16 @@ function filesize(string $filename) : int
  * @throws FilesystemException
  *
  */
-function flock($handle, int $operation, ?int &$wouldblock = null) : void
+function flock($handle, int $operation, ?int &$wouldblock = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \flock($handle, $operation, $wouldblock);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * fopen binds a named resource, specified by
  * filename, to a stream.
@@ -742,19 +779,21 @@ function flock($handle, int $operation, ?int &$wouldblock = null) : void
  * @throws FilesystemException
  *
  */
-function fopen(string $filename, string $mode, bool $use_include_path = \false, $context = null)
+function fopen(string $filename, string $mode, bool $use_include_path = false, $context = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \fopen($filename, $mode, $use_include_path, $context);
     } else {
         $result = \fopen($filename, $mode, $use_include_path);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * fputcsv formats a line (passed as a
  * fields array) as CSV and writes it (terminated by a
@@ -776,15 +815,17 @@ function fopen(string $filename, string $mode, bool $use_include_path = \false, 
  * @throws FilesystemException
  *
  */
-function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\") : int
+function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\"): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fputcsv($handle, $fields, $delimiter, $enclosure, $escape_char);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * fread reads up to
  * length bytes from the file pointer
@@ -824,15 +865,17 @@ function fputcsv($handle, array $fields, string $delimiter = ",", string $enclos
  * @throws FilesystemException
  *
  */
-function fread($handle, int $length) : string
+function fread($handle, int $length): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fread($handle, $length);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Takes the filepointer, handle, and truncates the file to
  * length, size.
@@ -850,14 +893,16 @@ function fread($handle, int $length) : string
  * @throws FilesystemException
  *
  */
-function ftruncate($handle, int $size) : void
+function ftruncate($handle, int $size): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftruncate($handle, $size);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -877,19 +922,21 @@ function ftruncate($handle, int $size) : void
  * @throws FilesystemException
  *
  */
-function fwrite($handle, string $string, int $length = null) : int
+function fwrite($handle, string $string, int $length = null): int
 {
-    \error_clear_last();
+    error_clear_last();
     if ($length !== null) {
         $result = \fwrite($handle, $string, $length);
     } else {
         $result = \fwrite($handle, $string);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The glob function searches for all the pathnames
  * matching pattern according to the rules used by
@@ -974,15 +1021,17 @@ function fwrite($handle, string $string, int $length = null) : int
  * @throws FilesystemException
  *
  */
-function glob(string $pattern, int $flags = 0) : array
+function glob(string $pattern, int $flags = 0): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \glob($pattern, $flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Attempts to change the group of the symlink filename
  * to group.
@@ -996,14 +1045,16 @@ function glob(string $pattern, int $flags = 0) : array
  * @throws FilesystemException
  *
  */
-function lchgrp(string $filename, $group) : void
+function lchgrp(string $filename, $group): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \lchgrp($filename, $group);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Attempts to change the owner of the symlink filename
  * to user user.
@@ -1015,14 +1066,16 @@ function lchgrp(string $filename, $group) : void
  * @throws FilesystemException
  *
  */
-function lchown(string $filename, $user) : void
+function lchown(string $filename, $user): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \lchown($filename, $user);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * link creates a hard link.
  *
@@ -1031,14 +1084,16 @@ function lchown(string $filename, $user) : void
  * @throws FilesystemException
  *
  */
-function link(string $target, string $link) : void
+function link(string $target, string $link): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \link($target, $link);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Attempts to create the directory specified by pathname.
  *
@@ -1059,18 +1114,20 @@ function link(string $target, string $link) : void
  * @throws FilesystemException
  *
  */
-function mkdir(string $pathname, int $mode = 0777, bool $recursive = \false, $context = null) : void
+function mkdir(string $pathname, int $mode = 0777, bool $recursive = false, $context = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \mkdir($pathname, $mode, $recursive, $context);
     } else {
         $result = \mkdir($pathname, $mode, $recursive);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * parse_ini_file loads in the
  * ini file specified in filename,
@@ -1100,15 +1157,17 @@ function mkdir(string $pathname, int $mode = 0777, bool $recursive = \false, $co
  * @throws FilesystemException
  *
  */
-function parse_ini_file(string $filename, bool $process_sections = \false, int $scanner_mode = \INI_SCANNER_NORMAL) : array
+function parse_ini_file(string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \parse_ini_file($filename, $process_sections, $scanner_mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * parse_ini_string returns the settings in string
  * ini in an associative array.
@@ -1135,15 +1194,17 @@ function parse_ini_file(string $filename, bool $process_sections = \false, int $
  * @throws FilesystemException
  *
  */
-function parse_ini_string(string $ini, bool $process_sections = \false, int $scanner_mode = \INI_SCANNER_NORMAL) : array
+function parse_ini_string(string $ini, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \parse_ini_string($ini, $process_sections, $scanner_mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Reads a file and writes it to the output buffer.
  *
@@ -1155,19 +1216,21 @@ function parse_ini_string(string $ini, bool $process_sections = \false, int $sca
  * @throws FilesystemException
  *
  */
-function readfile(string $filename, bool $use_include_path = \false, $context = null) : int
+function readfile(string $filename, bool $use_include_path = false, $context = null): int
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \readfile($filename, $use_include_path, $context);
     } else {
         $result = \readfile($filename, $use_include_path);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * readlink does the same as the readlink C function.
  *
@@ -1176,15 +1239,17 @@ function readfile(string $filename, bool $use_include_path = \false, $context = 
  * @throws FilesystemException
  *
  */
-function readlink(string $path) : string
+function readlink(string $path): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \readlink($path);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * realpath expands all symbolic links and
  * resolves references to /./, /../ and extra / characters in
@@ -1210,15 +1275,17 @@ function readlink(string $path) : string
  * @throws FilesystemException
  *
  */
-function realpath(string $path) : string
+function realpath(string $path): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \realpath($path);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Attempts to rename oldname to
  * newname, moving it between directories if necessary.
@@ -1237,18 +1304,20 @@ function realpath(string $path) : string
  * @throws FilesystemException
  *
  */
-function rename(string $oldname, string $newname, $context = null) : void
+function rename(string $oldname, string $newname, $context = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \rename($oldname, $newname, $context);
     } else {
         $result = \rename($oldname, $newname);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the file position indicator for handle
  * to the beginning of the file stream.
@@ -1258,14 +1327,16 @@ function rename(string $oldname, string $newname, $context = null) : void
  * @throws FilesystemException
  *
  */
-function rewind($handle) : void
+function rewind($handle): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \rewind($handle);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Attempts to remove the directory named by dirname.
  * The directory must be empty, and the relevant permissions must permit this.
@@ -1276,18 +1347,20 @@ function rewind($handle) : void
  * @throws FilesystemException
  *
  */
-function rmdir(string $dirname, $context = null) : void
+function rmdir(string $dirname, $context = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \rmdir($dirname, $context);
     } else {
         $result = \rmdir($dirname);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * symlink creates a symbolic link to the existing
  * target with the specified name
@@ -1298,14 +1371,16 @@ function rmdir(string $dirname, $context = null) : void
  * @throws FilesystemException
  *
  */
-function symlink(string $target, string $link) : void
+function symlink(string $target, string $link): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \symlink($target, $link);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates a file with a unique filename, with access permission set to 0600, in the specified directory.
  * If the directory does not exist or is not writable, tempnam may
@@ -1318,15 +1393,17 @@ function symlink(string $target, string $link) : void
  * @throws FilesystemException
  *
  */
-function tempnam(string $dir, string $prefix) : string
+function tempnam(string $dir, string $prefix): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \tempnam($dir, $prefix);
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Creates a temporary file with a unique name in read-write (w+) mode and
  * returns a file handle.
@@ -1343,13 +1420,15 @@ function tempnam(string $dir, string $prefix) : string
  */
 function tmpfile()
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \tmpfile();
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Attempts to set the access and modification times of the file named in the
  * filename parameter to the value given in
@@ -1369,9 +1448,9 @@ function tmpfile()
  * @throws FilesystemException
  *
  */
-function touch(string $filename, int $time = null, int $atime = null) : void
+function touch(string $filename, int $time = null, int $atime = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($atime !== null) {
         $result = \touch($filename, $time, $atime);
     } elseif ($time !== null) {
@@ -1379,10 +1458,12 @@ function touch(string $filename, int $time = null, int $atime = null) : void
     } else {
         $result = \touch($filename);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }
+
+
 /**
  * Deletes filename.  Similar to the Unix C unlink()
  * function. An E_WARNING level error will be generated on
@@ -1393,15 +1474,15 @@ function touch(string $filename, int $time = null, int $atime = null) : void
  * @throws FilesystemException
  *
  */
-function unlink(string $filename, $context = null) : void
+function unlink(string $filename, $context = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \unlink($filename, $context);
     } else {
         $result = \unlink($filename);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
 }

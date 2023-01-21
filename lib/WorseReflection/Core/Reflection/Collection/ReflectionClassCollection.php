@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass as PhpactorReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass as PhpactorReflectionClass;
 /**
  * @extends AbstractReflectionCollection<PhpactorReflectionClass>
  */
-final class ReflectionClassCollection extends AbstractReflectionCollection
+final class ReflectionClassCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection
 {
     public function concrete() : self
     {
@@ -15,7 +15,3 @@ final class ReflectionClassCollection extends AbstractReflectionCollection
         }));
     }
 }
-/**
- * @extends AbstractReflectionCollection<PhpactorReflectionClass>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionClassCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionClassCollection', \false);

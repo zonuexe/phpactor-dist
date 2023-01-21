@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class DefaultValue extends Value
+final class DefaultValue extends \Phpactor\CodeBuilder\Domain\Prototype\Value
 {
     private $none = \false;
     public static function none()
@@ -11,7 +11,7 @@ final class DefaultValue extends Value
         $new->none = \true;
         return $new;
     }
-    public static function null() : DefaultValue
+    public static function null() : \Phpactor\CodeBuilder\Domain\Prototype\DefaultValue
     {
         return new static(null);
     }
@@ -20,4 +20,3 @@ final class DefaultValue extends Value
         return \false === $this->none;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\DefaultValue', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\DefaultValue', \false);

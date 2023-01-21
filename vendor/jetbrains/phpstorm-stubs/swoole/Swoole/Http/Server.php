@@ -1,8 +1,7 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Http;
+declare(strict_types=1);
 
-class Server extends \Swoole\Server
-{
-}
+namespace Swoole\Http;
+
+class Server extends \Swoole\Server {}

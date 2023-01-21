@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 class TypedCompletorRegistry
 {
@@ -20,16 +20,15 @@ class TypedCompletorRegistry
             $this->add($type, $completor);
         }
     }
-    public function completorForType(string $type) : Completor
+    public function completorForType(string $type) : \Phpactor\Completion\Core\Completor
     {
         if (!isset($this->completors[$type])) {
-            return new ChainCompletor([]);
+            return new \Phpactor\Completion\Core\ChainCompletor([]);
         }
         return $this->completors[$type];
     }
-    private function add(string $type, Completor $completor) : void
+    private function add(string $type, \Phpactor\Completion\Core\Completor $completor) : void
     {
         $this->completors[$type] = $completor;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\TypedCompletorRegistry', 'Phpactor\\Completion\\Core\\TypedCompletorRegistry', \false);

@@ -1,24 +1,24 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassHierarchyResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection as PhpactorReflectionTraitCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait as CoreReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-class ReflectionTrait extends AbstractReflectionClass implements CoreReflectionTrait
+use Phpactor\WorseReflection\Core\ClassHierarchyResolver;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection as PhpactorReflectionTraitCollection;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait as CoreReflectionTrait;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+class ReflectionTrait extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClass implements CoreReflectionTrait
 {
     private ?ClassLikeReflectionMemberCollection $ownMembers = null;
     private ?ClassLikeReflectionMemberCollection $members = null;
@@ -95,4 +95,3 @@ class ReflectionTrait extends AbstractReflectionClass implements CoreReflectionT
         return $this->serviceLocator;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionTrait', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionTrait', \false);

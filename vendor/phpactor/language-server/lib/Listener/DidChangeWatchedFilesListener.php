@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Listener;
+namespace Phpactor\LanguageServer\Listener;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesRegistrationOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileSystemWatcher;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Registration;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Event\Initialized;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServerProtocol\DidChangeWatchedFilesRegistrationOptions;
+use Phpactor\LanguageServerProtocol\FileSystemWatcher;
+use Phpactor\LanguageServerProtocol\Registration;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Event\Initialized;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 use Phpactor202301\Ramsey\Uuid\Uuid;
 use function Phpactor202301\Amp\asyncCall;
@@ -53,4 +53,3 @@ class DidChangeWatchedFilesListener implements ListenerProviderInterface
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Listener\\DidChangeWatchedFilesListener', 'Phpactor\\LanguageServer\\Listener\\DidChangeWatchedFilesListener', \false);

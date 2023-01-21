@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Application\Helper;
+namespace Phpactor\Extension\Core\Application\Helper;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
-use Phpactor202301\Phpactor\Phpactor;
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
+use Phpactor\Phpactor;
 class ClassFileNormalizer
 {
     public function __construct(private ClassToFileFileToClass $fileClassConverter)
@@ -47,4 +47,3 @@ class ClassFileNormalizer
         return (string) $classCandidates->best();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Application\\Helper\\ClassFileNormalizer', 'Phpactor\\Extension\\Core\\Application\\Helper\\ClassFileNormalizer', \false);

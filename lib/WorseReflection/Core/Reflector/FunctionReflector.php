@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\SourceCode;
 interface FunctionReflector
 {
     /**
@@ -16,4 +16,3 @@ interface FunctionReflector
      */
     public function sourceCodeForFunction($name) : SourceCode;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\FunctionReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\FunctionReflector', \false);

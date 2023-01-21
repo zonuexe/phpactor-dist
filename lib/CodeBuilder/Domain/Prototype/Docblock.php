@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 class Docblock
 {
@@ -29,4 +29,3 @@ class Docblock
         return $lines;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Docblock', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Docblock', \false);

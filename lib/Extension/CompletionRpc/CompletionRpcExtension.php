@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CompletionRpc;
+namespace Phpactor\Extension\CompletionRpc;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\CompletionRpc\Handler\CompleteHandler;
-use Phpactor202301\Phpactor\Extension\Completion\CompletionExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\CompletionRpc\Handler\CompleteHandler;
+use Phpactor\Extension\Completion\CompletionExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\MapResolver\Resolver;
 class CompletionRpcExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -21,4 +21,3 @@ class CompletionRpcExtension implements Extension
         }, [RpcExtension::TAG_RPC_HANDLER => ['name' => CompleteHandler::NAME]]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CompletionRpc\\CompletionRpcExtension', 'Phpactor\\Extension\\CompletionRpc\\CompletionRpcExtension', \false);

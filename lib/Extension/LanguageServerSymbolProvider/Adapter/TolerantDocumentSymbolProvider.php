@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Adapter;
+namespace Phpactor\Extension\LanguageServerSymbolProvider\Adapter;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -18,11 +18,11 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentSymbol;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SymbolKind;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
+use Phpactor\LanguageServerProtocol\DocumentSymbol;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\SymbolKind;
 class TolerantDocumentSymbolProvider implements DocumentSymbolProvider
 {
     public function __construct(private Parser $parser)
@@ -81,4 +81,3 @@ class TolerantDocumentSymbolProvider implements DocumentSymbolProvider
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerSymbolProvider\\Adapter\\TolerantDocumentSymbolProvider', 'Phpactor\\Extension\\LanguageServerSymbolProvider\\Adapter\\TolerantDocumentSymbolProvider', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -100,7 +100,3 @@ class ApplyWorkspaceEditResponse
         throw $lastException;
     }
 }
-/**
- * A response returned from the apply workspace edit request.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ApplyWorkspaceEditResponse', 'Phpactor\\LanguageServerProtocol\\ApplyWorkspaceEditResponse', \false);

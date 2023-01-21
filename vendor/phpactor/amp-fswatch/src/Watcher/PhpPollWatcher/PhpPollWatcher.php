@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\PhpPollWatcher;
+namespace Phpactor\AmpFsWatch\Watcher\PhpPollWatcher;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
 use DateTimeImmutable;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFile;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileQueue;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherConfig;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\ModifiedFile;
+use Phpactor\AmpFsWatch\ModifiedFileQueue;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherConfig;
+use Phpactor\AmpFsWatch\WatcherProcess;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use Phpactor202301\Webmozart\PathUtil\Path;
@@ -122,4 +122,3 @@ class PhpPollWatcher implements Watcher, WatcherProcess
         return 'php-poll';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\PhpPollWatcher\\PhpPollWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\PhpPollWatcher\\PhpPollWatcher', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\ClassToFile\Transformer;
+namespace Phpactor\CodeTransform\Adapter\TolerantParser\ClassToFile\Transformer;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
@@ -12,17 +12,17 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostic;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostics;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Transformer;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\CodeTransform\Domain\Diagnostic;
+use Phpactor\CodeTransform\Domain\Diagnostics;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\Transformer;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 use RuntimeException;
 class ClassNameFixerTransformer implements Transformer
 {
@@ -120,4 +120,3 @@ class ClassNameFixerTransformer implements Transformer
         return $classFqn;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\TolerantParser\\ClassToFile\\Transformer\\ClassNameFixerTransformer', 'Phpactor\\CodeTransform\\Adapter\\TolerantParser\\ClassToFile\\Transformer\\ClassNameFixerTransformer', \false);

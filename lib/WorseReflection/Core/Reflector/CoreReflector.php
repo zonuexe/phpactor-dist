@@ -1,35 +1,35 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\ClassNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\ConstantNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\CycleDetected;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\FunctionNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
-class CoreReflector implements ClassReflector, SourceCodeReflector, FunctionReflector, ConstantReflector
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Exception\ClassNotFound;
+use Phpactor\WorseReflection\Core\Exception\ConstantNotFound;
+use Phpactor\WorseReflection\Core\Exception\CycleDetected;
+use Phpactor\WorseReflection\Core\Exception\FunctionNotFound;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
+class CoreReflector implements \Phpactor\WorseReflection\Core\Reflector\ClassReflector, \Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector, \Phpactor\WorseReflection\Core\Reflector\FunctionReflector, \Phpactor\WorseReflection\Core\Reflector\ConstantReflector
 {
-    public function __construct(private SourceCodeReflector $sourceReflector, private SourceCodeLocator $sourceLocator)
+    public function __construct(private \Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector $sourceReflector, private SourceCodeLocator $sourceLocator)
     {
     }
     /**
@@ -224,4 +224,3 @@ class CoreReflector implements ClassReflector, SourceCodeReflector, FunctionRefl
         return $source;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\CoreReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\CoreReflector', \false);

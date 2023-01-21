@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * The SVMModel is the end result of the training process. It can be used to classify previously unseen data.
  * @since 7.0
@@ -16,9 +14,8 @@ class SVMModel
      * @return bool Return a boolean value
      * @link https://www.php.net/manual/en/svmmodel.checkprobabilitymodel.php
      */
-    public function checkProbabilityModel() : bool
-    {
-    }
+    public function checkProbabilityModel(): bool {}
+
     /**
      * Construct a new SVMModel
      *
@@ -27,9 +24,8 @@ class SVMModel
      * @throws Throws SVMException on error
      * @link https://www.php.net/manual/en/svmmodel.construct.php
      */
-    public function __construct(string $filename = '')
-    {
-    }
+    public function __construct(string $filename = '') {}
+
     /**
      * Get the labels the model was trained on
      *
@@ -37,9 +33,8 @@ class SVMModel
      * @return array Return an array of labels
      * @link https://www.php.net/manual/en/svmmodel.getlabels.php
      */
-    public function getLabels() : array
-    {
-    }
+    public function getLabels(): array {}
+
     /**
      * Returns the number of classes the model was trained with
      *
@@ -47,9 +42,8 @@ class SVMModel
      * @return int Return an integer number of classes
      * @link https://www.php.net/manual/en/svmmodel.getnrclass.php
      */
-    public function getNrClass() : int
-    {
-    }
+    public function getNrClass(): int {}
+
     /**
      * Get the SVM type the model was trained with
      *
@@ -57,9 +51,8 @@ class SVMModel
      * @return int Return an integer SVM type
      * @link https://www.php.net/manual/en/svmmodel.getsvmtype.php
      */
-    public function getSvmType() : int
-    {
-    }
+    public function getSvmType(): int {}
+
     /**
      * Get the sigma value for regression types
      *
@@ -67,9 +60,8 @@ class SVMModel
      * @return float Returns a sigma value
      * @link https://www.php.net/manual/en/svmmodel.getsvrprobability.php
      */
-    public function getSvrProbability() : float
-    {
-    }
+    public function getSvrProbability(): float {}
+
     /**
      * Load a saved SVM Model
      * @param string $filename The filename of the model.
@@ -77,9 +69,8 @@ class SVMModel
      * @throws SVMException
      * @link https://www.php.net/manual/en/svmmodel.load.php
      */
-    public function load(string $filename) : bool
-    {
-    }
+    public function load(string $filename): bool {}
+
     /**
      * Return class probabilities for previous unseen data
      *
@@ -89,9 +80,8 @@ class SVMModel
      * @throws SVMException Throws SVMException on error
      * @link https://www.php.net/manual/en/svmmodel.predict-probability.php
      */
-    public function predict_probability(array $data) : float
-    {
-    }
+    public function predict_probability(array $data): float {}
+
     /**
      * Predict a value for previously unseen data
      *
@@ -101,9 +91,8 @@ class SVMModel
      * @throws SVMException Throws SVMException on error
      * @link https://www.php.net/manual/en/svmmodel.predict.php
      */
-    public function predict(array $data) : float
-    {
-    }
+    public function predict(array $data): float {}
+
     /**
      * Save a model to a file, for later use
      * @param string $filename The file to save the model to.
@@ -111,13 +100,5 @@ class SVMModel
      * @throws SVMException Throws SVMException on error
      * @link https://www.php.net/manual/en/svmmodel.save.php
      */
-    public function save(string $filename) : bool
-    {
-    }
+    public function save(string $filename): bool {}
 }
-/**
- * The SVMModel is the end result of the training process. It can be used to classify previously unseen data.
- * @since 7.0
- * @link https://www.php.net/manual/en/class.svmmodel.php
- */
-\class_alias('Phpactor202301\\SVMModel', 'SVMModel', \false);

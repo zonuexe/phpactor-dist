@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\DocblockParser;
+namespace Phpactor\CodeTransform\Adapter\DocblockParser;
 
-use Phpactor202301\Phpactor\CodeBuilder\Util\TextFormat;
-use Phpactor202301\Phpactor\CodeTransform\Domain\DocBlockUpdater;
-use Phpactor202301\Phpactor\CodeTransform\Domain\DocBlockUpdater\ParamTagPrototype;
-use Phpactor202301\Phpactor\CodeTransform\Domain\DocBlockUpdater\ReturnTagPrototype;
-use Phpactor202301\Phpactor\CodeTransform\Domain\DocBlockUpdater\TagPrototype;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Docblock;
-use Phpactor202301\Phpactor\DocblockParser\DocblockParser;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeBuilder\Util\TextFormat;
+use Phpactor\CodeTransform\Domain\DocBlockUpdater;
+use Phpactor\CodeTransform\Domain\DocBlockUpdater\ParamTagPrototype;
+use Phpactor\CodeTransform\Domain\DocBlockUpdater\ReturnTagPrototype;
+use Phpactor\CodeTransform\Domain\DocBlockUpdater\TagPrototype;
+use Phpactor\DocblockParser\Ast\Docblock;
+use Phpactor\DocblockParser\DocblockParser;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 use RuntimeException;
 /**
  * TODO: Incorporate this into the "code builder"
@@ -73,7 +73,3 @@ class ParserDocblockUpdater implements DocBlockUpdater
         return [];
     }
 }
-/**
- * TODO: Incorporate this into the "code builder"
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\DocblockParser\\ParserDocblockUpdater', 'Phpactor\\CodeTransform\\Adapter\\DocblockParser\\ParserDocblockUpdater', \false);

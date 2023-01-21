@@ -1,32 +1,31 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\IndexAgent;
-class RealIndexAgent implements IndexAgent, TestIndexAgent
+use Phpactor\Indexer\IndexAgent;
+class RealIndexAgent implements IndexAgent, \Phpactor\Indexer\Model\TestIndexAgent
 {
-    public function __construct(private Index $index, private QueryClient $query, private SearchClient $search, private Indexer $indexer)
+    public function __construct(private \Phpactor\Indexer\Model\Index $index, private \Phpactor\Indexer\Model\QueryClient $query, private \Phpactor\Indexer\Model\SearchClient $search, private \Phpactor\Indexer\Model\Indexer $indexer)
     {
     }
-    public function search() : SearchClient
+    public function search() : \Phpactor\Indexer\Model\SearchClient
     {
         return $this->search;
     }
-    public function query() : QueryClient
+    public function query() : \Phpactor\Indexer\Model\QueryClient
     {
         return $this->query;
     }
-    public function indexer() : Indexer
+    public function indexer() : \Phpactor\Indexer\Model\Indexer
     {
         return $this->indexer;
     }
-    public function index() : Index
+    public function index() : \Phpactor\Indexer\Model\Index
     {
         return $this->index;
     }
-    public function access() : IndexAccess
+    public function access() : \Phpactor\Indexer\Model\IndexAccess
     {
         return $this->index;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\RealIndexAgent', 'Phpactor\\Indexer\\Model\\RealIndexAgent', \false);

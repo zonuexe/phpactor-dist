@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use RuntimeException;
 use function ini_get;
@@ -62,4 +62,3 @@ final class MemoryUsage
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\MemoryUsage', 'Phpactor\\Indexer\\Model\\MemoryUsage', \false);

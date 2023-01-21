@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\WebSocket;
+declare(strict_types=1);
+
+namespace Swoole\WebSocket;
 
 class CloseFrame extends Frame
 {

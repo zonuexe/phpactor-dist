@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Helper;
+namespace Phpactor\Completion\Bridge\TolerantParser\Helper;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 class NodeQuery
@@ -59,4 +59,3 @@ class NodeQuery
         return self::firstAncestorInVia($node, $classNames, $validDescendants);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\Helper\\NodeQuery', 'Phpactor\\Completion\\Bridge\\TolerantParser\\Helper\\NodeQuery', \false);

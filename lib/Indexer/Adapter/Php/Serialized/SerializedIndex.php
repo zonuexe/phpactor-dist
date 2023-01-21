@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Php\Serialized;
+namespace Phpactor\Indexer\Adapter\Php\Serialized;
 
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Record;
 use RuntimeException;
 use SplFileInfo;
 class SerializedIndex implements Index
 {
-    public function __construct(private FileRepository $repository)
+    public function __construct(private \Phpactor\Indexer\Adapter\Php\Serialized\FileRepository $repository)
     {
     }
     public function lastUpdate() : int
@@ -51,4 +51,3 @@ class SerializedIndex implements Index
         return $this->repository->get($record) ? \true : \false;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Php\\Serialized\\SerializedIndex', 'Phpactor\\Indexer\\Adapter\\Php\\Serialized\\SerializedIndex', \false);

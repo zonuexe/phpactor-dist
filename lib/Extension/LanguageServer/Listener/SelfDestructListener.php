@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Listener;
+namespace Phpactor\Extension\LanguageServer\Listener;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
-use Phpactor202301\Phpactor\LanguageServer\Event\WillShutdown;
+use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
+use Phpactor\LanguageServer\Event\WillShutdown;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 use function Phpactor202301\Amp\asyncCall;
 use function Phpactor202301\Amp\delay;
@@ -30,4 +30,3 @@ class SelfDestructListener implements ListenerProviderInterface
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Listener\\SelfDestructListener', 'Phpactor\\Extension\\LanguageServer\\Listener\\SelfDestructListener', \false);

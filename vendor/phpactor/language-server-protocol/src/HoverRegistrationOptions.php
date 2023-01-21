@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, HoverOptions
  */
-class HoverRegistrationOptions extends TextDocumentRegistrationOptions
+class HoverRegistrationOptions extends \Phpactor\LanguageServerProtocol\TextDocumentRegistrationOptions
 {
     /**
      * A document selector to identify the scope of the registration. If set to null
@@ -90,9 +90,3 @@ class HoverRegistrationOptions extends TextDocumentRegistrationOptions
         throw $lastException;
     }
 }
-/**
- * Registration options for a [HoverRequest](#HoverRequest).
- *
- * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, HoverOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\HoverRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\HoverRegistrationOptions', \false);

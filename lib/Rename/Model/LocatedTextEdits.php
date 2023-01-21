@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model;
+namespace Phpactor\Rename\Model;
 
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextEdits;
 class LocatedTextEdits
 {
     public function __construct(private TextEdits $textEdits, private TextDocumentUri $documentUri)
@@ -37,4 +37,3 @@ class LocatedTextEdits
         return $locatedEdits;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\LocatedTextEdits', 'Phpactor\\Rename\\Model\\LocatedTextEdits', \false);

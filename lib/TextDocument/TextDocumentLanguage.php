@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 class TextDocumentLanguage
 {
@@ -41,4 +41,3 @@ class TextDocumentLanguage
         return $this->is(self::LANGUAGE_PHP);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocumentLanguage', 'Phpactor\\TextDocument\\TextDocumentLanguage', \false);

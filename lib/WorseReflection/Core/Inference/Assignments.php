@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Countable;
 use IteratorAggregate;
@@ -28,17 +28,17 @@ abstract class Assignments implements Countable, IteratorAggregate
     }
     public function __toString() : string
     {
-        return \implode("\n", \array_map(function (Variable $variable) {
+        return \implode("\n", \array_map(function (\Phpactor\WorseReflection\Core\Inference\Variable $variable) {
             return \sprintf('%s:%s: %s', $variable->name(), $variable->offset(), $variable->type()->__toString());
         }, \array_values($this->variables)));
     }
-    public function set(Variable $variable) : void
+    public function set(\Phpactor\WorseReflection\Core\Inference\Variable $variable) : void
     {
         $this->version++;
         $this->variables[$variable->key()] = $variable;
         $this->sort();
     }
-    public function add(Variable $variable, int $offset) : void
+    public function add(\Phpactor\WorseReflection\Core\Inference\Variable $variable, int $offset) : void
     {
         $this->version++;
         $original = $this->byName($variable->name())->lessThanOrEqualTo($offset)->lastOrNull();
@@ -48,38 +48,38 @@ abstract class Assignments implements Countable, IteratorAggregate
         }
         $this->set($variable->withOffset($variable->offset())->withType($original->type()->addType($variable->type())->clean()));
     }
-    public function byName(string $name) : Assignments
+    public function byName(string $name) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
         $name = \ltrim($name, '$');
-        return new static(\array_filter($this->variables, function (Variable $v) use($name) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($name) {
             return $v->name() === $name;
         }));
     }
-    public function lessThanOrEqualTo(int $offset) : Assignments
+    public function lessThanOrEqualTo(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) use($offset) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($offset) {
             return $v->offset() <= $offset;
         }));
     }
-    public function lessThan(int $offset) : Assignments
+    public function lessThan(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) use($offset) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($offset) {
             return $v->offset() < $offset;
         }));
     }
-    public function greaterThan(int $offset) : Assignments
+    public function greaterThan(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) use($offset) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($offset) {
             return $v->offset() > $offset;
         }));
     }
-    public function greaterThanOrEqualTo(int $offset) : Assignments
+    public function greaterThanOrEqualTo(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) use($offset) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($offset) {
             return $v->offset() >= $offset;
         }));
     }
-    public function first() : Variable
+    public function first() : \Phpactor\WorseReflection\Core\Inference\Variable
     {
         $first = \reset($this->variables);
         if (!$first) {
@@ -87,7 +87,7 @@ abstract class Assignments implements Countable, IteratorAggregate
         }
         return $first;
     }
-    public function atIndex(int $index) : Variable
+    public function atIndex(int $index) : \Phpactor\WorseReflection\Core\Inference\Variable
     {
         $variables = \array_values($this->variables);
         if (!isset($variables[$index])) {
@@ -95,7 +95,7 @@ abstract class Assignments implements Countable, IteratorAggregate
         }
         return $variables[$index];
     }
-    public function last() : Variable
+    public function last() : \Phpactor\WorseReflection\Core\Inference\Variable
     {
         $last = \end($this->variables);
         if (!$last) {
@@ -114,7 +114,7 @@ abstract class Assignments implements Countable, IteratorAggregate
     {
         return new ArrayIterator(\array_values($this->variables));
     }
-    public function merge(Assignments $variables) : Assignments
+    public function merge(\Phpactor\WorseReflection\Core\Inference\Assignments $variables) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
         foreach ($variables->variables as $offset => $variable) {
             $this->variables[$offset] = $variable;
@@ -122,7 +122,7 @@ abstract class Assignments implements Countable, IteratorAggregate
         $this->sort();
         return $this;
     }
-    public function replace(Variable $existing, Variable $replacement) : void
+    public function replace(\Phpactor\WorseReflection\Core\Inference\Variable $existing, \Phpactor\WorseReflection\Core\Inference\Variable $replacement) : void
     {
         foreach ($this->variables as $offset => $variable) {
             if ($variable !== $existing) {
@@ -132,25 +132,25 @@ abstract class Assignments implements Countable, IteratorAggregate
             $this->variables[$offset] = $replacement;
         }
     }
-    public function equalTo(int $offset) : Assignments
+    public function equalTo(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) use($offset) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($offset) {
             return $v->offset() === $offset;
         }));
     }
-    public function not(int $offset) : Assignments
+    public function not(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) use($offset) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($offset) {
             return $v->offset() !== $offset;
         }));
     }
-    public function assignmentsOnly() : Assignments
+    public function assignmentsOnly() : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
-        return new static(\array_filter($this->variables, function (Variable $v) {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) {
             return $v->wasAssigned();
         }));
     }
-    public function lastOrNull() : ?Variable
+    public function lastOrNull() : ?\Phpactor\WorseReflection\Core\Inference\Variable
     {
         $last = \end($this->variables);
         if (!$last) {
@@ -172,12 +172,8 @@ abstract class Assignments implements Countable, IteratorAggregate
     }
     private function sort() : void
     {
-        \uasort($this->variables, function (Variable $one, Variable $two) {
+        \uasort($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $one, \Phpactor\WorseReflection\Core\Inference\Variable $two) {
             return $one->offset() <=> $two->offset();
         });
     }
 }
-/**
- * @implements IteratorAggregate<array-key,Variable>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Assignments', 'Phpactor\\WorseReflection\\Core\\Inference\\Assignments', \false);

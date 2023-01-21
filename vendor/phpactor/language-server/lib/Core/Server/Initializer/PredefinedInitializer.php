@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Initializer;
+namespace Phpactor\LanguageServer\Core\Server\Initializer;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Initializer;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Server\Initializer;
 /**
  * Use pre-defined initialization parameters.
  * This is useful for testing.
@@ -28,8 +28,3 @@ final class PredefinedInitializer implements Initializer
         return $this->params;
     }
 }
-/**
- * Use pre-defined initialization parameters.
- * This is useful for testing.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Initializer\\PredefinedInitializer', 'Phpactor\\LanguageServer\\Core\\Server\\Initializer\\PredefinedInitializer', \false);

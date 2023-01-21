@@ -1,19 +1,18 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Immutable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * The <b>ReflectionExtension</b> class reports information about an extension.
  *
  * @link https://php.net/manual/en/class.reflectionextension.php
  */
-class ReflectionExtension implements \Reflector
+class ReflectionExtension implements Reflector
 {
     /**
      * @var string Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
@@ -21,6 +20,7 @@ class ReflectionExtension implements \Reflector
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
+
     /**
      * Constructs a ReflectionExtension
      *
@@ -28,9 +28,8 @@ class ReflectionExtension implements \Reflector
      * @param string $name Name of the extension.
      * @throws ReflectionException if the extension does not exist.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name)
-    {
-    }
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
+
     /**
      * Exports a reflected extension.
      * The output format of this function is the same as the CLI argument --re [extension].
@@ -45,9 +44,8 @@ class ReflectionExtension implements \Reflector
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($name, $return = \false)
-    {
-    }
+    public static function export($name, $return = false) {}
+
     /**
      * To string
      *
@@ -56,9 +54,8 @@ class ReflectionExtension implements \Reflector
      * the {@see ReflectionExtension::export()}.
      */
     #[TentativeType]
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
+
     /**
      * Gets extension name
      *
@@ -67,9 +64,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getName() : string
-    {
-    }
+    public function getName(): string {}
+
     /**
      * Gets extension version
      *
@@ -78,9 +74,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getVersion() : ?string
-    {
-    }
+    public function getVersion(): ?string {}
+
     /**
      * Gets extension functions
      *
@@ -91,9 +86,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getFunctions() : array
-    {
-    }
+    public function getFunctions(): array {}
+
     /**
      * Gets constants
      *
@@ -102,9 +96,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getConstants() : array
-    {
-    }
+    public function getConstants(): array {}
+
     /**
      * Gets extension ini entries
      *
@@ -114,9 +107,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getINIEntries() : array
-    {
-    }
+    public function getINIEntries(): array {}
+
     /**
      * Gets classes
      *
@@ -127,9 +119,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getClasses() : array
-    {
-    }
+    public function getClasses(): array {}
+
     /**
      * Gets class names
      *
@@ -139,9 +130,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getClassNames() : array
-    {
-    }
+    public function getClassNames(): array {}
+
     /**
      * Gets dependencies
      *
@@ -151,9 +141,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getDependencies() : array
-    {
-    }
+    public function getDependencies(): array {}
+
     /**
      * Print extension info
      *
@@ -161,9 +150,8 @@ class ReflectionExtension implements \Reflector
      * @return void Print extension info
      */
     #[TentativeType]
-    public function info() : void
-    {
-    }
+    public function info(): void {}
+
     /**
      * Returns whether this extension is persistent
      *
@@ -173,9 +161,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isPersistent() : bool
-    {
-    }
+    public function isPersistent(): bool {}
+
     /**
      * Returns whether this extension is temporary
      *
@@ -185,9 +172,8 @@ class ReflectionExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isTemporary() : bool
-    {
-    }
+    public function isTemporary(): bool {}
+
     /**
      * Clones
      *
@@ -195,9 +181,8 @@ class ReflectionExtension implements \Reflector
      * @return void No value is returned, if called a fatal error will occur.
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    private final function __clone() : void
-    {
-    }
+    final private function __clone(): void {}
+
     /**
      * Clones
      *
@@ -205,13 +190,5 @@ class ReflectionExtension implements \Reflector
      * @return void No value is returned, if called a fatal error will occur.
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone() : void
-    {
-    }
+    private function __clone(): void {}
 }
-/**
- * The <b>ReflectionExtension</b> class reports information about an extension.
- *
- * @link https://php.net/manual/en/class.reflectionextension.php
- */
-\class_alias('Phpactor202301\\ReflectionExtension', 'ReflectionExtension', \false);

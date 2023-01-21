@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Application;
+namespace Phpactor\Extension\ClassMover\Application;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\Phpactor;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\ClassMover\Domain\ClassFinder;
-use Phpactor202301\Phpactor\ClassMover\Domain\ClassReplacer;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\ClassReference;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\Phpactor;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\ClassMover\Domain\ClassFinder;
+use Phpactor\ClassMover\Domain\ClassReplacer;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences;
+use Phpactor\ClassMover\Domain\Reference\ClassReference;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class ClassReferences
 {
     public function __construct(private ClassFileNormalizer $classFileNormalizerasd, private ClassFinder $refFinder, private ClassReplacer $refReplacer, private FilesystemRegistry $filesystemRegistry)
@@ -109,4 +109,3 @@ class ClassReferences
         return $this->refReplacer->replaceReferences($code, $list, $class, $replace)->apply($code);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Application\\ClassReferences', 'Phpactor\\Extension\\ClassMover\\Application\\ClassReferences', \false);

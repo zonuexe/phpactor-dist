@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\MapResolver;
+namespace Phpactor\MapResolver;
 
 final class ResolverErrors
 {
@@ -27,4 +27,3 @@ final class ResolverErrors
         return \count($this->errors) > 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\MapResolver\\ResolverErrors', 'Phpactor\\MapResolver\\ResolverErrors', \false);

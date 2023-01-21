@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\RdKafka;
+namespace RdKafka;
 
 class KafkaErrorException extends Exception
 {
@@ -12,31 +12,25 @@ class KafkaErrorException extends Exception
      * @param bool $isRetriable
      * @param bool $transactionRequiresAbort
      */
-    public function __construct($message, $code, $error_string, $isFatal, $isRetriable, $transactionRequiresAbort)
-    {
-    }
+    public function __construct($message, $code, $error_string, $isFatal, $isRetriable, $transactionRequiresAbort) {}
+
     /**
      * @return string
      */
-    public function getErrorString()
-    {
-    }
+    public function getErrorString() {}
+
     /**
      * @return bool
      */
-    public function isFatal()
-    {
-    }
+    public function isFatal() {}
+
     /**
      * @return bool
      */
-    public function isRetriable()
-    {
-    }
+    public function isRetriable() {}
+
     /**
      * @return bool
      */
-    public function transactionRequiresAbort()
-    {
-    }
+    public function transactionRequiresAbort() {}
 }

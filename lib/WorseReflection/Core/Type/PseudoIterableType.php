@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
-class PseudoIterableType extends Type implements IterableType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Types;
+class PseudoIterableType extends Type implements \Phpactor\WorseReflection\Core\Type\IterableType
 {
     protected ?Type $valueType;
     protected ?Type $keyType;
@@ -36,18 +36,18 @@ class PseudoIterableType extends Type implements IterableType
     }
     public function iterableValueType() : Type
     {
-        return $this->valueType ?? new MissingType();
+        return $this->valueType ?? new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function iterableKeyType() : Type
     {
-        return $this->keyType ?? new ArrayKeyType();
+        return $this->keyType ?? new \Phpactor\WorseReflection\Core\Type\ArrayKeyType();
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof ArrayLiteral) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ArrayLiteral) {
             return Trinary::fromBoolean($this->iterableKeyType()->accepts($type->keyType)->isTrue() && $this->iterableValueType()->accepts($type->valueType)->isTrue());
         }
-        return Trinary::fromBoolean($type instanceof ArrayType);
+        return Trinary::fromBoolean($type instanceof \Phpactor\WorseReflection\Core\Type\ArrayType);
     }
     public function expandTypes() : Types
     {
@@ -73,4 +73,3 @@ class PseudoIterableType extends Type implements IterableType
         $this->valueType = $type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\PseudoIterableType', 'Phpactor\\WorseReflection\\Core\\Type\\PseudoIterableType', \false);

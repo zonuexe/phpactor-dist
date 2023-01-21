@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class StringType extends ScalarType implements HasEmptyType
+use Phpactor\WorseReflection\Core\Type;
+class StringType extends \Phpactor\WorseReflection\Core\Type\ScalarType implements \Phpactor\WorseReflection\Core\Type\HasEmptyType
 {
     public function toPhpString() : string
     {
@@ -11,7 +11,6 @@ class StringType extends ScalarType implements HasEmptyType
     }
     public function emptyType() : Type
     {
-        return new StringLiteralType('');
+        return new \Phpactor\WorseReflection\Core\Type\StringLiteralType('');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\StringType', 'Phpactor\\WorseReflection\\Core\\Type\\StringType', \false);

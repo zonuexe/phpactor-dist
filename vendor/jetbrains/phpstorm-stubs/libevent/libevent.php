@@ -1,13 +1,15 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of PECL libevent v.0.0.4
+
 // Libevent documentation:
 // http://www.wangafu.net/~nickm/libevent-book/
+
 // PHP Libevent extension documentation:
 // https://php.net/libevent
+
 // Event flags
+
 /**
  * This flag indicates an event that becomes active after a timeout elapses.
  *
@@ -16,21 +18,25 @@ namespace Phpactor202301;
  * set in the 'what' argument to the callback function when a timeout
  * has occurred.
  */
-\define('EV_TIMEOUT', 1);
+define('EV_TIMEOUT', 1);
+
 /**
  * This flag indicates an event that becomes active when the provided
  * file descriptor is ready for reading.
  */
-\define('EV_READ', 2);
+define('EV_READ', 2);
+
 /**
  * This flag indicates an event that becomes active when the provided
  * file descriptor is ready for writing.
  */
-\define('EV_WRITE', 4);
+define('EV_WRITE', 4);
+
 /**
  * Used to implement signal detection.
  */
-\define('EV_SIGNAL', 8);
+define('EV_SIGNAL', 8);
+
 /**
  * Indicates that the event is persistent.
  *
@@ -53,15 +59,18 @@ namespace Phpactor202301;
  *
  * Whenever five seconds have passed since the event last became active.
  */
-\define('EV_PERSIST', 16);
+define('EV_PERSIST', 16);
+
 // Event loop modes
+
 /**
  * Event base loop mode.
  * Starts only one iteration of loop.
  *
  * @see event_base_loop
  */
-\define('EVLOOP_ONCE', 1);
+define('EVLOOP_ONCE', 1);
+
 /**
  * Event base loop mode.
  * Not wait for events to trigger, only check whether
@@ -69,31 +78,38 @@ namespace Phpactor202301;
  *
  * @see event_base_loop
  */
-\define('EVLOOP_NONBLOCK', 2);
+define('EVLOOP_NONBLOCK', 2);
+
 // Buffered event error codes (second argument in buffer's error-callback)
+
 /**
  * An event occurred during a read operation on the
  * bufferevent. See the other flags for which event it was.
  */
-\define('EVBUFFER_READ', 1);
+define('EVBUFFER_READ', 1);
+
 /**
  * An event occurred during a write operation on the bufferevent.
  * See the other flags for which event it was.
  */
-\define('EVBUFFER_WRITE', 2);
+define('EVBUFFER_WRITE', 2);
+
 /**
  * We finished a requested connection on the bufferevent.
  */
-\define('EVBUFFER_EOF', 16);
+define('EVBUFFER_EOF', 16);
+
 /**
  * An error occurred during a bufferevent operation. For more information
  * on what the error was, call {@link socket_strerror}().
  */
-\define('EVBUFFER_ERROR', 32);
+define('EVBUFFER_ERROR', 32);
+
 /**
  * A timeout expired on the bufferevent.
  */
-\define('EVBUFFER_TIMEOUT', 64);
+define('EVBUFFER_TIMEOUT', 64);
+
 /**
  * <p>Create and initialize new event base</p>
  *
@@ -103,9 +119,8 @@ namespace Phpactor202301;
  *
  * @return resource|false returns valid event base resource on success or FALSE on error.
  */
-function event_base_new()
-{
-}
+function event_base_new() {}
+
 /**
  * <p>Destroy event base</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -119,9 +134,8 @@ function event_base_new()
  *
  * @return void
  */
-function event_base_free($event_base)
-{
-}
+function event_base_free($event_base) {}
+
 /**
  * <p>Handle events</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -155,9 +169,8 @@ function event_base_free($event_base)
  * and 1 if no events were registered.
  * </p>
  */
-function event_base_loop($event_base, $flags = null)
-{
-}
+function event_base_loop($event_base, $flags = null) {}
+
 /**
  * <p>Tells the event_base to exit its loop immediately.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -172,9 +185,8 @@ function event_base_loop($event_base, $flags = null)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_base_loopbreak($event_base)
-{
-}
+function event_base_loopbreak($event_base) {}
+
 /**
  * <p>Tells an event_base to stop looping after a given time has elapsed</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -198,9 +210,8 @@ function event_base_loopbreak($event_base)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_base_loopexit($event_base, $timeout = -1)
-{
-}
+function event_base_loopexit($event_base, $timeout = -1) {}
+
 /**
  * <p>Associate event base with an event</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -214,9 +225,8 @@ function event_base_loopexit($event_base, $timeout = -1)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_base_set($event, $base)
-{
-}
+function event_base_set($event, $base) {}
+
 /**
  * <p>Set the number of different event priority levels</p>
  * <p>(PECL libevent >= 0.0.2)</p>
@@ -232,9 +242,8 @@ function event_base_set($event, $base)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_base_priority_init($event_base, $npriorities)
-{
-}
+function event_base_priority_init($event_base, $npriorities) {}
+
 /**
  * <p>Creates and returns a new event resource.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -243,9 +252,8 @@ function event_base_priority_init($event_base, $npriorities)
  *
  * @return resource|false returns a new event resource on success or FALSE on error.
  */
-function event_new()
-{
-}
+function event_new() {}
+
 /**
  * <p>Free event resource.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -256,9 +264,8 @@ function event_new()
  *
  * @return void
  */
-function event_free($event)
-{
-}
+function event_free($event) {}
+
 /**
  * <p>Add an event to the set of monitored events</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -285,9 +292,8 @@ function event_free($event)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_add($event, $timeout = -1)
-{
-}
+function event_add($event, $timeout = -1) {}
+
 /**
  * <p>Prepares the event to be used in {@link event_add}().</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -340,9 +346,8 @@ function event_add($event, $timeout = -1)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_set($event, $fd, $events, $callback, $arg = null)
-{
-}
+function event_set($event, $fd, $events, $callback, $arg = null) {}
+
 /**
  * <p>Remove an event from the set of monitored events.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -356,9 +361,8 @@ function event_set($event, $fd, $events, $callback, $arg = null)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_del($event)
-{
-}
+function event_del($event) {}
+
 /**
  * <p>Create new buffered event</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -388,9 +392,8 @@ function event_del($event)
  *
  * @return resource|false returns new buffered event resource on success or FALSE on error.
  */
-function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null)
-{
-}
+function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null) {}
+
 /**
  * <p>Destroys the specified buffered event and frees all the resources associated.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -401,9 +404,8 @@ function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null)
  *
  * @return void
  */
-function event_buffer_free($bevent)
-{
-}
+function event_buffer_free($bevent) {}
+
 /**
  * <p>Associate buffered event with an event base</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -417,9 +419,8 @@ function event_buffer_free($bevent)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_buffer_base_set($bevent, $event_base)
-{
-}
+function event_buffer_base_set($bevent, $event_base) {}
+
 /**
  * <p>Assign a priority to a buffered event. Use it after
  * initializing event, but before adding an event to the event_base.</p>
@@ -453,9 +454,8 @@ function event_buffer_base_set($bevent, $event_base)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_buffer_priority_set($bevent, $priority)
-{
-}
+function event_buffer_priority_set($bevent, $priority) {}
+
 /**
  * <p>Writes data to the specified buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -471,9 +471,8 @@ function event_buffer_priority_set($bevent, $priority)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_buffer_write($bevent, $data, $data_size = -1)
-{
-}
+function event_buffer_write($bevent, $data, $data_size = -1) {}
+
 /**
  * <p>Reads data from the input buffer of the buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -485,9 +484,8 @@ function event_buffer_write($bevent, $data, $data_size = -1)
  *
  * @return string
  */
-function event_buffer_read($bevent, $data_size)
-{
-}
+function event_buffer_read($bevent, $data_size) {}
+
 /**
  * <p>Enables the specified buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -499,9 +497,8 @@ function event_buffer_read($bevent, $data_size)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_buffer_enable($bevent, $events)
-{
-}
+function event_buffer_enable($bevent, $events) {}
+
 /**
  * <p>Disable a buffered event</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -515,9 +512,8 @@ function event_buffer_enable($bevent, $events)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_buffer_disable($bevent, $events)
-{
-}
+function event_buffer_disable($bevent, $events) {}
+
 /**
  * <p>Sets the read and write timeouts for the specified buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -530,9 +526,8 @@ function event_buffer_disable($bevent, $events)
  *
  * @return void
  */
-function event_buffer_timeout_set($bevent, $read_timeout, $write_timeout)
-{
-}
+function event_buffer_timeout_set($bevent, $read_timeout, $write_timeout) {}
+
 /**
  * <p>Set the watermarks for read and write events.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -573,9 +568,8 @@ function event_buffer_timeout_set($bevent, $read_timeout, $write_timeout)
  *
  * @return void
  */
-function event_buffer_watermark_set($bevent, $events, $lowmark, $highmark)
-{
-}
+function event_buffer_watermark_set($bevent, $events, $lowmark, $highmark) {}
+
 /**
  * <p>Changes the file descriptor on which the buffered event operates.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
@@ -587,9 +581,8 @@ function event_buffer_watermark_set($bevent, $events, $lowmark, $highmark)
  *
  * @return void
  */
-function event_buffer_fd_set($bevent, $fd)
-{
-}
+function event_buffer_fd_set($bevent, $fd) {}
+
 /**
  * <p>Set or reset callbacks for a buffered event</p>
  * <p>(PECL libevent >= 0.0.4)</p>
@@ -606,17 +599,15 @@ function event_buffer_fd_set($bevent, $fd)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_buffer_set_callback($bevent, $readcb, $writecb, $errorcb, $arg = null)
-{
-}
+function event_buffer_set_callback($bevent, $readcb, $writecb, $errorcb, $arg = null) {}
+
 /**
  * <p>Alias of {@link event_new}().</p>
  *
  * @return resource|false returns valid event base resource on success or FALSE on error.
  */
-function event_timer_new()
-{
-}
+function event_timer_new() {}
+
 /**
  * <p>Prepares the timer event to be used in {@link event_add}().</p>
  *
@@ -654,9 +645,8 @@ function event_timer_new()
  *
  * @return void
  */
-function event_timer_set($event, $callback, $arg = null)
-{
-}
+function event_timer_set($event, $callback, $arg = null) {}
+
 /**
  * <p>Checks if a specific event is pending or scheduled.</p>
  *
@@ -669,9 +659,8 @@ function event_timer_set($event, $callback, $arg = null)
  *
  * @return bool TRUE if event is not scheduled (added) FALSE otherwise
  */
-function event_timer_pending($event, $timeout = -1)
-{
-}
+function event_timer_pending($event, $timeout = -1) {}
+
 /**
  * <p>Alias of {@link event_add}().</p>
  *
@@ -684,9 +673,8 @@ function event_timer_pending($event, $timeout = -1)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_timer_add($event, $timeout = -1)
-{
-}
+function event_timer_add($event, $timeout = -1) {}
+
 /**
  * <p>Alias of {@link event_del}().</p>
  *
@@ -694,7 +682,6 @@ function event_timer_add($event, $timeout = -1)
  *
  * @return bool returns TRUE on success or FALSE on error.
  */
-function event_timer_del($event)
-{
-}
+function event_timer_del($event) {}
+
 // End of PECL libevent v.0.0.4

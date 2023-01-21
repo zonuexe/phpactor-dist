@@ -1,30 +1,30 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflection;
+namespace Phpactor\Extension\WorseReflection;
 
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\ClassToFile\ClassToFileExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\MemberProvider\DocblockMemberProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\AssignmentToMissingPropertyProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingDocblockParamProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingDocblockReturnTypeProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingReturnTypeProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameProvider;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnusedImportProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache\TtlCache;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\NativeReflectionFunctionSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\StubSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\ClassToFileSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\ReflectorBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Parser\CachedParser;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflector\TolerantFactory;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\ClassToFile\ClassToFileExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\WorseReflection\Bridge\Phpactor\MemberProvider\DocblockMemberProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\AssignmentToMissingPropertyProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingDocblockParamProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingDocblockReturnTypeProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingReturnTypeProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameProvider;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnusedImportProvider;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\Cache\TtlCache;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\NativeReflectionFunctionSourceLocator;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\StubSourceLocator;
+use Phpactor\WorseReflection\Bridge\Phpactor\ClassToFileSourceLocator;
+use Phpactor\WorseReflection\ReflectorBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Parser\CachedParser;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflector\TolerantFactory;
 class WorseReflectionExtension implements Extension
 {
     const SERVICE_REFLECTOR = 'worse_reflection.reflector';
@@ -145,4 +145,3 @@ EOT
         }, [self::TAG_DIAGNOSTIC_PROVIDER => []]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflection\\WorseReflectionExtension', 'Phpactor\\Extension\\WorseReflection\\WorseReflectionExtension', \false);

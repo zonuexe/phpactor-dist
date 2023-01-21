@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * @link https://www.php.net/manual/en/dio.constants.php
  * Direct IO Constants
@@ -43,81 +40,99 @@ namespace Phpactor202301;
  * F_RDLCK -
  * F_WRLCK -
  */
+
 /**
  * O_RDONLY - opens the file for read access.
  */
-\define('O_RDONLY', 0);
+define('O_RDONLY', 0);
+
 /**
  * O_WRONLY - opens the file for write access.
  */
-\define('O_WRONLY', 1);
+define('O_WRONLY', 1);
+
 /**
  * O_RDWR - opens the file for both reading and writing.
  */
-\define('O_RDWR', 2);
+define('O_RDWR', 2);
+
 /**
  * O_CREAT - creates the file, if it doesn't already exist.
  */
-\define('O_CREAT', 64);
+define('O_CREAT', 64);
+
 /**
  * O_EXCL - if both O_CREAT and O_EXCL are set and the file already exists, dio_open() will fail.
  */
-\define('O_EXCL', 128);
+define('O_EXCL', 128);
+
 /**
  * O_TRUNC - if the file exists and is opened for write access, the file will be truncated to zero length.
  */
-\define('O_TRUNC', 512);
+define('O_TRUNC', 512);
+
 /**
  * O_APPEND - write operations write data at the end of the file.
  */
-\define('O_APPEND', 1024);
+define('O_APPEND', 1024);
+
 /**
  * O_NONBLOCK - sets non blocking mode.
  */
-\define('O_NONBLOCK', 2048);
-\define('O_NDELAY', 2048);
-\define('O_SYNC', 1052672);
-\define('O_ASYNC', 8192);
+define('O_NONBLOCK', 2048);
+
+define('O_NDELAY', 2048);
+define('O_SYNC', 1052672);
+define('O_ASYNC', 8192);
+
 /**
  * O_NOCTTY - prevent the OS from assigning the opened file as the process's controlling terminal when opening a TTY device file.
  */
-\define('O_NOCTTY', 256);
-\define('S_IRWXU', 448);
-\define('S_IRUSR', 256);
-\define('S_IWUSR', 128);
-\define('S_IXUSR', 64);
-\define('S_IRWXG', 56);
-\define('S_IRGRP', 32);
-\define('S_IWGRP', 16);
-\define('S_IXGRP', 8);
-\define('S_IRWXO', 7);
-\define('S_IROTH', 4);
-\define('S_IWOTH', 2);
-\define('S_IXOTH', 1);
+define('O_NOCTTY', 256);
+
+define('S_IRWXU', 448);
+define('S_IRUSR', 256);
+define('S_IWUSR', 128);
+define('S_IXUSR', 64);
+define('S_IRWXG', 56);
+define('S_IRGRP', 32);
+define('S_IWGRP', 16);
+define('S_IXGRP', 8);
+define('S_IRWXO', 7);
+define('S_IROTH', 4);
+define('S_IWOTH', 2);
+define('S_IXOTH', 1);
+
 /**
  * F_DUPFD - finds the lowest numbered availablefile descriptor greater than or equal to argsand returns them.
  */
-\define('F_DUPFD', 0);
-\define('F_GETFD', 1);
-\define('F_GETFL', 3);
+define('F_DUPFD', 0);
+
+define('F_GETFD', 1);
+define('F_GETFL', 3);
+
 /**
  * F_SETFL - Sets the file descriptors flags tothe value specified by args, which can be O_APPEND, O_NONBLOCK or O_ASYNC. To use O_ASYNC you will need to use the PCNTL extension.
  */
-\define('F_SETFL', 4);
+define('F_SETFL', 4);
+
 /**
  * F_GETLK - dio_fcntl() returns an associative array (as described below) if someone elseprevents lock. If there is no obstruction key "type" will setto F_UNLCK.
  */
-\define('F_GETLK', 5);
+define('F_GETLK', 5);
+
 /**
  * F_SETLK - Lock is set or cleared. If the lockis held by someone else dio_fcntl() returns-1.
  */
-\define('F_SETLK', 6);
+define('F_SETLK', 6);
+
 /**
  * F_SETLKW - like F_SETLK,but in case the lock is held by someone else, dio_fcntl() waits until the lock is released.
  */
-\define('F_SETLKW', 7);
-\define('F_SETOWN', 8);
-\define('F_GETOWN', 9);
-\define('F_UNLCK', 2);
-\define('F_RDLCK', 0);
-\define('F_WRLCK', 1);
+define('F_SETLKW', 7);
+
+define('F_SETOWN', 8);
+define('F_GETOWN', 9);
+define('F_UNLCK', 2);
+define('F_RDLCK', 0);
+define('F_WRLCK', 1);

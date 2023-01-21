@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -37,7 +37,7 @@ class Range
      * @param Position $start
      * @param Position $end
      */
-    public function __construct(Position $start, Position $end)
+    public function __construct(\Phpactor\LanguageServerProtocol\Position $start, \Phpactor\LanguageServerProtocol\Position $end)
     {
         $this->start = $start;
         $this->end = $end;
@@ -48,7 +48,7 @@ class Range
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['start' => ['names' => [Position::class], 'iterable' => \false], 'end' => ['names' => [Position::class], 'iterable' => \false]];
+        $map = ['start' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false], 'end' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -98,17 +98,3 @@ class Range
         throw $lastException;
     }
 }
-/**
- * A range in a text document expressed as (zero-based) start and end positions.
- * 
- * If you want to specify a range that contains a line including the line ending
- * character(s) then use an end position denoting the start of the next line.
- * For example:
- * ```ts
- * {
- *      start: { line: 5, character: 23 }
- *      end : { line 6, character : 0 }
- * }
- * ```
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\Range', 'Phpactor\\LanguageServerProtocol\\Range', \false);

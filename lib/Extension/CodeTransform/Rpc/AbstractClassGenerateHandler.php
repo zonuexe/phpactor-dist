@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransform\Rpc;
+namespace Phpactor\Extension\CodeTransform\Rpc;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Generators;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReplaceFileSourceResponse;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeTransform\Domain\Generators;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\Rpc\Response\ReplaceFileSourceResponse;
 use RuntimeException;
 abstract class AbstractClassGenerateHandler extends AbstractHandler
 {
@@ -69,4 +69,3 @@ abstract class AbstractClassGenerateHandler extends AbstractHandler
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransform\\Rpc\\AbstractClassGenerateHandler', 'Phpactor\\Extension\\CodeTransform\\Rpc\\AbstractClassGenerateHandler', \false);

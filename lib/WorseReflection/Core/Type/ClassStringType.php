@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-class ClassStringType extends StringType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ClassName;
+class ClassStringType extends \Phpactor\WorseReflection\Core\Type\StringType
 {
     public function __construct(private ?ClassName $className = null)
     {
@@ -23,13 +23,13 @@ class ClassStringType extends StringType
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof ClassStringType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ClassStringType) {
             // this is not really true - we should not accept a class-string<Foo> for class-string<Bar>
             // BUT also class-string<T> should accept class-string<Foo> as we
             // can't (easily) resolve the template var early.
             return Trinary::true();
         }
-        if (!$type instanceof StringType) {
+        if (!$type instanceof \Phpactor\WorseReflection\Core\Type\StringType) {
             return Trinary::false();
         }
         return Trinary::maybe();
@@ -39,4 +39,3 @@ class ClassStringType extends StringType
         return $this->className;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ClassStringType', 'Phpactor\\WorseReflection\\Core\\Type\\ClassStringType', \false);

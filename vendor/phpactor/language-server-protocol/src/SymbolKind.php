@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface SymbolKind
 {
@@ -32,4 +32,3 @@ interface SymbolKind
     public const OPERATOR = 25;
     public const TYPE_PARAMETER = 26;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SymbolKind', 'Phpactor\\LanguageServerProtocol\\SymbolKind', \false);

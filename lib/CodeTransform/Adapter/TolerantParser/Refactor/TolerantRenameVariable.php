@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
+namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\UseVariableName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\RenameVariable;
+use Phpactor\CodeTransform\Domain\Refactor\RenameVariable;
 use Phpactor202301\Microsoft\PhpParser\FunctionLike;
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class TolerantRenameVariable implements RenameVariable
 {
     private Parser $parser;
@@ -97,4 +97,3 @@ class TolerantRenameVariable implements RenameVariable
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantRenameVariable', 'Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantRenameVariable', \false);

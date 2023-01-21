@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReference;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class FunctionReferenceIndexer extends AbstractClassLikeIndexer
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\RecordReference;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\TextDocument\TextDocument;
+class FunctionReferenceIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Indexer\AbstractClassLikeIndexer
 {
     public function canIndex(Node $node) : bool
     {
@@ -48,4 +48,3 @@ class FunctionReferenceIndexer extends AbstractClassLikeIndexer
         $index->write($fileRecord);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\FunctionReferenceIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\FunctionReferenceIndexer', \false);

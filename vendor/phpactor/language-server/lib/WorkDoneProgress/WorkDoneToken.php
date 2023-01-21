@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\WorkDoneProgress;
+namespace Phpactor\LanguageServer\WorkDoneProgress;
 
 use Phpactor202301\Ramsey\Uuid\Uuid;
 final class WorkDoneToken
@@ -22,4 +22,3 @@ final class WorkDoneToken
         return new self((string) Uuid::uuid4());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\WorkDoneProgress\\WorkDoneToken', 'Phpactor\\LanguageServer\\WorkDoneProgress\\WorkDoneToken', \false);

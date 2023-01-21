@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider;
+namespace Phpactor\Extension\LanguageServerSymbolProvider;
 
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Adapter\TolerantDocumentSymbolProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Handler\DocumentSymbolProviderHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServerSymbolProvider\Adapter\TolerantDocumentSymbolProvider;
+use Phpactor\Extension\LanguageServerSymbolProvider\Handler\DocumentSymbolProviderHandler;
+use Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\MapResolver\Resolver;
 class LanguageServerSymbolProviderExtension implements Extension
 {
     public function load(ContainerBuilder $container) : void
@@ -26,4 +26,3 @@ class LanguageServerSymbolProviderExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerSymbolProvider\\LanguageServerSymbolProviderExtension', 'Phpactor\\Extension\\LanguageServerSymbolProvider\\LanguageServerSymbolProviderExtension', \false);

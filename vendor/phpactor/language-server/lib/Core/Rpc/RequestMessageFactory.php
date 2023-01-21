@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Rpc;
+namespace Phpactor\LanguageServer\Core\Rpc;
 
 use Phpactor202301\DTL\Invoke\Invoke;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Exception\CouldNotCreateMessage;
+use Phpactor\LanguageServer\Core\Rpc\Exception\CouldNotCreateMessage;
 use RuntimeException;
 final class RequestMessageFactory
 {
-    public static function fromRequest(RawMessage $request) : Message
+    public static function fromRequest(\Phpactor\LanguageServer\Core\Rpc\RawMessage $request) : \Phpactor\LanguageServer\Core\Rpc\Message
     {
         try {
             return self::doFromRequest($request);
@@ -15,18 +15,17 @@ final class RequestMessageFactory
             throw new CouldNotCreateMessage($error->getMessage(), 0, $error);
         }
     }
-    private static function doFromRequest(RawMessage $request) : Message
+    private static function doFromRequest(\Phpactor\LanguageServer\Core\Rpc\RawMessage $request) : \Phpactor\LanguageServer\Core\Rpc\Message
     {
         $body = $request->body();
         unset($body['jsonrpc']);
         if (\array_key_exists('result', $body)) {
-            return Invoke::new(ResponseMessage::class, $body);
+            return Invoke::new(\Phpactor\LanguageServer\Core\Rpc\ResponseMessage::class, $body);
         }
         if (!isset($body['id']) || \is_null($body['id'])) {
             unset($body['id']);
-            return Invoke::new(NotificationMessage::class, $body);
+            return Invoke::new(\Phpactor\LanguageServer\Core\Rpc\NotificationMessage::class, $body);
         }
-        return Invoke::new(RequestMessage::class, $body);
+        return Invoke::new(\Phpactor\LanguageServer\Core\Rpc\RequestMessage::class, $body);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Rpc\\RequestMessageFactory', 'Phpactor\\LanguageServer\\Core\\Rpc\\RequestMessageFactory', \false);

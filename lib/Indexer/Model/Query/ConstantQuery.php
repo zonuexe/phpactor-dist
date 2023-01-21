@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query;
+namespace Phpactor\Indexer\Model\Query;
 
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\IndexQuery;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ConstantRecord;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\IndexQuery;
+use Phpactor\Indexer\Model\Record\ConstantRecord;
 class ConstantQuery implements IndexQuery
 {
     public function __construct(private Index $index)
@@ -16,4 +16,3 @@ class ConstantQuery implements IndexQuery
         return $this->index->has($prototype) ? $this->index->get($prototype) : null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\ConstantQuery', 'Phpactor\\Indexer\\Model\\Query\\ConstantQuery', \false);

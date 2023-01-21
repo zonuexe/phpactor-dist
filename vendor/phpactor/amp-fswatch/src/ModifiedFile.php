@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch;
+namespace Phpactor\AmpFsWatch;
 
 use Phpactor202301\Webmozart\PathUtil\Path;
 class ModifiedFile
@@ -29,4 +29,3 @@ class ModifiedFile
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\ModifiedFile', 'Phpactor\\AmpFsWatch\\ModifiedFile', \false);

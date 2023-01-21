@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model\ReferenceFinder;
+namespace Phpactor\Rename\Model\ReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\PotentialLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ReferenceFinder\PotentialLocation;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 use Generator;
 class PredefinedReferenceFinder implements ReferenceFinder
 {
@@ -24,4 +24,3 @@ class PredefinedReferenceFinder implements ReferenceFinder
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\ReferenceFinder\\PredefinedReferenceFinder', 'Phpactor\\Rename\\Model\\ReferenceFinder\\PredefinedReferenceFinder', \false);

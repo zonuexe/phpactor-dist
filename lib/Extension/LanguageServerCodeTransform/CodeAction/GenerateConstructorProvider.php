@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
+namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\GenerateConstructor;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\WorkspaceEditConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\CodeTransform\Domain\Refactor\GenerateConstructor;
+use Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
+use Phpactor\Extension\LanguageServerBridge\Converter\WorkspaceEditConverter;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 class GenerateConstructorProvider implements CodeActionProvider
 {
     const KIND = 'quickfix.generate.constructor';
@@ -32,4 +32,3 @@ class GenerateConstructorProvider implements CodeActionProvider
         return [self::KIND];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\GenerateConstructorProvider', 'Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\GenerateConstructorProvider', \false);

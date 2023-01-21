@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -88,7 +88,3 @@ class FileEvent
         throw $lastException;
     }
 }
-/**
- * An event describing a file change.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileEvent', 'Phpactor\\LanguageServerProtocol\\FileEvent', \false);

@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of soap v.
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
+
 /**
  * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
  * or non-WSDL mode.
@@ -140,9 +139,8 @@ class SoapClient
      *
      * @removed 8.0
      */
-    public function SoapClient($wsdl, array $options = null)
-    {
-    }
+    public function SoapClient($wsdl, array $options = null) {}
+
     /**
      * SoapClient constructor
      * @link https://php.net/manual/en/soapclient.construct.php
@@ -267,9 +265,11 @@ class SoapClient
      * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded.
      * @since 5.0.1
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl, array $options = null)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
+        array $options = null
+    ) {}
+
     /**
      * @link https://php.net/manual/en/soapclient.call.php
      * @param string $name
@@ -279,9 +279,11 @@ class SoapClient
      */
     #[Deprecated]
     #[TentativeType]
-    public function __call(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, array $args) : mixed
-    {
-    }
+    public function __call(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        array $args
+    ): mixed {}
+
     /**
      * Calls a SOAP function
      * @link https://php.net/manual/en/soapclient.soapcall.php
@@ -324,9 +326,14 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __soapCall(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, array $args, #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null, $inputHeaders = null, &$outputHeaders = null) : mixed
-    {
-    }
+    public function __soapCall(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        array $args,
+        #[LanguageLevelTypeAware(['8.0' => 'array|null'], default: '')] $options = null,
+        $inputHeaders = null,
+        &$outputHeaders = null
+    ): mixed {}
+
     /**
      * Returns last SOAP request
      * @link https://php.net/manual/en/soapclient.getlastrequest.php
@@ -334,9 +341,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __getLastRequest() : ?string
-    {
-    }
+    public function __getLastRequest(): ?string {}
+
     /**
      * Returns last SOAP response
      * @link https://php.net/manual/en/soapclient.getlastresponse.php
@@ -344,9 +350,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __getLastResponse() : ?string
-    {
-    }
+    public function __getLastResponse(): ?string {}
+
     /**
      * Returns the SOAP headers from the last request
      * @link https://php.net/manual/en/soapclient.getlastrequestheaders.php
@@ -354,9 +359,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __getLastRequestHeaders() : ?string
-    {
-    }
+    public function __getLastRequestHeaders(): ?string {}
+
     /**
      * Returns the SOAP headers from the last response
      * @link https://php.net/manual/en/soapclient.getlastresponseheaders.php
@@ -364,9 +368,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __getLastResponseHeaders() : ?string
-    {
-    }
+    public function __getLastResponseHeaders(): ?string {}
+
     /**
      * Returns list of available SOAP functions
      * @link https://php.net/manual/en/soapclient.getfunctions.php
@@ -375,9 +378,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __getFunctions() : ?array
-    {
-    }
+    public function __getFunctions(): ?array {}
+
     /**
      * Returns a list of SOAP types
      * @link https://php.net/manual/en/soapclient.gettypes.php
@@ -385,9 +387,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __getTypes() : ?array
-    {
-    }
+    public function __getTypes(): ?array {}
+
     /**
      * Returns a list of all cookies
      * @link https://php.net/manual/en/soapclient.getcookies.php
@@ -395,9 +396,8 @@ class SoapClient
      * @since 5.4.3
      */
     #[TentativeType]
-    public function __getCookies() : array
-    {
-    }
+    public function __getCookies(): array {}
+
     /**
      * Performs a SOAP request
      * @link https://php.net/manual/en/soapclient.dorequest.php
@@ -421,9 +421,14 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __doRequest(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $request, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $location, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $action, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $version, #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = \false) : ?string
-    {
-    }
+    public function __doRequest(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $request,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $location,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $action,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $version,
+        #[LanguageLevelTypeAware(["8.0" => 'bool'], default: 'int')] $oneWay = false
+    ): ?string {}
+
     /**
      * The __setCookie purpose
      * @link https://php.net/manual/en/soapclient.setcookie.php
@@ -437,9 +442,11 @@ class SoapClient
      * @since 5.0.4
      */
     #[TentativeType]
-    public function __setCookie(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value) : void
-    {
-    }
+    public function __setCookie(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $value
+    ): void {}
+
     /**
      * Sets the location of the Web service to use
      * @link https://php.net/manual/en/soapclient.setlocation.php
@@ -450,9 +457,8 @@ class SoapClient
      * @since 5.0.1
      */
     #[TentativeType]
-    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = '') : ?string
-    {
-    }
+    public function __setLocation(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $location = ''): ?string {}
+
     /**
      * Sets SOAP headers for subsequent calls
      * @link https://php.net/manual/en/soapclient.setsoapheaders.php
@@ -465,16 +471,12 @@ class SoapClient
      * @since 5.0.5
      */
     #[TentativeType]
-    public function __setSoapHeaders(#[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $headers, #[PhpStormStubsElementAvailable(from: '7.0')] $headers = null) : bool
-    {
-    }
+    public function __setSoapHeaders(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $headers,
+        #[PhpStormStubsElementAvailable(from: '7.0')] $headers = null
+    ): bool {}
 }
-/**
- * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
- * or non-WSDL mode.
- * @link https://php.net/manual/en/class.soapclient.php
- */
-\class_alias('Phpactor202301\\SoapClient', 'SoapClient', \false);
+
 /**
  * A class representing a variable or object for use with SOAP services.
  * @link https://php.net/manual/en/class.soapvar.php
@@ -486,31 +488,37 @@ class SoapVar
      * @since 8.1
      */
     public int $enc_type;
+
     /**
      * @var mixed
      * @since 8.1
      */
     public mixed $enc_value;
+
     /**
      * @var string|null
      * @since 8.1
      */
     public string|null $enc_stype;
+
     /**
      * @var string|null
      * @since 8.1
      */
     public string|null $enc_ns;
+
     /**
      * @var string|null
      * @since 8.1
      */
     public string|null $enc_name;
+
     /**
      * @var string|null
      * @since 8.1
      */
     public string|null $enc_namens;
+
     /**
      * SoapVar constructor
      * @link https://php.net/manual/en/soapvar.construct.php
@@ -534,9 +542,15 @@ class SoapVar
      * </p>
      * @since 5.0.1
      */
-    public function __construct(#[LanguageLevelTypeAware(["8.0" => 'mixed'], default: '')] $data, #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding, #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName, #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $typeNamespace = '', #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeName = '', #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeNamespace = '')
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(["8.0" => 'mixed'], default: '')] $data,
+        #[LanguageLevelTypeAware(["7.1" => "int|null"], default: "int")] $encoding,
+        #[LanguageLevelTypeAware(["8.0" => "string|null"], default: "string")] $typeName,
+        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $typeNamespace = '',
+        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeName = '',
+        #[LanguageLevelTypeAware(["8.0" => 'string|null'], default: '')] $nodeNamespace = ''
+    ) {}
+
     /**
      * SoapVar constructor
      * @link https://php.net/manual/en/soapvar.construct.php
@@ -561,15 +575,9 @@ class SoapVar
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapVar($data, $encoding, $type_name = '', $type_namespace = '', $node_name = '', $node_namespace = '')
-    {
-    }
+    public function SoapVar($data, $encoding, $type_name = '', $type_namespace = '', $node_name = '', $node_namespace = '') {}
 }
-/**
- * A class representing a variable or object for use with SOAP services.
- * @link https://php.net/manual/en/class.soapvar.php
- */
-\class_alias('Phpactor202301\\SoapVar', 'SoapVar', \false);
+
 /**
  * The SoapServer class provides a server for the SOAP 1.1 and SOAP 1.2 protocols. It can be used with or without a WSDL service description.
  * @link https://php.net/manual/en/class.soapserver.php
@@ -616,9 +624,11 @@ class SoapServer
      * </p>
      * @since 5.0.1
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl, array $options = null)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $wsdl,
+        array $options = null
+    ) {}
+
     /**
      * SoapServer constructor
      * @link https://php.net/manual/en/soapserver.soapserver.php
@@ -660,9 +670,8 @@ class SoapServer
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapServer($wsdl, array $options = null)
-    {
-    }
+    public function SoapServer($wsdl, array $options = null) {}
+
     /**
      * Sets SoapServer persistence mode
      * @link https://php.net/manual/en/soapserver.setpersistence.php
@@ -684,9 +693,8 @@ class SoapServer
      * @since 5.1.2
      */
     #[TentativeType]
-    public function setPersistence(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode) : void
-    {
-    }
+    public function setPersistence(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $mode): void {}
+
     /**
      * Sets the class which handles SOAP requests
      * @link https://php.net/manual/en/soapserver.setclass.php
@@ -698,9 +706,11 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function setClass(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $class, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args) : void
-    {
-    }
+    public function setClass(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $class,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args
+    ): void {}
+
     /**
      * Sets the object which will be used to handle SOAP requests
      * @link https://php.net/manual/en/soapserver.setobject.php
@@ -710,9 +720,8 @@ class SoapServer
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setObject(object $object) : void
-    {
-    }
+    public function setObject(object $object): void {}
+
     /**
      * Adds one or more functions to handle SOAP requests
      * @link https://php.net/manual/en/soapserver.addfunction.php
@@ -736,9 +745,8 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function addFunction($functions) : void
-    {
-    }
+    public function addFunction($functions): void {}
+
     /**
      * Returns list of defined functions
      * @link https://php.net/manual/en/soapserver.getfunctions.php
@@ -746,9 +754,8 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function getFunctions() : array
-    {
-    }
+    public function getFunctions(): array {}
+
     /**
      * Handles a SOAP request
      * @link https://php.net/manual/en/soapserver.handle.php
@@ -760,9 +767,8 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function handle(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $request = null) : void
-    {
-    }
+    public function handle(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $request = null): void {}
+
     /**
      * Issue SoapServer fault indicating an error
      * @link https://php.net/manual/en/soapserver.fault.php
@@ -785,9 +791,14 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function fault(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $code, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $actor = null, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name = null) : void
-    {
-    }
+    public function fault(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $code,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $actor = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name = null
+    ): void {}
+
     /**
      * Add a SOAP header to the response
      * @link https://php.net/manual/en/soapserver.addsoapheader.php
@@ -798,61 +809,63 @@ class SoapServer
      * @since 5.0.1
      */
     #[TentativeType]
-    public function addSoapHeader(\SoapHeader $header) : void
-    {
-    }
+    public function addSoapHeader(SoapHeader $header): void {}
 }
-/**
- * The SoapServer class provides a server for the SOAP 1.1 and SOAP 1.2 protocols. It can be used with or without a WSDL service description.
- * @link https://php.net/manual/en/class.soapserver.php
- */
-\class_alias('Phpactor202301\\SoapServer', 'SoapServer', \false);
+
 /**
  * Represents a SOAP fault.
  * @link https://php.net/manual/en/class.soapfault.php
  */
-class SoapFault extends \Exception
+class SoapFault extends Exception
 {
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $faultcode;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $faultstring;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string|null'], default: '')]
     public $faultactor;
+
     /**
      * @var mixed
      */
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $detail;
+
     /**
      * @var string
      */
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $faultname;
+
     /**
      * @var mixed
      */
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $headerfault;
+
     /**
      * @var string|null
      * @since 8.1
      */
     public string|null $faultcodens;
+
     /**
      * @var string|null
      * @since 8.1
      */
     public string|null $_name;
+
     /**
      * SoapFault constructor
      * @link https://php.net/manual/en/soapfault.soapfault.php
@@ -878,9 +891,15 @@ class SoapFault extends \Exception
      * @since 5.0.1
      */
     #[Pure]
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $code, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $actor = null, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $headerFault = null)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $code,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $string,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $actor = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $details = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $name = null,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $headerFault = null
+    ) {}
+
     /**
      * SoapFault constructor
      * @link https://php.net/manual/en/soapfault.soapfault.php
@@ -906,9 +925,8 @@ class SoapFault extends \Exception
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapFault($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null)
-    {
-    }
+    public function SoapFault($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
+
     /**
      * Obtain a string representation of a SoapFault
      * @link https://php.net/manual/en/soapfault.tostring.php
@@ -916,15 +934,9 @@ class SoapFault extends \Exception
      * @since 5.0.1
      */
     #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')]
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-/**
- * Represents a SOAP fault.
- * @link https://php.net/manual/en/class.soapfault.php
- */
-\class_alias('Phpactor202301\\SoapFault', 'SoapFault', \false);
+
 /**
  * Represents parameter to a SOAP call.
  * @link https://php.net/manual/en/class.soapparam.php
@@ -936,11 +948,13 @@ class SoapParam
      * @since 8.1
      */
     public string $param_name;
+
     /**
      * @var mixed
      * @since 8.1
      */
     public mixed $param_data;
+
     /**
      * SoapParam constructor
      * @link https://php.net/manual/en/soapparam.soapparam.php
@@ -954,9 +968,11 @@ class SoapParam
      * </p>
      * @since 5.0.1
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+    ) {}
+
     /**
      * SoapParam constructor
      * @link https://php.net/manual/en/soapparam.soapparam.php
@@ -971,15 +987,9 @@ class SoapParam
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapParam($data, $name)
-    {
-    }
+    public function SoapParam($data, $name) {}
 }
-/**
- * Represents parameter to a SOAP call.
- * @link https://php.net/manual/en/class.soapparam.php
- */
-\class_alias('Phpactor202301\\SoapParam', 'SoapParam', \false);
+
 /**
  * Represents a SOAP header.
  * @link https://php.net/manual/en/class.soapheader.php
@@ -991,26 +1001,31 @@ class SoapHeader
      * @since 8.1
      */
     public string $namespace;
+
     /**
      * @var string
      * @since 8.1
      */
     public string $name;
+
     /**
      * @var mixed
      * @since 8.1
      */
     public mixed $data;
+
     /**
      * @var bool
      * @since 8.1
      */
     public bool $mustUnderstand;
+
     /**
      * @var string|int|null
      * @since 8.1
      */
     public string|int|null $actor;
+
     /**
      * SoapHeader constructor
      * @link https://www.php.net/manual/en/soapheader.construct.php
@@ -1031,9 +1046,14 @@ class SoapHeader
      * </p>
      * @since 5.0.1
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name, #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $mustUnderstand = \false, #[LanguageLevelTypeAware(['8.0' => 'string|int|null'], default: '')] $actor = null)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name,
+        #[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $data = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $mustUnderstand = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string|int|null'], default: '')] $actor = null
+    ) {}
+
     /**
      * SoapHeader constructor
      * @link https://php.net/manual/en/soapheader.soapheader.php
@@ -1055,15 +1075,9 @@ class SoapHeader
      * @since 5.0.1
      * @removed 8.0
      */
-    public function SoapHeader($namespace, $name, $data = null, $mustunderstand = \false, $actor = null)
-    {
-    }
+    public function SoapHeader($namespace, $name, $data = null, $mustunderstand = false, $actor = null) {}
 }
-/**
- * Represents a SOAP header.
- * @link https://php.net/manual/en/class.soapheader.php
- */
-\class_alias('Phpactor202301\\SoapHeader', 'SoapHeader', \false);
+
 /**
  * Set whether to use the SOAP error handler
  * @link https://php.net/manual/en/function.use-soap-error-handler.php
@@ -1072,9 +1086,8 @@ class SoapHeader
  * </p>
  * @return bool the original value.
  */
-function use_soap_error_handler(bool $enable = \true) : bool
-{
-}
+function use_soap_error_handler(bool $enable = true): bool {}
+
 /**
  * Checks if a SOAP call has failed
  * @link https://php.net/manual/en/function.is-soap-fault.php
@@ -1083,104 +1096,108 @@ function use_soap_error_handler(bool $enable = \true) : bool
  * </p>
  * @return bool This will return <b>TRUE</b> on error, and <b>FALSE</b> otherwise.
  */
-function is_soap_fault(mixed $object) : bool
-{
-}
-\define('SOAP_1_1', 1);
-\define('SOAP_1_2', 2);
-\define('SOAP_PERSISTENCE_SESSION', 1);
-\define('SOAP_PERSISTENCE_REQUEST', 2);
-\define('SOAP_FUNCTIONS_ALL', 999);
-\define('SOAP_ENCODED', 1);
-\define('SOAP_LITERAL', 2);
-\define('SOAP_RPC', 1);
-\define('SOAP_DOCUMENT', 2);
-\define('SOAP_ACTOR_NEXT', 1);
-\define('SOAP_ACTOR_NONE', 2);
-\define('SOAP_ACTOR_UNLIMATERECEIVER', 3);
-\define('SOAP_COMPRESSION_ACCEPT', 32);
-\define('SOAP_COMPRESSION_GZIP', 0);
-\define('SOAP_COMPRESSION_DEFLATE', 16);
-\define('SOAP_AUTHENTICATION_BASIC', 0);
-\define('SOAP_AUTHENTICATION_DIGEST', 1);
-\define('UNKNOWN_TYPE', 999998);
-\define('XSD_STRING', 101);
-\define('XSD_BOOLEAN', 102);
-\define('XSD_DECIMAL', 103);
-\define('XSD_FLOAT', 104);
-\define('XSD_DOUBLE', 105);
-\define('XSD_DURATION', 106);
-\define('XSD_DATETIME', 107);
-\define('XSD_TIME', 108);
-\define('XSD_DATE', 109);
-\define('XSD_GYEARMONTH', 110);
-\define('XSD_GYEAR', 111);
-\define('XSD_GMONTHDAY', 112);
-\define('XSD_GDAY', 113);
-\define('XSD_GMONTH', 114);
-\define('XSD_HEXBINARY', 115);
-\define('XSD_BASE64BINARY', 116);
-\define('XSD_ANYURI', 117);
-\define('XSD_QNAME', 118);
-\define('XSD_NOTATION', 119);
-\define('XSD_NORMALIZEDSTRING', 120);
-\define('XSD_TOKEN', 121);
-\define('XSD_LANGUAGE', 122);
-\define('XSD_NMTOKEN', 123);
-\define('XSD_NAME', 124);
-\define('XSD_NCNAME', 125);
-\define('XSD_ID', 126);
-\define('XSD_IDREF', 127);
-\define('XSD_IDREFS', 128);
-\define('XSD_ENTITY', 129);
-\define('XSD_ENTITIES', 130);
-\define('XSD_INTEGER', 131);
-\define('XSD_NONPOSITIVEINTEGER', 132);
-\define('XSD_NEGATIVEINTEGER', 133);
-\define('XSD_LONG', 134);
-\define('XSD_INT', 135);
-\define('XSD_SHORT', 136);
-\define('XSD_BYTE', 137);
-\define('XSD_NONNEGATIVEINTEGER', 138);
-\define('XSD_UNSIGNEDLONG', 139);
-\define('XSD_UNSIGNEDINT', 140);
-\define('XSD_UNSIGNEDSHORT', 141);
-\define('XSD_UNSIGNEDBYTE', 142);
-\define('XSD_POSITIVEINTEGER', 143);
-\define('XSD_NMTOKENS', 144);
-\define('XSD_ANYTYPE', 145);
-\define('XSD_ANYXML', 147);
-\define('APACHE_MAP', 200);
-\define('SOAP_ENC_OBJECT', 301);
-\define('SOAP_ENC_ARRAY', 300);
-\define('XSD_1999_TIMEINSTANT', 401);
-\define('XSD_NAMESPACE', "http://www.w3.org/2001/XMLSchema");
-\define('XSD_1999_NAMESPACE', "http://www.w3.org/1999/XMLSchema");
-\define('SOAP_SINGLE_ELEMENT_ARRAYS', 1);
-\define('SOAP_WAIT_ONE_WAY_CALLS', 2);
-\define('SOAP_USE_XSI_ARRAY_TYPE', 4);
-\define('WSDL_CACHE_NONE', 0);
-\define('WSDL_CACHE_DISK', 1);
-\define('WSDL_CACHE_MEMORY', 2);
-\define('WSDL_CACHE_BOTH', 3);
+function is_soap_fault(mixed $object): bool {}
+
+define('SOAP_1_1', 1);
+define('SOAP_1_2', 2);
+define('SOAP_PERSISTENCE_SESSION', 1);
+define('SOAP_PERSISTENCE_REQUEST', 2);
+define('SOAP_FUNCTIONS_ALL', 999);
+define('SOAP_ENCODED', 1);
+define('SOAP_LITERAL', 2);
+define('SOAP_RPC', 1);
+define('SOAP_DOCUMENT', 2);
+define('SOAP_ACTOR_NEXT', 1);
+define('SOAP_ACTOR_NONE', 2);
+define('SOAP_ACTOR_UNLIMATERECEIVER', 3);
+define('SOAP_COMPRESSION_ACCEPT', 32);
+define('SOAP_COMPRESSION_GZIP', 0);
+define('SOAP_COMPRESSION_DEFLATE', 16);
+define('SOAP_AUTHENTICATION_BASIC', 0);
+define('SOAP_AUTHENTICATION_DIGEST', 1);
+define('UNKNOWN_TYPE', 999998);
+define('XSD_STRING', 101);
+define('XSD_BOOLEAN', 102);
+define('XSD_DECIMAL', 103);
+define('XSD_FLOAT', 104);
+define('XSD_DOUBLE', 105);
+define('XSD_DURATION', 106);
+define('XSD_DATETIME', 107);
+define('XSD_TIME', 108);
+define('XSD_DATE', 109);
+define('XSD_GYEARMONTH', 110);
+define('XSD_GYEAR', 111);
+define('XSD_GMONTHDAY', 112);
+define('XSD_GDAY', 113);
+define('XSD_GMONTH', 114);
+define('XSD_HEXBINARY', 115);
+define('XSD_BASE64BINARY', 116);
+define('XSD_ANYURI', 117);
+define('XSD_QNAME', 118);
+define('XSD_NOTATION', 119);
+define('XSD_NORMALIZEDSTRING', 120);
+define('XSD_TOKEN', 121);
+define('XSD_LANGUAGE', 122);
+define('XSD_NMTOKEN', 123);
+define('XSD_NAME', 124);
+define('XSD_NCNAME', 125);
+define('XSD_ID', 126);
+define('XSD_IDREF', 127);
+define('XSD_IDREFS', 128);
+define('XSD_ENTITY', 129);
+define('XSD_ENTITIES', 130);
+define('XSD_INTEGER', 131);
+define('XSD_NONPOSITIVEINTEGER', 132);
+define('XSD_NEGATIVEINTEGER', 133);
+define('XSD_LONG', 134);
+define('XSD_INT', 135);
+define('XSD_SHORT', 136);
+define('XSD_BYTE', 137);
+define('XSD_NONNEGATIVEINTEGER', 138);
+define('XSD_UNSIGNEDLONG', 139);
+define('XSD_UNSIGNEDINT', 140);
+define('XSD_UNSIGNEDSHORT', 141);
+define('XSD_UNSIGNEDBYTE', 142);
+define('XSD_POSITIVEINTEGER', 143);
+define('XSD_NMTOKENS', 144);
+define('XSD_ANYTYPE', 145);
+define('XSD_ANYXML', 147);
+define('APACHE_MAP', 200);
+define('SOAP_ENC_OBJECT', 301);
+define('SOAP_ENC_ARRAY', 300);
+define('XSD_1999_TIMEINSTANT', 401);
+define('XSD_NAMESPACE', "http://www.w3.org/2001/XMLSchema");
+define('XSD_1999_NAMESPACE', "http://www.w3.org/1999/XMLSchema");
+define('SOAP_SINGLE_ELEMENT_ARRAYS', 1);
+define('SOAP_WAIT_ONE_WAY_CALLS', 2);
+define('SOAP_USE_XSI_ARRAY_TYPE', 4);
+define('WSDL_CACHE_NONE', 0);
+define('WSDL_CACHE_DISK', 1);
+define('WSDL_CACHE_MEMORY', 2);
+define('WSDL_CACHE_BOTH', 3);
+
 /**
  * @link https://php.net/manual/en/soap.constants.php
  * @since 5.5
  */
-\define('SOAP_SSL_METHOD_TLS', 0);
+define('SOAP_SSL_METHOD_TLS', 0);
+
 /**
  * @link https://php.net/manual/en/soap.constants.php
  * @since 5.5
  */
-\define('SOAP_SSL_METHOD_SSLv2', 1);
+define('SOAP_SSL_METHOD_SSLv2', 1);
+
 /**
  * @link https://php.net/manual/en/soap.constants.php
  * @since 5.5
  */
-\define('SOAP_SSL_METHOD_SSLv3', 2);
+define('SOAP_SSL_METHOD_SSLv3', 2);
+
 /**
  * @link https://php.net/manual/en/soap.constants.php
  * @since 5.5
  */
-\define('SOAP_SSL_METHOD_SSLv23', 3);
+define('SOAP_SSL_METHOD_SSLv23', 3);
+
 // End of soap v.

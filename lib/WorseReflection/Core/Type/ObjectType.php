@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
 final class ObjectType extends Type
 {
     public function __toString() : string
@@ -16,32 +16,31 @@ final class ObjectType extends Type
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof ParenthesizedType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ParenthesizedType) {
             return $this->accepts($type->type);
         }
-        if ($type instanceof ClassType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::true();
         }
-        if ($type instanceof ObjectType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ObjectType) {
             return Trinary::true();
         }
-        if ($type instanceof IntersectionType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\IntersectionType) {
             return Trinary::true();
         }
-        if ($type instanceof UnionType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\UnionType) {
             foreach ($type->types as $type) {
                 if ($this->accepts($type)->isTrue()) {
                     return Trinary::true();
                 }
             }
         }
-        if ($type instanceof MixedType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\MixedType) {
             return Trinary::maybe();
         }
-        if ($type instanceof MissingType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\MissingType) {
             return Trinary::maybe();
         }
         return Trinary::false();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ObjectType', 'Phpactor\\WorseReflection\\Core\\Type\\ObjectType', \false);

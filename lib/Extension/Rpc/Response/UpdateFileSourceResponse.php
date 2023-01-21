@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Diff\TextEditBuilder;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Diff\TextEditBuilder;
+use Phpactor\Extension\Rpc\Response;
 class UpdateFileSourceResponse implements Response
 {
     private TextEditBuilder $textEditBuilder;
@@ -37,4 +37,3 @@ class UpdateFileSourceResponse implements Response
         return $this->newSource;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\UpdateFileSourceResponse', 'Phpactor\\Extension\\Rpc\\Response\\UpdateFileSourceResponse', \false);

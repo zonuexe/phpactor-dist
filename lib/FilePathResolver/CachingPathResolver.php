@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver;
+namespace Phpactor\FilePathResolver;
 
-class CachingPathResolver implements PathResolver
+class CachingPathResolver implements \Phpactor\FilePathResolver\PathResolver
 {
     private array $cache = [];
-    public function __construct(private PathResolver $innerPathResolver)
+    public function __construct(private \Phpactor\FilePathResolver\PathResolver $innerPathResolver)
     {
     }
     public function resolve(string $path) : string
@@ -17,4 +17,3 @@ class CachingPathResolver implements PathResolver
         return $this->cache[$path];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\CachingPathResolver', 'Phpactor\\FilePathResolver\\CachingPathResolver', \false);

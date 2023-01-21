@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
 class Position
 {
@@ -24,4 +24,3 @@ class Position
         return $this->end - $this->start;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\Position', 'Phpactor\\ClassMover\\Domain\\Reference\\Position', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
+namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
@@ -9,10 +9,10 @@ use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Token;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class TolerantChangeVisiblity implements ChangeVisiblity
 {
     private Parser $parser;
@@ -65,4 +65,3 @@ class TolerantChangeVisiblity implements ChangeVisiblity
         return $node;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantChangeVisiblity', 'Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantChangeVisiblity', \false);

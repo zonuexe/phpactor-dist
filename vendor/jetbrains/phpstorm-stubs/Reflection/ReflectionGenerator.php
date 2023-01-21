@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * The ReflectionGenerator class reports information about a generator.
  *
@@ -18,9 +17,8 @@ class ReflectionGenerator
      * @param Generator $generator A generator object.
      * @since 7.0
      */
-    public function __construct(\Generator $generator)
-    {
-    }
+    public function __construct(Generator $generator) {}
+
     /**
      * Gets the currently executing line of the generator
      *
@@ -31,9 +29,8 @@ class ReflectionGenerator
      */
     #[Pure]
     #[TentativeType]
-    public function getExecutingLine() : int
-    {
-    }
+    public function getExecutingLine(): int {}
+
     /**
      * Gets the file name of the currently executing generator
      *
@@ -44,9 +41,8 @@ class ReflectionGenerator
      */
     #[Pure]
     #[TentativeType]
-    public function getExecutingFile() : string
-    {
-    }
+    public function getExecutingFile(): string {}
+
     /**
      * Gets the trace of the executing generator
      *
@@ -65,9 +61,8 @@ class ReflectionGenerator
      */
     #[Pure]
     #[TentativeType]
-    public function getTrace(int $options = \DEBUG_BACKTRACE_PROVIDE_OBJECT) : array
-    {
-    }
+    public function getTrace(int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT): array {}
+
     /**
      * Gets the function name of the generator
      *
@@ -79,9 +74,8 @@ class ReflectionGenerator
      */
     #[Pure]
     #[TentativeType]
-    public function getFunction() : \ReflectionFunctionAbstract
-    {
-    }
+    public function getFunction(): ReflectionFunctionAbstract {}
+
     /**
      * Gets the function name of the generator
      *
@@ -92,9 +86,8 @@ class ReflectionGenerator
      */
     #[Pure]
     #[TentativeType]
-    public function getThis() : ?object
-    {
-    }
+    public function getThis(): ?object {}
+
     /**
      * Gets the executing Generator object
      *
@@ -104,13 +97,5 @@ class ReflectionGenerator
      */
     #[Pure]
     #[TentativeType]
-    public function getExecutingGenerator() : \Generator
-    {
-    }
+    public function getExecutingGenerator(): Generator {}
 }
-/**
- * The ReflectionGenerator class reports information about a generator.
- *
- * @since 7.0
- */
-\class_alias('Phpactor202301\\ReflectionGenerator', 'ReflectionGenerator', \false);

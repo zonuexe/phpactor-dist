@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider;
+namespace Phpactor\ObjectRenderer\Model\TemplateProvider;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
 class TestTemplateProvider implements TemplateCandidateProvider
 {
     /**
@@ -24,4 +24,3 @@ class TestTemplateProvider implements TemplateCandidateProvider
         return $this->templateCandidates;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Model\\TemplateProvider\\TestTemplateProvider', 'Phpactor\\ObjectRenderer\\Model\\TemplateProvider\\TestTemplateProvider', \false);

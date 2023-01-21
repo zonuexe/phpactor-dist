@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\FileinfoException;
+use Safe\Exceptions\FileinfoException;
+
 /**
  * This function closes the resource opened by finfo_open.
  *
@@ -10,14 +11,16 @@ use Phpactor202301\Safe\Exceptions\FileinfoException;
  * @throws FileinfoException
  *
  */
-function finfo_close($finfo) : void
+function finfo_close($finfo): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \finfo_close($finfo);
-    if ($result === \false) {
+    if ($result === false) {
         throw FileinfoException::createFromPhpError();
     }
 }
+
+
 /**
  * Procedural style
  *
@@ -40,15 +43,17 @@ function finfo_close($finfo) : void
  * @throws FileinfoException
  *
  */
-function finfo_open(int $options = \FILEINFO_NONE, string $magic_file = "")
+function finfo_open(int $options = FILEINFO_NONE, string $magic_file = "")
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \finfo_open($options, $magic_file);
-    if ($result === \false) {
+    if ($result === false) {
         throw FileinfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the MIME content type for a file as determined by using
  * information from the magic.mime file.
@@ -59,11 +64,11 @@ function finfo_open(int $options = \FILEINFO_NONE, string $magic_file = "")
  * @throws FileinfoException
  *
  */
-function mime_content_type(string $filename) : string
+function mime_content_type(string $filename): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mime_content_type($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FileinfoException::createFromPhpError();
     }
     return $result;

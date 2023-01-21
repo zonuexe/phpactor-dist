@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
+use Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
-final class ChainTypeLocator implements TypeLocator
+final class ChainTypeLocator implements \Phpactor\ReferenceFinder\TypeLocator
 {
     /**
      * @var TypeLocator[]
@@ -22,7 +22,7 @@ final class ChainTypeLocator implements TypeLocator
             $this->add($locator);
         }
     }
-    public function locateTypes(TextDocument $document, ByteOffset $byteOffset) : TypeLocations
+    public function locateTypes(TextDocument $document, ByteOffset $byteOffset) : \Phpactor\ReferenceFinder\TypeLocations
     {
         $messages = [];
         foreach ($this->locators as $locator) {
@@ -43,9 +43,8 @@ final class ChainTypeLocator implements TypeLocator
         }
         throw new CouldNotLocateType('No type locators are registered');
     }
-    private function add(TypeLocator $locator) : void
+    private function add(\Phpactor\ReferenceFinder\TypeLocator $locator) : void
     {
         $this->locators[] = $locator;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\ChainTypeLocator', 'Phpactor\\ReferenceFinder\\ChainTypeLocator', \false);

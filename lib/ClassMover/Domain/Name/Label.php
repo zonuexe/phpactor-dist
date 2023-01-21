@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Name;
+namespace Phpactor\ClassMover\Domain\Name;
 
 class Label
 {
@@ -11,9 +11,8 @@ class Label
     {
         return $this->label;
     }
-    public static function fromString(string $label) : Label
+    public static function fromString(string $label) : \Phpactor\ClassMover\Domain\Name\Label
     {
         return new static($label);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Name\\Label', 'Phpactor\\ClassMover\\Domain\\Name\\Label', \false);

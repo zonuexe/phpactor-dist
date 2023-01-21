@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-interface ReflectionConstant extends ReflectionMember
+interface ReflectionConstant extends \Phpactor\WorseReflection\Core\Reflection\ReflectionMember
 {
     /**
      * @return mixed
      */
     public function value();
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionConstant', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionConstant', \false);

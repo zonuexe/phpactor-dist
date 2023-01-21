@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter;
+namespace Phpactor\ClassFileConverter;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer\ComposerFileToClass;
-use Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer\ComposerClassToFile;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
+use Phpactor\ClassFileConverter\Adapter\Composer\ComposerFileToClass;
+use Phpactor\ClassFileConverter\Adapter\Composer\ComposerClassToFile;
+use Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
 use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ChainClassToFile;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ChainFileToClass;
+use Phpactor\ClassFileConverter\Domain\ChainClassToFile;
+use Phpactor\ClassFileConverter\Domain\ChainFileToClass;
 /**
  * Facade for the library.
  */
@@ -34,7 +34,3 @@ final class ClassToFileConverter
         return new ClassToFileFileToClass(new ChainClassToFile($classToFiles), new ChainFileToClass($fileToClasses));
     }
 }
-/**
- * Facade for the library.
- */
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\ClassToFileConverter', 'Phpactor\\ClassFileConverter\\ClassToFileConverter', \false);

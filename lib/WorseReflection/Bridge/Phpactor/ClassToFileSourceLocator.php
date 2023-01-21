@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor;
+namespace Phpactor\WorseReflection\Bridge\Phpactor;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFile;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\SourceNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\ClassToFile;
+use Phpactor\WorseReflection\Core\Exception\SourceNotFound;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\ClassFileConverter\Domain\ClassName;
 class ClassToFileSourceLocator implements SourceCodeLocator
 {
     public function __construct(private ClassToFile $converter)
@@ -27,4 +27,3 @@ class ClassToFileSourceLocator implements SourceCodeLocator
         throw new SourceNotFound($name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\Phpactor\\ClassToFileSourceLocator', 'Phpactor\\WorseReflection\\Bridge\\Phpactor\\ClassToFileSourceLocator', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 class Value
 {
@@ -48,4 +48,3 @@ class Value
         return \sprintf('[%s]', \implode(', ', $parts));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Value', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Value', \false);

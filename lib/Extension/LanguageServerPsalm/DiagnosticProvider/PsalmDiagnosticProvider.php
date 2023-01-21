@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPsalm\DiagnosticProvider;
+namespace Phpactor\Extension\LanguageServerPsalm\DiagnosticProvider;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\Linter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\Extension\LanguageServerPsalm\Model\Linter;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 class PsalmDiagnosticProvider implements DiagnosticsProvider
 {
     public function __construct(private Linter $linter)
@@ -21,4 +21,3 @@ class PsalmDiagnosticProvider implements DiagnosticsProvider
         return 'psalm';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPsalm\\DiagnosticProvider\\PsalmDiagnosticProvider', 'Phpactor\\Extension\\LanguageServerPsalm\\DiagnosticProvider\\PsalmDiagnosticProvider', \false);

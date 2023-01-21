@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Extension\Command;
+namespace Phpactor\Indexer\Extension\Command;
 
 use Exception;
-use Phpactor202301\Phpactor\Indexer\Model\IndexInfo;
-use Phpactor202301\Phpactor\Indexer\Model\IndexInfos;
-use Phpactor202301\Phpactor\Indexer\Util\Filesystem as PhpactorFilesystem;
+use Phpactor\Indexer\Model\IndexInfo;
+use Phpactor\Indexer\Model\IndexInfos;
+use Phpactor\Indexer\Util\Filesystem as PhpactorFilesystem;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
@@ -160,4 +160,3 @@ DOCS
         $this->filesystem->remove($index->absolutePath());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Extension\\Command\\IndexCleanCommand', 'Phpactor\\Indexer\\Extension\\Command\\IndexCleanCommand', \false);

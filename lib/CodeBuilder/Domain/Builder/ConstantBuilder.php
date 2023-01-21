@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Constant;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Value;
-class ConstantBuilder extends AbstractBuilder implements NamedBuilder
+use Phpactor\CodeBuilder\Domain\Prototype\Constant;
+use Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
+use Phpactor\CodeBuilder\Domain\Prototype\Value;
+class ConstantBuilder extends \Phpactor\CodeBuilder\Domain\Builder\AbstractBuilder implements \Phpactor\CodeBuilder\Domain\Builder\NamedBuilder
 {
     /**
      * @var mixed
      */
     protected $value;
-    public function __construct(private ClassLikeBuilder $parent, protected string $name, $value)
+    public function __construct(private \Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder $parent, protected string $name, $value)
     {
         $this->value = Value::fromValue($value);
     }
@@ -23,7 +23,7 @@ class ConstantBuilder extends AbstractBuilder implements NamedBuilder
     {
         return new Constant($this->name, $this->value, UpdatePolicy::fromModifiedState($this->isModified()));
     }
-    public function end() : ClassLikeBuilder
+    public function end() : \Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder
     {
         return $this->parent;
     }
@@ -32,4 +32,3 @@ class ConstantBuilder extends AbstractBuilder implements NamedBuilder
         return $this->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\ConstantBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\ConstantBuilder', \false);

@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan;
+namespace Phpactor\Extension\LanguageServerPhpstan;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\Linter\PhpstanLinter;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanConfig;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanProcess;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Provider\PhpstanDiagnosticProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
+use Phpactor\Extension\LanguageServerPhpstan\Model\Linter\PhpstanLinter;
+use Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanConfig;
+use Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanProcess;
+use Phpactor\Extension\LanguageServerPhpstan\Provider\PhpstanDiagnosticProvider;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
 class LanguageServerPhpstanExtension implements OptionalExtension
 {
     public const PARAM_PHPSTAN_BIN = 'language_server_phpstan.bin';
@@ -42,4 +42,3 @@ class LanguageServerPhpstanExtension implements OptionalExtension
         return 'language_server_phpstan';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\LanguageServerPhpstanExtension', 'Phpactor\\Extension\\LanguageServerPhpstan\\LanguageServerPhpstanExtension', \false);

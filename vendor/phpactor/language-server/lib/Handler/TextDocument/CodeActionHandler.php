@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\TextDocument;
+namespace Phpactor\LanguageServer\Handler\TextDocument;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeActionOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeActionParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeActionRequest;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\CodeActionOptions;
+use Phpactor\LanguageServerProtocol\CodeActionParams;
+use Phpactor\LanguageServerProtocol\CodeActionRequest;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 use function Phpactor202301\Amp\call;
 class CodeActionHandler implements Handler, CanRegisterCapabilities
 {
@@ -52,4 +52,3 @@ class CodeActionHandler implements Handler, CanRegisterCapabilities
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\TextDocument\\CodeActionHandler', 'Phpactor\\LanguageServer\\Handler\\TextDocument\\CodeActionHandler', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 class ParameterInformation
 {
@@ -24,4 +24,3 @@ class ParameterInformation
         return $this->label;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\ParameterInformation', 'Phpactor\\Completion\\Core\\ParameterInformation', \false);

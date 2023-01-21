@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 use InvalidArgumentException;
 final class Visibility
@@ -38,4 +38,3 @@ final class Visibility
         return new self(self::PUBLIC);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Visibility', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Visibility', \false);

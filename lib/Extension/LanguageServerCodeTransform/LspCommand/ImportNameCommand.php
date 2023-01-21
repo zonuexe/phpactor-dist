@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
+namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\Command;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Command\Command;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 class ImportNameCommand implements Command
 {
     public const NAME = 'name_import';
@@ -31,4 +31,3 @@ class ImportNameCommand implements Command
         return new Success(null);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\ImportNameCommand', 'Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\ImportNameCommand', \false);

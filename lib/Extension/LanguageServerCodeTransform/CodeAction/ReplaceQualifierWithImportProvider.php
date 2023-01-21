@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
+namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ReplaceQualifierWithImport;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ReplaceQualifierWithImportCommand;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\CodeTransform\Domain\Refactor\ReplaceQualifierWithImport;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ReplaceQualifierWithImportCommand;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Command;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use function Phpactor202301\Amp\call;
 class ReplaceQualifierWithImportProvider implements CodeActionProvider
 {
@@ -34,4 +34,3 @@ class ReplaceQualifierWithImportProvider implements CodeActionProvider
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\ReplaceQualifierWithImportProvider', 'Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\ReplaceQualifierWithImportProvider', \false);

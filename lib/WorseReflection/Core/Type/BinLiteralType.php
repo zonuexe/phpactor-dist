@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-final class BinLiteralType extends IntType implements Literal
+final class BinLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType implements \Phpactor\WorseReflection\Core\Type\Literal
 {
-    use LiteralTrait;
+    use \Phpactor\WorseReflection\Core\Type\LiteralTrait;
     public function __construct(public string $value)
     {
     }
@@ -17,4 +17,3 @@ final class BinLiteralType extends IntType implements Literal
         return \bindec(\substr($this->value, 2));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\BinLiteralType', 'Phpactor\\WorseReflection\\Core\\Type\\BinLiteralType', \false);

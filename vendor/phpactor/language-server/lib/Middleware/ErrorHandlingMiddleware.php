@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\CancelledException;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\HandlerNotFound;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ErrorCodes;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseError;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ServerControl;
+use Phpactor\LanguageServer\Core\Handler\HandlerNotFound;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Rpc\ErrorCodes;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\ResponseError;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\Exception\ServerControl;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Throwable;
 use function Phpactor202301\Amp\call;
@@ -54,4 +54,3 @@ class ErrorHandlingMiddleware implements Middleware
         return ErrorCodes::InternalError;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\ErrorHandlingMiddleware', 'Phpactor\\LanguageServer\\Middleware\\ErrorHandlingMiddleware', \false);

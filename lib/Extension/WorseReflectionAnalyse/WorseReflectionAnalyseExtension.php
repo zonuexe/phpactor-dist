@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionAnalyse;
+namespace Phpactor\Extension\WorseReflectionAnalyse;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\WorseReflectionAnalyse\Command\AnalyseCommand;
-use Phpactor202301\Phpactor\Extension\WorseReflectionAnalyse\Model\Analyser;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\WorseReflectionAnalyse\Command\AnalyseCommand;
+use Phpactor\Extension\WorseReflectionAnalyse\Model\Analyser;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
 class WorseReflectionAnalyseExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -27,4 +27,3 @@ class WorseReflectionAnalyseExtension implements Extension
         }, [ConsoleExtension::TAG_COMMAND => ['name' => 'worse:analyse']]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionAnalyse\\WorseReflectionAnalyseExtension', 'Phpactor\\Extension\\WorseReflectionAnalyse\\WorseReflectionAnalyseExtension', \false);

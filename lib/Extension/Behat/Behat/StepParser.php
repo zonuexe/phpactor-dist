@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
 class StepParser
 {
@@ -25,4 +25,3 @@ class StepParser
         return [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\StepParser', 'Phpactor\\Extension\\Behat\\Behat\\StepParser', \false);

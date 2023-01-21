@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\DirException;
+use Safe\Exceptions\DirException;
+
 /**
  * Changes PHP's current directory to
  * directory.
@@ -11,14 +12,16 @@ use Phpactor202301\Safe\Exceptions\DirException;
  * @throws DirException
  *
  */
-function chdir(string $directory) : void
+function chdir(string $directory): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \chdir($directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw DirException::createFromPhpError();
     }
 }
+
+
 /**
  * Changes the root directory of the current process to
  * directory, and changes the current
@@ -32,14 +35,16 @@ function chdir(string $directory) : void
  * @throws DirException
  *
  */
-function chroot(string $directory) : void
+function chroot(string $directory): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \chroot($directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw DirException::createFromPhpError();
     }
 }
+
+
 /**
  * Gets the current working directory.
  *
@@ -53,15 +58,17 @@ function chroot(string $directory) : void
  * @throws DirException
  *
  */
-function getcwd() : string
+function getcwd(): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getcwd();
-    if ($result === \false) {
+    if ($result === false) {
         throw DirException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Opens up a directory handle to be used in subsequent
  * closedir, readdir, and
@@ -77,17 +84,19 @@ function getcwd() : string
  */
 function opendir(string $path, $context = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \opendir($path, $context);
     } else {
         $result = \opendir($path);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw DirException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Resets the directory stream indicated by
  * dir_handle to the beginning of the
@@ -100,18 +109,20 @@ function opendir(string $path, $context = null)
  * @throws DirException
  *
  */
-function rewinddir($dir_handle = null) : void
+function rewinddir($dir_handle = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($dir_handle !== null) {
         $result = \rewinddir($dir_handle);
     } else {
         $result = \rewinddir();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw DirException::createFromPhpError();
     }
 }
+
+
 /**
  * Returns an array of files and directories from the
  * directory.
@@ -131,15 +142,15 @@ function rewinddir($dir_handle = null) : void
  * @throws DirException
  *
  */
-function scandir(string $directory, int $sorting_order = \SCANDIR_SORT_ASCENDING, $context = null) : array
+function scandir(string $directory, int $sorting_order = SCANDIR_SORT_ASCENDING, $context = null): array
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \scandir($directory, $sorting_order, $context);
     } else {
         $result = \scandir($directory, $sorting_order);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw DirException::createFromPhpError();
     }
     return $result;

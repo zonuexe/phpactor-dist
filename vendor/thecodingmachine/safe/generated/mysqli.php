@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\MysqliException;
+use Safe\Exceptions\MysqliException;
+
 /**
  * Returns an empty array.
  * Available only with mysqlnd.
@@ -11,15 +12,17 @@ use Phpactor202301\Safe\Exceptions\MysqliException;
  * @throws MysqliException
  *
  */
-function mysqli_get_cache_stats() : array
+function mysqli_get_cache_stats(): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mysqli_get_cache_stats();
-    if ($result === \false) {
+    if ($result === false) {
         throw MysqliException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns client per-process statistics.
  * Available only with mysqlnd.
@@ -28,11 +31,11 @@ function mysqli_get_cache_stats() : array
  * @throws MysqliException
  *
  */
-function mysqli_get_client_stats() : array
+function mysqli_get_client_stats(): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mysqli_get_client_stats();
-    if ($result === \false) {
+    if ($result === false) {
         throw MysqliException::createFromPhpError();
     }
     return $result;

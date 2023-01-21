@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Check for alphanumeric character(s)
  * @link https://php.net/manual/en/function.ctype-alnum.php
@@ -14,9 +13,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * a letter or a digit, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function ctype_alnum(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_alnum(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for alphabetic character(s)
  * @link https://php.net/manual/en/function.ctype-alpha.php
@@ -27,9 +25,8 @@ function ctype_alnum(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * a letter from the current locale, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function ctype_alpha(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_alpha(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for control character(s)
  * @link https://php.net/manual/en/function.ctype-cntrl.php
@@ -40,9 +37,8 @@ function ctype_alpha(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * a control character from the current locale, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function ctype_cntrl(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_cntrl(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for numeric character(s)
  * @link https://php.net/manual/en/function.ctype-digit.php
@@ -53,9 +49,8 @@ function ctype_cntrl(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * <i>text</i> is a decimal digit, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function ctype_digit(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_digit(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for lowercase character(s)
  * @link https://php.net/manual/en/function.ctype-lower.php
@@ -66,9 +61,8 @@ function ctype_digit(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * a lowercase letter in the current locale.
  */
 #[Pure]
-function ctype_lower(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_lower(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for any printable character(s) except space
  * @link https://php.net/manual/en/function.ctype-graph.php
@@ -80,9 +74,8 @@ function ctype_lower(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * otherwise.
  */
 #[Pure]
-function ctype_graph(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_graph(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for printable character(s)
  * @link https://php.net/manual/en/function.ctype-print.php
@@ -95,9 +88,8 @@ function ctype_graph(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * that do not have any output or control function at all.
  */
 #[Pure]
-function ctype_print(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_print(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for any printable character which is not whitespace or an
  * alphanumeric character
@@ -109,9 +101,8 @@ function ctype_print(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * is printable, but neither letter, digit or blank, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function ctype_punct(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_punct(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for whitespace character(s)
  * @link https://php.net/manual/en/function.ctype-space.php
@@ -124,9 +115,8 @@ function ctype_punct(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * carriage return and form feed characters.
  */
 #[Pure]
-function ctype_space(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_space(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for uppercase character(s)
  * @link https://php.net/manual/en/function.ctype-upper.php
@@ -137,9 +127,8 @@ function ctype_space(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * an uppercase letter in the current locale.
  */
 #[Pure]
-function ctype_upper(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_upper(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}
+
 /**
  * Check for character(s) representing a hexadecimal digit
  * @link https://php.net/manual/en/function.ctype-xdigit.php
@@ -151,6 +140,4 @@ function ctype_upper(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mix
  * [A-Fa-f] , <b>FALSE</b> otherwise.
  */
 #[Pure]
-function ctype_xdigit(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text) : bool
-{
-}
+function ctype_xdigit(#[LanguageLevelTypeAware(['8.1' => 'string'], default: 'mixed')] mixed $text): bool {}

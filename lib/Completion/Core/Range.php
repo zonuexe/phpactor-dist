@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffset;
 class Range
 {
     public function __construct(private ByteOffset $byteStart, private ByteOffset $byteEnd)
@@ -25,4 +25,3 @@ class Range
         return [$this->byteStart->toInt(), $this->byteEnd->toInt()];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Range', 'Phpactor\\Completion\\Core\\Range', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\SourceCode;
 interface ClassReflector
 {
     /**
@@ -45,4 +45,3 @@ interface ClassReflector
      */
     public function sourceCodeForClassLike($className) : SourceCode;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\ClassReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\ClassReflector', \false);

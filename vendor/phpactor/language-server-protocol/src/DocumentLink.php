@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -47,7 +47,7 @@ class DocumentLink
      * @param string|null $tooltip
      * @param mixed|null $data
      */
-    public function __construct(Range $range, ?string $target = null, ?string $tooltip = null, $data = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, ?string $target = null, ?string $tooltip = null, $data = null)
     {
         $this->range = $range;
         $this->target = $target;
@@ -60,7 +60,7 @@ class DocumentLink
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'target' => ['names' => [], 'iterable' => \false], 'tooltip' => ['names' => [], 'iterable' => \false], 'data' => ['names' => [], 'iterable' => \false]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'target' => ['names' => [], 'iterable' => \false], 'tooltip' => ['names' => [], 'iterable' => \false], 'data' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -110,8 +110,3 @@ class DocumentLink
         throw $lastException;
     }
 }
-/**
- * A document link is a range in a text document that links to an internal or external resource, like another
- * text document or a web site.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentLink', 'Phpactor\\LanguageServerProtocol\\DocumentLink', \false);

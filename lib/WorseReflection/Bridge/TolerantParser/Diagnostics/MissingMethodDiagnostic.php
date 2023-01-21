@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticSeverity;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\DiagnosticSeverity;
 class MissingMethodDiagnostic implements Diagnostic
 {
     public function __construct(private ByteOffsetRange $range, private string $message, private DiagnosticSeverity $severity, private string $classType, private string $methodName)
@@ -31,4 +31,3 @@ class MissingMethodDiagnostic implements Diagnostic
         return $this->methodName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\MissingMethodDiagnostic', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\MissingMethodDiagnostic', \false);

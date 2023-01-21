@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Middleware;
+namespace Phpactor\LanguageServer\Core\Middleware;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Exception\MiddlewareTerminated;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Middleware\Exception\MiddlewareTerminated;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 final class RequestHandler
 {
     /**
@@ -25,8 +25,7 @@ final class RequestHandler
         if (!$middleware) {
             throw new MiddlewareTerminated('Middleware terminated (no middleware handled the request)');
         }
-        \assert($middleware instanceof Middleware);
+        \assert($middleware instanceof \Phpactor\LanguageServer\Core\Middleware\Middleware);
         return $middleware->process($request, $this);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Middleware\\RequestHandler', 'Phpactor\\LanguageServer\\Core\\Middleware\\RequestHandler', \false);

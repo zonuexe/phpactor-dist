@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
+namespace Phpactor\ObjectRenderer\Model\ObjectRenderer;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\Exception\CouldNotRenderObject;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\ObjectRenderer\Model\Exception\CouldNotRenderObject;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class TolerantObjectRenderer implements ObjectRenderer
 {
@@ -30,4 +30,3 @@ class TolerantObjectRenderer implements ObjectRenderer
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Model\\ObjectRenderer\\TolerantObjectRenderer', 'Phpactor\\ObjectRenderer\\Model\\ObjectRenderer\\TolerantObjectRenderer', \false);

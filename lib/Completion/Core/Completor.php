@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 use Generator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 interface Completor
 {
     /**
@@ -12,4 +12,3 @@ interface Completor
      */
     public function complete(TextDocument $source, ByteOffset $byteOffset) : Generator;
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Completor', 'Phpactor\\Completion\\Core\\Completor', \false);

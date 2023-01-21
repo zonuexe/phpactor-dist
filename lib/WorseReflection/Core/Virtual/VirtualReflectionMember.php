@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Virtual;
+namespace Phpactor\WorseReflection\Core\Virtual;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\MemberTypeContextualiser;
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\MemberTypeContextualiser;
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Visibility;
 abstract class VirtualReflectionMember implements ReflectionMember
 {
     private MemberTypeContextualiser $contextualizer;
@@ -118,4 +118,3 @@ abstract class VirtualReflectionMember implements ReflectionMember
         return $this->deprecation;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionMember', 'Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionMember', \false);

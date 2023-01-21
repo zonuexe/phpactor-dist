@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Client;
+namespace Phpactor\LanguageServer\Core\Server\Client;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Registration;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Unregistration;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServerProtocol\Registration;
+use Phpactor\LanguageServerProtocol\Unregistration;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
 final class ClientClient
 {
     /**
@@ -32,4 +32,3 @@ final class ClientClient
         return $this->client->request('client/unregisterCapability', ['unregistrations' => $unregistrations]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Client\\ClientClient', 'Phpactor\\LanguageServer\\Core\\Server\\Client\\ClientClient', \false);

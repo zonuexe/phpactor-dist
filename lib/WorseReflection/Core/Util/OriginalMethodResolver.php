@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Util;
+namespace Phpactor\WorseReflection\Core\Util;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 class OriginalMethodResolver
 {
     public function resolveOriginalMember(ReflectionMember $method) : ReflectionMember
@@ -46,4 +46,3 @@ class OriginalMethodResolver
         return $member;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Util\\OriginalMethodResolver', 'Phpactor\\WorseReflection\\Core\\Util\\OriginalMethodResolver', \false);

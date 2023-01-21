@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\SearchClient;
+namespace Phpactor\Indexer\Model\SearchClient;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\SearchClient;
 class HydratingSearchClient implements SearchClient
 {
     public function __construct(private Index $index, private SearchClient $innerClient)
@@ -18,4 +18,3 @@ class HydratingSearchClient implements SearchClient
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\SearchClient\\HydratingSearchClient', 'Phpactor\\Indexer\\Model\\SearchClient\\HydratingSearchClient', \false);

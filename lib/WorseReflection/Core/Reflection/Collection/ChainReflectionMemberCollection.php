@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use AppendIterator;
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\ItemNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Exception\ItemNotFound;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionConstant;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Visibility;
 use Traversable;
 /**
  * @template T of ReflectionMemberCollection
  * @implements ReflectionMemberCollection<ReflectionMember>
  */
-final class ChainReflectionMemberCollection implements ReflectionMemberCollection
+final class ChainReflectionMemberCollection implements \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
 {
     /**
      * @var array<ReflectionMemberCollection<ReflectionMember>>
@@ -54,14 +54,14 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
     }
     public function count() : int
     {
-        return \array_reduce($this->collections, function ($acc, ReflectionMemberCollection $collection) {
+        return \array_reduce($this->collections, function ($acc, \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection $collection) {
             $acc += \count($collection);
             return $acc;
         }, 0);
     }
     public function keys() : array
     {
-        return \array_reduce($this->collections, function ($acc, ReflectionMemberCollection $collection) {
+        return \array_reduce($this->collections, function ($acc, \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection $collection) {
             $acc = \array_merge($acc, $collection->keys());
             return $acc;
         }, []);
@@ -70,7 +70,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
      * @param ReflectionMemberCollection<ReflectionMember> $collection
      * @phpstan-ignore-next-line
      */
-    public function merge(ReflectionCollection $collection) : self
+    public function merge(\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection $collection) : self
     {
         $new = new static($this->collections);
         $new->add($collection);
@@ -120,7 +120,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
      * @return ReflectionMemberCollection<ReflectionMember>
      * @param array<Visibility> $visibilities
      */
-    public function byVisibilities(array $visibilities) : ReflectionMemberCollection
+    public function byVisibilities(array $visibilities) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -128,7 +128,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
         }
         return new static($collections);
     }
-    public function belongingTo(ClassName $class) : ReflectionMemberCollection
+    public function belongingTo(ClassName $class) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -136,7 +136,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
         }
         return new static($collections);
     }
-    public function atOffset(int $offset) : ReflectionMemberCollection
+    public function atOffset(int $offset) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -144,7 +144,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
         }
         return new static($collections);
     }
-    public function byName(string $name) : ReflectionMemberCollection
+    public function byName(string $name) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -152,7 +152,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
         }
         return new static($collections);
     }
-    public function virtual() : ReflectionMemberCollection
+    public function virtual() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -160,7 +160,7 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
         }
         return new static($collections);
     }
-    public function real() : ReflectionMemberCollection
+    public function real() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -168,23 +168,23 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
         }
         return new static($collections);
     }
-    public function methods() : ReflectionMethodCollection
+    public function methods() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection
     {
-        return ReflectionMethodCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionMethod::class)));
+        return \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionMethod::class)));
     }
-    public function properties() : ReflectionPropertyCollection
+    public function properties() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection
     {
-        return ReflectionPropertyCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionProperty::class)));
+        return \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionProperty::class)));
     }
-    public function constants() : ReflectionConstantCollection
+    public function constants() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection
     {
-        return ReflectionConstantCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionConstant::class)));
+        return \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionConstant::class)));
     }
-    public function enumCases() : ReflectionEnumCaseCollection
+    public function enumCases() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionEnumCaseCollection
     {
-        return ReflectionEnumCaseCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionEnumCase::class)));
+        return \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionEnumCaseCollection::fromReflections(\iterator_to_array($this->byMemberClass(ReflectionEnumCase::class)));
     }
-    public function byMemberClass(string $fqn) : ReflectionCollection
+    public function byMemberClass(string $fqn) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection
     {
         $items = [];
         foreach ($this->collections as $collection) {
@@ -193,12 +193,12 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
             }
         }
         /** @phpstan-ignore-next-line It's _fine_ */
-        return HomogeneousReflectionMemberCollection::fromReflections($items);
+        return \Phpactor\WorseReflection\Core\Reflection\Collection\HomogeneousReflectionMemberCollection::fromReflections($items);
     }
     /**
      * @param ReflectionMember::TYPE_* $type
      */
-    public function byMemberType(string $type) : ReflectionMemberCollection
+    public function byMemberType(string $type) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         $collections = [];
         foreach ($this->collections as $collection) {
@@ -217,13 +217,8 @@ final class ChainReflectionMemberCollection implements ReflectionMemberCollectio
     /**
      * @param ReflectionMemberCollection<ReflectionMember> $collection
      */
-    private function add(ReflectionMemberCollection $collection) : void
+    private function add(\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection $collection) : void
     {
         $this->collections[] = $collection;
     }
 }
-/**
- * @template T of ReflectionMemberCollection
- * @implements ReflectionMemberCollection<ReflectionMember>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ChainReflectionMemberCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ChainReflectionMemberCollection', \false);

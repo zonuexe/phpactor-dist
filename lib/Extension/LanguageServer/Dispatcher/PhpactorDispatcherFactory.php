@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Dispatcher;
+namespace Phpactor\Extension\LanguageServer\Dispatcher;
 
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerSessionExtension;
-use Phpactor202301\Phpactor\Container\PhpactorContainer;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher\MiddlewareDispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\MapResolver\ResolverErrors;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
+use Phpactor\Container\Extension;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\LanguageServer\LanguageServerSessionExtension;
+use Phpactor\Container\PhpactorContainer;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher\MiddlewareDispatcher;
+use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
+use Phpactor\Container\Container;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\MapResolver\ResolverErrors;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
+use Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
 class PhpactorDispatcherFactory implements DispatcherFactory
 {
     public function __construct(private Container $container)
@@ -83,4 +83,3 @@ class PhpactorDispatcherFactory implements DispatcherFactory
         return $params->rootUri;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Dispatcher\\PhpactorDispatcherFactory', 'Phpactor\\Extension\\LanguageServer\\Dispatcher\\PhpactorDispatcherFactory', \false);

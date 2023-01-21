@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc;
+namespace Phpactor\Extension\Rpc;
 
 class RpcVersion
 {
@@ -12,4 +12,3 @@ class RpcVersion
         return \implode('.', [self::MAJOR, self::MINOR, self::PATCH]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RpcVersion', 'Phpactor\\Extension\\Rpc\\RpcVersion', \false);

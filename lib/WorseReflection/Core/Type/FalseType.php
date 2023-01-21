@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-class FalseType extends BooleanLiteralType
+class FalseType extends \Phpactor\WorseReflection\Core\Type\BooleanLiteralType
 {
     public function __construct()
     {
@@ -13,4 +13,3 @@ class FalseType extends BooleanLiteralType
         return 'false';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\FalseType', 'Phpactor\\WorseReflection\\Core\\Type\\FalseType', \false);

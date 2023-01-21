@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument\Util;
+namespace Phpactor\TextDocument\Util;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\LineCol;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\LineCol;
 class LineColFromOffset
 {
     /**
@@ -14,4 +14,3 @@ class LineColFromOffset
         return LineCol::fromByteOffset($document, ByteOffset::fromInt($byteOffset));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\Util\\LineColFromOffset', 'Phpactor\\TextDocument\\Util\\LineColFromOffset', \false);

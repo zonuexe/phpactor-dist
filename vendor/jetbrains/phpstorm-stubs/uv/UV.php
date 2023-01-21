@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 class UV
 {
     public const RUN_DEFAULT = 0;
@@ -203,4 +201,3 @@ class UV
     public const ENOTTY = -25;
     public const EFTYPE = -4028;
 }
-\class_alias('Phpactor202301\\UV', 'UV', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Util;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Util;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
@@ -54,4 +54,3 @@ class NodeHelper
         return $lines - 1;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Util\\NodeHelper', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Util\\NodeHelper', \false);

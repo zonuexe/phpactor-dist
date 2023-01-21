@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\ImportedName;
+use Phpactor\ClassMover\Domain\Name\ImportedName;
 final class ImportedNameReference
 {
     private bool $exists;
-    private function __construct(private ?Position $position = null, private ?ImportedName $importedName = null)
+    private function __construct(private ?\Phpactor\ClassMover\Domain\Reference\Position $position = null, private ?ImportedName $importedName = null)
     {
     }
     public function __toString()
@@ -19,7 +19,7 @@ final class ImportedNameReference
         $new->exists = \false;
         return $new;
     }
-    public static function fromImportedNameAndPosition(ImportedName $importedName, Position $position) : ImportedNameReference
+    public static function fromImportedNameAndPosition(ImportedName $importedName, \Phpactor\ClassMover\Domain\Reference\Position $position) : \Phpactor\ClassMover\Domain\Reference\ImportedNameReference
     {
         return new self($position, $importedName);
     }
@@ -36,4 +36,3 @@ final class ImportedNameReference
         return $this->importedName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\ImportedNameReference', 'Phpactor\\ClassMover\\Domain\\Reference\\ImportedNameReference', \false);

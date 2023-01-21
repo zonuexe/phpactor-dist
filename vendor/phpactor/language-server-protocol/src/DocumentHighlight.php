@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -29,7 +29,7 @@ class DocumentHighlight
      * @param Range $range
      * @param DocumentHighlightKind::*|null $kind
      */
-    public function __construct(Range $range, $kind = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, $kind = null)
     {
         $this->range = $range;
         $this->kind = $kind;
@@ -40,7 +40,7 @@ class DocumentHighlight
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -90,9 +90,3 @@ class DocumentHighlight
         throw $lastException;
     }
 }
-/**
- * A document highlight is a range inside a text document which deserves
- * special attention. Usually a document highlight is visualized by changing
- * the background color of its range.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentHighlight', 'Phpactor\\LanguageServerProtocol\\DocumentHighlight', \false);

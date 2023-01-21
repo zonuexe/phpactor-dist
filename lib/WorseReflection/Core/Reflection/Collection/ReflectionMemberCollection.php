@@ -1,58 +1,53 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Visibility;
 /**
  * @template T of ReflectionMember
  * @extends ReflectionCollection<T>
  */
-interface ReflectionMemberCollection extends ReflectionCollection
+interface ReflectionMemberCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection
 {
     /**
      * @return static
      * @param Visibility[] $visibilities
      */
-    public function byVisibilities(array $visibilities) : ReflectionMemberCollection;
+    public function byVisibilities(array $visibilities) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
     /**
      * @return static
      */
-    public function belongingTo(ClassName $class) : ReflectionMemberCollection;
+    public function belongingTo(ClassName $class) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
     /**
      * @return static
      */
-    public function atOffset(int $offset) : ReflectionMemberCollection;
+    public function atOffset(int $offset) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
     /**
      * @return static
      */
-    public function byName(string $name) : ReflectionMemberCollection;
+    public function byName(string $name) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
     /**
      * @return static
      */
-    public function virtual() : ReflectionMemberCollection;
+    public function virtual() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
     /**
      * @return static
      */
-    public function real() : ReflectionMemberCollection;
-    public function methods() : ReflectionMethodCollection;
-    public function properties() : ReflectionPropertyCollection;
-    public function constants() : ReflectionConstantCollection;
-    public function enumCases() : ReflectionEnumCaseCollection;
+    public function real() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+    public function methods() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
+    public function properties() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
+    public function constants() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection;
+    public function enumCases() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionEnumCaseCollection;
     /**
      * @return static
      */
-    public function byMemberType(string $type) : ReflectionCollection;
+    public function byMemberType(string $type) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection;
     /**
      * @param Closure(T): ReflectionMember $mapper
      * @return static
      */
     public function map(Closure $mapper);
 }
-/**
- * @template T of ReflectionMember
- * @extends ReflectionCollection<T>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionMemberCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionMemberCollection', \false);

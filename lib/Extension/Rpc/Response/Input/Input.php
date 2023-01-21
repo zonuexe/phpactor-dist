@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Input;
+namespace Phpactor\Extension\Rpc\Response\Input;
 
 interface Input
 {
@@ -8,4 +8,3 @@ interface Input
     public function name() : string;
     public function parameters() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Input\\Input', 'Phpactor\\Extension\\Rpc\\Response\\Input\\Input', \false);

@@ -1,27 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-final class UnionType extends AggregateType implements Generalizable
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+final class UnionType extends \Phpactor\WorseReflection\Core\Type\AggregateType implements \Phpactor\WorseReflection\Core\Type\Generalizable
 {
     public function __toString() : string
     {
         return \implode('|', \array_map(fn(Type $type) => $type->__toString(), $this->types));
     }
-    public static function toUnion(Type $type) : AggregateType
+    public static function toUnion(Type $type) : \Phpactor\WorseReflection\Core\Type\AggregateType
     {
-        if ($type instanceof NullableType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\NullableType) {
             return self::toUnion($type->type)->addType(TypeFactory::null());
         }
-        if ($type instanceof UnionType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\UnionType) {
             return $type;
         }
-        return new UnionType($type);
+        return new \Phpactor\WorseReflection\Core\Type\UnionType($type);
     }
-    public function withTypes(Type ...$types) : AggregateType
+    public function withTypes(Type ...$types) : \Phpactor\WorseReflection\Core\Type\AggregateType
     {
         return new self(...$types);
     }
@@ -46,4 +46,3 @@ final class UnionType extends AggregateType implements Generalizable
         return Trinary::false();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\UnionType', 'Phpactor\\WorseReflection\\Core\\Type\\UnionType', \false);

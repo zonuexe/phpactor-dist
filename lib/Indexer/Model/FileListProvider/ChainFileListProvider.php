@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\FileListProvider;
+namespace Phpactor\Indexer\Model\FileListProvider;
 
-use Phpactor202301\Phpactor\Indexer\Model\FileList;
-use Phpactor202301\Phpactor\Indexer\Model\FileListProvider;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\FileList;
+use Phpactor\Indexer\Model\FileListProvider;
+use Phpactor\Indexer\Model\Index;
 class ChainFileListProvider implements FileListProvider
 {
     /**
@@ -24,4 +24,3 @@ class ChainFileListProvider implements FileListProvider
         return $fileList;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\FileListProvider\\ChainFileListProvider', 'Phpactor\\Indexer\\Model\\FileListProvider\\ChainFileListProvider', \false);

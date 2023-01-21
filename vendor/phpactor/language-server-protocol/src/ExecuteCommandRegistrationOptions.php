@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): ExecuteCommandOptions
  */
-class ExecuteCommandRegistrationOptions extends ExecuteCommandOptions
+class ExecuteCommandRegistrationOptions extends \Phpactor\LanguageServerProtocol\ExecuteCommandOptions
 {
     /**
      * The commands to be executed on the server
@@ -89,9 +89,3 @@ class ExecuteCommandRegistrationOptions extends ExecuteCommandOptions
         throw $lastException;
     }
 }
-/**
- * Registration options for a [ExecuteCommandRequest](#ExecuteCommandRequest).
- *
- * Mixins (implemented TS interfaces): ExecuteCommandOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ExecuteCommandRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\ExecuteCommandRegistrationOptions', \false);

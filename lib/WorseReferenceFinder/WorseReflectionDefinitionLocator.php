@@ -1,30 +1,30 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReferenceFinder;
+namespace Phpactor\WorseReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocations;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassHierarchyResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Context\MemberDeclarationContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\TypeLocation;
+use Phpactor\ReferenceFinder\TypeLocations;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\ClassHierarchyResolver;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Context\MemberDeclarationContext;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Reflector;
 class WorseReflectionDefinitionLocator implements DefinitionLocator
 {
     public function __construct(private Reflector $reflector, private Cache $cache)
@@ -184,4 +184,3 @@ class WorseReflectionDefinitionLocator implements DefinitionLocator
         return new TypeLocations([new TypeLocation($symbolContext->classType(), new Location(TextDocumentUri::fromString($path), ByteOffset::fromInt($member->position()->start())))]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReferenceFinder\\WorseReflectionDefinitionLocator', 'Phpactor\\WorseReferenceFinder\\WorseReflectionDefinitionLocator', \false);

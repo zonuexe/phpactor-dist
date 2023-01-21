@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
+namespace Phpactor\WorseReflection\Core\SourceCodeLocator;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\SourceNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\WorseReflection\Core\Exception\SourceNotFound;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
 /**
  * Quick and permanent mapping for stubs for which WR as definite expectations.
  */
@@ -29,7 +29,3 @@ final class InternalLocator implements SourceCodeLocator
         throw new SourceNotFound(\sprintf('Could not find internal stub for "%s"', (string) $name));
     }
 }
-/**
- * Quick and permanent mapping for stubs for which WR as definite expectations.
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\SourceCodeLocator\\InternalLocator', 'Phpactor\\WorseReflection\\Core\\SourceCodeLocator\\InternalLocator', \false);

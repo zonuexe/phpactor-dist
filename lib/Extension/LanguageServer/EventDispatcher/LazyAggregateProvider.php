@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\EventDispatcher;
+namespace Phpactor\Extension\LanguageServer\EventDispatcher;
 
 use Phpactor202301\Phly\EventDispatcher\ListenerProvider\ListenerProviderAggregate;
 use Phpactor202301\Psr\Container\ContainerInterface;
@@ -31,4 +31,3 @@ class LazyAggregateProvider implements ListenerProviderInterface
         return $this->aggregateProvider->getListenersForEvent($event);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\EventDispatcher\\LazyAggregateProvider', 'Phpactor\\Extension\\LanguageServer\\EventDispatcher\\LazyAggregateProvider', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\Frame;
 class ReturnStatementResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -28,4 +28,3 @@ class ReturnStatementResolver implements Resolver
         return $context;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ReturnStatementResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ReturnStatementResolver', \false);

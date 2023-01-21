@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Filesystem;
+namespace Phpactor\Indexer\Adapter\Filesystem;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\Indexer\Model\FileList;
-use Phpactor202301\Phpactor\Indexer\Model\FileListProvider;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\Indexer\Model\FileList;
+use Phpactor\Indexer\Model\FileListProvider;
 use SplFileInfo;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Index;
 class FilesystemFileListProvider implements FileListProvider
 {
     /**
@@ -40,4 +40,3 @@ class FilesystemFileListProvider implements FileListProvider
         return FileList::fromInfoIterator($files->getSplFileInfoIterator());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Filesystem\\FilesystemFileListProvider', 'Phpactor\\Indexer\\Adapter\\Filesystem\\FilesystemFileListProvider', \false);

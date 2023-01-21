@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Php\InMemory;
+namespace Phpactor\Indexer\Adapter\Php\InMemory;
 
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Record;
 use SplFileInfo;
 class InMemoryIndex implements Index
 {
     private ?int $lastUpdate;
-    private InMemorySearchIndex $searchIndex;
+    private \Phpactor\Indexer\Adapter\Php\InMemory\InMemorySearchIndex $searchIndex;
     /**
      * @var array<Record>
      */
@@ -18,7 +18,7 @@ class InMemoryIndex implements Index
      */
     public function __construct(array $index = [])
     {
-        $this->searchIndex = new InMemorySearchIndex();
+        $this->searchIndex = new \Phpactor\Indexer\Adapter\Php\InMemory\InMemorySearchIndex();
         $this->lastUpdate = 0;
         foreach ($index as $record) {
             $this->write($record);
@@ -67,4 +67,3 @@ class InMemoryIndex implements Index
         return $record->recordType() . $record->identifier();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Php\\InMemory\\InMemoryIndex', 'Phpactor\\Indexer\\Adapter\\Php\\InMemory\\InMemoryIndex', \false);

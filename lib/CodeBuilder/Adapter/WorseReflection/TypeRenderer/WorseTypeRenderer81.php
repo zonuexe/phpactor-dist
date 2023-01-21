@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
+namespace Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntersectionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NeverType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StaticType;
-class WorseTypeRenderer81 extends WorseTypeRenderer80
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\IntersectionType;
+use Phpactor\WorseReflection\Core\Type\NeverType;
+use Phpactor\WorseReflection\Core\Type\StaticType;
+class WorseTypeRenderer81 extends \Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer80
 {
     public function render(Type $type) : ?string
     {
@@ -22,4 +22,3 @@ class WorseTypeRenderer81 extends WorseTypeRenderer80
         return parent::render($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRenderer81', 'Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRenderer81', \false);

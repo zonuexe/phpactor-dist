@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ErrorCodes;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseError;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\ErrorCodes;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\ResponseError;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
 use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Phpactor\LanguageServer\Event\WillShutdown;
+use Phpactor\LanguageServer\Event\WillShutdown;
 use Phpactor202301\Amp\Promise;
 use function Phpactor202301\Amp\call;
-use Phpactor202301\Phpactor\LanguageServer\Adapter\Psr\NullEventDispatcher;
+use Phpactor\LanguageServer\Adapter\Psr\NullEventDispatcher;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 final class ShutdownMiddleware implements Middleware
 {
@@ -63,4 +63,3 @@ final class ShutdownMiddleware implements Middleware
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\ShutdownMiddleware', 'Phpactor\\LanguageServer\\Middleware\\ShutdownMiddleware', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Command;
+namespace Phpactor\LanguageServer\Core\Command;
 
 use Phpactor202301\Amp\Promise;
 use RuntimeException;
@@ -41,7 +41,7 @@ class CommandDispatcher
         }
         return $this->commandMap[$command]->__invoke(...$args);
     }
-    private function addCommand(string $id, Command $invokable) : void
+    private function addCommand(string $id, \Phpactor\LanguageServer\Core\Command\Command $invokable) : void
     {
         if (!\is_callable($invokable)) {
             throw new RuntimeException(\sprintf('Object "%s" is not invokable', \get_class($invokable)));
@@ -49,7 +49,3 @@ class CommandDispatcher
         $this->commandMap[$id] = $invokable;
     }
 }
-/**
- * Commands can be registered using this class.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Command\\CommandDispatcher', 'Phpactor\\LanguageServer\\Core\\Command\\CommandDispatcher', \false);

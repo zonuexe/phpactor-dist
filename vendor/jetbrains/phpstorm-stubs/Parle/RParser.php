@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Parle;
+namespace Parle;
 
-use Phpactor202301\JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Immutable;
+
 class RParser
 {
     /* Constants */
@@ -14,17 +15,20 @@ class RParser
     public const ERROR_SYNTAX = 0;
     public const ERROR_NON_ASSOCIATIVE = 1;
     public const ERROR_UNKNOWN_TOKEN = 2;
+
     /* Properties */
     /**
      * @var int Current parser action that matches one of the action class constants, readonly.
      */
     #[Immutable]
     public $action = 0;
+
     /**
      * @var int Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.
      */
     #[Immutable]
     public $reduceId = 0;
+
     /* Methods */
     /**
      * Process next parser rule.
@@ -32,9 +36,8 @@ class RParser
      * @link https://php.net/manual/en/parle-rparser.advance.php
      * @return void
      */
-    public function advance() : void
-    {
-    }
+    public function advance(): void {}
+
     /**
      * Finalize the grammar rules
      *
@@ -44,9 +47,8 @@ class RParser
      * @link https://php.net/manual/en/parle-rparser.build.php
      * @return void
      */
-    public function build() : void
-    {
-    }
+    public function build(): void {}
+
     /**
      * Consume the data for parsing.
      *
@@ -55,27 +57,24 @@ class RParser
      * @param Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
      * @return void
      */
-    public function consume(string $data, Lexer $lexer) : void
-    {
-    }
+    public function consume(string $data, Lexer $lexer): void {}
+
     /**
      * Dump the current grammar to stdout.
      *
      * @link https://php.net/manual/en/parle-rparser.dump.php
      * @return void
      */
-    public function dump() : void
-    {
-    }
+    public function dump(): void {}
+
     /**
      * Retrieve the error information in case Parle\RParser::action() returned the error action.
      *
      * @link https://php.net/manual/en/parle-rparser.errorinfo.php
      * @return ErrorInfo
      */
-    public function errorInfo() : ErrorInfo
-    {
-    }
+    public function errorInfo(): ErrorInfo {}
+
     /**
      * Declare a terminal with left associativity.
      *
@@ -83,9 +82,8 @@ class RParser
      * @param string $token Token name.
      * @return void
      */
-    public function left(string $token) : void
-    {
-    }
+    public function left(string $token): void {}
+
     /**
      * Declare a token with no associativity
      *
@@ -95,9 +93,8 @@ class RParser
      * @param string $token Token name.
      * @return void
      */
-    public function nonassoc(string $token) : void
-    {
-    }
+    public function nonassoc(string $token): void {}
+
     /**
      * Declare a precedence rule
      *
@@ -108,9 +105,8 @@ class RParser
      * @param string $token
      * @return void
      */
-    public function precedence(string $token) : void
-    {
-    }
+    public function precedence(string $token): void {}
+
     /**
      * Push a grammar rule.
      *
@@ -121,9 +117,8 @@ class RParser
      * @param string $rule The rule to be added. The syntax is Bison compatible.
      * @return int Returns integer representing the rule index.
      */
-    public function push(string $name, string $rule) : int
-    {
-    }
+    public function push(string $name, string $rule): int {}
+
     /**
      * Reset parser state using the given token id.
      *
@@ -131,9 +126,8 @@ class RParser
      * @param int $tokenId Token id.
      * @return void
      */
-    public function reset(int $tokenId) : void
-    {
-    }
+    public function reset(int $tokenId): void {}
+
     /**
      * Declare a token with right-associativity
      *
@@ -141,9 +135,8 @@ class RParser
      * @param string $token Token name.
      * @return void
      */
-    public function right(string $token) : void
-    {
-    }
+    public function right(string $token): void {}
+
     /**
      * Retrieve a matching part of a rule
      *
@@ -154,9 +147,8 @@ class RParser
      * @param int $idx Match index, zero based.
      * @return string Returns a string with the matched part.
      */
-    public function sigil(int $idx) : string
-    {
-    }
+    public function sigil(int $idx): string {}
+
     /**
      * Declare a token
      *
@@ -166,9 +158,8 @@ class RParser
      * @param string $token Token name.
      * @return void
      */
-    public function token(string $token) : void
-    {
-    }
+    public function token(string $token): void {}
+
     /**
      * Get token id
      *
@@ -179,9 +170,8 @@ class RParser
      * @return int Returns integer representing the token id.
      * @see Parser::token()
      */
-    public function tokenId(string $token) : int
-    {
-    }
+    public function tokenId(string $token): int {}
+
     /**
      * Trace the parser operation
      *
@@ -191,9 +181,8 @@ class RParser
      * @link https://php.net/manual/en/parle-rparser.trace.php
      * @return string Returns a string with the trace information.
      */
-    public function trace() : string
-    {
-    }
+    public function trace(): string {}
+
     /**
      * Validate an input string.
      *
@@ -204,7 +193,5 @@ class RParser
      * @param RLexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
      * @return bool Returns boolean witnessing whether the input chimes or not with the defined rules.
      */
-    public function validate(string $data, RLexer $lexer) : bool
-    {
-    }
+    public function validate(string $data, RLexer $lexer): bool {}
 }

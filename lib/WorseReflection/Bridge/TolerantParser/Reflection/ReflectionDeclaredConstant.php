@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant as PhpactorReflectionDeclaredConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-class ReflectionDeclaredConstant extends AbstractReflectedNode implements PhpactorReflectionDeclaredConstant
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant as PhpactorReflectionDeclaredConstant;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+class ReflectionDeclaredConstant extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectedNode implements PhpactorReflectionDeclaredConstant
 {
     private string $name;
     private ArgumentExpression $value;
@@ -67,4 +67,3 @@ class ReflectionDeclaredConstant extends AbstractReflectedNode implements Phpact
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionDeclaredConstant', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionDeclaredConstant', \false);

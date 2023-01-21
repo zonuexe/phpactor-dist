@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 /**
  * Represents source code or other text documents.
@@ -15,13 +15,9 @@ interface TextDocument
      * Return the URI to the document or NULL if the document has not been
      * persisted yet.
      */
-    public function uri() : ?TextDocumentUri;
+    public function uri() : ?\Phpactor\TextDocument\TextDocumentUri;
     /**
      * Return language value object for the text document.
      */
-    public function language() : TextDocumentLanguage;
+    public function language() : \Phpactor\TextDocument\TextDocumentLanguage;
 }
-/**
- * Represents source code or other text documents.
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocument', 'Phpactor\\TextDocument\\TextDocument', \false);

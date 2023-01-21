@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -43,7 +43,7 @@ class ShowMessageRequestParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['type' => ['names' => [], 'iterable' => \false], 'message' => ['names' => [], 'iterable' => \false], 'actions' => ['names' => [MessageActionItem::class], 'iterable' => \true]];
+        $map = ['type' => ['names' => [], 'iterable' => \false], 'message' => ['names' => [], 'iterable' => \false], 'actions' => ['names' => [\Phpactor\LanguageServerProtocol\MessageActionItem::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -93,4 +93,3 @@ class ShowMessageRequestParams
         throw $lastException;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ShowMessageRequestParams', 'Phpactor\\LanguageServerProtocol\\ShowMessageRequestParams', \false);

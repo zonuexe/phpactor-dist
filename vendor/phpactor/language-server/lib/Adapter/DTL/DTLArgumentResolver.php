@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Adapter\DTL;
+namespace Phpactor\LanguageServer\Adapter\DTL;
 
 use Phpactor202301\DTL\ArgumentResolver\ArgumentResolver as UpstreamArgumentResolver;
 use Phpactor202301\DTL\ArgumentResolver\ParamConverter\RecursiveInstantiator;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 final class DTLArgumentResolver implements ArgumentResolver
 {
     /**
@@ -26,4 +26,3 @@ final class DTLArgumentResolver implements ArgumentResolver
         return $this->dtlArgumnetResolver->resolveArguments(\get_class($object), $method, $message->params ?? []);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Adapter\\DTL\\DTLArgumentResolver', 'Phpactor\\LanguageServer\\Adapter\\DTL\\DTLArgumentResolver', \false);

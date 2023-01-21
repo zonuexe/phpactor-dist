@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Debug\Command;
+namespace Phpactor\Extension\Debug\Command;
 
-use Phpactor202301\Phpactor\Extension\Debug\Model\DocumentorRegistry;
+use Phpactor\Extension\Debug\Model\DocumentorRegistry;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
@@ -25,4 +25,3 @@ class GenerateDocumentationCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Debug\\Command\\GenerateDocumentationCommand', 'Phpactor\\Extension\\Debug\\Command\\GenerateDocumentationCommand', \false);

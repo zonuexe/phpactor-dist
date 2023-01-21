@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain;
+namespace Phpactor\ClassMover\Domain;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\MemberReferences;
+use Phpactor\ClassMover\Domain\Reference\MemberReferences;
 interface MemberReplacer
 {
-    public function replaceMembers(SourceCode $source, MemberReferences $references, string $newName) : SourceCode;
+    public function replaceMembers(\Phpactor\ClassMover\Domain\SourceCode $source, MemberReferences $references, string $newName) : \Phpactor\ClassMover\Domain\SourceCode;
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\MemberReplacer', 'Phpactor\\ClassMover\\Domain\\MemberReplacer', \false);

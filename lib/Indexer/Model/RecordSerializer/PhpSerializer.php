@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\RecordSerializer;
+namespace Phpactor\Indexer\Model\RecordSerializer;
 
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\RecordSerializer;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\RecordSerializer;
 class PhpSerializer implements RecordSerializer
 {
     public function serialize(Record $record) : string
@@ -15,4 +15,3 @@ class PhpSerializer implements RecordSerializer
         return \unserialize($data);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\RecordSerializer\\PhpSerializer', 'Phpactor\\Indexer\\Model\\RecordSerializer\\PhpSerializer', \false);

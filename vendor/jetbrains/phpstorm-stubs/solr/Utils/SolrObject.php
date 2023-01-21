@@ -1,13 +1,11 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrObject<br/>
@@ -15,24 +13,22 @@ namespace Phpactor202301;
  * read-only.
  * @link https://php.net/manual/en/class.solrobject.php
  */
-final class SolrObject implements \ArrayAccess
+final class SolrObject implements ArrayAccess
 {
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * SolrObject constructor.
      * @link https://php.net/manual/en/solrobject.construct.php
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Destructor
      * @link https://php.net/manual/en/solrobject.destruct.php
      */
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array of all the names of the properties
@@ -41,9 +37,8 @@ final class SolrObject implements \ArrayAccess
      * Returns an array.
      * </p>
      */
-    public function getPropertyNames()
-    {
-    }
+    public function getPropertyNames() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Checks if the property exists
@@ -55,9 +50,8 @@ final class SolrObject implements \ArrayAccess
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function offsetExists($property_name)
-    {
-    }
+    public function offsetExists($property_name) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Used to retrieve a property
@@ -69,9 +63,8 @@ final class SolrObject implements \ArrayAccess
      * Returns the property value.
      * </p>
      */
-    public function offsetGet($property_name)
-    {
-    }
+    public function offsetGet($property_name) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the value for a property
@@ -83,9 +76,8 @@ final class SolrObject implements \ArrayAccess
      * The new value.
      * </p>
      */
-    public function offsetSet($property_name, $property_value)
-    {
-    }
+    public function offsetSet($property_name, $property_value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Unsets the value for the property
@@ -95,21 +87,5 @@ final class SolrObject implements \ArrayAccess
      * </p>
      * @return bool
      */
-    public function offsetUnset($property_name)
-    {
-    }
+    public function offsetUnset($property_name) {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrObject<br/>
- * This class represents an object whose properties can also by accessed using the array syntax. All its properties are
- * read-only.
- * @link https://php.net/manual/en/class.solrobject.php
- */
-\class_alias('Phpactor202301\\SolrObject', 'SolrObject', \false);

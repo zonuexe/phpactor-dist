@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use Countable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
 final class TemplateMap implements Countable
 {
     /**
@@ -14,7 +14,7 @@ final class TemplateMap implements Countable
     }
     public function __toString() : string
     {
-        return \implode("\n", \array_map(fn(string $name, Type $type) => \sprintf('%s: %s', $name, $type->__toString()), \array_keys($this->map), $this->map));
+        return \implode("\n", \array_map(fn(string $name, \Phpactor\WorseReflection\Core\Type $type) => \sprintf('%s: %s', $name, $type->__toString()), \array_keys($this->map), $this->map));
     }
     /**
      * @return array<string,Type>
@@ -23,7 +23,7 @@ final class TemplateMap implements Countable
     {
         return $this->map;
     }
-    public function replace(string $key, Type $type) : self
+    public function replace(string $key, \Phpactor\WorseReflection\Core\Type $type) : self
     {
         $this->map[$key] = $type;
         return $this;
@@ -35,14 +35,14 @@ final class TemplateMap implements Countable
     /**
      * @param Type[] $arguments
      */
-    public function get(string $key, array $arguments = []) : Type
+    public function get(string $key, array $arguments = []) : \Phpactor\WorseReflection\Core\Type
     {
         if (!isset($this->map[$key])) {
             return new MissingType();
         }
         // if any of the arguments are template parameters replace them with
         // any constraints (e.g. T of Foobar)
-        $arguments = \array_map(function (Type $argument) {
+        $arguments = \array_map(function (\Phpactor\WorseReflection\Core\Type $argument) {
             if (isset($this->map[$argument->short()])) {
                 return $this->map[$argument->short()];
             }
@@ -56,13 +56,13 @@ final class TemplateMap implements Countable
         }
         return $this->map[$key];
     }
-    public function merge(TemplateMap $map) : TemplateMap
+    public function merge(\Phpactor\WorseReflection\Core\TemplateMap $map) : \Phpactor\WorseReflection\Core\TemplateMap
     {
         $new = $this->map;
         foreach ($map->map as $key => $value) {
             $new[$key] = $value;
         }
-        return new TemplateMap($new);
+        return new \Phpactor\WorseReflection\Core\TemplateMap($new);
     }
     public function count() : int
     {
@@ -71,7 +71,7 @@ final class TemplateMap implements Countable
     /**
      * @param Type[] $arguments
      */
-    public function mapArguments(array $arguments) : TemplateMap
+    public function mapArguments(array $arguments) : \Phpactor\WorseReflection\Core\TemplateMap
     {
         $newMap = [];
         foreach ($this->map as $key => $type) {
@@ -92,4 +92,3 @@ final class TemplateMap implements Countable
         return \array_values($this->map);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\TemplateMap', 'Phpactor\\WorseReflection\\Core\\TemplateMap', \false);

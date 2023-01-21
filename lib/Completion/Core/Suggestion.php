@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 use Closure;
 use RuntimeException;
@@ -44,7 +44,7 @@ class Suggestion
      * @param null|string|Closure $documentation
      * @param null|string|Closure $shortDescription
      */
-    private function __construct(private string $name, private ?string $type = null, $shortDescription = null, private ?string $nameImport = null, ?string $label = null, $documentation = null, private ?Range $range = null, private ?string $snippet = null, private ?int $priority = null)
+    private function __construct(private string $name, private ?string $type = null, $shortDescription = null, private ?string $nameImport = null, ?string $label = null, $documentation = null, private ?\Phpactor\Completion\Core\Range $range = null, private ?string $snippet = null, private ?int $priority = null)
     {
         $this->shortDescription = $shortDescription;
         $this->label = $label ?: $name;
@@ -149,7 +149,7 @@ class Suggestion
     {
         return $this->label;
     }
-    public function range() : ?Range
+    public function range() : ?\Phpactor\Completion\Core\Range
     {
         return $this->range;
     }
@@ -185,4 +185,3 @@ class Suggestion
         return $new;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Suggestion', 'Phpactor\\Completion\\Core\\Suggestion', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class SignatureHelpOptions extends WorkDoneProgressOptions
+class SignatureHelpOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      * List of characters that trigger signature help.
@@ -100,9 +100,3 @@ class SignatureHelpOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Server Capabilities for a [SignatureHelpRequest](#SignatureHelpRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SignatureHelpOptions', 'Phpactor\\LanguageServerProtocol\\SignatureHelpOptions', \false);

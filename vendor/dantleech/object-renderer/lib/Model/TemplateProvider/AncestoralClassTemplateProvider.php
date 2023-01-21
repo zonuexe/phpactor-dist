@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider;
+namespace Phpactor\ObjectRenderer\Model\TemplateProvider;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
 use ReflectionClass;
 class AncestoralClassTemplateProvider implements TemplateCandidateProvider
 {
@@ -30,4 +30,3 @@ class AncestoralClassTemplateProvider implements TemplateCandidateProvider
         }, []);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Model\\TemplateProvider\\AncestoralClassTemplateProvider', 'Phpactor\\ObjectRenderer\\Model\\TemplateProvider\\AncestoralClassTemplateProvider', \false);

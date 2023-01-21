@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301\parallel\Runtime\Object;
+namespace parallel\Runtime\Object;
 
-class Unavailable
-{
-}
+class Unavailable {}

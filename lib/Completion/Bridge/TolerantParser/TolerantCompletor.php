@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 interface TolerantCompletor
 {
     /**
@@ -14,4 +14,3 @@ interface TolerantCompletor
      */
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator;
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\TolerantCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\TolerantCompletor', \false);

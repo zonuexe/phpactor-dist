@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver\Expander\Xdg;
+namespace Phpactor\FilePathResolver\Expander\Xdg;
 
-use Phpactor202301\Phpactor\FilePathResolver\Expander;
+use Phpactor\FilePathResolver\Expander;
 class SuffixExpanderDecorator implements Expander
 {
     public function __construct(private Expander $innerExpander, private string $suffix)
@@ -17,4 +17,3 @@ class SuffixExpanderDecorator implements Expander
         return $this->innerExpander->replacementValue() . $this->suffix;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\Expander\\Xdg\\SuffixExpanderDecorator', 'Phpactor\\FilePathResolver\\Expander\\Xdg\\SuffixExpanderDecorator', \false);

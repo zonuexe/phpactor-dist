@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
+namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\GenerateDecorator;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\Command;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\CodeTransform\Domain\Refactor\GenerateDecorator;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Command\Command;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 class GenerateDecoratorCommand implements Command
 {
     public const NAME = 'generate_decorator';
@@ -27,4 +27,3 @@ class GenerateDecoratorCommand implements Command
         return $this->clientApi->workspace()->applyEdit(new WorkspaceEdit([$uri => TextEditConverter::toLspTextEdits($textEdits, $textDocument->text)]), 'Generate decoration');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\GenerateDecoratorCommand', 'Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\GenerateDecoratorCommand', \false);

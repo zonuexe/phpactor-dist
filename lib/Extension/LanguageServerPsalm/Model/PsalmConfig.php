@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model;
+namespace Phpactor\Extension\LanguageServerPsalm\Model;
 
 final class PsalmConfig
 {
@@ -16,4 +16,3 @@ final class PsalmConfig
         return $this->shouldShowInfo;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPsalm\\Model\\PsalmConfig', 'Phpactor\\Extension\\LanguageServerPsalm\\Model\\PsalmConfig', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+namespace Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Exception\CouldNotResolveArguments;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+use Phpactor\LanguageServer\Core\Dispatcher\Exception\CouldNotResolveArguments;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use ReflectionClass;
 use ReflectionNamedType;
 final class LanguageSeverProtocolParamsResolver implements ArgumentResolver
@@ -57,4 +57,3 @@ final class LanguageSeverProtocolParamsResolver implements ArgumentResolver
         return $args;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\ArgumentResolver\\LanguageSeverProtocolParamsResolver', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\ArgumentResolver\\LanguageSeverProtocolParamsResolver', \false);

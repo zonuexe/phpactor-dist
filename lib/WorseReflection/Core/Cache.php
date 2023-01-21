@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use Closure;
 interface Cache
@@ -13,4 +13,3 @@ interface Cache
     public function getOrSet(string $key, Closure $closure);
     public function purge() : void;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Cache', 'Phpactor\\WorseReflection\\Core\\Cache', \false);

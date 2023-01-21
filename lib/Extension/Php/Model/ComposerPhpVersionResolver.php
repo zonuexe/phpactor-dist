@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Php\Model;
+namespace Phpactor\Extension\Php\Model;
 
-class ComposerPhpVersionResolver implements PhpVersionResolver
+class ComposerPhpVersionResolver implements \Phpactor\Extension\Php\Model\PhpVersionResolver
 {
     public function __construct(private string $composerJsonPath)
     {
@@ -38,4 +38,3 @@ class ComposerPhpVersionResolver implements PhpVersionResolver
         return $version;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Php\\Model\\ComposerPhpVersionResolver', 'Phpactor\\Extension\\Php\\Model\\ComposerPhpVersionResolver', \false);

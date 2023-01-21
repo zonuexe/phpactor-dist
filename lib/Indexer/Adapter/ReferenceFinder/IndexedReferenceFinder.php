@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder;
+namespace Phpactor\Indexer\Adapter\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder\Util\ContainerTypeResolver;
-use Phpactor202301\Phpactor\Indexer\Model\QueryClient;
-use Phpactor202301\Phpactor\Indexer\Model\LocationConfidence;
-use Phpactor202301\Phpactor\Indexer\Model\Record\MemberRecord;
-use Phpactor202301\Phpactor\ReferenceFinder\PotentialLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Indexer\Adapter\ReferenceFinder\Util\ContainerTypeResolver;
+use Phpactor\Indexer\Model\QueryClient;
+use Phpactor\Indexer\Model\LocationConfidence;
+use Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\ReferenceFinder\PotentialLocation;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Reflector;
 use RuntimeException;
 class IndexedReferenceFinder implements ReferenceFinder
 {
@@ -137,4 +137,3 @@ class IndexedReferenceFinder implements ReferenceFinder
         throw new RuntimeException(\sprintf('Could not convert symbol type "%s" to reference type', $symbolType));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\ReferenceFinder\\IndexedReferenceFinder', 'Phpactor\\Indexer\\Adapter\\ReferenceFinder\\IndexedReferenceFinder', \false);

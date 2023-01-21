@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument\Util;
+namespace Phpactor\TextDocument\Util;
 
 use OutOfBoundsException;
 use RuntimeException;
@@ -30,4 +30,3 @@ final class WordAtOffset
         throw new OutOfBoundsException(\sprintf('Byte offset %s is larger than text length %s', $byteOffset, \strlen($text)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\Util\\WordAtOffset', 'Phpactor\\TextDocument\\Util\\WordAtOffset', \false);

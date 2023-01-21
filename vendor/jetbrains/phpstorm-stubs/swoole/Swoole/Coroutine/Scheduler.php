@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Coroutine;
+declare(strict_types=1);
+
+namespace Swoole\Coroutine;
 
 class Scheduler
 {
@@ -11,18 +12,16 @@ class Scheduler
      * @return false|void Returns FALSE if the scheduler has already been started; otherwise nothing returns.
      * @see \Swoole\Coroutine\Scheduler::start()
      */
-    public function add(callable $func, ...$params)
-    {
-    }
+    public function add(callable $func, ...$params) {}
+
     /**
      * Add a list of tasks (implemented in callbacks).
      *
      * @return false|void Returns FALSE if the scheduler has already been started; otherwise nothing returns.
      * @see \Swoole\Coroutine\Scheduler::start()
      */
-    public function parallel(int $n, callable $func, ...$params)
-    {
-    }
+    public function parallel(int $n, callable $func, ...$params) {}
+
     /**
      * To set runtime configurations of coroutines.
      *
@@ -31,9 +30,8 @@ class Scheduler
      * @return void
      * @see \Swoole\Coroutine::set()
      */
-    public function set(array $settings)
-    {
-    }
+    public function set(array $settings) {}
+
     /**
      * To get runtime configurations of coroutines.
      *
@@ -43,9 +41,8 @@ class Scheduler
      * @see \Swoole\Coroutine::getOptions()
      * @since Swoole 4.6.0
      */
-    public function getOptions()
-    {
-    }
+    public function getOptions() {}
+
     /**
      * Start running the list of tasks (callbacks) added through method add() and parallel().
      *
@@ -53,7 +50,5 @@ class Scheduler
      * @see \Swoole\Coroutine\Scheduler::add()
      * @see \Swoole\Coroutine\Scheduler::parallel()
      */
-    public function start()
-    {
-    }
+    public function start() {}
 }

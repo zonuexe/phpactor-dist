@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
 /**
  * @extends AbstractCollection<Diagnostic>
  */
-class Diagnostics extends AbstractCollection
+class Diagnostics extends \Phpactor\CodeTransform\Domain\AbstractCollection
 {
     public static function none() : self
     {
@@ -13,10 +13,6 @@ class Diagnostics extends AbstractCollection
     }
     protected function type() : string
     {
-        return Diagnostic::class;
+        return \Phpactor\CodeTransform\Domain\Diagnostic::class;
     }
 }
-/**
- * @extends AbstractCollection<Diagnostic>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Diagnostics', 'Phpactor\\CodeTransform\\Domain\\Diagnostics', \false);

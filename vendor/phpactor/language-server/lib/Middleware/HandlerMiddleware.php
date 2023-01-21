@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\MethodRunner;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Handler\MethodRunner;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 class HandlerMiddleware implements Middleware
 {
     /**
@@ -31,4 +31,3 @@ class HandlerMiddleware implements Middleware
         return $this->runner->dispatch($request);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\HandlerMiddleware', 'Phpactor\\LanguageServer\\Middleware\\HandlerMiddleware', \false);

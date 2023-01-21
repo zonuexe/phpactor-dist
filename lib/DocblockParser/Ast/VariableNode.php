@@ -1,16 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
-class VariableNode extends Node
+class VariableNode extends \Phpactor\DocblockParser\Ast\Node
 {
     protected const CHILD_NAMES = ['name'];
-    public function __construct(public Token $name)
+    public function __construct(public \Phpactor\DocblockParser\Ast\Token $name)
     {
     }
-    public function name() : Token
+    public function name() : \Phpactor\DocblockParser\Ast\Token
     {
         return $this->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\VariableNode', 'Phpactor\\DocblockParser\\Ast\\VariableNode', \false);

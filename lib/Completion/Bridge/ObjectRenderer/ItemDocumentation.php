@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\ObjectRenderer;
+namespace Phpactor\Completion\Bridge\ObjectRenderer;
 
 class ItemDocumentation
 {
@@ -20,4 +20,3 @@ class ItemDocumentation
         return $this->object;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\ObjectRenderer\\ItemDocumentation', 'Phpactor\\Completion\\Bridge\\ObjectRenderer\\ItemDocumentation', \false);

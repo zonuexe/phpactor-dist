@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Event;
+namespace Phpactor\LanguageServer\Event;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
 class TextDocumentSaved
 {
     /**
@@ -27,4 +27,3 @@ class TextDocumentSaved
         return $this->text;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Event\\TextDocumentSaved', 'Phpactor\\LanguageServer\\Event\\TextDocumentSaved', \false);

@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of shmop v.
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
 /**
  * Create or open shared memory block
  * @link https://php.net/manual/en/function.shmop-open.php
@@ -30,9 +29,8 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * returned on failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "Shmop|false"], default: "resource|false")]
-function shmop_open(int $key, string $mode, int $permissions, int $size)
-{
-}
+function shmop_open(int $key, string $mode, int $permissions, int $size) {}
+
 /**
  * Read data from shared memory block
  * @link https://php.net/manual/en/function.shmop-read.php
@@ -49,9 +47,8 @@ function shmop_open(int $key, string $mode, int $permissions, int $size)
  * @return string|false the data or <b>FALSE</b> on failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function shmop_read(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, int $offset, int $size)
-{
-}
+function shmop_read(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, int $offset, int $size) {}
+
 /**
  * Close shared memory block
  * @link https://php.net/manual/en/function.shmop-close.php
@@ -62,9 +59,8 @@ function shmop_read(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
  * @return void No value is returned.
  */
 #[Deprecated(since: '8.0')]
-function shmop_close(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop) : void
-{
-}
+function shmop_close(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): void {}
+
 /**
  * Get size of shared memory block
  * @link https://php.net/manual/en/function.shmop-size.php
@@ -75,9 +71,8 @@ function shmop_close(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
  * @return int an int, which represents the number of bytes the shared memory
  * block occupies.
  */
-function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop) : int
-{
-}
+function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): int {}
+
 /**
  * Write data into shared memory block
  * @link https://php.net/manual/en/function.shmop-write.php
@@ -96,9 +91,8 @@ function shmop_size(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resou
  * failure.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, string $data, int $offset)
-{
-}
+function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop, string $data, int $offset) {}
+
 /**
  * Delete shared memory block
  * @link https://php.net/manual/en/function.shmop-delete.php
@@ -108,17 +102,11 @@ function shmop_write(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "reso
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shmop_delete(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop) : bool
-{
-}
+function shmop_delete(#[LanguageLevelTypeAware(["8.0" => "Shmop"], default: "resource")] $shmop): bool {}
+
 /**
  * @since 8.0
  */
-final class Shmop
-{
-}
-/**
- * @since 8.0
- */
-\class_alias('Phpactor202301\\Shmop', 'Shmop', \false);
+final class Shmop {}
+
 // End of shmop v.

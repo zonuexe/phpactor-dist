@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server;
+namespace Phpactor\LanguageServer\Core\Server;
 
 use DateInterval;
 interface ServerStatsReader
@@ -9,4 +9,3 @@ interface ServerStatsReader
     public function connectionCount() : int;
     public function requestCount() : int;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\ServerStatsReader', 'Phpactor\\LanguageServer\\Core\\Server\\ServerStatsReader', \false);

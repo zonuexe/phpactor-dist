@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\TextDocument;
+namespace Phpactor\LanguageServer\Handler\TextDocument;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FormattingOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Formatting\Formatter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServerProtocol\FormattingOptions;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\TextEdit;
+use Phpactor\LanguageServer\Core\Formatting\Formatter;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 use function Phpactor202301\Amp\call;
 class FormattingHandler implements Handler, CanRegisterCapabilities
 {
@@ -41,4 +41,3 @@ class FormattingHandler implements Handler, CanRegisterCapabilities
         $capabilities->documentFormattingProvider = \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\TextDocument\\FormattingHandler', 'Phpactor\\LanguageServer\\Handler\\TextDocument\\FormattingHandler', \false);

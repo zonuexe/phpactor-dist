@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+namespace Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 final class PassThroughArgumentResolver implements ArgumentResolver
 {
     /**
@@ -19,4 +19,3 @@ final class PassThroughArgumentResolver implements ArgumentResolver
         return [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\ArgumentResolver\\PassThroughArgumentResolver', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\ArgumentResolver\\PassThroughArgumentResolver', \false);

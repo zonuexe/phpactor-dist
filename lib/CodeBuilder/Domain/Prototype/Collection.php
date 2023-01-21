@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 use IteratorAggregate;
 use Countable;
@@ -74,7 +74,7 @@ abstract class Collection implements IteratorAggregate, Countable
     /**
      * @return static<T>
      */
-    public function notIn(array $names) : Collection
+    public function notIn(array $names) : \Phpactor\CodeBuilder\Domain\Prototype\Collection
     {
         return new static(\array_filter($this->items, function ($name) use($names) {
             return \false === \in_array($name, $names);
@@ -83,7 +83,7 @@ abstract class Collection implements IteratorAggregate, Countable
     /**
      * @return static<T>
      */
-    public function in(array $names) : Collection
+    public function in(array $names) : \Phpactor\CodeBuilder\Domain\Prototype\Collection
     {
         return new static(\array_filter($this->items, function ($name) use($names) {
             return \true === \in_array($name, $names);
@@ -91,8 +91,3 @@ abstract class Collection implements IteratorAggregate, Countable
     }
     protected abstract function singularName() : string;
 }
-/**
- * @template T
- * @implements IteratorAggregate<T>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Collection', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Collection', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DocBlock;
+namespace Phpactor\WorseReflection\Core\DocBlock;
 
 use IteratorAggregate;
 use ArrayIterator;
@@ -31,12 +31,8 @@ class DocBlockParams implements IteratorAggregate
     {
         return isset($this->params[$name]);
     }
-    private function add(DocBlockParam $param) : void
+    private function add(\Phpactor\WorseReflection\Core\DocBlock\DocBlockParam $param) : void
     {
         $this->params[$param->name()] = $param;
     }
 }
-/**
- * @implements IteratorAggregate<DocBlockParam>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockParams', 'Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockParams', \false);

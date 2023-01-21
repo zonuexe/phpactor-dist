@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Factory;
+namespace Phpactor\LanguageServer\Core\Dispatcher\Factory;
 
 use Closure;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
+use Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
 use RuntimeException;
 final class ClosureDispatcherFactory implements DispatcherFactory
 {
@@ -27,4 +27,3 @@ final class ClosureDispatcherFactory implements DispatcherFactory
         return $dispatcher;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\Factory\\ClosureDispatcherFactory', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\Factory\\ClosureDispatcherFactory', \false);

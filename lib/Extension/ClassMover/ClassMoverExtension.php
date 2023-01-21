@@ -1,32 +1,32 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover;
+namespace Phpactor\Extension\ClassMover;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassCopy;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassMover as ClassMoverApp;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassReferences;
-use Phpactor202301\Phpactor\ClassMover\Adapter\TolerantParser\TolerantClassReplacer;
-use Phpactor202301\Phpactor\ClassMover\Adapter\WorseTolerant\WorseTolerantMemberFinder;
-use Phpactor202301\Phpactor\ClassMover\Adapter\WorseTolerant\WorseTolerantMemberReplacer;
-use Phpactor202301\Phpactor\ClassMover\ClassMover;
-use Phpactor202301\Phpactor\Extension\ClassMover\Command\ClassCopyCommand;
-use Phpactor202301\Phpactor\Extension\ClassMover\Command\ClassMoveCommand;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\ClassMover\Rpc\ClassCopyHandler;
-use Phpactor202301\Phpactor\Extension\ClassMover\Rpc\ClassMoveHandler;
-use Phpactor202301\Phpactor\Extension\ClassMover\Rpc\ReferencesHandler;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Navigation\NavigationExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\ClassMover\Command\ReferencesMemberCommand;
-use Phpactor202301\Phpactor\Extension\ClassMover\Command\ReferencesClassCommand;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassMemberReferences;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\Extension\ClassMover\Application\ClassCopy;
+use Phpactor\Extension\ClassMover\Application\ClassMover as ClassMoverApp;
+use Phpactor\Extension\ClassMover\Application\ClassReferences;
+use Phpactor\ClassMover\Adapter\TolerantParser\TolerantClassReplacer;
+use Phpactor\ClassMover\Adapter\WorseTolerant\WorseTolerantMemberFinder;
+use Phpactor\ClassMover\Adapter\WorseTolerant\WorseTolerantMemberReplacer;
+use Phpactor\ClassMover\ClassMover;
+use Phpactor\Extension\ClassMover\Command\ClassCopyCommand;
+use Phpactor\Extension\ClassMover\Command\ClassMoveCommand;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\ClassMover\Rpc\ClassCopyHandler;
+use Phpactor\Extension\ClassMover\Rpc\ClassMoveHandler;
+use Phpactor\Extension\ClassMover\Rpc\ReferencesHandler;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Navigation\NavigationExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Extension\ClassMover\Command\ReferencesMemberCommand;
+use Phpactor\Extension\ClassMover\Command\ReferencesClassCommand;
+use Phpactor\Extension\ClassMover\Application\ClassMemberReferences;
 class ClassMoverExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -94,4 +94,3 @@ class ClassMoverExtension implements Extension
         }, [ConsoleExtension::TAG_COMMAND => ['name' => 'references:member']]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\ClassMoverExtension', 'Phpactor\\Extension\\ClassMover\\ClassMoverExtension', \false);

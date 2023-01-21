@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch;
+namespace Phpactor\AmpFsWatch;
 
 use Phpactor202301\Amp\Promise;
 interface Watcher
@@ -18,4 +18,3 @@ interface Watcher
      */
     public function describe() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher', 'Phpactor\\AmpFsWatch\\Watcher', \false);

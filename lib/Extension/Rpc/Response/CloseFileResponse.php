@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response;
 class CloseFileResponse implements Response
 {
     private function __construct(private string $path)
@@ -25,4 +25,3 @@ class CloseFileResponse implements Response
         return $this->path;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\CloseFileResponse', 'Phpactor\\Extension\\Rpc\\Response\\CloseFileResponse', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Client;
+namespace Phpactor\LanguageServer\Core\Server\Client;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
 final class WindowClient
 {
     /**
@@ -13,17 +13,16 @@ final class WindowClient
     {
         $this->client = $client;
     }
-    public function showMessage() : MessageClient
+    public function showMessage() : \Phpactor\LanguageServer\Core\Server\Client\MessageClient
     {
-        return new MessageClient($this->client, 'window/showMessage');
+        return new \Phpactor\LanguageServer\Core\Server\Client\MessageClient($this->client, 'window/showMessage');
     }
-    public function logMessage() : MessageClient
+    public function logMessage() : \Phpactor\LanguageServer\Core\Server\Client\MessageClient
     {
-        return new MessageClient($this->client, 'window/logMessage');
+        return new \Phpactor\LanguageServer\Core\Server\Client\MessageClient($this->client, 'window/logMessage');
     }
-    public function showMessageRequest() : MessageRequestClient
+    public function showMessageRequest() : \Phpactor\LanguageServer\Core\Server\Client\MessageRequestClient
     {
-        return new MessageRequestClient($this->client);
+        return new \Phpactor\LanguageServer\Core\Server\Client\MessageRequestClient($this->client);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Client\\WindowClient', 'Phpactor\\LanguageServer\\Core\\Server\\Client\\WindowClient', \false);

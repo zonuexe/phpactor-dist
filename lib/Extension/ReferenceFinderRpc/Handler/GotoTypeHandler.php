@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ReferenceFinderRpc\Handler;
+namespace Phpactor\Extension\ReferenceFinderRpc\Handler;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\ReferenceFinder\TypeLocator;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class GotoTypeHandler implements Handler
 {
     const NAME = 'goto_type';
@@ -39,4 +39,3 @@ class GotoTypeHandler implements Handler
         return OpenFileResponse::fromPathAndOffset($location->location()->uri()->path(), $location->location()->offset()->toInt())->withTarget($arguments[self::PARAM_TARGET]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ReferenceFinderRpc\\Handler\\GotoTypeHandler', 'Phpactor\\Extension\\ReferenceFinderRpc\\Handler\\GotoTypeHandler', \false);

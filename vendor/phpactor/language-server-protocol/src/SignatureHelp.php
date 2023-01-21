@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -50,7 +50,7 @@ class SignatureHelp
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['signatures' => ['names' => [SignatureInformation::class], 'iterable' => \true], 'activeSignature' => ['names' => [], 'iterable' => \false], 'activeParameter' => ['names' => [], 'iterable' => \false]];
+        $map = ['signatures' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureInformation::class], 'iterable' => \true], 'activeSignature' => ['names' => [], 'iterable' => \false], 'activeParameter' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -100,9 +100,3 @@ class SignatureHelp
         throw $lastException;
     }
 }
-/**
- * Signature help represents the signature of something
- * callable. There can be multiple signature but only one
- * active and only one active parameter.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SignatureHelp', 'Phpactor\\LanguageServerProtocol\\SignatureHelp', \false);

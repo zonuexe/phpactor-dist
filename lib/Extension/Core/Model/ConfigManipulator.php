@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Model;
+namespace Phpactor\Extension\Core\Model;
 
 use RuntimeException;
 use stdClass;
@@ -74,4 +74,3 @@ EOT;
         file_put_contents($this->configPath, json_encode($value, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Model\\ConfigManipulator', 'Phpactor\\Extension\\Core\\Model\\ConfigManipulator', \false);

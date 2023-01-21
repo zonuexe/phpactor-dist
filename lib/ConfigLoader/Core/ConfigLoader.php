@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Core;
+namespace Phpactor\ConfigLoader\Core;
 
 use RuntimeException;
 class ConfigLoader
 {
-    public function __construct(private Deserializers $deserializers, private PathCandidates $candidates)
+    public function __construct(private \Phpactor\ConfigLoader\Core\Deserializers $deserializers, private \Phpactor\ConfigLoader\Core\PathCandidates $candidates)
     {
     }
     public function load() : array
@@ -22,9 +22,8 @@ class ConfigLoader
         }
         return $config;
     }
-    public function candidates() : PathCandidates
+    public function candidates() : \Phpactor\ConfigLoader\Core\PathCandidates
     {
         return $this->candidates;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Core\\ConfigLoader', 'Phpactor\\ConfigLoader\\Core\\ConfigLoader', \false);

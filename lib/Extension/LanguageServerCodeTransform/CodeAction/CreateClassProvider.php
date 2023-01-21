@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
+namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Generators;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand\CreateClassCommand;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\CodeTransform\Domain\Generators;
+use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\CreateClassCommand;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Command;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use function Phpactor202301\Amp\call;
 class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
 {
@@ -66,4 +66,3 @@ class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
         return self::KIND;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\CreateClassProvider', 'Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\CreateClassProvider', \false);

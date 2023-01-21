@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
 use InvalidArgumentException;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\SourceCode as PrototypeSourceCode;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeBuilder\Domain\Prototype\SourceCode as PrototypeSourceCode;
+use Phpactor\TextDocument\TextEdits;
 use RuntimeException;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\PropertyAccessGenerator;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeTransform\Domain\Refactor\PropertyAccessGenerator;
 class WorseGenerateAccessor implements PropertyAccessGenerator
 {
     private bool $upperCaseFirst;
@@ -86,4 +86,3 @@ class WorseGenerateAccessor implements PropertyAccessGenerator
         throw new RuntimeException('Impossible to determine which class to use.');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseGenerateAccessor', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseGenerateAccessor', \false);

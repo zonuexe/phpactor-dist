@@ -1,46 +1,46 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class Property extends Prototype
+final class Property extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
 {
-    private Visibility $visibility;
-    private DefaultValue $defaultValue;
-    private Type $type;
-    private Type $docType;
-    public function __construct(private string $name, Visibility $visibility = null, DefaultValue $defaultValue = null, Type $type = null, Type $docType = null, UpdatePolicy $updatePolicy = null)
+    private \Phpactor\CodeBuilder\Domain\Prototype\Visibility $visibility;
+    private \Phpactor\CodeBuilder\Domain\Prototype\DefaultValue $defaultValue;
+    private \Phpactor\CodeBuilder\Domain\Prototype\Type $type;
+    private \Phpactor\CodeBuilder\Domain\Prototype\Type $docType;
+    public function __construct(private string $name, \Phpactor\CodeBuilder\Domain\Prototype\Visibility $visibility = null, \Phpactor\CodeBuilder\Domain\Prototype\DefaultValue $defaultValue = null, \Phpactor\CodeBuilder\Domain\Prototype\Type $type = null, \Phpactor\CodeBuilder\Domain\Prototype\Type $docType = null, \Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy $updatePolicy = null)
     {
         parent::__construct($updatePolicy);
-        $this->visibility = $visibility ?: Visibility::public();
-        $this->defaultValue = $defaultValue ?: DefaultValue::none();
-        $this->type = $type ?: Type::none();
-        $this->docType = $docType ?: Type::none();
+        $this->visibility = $visibility ?: \Phpactor\CodeBuilder\Domain\Prototype\Visibility::public();
+        $this->defaultValue = $defaultValue ?: \Phpactor\CodeBuilder\Domain\Prototype\DefaultValue::none();
+        $this->type = $type ?: \Phpactor\CodeBuilder\Domain\Prototype\Type::none();
+        $this->docType = $docType ?: \Phpactor\CodeBuilder\Domain\Prototype\Type::none();
         $this->updatePolicy = $updatePolicy;
     }
     public function name() : string
     {
         return $this->name;
     }
-    public function visibility() : Visibility
+    public function visibility() : \Phpactor\CodeBuilder\Domain\Prototype\Visibility
     {
         return $this->visibility;
     }
-    public function defaultValue() : DefaultValue
+    public function defaultValue() : \Phpactor\CodeBuilder\Domain\Prototype\DefaultValue
     {
         return $this->defaultValue;
     }
-    public function type() : Type
+    public function type() : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         return $this->type;
     }
-    public function docTypeOrType() : Type
+    public function docTypeOrType() : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         if ($this->docType->notNone()) {
             return $this->docType;
         }
         return $this->type;
     }
-    public function docType() : Type
+    public function docType() : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         return $this->docType;
     }
@@ -49,4 +49,3 @@ final class Property extends Prototype
         return (string) $this->docType !== (string) $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Property', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Property', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Extension\Core\Application\CacheClear;
+use Phpactor\Extension\Core\Application\CacheClear;
 class CacheClearCommand extends Command
 {
     public function __construct(private CacheClear $cache)
@@ -23,4 +23,3 @@ class CacheClearCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\CacheClearCommand', 'Phpactor\\Extension\\Core\\Command\\CacheClearCommand', \false);

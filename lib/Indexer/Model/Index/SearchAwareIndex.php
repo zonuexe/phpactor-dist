@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Index;
+namespace Phpactor\Indexer\Model\Index;
 
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\SearchIndex;
 use SplFileInfo;
 class SearchAwareIndex implements Index
 {
@@ -46,4 +46,3 @@ class SearchAwareIndex implements Index
         return $this->innerIndex->has($record);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Index\\SearchAwareIndex', 'Phpactor\\Indexer\\Model\\Index\\SearchAwareIndex', \false);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver\Expander;
+namespace Phpactor\FilePathResolver\Expander;
 
 use Closure;
-use Phpactor202301\Phpactor\FilePathResolver\Expander;
+use Phpactor\FilePathResolver\Expander;
 use RuntimeException;
 class CallbackExpander implements Expander
 {
@@ -26,4 +26,3 @@ class CallbackExpander implements Expander
         return $return;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\Expander\\CallbackExpander', 'Phpactor\\FilePathResolver\\Expander\\CallbackExpander', \false);

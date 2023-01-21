@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\PasswordException;
+use Safe\Exceptions\PasswordException;
+
 /**
  * password_hash creates a new password hash using a strong one-way hashing
  * algorithm. password_hash is compatible with crypt.
@@ -110,15 +111,15 @@ use Phpactor202301\Safe\Exceptions\PasswordException;
  * @throws PasswordException
  *
  */
-function password_hash(string $password, $algo, array $options = null) : string
+function password_hash(string $password, $algo, array $options = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($options !== null) {
         $result = \password_hash($password, $algo, $options);
     } else {
         $result = \password_hash($password, $algo);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw PasswordException::createFromPhpError();
     }
     return $result;

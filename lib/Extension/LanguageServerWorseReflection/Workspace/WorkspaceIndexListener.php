@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerWorseReflection\Workspace;
+namespace Phpactor\Extension\LanguageServerWorseReflection\Workspace;
 
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentClosed;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentOpened;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentUpdated;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\LanguageServer\Event\TextDocumentClosed;
+use Phpactor\LanguageServer\Event\TextDocumentOpened;
+use Phpactor\LanguageServer\Event\TextDocumentUpdated;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 class WorkspaceIndexListener implements ListenerProviderInterface
 {
-    public function __construct(private WorkspaceIndex $index)
+    public function __construct(private \Phpactor\Extension\LanguageServerWorseReflection\Workspace\WorkspaceIndex $index)
     {
     }
     public function getListenersForEvent(object $event) : iterable
@@ -47,4 +47,3 @@ class WorkspaceIndexListener implements ListenerProviderInterface
         $this->index->remove(TextDocumentUri::fromString($removed->identifier()->uri));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerWorseReflection\\Workspace\\WorkspaceIndexListener', 'Phpactor\\Extension\\LanguageServerWorseReflection\\Workspace\\WorkspaceIndexListener', \false);

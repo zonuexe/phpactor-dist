@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder\Search;
+namespace Phpactor\ReferenceFinder\Search;
 
-use Phpactor202301\Phpactor\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Name\FullyQualifiedName;
+use Phpactor\TextDocument\TextDocumentUri;
 final class NameSearchResult
 {
-    private function __construct(private NameSearchResultType $type, private FullyQualifiedName $name, private ?TextDocumentUri $uri = null)
+    private function __construct(private \Phpactor\ReferenceFinder\Search\NameSearchResultType $type, private FullyQualifiedName $name, private ?TextDocumentUri $uri = null)
     {
     }
     /**
@@ -16,13 +16,13 @@ final class NameSearchResult
      */
     public static function create($type, $name, $uri = null) : self
     {
-        return new self(\is_string($type) ? new NameSearchResultType($type) : $type, \is_string($name) ? FullyQualifiedName::fromString($name) : $name, $uri ? \is_string($uri) ? TextDocumentUri::fromString($uri) : $uri : null);
+        return new self(\is_string($type) ? new \Phpactor\ReferenceFinder\Search\NameSearchResultType($type) : $type, \is_string($name) ? FullyQualifiedName::fromString($name) : $name, $uri ? \is_string($uri) ? TextDocumentUri::fromString($uri) : $uri : null);
     }
     public function name() : FullyQualifiedName
     {
         return $this->name;
     }
-    public function type() : NameSearchResultType
+    public function type() : \Phpactor\ReferenceFinder\Search\NameSearchResultType
     {
         return $this->type;
     }
@@ -31,4 +31,3 @@ final class NameSearchResult
         return $this->uri;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\Search\\NameSearchResult', 'Phpactor\\ReferenceFinder\\Search\\NameSearchResult', \false);

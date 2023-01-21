@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Symfony;
+namespace Phpactor\Extension\Symfony;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\CompletionWorse\CompletionWorseExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\Extension\Symfony\Adapter\Symfony\XmlSymfonyContainerInspector;
-use Phpactor202301\Phpactor\Extension\Symfony\Completor\SymfonyContainerCompletor;
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
-use Phpactor202301\Phpactor\Extension\Symfony\WorseReflection\SymfonyContainerContextResolver;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\CompletionWorse\CompletionWorseExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\Extension\Symfony\Adapter\Symfony\XmlSymfonyContainerInspector;
+use Phpactor\Extension\Symfony\Completor\SymfonyContainerCompletor;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
+use Phpactor\Extension\Symfony\WorseReflection\SymfonyContainerContextResolver;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
 class SymfonyExtension implements OptionalExtension
 {
     const XML_PATH = 'symfony.xml_path';
@@ -40,4 +40,3 @@ class SymfonyExtension implements OptionalExtension
         return 'symfony';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Symfony\\SymfonyExtension', 'Phpactor\\Extension\\Symfony\\SymfonyExtension', \false);

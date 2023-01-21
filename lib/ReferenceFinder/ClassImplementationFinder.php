@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Locations;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Locations;
+use Phpactor\TextDocument\TextDocument;
 interface ClassImplementationFinder
 {
     /**
@@ -18,4 +18,3 @@ interface ClassImplementationFinder
      */
     public function findImplementations(TextDocument $document, ByteOffset $byteOffset, bool $includeDefinition = \false) : Locations;
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\ClassImplementationFinder', 'Phpactor\\ReferenceFinder\\ClassImplementationFinder', \false);

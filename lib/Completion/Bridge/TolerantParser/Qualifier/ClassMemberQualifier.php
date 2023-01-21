@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier;
+namespace Phpactor\Completion\Bridge\TolerantParser\Qualifier;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 /**
  * Returns true if either the node or the parent node is
  * a class member or scopeed (static) property access.
@@ -30,8 +30,3 @@ class ClassMemberQualifier implements TolerantQualifier
         return $node instanceof MemberAccessExpression || $node instanceof ScopedPropertyAccessExpression;
     }
 }
-/**
- * Returns true if either the node or the parent node is
- * a class member or scopeed (static) property access.
- */
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\Qualifier\\ClassMemberQualifier', 'Phpactor\\Completion\\Bridge\\TolerantParser\\Qualifier\\ClassMemberQualifier', \false);

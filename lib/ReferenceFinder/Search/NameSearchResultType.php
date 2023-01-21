@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder\Search;
+namespace Phpactor\ReferenceFinder\Search;
 
 use RuntimeException;
 final class NameSearchResultType
@@ -34,4 +34,3 @@ final class NameSearchResultType
         return $this->type === self::TYPE_CONSTANT;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\Search\\NameSearchResultType', 'Phpactor\\ReferenceFinder\\Search\\NameSearchResultType', \false);

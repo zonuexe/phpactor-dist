@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+namespace Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Exception\CouldNotResolveArguments;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+use Phpactor\LanguageServer\Core\Dispatcher\Exception\CouldNotResolveArguments;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 final class ChainArgumentResolver implements ArgumentResolver
 {
     /**
@@ -30,4 +30,3 @@ final class ChainArgumentResolver implements ArgumentResolver
         throw $lastException;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\ArgumentResolver\\ChainArgumentResolver', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\ArgumentResolver\\ChainArgumentResolver', \false);

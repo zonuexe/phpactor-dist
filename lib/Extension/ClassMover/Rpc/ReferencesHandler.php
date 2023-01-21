@@ -1,27 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Rpc;
+namespace Phpactor\Extension\ClassMover\Rpc;
 
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassReferences;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\FileReferencesResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\CollectionResponse;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassMemberReferences;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\ClassMover\Domain\Model\ClassMemberQuery;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\ClassMover\Application\ClassReferences;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\Rpc\Response\FileReferencesResponse;
+use Phpactor\Extension\Rpc\Response\CollectionResponse;
+use Phpactor\Extension\ClassMover\Application\ClassMemberReferences;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\ClassMover\Domain\Model\ClassMemberQuery;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 use InvalidArgumentException;
 use RuntimeException;
 /**
@@ -188,8 +188,3 @@ class ReferencesHandler extends AbstractHandler
         return $symbolContext->symbol()->name();
     }
 }
-/**
- * TODO: Extract the responsiblities of this class, see
- *       https://github.com/phpactor/phpactor/issues/440
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Rpc\\ReferencesHandler', 'Phpactor\\Extension\\ClassMover\\Rpc\\ReferencesHandler', \false);

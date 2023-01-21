@@ -1,33 +1,37 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrQuery<br/>
  * This class represents a collection of name-value pairs sent to the Solr server during a request.
  * @link https://php.net/manual/en/class.solrquery.php
  */
-class SolrQuery extends \SolrModifiableParams implements \Serializable
+class SolrQuery extends SolrModifiableParams implements Serializable
 {
     /** @var int Used to specify that the sorting should be in acending order */
     public const ORDER_ASC = 0;
+
     /** @var int Used to specify that the sorting should be in descending order */
     public const ORDER_DESC = 1;
+
     /** @var int Used to specify that the facet should sort by index */
     public const FACET_SORT_INDEX = 0;
+
     /** @var int Used to specify that the facet should sort by count */
     public const FACET_SORT_COUNT = 1;
+
     /** @var int Used in the TermsComponent */
     public const TERMS_SORT_INDEX = 0;
+
     /** @var int Used in the TermsComponent */
     public const TERMS_SORT_COUNT = 1;
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Overrides main filter query, determines which documents to include in the main group.
@@ -37,9 +41,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addExpandFilterQuery($fq)
-    {
-    }
+    public function addExpandFilterQuery($fq) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Orders the documents within the expanded groups (expand.sort parameter).
@@ -57,9 +60,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addExpandSortField($field, $order)
-    {
-    }
+    public function addExpandSortField($field, $order) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.date
@@ -71,9 +73,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addFacetDateField($dateField)
-    {
-    }
+    public function addFacetDateField($dateField) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds another facet.date.other parameter
@@ -88,9 +89,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addFacetDateOther($value, $field_override)
-    {
-    }
+    public function addFacetDateOther($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds another field to the facet
@@ -102,9 +102,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addFacetField($field)
-    {
-    }
+    public function addFacetField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds a facet query
@@ -116,9 +115,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addFacetQuery($facetQuery)
-    {
-    }
+    public function addFacetQuery($facetQuery) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies which fields to return in the result
@@ -130,9 +128,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addField($field)
-    {
-    }
+    public function addField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies a filter query
@@ -144,9 +141,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addFilterQuery($fq)
-    {
-    }
+    public function addFilterQuery($fq) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Add a field to be used to group results.
@@ -156,9 +152,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addGroupField($value)
-    {
-    }
+    public function addGroupField($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Allows grouping results based on the unique values of a function query (group.func parameter).
@@ -168,9 +163,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addGroupFunction($value)
-    {
-    }
+    public function addGroupFunction($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Allows grouping of documents that match the given query.
@@ -180,9 +174,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addGroupQuery($value)
-    {
-    }
+    public function addGroupQuery($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Add a group sort field (group.sort parameter).
@@ -197,9 +190,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addGroupSortField($field, $order)
-    {
-    }
+    public function addGroupSortField($field, $order) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to hl.fl
@@ -211,9 +203,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addHighlightField($field)
-    {
-    }
+    public function addHighlightField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets a field to use for similarity
@@ -225,9 +216,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addMltField($field)
-    {
-    }
+    public function addMltField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to mlt.qf
@@ -242,9 +232,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addMltQueryField($field, $boost)
-    {
-    }
+    public function addMltQueryField($field, $boost) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Used to control how the results should be sorted
@@ -259,9 +248,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function addSortField($field, $order = \SolrQuery::ORDER_DESC)
-    {
-    }
+    public function addSortField($field, $order = SolrQuery::ORDER_DESC) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Requests a return of sub results for values within the given facet
@@ -273,9 +261,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addStatsFacet($field)
-    {
-    }
+    public function addStatsFacet($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to stats.field parameter
@@ -287,9 +274,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function addStatsField($field)
-    {
-    }
+    public function addStatsField($field) {}
+
     /**
      * (No version information available, might only be in Git)<br/>
      * Collapses the result set to a single document per group
@@ -299,9 +285,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a SolrQuery object.
      * </p>
      */
-    public function collapse(\SolrCollapseFunction $collapseFunction)
-    {
-    }
+    public function collapse(SolrCollapseFunction $collapseFunction) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * SolrQuery constructor.
@@ -310,17 +295,15 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Optional search query
      * </p>
      */
-    public function __construct($q = '')
-    {
-    }
+    public function __construct($q = '') {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Destructor
      * @link https://php.net/manual/en/solrquery.destruct.php
      */
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns true if group expanding is enabled
@@ -329,9 +312,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns <b>TRUE</b> if group expanding is enabled
      * </p>
      */
-    public function getExpand()
-    {
-    }
+    public function getExpand() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the expand filter queries
@@ -340,9 +322,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the expand filter queries
      * </p>
      */
-    public function getExpandFilterQueries()
-    {
-    }
+    public function getExpandFilterQueries() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the expand query expand.q parameter
@@ -351,9 +332,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the expand query expand.q parameter
      * </p>
      */
-    public function getExpandQuery()
-    {
-    }
+    public function getExpandQuery() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns The number of rows to display in each group (expand.rows)
@@ -362,9 +342,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns The number of rows to display in each group (expand.rows)
      * </p>
      */
-    public function getExpandRows()
-    {
-    }
+    public function getExpandRows() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns an array of fields
@@ -373,9 +352,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array of fields
      * </p>
      */
-    public function getExpandSortFields()
-    {
-    }
+    public function getExpandSortFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the value of the facet parameter
@@ -384,9 +362,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacet()
-    {
-    }
+    public function getFacet() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the value for the facet.date.end parameter
@@ -398,9 +375,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateEnd($field_override)
-    {
-    }
+    public function getFacetDateEnd($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the facet.date fields
@@ -409,9 +385,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns all the facet.date fields as an array or <b>NULL</b> if none was set
      * </p>
      */
-    public function getFacetDateFields()
-    {
-    }
+    public function getFacetDateFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the value of the facet.date.gap parameter
@@ -423,9 +398,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateGap($field_override)
-    {
-    }
+    public function getFacetDateGap($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the value of the facet.date.hardend parameter
@@ -437,9 +411,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateHardEnd($field_override)
-    {
-    }
+    public function getFacetDateHardEnd($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the value for the facet.date.other parameter
@@ -451,9 +424,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateOther($field_override)
-    {
-    }
+    public function getFacetDateOther($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the lower bound for the first date range for all date faceting on this field
@@ -465,9 +437,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetDateStart($field_override)
-    {
-    }
+    public function getFacetDateStart($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the facet fields
@@ -476,9 +447,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array of all the fields and <b>NULL</b> if none was set
      * </p>
      */
-    public function getFacetFields()
-    {
-    }
+    public function getFacetFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of constraint counts that should be returned for the facet fields
@@ -490,9 +460,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetLimit($field_override)
-    {
-    }
+    public function getFacetLimit($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the value of the facet.method parameter
@@ -504,9 +473,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetMethod($field_override)
-    {
-    }
+    public function getFacetMethod($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the minimum counts for facet fields should be included in the response
@@ -518,9 +486,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetMinCount($field_override)
-    {
-    }
+    public function getFacetMinCount($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the current state of the facet.missing parameter
@@ -532,9 +499,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetMissing($field_override)
-    {
-    }
+    public function getFacetMissing($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an offset into the list of constraints to be used for pagination
@@ -546,9 +512,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetOffset($field_override)
-    {
-    }
+    public function getFacetOffset($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the facet prefix
@@ -560,9 +525,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetPrefix($field_override)
-    {
-    }
+    public function getFacetPrefix($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the facet queries
@@ -571,9 +535,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFacetQueries()
-    {
-    }
+    public function getFacetQueries() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the facet sort type
@@ -586,9 +549,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * set.
      * </p>
      */
-    public function getFacetSort($field_override)
-    {
-    }
+    public function getFacetSort($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the list of fields that will be returned in the response
@@ -597,9 +559,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFields()
-    {
-    }
+    public function getFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array of filter queries
@@ -608,9 +569,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getFilterQueries()
-    {
-    }
+    public function getFilterQueries() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns true if grouping is enabled
@@ -619,9 +579,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns true if grouping is enabled
      * </p>
      */
-    public function getGroup()
-    {
-    }
+    public function getGroup() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns group cache percent value
@@ -630,9 +589,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns group cache percent value
      * </p>
      */
-    public function getGroupCachePercent()
-    {
-    }
+    public function getGroupCachePercent() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.facet parameter value
@@ -641,9 +599,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.facet parameter value
      * </p>
      */
-    public function getGroupFacet()
-    {
-    }
+    public function getGroupFacet() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns group fields (group.field parameter values)
@@ -652,9 +609,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns group fields (group.field parameter values)
      * </p>
      */
-    public function getGroupFields()
-    {
-    }
+    public function getGroupFields() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.format value
@@ -663,9 +619,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.format value
      * </p>
      */
-    public function getGroupFormat()
-    {
-    }
+    public function getGroupFormat() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns group functions (group.func parameter values)
@@ -674,9 +629,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns group functions (group.func parameter values)
      * </p>
      */
-    public function getGroupFunctions()
-    {
-    }
+    public function getGroupFunctions() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.limit value
@@ -685,9 +639,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.limit value
      * </p>
      */
-    public function getGroupLimit()
-    {
-    }
+    public function getGroupLimit() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.main value
@@ -696,9 +649,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.main value
      * </p>
      */
-    public function getGroupMain()
-    {
-    }
+    public function getGroupMain() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.ngroups value
@@ -707,9 +659,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.ngroups value
      * </p>
      */
-    public function getGroupNGroups()
-    {
-    }
+    public function getGroupNGroups() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.offset value
@@ -718,9 +669,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.offset value
      * </p>
      */
-    public function getGroupOffset()
-    {
-    }
+    public function getGroupOffset() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns all the group.query parameter values
@@ -729,9 +679,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns all the group.query parameter values
      * </p>
      */
-    public function getGroupQueries()
-    {
-    }
+    public function getGroupQueries() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.sort value
@@ -740,9 +689,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns all the group.sort parameter values
      * </p>
      */
-    public function getGroupSortFields()
-    {
-    }
+    public function getGroupSortFields() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the group.truncate value
@@ -751,9 +699,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the group.truncate value
      * </p>
      */
-    public function getGroupTruncate()
-    {
-    }
+    public function getGroupTruncate() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the state of the hl parameter
@@ -762,9 +709,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the state of the hl parameter
      * </p>
      */
-    public function getHighlight()
-    {
-    }
+    public function getHighlight() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the highlight field to use as backup or default
@@ -776,9 +722,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightAlternateField($field_override)
-    {
-    }
+    public function getHighlightAlternateField($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the fields that Solr should generate highlighted snippets for
@@ -787,9 +732,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFields()
-    {
-    }
+    public function getHighlightFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the formatter for the highlighted output
@@ -801,9 +745,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFormatter($field_override)
-    {
-    }
+    public function getHighlightFormatter($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the text snippet generator for highlighted text
@@ -815,9 +758,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFragmenter($field_override)
-    {
-    }
+    public function getHighlightFragmenter($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the number of characters of fragments to consider for highlighting
@@ -829,9 +771,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightFragsize($field_override)
-    {
-    }
+    public function getHighlightFragsize($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not to enable highlighting for range/wildcard/fuzzy/prefix queries
@@ -840,9 +781,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightHighlightMultiTerm()
-    {
-    }
+    public function getHighlightHighlightMultiTerm() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of characters of the field to return
@@ -854,9 +794,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightMaxAlternateFieldLength($field_override)
-    {
-    }
+    public function getHighlightMaxAlternateFieldLength($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of characters into a document to look for suitable snippets
@@ -865,9 +804,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightMaxAnalyzedChars()
-    {
-    }
+    public function getHighlightMaxAnalyzedChars() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not the collapse contiguous fragments into a single fragment
@@ -879,9 +817,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightMergeContiguous($field_override)
-    {
-    }
+    public function getHighlightMergeContiguous($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of characters from a field when using the regex fragmenter
@@ -890,9 +827,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightRegexMaxAnalyzedChars()
-    {
-    }
+    public function getHighlightRegexMaxAnalyzedChars() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the regular expression for fragmenting
@@ -901,9 +837,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightRegexPattern()
-    {
-    }
+    public function getHighlightRegexPattern() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the deviation factor from the ideal fragment size
@@ -912,9 +847,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a double on success and <b>NULL</b> if not set.
      * </p>
      */
-    public function getHighlightRegexSlop()
-    {
-    }
+    public function getHighlightRegexSlop() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns if a field will only be highlighted if the query matched in this particular field
@@ -923,9 +857,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightRequireFieldMatch()
-    {
-    }
+    public function getHighlightRequireFieldMatch() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the text which appears after a highlighted term
@@ -937,9 +870,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightSimplePost($field_override)
-    {
-    }
+    public function getHighlightSimplePost($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the text which appears before a highlighted term
@@ -951,9 +883,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightSimplePre($field_override)
-    {
-    }
+    public function getHighlightSimplePre($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of highlighted snippets to generate per field
@@ -965,9 +896,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightSnippets($field_override)
-    {
-    }
+    public function getHighlightSnippets($field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the state of the hl.usePhraseHighlighter parameter
@@ -976,9 +906,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getHighlightUsePhraseHighlighter()
-    {
-    }
+    public function getHighlightUsePhraseHighlighter() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not MoreLikeThis results should be enabled
@@ -987,9 +916,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMlt()
-    {
-    }
+    public function getMlt() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not the query will be boosted by the interesting term relevance
@@ -998,9 +926,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltBoost()
-    {
-    }
+    public function getMltBoost() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the number of similar documents to return for each result
@@ -1009,9 +936,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltCount()
-    {
-    }
+    public function getMltCount() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the fields to use for similarity
@@ -1020,9 +946,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltFields()
-    {
-    }
+    public function getMltFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of query terms that will be included in any generated query
@@ -1031,9 +956,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltMaxNumQueryTerms()
-    {
-    }
+    public function getMltMaxNumQueryTerms() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of tokens to parse in each document field that is not stored with TermVector support
@@ -1042,9 +966,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltMaxNumTokens()
-    {
-    }
+    public function getMltMaxNumTokens() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum word length above which words will be ignored
@@ -1053,9 +976,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltMaxWordLength()
-    {
-    }
+    public function getMltMaxWordLength() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the threshold frequency at which words will be ignored which do not occur in at least this many docs
@@ -1064,9 +986,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltMinDocFrequency()
-    {
-    }
+    public function getMltMinDocFrequency() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the frequency below which terms will be ignored in the source document
@@ -1075,9 +996,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltMinTermFrequency()
-    {
-    }
+    public function getMltMinTermFrequency() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the minimum word length below which words will be ignored
@@ -1086,9 +1006,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltMinWordLength()
-    {
-    }
+    public function getMltMinWordLength() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the query fields and their boosts
@@ -1097,9 +1016,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getMltQueryFields()
-    {
-    }
+    public function getMltQueryFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the main query
@@ -1108,9 +1026,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getQuery()
-    {
-    }
+    public function getQuery() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of documents
@@ -1119,9 +1036,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getRows()
-    {
-    }
+    public function getRows() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the sort fields
@@ -1130,9 +1046,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if none of the parameters was set.
      * </p>
      */
-    public function getSortFields()
-    {
-    }
+    public function getSortFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the offset in the complete result set
@@ -1141,9 +1056,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getStart()
-    {
-    }
+    public function getStart() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not stats is enabled
@@ -1152,9 +1066,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getStats()
-    {
-    }
+    public function getStats() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the stats facets that were set
@@ -1163,9 +1076,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getStatsFacets()
-    {
-    }
+    public function getStatsFacets() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the statistics fields
@@ -1174,9 +1086,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an array on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getStatsFields()
-    {
-    }
+    public function getStatsFields() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not the TermsComponent is enabled
@@ -1185,9 +1096,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTerms()
-    {
-    }
+    public function getTerms() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the field from which the terms are retrieved
@@ -1196,9 +1106,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsField()
-    {
-    }
+    public function getTermsField() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not to include the lower bound in the result set
@@ -1207,9 +1116,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsIncludeLowerBound()
-    {
-    }
+    public function getTermsIncludeLowerBound() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns whether or not to include the upper bound term in the result set
@@ -1218,9 +1126,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsIncludeUpperBound()
-    {
-    }
+    public function getTermsIncludeUpperBound() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum number of terms Solr should return
@@ -1229,9 +1136,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsLimit()
-    {
-    }
+    public function getTermsLimit() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the term to start at
@@ -1240,9 +1146,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsLowerBound()
-    {
-    }
+    public function getTermsLowerBound() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the maximum document frequency
@@ -1251,9 +1156,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsMaxCount()
-    {
-    }
+    public function getTermsMaxCount() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the minimum document frequency to return in order to be included
@@ -1262,9 +1166,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsMinCount()
-    {
-    }
+    public function getTermsMinCount() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the term prefix
@@ -1273,9 +1176,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsPrefix()
-    {
-    }
+    public function getTermsPrefix() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Whether or not to return raw characters
@@ -1284,9 +1186,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a boolean on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsReturnRaw()
-    {
-    }
+    public function getTermsReturnRaw() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an integer indicating how terms are sorted
@@ -1297,9 +1198,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * SolrQuery::TERMS_SORT_COUNT implies that the terms are sorted by term frequency (highest count first)
      * </p>
      */
-    public function getTermsSort()
-    {
-    }
+    public function getTermsSort() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the term to stop at
@@ -1308,9 +1208,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns a string on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTermsUpperBound()
-    {
-    }
+    public function getTermsUpperBound() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the time in milliseconds allowed for the query to finish
@@ -1319,9 +1218,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns an integer on success and <b>NULL</b> if not set
      * </p>
      */
-    public function getTimeAllowed()
-    {
-    }
+    public function getTimeAllowed() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Removes an expand filter query
@@ -1331,9 +1229,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeExpandFilterQuery($fq)
-    {
-    }
+    public function removeExpandFilterQuery($fq) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Removes an expand sort field from the expand.sort parameter.
@@ -1345,9 +1242,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeExpandSortField($field)
-    {
-    }
+    public function removeExpandSortField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the facet date fields
@@ -1359,9 +1255,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeFacetDateField($field)
-    {
-    }
+    public function removeFacetDateField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the facet.date.other parameters
@@ -1376,9 +1271,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeFacetDateOther($value, $field_override)
-    {
-    }
+    public function removeFacetDateOther($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the facet.date parameters
@@ -1390,9 +1284,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeFacetField($field)
-    {
-    }
+    public function removeFacetField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the facet.query parameters
@@ -1404,9 +1297,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeFacetQuery($value)
-    {
-    }
+    public function removeFacetQuery($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes a field from the list of fields
@@ -1418,9 +1310,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeField($field)
-    {
-    }
+    public function removeField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes a filter query
@@ -1430,9 +1321,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeFilterQuery($fq)
-    {
-    }
+    public function removeFilterQuery($fq) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the fields used for highlighting
@@ -1444,9 +1334,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeHighlightField($field)
-    {
-    }
+    public function removeHighlightField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the moreLikeThis fields
@@ -1458,9 +1347,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeMltField($field)
-    {
-    }
+    public function removeMltField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the moreLikeThis query fields
@@ -1472,9 +1360,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeMltQueryField($queryField)
-    {
-    }
+    public function removeMltQueryField($queryField) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the sort fields
@@ -1486,9 +1373,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeSortField($field)
-    {
-    }
+    public function removeSortField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the stats.facet parameters
@@ -1500,9 +1386,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeStatsFacet($value)
-    {
-    }
+    public function removeStatsFacet($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes one of the stats.field parameters
@@ -1514,9 +1399,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function removeStatsField($field)
-    {
-    }
+    public function removeStatsField($field) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Toggles the echoHandler parameter
@@ -1528,9 +1412,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setEchoHandler($flag)
-    {
-    }
+    public function setEchoHandler($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Determines what kind of parameters to include in the response
@@ -1548,9 +1431,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setEchoParams($type)
-    {
-    }
+    public function setEchoParams($type) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Enables/Disables the Expand Component
@@ -1562,9 +1444,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setExpand($value)
-    {
-    }
+    public function setExpand($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the expand.q parameter
@@ -1574,9 +1455,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setExpandQuery($q)
-    {
-    }
+    public function setExpandQuery($q) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the number of rows to display in each group (expand.rows). Server Default 5
@@ -1586,9 +1466,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setExpandRows($value)
-    {
-    }
+    public function setExpandRows($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the explainOther common query parameter
@@ -1600,9 +1479,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setExplainOther($query)
-    {
-    }
+    public function setExplainOther($query) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to the facet parameter. Enables or disables facetting
@@ -1614,9 +1492,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacet($flag)
-    {
-    }
+    public function setFacet($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.date.end
@@ -1631,9 +1508,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateEnd($value, $field_override)
-    {
-    }
+    public function setFacetDateEnd($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.date.gap
@@ -1648,9 +1524,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateGap($value, $field_override)
-    {
-    }
+    public function setFacetDateGap($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.date.hardend
@@ -1665,9 +1540,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateHardEnd($value, $field_override)
-    {
-    }
+    public function setFacetDateHardEnd($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.date.start
@@ -1682,9 +1556,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetDateStart($value, $field_override)
-    {
-    }
+    public function setFacetDateStart($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the minimum document frequency used for determining term count
@@ -1699,9 +1572,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetEnumCacheMinDefaultFrequency($frequency, $field_override)
-    {
-    }
+    public function setFacetEnumCacheMinDefaultFrequency($frequency, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.limit
@@ -1716,9 +1588,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetLimit($limit, $field_override)
-    {
-    }
+    public function setFacetLimit($limit, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the type of algorithm to use when faceting a field
@@ -1733,9 +1604,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetMethod($method, $field_override)
-    {
-    }
+    public function setFacetMethod($method, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.mincount
@@ -1750,9 +1620,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetMinCount($mincount, $field_override)
-    {
-    }
+    public function setFacetMinCount($mincount, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Maps to facet.missing
@@ -1767,9 +1636,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetMissing($flag, $field_override)
-    {
-    }
+    public function setFacetMissing($flag, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the offset into the list of constraints to allow for pagination
@@ -1784,9 +1652,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetOffset($offset, $field_override)
-    {
-    }
+    public function setFacetOffset($offset, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies a string prefix with which to limits the terms on which to facet
@@ -1801,9 +1668,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetPrefix($prefix, $field_override)
-    {
-    }
+    public function setFacetPrefix($prefix, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Determines the ordering of the facet field constraints
@@ -1818,9 +1684,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setFacetSort($facetSort, $field_override)
-    {
-    }
+    public function setFacetSort($facetSort, $field_override) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Enable/Disable result grouping (group parameter)
@@ -1830,9 +1695,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroup($value)
-    {
-    }
+    public function setGroup($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Enables caching for result grouping
@@ -1847,9 +1711,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupCachePercent($percent)
-    {
-    }
+    public function setGroupCachePercent($percent) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets group.facet parameter
@@ -1859,9 +1722,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupFacet($value)
-    {
-    }
+    public function setGroupFacet($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the group format, result structure (group.format parameter).
@@ -1875,9 +1737,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupFormat($value)
-    {
-    }
+    public function setGroupFormat($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Specifies the number of results to return for each group. The server default value is 1.
@@ -1887,9 +1748,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupLimit($value)
-    {
-    }
+    public function setGroupLimit($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * If true, the result of the first field grouping command is used as the main result list in the response, using
@@ -1900,9 +1760,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupMain($value)
-    {
-    }
+    public function setGroupMain($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * If true, Solr includes the number of groups that have matched the query in the results.
@@ -1912,9 +1771,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupNGroups($value)
-    {
-    }
+    public function setGroupNGroups($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the group.offset parameter.
@@ -1924,9 +1782,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupOffset($value)
-    {
-    }
+    public function setGroupOffset($value) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * If true, facet counts are based on the most relevant document of each group matching the query.
@@ -1936,9 +1793,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setGroupTruncate($value)
-    {
-    }
+    public function setGroupTruncate($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Enables or disables highlighting
@@ -1951,9 +1807,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlight($flag)
-    {
-    }
+    public function setHighlight($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the backup field to use
@@ -1968,9 +1823,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightAlternateField($field, $field_override)
-    {
-    }
+    public function setHighlightAlternateField($field, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specify a formatter for the highlight output
@@ -1985,9 +1839,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightFormatter($formatter, $field_override)
-    {
-    }
+    public function setHighlightFormatter($formatter, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets a text snippet generator for highlighted text
@@ -2003,9 +1856,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightFragmenter($fragmenter, $field_override)
-    {
-    }
+    public function setHighlightFragmenter($fragmenter, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * The size of fragments to consider for highlighting
@@ -2020,9 +1872,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightFragsize($size, $field_override)
-    {
-    }
+    public function setHighlightFragsize($size, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Use SpanScorer to highlight phrase terms
@@ -2035,9 +1886,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightHighlightMultiTerm($flag)
-    {
-    }
+    public function setHighlightHighlightMultiTerm($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the maximum number of characters of the field to return
@@ -2059,9 +1909,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightMaxAlternateFieldLength($fieldLength, $field_override)
-    {
-    }
+    public function setHighlightMaxAlternateFieldLength($fieldLength, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the number of characters into a document to look for suitable snippets
@@ -2073,9 +1922,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightMaxAnalyzedChars($value)
-    {
-    }
+    public function setHighlightMaxAnalyzedChars($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Whether or not to collapse contiguous fragments into a single fragment
@@ -2090,9 +1938,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightMergeContiguous($flag, $field_override)
-    {
-    }
+    public function setHighlightMergeContiguous($flag, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specify the maximum number of characters to analyze
@@ -2104,9 +1951,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightRegexMaxAnalyzedChars($maxAnalyzedChars)
-    {
-    }
+    public function setHighlightRegexMaxAnalyzedChars($maxAnalyzedChars) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specify the regular expression for fragmenting
@@ -2118,9 +1964,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightRegexPattern($value)
-    {
-    }
+    public function setHighlightRegexPattern($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the factor by which the regex fragmenter can stray from the ideal fragment size
@@ -2133,9 +1978,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightRegexSlop($factor)
-    {
-    }
+    public function setHighlightRegexSlop($factor) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Require field matching during highlighting
@@ -2148,9 +1992,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightRequireFieldMatch($flag)
-    {
-    }
+    public function setHighlightRequireFieldMatch($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the text which appears after a highlighted term
@@ -2165,9 +2008,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightSimplePost($simplePost, $field_override)
-    {
-    }
+    public function setHighlightSimplePost($simplePost, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the text which appears before a highlighted term
@@ -2182,9 +2024,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightSimplePre($simplePre, $field_override)
-    {
-    }
+    public function setHighlightSimplePre($simplePre, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the maximum number of highlighted snippets to generate per field
@@ -2199,9 +2040,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightSnippets($value, $field_override)
-    {
-    }
+    public function setHighlightSnippets($value, $field_override) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Whether to highlight phrase terms only when they appear within the query phrase
@@ -2214,9 +2054,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setHighlightUsePhraseHighlighter($flag)
-    {
-    }
+    public function setHighlightUsePhraseHighlighter($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Enables or disables moreLikeThis
@@ -2228,9 +2067,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMlt($flag)
-    {
-    }
+    public function setMlt($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Set if the query will be boosted by the interesting term relevance
@@ -2242,9 +2080,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltBoost($flag)
-    {
-    }
+    public function setMltBoost($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Set the number of similar documents to return for each result
@@ -2256,9 +2093,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltCount($count)
-    {
-    }
+    public function setMltCount($count) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the maximum number of query terms included
@@ -2270,9 +2106,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltMaxNumQueryTerms($value)
-    {
-    }
+    public function setMltMaxNumQueryTerms($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the maximum number of tokens to parse
@@ -2284,9 +2119,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltMaxNumTokens($value)
-    {
-    }
+    public function setMltMaxNumTokens($value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the maximum word length
@@ -2298,9 +2132,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltMaxWordLength($maxWordLength)
-    {
-    }
+    public function setMltMaxWordLength($maxWordLength) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the mltMinDoc frequency
@@ -2312,9 +2145,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltMinDocFrequency($minDocFrequency)
-    {
-    }
+    public function setMltMinDocFrequency($minDocFrequency) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the frequency below which terms will be ignored in the source docs
@@ -2326,9 +2158,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltMinTermFrequency($minTermFrequency)
-    {
-    }
+    public function setMltMinTermFrequency($minTermFrequency) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the minimum word length
@@ -2340,9 +2171,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setMltMinWordLength($minWordLength)
-    {
-    }
+    public function setMltMinWordLength($minWordLength) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Exclude the header from the returned results
@@ -2354,9 +2184,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setOmitHeader($flag)
-    {
-    }
+    public function setOmitHeader($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the search query
@@ -2368,9 +2197,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setQuery($query)
-    {
-    }
+    public function setQuery($query) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the maximum number of rows to return in the result
@@ -2382,9 +2210,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setRows($rows)
-    {
-    }
+    public function setRows($rows) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Flag to show debug information
@@ -2396,9 +2223,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setShowDebugInfo($flag)
-    {
-    }
+    public function setShowDebugInfo($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the number of rows to skip
@@ -2410,9 +2236,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setStart($start)
-    {
-    }
+    public function setStart($start) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Enables or disables the Stats component
@@ -2424,9 +2249,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setStats($flag)
-    {
-    }
+    public function setStats($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Enables or disables the TermsComponent
@@ -2438,9 +2262,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTerms($flag)
-    {
-    }
+    public function setTerms($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the name of the field to get the Terms from
@@ -2452,9 +2275,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsField($fieldname)
-    {
-    }
+    public function setTermsField($fieldname) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Include the lower bound term in the result set
@@ -2466,9 +2288,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsIncludeLowerBound($flag)
-    {
-    }
+    public function setTermsIncludeLowerBound($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Include the upper bound term in the result set
@@ -2480,9 +2301,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsIncludeUpperBound($flag)
-    {
-    }
+    public function setTermsIncludeUpperBound($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the maximum number of terms to return
@@ -2494,9 +2314,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsLimit($limit)
-    {
-    }
+    public function setTermsLimit($limit) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies the Term to start from
@@ -2508,9 +2327,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsLowerBound($lowerBound)
-    {
-    }
+    public function setTermsLowerBound($lowerBound) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the maximum document frequency
@@ -2522,9 +2340,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsMaxCount($frequency)
-    {
-    }
+    public function setTermsMaxCount($frequency) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the minimum document frequency
@@ -2536,9 +2353,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsMinCount($frequency)
-    {
-    }
+    public function setTermsMinCount($frequency) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Restrict matches to terms that start with the prefix
@@ -2550,9 +2366,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsPrefix($prefix)
-    {
-    }
+    public function setTermsPrefix($prefix) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Return the raw characters of the indexed term
@@ -2564,9 +2379,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsReturnRaw($flag)
-    {
-    }
+    public function setTermsReturnRaw($flag) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Specifies how to sort the returned terms
@@ -2579,9 +2393,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsSort($sortType)
-    {
-    }
+    public function setTermsSort($sortType) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the term to stop at
@@ -2593,9 +2406,8 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTermsUpperBound($upperBound)
-    {
-    }
+    public function setTermsUpperBound($upperBound) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * The time allowed for search to finish
@@ -2609,20 +2421,5 @@ class SolrQuery extends \SolrModifiableParams implements \Serializable
      * Returns the current SolrQuery object, if the return value is used.
      * </p>
      */
-    public function setTimeAllowed($timeAllowed)
-    {
-    }
+    public function setTimeAllowed($timeAllowed) {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrQuery<br/>
- * This class represents a collection of name-value pairs sent to the Solr server during a request.
- * @link https://php.net/manual/en/class.solrquery.php
- */
-\class_alias('Phpactor202301\\SolrQuery', 'SolrQuery', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Rpc;
+namespace Phpactor\LanguageServer\Core\Rpc;
 
 final class RawMessage
 {
@@ -26,4 +26,3 @@ final class RawMessage
         return $this->headers;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Rpc\\RawMessage', 'Phpactor\\LanguageServer\\Core\\Rpc\\RawMessage', \false);

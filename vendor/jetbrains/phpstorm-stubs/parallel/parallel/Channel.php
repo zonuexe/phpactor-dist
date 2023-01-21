@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\parallel;
+namespace parallel;
 
 /**
  * ### Unbuffered Channels
@@ -38,17 +38,19 @@ final class Channel
      * Constant for Infinitely Buffered
      */
     public const Infinite = -1;
+
     /* Anonymous Constructor */
+
     /**
      * Shall make an anonymous unbuffered channel
      * Shall make an anonymous buffered channel with the given capacity
      *
      * @param null|int $capacity May be Channel::Infinite or a positive integer
      */
-    public function __construct(?int $capacity = null)
-    {
-    }
+    public function __construct(?int $capacity = null) {}
+
     /* Access */
+
     /**
      * Shall make an unbuffered channel with the given name
      * Shall make a buffered channel with the given name and capacity
@@ -60,9 +62,8 @@ final class Channel
      *
      * @throws Channel\Error\Existence if channel already exists.
      */
-    public static function make(string $name, ?int $capacity = null) : Channel
-    {
-    }
+    public static function make(string $name, ?int $capacity = null): Channel {}
+
     /**
      * Shall open the channel with the given name
      *
@@ -71,10 +72,10 @@ final class Channel
      *
      * @throws Channel\Error\Existence if channel does not exist.
      */
-    public static function open(string $name) : Channel
-    {
-    }
+    public static function open(string $name): Channel {}
+
     /* Sharing */
+
     /**
      * Shall send the given value on this channel
      * @param mixed $value
@@ -82,31 +83,27 @@ final class Channel
      * @throws Channel\Error\Closed if channel is closed.
      * @throws Channel\Error\IllegalValue if value is illegal.
      */
-    public function send($value) : void
-    {
-    }
+    public function send($value): void {}
+
     /**
      * Shall recv a value from this channel
      * @return mixed
      *
      * @throws Channel\Error\Closed if channel is closed.
      */
-    public function recv()
-    {
-    }
+    public function recv() {}
+
     /* Closing */
+
     /**
      * Shall close this channel
      * @throws Channel\Error\Closed if channel is closed.
      */
-    public function close() : void
-    {
-    }
+    public function close(): void {}
+
     /**
      * Returns name of channel
      * @return string
      */
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
 }

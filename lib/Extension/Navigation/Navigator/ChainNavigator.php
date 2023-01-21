@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Navigation\Navigator;
+namespace Phpactor\Extension\Navigation\Navigator;
 
-class ChainNavigator implements Navigator
+class ChainNavigator implements \Phpactor\Extension\Navigation\Navigator\Navigator
 {
     /**
      * @param \Phpactor\Extension\Navigation\Navigator\Navigator[] $navigators
@@ -19,4 +19,3 @@ class ChainNavigator implements Navigator
         return $destinations;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\Navigator\\ChainNavigator', 'Phpactor\\Extension\\Navigation\\Navigator\\ChainNavigator', \false);

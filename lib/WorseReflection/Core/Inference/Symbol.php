@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Position;
 use InvalidArgumentException;
 final class Symbol
 {
@@ -31,7 +31,7 @@ final class Symbol
     {
         return \sprintf('%s:%s [%s] %s', $this->position->start(), $this->position->end(), $this->symbolType, $this->name);
     }
-    public static function unknown() : Symbol
+    public static function unknown() : \Phpactor\WorseReflection\Core\Inference\Symbol
     {
         return new self(self::UNKNOWN, self::UNKNOWN, Position::fromStartAndEnd(0, 0));
     }
@@ -50,7 +50,7 @@ final class Symbol
         /** @phpstan-ignore-next-line */
         return $symbolType;
     }
-    public static function fromTypeNameAndPosition(string $symbolType, string $name, Position $position) : Symbol
+    public static function fromTypeNameAndPosition(string $symbolType, string $name, Position $position) : \Phpactor\WorseReflection\Core\Inference\Symbol
     {
         $symbolType = self::castSymbolType($symbolType);
         return new self($symbolType, $name, $position);
@@ -89,4 +89,3 @@ final class Symbol
         return [self::CLASS_, self::VARIABLE, self::UNKNOWN, self::PROPERTY, self::CONSTANT, self::FUNCTION, self::METHOD, self::STRING, self::NUMBER, self::BOOLEAN, self::ARRAY, self::CASE];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Symbol', 'Phpactor\\WorseReflection\\Core\\Inference\\Symbol', \false);

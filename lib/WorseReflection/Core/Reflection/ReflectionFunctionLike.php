@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\NodeText;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\NodeText;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
 interface ReflectionFunctionLike
 {
     /**
@@ -18,8 +18,7 @@ interface ReflectionFunctionLike
     public function position() : Position;
     public function frame() : Frame;
     public function docblock() : DocBlock;
-    public function scope() : ReflectionScope;
+    public function scope() : \Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
     public function inferredType() : Type;
     public function type() : Type;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionFunctionLike', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionFunctionLike', \false);

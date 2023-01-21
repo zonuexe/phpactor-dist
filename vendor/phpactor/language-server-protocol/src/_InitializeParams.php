@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams
  */
-class _InitializeParams extends WorkDoneProgressParams
+class _InitializeParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The process Id of the parent process that started
@@ -75,7 +75,7 @@ class _InitializeParams extends WorkDoneProgressParams
      * @param 'off'|'messages'|'verbose'|null $trace
      * @param int|string|null $workDoneToken
      */
-    public function __construct(ClientCapabilities $capabilities, $processId = null, ?array $clientInfo = null, $rootPath = null, $rootUri = null, $initializationOptions = null, $trace = null, $workDoneToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\ClientCapabilities $capabilities, $processId = null, ?array $clientInfo = null, $rootPath = null, $rootUri = null, $initializationOptions = null, $trace = null, $workDoneToken = null)
     {
         $this->processId = $processId;
         $this->clientInfo = $clientInfo;
@@ -92,7 +92,7 @@ class _InitializeParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['processId' => ['names' => [], 'iterable' => \false], 'clientInfo' => ['names' => [], 'iterable' => \false], 'rootPath' => ['names' => [], 'iterable' => \false], 'rootUri' => ['names' => [], 'iterable' => \false], 'capabilities' => ['names' => [ClientCapabilities::class], 'iterable' => \false], 'initializationOptions' => ['names' => [], 'iterable' => \false], 'trace' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['processId' => ['names' => [], 'iterable' => \false], 'clientInfo' => ['names' => [], 'iterable' => \false], 'rootPath' => ['names' => [], 'iterable' => \false], 'rootUri' => ['names' => [], 'iterable' => \false], 'capabilities' => ['names' => [\Phpactor\LanguageServerProtocol\ClientCapabilities::class], 'iterable' => \false], 'initializationOptions' => ['names' => [], 'iterable' => \false], 'trace' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -142,9 +142,3 @@ class _InitializeParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The initialize parameters
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\_InitializeParams', 'Phpactor\\LanguageServerProtocol\\_InitializeParams', \false);

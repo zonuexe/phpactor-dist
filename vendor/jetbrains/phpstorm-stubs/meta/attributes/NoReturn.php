@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\JetBrains\PhpStorm;
+namespace JetBrains\PhpStorm;
 
 use Attribute;
+
 /**
  * You can use this facility to mark the function as halting the execution flow.
  * Such marked functions will be treated like die() or exit() calls by control flow inspections.
@@ -11,14 +12,13 @@ use Attribute;
  *
  * {@see NoReturn::ANY_ARGUMENT}
  */
-#[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD)]
+#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD)]
 class NoReturn
 {
     /**
      * Use this constant to skip function argument on the specified position
      */
     public const ANY_ARGUMENT = 1;
-    public function __construct(...$arguments)
-    {
-    }
+
+    public function __construct(...$arguments) {}
 }

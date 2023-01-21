@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Rpc;
+namespace Phpactor\Extension\Core\Rpc;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidate;
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidates;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReturnResponse;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Core\Application\Status;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\ConfigLoader\Core\PathCandidate;
+use Phpactor\ConfigLoader\Core\PathCandidates;
+use Phpactor\Extension\Rpc\Response\ReturnResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Core\Application\Status;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
 class StatusHandler implements Handler
 {
     const NAME = 'status';
@@ -72,4 +72,3 @@ class StatusHandler implements Handler
         }, \iterator_to_array($this->paths)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Rpc\\StatusHandler', 'Phpactor\\Extension\\Core\\Rpc\\StatusHandler', \false);

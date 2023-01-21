@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use InvalidArgumentException;
 class Name
@@ -17,7 +17,7 @@ class Name
     {
         return new static($parts, \false);
     }
-    public static function fromString(string $string) : Name
+    public static function fromString(string $string) : \Phpactor\WorseReflection\Core\Name
     {
         $fullyQualified = \str_starts_with($string, '\\');
         $parts = \explode('\\', \trim($string, '\\'));
@@ -27,9 +27,9 @@ class Name
      * @param Name|string $value
      * @return static|Name
      */
-    public static function fromUnknown($value) : Name
+    public static function fromUnknown($value) : \Phpactor\WorseReflection\Core\Name
     {
-        if ($value instanceof Name) {
+        if ($value instanceof \Phpactor\WorseReflection\Core\Name) {
             return $value;
         }
         if (\is_string($value)) {
@@ -84,22 +84,21 @@ class Name
     }
     public function prepend($name) : static
     {
-        $name = Name::fromUnknown($name);
+        $name = \Phpactor\WorseReflection\Core\Name::fromUnknown($name);
         return self::fromString(\join('\\', [(string) $name, $this->__toString()]));
     }
-    public function isAncestorOrSame(Name $name) : bool
+    public function isAncestorOrSame(\Phpactor\WorseReflection\Core\Name $name) : bool
     {
         $segment = \array_slice($name->parts, 0, \count($this->parts));
         return $segment === $this->parts;
     }
-    public function substitute(Name $name, $alias) : Name
+    public function substitute(\Phpactor\WorseReflection\Core\Name $name, $alias) : \Phpactor\WorseReflection\Core\Name
     {
         $suffix = \array_slice($this->parts, \count($name->parts));
-        return Name::fromParts(\array_merge([$alias], $suffix));
+        return \Phpactor\WorseReflection\Core\Name::fromParts(\array_merge([$alias], $suffix));
     }
     public function count() : int
     {
         return \count($this->parts);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Name', 'Phpactor\\WorseReflection\\Core\\Name', \false);

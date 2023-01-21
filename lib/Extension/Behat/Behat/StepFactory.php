@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
 use Generator;
 interface StepFactory
@@ -8,6 +8,5 @@ interface StepFactory
     /**
      * @param Context[] $contexts
      */
-    public function generate(StepParser $parser, array $contexts) : Generator;
+    public function generate(\Phpactor\Extension\Behat\Behat\StepParser $parser, array $contexts) : Generator;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\StepFactory', 'Phpactor\\Extension\\Behat\\Behat\\StepFactory', \false);

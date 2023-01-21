@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Model;
+namespace Phpactor\Extension\Core\Model;
 
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\MapResolver\Definition;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Extension;
+use Phpactor\MapResolver\Definition;
+use Phpactor\MapResolver\Resolver;
 use function json_encode;
 class JsonSchemaBuilder
 {
@@ -66,4 +66,3 @@ class JsonSchemaBuilder
         }, $types);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Model\\JsonSchemaBuilder', 'Phpactor\\Extension\\Core\\Model\\JsonSchemaBuilder', \false);

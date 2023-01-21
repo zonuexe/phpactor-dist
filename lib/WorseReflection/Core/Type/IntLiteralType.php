@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class IntLiteralType extends IntType implements Literal, Generalizable
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+class IntLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType implements \Phpactor\WorseReflection\Core\Type\Literal, \Phpactor\WorseReflection\Core\Type\Generalizable
 {
-    use LiteralTrait;
+    use \Phpactor\WorseReflection\Core\Type\LiteralTrait;
     public function __construct(public int $value)
     {
     }
@@ -20,17 +20,17 @@ class IntLiteralType extends IntType implements Literal, Generalizable
     }
     public function generalize() : Type
     {
-        return new IntType();
+        return new \Phpactor\WorseReflection\Core\Type\IntType();
     }
-    public function identity() : NumericType
+    public function identity() : \Phpactor\WorseReflection\Core\Type\NumericType
     {
         return new self(+$this->value());
     }
-    public function negative() : NumericType
+    public function negative() : \Phpactor\WorseReflection\Core\Type\NumericType
     {
         return new self(-$this->value());
     }
-    public function withValue($value) : IntLiteralType
+    public function withValue($value) : \Phpactor\WorseReflection\Core\Type\IntLiteralType
     {
         $new = clone $this;
         $new->value = (int) $value;
@@ -38,13 +38,12 @@ class IntLiteralType extends IntType implements Literal, Generalizable
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof IntLiteralType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\IntLiteralType) {
             return Trinary::fromBoolean($type->equals($this));
         }
-        if ($type instanceof IntType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\IntType) {
             return Trinary::maybe();
         }
         return parent::accepts($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\IntLiteralType', 'Phpactor\\WorseReflection\\Core\\Type\\IntLiteralType', \false);

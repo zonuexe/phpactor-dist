@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument\Util;
+namespace Phpactor\TextDocument\Util;
 
 use OutOfBoundsException;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffset;
 use RuntimeException;
 final class LineAtOffset
 {
@@ -33,4 +33,3 @@ final class LineAtOffset
         return (new self())->__invoke($text, $offset->toInt());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\Util\\LineAtOffset', 'Phpactor\\TextDocument\\Util\\LineAtOffset', \false);

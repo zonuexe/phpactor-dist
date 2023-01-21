@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Example\CodeAction;
+namespace Phpactor\LanguageServer\Example\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Command;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use function Phpactor202301\Amp\call;
 class SayHelloCodeActionProvider implements CodeActionProvider
 {
@@ -26,4 +26,3 @@ class SayHelloCodeActionProvider implements CodeActionProvider
         return ['example'];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Example\\CodeAction\\SayHelloCodeActionProvider', 'Phpactor\\LanguageServer\\Example\\CodeAction\\SayHelloCodeActionProvider', \false);

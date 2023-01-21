@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
-use Phpactor202301\Phpactor\Container\Container;
+use Phpactor\Container\Container;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Helper\Table;
@@ -79,4 +79,3 @@ class DebugContainerCommand extends Command
         $table->render();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\DebugContainerCommand', 'Phpactor\\Extension\\Core\\Command\\DebugContainerCommand', \false);

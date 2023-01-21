@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
+namespace Phpactor\Indexer\Model\SearchIndex;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\IndexAccess;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\HasPath;
-use Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
+use Phpactor\Indexer\Model\IndexAccess;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\HasPath;
+use Phpactor\Indexer\Model\SearchIndex;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class ValidatingSearchIndex implements SearchIndex
 {
@@ -49,4 +49,3 @@ class ValidatingSearchIndex implements SearchIndex
         $this->innerIndex->flush();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\SearchIndex\\ValidatingSearchIndex', 'Phpactor\\Indexer\\Model\\SearchIndex\\ValidatingSearchIndex', \false);

@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Type;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\DefaultValue;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Parameter;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
-class ParameterBuilder extends AbstractBuilder
+use Phpactor\CodeBuilder\Domain\Prototype\Type;
+use Phpactor\CodeBuilder\Domain\Prototype\DefaultValue;
+use Phpactor\CodeBuilder\Domain\Prototype\Parameter;
+use Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
+class ParameterBuilder extends \Phpactor\CodeBuilder\Domain\Builder\AbstractBuilder
 {
     protected ?Type $type = null;
     protected ?DefaultValue $defaultValue = null;
     protected bool $byReference = \false;
     private bool $variadic = \false;
-    public function __construct(private MethodBuilder $parent, protected string $name)
+    public function __construct(private \Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $parent, protected string $name)
     {
     }
     /**
@@ -25,12 +25,12 @@ class ParameterBuilder extends AbstractBuilder
     /**
      * @param mixed $originalType
      */
-    public function type(string $type, $originalType = null) : ParameterBuilder
+    public function type(string $type, $originalType = null) : \Phpactor\CodeBuilder\Domain\Builder\ParameterBuilder
     {
         $this->type = new Type($type, $originalType);
         return $this;
     }
-    public function defaultValue($value) : ParameterBuilder
+    public function defaultValue($value) : \Phpactor\CodeBuilder\Domain\Builder\ParameterBuilder
     {
         $this->defaultValue = DefaultValue::fromValue($value);
         return $this;
@@ -39,7 +39,7 @@ class ParameterBuilder extends AbstractBuilder
     {
         return new Parameter($this->name, $this->type, $this->defaultValue, $this->byReference, UpdatePolicy::fromModifiedState($this->isModified()), $this->variadic);
     }
-    public function end() : MethodBuilder
+    public function end() : \Phpactor\CodeBuilder\Domain\Builder\MethodBuilder
     {
         return $this->parent;
     }
@@ -54,4 +54,3 @@ class ParameterBuilder extends AbstractBuilder
         return $this;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\ParameterBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\ParameterBuilder', \false);

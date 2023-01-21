@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Middleware;
+namespace Phpactor\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeResult;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handlers;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Event\Initialized;
+use Phpactor\LanguageServerProtocol\InitializeResult;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handlers;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Event\Initialized;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 use RuntimeException;
 class InitializeMiddleware implements Middleware
@@ -71,4 +71,3 @@ class InitializeMiddleware implements Middleware
         return new Success(new ResponseMessage($request->id, new InitializeResult($serverCapabilities, $this->serverInfo)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Middleware\\InitializeMiddleware', 'Phpactor\\LanguageServer\\Middleware\\InitializeMiddleware', \false);

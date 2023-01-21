@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ClassobjException;
+use Safe\Exceptions\ClassobjException;
+
 /**
  * Creates an alias named alias
  * based on the user defined class original.
@@ -14,11 +15,11 @@ use Phpactor202301\Safe\Exceptions\ClassobjException;
  * @throws ClassobjException
  *
  */
-function class_alias(string $original, string $alias, bool $autoload = \true) : void
+function class_alias(string $original, string $alias, bool $autoload = true): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \class_alias($original, $alias, $autoload);
-    if ($result === \false) {
+    if ($result === false) {
         throw ClassobjException::createFromPhpError();
     }
 }

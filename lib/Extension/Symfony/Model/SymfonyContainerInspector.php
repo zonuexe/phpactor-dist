@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Symfony\Model;
+namespace Phpactor\Extension\Symfony\Model;
 
 interface SymfonyContainerInspector
 {
@@ -12,6 +12,5 @@ interface SymfonyContainerInspector
      * @return SymfonyContainerParameter[]
      */
     public function parameters() : array;
-    public function service(string $id) : ?SymfonyContainerService;
+    public function service(string $id) : ?\Phpactor\Extension\Symfony\Model\SymfonyContainerService;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Symfony\\Model\\SymfonyContainerInspector', 'Phpactor\\Extension\\Symfony\\Model\\SymfonyContainerInspector', \false);

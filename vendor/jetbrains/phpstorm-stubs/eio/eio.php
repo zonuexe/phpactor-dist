@@ -1,77 +1,74 @@
 <?php
 
-namespace Phpactor202301;
+const EIO_DEBUG = 0;
+const EIO_SEEK_SET = 0;
+const EIO_SEEK_CUR = 0;
+const EIO_SEEK_END = 0;
+const EIO_PRI_MIN = 0;
+const EIO_PRI_DEFAULT = 0;
+const EIO_PRI_MAX = 0;
+const EIO_READDIR_DENTS = 0;
+const EIO_READDIR_DIRS_FIRST = 0;
+const EIO_READDIR_STAT_ORDER = 0;
+const EIO_READDIR_FOUND_UNKNOWN = 0;
+const EIO_DT_UNKNOWN = 0;
+const EIO_DT_FIFO = 0;
+const EIO_DT_CHR = 0;
+const EIO_DT_MPC = 0;
+const EIO_DT_DIR = 0;
+const EIO_DT_NAM = 0;
+const EIO_DT_BLK = 0;
+const EIO_DT_MPB = 0;
+const EIO_DT_REG = 0;
+const EIO_DT_NWK = 0;
+const EIO_DT_CMP = 0;
+const EIO_DT_LNK = 0;
+const EIO_DT_SOCK = 0;
+const EIO_DT_DOOR = 0;
+const EIO_DT_WHT = 0;
+const EIO_DT_MAX = 0;
+const EIO_O_RDONLY = 0;
+const EIO_O_WRONLY = 0;
+const EIO_O_RDWR = 0;
+const EIO_O_NONBLOCK = 0;
+const EIO_O_APPEND = 0;
+const EIO_O_CREAT = 0;
+const EIO_O_TRUNC = 0;
+const EIO_O_EXCL = 0;
+const EIO_O_FSYNC = 0;
+const EIO_S_IRUSR = 0;
+const EIO_S_IWUSR = 0;
+const EIO_S_IXUSR = 0;
+const EIO_S_IRGRP = 0;
+const EIO_S_IWGRP = 0;
+const EIO_S_IXGRP = 0;
+const EIO_S_IROTH = 0;
+const EIO_S_IWOTH = 0;
+const EIO_S_IXOTH = 0;
+const EIO_S_IFREG = 0;
+const EIO_S_IFCHR = 0;
+const EIO_S_IFBLK = 0;
+const EIO_S_IFIFO = 0;
+const EIO_S_IFSOCK = 0;
+const EIO_SYNC_FILE_RANGE_WAIT_BEFORE = 0;
+const EIO_SYNC_FILE_RANGE_WRITE = 0;
+const EIO_SYNC_FILE_RANGE_WAIT_AFTER = 0;
+const EIO_FALLOC_FL_KEEP_SIZE = 0;
 
-\define('EIO_DEBUG', 0);
-\define('EIO_SEEK_SET', 0);
-\define('EIO_SEEK_CUR', 0);
-\define('EIO_SEEK_END', 0);
-\define('EIO_PRI_MIN', 0);
-\define('EIO_PRI_DEFAULT', 0);
-\define('EIO_PRI_MAX', 0);
-\define('EIO_READDIR_DENTS', 0);
-\define('EIO_READDIR_DIRS_FIRST', 0);
-\define('EIO_READDIR_STAT_ORDER', 0);
-\define('EIO_READDIR_FOUND_UNKNOWN', 0);
-\define('EIO_DT_UNKNOWN', 0);
-\define('EIO_DT_FIFO', 0);
-\define('EIO_DT_CHR', 0);
-\define('EIO_DT_MPC', 0);
-\define('EIO_DT_DIR', 0);
-\define('EIO_DT_NAM', 0);
-\define('EIO_DT_BLK', 0);
-\define('EIO_DT_MPB', 0);
-\define('EIO_DT_REG', 0);
-\define('EIO_DT_NWK', 0);
-\define('EIO_DT_CMP', 0);
-\define('EIO_DT_LNK', 0);
-\define('EIO_DT_SOCK', 0);
-\define('EIO_DT_DOOR', 0);
-\define('EIO_DT_WHT', 0);
-\define('EIO_DT_MAX', 0);
-\define('EIO_O_RDONLY', 0);
-\define('EIO_O_WRONLY', 0);
-\define('EIO_O_RDWR', 0);
-\define('EIO_O_NONBLOCK', 0);
-\define('EIO_O_APPEND', 0);
-\define('EIO_O_CREAT', 0);
-\define('EIO_O_TRUNC', 0);
-\define('EIO_O_EXCL', 0);
-\define('EIO_O_FSYNC', 0);
-\define('EIO_S_IRUSR', 0);
-\define('EIO_S_IWUSR', 0);
-\define('EIO_S_IXUSR', 0);
-\define('EIO_S_IRGRP', 0);
-\define('EIO_S_IWGRP', 0);
-\define('EIO_S_IXGRP', 0);
-\define('EIO_S_IROTH', 0);
-\define('EIO_S_IWOTH', 0);
-\define('EIO_S_IXOTH', 0);
-\define('EIO_S_IFREG', 0);
-\define('EIO_S_IFCHR', 0);
-\define('EIO_S_IFBLK', 0);
-\define('EIO_S_IFIFO', 0);
-\define('EIO_S_IFSOCK', 0);
-\define('EIO_SYNC_FILE_RANGE_WAIT_BEFORE', 0);
-\define('EIO_SYNC_FILE_RANGE_WRITE', 0);
-\define('EIO_SYNC_FILE_RANGE_WAIT_AFTER', 0);
-\define('EIO_FALLOC_FL_KEEP_SIZE', 0);
 /**
  * Polls libeio until all requests proceeded
  * @link https://www.php.net/manual/en/function.eio-event-loop.php
  * @return bool returns true on success, or false on failure.
  */
-function eio_event_loop() : bool
-{
-}
+function eio_event_loop(): bool {}
+
 /**
  * Can be to be called whenever there are pending requests that need finishing
  * @link https://www.php.net/manual/en/function.eio-poll.php
  * @return int If any request invocation returns a non-zero value, returns that value. Otherwise, it returns 0.
  */
-function eio_poll() : int
-{
-}
+function eio_poll(): int {}
+
 /**
  * Opens a file
  * @link https://www.php.net/manual/en/function.eio-open.php
@@ -83,9 +80,8 @@ function eio_poll() : int
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|false returns file descriptor in result argument of callback on success; otherwise, result is equal to -1.
  */
-function eio_open(string $path, int $flags, int $mode, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_open(string $path, int $flags, int $mode, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Truncate a file
  * @link https://www.php.net/manual/en/function.eio-truncate.php
@@ -96,9 +92,8 @@ function eio_open(string $path, int $flags, int $mode, int $pri, mixed $callback
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|false returns request resource on success, or false on failure.
  */
-function eio_truncate(string $path, int $offset = 0, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_truncate(string $path, int $offset = 0, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Create directory
  * @link https://www.php.net/manual/en/function.eio-mkdir.php
@@ -109,9 +104,8 @@ function eio_truncate(string $path, int $offset = 0, int $pri = 0, mixed $callba
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|false returns request resource on success, or false on failure.
  */
-function eio_mkdir(string $path, int $mode, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_mkdir(string $path, int $mode, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Remove a directory
  * @link https://www.php.net/manual/en/function.eio-rmdir.php
@@ -121,9 +115,8 @@ function eio_mkdir(string $path, int $mode, int $pri = 0, mixed $callback = null
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_rmdir(string $path, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_rmdir(string $path, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Delete a name and possibly the file it refers to
  * @link https://www.php.net/manual/en/function.eio-unlink.php
@@ -133,9 +126,8 @@ function eio_rmdir(string $path, int $pri = 0, mixed $callback = null, mixed $da
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_unlink(string $path, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_unlink(string $path, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Change file last access and modification times
  * @link https://www.php.net/manual/en/function.eio-utime.php
@@ -147,9 +139,8 @@ function eio_unlink(string $path, int $pri = 0, mixed $callback = null, mixed $d
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_utime(string $path, float $atime, float $mtime, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_utime(string $path, float $atime, float $mtime, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Create a special or ordinary file
  * @link https://www.php.net/manual/en/function.eio-mknod.php
@@ -161,9 +152,8 @@ function eio_utime(string $path, float $atime, float $mtime, int $pri = 0, mixed
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_mknod(string $path, int $mode, int $dev, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_mknod(string $path, int $mode, int $dev, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Create a hardlink for file
  * @link https://www.php.net/manual/en/function.eio-link.php
@@ -174,9 +164,8 @@ function eio_mknod(string $path, int $mode, int $dev, int $pri = 0, mixed $callb
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_link(string $path, string $new_path, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_link(string $path, string $new_path, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Create a symbolic link
  * @link https://www.php.net/manual/en/function.eio-symlink.php
@@ -187,9 +176,8 @@ function eio_link(string $path, string $new_path, int $pri = 0, mixed $callback 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_symlink(string $path, string $new_path, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_symlink(string $path, string $new_path, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Change the name or location of a file
  * @link https://www.php.net/manual/en/function.eio-rename.php
@@ -200,9 +188,8 @@ function eio_symlink(string $path, string $new_path, int $pri = 0, mixed $callba
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_rename(string $path, string $new_path, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_rename(string $path, string $new_path, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Close file
  * @link https://www.php.net/manual/en/function.eio-close.php
@@ -212,9 +199,8 @@ function eio_rename(string $path, string $new_path, int $pri = 0, mixed $callbac
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_close(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_close(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Commit buffer cache to disk
  * @link https://www.php.net/manual/en/function.eio-sync.php
@@ -223,9 +209,8 @@ function eio_close(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_sync(int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_sync(int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Synchronize a file's in-core state with storage device
  * @link https://www.php.net/manual/en/function.eio-fsync.php
@@ -235,9 +220,8 @@ function eio_sync(int $pri = 0, mixed $callback = null, mixed $data = null)
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fsync(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_fsync(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Synchronize a file's in-core state with storage device
  * @link https://www.php.net/manual/en/function.eio-fdatasync.php
@@ -247,9 +231,8 @@ function eio_fsync(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fdatasync(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_fdatasync(mixed $fd, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Change file last access and modification times
  * @link https://www.php.net/manual/en/function.eio-futime.php
@@ -261,9 +244,8 @@ function eio_fdatasync(mixed $fd, int $pri = 0, mixed $callback = null, mixed $d
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_futime(mixed $fd, float $atime, float $mtime, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_futime(mixed $fd, float $atime, float $mtime, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Truncate a file
  * @link https://www.php.net/manual/en/function.eio-ftruncate.php
@@ -274,9 +256,8 @@ function eio_futime(mixed $fd, float $atime, float $mtime, int $pri = 0, mixed $
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_ftruncate(mixed $fd, int $offset = 0, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_ftruncate(mixed $fd, int $offset = 0, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Change file/directory permissions
  * @link https://www.php.net/manual/en/function.eio-chmod.php
@@ -287,9 +268,8 @@ function eio_ftruncate(mixed $fd, int $offset = 0, int $pri = 0, mixed $callback
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_chmod(string $path, int $mode, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_chmod(string $path, int $mode, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Change file permissions
  * @link https://www.php.net/manual/en/function.eio-fchmod.php
@@ -300,9 +280,8 @@ function eio_chmod(string $path, int $mode, int $pri = 0, mixed $callback = null
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fchmod(mixed $fd, int $mode, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_fchmod(mixed $fd, int $mode, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Change file/directory permissions
  * @link https://www.php.net/manual/en/function.eio-chown.php
@@ -314,9 +293,8 @@ function eio_fchmod(mixed $fd, int $mode, int $pri = 0, mixed $callback = null, 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_chown(string $path, int $uid, int $gid = -1, int $pri = 0, mixed $callback = null, ?mixed $data = null)
-{
-}
+function eio_chown(string $path, int $uid, int $gid = -1, int $pri = 0, mixed $callback = null, ?mixed $data = null) {}
+
 /**
  * Change file ownership
  * @link https://www.php.net/manual/en/function.eio-fchown.php
@@ -328,9 +306,8 @@ function eio_chown(string $path, int $uid, int $gid = -1, int $pri = 0, mixed $c
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fchown(mixed $fd, int $uid, int $gid = -1, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_fchown(mixed $fd, int $uid, int $gid = -1, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Duplicate a file descriptor
  * @link https://www.php.net/manual/en/function.eio-dup2.php
@@ -341,9 +318,8 @@ function eio_fchown(mixed $fd, int $uid, int $gid = -1, int $pri = 0, mixed $cal
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_dup2(mixed $fd, mixed $fd2, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_dup2(mixed $fd, mixed $fd2, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Read from a file descriptor at given offset
  * @link https://www.php.net/manual/en/function.eio-read.php
@@ -355,9 +331,8 @@ function eio_dup2(mixed $fd, mixed $fd2, int $pri = 0, mixed $callback = null, m
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_read(mixed $fd, int $length, int $offset, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_read(mixed $fd, int $length, int $offset, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Write to file
  * @link https://www.php.net/manual/en/function.eio-write.php
@@ -370,9 +345,8 @@ function eio_read(mixed $fd, int $length, int $offset, int $pri, mixed $callback
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_write(mixed $fd, mixed $str, int $length = 0, int $offset = 0, int $pri = 0, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_write(mixed $fd, mixed $str, int $length = 0, int $offset = 0, int $pri = 0, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Read value of a symbolic link
  * @link https://www.php.net/manual/en/function.eio-readlink.php
@@ -382,9 +356,8 @@ function eio_write(mixed $fd, mixed $str, int $length = 0, int $offset = 0, int 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_readlink(string $path, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_readlink(string $path, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Get the canonicalized absolute pathname
  * @link https://www.php.net/manual/en/function.eio-realpath.php
@@ -394,9 +367,8 @@ function eio_readlink(string $path, int $pri, mixed $callback, mixed $data = nul
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_realpath(string $path, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_realpath(string $path, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Get file status
  * @link https://www.php.net/manual/en/function.eio-stat.php
@@ -406,9 +378,8 @@ function eio_realpath(string $path, int $pri, mixed $callback, mixed $data = nul
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_stat(string $path, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_stat(string $path, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Get file status
  * @link https://www.php.net/manual/en/function.eio-lstat.php
@@ -418,9 +389,8 @@ function eio_stat(string $path, int $pri, mixed $callback, mixed $data = null)
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_lstat(string $path, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_lstat(string $path, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Get file status
  * @link https://www.php.net/manual/en/function.eio-fstat.php
@@ -430,9 +400,8 @@ function eio_lstat(string $path, int $pri, mixed $callback, mixed $data = null)
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fstat(mixed $fd, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_fstat(mixed $fd, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Get file system statistics
  * @link https://www.php.net/manual/en/function.eio-statvfs.php
@@ -442,9 +411,8 @@ function eio_fstat(mixed $fd, int $pri, mixed $callback, mixed $data = null)
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_statvfs(string $path, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_statvfs(string $path, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Get file system statistics
  * @link https://www.php.net/manual/en/function.eio-fstatvfs.php
@@ -454,9 +422,8 @@ function eio_statvfs(string $path, int $pri, mixed $callback, mixed $data = null
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fstatvfs(mixed $fd, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_fstatvfs(mixed $fd, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Reads through a whole directory
  * @link https://www.php.net/manual/en/function.eio-readdir.php
@@ -467,9 +434,8 @@ function eio_fstatvfs(mixed $fd, int $pri, mixed $callback, mixed $data = null)
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_readdir(string $path, int $flags, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_readdir(string $path, int $flags, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Transfer data between file descriptors
  * @link https://www.php.net/manual/en/function.eio-sendfile.php
@@ -482,9 +448,8 @@ function eio_readdir(string $path, int $flags, int $pri, mixed $callback, mixed 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_sendfile(mixed $out_fd, mixed $in_fd, int $offset, int $length, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_sendfile(mixed $out_fd, mixed $in_fd, int $offset, int $length, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Perform file readahead into page cache
  * @link https://www.php.net/manual/en/function.eio-readahead.php
@@ -496,9 +461,8 @@ function eio_sendfile(mixed $out_fd, mixed $in_fd, int $offset, int $length, int
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_readahead(mixed $fd, int $offset, int $length, int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_readahead(mixed $fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Repositions the offset of the open file associated with the fd argument to the argument offset according to the directive whence
  * @link https://www.php.net/manual/en/function.eio-seek.php
@@ -510,9 +474,8 @@ function eio_readahead(mixed $fd, int $offset, int $length, int $pri = \EIO_PRI_
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_seek(mixed $fd, int $offset, int $length, int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_seek(mixed $fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Calls Linux' syncfs syscall, if available
  * @link https://www.php.net/manual/en/function.eio-syncfs.php
@@ -522,9 +485,8 @@ function eio_seek(mixed $fd, int $offset, int $length, int $pri = \EIO_PRI_DEFAU
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_syncfs(mixed $fd, int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_syncfs(mixed $fd, int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Sync a file segment with disk
  * @link https://www.php.net/manual/en/function.eio-sync-file-range.php
@@ -537,9 +499,8 @@ function eio_syncfs(mixed $fd, int $pri = \EIO_PRI_DEFAULT, mixed $callback = nu
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_sync_file_range(mixed $fd, int $offset, int $nbytes, int $flags, int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_sync_file_range(mixed $fd, int $offset, int $nbytes, int $flags, int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Allows the caller to directly manipulate the allocated disk space for a file
  * @link https://www.php.net/manual/en/function.eio-fallocate.php
@@ -552,9 +513,8 @@ function eio_sync_file_range(mixed $fd, int $offset, int $nbytes, int $flags, in
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_fallocate(mixed $fd, int $mode, int $offset, int $length, int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_fallocate(mixed $fd, int $mode, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Execute custom request like any other eio_* call
  * @link https://www.php.net/manual/en/function.eio-custom.php
@@ -564,9 +524,8 @@ function eio_fallocate(mixed $fd, int $mode, int $offset, int $length, int $pri 
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_custom(mixed $execute, int $pri, mixed $callback, mixed $data = null)
-{
-}
+function eio_custom(mixed $execute, int $pri, mixed $callback, mixed $data = null) {}
+
 /**
  * Artificially increase load. Could be useful in tests, benchmarking
  * @link https://www.php.net/manual/en/function.eio-busy.php
@@ -576,9 +535,8 @@ function eio_custom(mixed $execute, int $pri, mixed $callback, mixed $data = nul
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_busy(int $delay, int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_busy(int $delay, int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Does nothing, except go through the whole request cycle
  * @link https://www.php.net/manual/en/function.eio-nop.php
@@ -587,17 +545,15 @@ function eio_busy(int $delay, int $pri = \EIO_PRI_DEFAULT, mixed $callback = nul
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource|bool returns request resource on success, or false on failure.
  */
-function eio_nop(int $pri = \EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null)
-{
-}
+function eio_nop(int $pri = EIO_PRI_DEFAULT, mixed $callback = null, mixed $data = null) {}
+
 /**
  * Cancels a request
  * @link https://www.php.net/manual/en/function.eio-cancel.php
  * @param resource $req The request resource
  */
-function eio_cancel($req) : void
-{
-}
+function eio_cancel($req): void {}
+
 /**
  * Creates a request group
  * @link https://www.php.net/manual/en/function.eio-grp.php
@@ -605,121 +561,105 @@ function eio_cancel($req) : void
  * @param mixed $data Arbitrary variable passed to callback
  * @return resource returns request group resource on success, or false on failure.
  */
-function eio_grp(mixed $callback, mixed $data = null)
-{
-}
+function eio_grp(mixed $callback, mixed $data = null) {}
+
 /**
  * Adds a request to the request group
  * @link https://www.php.net/manual/en/function.eio-grp-add.php
  * @param resource $grp The request group resource returned by eio_grp()
  * @param resource $req The request resource
  */
-function eio_grp_add($grp, $req) : void
-{
-}
+function eio_grp_add($grp, $req): void {}
+
 /**
  * Set group limit
  * @link https://www.php.net/manual/en/function.eio-grp-limit.php
  * @param resource $grp The request group resource.
  * @param int $limit Number of requests in the group.
  */
-function eio_grp_limit($grp, int $limit) : void
-{
-}
+function eio_grp_limit($grp, int $limit): void {}
+
 /**
  * Cancels a request group
  * @link https://www.php.net/manual/en/function.eio-grp-cancel.php
  * @param resource $grp The request group resource returned by eio_grp().
  */
-function eio_grp_cancel($grp) : void
-{
-}
+function eio_grp_cancel($grp): void {}
+
 /**
  * Set maximum poll time
  * @link https://www.php.net/manual/en/function.eio-set-max-poll-time.php
  * @param float $nseconds Number of seconds
  */
-function eio_set_max_poll_time(float $nseconds) : void
-{
-}
+function eio_set_max_poll_time(float $nseconds): void {}
+
 /**
  * Set maximum number of requests processed in a poll
  * @link https://www.php.net/manual/en/function.eio-set-max-poll-reqs.php
  * @param int $value Number of requests
  */
-function eio_set_max_poll_reqs(int $value) : void
-{
-}
+function eio_set_max_poll_reqs(int $value): void {}
+
 /**
  * Set minimum parallel thread number
  * @link https://www.php.net/manual/en/function.eio-set-min-parallel.php
  * @param int $value Number of parallel threads.
  */
-function eio_set_min_parallel(int $value) : void
-{
-}
+function eio_set_min_parallel(int $value): void {}
+
 /**
  * Set maximum parallel threads
  * @link https://www.php.net/manual/en/function.eio-set-max-parallel.php
  * @param int $value Number of parallel threads
  */
-function eio_set_max_parallel(int $value) : void
-{
-}
+function eio_set_max_parallel(int $value): void {}
+
 /**
  * Set maximum number of idle threads
  * @link https://www.php.net/manual/en/function.eio-set-max-idle.php
  * @param int $value Number of idle threads.
  */
-function eio_set_max_idle(int $value) : void
-{
-}
+function eio_set_max_idle(int $value): void {}
+
 /**
  * Returns number of threads currently in use
  * @link https://www.php.net/manual/en/function.eio-nthreads.php
  * @return int returns number of threads currently in use.
  */
-function eio_nthreads() : int
-{
-}
+function eio_nthreads(): int {}
+
 /**
  * Returns number of requests to be processed
  * @link https://www.php.net/manual/en/function.eio-nreqs.php
  * @return int returns number of requests to be processed.
  */
-function eio_nreqs() : int
-{
-}
+function eio_nreqs(): int {}
+
 /**
  * Returns number of not-yet handled requests
  * @link https://www.php.net/manual/en/function.eio-nready.php
  * @return int returns number of not-yet handled requests
  */
-function eio_nready() : int
-{
-}
+function eio_nready(): int {}
+
 /**
  * Returns number of finished, but unhandled requests
  * @link https://www.php.net/manual/en/function.eio-npending.php
  * @return int returns number of finished, but unhandled requests.
  */
-function eio_npending() : int
-{
-}
+function eio_npending(): int {}
+
 /**
  * Get stream representing a variable used in internal communications with libeio
  * @link https://www.php.net/manual/en/function.eio-get-event-stream.php
  * @return resource|null returns stream on success; otherwise, null
  */
-function eio_get_event_stream()
-{
-}
+function eio_get_event_stream() {}
+
 /**
  * Returns string describing the last error associated with a request resource
  * @link https://www.php.net/manual/en/function.eio-get-last-error.php
  * @param resource $req The request resource
  * @return string returns string describing the last error associated with the request resource specified by req.
  */
-function eio_get_last_error($req) : string
-{
-}
+function eio_get_last_error($req): string {}

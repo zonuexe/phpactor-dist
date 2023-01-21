@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Tag;
+namespace Phpactor\DocblockParser\Ast\Tag;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TagNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\ValueNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\VariableNode;
+use Phpactor\DocblockParser\Ast\TagNode;
+use Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\ValueNode;
+use Phpactor\DocblockParser\Ast\VariableNode;
 class ParameterTag extends TagNode
 {
     protected const CHILD_NAMES = ['type', 'name', 'default'];
@@ -28,4 +28,3 @@ class ParameterTag extends TagNode
         return $this->default;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Tag\\ParameterTag', 'Phpactor\\DocblockParser\\Ast\\Tag\\ParameterTag', \false);

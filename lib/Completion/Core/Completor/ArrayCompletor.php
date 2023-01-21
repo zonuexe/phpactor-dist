@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Completor;
+namespace Phpactor\Completion\Core\Completor;
 
 use Generator;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class ArrayCompletor implements Completor
 {
     /**
@@ -21,4 +21,3 @@ class ArrayCompletor implements Completor
         return \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Completor\\ArrayCompletor', 'Phpactor\\Completion\\Core\\Completor\\ArrayCompletor', \false);

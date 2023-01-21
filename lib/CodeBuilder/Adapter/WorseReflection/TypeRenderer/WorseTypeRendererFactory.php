@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
+namespace Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
 
 final class WorseTypeRendererFactory
 {
@@ -10,14 +10,13 @@ final class WorseTypeRendererFactory
     public function __construct(private array $versionToRendererMap)
     {
     }
-    public function rendererFor(string $phpVersion) : WorseTypeRenderer
+    public function rendererFor(string $phpVersion) : \Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer
     {
         foreach ($this->versionToRendererMap as $version => $renderer) {
             if (\str_starts_with($phpVersion, $version)) {
                 return $renderer;
             }
         }
-        return new WorseTypeRenderer74();
+        return new \Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer74();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRendererFactory', 'Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRendererFactory', \false);

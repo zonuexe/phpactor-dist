@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassToFileExtra\Command;
+namespace Phpactor\Extension\ClassToFileExtra\Command;
 
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FormatHandler;
-use Phpactor202301\Phpactor\Extension\ClassToFileExtra\Application\FileInfo;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\Core\Console\Handler\FormatHandler;
+use Phpactor\Extension\ClassToFileExtra\Application\FileInfo;
 class FileInfoCommand extends Command
 {
     public function __construct(private FileInfo $infoForOffset, private DumperRegistry $dumperRegistry)
@@ -29,4 +29,3 @@ class FileInfoCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassToFileExtra\\Command\\FileInfoCommand', 'Phpactor\\Extension\\ClassToFileExtra\\Command\\FileInfoCommand', \false);

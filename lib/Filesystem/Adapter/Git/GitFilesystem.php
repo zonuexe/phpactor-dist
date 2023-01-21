@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Adapter\Git;
+namespace Phpactor\Filesystem\Adapter\Git;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileListProvider;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\Filesystem\Adapter\Simple\SimpleFilesystem;
-use Phpactor202301\Phpactor\Filesystem\Domain\CopyReport;
-use Phpactor202301\Phpactor\Filesystem\Domain\Exception\NotSupported;
+use Phpactor\Filesystem\Domain\FileList;
+use Phpactor\Filesystem\Domain\FileListProvider;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Adapter\Simple\SimpleFilesystem;
+use Phpactor\Filesystem\Domain\CopyReport;
+use Phpactor\Filesystem\Domain\Exception\NotSupported;
 use SplFileInfo;
 use Phpactor202301\Symfony\Component\Process\Process;
 use ArrayIterator;
@@ -86,4 +86,3 @@ class GitFilesystem extends SimpleFilesystem
         return \false === empty($out);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Adapter\\Git\\GitFilesystem', 'Phpactor\\Filesystem\\Adapter\\Git\\GitFilesystem', \false);

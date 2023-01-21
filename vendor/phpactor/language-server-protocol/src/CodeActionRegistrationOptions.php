@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, CodeActionOptions
  */
-class CodeActionRegistrationOptions extends TextDocumentRegistrationOptions
+class CodeActionRegistrationOptions extends \Phpactor\LanguageServerProtocol\TextDocumentRegistrationOptions
 {
     /**
      * A document selector to identify the scope of the registration. If set to null
@@ -101,9 +101,3 @@ class CodeActionRegistrationOptions extends TextDocumentRegistrationOptions
         throw $lastException;
     }
 }
-/**
- * Registration options for a [CodeActionRequest](#CodeActionRequest).
- *
- * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, CodeActionOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeActionRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\CodeActionRegistrationOptions', \false);

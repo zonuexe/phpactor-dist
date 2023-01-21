@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Handler;
+namespace Phpactor\LanguageServer\Core\Handler;
 
 use Phpactor202301\Amp\CancellationTokenSource;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\PassThroughArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\PassThroughArgumentResolver;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use RuntimeException;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-final class HandlerMethodRunner implements MethodRunner
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+final class HandlerMethodRunner implements \Phpactor\LanguageServer\Core\Handler\MethodRunner
 {
     /**
      * @var Handlers
@@ -36,10 +36,10 @@ final class HandlerMethodRunner implements MethodRunner
      * @var ArgumentResolver|null
      */
     private $argumentResolver;
-    public function __construct(Handlers $handlers, ?ArgumentResolver $argumentResolver = null, ?LoggerInterface $logger = null, ?HandlerMethodResolver $resolver = null)
+    public function __construct(\Phpactor\LanguageServer\Core\Handler\Handlers $handlers, ?ArgumentResolver $argumentResolver = null, ?LoggerInterface $logger = null, ?\Phpactor\LanguageServer\Core\Handler\HandlerMethodResolver $resolver = null)
     {
         $this->handlers = $handlers;
-        $this->resolver = $resolver ?: new HandlerMethodResolver();
+        $this->resolver = $resolver ?: new \Phpactor\LanguageServer\Core\Handler\HandlerMethodResolver();
         $this->logger = $logger ?: new NullLogger();
         $this->argumentResolver = $argumentResolver ?: new PassThroughArgumentResolver();
     }
@@ -85,4 +85,3 @@ final class HandlerMethodRunner implements MethodRunner
         $tokenSource->cancel();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Handler\\HandlerMethodRunner', 'Phpactor\\LanguageServer\\Core\\Handler\\HandlerMethodRunner', \false);

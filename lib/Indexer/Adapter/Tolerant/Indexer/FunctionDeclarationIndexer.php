@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
-use Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\TextDocument\TextDocument;
 class FunctionDeclarationIndexer implements TolerantIndexer
 {
     public function canIndex(Node $node) : bool
@@ -28,4 +28,3 @@ class FunctionDeclarationIndexer implements TolerantIndexer
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\FunctionDeclarationIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\FunctionDeclarationIndexer', \false);

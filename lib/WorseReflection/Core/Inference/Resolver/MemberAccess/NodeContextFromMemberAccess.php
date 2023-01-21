@@ -1,39 +1,39 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\TraitSelectOrAliasClauseList;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GenericClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GlobbedConstantUnionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\SelfType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StaticType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
+use Phpactor\WorseReflection\Core\Type\GlobbedConstantUnionType;
+use Phpactor\WorseReflection\Core\Type\SelfType;
+use Phpactor\WorseReflection\Core\Type\StaticType;
+use Phpactor\WorseReflection\Core\Type\StringLiteralType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 class NodeContextFromMemberAccess
 {
     /**
@@ -218,4 +218,3 @@ class NodeContextFromMemberAccess
         return $type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\MemberAccess\\NodeContextFromMemberAccess', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\MemberAccess\\NodeContextFromMemberAccess', \false);

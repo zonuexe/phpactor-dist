@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -88,7 +88,3 @@ class DefinitionClientCapabilities
         throw $lastException;
     }
 }
-/**
- * Client Capabilities for a [DefinitionRequest](#DefinitionRequest).
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DefinitionClientCapabilities', 'Phpactor\\LanguageServerProtocol\\DefinitionClientCapabilities', \false);

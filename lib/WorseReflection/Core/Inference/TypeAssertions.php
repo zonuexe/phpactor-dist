@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use ArrayIterator;
 use Closure;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\UnionType;
 use RuntimeException;
 use Traversable;
 /**
@@ -30,7 +30,7 @@ final class TypeAssertions implements IteratorAggregate
     }
     public function __toString() : string
     {
-        return \implode("\n", \array_map(function (TypeAssertion $typeAssertion) {
+        return \implode("\n", \array_map(function (\Phpactor\WorseReflection\Core\Inference\TypeAssertion $typeAssertion) {
             return $typeAssertion->__toString();
         }, $this->typeAssertions));
     }
@@ -38,7 +38,7 @@ final class TypeAssertions implements IteratorAggregate
     {
         return new ArrayIterator($this->typeAssertions);
     }
-    public function add(TypeAssertion $typeAssertion) : self
+    public function add(\Phpactor\WorseReflection\Core\Inference\TypeAssertion $typeAssertion) : self
     {
         $assertions = $this->typeAssertions;
         $assertions[] = $typeAssertion;
@@ -46,19 +46,19 @@ final class TypeAssertions implements IteratorAggregate
     }
     public function variables() : self
     {
-        return new self(\array_filter($this->typeAssertions, function (TypeAssertion $typeAssertion) {
-            return $typeAssertion->variableType() === TypeAssertion::VARIABLE_TYPE_VARIABLE;
+        return new self(\array_filter($this->typeAssertions, function (\Phpactor\WorseReflection\Core\Inference\TypeAssertion $typeAssertion) {
+            return $typeAssertion->variableType() === \Phpactor\WorseReflection\Core\Inference\TypeAssertion::VARIABLE_TYPE_VARIABLE;
         }));
     }
     public function properties() : self
     {
-        return new self(\array_filter($this->typeAssertions, function (TypeAssertion $typeAssertion) {
-            return $typeAssertion->variableType() === TypeAssertion::VARIABLE_TYPE_PROPERTY;
+        return new self(\array_filter($this->typeAssertions, function (\Phpactor\WorseReflection\Core\Inference\TypeAssertion $typeAssertion) {
+            return $typeAssertion->variableType() === \Phpactor\WorseReflection\Core\Inference\TypeAssertion::VARIABLE_TYPE_PROPERTY;
         }));
     }
     public function negate() : self
     {
-        return $this->map(function (TypeAssertion $assertion) {
+        return $this->map(function (\Phpactor\WorseReflection\Core\Inference\TypeAssertion $assertion) {
             $assertion->negate();
             return $assertion;
         });
@@ -67,7 +67,7 @@ final class TypeAssertions implements IteratorAggregate
     {
         return new self(\array_map($closure, $this->typeAssertions));
     }
-    public function merge(TypeAssertions $typeAssertions) : self
+    public function merge(\Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions) : self
     {
         $assertions = $this->typeAssertions;
         foreach ($typeAssertions as $key => $assertion) {
@@ -82,11 +82,11 @@ final class TypeAssertions implements IteratorAggregate
      *   ||
      *   is_bool($foobar)      => string|bool
      */
-    public function or(TypeAssertions $typeAssertions) : self
+    public function or(\Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions) : self
     {
-        return $this->aggregate($typeAssertions, function (Type $type, TypeAssertion $left, TypeAssertion $right) {
+        return $this->aggregate($typeAssertions, function (Type $type, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $left, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $right) {
             return UnionType::fromTypes($left->apply($type), $right->apply($type));
-        }, function (Type $type, TypeAssertion $left, TypeAssertion $right) {
+        }, function (Type $type, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $left, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $right) {
             return UnionType::fromTypes($left->negate()->apply($type), $right->negate()->apply($type));
         });
     }
@@ -97,15 +97,15 @@ final class TypeAssertions implements IteratorAggregate
      *   &&
      *   $foobar instanceof B  => A&B
      */
-    public function and(TypeAssertions $typeAssertions) : self
+    public function and(\Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions) : self
     {
-        return $this->aggregate($typeAssertions, function (Type $type, TypeAssertion $left, TypeAssertion $right) {
+        return $this->aggregate($typeAssertions, function (Type $type, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $left, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $right) {
             return $right->apply($left->apply($type));
-        }, function (Type $type, TypeAssertion $left, TypeAssertion $right) {
+        }, function (Type $type, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $left, \Phpactor\WorseReflection\Core\Inference\TypeAssertion $right) {
             return UnionType::fromTypes($left->negate()->apply($type), $right->negate()->apply($type));
         });
     }
-    public function firstForName(string $name) : TypeAssertion
+    public function firstForName(string $name) : \Phpactor\WorseReflection\Core\Inference\TypeAssertion
     {
         foreach ($this->typeAssertions as $assertion) {
             if ($assertion->name() === $name) {
@@ -114,7 +114,7 @@ final class TypeAssertions implements IteratorAggregate
         }
         throw new RuntimeException(\sprintf('Type assertion collection has no assertion for name "%s"', $name));
     }
-    private function aggregate(TypeAssertions $typeAssertions, Closure $true, Closure $false) : self
+    private function aggregate(\Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions, Closure $true, Closure $false) : self
     {
         $resolved = [];
         foreach ($this->typeAssertions as $typeAssertion) {
@@ -127,17 +127,13 @@ final class TypeAssertions implements IteratorAggregate
             }
             $left = $resolved[$typeAssertion->name()];
             $right = $typeAssertion;
-            $resolved[$typeAssertion->name()] = TypeAssertion::variable($typeAssertion->name(), $typeAssertion->offset(), fn(Type $type) => $true($type, $left, $right), fn(Type $type) => $false($type, $left, $right));
+            $resolved[$typeAssertion->name()] = \Phpactor\WorseReflection\Core\Inference\TypeAssertion::variable($typeAssertion->name(), $typeAssertion->offset(), fn(Type $type) => $true($type, $left, $right), fn(Type $type) => $false($type, $left, $right));
         }
         return new self($resolved);
     }
-    private function key(TypeAssertion $assertion) : string
+    private function key(\Phpactor\WorseReflection\Core\Inference\TypeAssertion $assertion) : string
     {
         $key = $assertion->variableType() . $assertion->name() . $assertion->offset();
         return $key;
     }
 }
-/**
- * @implements IteratorAggregate<array-key,TypeAssertion>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\TypeAssertions', 'Phpactor\\WorseReflection\\Core\\Inference\\TypeAssertions', \false);

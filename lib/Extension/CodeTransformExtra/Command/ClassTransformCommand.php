@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Command;
+namespace Phpactor\Extension\CodeTransformExtra\Command;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Phpactor;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Phpactor;
 use Phpactor202301\SebastianBergmann\Diff\Differ;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\Transformer;
+use Phpactor\Extension\CodeTransformExtra\Application\Transformer;
 use Phpactor202301\Webmozart\Glob\Glob;
 use RuntimeException;
 class ClassTransformCommand extends Command
@@ -67,4 +67,3 @@ class ClassTransformCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Command\\ClassTransformCommand', 'Phpactor\\Extension\\CodeTransformExtra\\Command\\ClassTransformCommand', \false);

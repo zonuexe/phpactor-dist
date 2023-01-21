@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Get the last occurred error
  * @link https://php.net/manual/en/function.error-get-last.php
@@ -15,10 +14,9 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * yet.
  */
 #[ArrayShape(["type" => "int", "message" => "string", "file" => "string", "line" => "int"])]
-#[Pure(\true)]
-function error_get_last() : ?array
-{
-}
+#[Pure(true)]
+function error_get_last(): ?array {}
+
 /**
  * Call the callback given by the first parameter
  * @link https://php.net/manual/en/function.call-user-func.php
@@ -39,9 +37,8 @@ function error_get_last() : ?array
  * </p>
  * @return mixed the function result, or false on error.
  */
-function call_user_func(callable $callback, mixed ...$args) : mixed
-{
-}
+function call_user_func(callable $callback, mixed ...$args): mixed {}
+
 /**
  * Call a callback with an array of parameters
  * @link https://php.net/manual/en/function.call-user-func-array.php
@@ -53,9 +50,8 @@ function call_user_func(callable $callback, mixed ...$args) : mixed
  * </p>
  * @return mixed the function result, or false on error.
  */
-function call_user_func_array(callable $callback, array $args) : mixed
-{
-}
+function call_user_func_array(callable $callback, array $args): mixed {}
+
 /**
  * Call a user method on an specific object
  * @link https://php.net/manual/en/function.call-user-method.php
@@ -67,9 +63,8 @@ function call_user_func_array(callable $callback, array $args) : mixed
  * @see call_user_func()
  */
 #[Deprecated(reason: "use call_user_func() instead", since: "5.3")]
-function call_user_method(string $method_name, object &$obj, ...$parameter) : mixed
-{
-}
+function call_user_method(string $method_name, object &$obj, ...$parameter): mixed {}
+
 /**
  * Call a user method given with an array of parameters
  * @link https://php.net/manual/en/function.call-user-method-array.php
@@ -81,9 +76,8 @@ function call_user_method(string $method_name, object &$obj, ...$parameter) : mi
  * @see call_user_func()
  */
 #[Deprecated(reason: "use call_user_func() instead", since: "5.3")]
-function call_user_method_array(string $method_name, object &$obj, array $params) : mixed
-{
-}
+function call_user_method_array(string $method_name, object &$obj, array $params): mixed {}
+
 /**
  * Call a static method
  * @link https://php.net/manual/en/function.forward-static-call.php
@@ -97,9 +91,8 @@ function call_user_method_array(string $method_name, object &$obj, array $params
  * </p>
  * @return mixed the function result, or false on error.
  */
-function forward_static_call(callable $callback, mixed ...$args) : mixed
-{
-}
+function forward_static_call(callable $callback, mixed ...$args): mixed {}
+
 /**
  * Call a static method and pass the arguments as array
  * @link https://php.net/manual/en/function.forward-static-call-array.php
@@ -111,9 +104,8 @@ function forward_static_call(callable $callback, mixed ...$args) : mixed
  * @param array $args
  * @return mixed the function result, or false on error.
  */
-function forward_static_call_array(callable $callback, array $args) : mixed
-{
-}
+function forward_static_call_array(callable $callback, array $args): mixed {}
+
 /**
  * Generates a storable representation of a value
  * @link https://php.net/manual/en/function.serialize.php
@@ -140,9 +132,8 @@ function forward_static_call_array(callable $callback, array $args) : mixed
  * @return string a string containing a byte-stream representation of
  * value that can be stored anywhere.
  */
-function serialize(mixed $value) : string
-{
-}
+function serialize(mixed $value): string {}
+
 /**
  * Creates a PHP value from a stored representation
  * @link https://php.net/manual/en/function.unserialize.php
@@ -185,9 +176,8 @@ function serialize(mixed $value) : string
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.</p>
  */
-function unserialize(string $data, #[PhpStormStubsElementAvailable(from: '7.0')] array $options = []) : mixed
-{
-}
+function unserialize(string $data, #[PhpStormStubsElementAvailable(from: '7.0')] array $options = []): mixed {}
+
 /**
  * Dumps information about a variable
  * @link https://php.net/manual/en/function.var-dump.php
@@ -198,9 +188,8 @@ function unserialize(string $data, #[PhpStormStubsElementAvailable(from: '7.0')]
  * @return void
  */
 #[PhpStormStubsElementAvailable(from: '8.0')]
-function var_dump(mixed $value, mixed ...$values) : void
-{
-}
+function var_dump(mixed $value, mixed ...$values): void {}
+
 /**
  * Dumps information about a variable
  * @link https://php.net/manual/en/function.var-dump.php
@@ -210,9 +199,8 @@ function var_dump(mixed $value, mixed ...$values) : void
  * @return void
  */
 #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')]
-function var_dump(...$vars) : void
-{
-}
+function var_dump(...$vars): void {}
+
 /**
  * Outputs or returns a parsable string representation of a variable
  * @link https://php.net/manual/en/function.var-export.php
@@ -227,9 +215,8 @@ function var_dump(...$vars) : void
  * parameter is used and evaluates to true. Otherwise, this function will
  * return null.
  */
-function var_export(mixed $value, bool $return = \false) : ?string
-{
-}
+function var_export(mixed $value, bool $return = false): ?string {}
+
 /**
  * Dumps a string representation of an internal zend value to output
  * @link https://php.net/manual/en/function.debug-zval-dump.php
@@ -239,9 +226,12 @@ function var_export(mixed $value, bool $return = \false) : ?string
  * </p>
  * @return void
  */
-function debug_zval_dump(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $values, mixed ...$values) : void
-{
-}
+function debug_zval_dump(
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $values,
+    mixed ...$values
+): void {}
+
 /**
  * Prints human-readable information about a variable
  * @link https://php.net/manual/en/function.print-r.php
@@ -259,9 +249,8 @@ function debug_zval_dump(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $va
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
  */
-function print_r(mixed $value, bool $return = \false) : string|true
-{
-}
+function print_r(mixed $value, bool $return = false): string|true {}
+
 /**
  * Returns the amount of memory allocated to PHP
  * @link https://php.net/manual/en/function.memory-get-usage.php
@@ -272,10 +261,9 @@ function print_r(mixed $value, bool $return = \false) : string|true
  * </p>
  * @return int the memory amount in bytes.
  */
-#[Pure(\true)]
-function memory_get_usage(bool $real_usage = \false) : int
-{
-}
+#[Pure(true)]
+function memory_get_usage(bool $real_usage = false): int {}
+
 /**
  * Returns the peak of memory allocated by PHP
  * @link https://php.net/manual/en/function.memory-get-peak-usage.php
@@ -286,16 +274,14 @@ function memory_get_usage(bool $real_usage = \false) : int
  * </p>
  * @return int the memory peak in bytes.
  */
-#[Pure(\true)]
-function memory_get_peak_usage(bool $real_usage = \false) : int
-{
-}
+#[Pure(true)]
+function memory_get_peak_usage(bool $real_usage = false): int {}
+
 /**
  * @since 8.2
  */
-function memory_reset_peak_usage() : void
-{
-}
+function memory_reset_peak_usage(): void {}
+
 /**
  * Register a function for execution on shutdown
  * @link https://php.net/manual/en/function.register-shutdown-function.php
@@ -320,9 +306,8 @@ function memory_reset_peak_usage() : void
  * @return bool|null
  */
 #[LanguageLevelTypeAware(['8.2' => 'void'], default: 'null|bool')]
-function register_shutdown_function(callable $callback, mixed ...$args) : ?bool
-{
-}
+function register_shutdown_function(callable $callback, mixed ...$args): ?bool {}
+
 /**
  * Register a function for execution on each tick
  * @link https://php.net/manual/en/function.register-tick-function.php
@@ -334,9 +319,8 @@ function register_shutdown_function(callable $callback, mixed ...$args) : ?bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function register_tick_function(callable $callback, mixed ...$args) : bool
-{
-}
+function register_tick_function(callable $callback, mixed ...$args): bool {}
+
 /**
  * De-register a function for execution on each tick
  * @link https://php.net/manual/en/function.unregister-tick-function.php
@@ -346,9 +330,8 @@ function register_tick_function(callable $callback, mixed ...$args) : bool
  * </p>
  * @return void
  */
-function unregister_tick_function(callable $callback) : void
-{
-}
+function unregister_tick_function(callable $callback): void {}
+
 /**
  * Syntax highlighting of a file
  * @link https://php.net/manual/en/function.highlight-file.php
@@ -363,9 +346,8 @@ function unregister_tick_function(callable $callback) : void
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  */
-function highlight_file(string $filename, bool $return = \false) : string|bool
-{
-}
+function highlight_file(string $filename, bool $return = false): string|bool {}
+
 /**
  * Alias:
  * {@see highlight_file}
@@ -374,9 +356,8 @@ function highlight_file(string $filename, bool $return = \false) : string|bool
  * @param bool $return [optional]
  * @return string|bool
  */
-function show_source(string $filename, bool $return = \false) : string|bool
-{
-}
+function show_source(string $filename, bool $return = false): string|bool {}
+
 /**
  * Syntax highlighting of a string
  * @link https://php.net/manual/en/function.highlight-string.php
@@ -391,9 +372,8 @@ function show_source(string $filename, bool $return = \false) : string|bool
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  */
-function highlight_string(string $string, bool $return = \false) : string|bool
-{
-}
+function highlight_string(string $string, bool $return = false): string|bool {}
+
 /**
  * Get the system's high resolution time
  * @link https://secure.php.net/manual/en/function.hrtime.php
@@ -402,10 +382,12 @@ function highlight_string(string $string, bool $return = \false) : string|bool
  * @return int[]|int|float|false Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
-#[Pure(\true)]
-function hrtime(#[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $as_number, #[PhpStormStubsElementAvailable(from: '8.0')] bool $as_number = \false) : array|int|float|false
-{
-}
+#[Pure(true)]
+function hrtime(
+    #[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $as_number,
+    #[PhpStormStubsElementAvailable(from: '8.0')] bool $as_number = false
+): array|int|float|false {}
+
 /**
  * Return source with stripped comments and whitespace
  * @link https://php.net/manual/en/function.php-strip-whitespace.php
@@ -421,10 +403,9 @@ function hrtime(#[PhpStormStubsElementAvailable(from: '7.3', to: '7.4')] bool $a
  * prior behavior, see bug report
  * #29606.
  */
-#[Pure(\true)]
-function php_strip_whitespace(string $filename) : string
-{
-}
+#[Pure(true)]
+function php_strip_whitespace(string $filename): string {}
+
 /**
  * Gets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-get.php
@@ -435,10 +416,9 @@ function php_strip_whitespace(string $filename) : string
  * @return string|false the value of the configuration option as a string on success, or
  * an empty string on failure or for null values.
  */
-#[Pure(\true)]
-function ini_get(string $option) : string|false
-{
-}
+#[Pure(true)]
+function ini_get(string $option): string|false {}
+
 /**
  * Gets all configuration options
  * @link https://php.net/manual/en/function.ini-get-all.php
@@ -472,11 +452,10 @@ function ini_get(string $option) : string|false
  * why access shows the appropriate bitmask values.
  * </p>
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[ArrayShape(["global_value" => "string", "local_value" => "string", "access" => "int"])]
-function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = \true) : array|false
-{
-}
+function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '7.0')] bool $details = true): array|false {}
+
 /**
  * Sets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-set.php
@@ -493,9 +472,8 @@ function ini_get_all(?string $extension, #[PhpStormStubsElementAvailable(from: '
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value) : string|false
-{
-}
+function ini_set(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value): string|false {}
+
 /**
  * Alias:
  * {@see ini_set}
@@ -505,9 +483,8 @@ function ini_set(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|
  * @param string $value
  * @return string|false
  */
-function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value) : string|false
-{
-}
+function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|int|float|bool|null'], default: 'string')] $value): string|false {}
+
 /**
  * Restores the value of a configuration option
  * @link https://php.net/manual/en/function.ini-restore.php
@@ -517,26 +494,23 @@ function ini_alter(string $option, #[LanguageLevelTypeAware(['8.1' => 'string|in
  * </p>
  * @return void
  */
-function ini_restore(string $option) : void
-{
-}
+function ini_restore(string $option): void {}
+
 /**
  * @param string $shorthand
  * @return int
  * @since 8.2
  */
-function ini_parse_quantity(string $shorthand) : int
-{
-}
+function ini_parse_quantity(string $shorthand): int {}
+
 /**
  * Gets the current include_path configuration option
  * @link https://php.net/manual/en/function.get-include-path.php
  * @return string|false the path, as a string.
  */
-#[Pure(\true)]
-function get_include_path() : string|false
-{
-}
+#[Pure(true)]
+function get_include_path(): string|false {}
+
 /**
  * Sets the include_path configuration option
  * @link https://php.net/manual/en/function.set-include-path.php
@@ -546,9 +520,8 @@ function get_include_path() : string|false
  * @return string|false the old include_path on
  * success or false on failure.
  */
-function set_include_path(string $include_path) : string|false
-{
-}
+function set_include_path(string $include_path): string|false {}
+
 /**
  * Restores the value of the include_path configuration option
  * @link https://php.net/manual/en/function.restore-include-path.php
@@ -556,9 +529,8 @@ function set_include_path(string $include_path) : string|false
  * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
-function restore_include_path()
-{
-}
+function restore_include_path() {}
+
 /**
  * Send a cookie
  * @link https://php.net/manual/en/function.setcookie.php
@@ -634,9 +606,8 @@ function restore_include_path()
  * setcookie successfully runs, it will return true.
  * This does not indicate whether the user accepted the cookie.
  */
-function setcookie(string $name, $value = "", $expires_or_options = 0, $path = "", $domain = "", $secure = \false, $httponly = \false) : bool
-{
-}
+function setcookie(string $name, $value = "", $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool {}
+
 /**
  * Send a cookie
  *
@@ -658,9 +629,8 @@ function setcookie(string $name, $value = "", $expires_or_options = 0, $path = "
  *                        This does not indicate whether the user accepted the cookie.
  * @since 7.3
  */
-function setcookie(string $name, $value = '', array $options = []) : bool
-{
-}
+function setcookie(string $name, $value = '', array $options = []): bool {}
+
 /**
  * Send a cookie without urlencoding the cookie value
  * @link https://php.net/manual/en/function.setrawcookie.php
@@ -673,9 +643,8 @@ function setcookie(string $name, $value = '', array $options = []) : bool
  * @param bool $httponly [optional]
  * @return bool true on success or false on failure.
  */
-function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path = "", $domain = "", $secure = \false, $httponly = \false) : bool
-{
-}
+function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path = "", $domain = "", $secure = false, $httponly = false): bool {}
+
 /**
  * Send a cookie without urlencoding the cookie value
  *
@@ -697,9 +666,8 @@ function setrawcookie(string $name, $value = '', $expires_or_options = 0, $path 
  *                        This does not indicate whether the user accepted the cookie.
  * @since 7.3
  */
-function setrawcookie(string $name, $value = '', array $options = []) : bool
-{
-}
+function setrawcookie(string $name, $value = '', array $options = []): bool {}
+
 /**
  * Send a raw HTTP header
  * @link https://php.net/manual/en/function.header.php
@@ -734,9 +702,8 @@ function setrawcookie(string $name, $value = '', array $options = []) : bool
  * </p>
  * @return void
  */
-function header(string $header, bool $replace = \true, int $response_code = 0) : void
-{
-}
+function header(string $header, bool $replace = true, int $response_code = 0): void {}
+
 /**
  * Remove previously set headers
  * @link https://php.net/manual/en/function.header-remove.php
@@ -746,9 +713,8 @@ function header(string $header, bool $replace = \true, int $response_code = 0) :
  * This parameter is case-insensitive.
  * @return void
  */
-function header_remove(?string $name) : void
-{
-}
+function header_remove(?string $name): void {}
+
 /**
  * Checks if or where headers have been sent
  * @link https://php.net/manual/en/function.headers-sent.php
@@ -765,27 +731,24 @@ function header_remove(?string $name) : void
  * @return bool headers_sent will return false if no HTTP headers
  * have already been sent or true otherwise.
  */
-function headers_sent(&$filename, &$line) : bool
-{
-}
+function headers_sent(&$filename, &$line): bool {}
+
 /**
  * Returns a list of response headers sent (or ready to send)
  * @link https://php.net/manual/en/function.headers-list.php
  * @return array a numerically indexed array of headers.
  */
 #[Pure]
-function headers_list() : array
-{
-}
+function headers_list(): array {}
+
 /**
  * Fetches all HTTP request headers from the current request
  * @link https://php.net/manual/en/function.apache-request-headers.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function apache_request_headers() : false|array
-{
-}
+function apache_request_headers(): false|array {}
+
 /**
  * Fetches all HTTP headers from the current request.
  * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
@@ -793,18 +756,16 @@ function apache_request_headers() : false|array
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
 #[Pure]
-function getallheaders() : false|array
-{
-}
+function getallheaders(): false|array {}
+
 /**
  * Check whether client disconnected
  * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.
  */
-#[Pure(\true)]
-function connection_aborted() : int
-{
-}
+#[Pure(true)]
+function connection_aborted(): int {}
+
 /**
  * Returns connection status bitfield
  * @link https://php.net/manual/en/function.connection-status.php
@@ -812,10 +773,9 @@ function connection_aborted() : int
  * CONNECTION_XXX constants to determine the connection
  * status.
  */
-#[Pure(\true)]
-function connection_status() : int
-{
-}
+#[Pure(true)]
+function connection_status(): int {}
+
 /**
  * Set whether a client disconnect should abort script execution
  * @link https://php.net/manual/en/function.ignore-user-abort.php
@@ -826,9 +786,8 @@ function connection_status() : int
  * </p>
  * @return int the previous setting, as an integer.
  */
-function ignore_user_abort(?bool $enable) : int
-{
-}
+function ignore_user_abort(?bool $enable): int {}
+
 /**
  * Parse a configuration file
  * @link https://php.net/manual/en/function.parse-ini-file.php
@@ -857,10 +816,9 @@ function ignore_user_abort(?bool $enable) : int
  * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  */
-#[Pure(\true)]
-function parse_ini_file(string $filename, bool $process_sections = \false, int $scanner_mode = \INI_SCANNER_NORMAL) : array|false
-{
-}
+#[Pure(true)]
+function parse_ini_file(string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
+
 /**
  * Parse a configuration string
  * @link https://php.net/manual/en/function.parse-ini-string.php
@@ -882,9 +840,8 @@ function parse_ini_file(string $filename, bool $process_sections = \false, int $
  * and false on failure.
  */
 #[Pure]
-function parse_ini_string(string $ini_string, bool $process_sections = \false, int $scanner_mode = \INI_SCANNER_NORMAL) : array|false
-{
-}
+function parse_ini_string(string $ini_string, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array|false {}
+
 /**
  * Tells whether the file was uploaded via HTTP POST
  * @link https://php.net/manual/en/function.is-uploaded-file.php
@@ -893,10 +850,9 @@ function parse_ini_string(string $ini_string, bool $process_sections = \false, i
  * </p>
  * @return bool true on success or false on failure.
  */
-#[Pure(\true)]
-function is_uploaded_file(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_uploaded_file(string $filename): bool {}
+
 /**
  * Moves an uploaded file to a new location
  * @link https://php.net/manual/en/function.move-uploaded-file.php
@@ -917,18 +873,16 @@ function is_uploaded_file(string $filename) : bool
  * move_uploaded_file will return
  * false. Additionally, a warning will be issued.
  */
-function move_uploaded_file(string $from, string $to) : bool
-{
-}
+function move_uploaded_file(string $from, string $to): bool {}
+
 /**
  * @return array|false
  * @since 7.3
  */
 #[Pure]
 #[ArrayShape(["description" => "string", "mac" => "string", "mtu" => "int", "unicast" => "array", "up" => "bool"])]
-function net_get_interfaces() : array|false
-{
-}
+function net_get_interfaces(): array|false {}
+
 /**
  * Get the Internet host name corresponding to a given IP address
  * @link https://php.net/manual/en/function.gethostbyaddr.php
@@ -939,9 +893,8 @@ function net_get_interfaces() : array|false
  * on failure.
  */
 #[Pure]
-function gethostbyaddr(string $ip) : string|false
-{
-}
+function gethostbyaddr(string $ip): string|false {}
+
 /**
  * Get the IPv4 address corresponding to a given Internet host name
  * @link https://php.net/manual/en/function.gethostbyname.php
@@ -952,9 +905,8 @@ function gethostbyaddr(string $ip) : string|false
  * hostname on failure.
  */
 #[Pure]
-function gethostbyname(string $hostname) : string
-{
-}
+function gethostbyname(string $hostname): string {}
+
 /**
  * Get a list of IPv4 addresses corresponding to a given Internet host
  * name
@@ -966,9 +918,8 @@ function gethostbyname(string $hostname) : string
  * hostname could not be resolved.
  */
 #[Pure]
-function gethostbynamel(string $hostname) : array|false
-{
-}
+function gethostbynamel(string $hostname): array|false {}
+
 /**
  * Gets the host name
  * @link https://php.net/manual/en/function.gethostname.php
@@ -976,9 +927,8 @@ function gethostbynamel(string $hostname) : array|false
  * returned.
  */
 #[Pure]
-function gethostname() : string|false
-{
-}
+function gethostname(): string|false {}
+
 /**
  * Alias:
  * {@see checkdnsrr}
@@ -993,9 +943,8 @@ function gethostname() : string|false
  * </p>
  * @return bool Returns <b>TRUE</b> if any records are found; returns <b>FALSE</b> if no records were found or if an error occurred.
  */
-function dns_check_record(string $hostname, string $type = 'MX') : bool
-{
-}
+function dns_check_record(string $hostname, string $type = 'MX'): bool {}
+
 /**
  * Check DNS records corresponding to a given Internet host name or IP address
  * @link https://php.net/manual/en/function.checkdnsrr.php
@@ -1011,9 +960,8 @@ function dns_check_record(string $hostname, string $type = 'MX') : bool
  * were found or if an error occurred.
  */
 #[Pure]
-function checkdnsrr(string $hostname, string $type = 'MX') : bool
-{
-}
+function checkdnsrr(string $hostname, string $type = 'MX'): bool {}
+
 /**
  * Alias:
  * {@see getmxrr}
@@ -1023,9 +971,8 @@ function checkdnsrr(string $hostname, string $type = 'MX') : bool
  * @param array &$weights [optional]
  * @return bool
  */
-function dns_get_mx(string $hostname, &$hosts, &$weights) : bool
-{
-}
+function dns_get_mx(string $hostname, &$hosts, &$weights): bool {}
+
 /**
  * Get MX records corresponding to a given Internet host name
  * @link https://php.net/manual/en/function.getmxrr.php
@@ -1043,9 +990,8 @@ function dns_get_mx(string $hostname, &$hosts, &$weights) : bool
  * @return bool true if any records are found; returns false if no records
  * were found or if an error occurred.
  */
-function getmxrr(string $hostname, &$hosts, &$weights) : bool
-{
-}
+function getmxrr(string $hostname, &$hosts, &$weights): bool {}
+
 /**
  * Fetch DNS Resource Records associated with a hostname
  * @link https://php.net/manual/en/function.dns-get-record.php
@@ -1253,6 +1199,4 @@ function getmxrr(string $hostname, &$hosts, &$weights) : bool
  * </tr>
  * </table>
  */
-function dns_get_record(string $hostname, int $type = \DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = \false) : array|false
-{
-}
+function dns_get_record(string $hostname, int $type = DNS_ANY, &$authoritative_name_servers, &$additional_records, bool $raw = false): array|false {}

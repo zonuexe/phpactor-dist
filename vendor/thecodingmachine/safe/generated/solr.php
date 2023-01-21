@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SolrException;
+use Safe\Exceptions\SolrException;
+
 /**
  * This function returns the current version of the extension as a string.
  *
@@ -10,11 +11,11 @@ use Phpactor202301\Safe\Exceptions\SolrException;
  * @throws SolrException
  *
  */
-function solr_get_version() : string
+function solr_get_version(): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \solr_get_version();
-    if ($result === \false) {
+    if ($result === false) {
         throw SolrException::createFromPhpError();
     }
     return $result;

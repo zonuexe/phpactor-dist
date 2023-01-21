@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -26,7 +26,7 @@ class Location
      * @param string $uri
      * @param Range $range
      */
-    public function __construct(string $uri, Range $range)
+    public function __construct(string $uri, \Phpactor\LanguageServerProtocol\Range $range)
     {
         $this->uri = $uri;
         $this->range = $range;
@@ -37,7 +37,7 @@ class Location
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['uri' => ['names' => [], 'iterable' => \false], 'range' => ['names' => [Range::class], 'iterable' => \false]];
+        $map = ['uri' => ['names' => [], 'iterable' => \false], 'range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -87,8 +87,3 @@ class Location
         throw $lastException;
     }
 }
-/**
- * Represents a location inside a resource, such as a line
- * inside a text file.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\Location', 'Phpactor\\LanguageServerProtocol\\Location', \false);

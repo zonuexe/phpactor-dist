@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Method;
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Domain\Prototype\Method;
 use RuntimeException;
-class ClassMethodUpdater extends AbstractMethodUpdater
+class ClassMethodUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\AbstractMethodUpdater
 {
     public function memberDeclarationsNode(ClassLike $classNode)
     {
@@ -35,4 +35,3 @@ class ClassMethodUpdater extends AbstractMethodUpdater
         throw new RuntimeException(\sprintf('Cnanot get member declarations for "%s"', \get_class($classNode)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\ClassMethodUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\ClassMethodUpdater', \false);

@@ -1,32 +1,24 @@
 <?php
-
-namespace Phpactor202301;
-
 // Start of Phar v.2.0.1
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+
 /**
  * The PharException class provides a phar-specific exception class
  * for try/catch blocks.
  * @link https://php.net/manual/en/class.pharexception.php
  */
-class PharException extends \Exception
-{
-}
-/**
- * The PharException class provides a phar-specific exception class
- * for try/catch blocks.
- * @link https://php.net/manual/en/class.pharexception.php
- */
-\class_alias('Phpactor202301\\PharException', 'PharException', \false);
+class PharException extends Exception {}
+
 /**
  * The Phar class provides a high-level interface to accessing and creating
  * phar archives.
  * @link https://php.net/manual/en/class.phar.php
  */
-class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \SeekableIterator, \Countable, \ArrayAccess
+class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Countable, ArrayAccess
 {
     public const BZ2 = 8192;
     public const GZ = 4096;
@@ -44,6 +36,7 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
     public const SHA512 = 4;
     public const OPENSSL_SHA256 = 5;
     public const OPENSSL_SHA512 = 6;
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Construct a Phar archive object
@@ -62,12 +55,15 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @throws BadMethodCallException If called twice.
      * @throws UnexpectedValueException If the phar archive can't be opened.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = \FilesystemIterator::KEY_AS_PATHNAME | \FilesystemIterator::CURRENT_AS_FILEINFO, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null, #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null)
-    {
-    }
-    public function __destruct()
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $fileformat = null
+    ) {}
+
+    public function __destruct() {}
+
     /**
      * (Unknown)<br/>
      * Add an empty directory to the phar archive
@@ -78,9 +74,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void no return value, exception is thrown on failure.
      */
     #[TentativeType]
-    public function addEmptyDir(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $directory = '', #[PhpStormStubsElementAvailable(from: '8.0')] string $directory) : void
-    {
-    }
+    public function addEmptyDir(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $directory = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $directory
+    ): void {}
+
     /**
      * (Unknown)<br/>
      * Add a file from the filesystem to the phar archive
@@ -95,9 +93,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void no return value, exception is thrown on failure.
      */
     #[TentativeType]
-    public function addFile(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $localName = null) : void
-    {
-    }
+    public function addFile(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $localName = null
+    ): void {}
+
     /**
      * (Unknown)<br/>
      * Add a file from the filesystem to the phar archive
@@ -111,9 +111,12 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void no return value, exception is thrown on failure.
      */
     #[TentativeType]
-    public function addFromString(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $contents = '', #[PhpStormStubsElementAvailable(from: '8.0')] string $contents) : void
-    {
-    }
+    public function addFromString(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $contents = '',
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $contents
+    ): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Construct a phar archive from the files within a directory.
@@ -132,9 +135,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * filesystem.
      */
     #[TentativeType]
-    public function buildFromDirectory(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern = null) : array
-    {
-    }
+    public function buildFromDirectory(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $pattern = null
+    ): array {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Construct a phar archive from an iterator.
@@ -152,9 +157,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * filesystem.
      */
     #[TentativeType]
-    public function buildFromIterator(\Traversable $iterator, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $baseDirectory = null) : array
-    {
-    }
+    public function buildFromIterator(
+        Traversable $iterator,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $baseDirectory = null
+    ): array {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Compresses all files in the current Phar archive
@@ -167,18 +174,16 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function compressFiles(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression) : void
-    {
-    }
+    public function compressFiles(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Decompresses all files in the current Phar archive
      * @link https://php.net/manual/en/phar.decompressfiles.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function decompressFiles()
-    {
-    }
+    public function decompressFiles() {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Compresses the entire Phar archive using Gzip or Bzip2 compression
@@ -198,9 +203,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return static|null a <b>Phar</b> object.
      */
     #[TentativeType]
-    public function compress(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null) : ?\Phar
-    {
-    }
+    public function compress(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
+    ): ?Phar {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Decompresses the entire Phar archive
@@ -215,9 +222,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return static|null A <b>Phar</b> object is returned.
      */
     #[TentativeType]
-    public function decompress(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null) : ?\Phar
-    {
-    }
+    public function decompress(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null): ?Phar {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Convert a phar archive to another executable phar archive file format
@@ -250,9 +256,12 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * exception on failure.
      */
     #[TentativeType]
-    public function convertToExecutable(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $format = 9021976, #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null) : ?\Phar
-    {
-    }
+    public function convertToExecutable(
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $format = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
+    ): ?Phar {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Convert a phar archive to a non-executable tar or zip file
@@ -283,9 +292,12 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * exception on failure.
      */
     #[TentativeType]
-    public function convertToData(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $format = 9021976, #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null) : ?\PharData
-    {
-    }
+    public function convertToData(
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $format = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $extension = null
+    ): ?PharData {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Copy a file internal to the phar archive to another new file within the phar
@@ -295,9 +307,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool returns <b>TRUE</b> on success, but it is safer to encase method call in a
      * try/catch block and assume success if no exception is thrown.
      */
-    public function copy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $to, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $from)
-    {
-    }
+    public function copy(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $to,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $from
+    ) {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the number of entries (files) in the Phar archive
@@ -307,9 +321,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * if none.
      */
     #[TentativeType]
-    public function count(#[PhpStormStubsElementAvailable(from: '8.0')] int $mode = \COUNT_NORMAL) : int
-    {
-    }
+    public function count(#[PhpStormStubsElementAvailable(from: '8.0')] int $mode = COUNT_NORMAL): int {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Delete a file within a phar archive
@@ -320,9 +333,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
      */
-    public function delete(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName)
-    {
-    }
+    public function delete(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $localName) {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
      * Deletes the global metadata of the phar
@@ -330,9 +342,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
      * and assume success if none is thrown.
      */
-    public function delMetadata()
-    {
-    }
+    public function delMetadata() {}
+
     /**
      * (Unknown)<br/>
      * Extract the contents of a phar archive to a directory
@@ -350,17 +361,19 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * and assume success if none is thrown.
      */
     #[TentativeType]
-    public function extractTo(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory, #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $files = null, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $overwrite = \false) : bool
-    {
-    }
+    public function extractTo(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $directory,
+        #[LanguageLevelTypeAware(['8.0' => 'array|string|null'], default: '')] $files = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $overwrite = false
+    ): bool {}
+
     /**
      * @return string|null
      * @see setAlias
      */
     #[TentativeType]
-    public function getAlias() : ?string
-    {
-    }
+    public function getAlias(): ?string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns phar archive meta-data
@@ -371,9 +384,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * or <b>NULL</b> if no meta-data is stored.
      */
     #[TentativeType]
-    public function getMetadata(#[PhpStormStubsElementAvailable(from: '8.0')] array $unserializeOptions = []) : mixed
-    {
-    }
+    public function getMetadata(#[PhpStormStubsElementAvailable(from: '8.0')] array $unserializeOptions = []): mixed {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Return whether phar was modified
@@ -381,9 +393,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> if the phar has been modified since opened, <b>FALSE</b> if not.
      */
     #[TentativeType]
-    public function getModified() : bool
-    {
-    }
+    public function getModified(): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Return MD5/SHA1/SHA256/SHA512/OpenSSL signature of a Phar archive
@@ -399,9 +410,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      */
     #[ArrayShape(["hash" => "string", "hash_type" => "string"])]
     #[TentativeType]
-    public function getSignature() : array|false
-    {
-    }
+    public function getSignature(): array|false {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Return the PHP loader or bootstrap stub of a Phar archive
@@ -410,9 +420,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * the current Phar archive.
      */
     #[TentativeType]
-    public function getStub() : string
-    {
-    }
+    public function getStub(): string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Return version info of Phar archive
@@ -424,9 +433,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * documentation for more information.
      */
     #[TentativeType]
-    public function getVersion() : string
-    {
-    }
+    public function getVersion(): string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
      * Returns whether phar has global meta-data
@@ -434,9 +442,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> if meta-data has been set, and <b>FALSE</b> if not.
      */
     #[TentativeType]
-    public function hasMetadata() : bool
-    {
-    }
+    public function hasMetadata(): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Used to determine whether Phar write operations are being buffered, or are flushing directly to disk
@@ -444,9 +451,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> if the write operations are being buffer, <b>FALSE</b> otherwise.
      */
     #[TentativeType]
-    public function isBuffering() : bool
-    {
-    }
+    public function isBuffering(): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)
@@ -454,9 +460,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return mixed Phar::GZ, Phar::BZ2 or <b>FALSE</b>
      */
     #[TentativeType]
-    public function isCompressed() : int|false
-    {
-    }
+    public function isCompressed(): int|false {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter
@@ -468,9 +473,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> if the phar archive matches the file format requested by the parameter
      */
     #[TentativeType]
-    public function isFileFormat(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format) : bool
-    {
-    }
+    public function isFileFormat(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format): bool {}
+
     /**
      * (Unknown)<br/>
      * Returns true if the phar archive can be modified
@@ -478,9 +482,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> if the phar archive can be modified
      */
     #[TentativeType]
-    public function isWritable() : bool
-    {
-    }
+    public function isWritable(): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * determines whether a file exists in the phar
@@ -491,9 +494,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> if the file exists within the phar, or <b>FALSE</b> if not.
      */
     #[TentativeType]
-    public function offsetExists($localName) : bool
-    {
-    }
+    public function offsetExists($localName): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Gets a <b>PharFileInfo</b> object for a specific file
@@ -505,9 +507,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * iterate over a file's contents or to retrieve information about the current file.
      */
     #[TentativeType]
-    public function offsetGet($localName) : \SplFileInfo
-    {
-    }
+    public function offsetGet($localName): SplFileInfo {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * set the contents of an internal file to those of an external file
@@ -521,9 +522,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void No return values.
      */
     #[TentativeType]
-    public function offsetSet($localName, $value) : void
-    {
-    }
+    public function offsetSet($localName, $value): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * remove a file from a phar
@@ -534,9 +534,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function offsetUnset($localName) : void
-    {
-    }
+    public function offsetUnset($localName): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.1)<br/>
      * Set the alias for the Phar archive
@@ -548,9 +547,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool
      */
     #[TentativeType]
-    public function setAlias(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $alias) : bool
-    {
-    }
+    public function setAlias(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $alias): bool {}
+
     /**
      * (Unknown)<br/>
      * Used to set the PHP loader or bootstrap stub of a Phar archive to the default loader
@@ -564,9 +562,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function setDefaultStub(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $index = null, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $webIndex = null) : bool
-    {
-    }
+    public function setDefaultStub(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $index = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $webIndex = null
+    ): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Sets phar archive meta-data
@@ -577,9 +577,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata) : void
-    {
-    }
+    public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
      * set the signature algorithm for a phar and apply it.
@@ -604,9 +603,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setSignatureAlgorithm(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $algo, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $privateKey = null) : void
-    {
-    }
+    public function setSignatureAlgorithm(
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $algo,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $privateKey = null
+    ): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Used to set the PHP loader or bootstrap stub of a Phar archive
@@ -619,9 +620,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setStub($stub, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = -1)
-    {
-    }
+    public function setStub(
+        $stub,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $length = -1
+    ) {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Start buffering Phar write operations, do not modify the Phar object on disk
@@ -629,9 +632,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function startBuffering() : void
-    {
-    }
+    public function startBuffering(): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Stop buffering write requests to the Phar archive, and save changes to disk
@@ -639,18 +641,16 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function stopBuffering() : void
-    {
-    }
+    public function stopBuffering(): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the api version
      * @link https://php.net/manual/en/phar.apiversion.php
      * @return string The API version string as in &#x00022;1.0.0&#x00022;.
      */
-    public static final function apiVersion() : string
-    {
-    }
+    final public static function apiVersion(): string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns whether phar extension supports compression using either zlib or bzip2
@@ -662,18 +662,16 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return bool <b>TRUE</b> if compression/decompression is available, <b>FALSE</b> if not.
      */
-    public static final function canCompress(int $compression = 0) : bool
-    {
-    }
+    final public static function canCompress(int $compression = 0): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns whether phar extension supports writing and creating phars
      * @link https://php.net/manual/en/phar.canwrite.php
      * @return bool <b>TRUE</b> if write access is enabled, <b>FALSE</b> if it is disabled.
      */
-    public static final function canWrite() : bool
-    {
-    }
+    final public static function canWrite(): bool {}
+
     /**
      * (Unknown)<br/>
      * Create a phar-file format specific stub
@@ -684,9 +682,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * that allows the created Phar archive to work with or without the Phar extension
      * enabled.
      */
-    public static final function createDefaultStub(?string $index = null, ?string $webIndex = null) : string
-    {
-    }
+    final public static function createDefaultStub(?string $index = null, ?string $webIndex = null): string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
      * Return array of supported compression algorithms
@@ -696,9 +693,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * the zlib extension or the
      * bz2 extension.
      */
-    public static final function getSupportedCompression() : array
-    {
-    }
+    final public static function getSupportedCompression(): array {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
      * Return array of supported signature types
@@ -706,18 +702,16 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @return string[] an array containing any of "MD5", "SHA-1",
      * "SHA-256", "SHA-512", or "OpenSSL".
      */
-    public static final function getSupportedSignatures() : array
-    {
-    }
+    final public static function getSupportedSignatures(): array {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions
      * @link https://php.net/manual/en/phar.interceptfilefuncs.php
      * @return void
      */
-    public static final function interceptFileFuncs() : void
-    {
-    }
+    final public static function interceptFileFuncs(): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
      * Returns whether the given filename is a valid phar filename
@@ -731,9 +725,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return bool <b>TRUE</b> if the filename is valid, <b>FALSE</b> if not.
      */
-    public static final function isValidPharFilename(string $filename, bool $executable = \true) : bool
-    {
-    }
+    final public static function isValidPharFilename(string $filename, bool $executable = true): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Loads any phar archive with an alias
@@ -749,9 +742,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static final function loadPhar(string $filename, ?string $alias = null) : bool
-    {
-    }
+    final public static function loadPhar(string $filename, ?string $alias = null): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Reads the currently executed file (a phar) and registers its manifest
@@ -765,9 +757,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static final function mapPhar(?string $alias = null, int $offset = 0) : bool
-    {
-    }
+    final public static function mapPhar(?string $alias = null, int $offset = 0): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Returns the full path on disk or full phar URL to the currently executing Phar archive
@@ -778,9 +769,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return string the filename if valid, empty string otherwise.
      */
-    public static final function running(#[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar, #[PhpStormStubsElementAvailable(from: '7.0')] bool $returnPhar = \true) : string
-    {
-    }
+    final public static function running(
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] $returnPhar,
+        #[PhpStormStubsElementAvailable(from: '7.0')] bool $returnPhar = true
+    ): string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Mount an external path or file to a virtual location within the phar archive
@@ -794,9 +787,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return void No return. <b>PharException</b> is thrown on failure.
      */
-    public static final function mount(string $pharPath, string $externalPath) : void
-    {
-    }
+    final public static function mount(string $pharPath, string $externalPath): void {}
+
     /**
      * (Unknown)<br/>
      * Defines a list of up to 4 $_SERVER variables that should be modified for execution
@@ -810,9 +802,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return void No return.
      */
-    public static final function mungServer(array $variables) : void
-    {
-    }
+    final public static function mungServer(array $variables): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Completely remove a phar archive from disk and from memory
@@ -823,9 +814,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * @throws PharException
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static final function unlinkArchive(string $filename) : bool
-    {
-    }
+    final public static function unlinkArchive(string $filename): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * mapPhar for web-based phars. front controller for web applications
@@ -904,9 +894,14 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return void No value is returned.
      */
-    public static final function webPhar(?string $alias = null, ?string $index = "index.php", #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null, array $mimeTypes = null, ?callable $rewrite = null) : void
-    {
-    }
+    final public static function webPhar(
+        ?string $alias = null,
+        ?string $index = "index.php",
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: 'string')] $fileNotFoundScript = null,
+        array $mimeTypes = null,
+        ?callable $rewrite = null
+    ): void {}
+
     /**
      * Returns whether current entry is a directory and not '.' or '..'
      * @link https://php.net/manual/en/recursivedirectoryiterator.haschildren.php
@@ -914,9 +909,8 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return bool whether the current entry is a directory, but not '.' or '..'
      */
-    public function hasChildren($allow_links = \false)
-    {
-    }
+    public function hasChildren($allow_links = false) {}
+
     /**
      * Returns an iterator for the current entry if it is a directory
      * @link https://php.net/manual/en/recursivedirectoryiterator.getchildren.php
@@ -924,51 +918,45 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * See the FilesystemIterator
      * constants.
      */
-    public function getChildren()
-    {
-    }
+    public function getChildren() {}
+
     /**
      * Rewinds back to the beginning
      * @link https://php.net/manual/en/filesystemiterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind()
-    {
-    }
+    public function rewind() {}
+
     /**
      * Move to the next file
      * @link https://php.net/manual/en/filesystemiterator.next.php
      * @return void No value is returned.
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * Retrieve the key for the current file
      * @link https://php.net/manual/en/filesystemiterator.key.php
      * @return string the pathname or filename depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * The current file
      * @link https://php.net/manual/en/filesystemiterator.current.php
      * @return mixed The filename, file information, or $this depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * Check whether current DirectoryIterator position is a valid file
      * @link https://php.net/manual/en/directoryiterator.valid.php
      * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
      */
-    public function valid()
-    {
-    }
+    public function valid() {}
+
     /**
      * Seek to a DirectoryIterator item
      * @link https://php.net/manual/en/directoryiterator.seek.php
@@ -977,19 +965,11 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
      * </p>
      * @return void No value is returned.
      */
-    public function seek($position)
-    {
-    }
-    public function _bad_state_ex()
-    {
-    }
+    public function seek($position) {}
+
+    public function _bad_state_ex() {}
 }
-/**
- * The Phar class provides a high-level interface to accessing and creating
- * phar archives.
- * @link https://php.net/manual/en/class.phar.php
- */
-\class_alias('Phpactor202301\\Phar', 'Phar', \false);
+
 /**
  * The PharData class provides a high-level interface to accessing and creating
  * non-executable tar and zip archives. Because these archives do not contain
@@ -998,7 +978,7 @@ class Phar extends \RecursiveDirectoryIterator implements \RecursiveIterator, \S
  * phar.readonly php.ini setting is 1.
  * @link https://php.net/manual/en/class.phardata.php
  */
-class PharData extends \Phar
+class PharData extends Phar
 {
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -1021,25 +1001,27 @@ class PharData extends \Phar
      * available within the <b>Phar</b> class.
      * </p>
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = \FilesystemIterator::KEY_AS_PATHNAME | \FilesystemIterator::CURRENT_AS_FILEINFO, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format = \Phar::TAR)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $flags = FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $alias = null,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $format = Phar::TAR
+    ) {}
+
     /**
      * @param string $localName
      * @return bool
      */
     #[TentativeType]
-    public function offsetExists($localName) : bool
-    {
-    }
+    public function offsetExists($localName): bool {}
+
     /**
      * @param string $localName
      * @return SplFileInfo
      */
     #[TentativeType]
-    public function offsetGet($localName) : \SplFileInfo
-    {
-    }
+    public function offsetGet($localName): SplFileInfo {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * set the contents of a file within the tar/zip to those of an external file or string
@@ -1053,9 +1035,8 @@ class PharData extends \Phar
      * @return void No return values.
      */
     #[TentativeType]
-    public function offsetSet($localName, $value) : void
-    {
-    }
+    public function offsetSet($localName, $value): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * remove a file from a tar/zip archive
@@ -1066,9 +1047,8 @@ class PharData extends \Phar
      * @return void
      */
     #[TentativeType]
-    public function offsetUnset($localName) : void
-    {
-    }
+    public function offsetUnset($localName): void {}
+
     /**
      * Returns whether current entry is a directory and not '.' or '..'
      * @link https://php.net/manual/en/recursivedirectoryiterator.haschildren.php
@@ -1076,9 +1056,8 @@ class PharData extends \Phar
      * </p>
      * @return bool whether the current entry is a directory, but not '.' or '..'
      */
-    public function hasChildren($allow_links = \false)
-    {
-    }
+    public function hasChildren($allow_links = false) {}
+
     /**
      * Returns an iterator for the current entry if it is a directory
      * @link https://php.net/manual/en/recursivedirectoryiterator.getchildren.php
@@ -1086,51 +1065,45 @@ class PharData extends \Phar
      * See the FilesystemIterator
      * constants.
      */
-    public function getChildren()
-    {
-    }
+    public function getChildren() {}
+
     /**
      * Rewinds back to the beginning
      * @link https://php.net/manual/en/filesystemiterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind()
-    {
-    }
+    public function rewind() {}
+
     /**
      * Move to the next file
      * @link https://php.net/manual/en/filesystemiterator.next.php
      * @return void No value is returned.
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * Retrieve the key for the current file
      * @link https://php.net/manual/en/filesystemiterator.key.php
      * @return string the pathname or filename depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * The current file
      * @link https://php.net/manual/en/filesystemiterator.current.php
      * @return mixed The filename, file information, or $this depending on the set flags.
      * See the FilesystemIterator constants.
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * Check whether current DirectoryIterator position is a valid file
      * @link https://php.net/manual/en/directoryiterator.valid.php
      * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
      */
-    public function valid()
-    {
-    }
+    public function valid() {}
+
     /**
      * Seek to a DirectoryIterator item
      * @link https://php.net/manual/en/directoryiterator.seek.php
@@ -1139,25 +1112,15 @@ class PharData extends \Phar
      * </p>
      * @return void No value is returned.
      */
-    public function seek($position)
-    {
-    }
+    public function seek($position) {}
 }
-/**
- * The PharData class provides a high-level interface to accessing and creating
- * non-executable tar and zip archives. Because these archives do not contain
- * a stub and cannot be executed by the phar extension, it is possible to create
- * and manipulate regular zip and tar files using the PharData class even if
- * phar.readonly php.ini setting is 1.
- * @link https://php.net/manual/en/class.phardata.php
- */
-\class_alias('Phpactor202301\\PharData', 'PharData', \false);
+
 /**
  * The PharFileInfo class provides a high-level interface to the contents
  * and attributes of a single file within a phar archive.
  * @link https://php.net/manual/en/class.pharfileinfo.php
  */
-class PharFileInfo extends \SplFileInfo
+class PharFileInfo extends SplFileInfo
 {
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -1169,12 +1132,10 @@ class PharFileInfo extends \SplFileInfo
      * the entry should be phar://boo.phar/my/file.php.
      * </p>
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename)
-    {
-    }
-    public function __destruct()
-    {
-    }
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $filename) {}
+
+    public function __destruct() {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Sets file-specific permission bits
@@ -1185,9 +1146,8 @@ class PharFileInfo extends \SplFileInfo
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function chmod(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $perms) : void
-    {
-    }
+    public function chmod(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $perms): void {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Compresses the current Phar entry with either zlib or bzip2 compression
@@ -1195,18 +1155,16 @@ class PharFileInfo extends \SplFileInfo
      * @param int $compression
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function compress(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression)
-    {
-    }
+    public function compress(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $compression) {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
      * Decompresses the current Phar entry within the phar
      * @link https://php.net/manual/en/pharfileinfo.decompress.php
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function decompress()
-    {
-    }
+    public function decompress() {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
      * Deletes the metadata of the entry
@@ -1218,9 +1176,8 @@ class PharFileInfo extends \SplFileInfo
      * archive. Files within <b>PharData</b> archives do not have
      * this restriction.
      */
-    public function delMetadata()
-    {
-    }
+    public function delMetadata() {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the actual size of the file (with compression) inside the Phar archive
@@ -1228,9 +1185,8 @@ class PharFileInfo extends \SplFileInfo
      * @return int<0, max> The size in bytes of the file within the Phar archive on disk.
      */
     #[TentativeType]
-    public function getCompressedSize() : int
-    {
-    }
+    public function getCompressedSize(): int {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns CRC32 code or throws an exception if CRC has not been verified
@@ -1238,13 +1194,11 @@ class PharFileInfo extends \SplFileInfo
      * @return int The <b>crc32</b> checksum of the file within the Phar archive.
      */
     #[TentativeType]
-    public function getCRC32() : int
-    {
-    }
+    public function getCRC32(): int {}
+
     #[TentativeType]
-    public function getContent() : string
-    {
-    }
+    public function getContent(): string {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns file-specific meta-data saved with a file
@@ -1255,9 +1209,8 @@ class PharFileInfo extends \SplFileInfo
      * or <b>NULL</b> if no meta-data is stored.
      */
     #[TentativeType]
-    public function getMetadata(#[PhpStormStubsElementAvailable(from: '8.0')] array $unserializeOptions = []) : mixed
-    {
-    }
+    public function getMetadata(#[PhpStormStubsElementAvailable(from: '8.0')] array $unserializeOptions = []): mixed {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns the Phar file entry flags
@@ -1265,9 +1218,8 @@ class PharFileInfo extends \SplFileInfo
      * @return int The Phar flags (always 0 in the current implementation)
      */
     #[TentativeType]
-    public function getPharFlags() : int
-    {
-    }
+    public function getPharFlags(): int {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
      * Returns the metadata of the entry
@@ -1275,9 +1227,8 @@ class PharFileInfo extends \SplFileInfo
      * @return bool <b>FALSE</b> if no metadata is set or is <b>NULL</b>, <b>TRUE</b> if metadata is not <b>NULL</b>
      */
     #[TentativeType]
-    public function hasMetadata() : bool
-    {
-    }
+    public function hasMetadata(): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns whether the entry is compressed
@@ -1289,9 +1240,8 @@ class PharFileInfo extends \SplFileInfo
      * @return bool <b>TRUE</b> if the file is compressed within the Phar archive, <b>FALSE</b> if not.
      */
     #[TentativeType]
-    public function isCompressed(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976) : bool
-    {
-    }
+    public function isCompressed(#[LanguageLevelTypeAware(['8.0' => 'int|null'], default: '')] $compression = 9021976): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Returns whether file entry has had its CRC verified
@@ -1299,9 +1249,8 @@ class PharFileInfo extends \SplFileInfo
      * @return bool <b>TRUE</b> if the file has had its CRC verified, <b>FALSE</b> if not.
      */
     #[TentativeType]
-    public function isCRCChecked() : bool
-    {
-    }
+    public function isCRCChecked(): bool {}
+
     /**
      * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
      * Sets file-specific meta-data saved with a file
@@ -1312,14 +1261,6 @@ class PharFileInfo extends \SplFileInfo
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata) : void
-    {
-    }
+    public function setMetadata(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] $metadata): void {}
 }
-/**
- * The PharFileInfo class provides a high-level interface to the contents
- * and attributes of a single file within a phar archive.
- * @link https://php.net/manual/en/class.pharfileinfo.php
- */
-\class_alias('Phpactor202301\\PharFileInfo', 'PharFileInfo', \false);
 // End of Phar v.2.0.1

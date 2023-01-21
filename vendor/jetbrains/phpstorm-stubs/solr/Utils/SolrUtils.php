@@ -1,13 +1,11 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrUtils<br/>
@@ -38,9 +36,8 @@ abstract class SolrUtils
      * </p>
      * @throws SolrException
      */
-    public static function digestXmlResponse($xmlresponse, $parse_mode = 0)
-    {
-    }
+    public static function digestXmlResponse($xmlresponse, $parse_mode = 0) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Escapes a lucene query string
@@ -52,9 +49,8 @@ abstract class SolrUtils
      * Returns the escaped string or <b>FALSE</b> on failure.
      * </p>
      */
-    public static function escapeQueryChars($str)
-    {
-    }
+    public static function escapeQueryChars($str) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the current version of the Solr extension
@@ -63,9 +59,8 @@ abstract class SolrUtils
      * The current version of the Apache Solr extension.
      * </p>
      */
-    public static function getSolrVersion()
-    {
-    }
+    public static function getSolrVersion() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Prepares a phrase from an unescaped lucene string
@@ -77,21 +72,5 @@ abstract class SolrUtils
      * Returns the phrase contained in double quotes.
      * </p>
      */
-    public static function queryPhrase($str)
-    {
-    }
+    public static function queryPhrase($str) {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrUtils<br/>
- * Contains utility methods for retrieving the current extension version and preparing query phrases.
- * Also contains method for escaping query strings and parsing XML responses.
- * @link https://php.net/manual/en/class.solrutils.php
- */
-\class_alias('Phpactor202301\\SolrUtils', 'SolrUtils', \false);

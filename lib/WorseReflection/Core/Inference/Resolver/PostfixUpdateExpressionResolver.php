@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\PostfixUpdateExpression;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Literal;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NumericType;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Type\Literal;
+use Phpactor\WorseReflection\Core\Type\NumericType;
 class PostfixUpdateExpressionResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -30,4 +30,3 @@ class PostfixUpdateExpressionResolver implements Resolver
         return $variable;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\PostfixUpdateExpressionResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\PostfixUpdateExpressionResolver', \false);

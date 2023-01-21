@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -66,7 +66,7 @@ class CodeAction
      * @param WorkspaceEdit|null $edit
      * @param Command|null $command
      */
-    public function __construct(string $title, ?string $kind = null, ?array $diagnostics = null, ?bool $isPreferred = null, ?WorkspaceEdit $edit = null, ?Command $command = null)
+    public function __construct(string $title, ?string $kind = null, ?array $diagnostics = null, ?bool $isPreferred = null, ?\Phpactor\LanguageServerProtocol\WorkspaceEdit $edit = null, ?\Phpactor\LanguageServerProtocol\Command $command = null)
     {
         $this->title = $title;
         $this->kind = $kind;
@@ -81,7 +81,7 @@ class CodeAction
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['title' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'diagnostics' => ['names' => [Diagnostic::class], 'iterable' => \true], 'isPreferred' => ['names' => [], 'iterable' => \false], 'edit' => ['names' => [WorkspaceEdit::class], 'iterable' => \false], 'command' => ['names' => [Command::class], 'iterable' => \false]];
+        $map = ['title' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'diagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\Diagnostic::class], 'iterable' => \true], 'isPreferred' => ['names' => [], 'iterable' => \false], 'edit' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceEdit::class], 'iterable' => \false], 'command' => ['names' => [\Phpactor\LanguageServerProtocol\Command::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -131,10 +131,3 @@ class CodeAction
         throw $lastException;
     }
 }
-/**
- * A code action represents a change that can be performed in code, e.g. to fix a problem or
- * to refactor code.
- * 
- * A CodeAction must set either `edit` and/or a `command`. If both are supplied, the `edit` is applied first, then the `command` is executed.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeAction', 'Phpactor\\LanguageServerProtocol\\CodeAction', \false);

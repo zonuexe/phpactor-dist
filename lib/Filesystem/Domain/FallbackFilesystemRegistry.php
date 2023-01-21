@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
-class FallbackFilesystemRegistry implements FilesystemRegistry
+class FallbackFilesystemRegistry implements \Phpactor\Filesystem\Domain\FilesystemRegistry
 {
-    public function __construct(private FilesystemRegistry $registry, private string $fallback)
+    public function __construct(private \Phpactor\Filesystem\Domain\FilesystemRegistry $registry, private string $fallback)
     {
     }
-    public function get(string $name) : Filesystem
+    public function get(string $name) : \Phpactor\Filesystem\Domain\Filesystem
     {
         if (\false === $this->registry->has($name)) {
             return $this->registry->get($this->fallback);
@@ -23,4 +23,3 @@ class FallbackFilesystemRegistry implements FilesystemRegistry
         return $this->registry->names();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\FallbackFilesystemRegistry', 'Phpactor\\Filesystem\\Domain\\FallbackFilesystemRegistry', \false);

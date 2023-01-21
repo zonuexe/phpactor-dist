@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -105,7 +105,3 @@ class CompletionClientCapabilities
         throw $lastException;
     }
 }
-/**
- * Completion client capabilities
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CompletionClientCapabilities', 'Phpactor\\LanguageServerProtocol\\CompletionClientCapabilities', \false);

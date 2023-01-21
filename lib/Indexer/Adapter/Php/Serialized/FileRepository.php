@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Php\Serialized;
+namespace Phpactor\Indexer\Adapter\Php\Serialized;
 
-use Phpactor202301\Phpactor\Indexer\Model\RecordSerializer;
-use Phpactor202301\Phpactor\Indexer\Util\Filesystem;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\RecordSerializer;
+use Phpactor\Indexer\Util\Filesystem;
+use Phpactor\Indexer\Model\Record;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
-use function Phpactor202301\Safe\file_get_contents;
-use function Phpactor202301\Safe\file_put_contents;
-use function Phpactor202301\Safe\mkdir;
+use function Safe\file_get_contents;
+use function Safe\file_put_contents;
+use function Safe\mkdir;
 use Throwable;
 class FileRepository
 {
@@ -130,4 +130,3 @@ class FileRepository
         return $record->recordType() . $record->identifier();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Php\\Serialized\\FileRepository', 'Phpactor\\Indexer\\Adapter\\Php\\Serialized\\FileRepository', \false);

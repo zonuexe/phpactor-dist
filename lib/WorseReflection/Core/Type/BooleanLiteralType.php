@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class BooleanLiteralType extends BooleanType implements Literal, Generalizable
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+class BooleanLiteralType extends \Phpactor\WorseReflection\Core\Type\BooleanType implements \Phpactor\WorseReflection\Core\Type\Literal, \Phpactor\WorseReflection\Core\Type\Generalizable
 {
-    use LiteralTrait;
+    use \Phpactor\WorseReflection\Core\Type\LiteralTrait;
     public function __construct(private bool $value)
     {
     }
@@ -20,32 +20,32 @@ class BooleanLiteralType extends BooleanType implements Literal, Generalizable
     }
     public function generalize() : Type
     {
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
-    public function or(BooleanType $right) : BooleanType
+    public function or(\Phpactor\WorseReflection\Core\Type\BooleanType $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        if ($right instanceof BooleanLiteralType) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\BooleanLiteralType) {
             return new self($this->value || $right->value);
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
-    public function and(BooleanType $right) : BooleanType
+    public function and(\Phpactor\WorseReflection\Core\Type\BooleanType $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        if ($right instanceof BooleanLiteralType) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\BooleanLiteralType) {
             return new self($this->value && $right->value);
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
-    public function negate() : BooleanType
+    public function negate() : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return new self(!$this->value);
     }
-    public function xor(BooleanType $booleanType) : BooleanType
+    public function xor(\Phpactor\WorseReflection\Core\Type\BooleanType $booleanType) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        if ($booleanType instanceof BooleanLiteralType) {
+        if ($booleanType instanceof \Phpactor\WorseReflection\Core\Type\BooleanLiteralType) {
             return new self($this->value() xor $booleanType->value());
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function toTrinary() : Trinary
     {
@@ -53,13 +53,12 @@ class BooleanLiteralType extends BooleanType implements Literal, Generalizable
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof BooleanLiteralType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\BooleanLiteralType) {
             return Trinary::fromBoolean($type->equals($this));
         }
-        if ($type instanceof BooleanType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\BooleanType) {
             return Trinary::maybe();
         }
         return parent::accepts($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\BooleanLiteralType', 'Phpactor\\WorseReflection\\Core\\Type\\BooleanLiteralType', \false);

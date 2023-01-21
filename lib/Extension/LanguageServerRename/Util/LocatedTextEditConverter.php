@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerRename\Util;
+namespace Phpactor\Extension\LanguageServerRename\Util;
 
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEditsMap;
-use Phpactor202301\Phpactor\Rename\Model\RenameResult;
-use Phpactor202301\Phpactor\LanguageServerProtocol\RenameFile;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentEdit;
-use Phpactor202301\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
+use Phpactor\Rename\Model\LocatedTextEditsMap;
+use Phpactor\Rename\Model\RenameResult;
+use Phpactor\LanguageServerProtocol\RenameFile;
+use Phpactor\LanguageServerProtocol\TextDocumentEdit;
+use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\TextDocument\TextDocumentLocator;
 final class LocatedTextEditConverter
 {
     public function __construct(private Workspace $workspace, private TextDocumentLocator $locator)
@@ -43,4 +43,3 @@ final class LocatedTextEditConverter
         return $this->workspace->has($uri) ? $this->workspace->get($uri)->version : 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerRename\\Util\\LocatedTextEditConverter', 'Phpactor\\Extension\\LanguageServerRename\\Util\\LocatedTextEditConverter', \false);

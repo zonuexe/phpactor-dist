@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Adapter\Deserializer;
+namespace Phpactor\ConfigLoader\Adapter\Deserializer;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\Deserializer;
-use Phpactor202301\Phpactor\ConfigLoader\Core\Exception\CouldNotDeserialize;
+use Phpactor\ConfigLoader\Core\Deserializer;
+use Phpactor\ConfigLoader\Core\Exception\CouldNotDeserialize;
 use Phpactor202301\Symfony\Component\Yaml\Exception\ParseException;
 use Phpactor202301\Symfony\Component\Yaml\Parser;
 class YamlDeserializer implements Deserializer
@@ -22,4 +22,3 @@ class YamlDeserializer implements Deserializer
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Adapter\\Deserializer\\YamlDeserializer', 'Phpactor\\ConfigLoader\\Adapter\\Deserializer\\YamlDeserializer', \false);

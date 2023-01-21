@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
+namespace Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
 
 use Generator;
-use Phpactor202301\Phpactor\CodeTransform\Domain\NameWithByteOffsets;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ConstantRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\HasFullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
-use Phpactor202301\Phpactor\CodeTransform\Domain\NameWithByteOffset;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeTransform\Domain\NameWithByteOffsets;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\ConstantRecord;
+use Phpactor\Indexer\Model\Record\HasFullyQualifiedName;
+use Phpactor\Indexer\Model\SearchClient;
+use Phpactor\CodeTransform\Domain\NameWithByteOffset;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Reflector;
 class CandidateFinder
 {
     public function __construct(private Reflector $reflector, private SearchClient $client)
@@ -40,7 +40,7 @@ class CandidateFinder
             }
             $seen[$nameString] = \true;
             foreach ($this->candidatesForUnresolvedName($unresolvedName) as $candidate) {
-                \assert($candidate instanceof NameCandidate);
+                \assert($candidate instanceof \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameCandidate);
                 $nameString = (string) $candidate->candidateFqn();
                 if (isset($seen[$nameString])) {
                     continue;
@@ -56,7 +56,7 @@ class CandidateFinder
     public function candidatesForUnresolvedName(NameWithByteOffset $unresolvedName) : Generator
     {
         if ($this->isUnresolvedGlobalFunction($unresolvedName)) {
-            (yield new NameCandidate($unresolvedName, $unresolvedName->name()->head()->__toString()));
+            (yield new \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameCandidate($unresolvedName, $unresolvedName->name()->head()->__toString()));
             return;
         }
         \assert($unresolvedName instanceof NameWithByteOffset);
@@ -68,7 +68,7 @@ class CandidateFinder
                 continue;
             }
             $fqn = $candidate->fqn()->__toString();
-            (yield new NameCandidate($unresolvedName, $candidate->fqn()));
+            (yield new \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameCandidate($unresolvedName, $candidate->fqn()));
         }
     }
     private function isUnresolvedGlobalFunction(NameWithByteOffset $unresolvedName) : bool
@@ -95,4 +95,3 @@ class CandidateFinder
         return $candidates;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\Model\\NameImport\\CandidateFinder', 'Phpactor\\Extension\\LanguageServerCodeTransform\\Model\\NameImport\\CandidateFinder', \false);

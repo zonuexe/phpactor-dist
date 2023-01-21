@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 /**
  * @extends Collection<TraitPrototype>
  */
-class Traits extends Collection
+class Traits extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
     public static function fromTraits(array $traits)
     {
@@ -19,7 +19,3 @@ class Traits extends Collection
         return 'trait';
     }
 }
-/**
- * @extends Collection<TraitPrototype>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Traits', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Traits', \false);

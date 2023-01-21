@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Console\Prompt;
+namespace Phpactor\Extension\Core\Console\Prompt;
 
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Process\ExecutableFinder;
-class BashPrompt implements Prompt
+class BashPrompt implements \Phpactor\Extension\Core\Console\Prompt\Prompt
 {
     public function prompt(string $prompt, string $prefill) : string
     {
@@ -33,4 +33,3 @@ class BashPrompt implements Prompt
         return $executableFinder->find('bash');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Console\\Prompt\\BashPrompt', 'Phpactor\\Extension\\Core\\Console\\Prompt\\BashPrompt', \false);

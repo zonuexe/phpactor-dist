@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ContextMenu\Model;
+namespace Phpactor\Extension\ContextMenu\Model;
 
 class Action
 {
@@ -20,4 +20,3 @@ class Action
         return $this->key;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ContextMenu\\Model\\Action', 'Phpactor\\Extension\\ContextMenu\\Model\\Action', \false);

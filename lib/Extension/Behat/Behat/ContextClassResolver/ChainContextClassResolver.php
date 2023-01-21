@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver;
+namespace Phpactor\Extension\Behat\Behat\ContextClassResolver;
 
-use Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Exception\CouldNotResolverContextClass;
+use Phpactor\Extension\Behat\Behat\ContextClassResolver;
+use Phpactor\Extension\Behat\Behat\Exception\CouldNotResolverContextClass;
 class ChainContextClassResolver implements ContextClassResolver
 {
     /**
@@ -23,4 +23,3 @@ class ChainContextClassResolver implements ContextClassResolver
         throw new CouldNotResolverContextClass(\sprintf('Could not resolve context class for "%s"', $className));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\ContextClassResolver\\ChainContextClassResolver', 'Phpactor\\Extension\\Behat\\Behat\\ContextClassResolver\\ChainContextClassResolver', \false);

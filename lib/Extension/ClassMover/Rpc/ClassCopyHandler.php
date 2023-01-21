@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Rpc;
+namespace Phpactor\Extension\ClassMover\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassCopy;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Logger\NullLogger;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\ClassMover\Application\ClassCopy;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\ClassMover\Application\Logger\NullLogger;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 class ClassCopyHandler extends AbstractHandler
 {
     const NAME = 'copy_class';
@@ -35,4 +35,3 @@ class ClassCopyHandler extends AbstractHandler
         return OpenFileResponse::fromPath($arguments[self::PARAM_DEST_PATH]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Rpc\\ClassCopyHandler', 'Phpactor\\Extension\\ClassMover\\Rpc\\ClassCopyHandler', \false);

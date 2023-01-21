@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\Formatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\Formatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase;
 class EnumCaseFormatter implements Formatter
 {
     public function canFormat(object $object) : bool
@@ -17,4 +17,3 @@ class EnumCaseFormatter implements Formatter
         return \sprintf('case %s', $object->name());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\EnumCaseFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\EnumCaseFormatter', \false);

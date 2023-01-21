@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Server;
+declare(strict_types=1);
+
+namespace Swoole\Server;
 
 class Task
 {
@@ -10,18 +11,16 @@ class Task
     public $id = -1;
     public $worker_id = -1;
     public $flags = 0;
+
     /**
      * @param mixed $data
      * @return mixed
      */
-    public function finish($data)
-    {
-    }
+    public function finish($data) {}
+
     /**
      * @param mixed $data
      * @return mixed
      */
-    public static function pack($data)
-    {
-    }
+    public static function pack($data) {}
 }

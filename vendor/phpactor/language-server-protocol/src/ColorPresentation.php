@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -36,7 +36,7 @@ class ColorPresentation
      * @param TextEdit|null $textEdit
      * @param array<TextEdit>|null $additionalTextEdits
      */
-    public function __construct(string $label, ?TextEdit $textEdit = null, ?array $additionalTextEdits = null)
+    public function __construct(string $label, ?\Phpactor\LanguageServerProtocol\TextEdit $textEdit = null, ?array $additionalTextEdits = null)
     {
         $this->label = $label;
         $this->textEdit = $textEdit;
@@ -48,7 +48,7 @@ class ColorPresentation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['label' => ['names' => [], 'iterable' => \false], 'textEdit' => ['names' => [TextEdit::class], 'iterable' => \false], 'additionalTextEdits' => ['names' => [TextEdit::class], 'iterable' => \true]];
+        $map = ['label' => ['names' => [], 'iterable' => \false], 'textEdit' => ['names' => [\Phpactor\LanguageServerProtocol\TextEdit::class], 'iterable' => \false], 'additionalTextEdits' => ['names' => [\Phpactor\LanguageServerProtocol\TextEdit::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -98,4 +98,3 @@ class ColorPresentation
         throw $lastException;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ColorPresentation', 'Phpactor\\LanguageServerProtocol\\ColorPresentation', \false);

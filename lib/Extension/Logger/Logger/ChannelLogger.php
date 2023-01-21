@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Logger\Logger;
+namespace Phpactor\Extension\Logger\Logger;
 
 use Phpactor202301\Psr\Log\AbstractLogger;
 use Phpactor202301\Psr\Log\LoggerInterface;
@@ -14,4 +14,3 @@ class ChannelLogger extends AbstractLogger
         $this->innerLogger->log($level, $message, \array_merge(['channel' => $this->name], $context));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Logger\\Logger\\ChannelLogger', 'Phpactor\\Extension\\Logger\\Logger\\ChannelLogger', \false);

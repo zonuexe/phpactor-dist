@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\DocumentPrioritizer;
+namespace Phpactor\Completion\Core\DocumentPrioritizer;
 
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\TextDocumentUri;
 /**
  * Compare the similarity between two paths and provide a suggestion priority
  * based on the similarity.
@@ -11,7 +11,7 @@ use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
  * This is used to compare the text document being edited and the suggestion.
  * Classes that are closer in the source tree will be suggested first.
  */
-class SimilarityResultPrioritizer implements DocumentPrioritizer
+class SimilarityResultPrioritizer implements \Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer
 {
     public function priority(?TextDocumentUri $one, ?TextDocumentUri $two) : int
     {
@@ -30,11 +30,3 @@ class SimilarityResultPrioritizer implements DocumentPrioritizer
         return (int) (Suggestion::PRIORITY_MEDIUM + $range - $range * $similarity);
     }
 }
-/**
- * Compare the similarity between two paths and provide a suggestion priority
- * based on the similarity.
- *
- * This is used to compare the text document being edited and the suggestion.
- * Classes that are closer in the source tree will be suggested first.
- */
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\DocumentPrioritizer\\SimilarityResultPrioritizer', 'Phpactor\\Completion\\Core\\DocumentPrioritizer\\SimilarityResultPrioritizer', \false);

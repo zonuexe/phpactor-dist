@@ -1,17 +1,16 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Immutable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
-class ReflectionZendExtension implements \Reflector
+class ReflectionZendExtension implements Reflector
 {
     /**
      * @var string Name of the extension, same as calling the {@see ReflectionZendExtension::getName()} method
@@ -19,6 +18,7 @@ class ReflectionZendExtension implements \Reflector
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
+
     /**
      * Constructs a ReflectionZendExtension object
      *
@@ -27,9 +27,8 @@ class ReflectionZendExtension implements \Reflector
      * @throws ReflectionException if the extension does not exist.
      * @since 5.4
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name)
-    {
-    }
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) {}
+
     /**
      * Exports a reflected zend extension.
      *
@@ -41,9 +40,8 @@ class ReflectionZendExtension implements \Reflector
      * @return string|null If the $return parameter is set to {@see true}, then
      * the export is returned as a string, otherwise {@see null} is returned.
      */
-    public static function export($name, $return = \false)
-    {
-    }
+    public static function export($name, $return = false) {}
+
     /**
      * To string handler
      *
@@ -52,9 +50,8 @@ class ReflectionZendExtension implements \Reflector
      * @since 5.4
      */
     #[TentativeType]
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
+
     /**
      * Gets name
      *
@@ -64,9 +61,8 @@ class ReflectionZendExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getName() : string
-    {
-    }
+    public function getName(): string {}
+
     /**
      * Gets version
      *
@@ -76,9 +72,8 @@ class ReflectionZendExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getVersion() : string
-    {
-    }
+    public function getVersion(): string {}
+
     /**
      * Gets author
      *
@@ -88,9 +83,8 @@ class ReflectionZendExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getAuthor() : string
-    {
-    }
+    public function getAuthor(): string {}
+
     /**
      * Gets URL
      *
@@ -100,9 +94,8 @@ class ReflectionZendExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getURL() : string
-    {
-    }
+    public function getURL(): string {}
+
     /**
      * Gets copyright
      *
@@ -112,9 +105,8 @@ class ReflectionZendExtension implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getCopyright() : string
-    {
-    }
+    public function getCopyright(): string {}
+
     /**
      * Clone handler
      *
@@ -123,9 +115,8 @@ class ReflectionZendExtension implements \Reflector
      * @since 5.4
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    private final function __clone() : void
-    {
-    }
+    final private function __clone(): void {}
+
     /**
      * Clone handler
      *
@@ -134,12 +125,5 @@ class ReflectionZendExtension implements \Reflector
      * @since 5.4
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone() : void
-    {
-    }
+    private function __clone(): void {}
 }
-/**
- * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
- * @since 5.4
- */
-\class_alias('Phpactor202301\\ReflectionZendExtension', 'ReflectionZendExtension', \false);

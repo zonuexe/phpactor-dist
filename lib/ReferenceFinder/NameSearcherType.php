@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
 class NameSearcherType
 {
@@ -10,4 +10,3 @@ class NameSearcherType
     const TRAIT = 'trait';
     const ENUM = 'enum';
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\NameSearcherType', 'Phpactor\\ReferenceFinder\\NameSearcherType', \false);

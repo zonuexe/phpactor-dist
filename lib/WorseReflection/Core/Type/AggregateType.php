@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Types;
 abstract class AggregateType extends Type
 {
     /**
@@ -18,16 +18,16 @@ abstract class AggregateType extends Type
         $toMerge = [];
         $hasNull = \false;
         foreach ($types as $type) {
-            if ($type instanceof AggregateType && $type instanceof $this) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\AggregateType && $type instanceof $this) {
                 foreach ($type->types as $utype) {
                     $unique[$utype->__toString()] = $utype;
                 }
                 continue;
             }
-            if ($type instanceof AggregateType && \count($type->types) > 1) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\AggregateType && \count($type->types) > 1) {
                 $type = TypeFactory::parenthesized($type);
             }
-            if ($type instanceof NullableType) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\NullableType) {
                 $type = $type->type;
                 $null = TypeFactory::null();
                 $unique[$null->__toString()] = $null;
@@ -47,11 +47,11 @@ abstract class AggregateType extends Type
     public function reduce() : Type
     {
         if (\count($this->types) === 0) {
-            return new MissingType();
+            return new \Phpactor\WorseReflection\Core\Type\MissingType();
         }
         if (\count($this->types) === 1) {
             $type = $this->types[\array_key_first($this->types)];
-            if ($type instanceof ParenthesizedType) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\ParenthesizedType) {
                 return $type->type;
             }
             return $type;
@@ -76,16 +76,16 @@ abstract class AggregateType extends Type
         }
         return $type;
     }
-    public abstract function withTypes(Type ...$types) : AggregateType;
-    public function clean() : AggregateType
+    public abstract function withTypes(Type ...$types) : \Phpactor\WorseReflection\Core\Type\AggregateType;
+    public function clean() : \Phpactor\WorseReflection\Core\Type\AggregateType
     {
         $types = $this->types;
         $unique = [];
         foreach ($types as $type) {
-            if ($type instanceof MissingType) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\MissingType) {
                 continue;
             }
-            if ($type instanceof AggregateType) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\AggregateType) {
                 $type = $type->reduce();
             }
             $unique[$type->__toString()] = $type;
@@ -94,7 +94,7 @@ abstract class AggregateType extends Type
     }
     public function remove(Type $remove) : Type
     {
-        $remove = UnionType::toUnion($remove);
+        $remove = \Phpactor\WorseReflection\Core\Type\UnionType::toUnion($remove);
         $removeStrings = \array_map(fn(Type $t) => $t->__toString(), $remove->types);
         return $this->withTypes(...\array_filter($this->types, function (Type $type) use($removeStrings) {
             return !\in_array($type->__toString(), $removeStrings);
@@ -116,14 +116,14 @@ abstract class AggregateType extends Type
         }
         return $types;
     }
-    public function add(Type $type) : AggregateType
+    public function add(Type $type) : \Phpactor\WorseReflection\Core\Type\AggregateType
     {
         return $this->withTypes(...\array_merge($this->types, [$type]))->clean();
     }
     public function isNull() : bool
     {
         $reduced = $this->reduce();
-        return $reduced instanceof NullType;
+        return $reduced instanceof \Phpactor\WorseReflection\Core\Type\NullType;
     }
     public function isNullable() : bool
     {
@@ -137,14 +137,14 @@ abstract class AggregateType extends Type
     public function stripNullable() : Type
     {
         return $this->withTypes(...\array_filter($this->types, function (Type $type) {
-            return !$type instanceof NullType;
+            return !$type instanceof \Phpactor\WorseReflection\Core\Type\NullType;
         }))->reduce();
     }
     public function map(Closure $mapper) : Type
     {
         return $this->withTypes(...\array_map($mapper, $this->types));
     }
-    public function filter(Closure $closure) : AggregateType
+    public function filter(Closure $closure) : \Phpactor\WorseReflection\Core\Type\AggregateType
     {
         return $this->withTypes(...\array_filter($this->types, $closure));
     }
@@ -162,4 +162,3 @@ abstract class AggregateType extends Type
         return \false;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\AggregateType', 'Phpactor\\WorseReflection\\Core\\Type\\AggregateType', \false);

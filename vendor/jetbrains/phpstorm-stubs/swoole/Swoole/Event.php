@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole;
+declare(strict_types=1);
+
+namespace Swoole;
 
 class Event
 {
@@ -10,75 +11,63 @@ class Event
      * @param mixed|null $events
      * @return mixed
      */
-    public static function add($fd, ?callable $read_callback, ?callable $write_callback = null, $events = null)
-    {
-    }
+    public static function add($fd, ?callable $read_callback, ?callable $write_callback = null, $events = null) {}
+
     /**
      * @param mixed $fd
      * @return mixed
      */
-    public static function del($fd)
-    {
-    }
+    public static function del($fd) {}
+
     /**
      * @param mixed $fd
      * @param mixed|null $events
      * @return mixed
      */
-    public static function set($fd, ?callable $read_callback = null, ?callable $write_callback = null, $events = null)
-    {
-    }
+    public static function set($fd, ?callable $read_callback = null, ?callable $write_callback = null, $events = null) {}
+
     /**
      * @param mixed $fd
      * @param mixed|null $events
      * @return mixed
      */
-    public static function isset($fd, $events = null)
-    {
-    }
+    public static function isset($fd, $events = null) {}
+
     /**
      * @return mixed
      */
-    public static function dispatch()
-    {
-    }
+    public static function dispatch() {}
+
     /**
      * @return true
      */
-    public static function defer(callable $callback)
-    {
-    }
+    public static function defer(callable $callback) {}
+
     /**
      * @param mixed|null $before
      * @return mixed
      */
-    public static function cycle(?callable $callback, $before = null)
-    {
-    }
+    public static function cycle(?callable $callback, $before = null) {}
+
     /**
      * @param mixed $fd
      * @param mixed $data
      * @return mixed
      */
-    public static function write($fd, $data)
-    {
-    }
+    public static function write($fd, $data) {}
+
     /**
      * @return mixed
      */
-    public static function wait()
-    {
-    }
+    public static function wait() {}
+
     /**
      * @return mixed
      */
-    public static function rshutdown()
-    {
-    }
+    public static function rshutdown() {}
+
     /**
      * @return mixed
      */
-    public static function exit()
-    {
-    }
+    public static function exit() {}
 }

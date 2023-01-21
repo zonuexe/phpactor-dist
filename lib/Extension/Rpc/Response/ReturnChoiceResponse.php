@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response;
 /**
  * Instruct the editor to return the options to the RPC caller.
  *
@@ -29,7 +29,7 @@ class ReturnChoiceResponse implements Response
         }
         return ['choices' => $options];
     }
-    public static function fromOptions(array $options) : ReturnChoiceResponse
+    public static function fromOptions(array $options) : \Phpactor\Extension\Rpc\Response\ReturnChoiceResponse
     {
         return new self($options);
     }
@@ -37,14 +37,8 @@ class ReturnChoiceResponse implements Response
     {
         return $this->options;
     }
-    private function add(ReturnOption $option) : void
+    private function add(\Phpactor\Extension\Rpc\Response\ReturnOption $option) : void
     {
         $this->options[] = $option;
     }
 }
-/**
- * Instruct the editor to return the options to the RPC caller.
- *
- * NOTE: No actions can be performed after this action.
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\ReturnChoiceResponse', 'Phpactor\\Extension\\Rpc\\Response\\ReturnChoiceResponse', \false);

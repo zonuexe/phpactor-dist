@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
 /**
  * <b>SessionHandlerInterface</b> is an interface which defines
  * a prototype for creating a custom session handler.
@@ -25,7 +24,8 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function close() : bool;
+    public function close(): bool;
+
     /**
      * Destroy a session
      * @link https://php.net/manual/en/sessionhandlerinterface.destroy.php
@@ -37,7 +37,8 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id) : bool;
+    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): bool;
+
     /**
      * Cleanup old sessions
      * @link https://php.net/manual/en/sessionhandlerinterface.gc.php
@@ -53,7 +54,8 @@ interface SessionHandlerInterface
      */
     #[LanguageLevelTypeAware(['7.1' => 'int|false'], default: 'bool')]
     #[TentativeType]
-    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime) : int|false;
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime): int|false;
+
     /**
      * Initialize session
      * @link https://php.net/manual/en/sessionhandlerinterface.open.php
@@ -66,7 +68,11 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function open(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) : bool;
+    public function open(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+    ): bool;
+
     /**
      * Read session data
      * @link https://php.net/manual/en/sessionhandlerinterface.read.php
@@ -79,7 +85,8 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id) : string|false;
+    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): string|false;
+
     /**
      * Write session data
      * @link https://php.net/manual/en/sessionhandlerinterface.write.php
@@ -98,18 +105,12 @@ interface SessionHandlerInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function write(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) : bool;
+    public function write(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+    ): bool;
 }
-/**
- * <b>SessionHandlerInterface</b> is an interface which defines
- * a prototype for creating a custom session handler.
- * In order to pass a custom session handler to
- * session_set_save_handler() using its OOP invocation,
- * the class must implement this interface.
- * @link https://php.net/manual/en/class.sessionhandlerinterface.php
- * @since 5.4
- */
-\class_alias('Phpactor202301\\SessionHandlerInterface', 'SessionHandlerInterface', \false);
+
 /**
  * <b>SessionIdInterface</b>
  * @link https://php.net/manual/en/class.sessionidinterface.php
@@ -125,14 +126,9 @@ interface SessionIdInterface
      * </p>
      */
     #[TentativeType]
-    public function create_sid() : string;
+    public function create_sid(): string;
 }
-/**
- * <b>SessionIdInterface</b>
- * @link https://php.net/manual/en/class.sessionidinterface.php
- * @since 5.5.1
- */
-\class_alias('Phpactor202301\\SessionIdInterface', 'SessionIdInterface', \false);
+
 /**
  * <b>SessionUpdateTimestampHandlerInterface</b> is an interface which
  * defines a prototype for updating the life time of an existing session.
@@ -151,7 +147,8 @@ interface SessionUpdateTimestampHandlerInterface
      * </p>
      */
     #[TentativeType]
-    public function validateId(string $id) : bool;
+    public function validateId(string $id): bool;
+
     /**
      * Update timestamp of a session
      * @link https://www.php.net/manual/sessionupdatetimestamphandlerinterface.updatetimestamp.php
@@ -166,16 +163,9 @@ interface SessionUpdateTimestampHandlerInterface
      * @return bool
      */
     #[TentativeType]
-    public function updateTimestamp(string $id, string $data) : bool;
+    public function updateTimestamp(string $id, string $data): bool;
 }
-/**
- * <b>SessionUpdateTimestampHandlerInterface</b> is an interface which
- * defines a prototype for updating the life time of an existing session.
- * In order to use the lazy_write option must be enabled and a custom session
- * handler must implement this interface.
- * @since 7.0
- */
-\class_alias('Phpactor202301\\SessionUpdateTimestampHandlerInterface', 'SessionUpdateTimestampHandlerInterface', \false);
+
 /**
  * <b>SessionHandler</b> a special class that can
  * be used to expose the current internal PHP session
@@ -191,7 +181,7 @@ interface SessionUpdateTimestampHandlerInterface
  * @link https://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
-class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
+class SessionHandler implements SessionHandlerInterface, SessionIdInterface
 {
     /**
      * Close the session
@@ -203,9 +193,8 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function close() : bool
-    {
-    }
+    public function close(): bool {}
+
     /**
      * Return a new session ID
      * @link https://php.net/manual/en/sessionhandler.create-sid.php
@@ -213,9 +202,8 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.5.1
      */
     #[TentativeType]
-    public function create_sid() : string
-    {
-    }
+    public function create_sid(): string {}
+
     /**
      * Destroy a session
      * @link https://php.net/manual/en/sessionhandler.destroy.php
@@ -227,9 +215,8 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id) : bool
-    {
-    }
+    public function destroy(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): bool {}
+
     /**
      * Cleanup old sessions
      * @link https://php.net/manual/en/sessionhandler.gc.php
@@ -244,9 +231,8 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime) : int|false
-    {
-    }
+    public function gc(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $max_lifetime): int|false {}
+
     /**
      * Initialize session
      * @link https://php.net/manual/en/sessionhandler.open.php
@@ -259,9 +245,11 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function open(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name) : bool
-    {
-    }
+    public function open(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $path,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $name
+    ): bool {}
+
     /**
      * Read session data
      * @link https://php.net/manual/en/sessionhandler.read.php
@@ -274,9 +262,8 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id) : string|false
-    {
-    }
+    public function read(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id): string|false {}
+
     /**
      * Write session data
      * @link https://php.net/manual/en/sessionhandler.write.php
@@ -295,9 +282,11 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * @since 5.4
      */
     #[TentativeType]
-    public function write(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data) : bool
-    {
-    }
+    public function write(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $id,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data
+    ): bool {}
+
     /**
      * Validate session id
      * @param string $session_id The session id
@@ -305,9 +294,8 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * Note this value is returned internally to PHP for processing.
      * </p>
      */
-    public function validateId($session_id)
-    {
-    }
+    public function validateId($session_id) {}
+
     /**
      * Update timestamp of a session
      * @param string $session_id The session id
@@ -320,23 +308,5 @@ class SessionHandler implements \SessionHandlerInterface, \SessionIdInterface
      * </p>
      * @return bool
      */
-    public function updateTimestamp($session_id, $session_data)
-    {
-    }
+    public function updateTimestamp($session_id, $session_data) {}
 }
-/**
- * <b>SessionHandler</b> a special class that can
- * be used to expose the current internal PHP session
- * save handler by inheritance. There are six methods
- * which wrap the six internal session save handler
- * callbacks (open, close, read, write, destroy and gc).
- * By default, this class will wrap whatever internal
- * save handler is set as as defined by the
- * session.save_handler configuration directive which is usually
- * files by default. Other internal session save handlers are provided by
- * PHP extensions such as SQLite (as sqlite),
- * Memcache (as memcache), and Memcached (as memcached).
- * @link https://php.net/manual/en/class.reflectionzendextension.php
- * @since 5.4
- */
-\class_alias('Phpactor202301\\SessionHandler', 'SessionHandler', \false);

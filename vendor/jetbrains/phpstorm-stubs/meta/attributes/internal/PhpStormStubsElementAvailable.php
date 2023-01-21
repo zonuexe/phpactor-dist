@@ -1,19 +1,21 @@
 <?php
 
-namespace Phpactor202301\JetBrains\PhpStorm\Internal;
+namespace JetBrains\PhpStorm\Internal;
 
 use Attribute;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
+
 /**
  * For PhpStorm internal use only
  * @since 8.0
  * @internal
  */
-#[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD | Attribute::TARGET_PARAMETER)]
+#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD|Attribute::TARGET_PARAMETER)]
 class PhpStormStubsElementAvailable
 {
-    public function __construct(#[ExpectedValues(Deprecated::PHP_VERSIONS)] $from, #[ExpectedValues(Deprecated::PHP_VERSIONS)] $to = null)
-    {
-    }
+    public function __construct(
+        #[ExpectedValues(Deprecated::PHP_VERSIONS)] $from,
+        #[ExpectedValues(Deprecated::PHP_VERSIONS)] $to = null
+    ) {}
 }

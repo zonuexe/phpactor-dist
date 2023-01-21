@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Service;
+namespace Phpactor\LanguageServer\Core\Service;
 
 interface ServiceProvider
 {
@@ -28,4 +28,3 @@ interface ServiceProvider
      */
     public function services() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Service\\ServiceProvider', 'Phpactor\\LanguageServer\\Core\\Service\\ServiceProvider', \false);

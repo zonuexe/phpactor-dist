@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Rpc;
+namespace Phpactor\LanguageServer\Core\Rpc;
 
-final class NotificationMessage extends Message
+final class NotificationMessage extends \Phpactor\LanguageServer\Core\Rpc\Message
 {
     /**
      * @var string
@@ -18,4 +18,3 @@ final class NotificationMessage extends Message
         $this->params = $params;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Rpc\\NotificationMessage', 'Phpactor\\LanguageServer\\Core\\Rpc\\NotificationMessage', \false);

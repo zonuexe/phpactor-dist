@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Logger\Formatter;
+namespace Phpactor\Extension\Logger\Formatter;
 
 use Phpactor202301\Monolog\Formatter\FormatterInterface;
 use Phpactor202301\Psr\Container\ContainerInterface;
@@ -18,4 +18,3 @@ class FormatterRegistry
         return $this->container->get($this->serviceMap[$alias]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Logger\\Formatter\\FormatterRegistry', 'Phpactor\\Extension\\Logger\\Formatter\\FormatterRegistry', \false);

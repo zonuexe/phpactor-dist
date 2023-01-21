@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use RuntimeException;
 final class DiagnosticSeverity
@@ -49,4 +49,3 @@ final class DiagnosticSeverity
         return $this->level === self::WARNING;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DiagnosticSeverity', 'Phpactor\\WorseReflection\\Core\\DiagnosticSeverity', \false);

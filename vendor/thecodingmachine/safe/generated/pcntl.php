@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\PcntlException;
+use Safe\Exceptions\PcntlException;
+
 /**
  * Executes the program with the given arguments.
  *
@@ -19,9 +20,9 @@ use Phpactor202301\Safe\Exceptions\PcntlException;
  * @throws PcntlException
  *
  */
-function pcntl_exec(string $path, array $args = null, array $envs = null) : void
+function pcntl_exec(string $path, array $args = null, array $envs = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($envs !== null) {
         $result = \pcntl_exec($path, $args, $envs);
     } elseif ($args !== null) {
@@ -29,10 +30,12 @@ function pcntl_exec(string $path, array $args = null, array $envs = null) : void
     } else {
         $result = \pcntl_exec($path);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw PcntlException::createFromPhpError();
     }
 }
+
+
 /**
  * pcntl_getpriority gets the priority of
  * pid. Because priority levels can differ between
@@ -47,21 +50,23 @@ function pcntl_exec(string $path, array $args = null, array $envs = null) : void
  * @throws PcntlException
  *
  */
-function pcntl_getpriority(int $pid = null, int $process_identifier = \PRIO_PROCESS) : int
+function pcntl_getpriority(int $pid = null, int $process_identifier = PRIO_PROCESS): int
 {
-    \error_clear_last();
-    if ($process_identifier !== \PRIO_PROCESS) {
+    error_clear_last();
+    if ($process_identifier !== PRIO_PROCESS) {
         $result = \pcntl_getpriority($pid, $process_identifier);
     } elseif ($pid !== null) {
         $result = \pcntl_getpriority($pid);
     } else {
         $result = \pcntl_getpriority();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw PcntlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * pcntl_setpriority sets the priority of
  * pid.
@@ -78,20 +83,22 @@ function pcntl_getpriority(int $pid = null, int $process_identifier = \PRIO_PROC
  * @throws PcntlException
  *
  */
-function pcntl_setpriority(int $priority, int $pid = null, int $process_identifier = \PRIO_PROCESS) : void
+function pcntl_setpriority(int $priority, int $pid = null, int $process_identifier = PRIO_PROCESS): void
 {
-    \error_clear_last();
-    if ($process_identifier !== \PRIO_PROCESS) {
+    error_clear_last();
+    if ($process_identifier !== PRIO_PROCESS) {
         $result = \pcntl_setpriority($priority, $pid, $process_identifier);
     } elseif ($pid !== null) {
         $result = \pcntl_setpriority($priority, $pid);
     } else {
         $result = \pcntl_setpriority($priority);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw PcntlException::createFromPhpError();
     }
 }
+
+
 /**
  * The pcntl_signal_dispatch function calls the signal
  * handlers installed by pcntl_signal for each pending
@@ -100,14 +107,16 @@ function pcntl_setpriority(int $priority, int $pid = null, int $process_identifi
  * @throws PcntlException
  *
  */
-function pcntl_signal_dispatch() : void
+function pcntl_signal_dispatch(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \pcntl_signal_dispatch();
-    if ($result === \false) {
+    if ($result === false) {
         throw PcntlException::createFromPhpError();
     }
 }
+
+
 /**
  * The pcntl_sigprocmask function adds, removes or sets blocked
  * signals, depending on the how parameter.
@@ -128,14 +137,16 @@ function pcntl_signal_dispatch() : void
  * @throws PcntlException
  *
  */
-function pcntl_sigprocmask(int $how, array $set, ?array &$oldset = null) : void
+function pcntl_sigprocmask(int $how, array $set, ?array &$oldset = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \pcntl_sigprocmask($how, $set, $oldset);
-    if ($result === \false) {
+    if ($result === false) {
         throw PcntlException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -144,11 +155,11 @@ function pcntl_sigprocmask(int $how, array $set, ?array &$oldset = null) : void
  * @throws PcntlException
  *
  */
-function pcntl_strerror(int $errno) : string
+function pcntl_strerror(int $errno): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \pcntl_strerror($errno);
-    if ($result === \false) {
+    if ($result === false) {
         throw PcntlException::createFromPhpError();
     }
     return $result;

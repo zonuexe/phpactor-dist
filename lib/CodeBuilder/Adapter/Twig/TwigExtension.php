@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\Twig;
+namespace Phpactor\CodeBuilder\Adapter\Twig;
 
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type as PhpactorType;
+use Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer;
+use Phpactor\CodeBuilder\Domain\Prototype\Type;
+use Phpactor\WorseReflection\Core\Type as PhpactorType;
 use Phpactor202301\Twig\TwigFilter;
 use Phpactor202301\Twig\Extension\AbstractExtension;
-use Phpactor202301\Phpactor\CodeBuilder\Util\TextFormat;
+use Phpactor\CodeBuilder\Util\TextFormat;
 use Phpactor202301\Twig\TwigFunction;
 class TwigExtension extends AbstractExtension
 {
@@ -39,4 +39,3 @@ class TwigExtension extends AbstractExtension
         return $this->textFormat->indent($string, $level);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\Twig\\TwigExtension', 'Phpactor\\CodeBuilder\\Adapter\\Twig\\TwigExtension', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Virtual;
+namespace Phpactor\WorseReflection\Core\Virtual;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-class VirtualReflectionProperty extends VirtualReflectionMember implements ReflectionProperty
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+class VirtualReflectionProperty extends \Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMember implements ReflectionProperty
 {
     public function isVirtual() : bool
     {
@@ -30,4 +30,3 @@ class VirtualReflectionProperty extends VirtualReflectionMember implements Refle
         return $new;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionProperty', 'Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionProperty', \false);

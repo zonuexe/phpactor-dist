@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use ArrayIterator;
 use Countable;
@@ -31,7 +31,7 @@ final class Locations implements IteratorAggregate, Countable
     {
         return new ArrayIterator($this->locations);
     }
-    public function append(Locations $locations) : self
+    public function append(\Phpactor\TextDocument\Locations $locations) : self
     {
         $newLocations = $this->locations;
         foreach ($locations as $location) {
@@ -43,7 +43,7 @@ final class Locations implements IteratorAggregate, Countable
     {
         return \count($this->locations);
     }
-    public function first() : Location
+    public function first() : \Phpactor\TextDocument\Location
     {
         if (\count($this->locations) === 0) {
             throw new RuntimeException('There are no locations in this collection');
@@ -53,7 +53,7 @@ final class Locations implements IteratorAggregate, Countable
     public function sorted() : self
     {
         $sortedLocations = $this->locations;
-        \usort($sortedLocations, function (Location $first, Location $second) {
+        \usort($sortedLocations, function (\Phpactor\TextDocument\Location $first, \Phpactor\TextDocument\Location $second) {
             $order = \strcmp((string) $first->uri(), (string) $second->uri());
             if (0 !== $order) {
                 return $order;
@@ -62,13 +62,9 @@ final class Locations implements IteratorAggregate, Countable
         });
         return new self($sortedLocations);
     }
-    private function add(Location $location) : self
+    private function add(\Phpactor\TextDocument\Location $location) : self
     {
         $this->locations[] = $location;
         return $this;
     }
 }
-/**
- * @implements IteratorAggregate<Location>
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\Locations', 'Phpactor\\TextDocument\\Locations', \false);

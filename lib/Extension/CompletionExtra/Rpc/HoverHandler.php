@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CompletionExtra\Rpc;
+namespace Phpactor\Extension\CompletionExtra\Rpc;
 
-use Phpactor202301\Phpactor\Completion\Core\Exception\CouldNotFormat;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Core\Exception\CouldNotFormat;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Reflector;
 use RuntimeException;
 class HoverHandler implements Handler
 {
@@ -102,4 +102,3 @@ class HoverHandler implements Handler
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CompletionExtra\\Rpc\\HoverHandler', 'Phpactor\\Extension\\CompletionExtra\\Rpc\\HoverHandler', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Method;
-class InterfaceMethodUpdater extends AbstractMethodUpdater
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Domain\Prototype\Method;
+class InterfaceMethodUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\AbstractMethodUpdater
 {
     public function memberDeclarationsNode(ClassLike $classNode)
     {
@@ -20,4 +20,3 @@ class InterfaceMethodUpdater extends AbstractMethodUpdater
         return $classNode->interfaceMembers->interfaceMemberDeclarations;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\InterfaceMethodUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\InterfaceMethodUpdater', \false);

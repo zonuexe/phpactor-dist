@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\CodeAction;
+namespace Phpactor\LanguageServer\Core\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
 interface CodeActionProvider
 {
     /**
@@ -23,4 +23,3 @@ interface CodeActionProvider
      */
     public function kinds() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\CodeAction\\CodeActionProvider', 'Phpactor\\LanguageServer\\Core\\CodeAction\\CodeActionProvider', \false);

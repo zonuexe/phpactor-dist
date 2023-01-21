@@ -1,65 +1,65 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
 class NodeContext
 {
-    private TypeAssertions $typeAssertions;
+    private \Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions;
     /**
      * @var string[]
      */
     private array $issues = [];
-    protected function __construct(protected Symbol $symbol, protected Type $type, protected ?Type $containerType = null, private ?ReflectionScope $scope = null)
+    protected function __construct(protected \Phpactor\WorseReflection\Core\Inference\Symbol $symbol, protected Type $type, protected ?Type $containerType = null, private ?ReflectionScope $scope = null)
     {
-        $this->typeAssertions = new TypeAssertions([]);
+        $this->typeAssertions = new \Phpactor\WorseReflection\Core\Inference\TypeAssertions([]);
     }
-    public static function for(Symbol $symbol) : NodeContext
+    public static function for(\Phpactor\WorseReflection\Core\Inference\Symbol $symbol) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         return new self($symbol, TypeFactory::unknown());
     }
-    public static function fromType(Type $type) : NodeContext
+    public static function fromType(Type $type) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
-        return new self(Symbol::unknown(), $type);
+        return new self(\Phpactor\WorseReflection\Core\Inference\Symbol::unknown(), $type);
     }
-    public static function none() : NodeContext
+    public static function none() : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
-        return new self(Symbol::unknown(), new MissingType());
+        return new self(\Phpactor\WorseReflection\Core\Inference\Symbol::unknown(), new MissingType());
     }
-    public function withContainerType(Type $containerType) : NodeContext
+    public function withContainerType(Type $containerType) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $new = clone $this;
         $new->containerType = $containerType;
         return $new;
     }
-    public function withTypeAssertions(TypeAssertions $typeAssertions) : NodeContext
+    public function withTypeAssertions(\Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $new = clone $this;
         $new->typeAssertions = $typeAssertions;
         return $new;
     }
-    public function withType(Type $type) : NodeContext
+    public function withType(Type $type) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $new = clone $this;
         $new->type = $type;
         return $new;
     }
-    public function withTypeAssertion(TypeAssertion $typeAssertion) : NodeContext
+    public function withTypeAssertion(\Phpactor\WorseReflection\Core\Inference\TypeAssertion $typeAssertion) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $new = clone $this;
         $new->typeAssertions = $new->typeAssertions->add($typeAssertion);
         return $new;
     }
-    public function withScope(ReflectionScope $scope) : NodeContext
+    public function withScope(ReflectionScope $scope) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $new = clone $this;
         $new->scope = $scope;
         return $new;
     }
-    public function withIssue(string $message) : NodeContext
+    public function withIssue(string $message) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $new = clone $this;
         $new->issues[] = $message;
@@ -87,7 +87,7 @@ class NodeContext
     {
         return $this->type ?? new MissingType();
     }
-    public function symbol() : Symbol
+    public function symbol() : \Phpactor\WorseReflection\Core\Inference\Symbol
     {
         return $this->symbol;
     }
@@ -106,7 +106,7 @@ class NodeContext
     {
         return $this->scope;
     }
-    public function typeAssertions() : TypeAssertions
+    public function typeAssertions() : \Phpactor\WorseReflection\Core\Inference\TypeAssertions
     {
         return $this->typeAssertions;
     }
@@ -118,4 +118,3 @@ class NodeContext
         return $this;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\NodeContext', 'Phpactor\\WorseReflection\\Core\\Inference\\NodeContext', \false);

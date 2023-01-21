@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -29,7 +29,7 @@ class ConfigurationParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['items' => ['names' => [ConfigurationItem::class], 'iterable' => \true]];
+        $map = ['items' => ['names' => [\Phpactor\LanguageServerProtocol\ConfigurationItem::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -79,7 +79,3 @@ class ConfigurationParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a configuration request.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ConfigurationParams', 'Phpactor\\LanguageServerProtocol\\ConfigurationParams', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface FileChangeType
 {
@@ -9,4 +9,3 @@ interface FileChangeType
     public const CHANGED = 2;
     public const DELETED = 3;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileChangeType', 'Phpactor\\LanguageServerProtocol\\FileChangeType', \false);

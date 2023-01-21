@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ShmopException;
+use Safe\Exceptions\ShmopException;
+
 /**
  * shmop_delete is used to delete a shared memory block.
  *
@@ -11,14 +12,16 @@ use Phpactor202301\Safe\Exceptions\ShmopException;
  * @throws ShmopException
  *
  */
-function shmop_delete($shmid) : void
+function shmop_delete($shmid): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shmop_delete($shmid);
-    if ($result === \false) {
+    if ($result === false) {
         throw ShmopException::createFromPhpError();
     }
 }
+
+
 /**
  * shmop_read will read a string from shared memory block.
  *
@@ -31,15 +34,17 @@ function shmop_delete($shmid) : void
  * @throws ShmopException
  *
  */
-function shmop_read($shmid, int $start, int $count) : string
+function shmop_read($shmid, int $start, int $count): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shmop_read($shmid, $start, $count);
-    if ($result === \false) {
+    if ($result === false) {
         throw ShmopException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * shmop_write will write a string into shared memory block.
  *
@@ -52,11 +57,11 @@ function shmop_read($shmid, int $start, int $count) : string
  * @throws ShmopException
  *
  */
-function shmop_write($shmid, string $data, int $offset) : int
+function shmop_write($shmid, string $data, int $offset): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \shmop_write($shmid, $data, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw ShmopException::createFromPhpError();
     }
     return $result;

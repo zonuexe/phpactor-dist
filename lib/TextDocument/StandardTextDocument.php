@@ -1,23 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
-class StandardTextDocument implements TextDocument
+class StandardTextDocument implements \Phpactor\TextDocument\TextDocument
 {
-    public function __construct(private TextDocumentLanguage $language, private string $text, private ?TextDocumentUri $uri = null)
+    public function __construct(private \Phpactor\TextDocument\TextDocumentLanguage $language, private string $text, private ?\Phpactor\TextDocument\TextDocumentUri $uri = null)
     {
     }
     public function __toString()
     {
         return $this->text;
     }
-    public function uri() : ?TextDocumentUri
+    public function uri() : ?\Phpactor\TextDocument\TextDocumentUri
     {
         return $this->uri;
     }
-    public function language() : TextDocumentLanguage
+    public function language() : \Phpactor\TextDocument\TextDocumentLanguage
     {
         return $this->language;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\StandardTextDocument', 'Phpactor\\TextDocument\\StandardTextDocument', \false);

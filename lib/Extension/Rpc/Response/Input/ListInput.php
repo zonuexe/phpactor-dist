@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Input;
+namespace Phpactor\Extension\Rpc\Response\Input;
 
-class ListInput extends ChoiceInput
+class ListInput extends \Phpactor\Extension\Rpc\Response\Input\ChoiceInput
 {
     private $allowMultipleResults = \false;
     public function type() : string
@@ -20,4 +20,3 @@ class ListInput extends ChoiceInput
         return \array_merge(parent::parameters(), ['multi' => $this->allowMultipleResults]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Input\\ListInput', 'Phpactor\\Extension\\Rpc\\Response\\Input\\ListInput', \false);

@@ -1,24 +1,24 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node\ElseIfClauseNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ExitIntrinsicExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ThrowExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\IfStatementNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\BreakOrContinueStatement;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NeverType;
+use Phpactor\WorseReflection\Core\Type\NeverType;
 class IfStatementResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -149,4 +149,3 @@ class IfStatementResolver implements Resolver
         return $node->getEndPosition();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\IfStatementResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\IfStatementResolver', \false);

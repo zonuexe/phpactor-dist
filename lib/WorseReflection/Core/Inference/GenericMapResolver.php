@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassStringType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GenericClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassStringType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
+use Phpactor\WorseReflection\Core\Type\StringLiteralType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
 class GenericMapResolver
 {
     public function __construct(private ClassReflector $reflector)
@@ -53,7 +53,7 @@ class GenericMapResolver
         }
         return null;
     }
-    public function mergeParameters(TemplateMap $templateMap, ReflectionParameterCollection $parameters, FunctionArguments $arguments) : TemplateMap
+    public function mergeParameters(TemplateMap $templateMap, ReflectionParameterCollection $parameters, \Phpactor\WorseReflection\Core\Inference\FunctionArguments $arguments) : TemplateMap
     {
         foreach ($parameters as $parameter) {
             $parameterType = $parameter->inferredType();
@@ -75,7 +75,7 @@ class GenericMapResolver
         }
         return $templateMap;
     }
-    private function mapClassString(ClassStringType $type, TemplateMap $templateMap, FunctionArguments $arguments, ReflectionParameter $parameter) : void
+    private function mapClassString(ClassStringType $type, TemplateMap $templateMap, \Phpactor\WorseReflection\Core\Inference\FunctionArguments $arguments, ReflectionParameter $parameter) : void
     {
         $classStringType = $type->className()->short();
         if (!$templateMap->has($classStringType)) {
@@ -105,4 +105,3 @@ class GenericMapResolver
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\GenericMapResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\GenericMapResolver', \false);

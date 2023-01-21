@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerSymbolProvider\Model;
+namespace Phpactor\Extension\LanguageServerSymbolProvider\Model;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentSymbol;
+use Phpactor\LanguageServerProtocol\DocumentSymbol;
 interface DocumentSymbolProvider
 {
     /**
@@ -10,4 +10,3 @@ interface DocumentSymbolProvider
      */
     public function provideFor(string $source) : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerSymbolProvider\\Model\\DocumentSymbolProvider', 'Phpactor\\Extension\\LanguageServerSymbolProvider\\Model\\DocumentSymbolProvider', \false);

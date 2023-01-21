@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Adapter\Deserializer;
+namespace Phpactor\ConfigLoader\Adapter\Deserializer;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\Deserializer;
-use Phpactor202301\Phpactor\ConfigLoader\Core\Exception\CouldNotDeserialize;
+use Phpactor\ConfigLoader\Core\Deserializer;
+use Phpactor\ConfigLoader\Core\Exception\CouldNotDeserialize;
 class JsonDeserializer implements Deserializer
 {
     public function deserialize(string $contents) : array
@@ -15,4 +15,3 @@ class JsonDeserializer implements Deserializer
         return $decoded;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Adapter\\Deserializer\\JsonDeserializer', 'Phpactor\\ConfigLoader\\Adapter\\Deserializer\\JsonDeserializer', \false);

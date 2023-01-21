@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
-use Phpactor202301\Phpactor\Extension\Core\Model\ConfigManipulator;
+use Phpactor\Extension\Core\Model\ConfigManipulator;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
@@ -30,4 +30,3 @@ class ConfigInitCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\ConfigInitCommand', 'Phpactor\\Extension\\Core\\Command\\ConfigInitCommand', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-final class HexLiteralType extends IntType implements Literal, Generalizable
+use Phpactor\WorseReflection\Core\Type;
+final class HexLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType implements \Phpactor\WorseReflection\Core\Type\Literal, \Phpactor\WorseReflection\Core\Type\Generalizable
 {
-    use LiteralTrait;
+    use \Phpactor\WorseReflection\Core\Type\LiteralTrait;
     public function __construct(public string $value)
     {
     }
@@ -19,7 +19,6 @@ final class HexLiteralType extends IntType implements Literal, Generalizable
     }
     public function generalize() : Type
     {
-        return new IntType();
+        return new \Phpactor\WorseReflection\Core\Type\IntType();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\HexLiteralType', 'Phpactor\\WorseReflection\\Core\\Type\\HexLiteralType', \false);

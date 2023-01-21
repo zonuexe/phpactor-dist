@@ -1,13 +1,35 @@
 <?php
+/**
+ * Indicates that the pattern is a glob-style string pattern.
+ * @link https://www.php.net/manual/en/expect.constants.php
+ */
+const EXP_GLOB = 1;
+/**
+ * Indicates that the pattern is an exact string.
+ * @link https://www.php.net/manual/en/expect.constants.php
+ */
+const EXP_EXACT = 2;
+/**
+ * Indicates that the pattern is a regexp-style string pattern.
+ * @link https://www.php.net/manual/en/expect.constants.php
+ */
+const EXP_REGEXP = 3;
+/**
+ * Value, returned by <em>expect_expectl()</em>, when <b>EOF</b> is reached.
+ * @link https://www.php.net/manual/en/expect.constants.php
+ */
+const EXP_EOF = -11;
+/**
+ * Value, returned by <em>expect_expectl()</em> upon timeout of seconds, specified in value of <b>expect.timeout</b>
+ * @link https://www.php.net/manual/en/expect.constants.php
+ */
+const EXP_TIMEOUT = -2;
+/**
+ * Value, returned by <em>expect_expectl()</em> if no pattern have been matched.
+ * @link https://www.php.net/manual/en/expect.constants.php
+ */
+const EXP_FULLBUFFER = -5;
 
-namespace Phpactor202301;
-
-\define('EXP_GLOB', 1);
-\define('EXP_EXACT', 2);
-\define('EXP_REGEXP', 3);
-\define('EXP_EOF', -11);
-\define('EXP_TIMEOUT', -2);
-\define('EXP_FULLBUFFER', -5);
 /**
  * Execute command via Bourne shell, and open the PTY stream to the process
  *
@@ -20,8 +42,9 @@ namespace Phpactor202301;
 function expect_popen(string $command)
 {
     unset($command);
-    return \false;
+    return false;
 }
+
 /**
  * Waits until the output from a process matches one of the patterns, a specified time period has passed,
  * or an EOF is seen.
@@ -69,7 +92,7 @@ function expect_popen(string $command)
  * @since PECL expect >= 0.1.0
  * @link https://www.php.net/manual/en/function.expect-expectl.php
  */
-function expect_expectl($expect, array $cases, array &$match = []) : int
+function expect_expectl($expect, array $cases, array &$match = []): int
 {
     unset($expect, $cases, $match);
     return 0;

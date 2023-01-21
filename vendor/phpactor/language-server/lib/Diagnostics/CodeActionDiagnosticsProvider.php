@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Diagnostics;
+namespace Phpactor\LanguageServer\Diagnostics;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use function Phpactor202301\Amp\call;
 class CodeActionDiagnosticsProvider implements DiagnosticsProvider
 {
@@ -44,4 +44,3 @@ class CodeActionDiagnosticsProvider implements DiagnosticsProvider
         return 'code-action';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Diagnostics\\CodeActionDiagnosticsProvider', 'Phpactor\\LanguageServer\\Diagnostics\\CodeActionDiagnosticsProvider', \false);

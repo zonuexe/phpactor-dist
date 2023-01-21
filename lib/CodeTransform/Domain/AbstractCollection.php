@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
 use Countable;
 use IteratorAggregate;
@@ -62,8 +62,3 @@ abstract class AbstractCollection implements IteratorAggregate, Countable
     }
     protected abstract function type() : string;
 }
-/**
- * @template T
- * @implements \IteratorAggregate<string,T>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\AbstractCollection', 'Phpactor\\CodeTransform\\Domain\\AbstractCollection', \false);

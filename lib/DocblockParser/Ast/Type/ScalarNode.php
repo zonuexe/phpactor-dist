@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Type;
+namespace Phpactor\DocblockParser\Ast\Type;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\Token;
 class ScalarNode extends TypeNode
 {
     protected const CHILD_NAMES = ['name'];
@@ -15,4 +15,3 @@ class ScalarNode extends TypeNode
         return $this->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Type\\ScalarNode', 'Phpactor\\DocblockParser\\Ast\\Type\\ScalarNode', \false);

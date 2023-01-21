@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerWorseReflection\DiagnosticProvider;
+namespace Phpactor\Extension\LanguageServerWorseReflection\DiagnosticProvider;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity as LanguageServerProtocolDiagnosticSeverity;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use Phpactor202301\Phpactor\LanguageServer\Test\ProtocolFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticSeverity;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity as LanguageServerProtocolDiagnosticSeverity;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\LanguageServer\Test\ProtocolFactory;
+use Phpactor\WorseReflection\Core\DiagnosticSeverity;
+use Phpactor\WorseReflection\Reflector;
 use function Phpactor202301\Amp\call;
 class WorseDiagnosticProvider implements DiagnosticsProvider
 {
@@ -52,4 +52,3 @@ class WorseDiagnosticProvider implements DiagnosticsProvider
         return LanguageServerProtocolDiagnosticSeverity::INFORMATION;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerWorseReflection\\DiagnosticProvider\\WorseDiagnosticProvider', 'Phpactor\\Extension\\LanguageServerWorseReflection\\DiagnosticProvider\\WorseDiagnosticProvider', \false);

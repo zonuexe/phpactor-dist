@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Service;
+namespace Phpactor\Extension\LanguageServer\Service;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\Core\Application\Status;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceProvider;
+use Phpactor\Extension\Core\Application\Status;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Service\ServiceProvider;
 use function Phpactor202301\Amp\call;
 class OnDevelopWarningService implements ServiceProvider
 {
@@ -37,4 +37,3 @@ EOT
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Service\\OnDevelopWarningService', 'Phpactor\\Extension\\LanguageServer\\Service\\OnDevelopWarningService', \false);

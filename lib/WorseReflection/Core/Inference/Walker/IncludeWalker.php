@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
@@ -10,10 +10,10 @@ use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FrameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FrameResolver;
+use Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\TypeUtil;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class IncludeWalker implements Walker
@@ -84,4 +84,3 @@ class IncludeWalker implements Walker
         return $frame;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Walker\\IncludeWalker', 'Phpactor\\WorseReflection\\Core\\Inference\\Walker\\IncludeWalker', \false);

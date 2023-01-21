@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\NavigatorElementCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\NavigatorElementCollection;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 class ReflectionNavigation
 {
     public function __construct(private ServiceLocator $locator, private Node $node)
@@ -26,7 +26,7 @@ class ReflectionNavigation
                 if (!$node->parent instanceof CallExpression) {
                     continue;
                 }
-                $calls[] = new ReflectionMethodCall($this->locator, new Frame('test'), $node);
+                $calls[] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionMethodCall($this->locator, new Frame('test'), $node);
             }
         }
         return new NavigatorElementCollection($calls);
@@ -48,7 +48,7 @@ class ReflectionNavigation
             if ($node->parent instanceof CallExpression) {
                 continue;
             }
-            $elements[] = new ReflectionPropertyAccess($node);
+            $elements[] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionPropertyAccess($node);
         }
         return new NavigatorElementCollection($elements);
     }
@@ -65,9 +65,8 @@ class ReflectionNavigation
             if ($node->parent instanceof CallExpression) {
                 continue;
             }
-            $elements[] = new ReflectionConstantAccess($node);
+            $elements[] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionConstantAccess($node);
         }
         return new NavigatorElementCollection($elements);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionNavigation', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionNavigation', \false);

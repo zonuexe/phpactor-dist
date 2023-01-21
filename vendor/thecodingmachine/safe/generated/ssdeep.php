@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SsdeepException;
+use Safe\Exceptions\SsdeepException;
+
 /**
  * Calculates the match score between signature1
  * and signature2 using
@@ -15,15 +16,17 @@ use Phpactor202301\Safe\Exceptions\SsdeepException;
  * @throws SsdeepException
  *
  */
-function ssdeep_fuzzy_compare(string $signature1, string $signature2) : int
+function ssdeep_fuzzy_compare(string $signature1, string $signature2): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ssdeep_fuzzy_compare($signature1, $signature2);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ssdeep_fuzzy_compare($signature1, $signature2);
+    if ($result === false) {
         throw SsdeepException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * ssdeep_fuzzy_hash_filename calculates the hash
  * of the file specified by file_name using
@@ -35,15 +38,17 @@ function ssdeep_fuzzy_compare(string $signature1, string $signature2) : int
  * @throws SsdeepException
  *
  */
-function ssdeep_fuzzy_hash_filename(string $file_name) : string
+function ssdeep_fuzzy_hash_filename(string $file_name): string
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ssdeep_fuzzy_hash_filename($file_name);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ssdeep_fuzzy_hash_filename($file_name);
+    if ($result === false) {
         throw SsdeepException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * ssdeep_fuzzy_hash calculates the hash of
  * to_hash using
@@ -54,11 +59,11 @@ function ssdeep_fuzzy_hash_filename(string $file_name) : string
  * @throws SsdeepException
  *
  */
-function ssdeep_fuzzy_hash(string $to_hash) : string
+function ssdeep_fuzzy_hash(string $to_hash): string
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ssdeep_fuzzy_hash($to_hash);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ssdeep_fuzzy_hash($to_hash);
+    if ($result === false) {
         throw SsdeepException::createFromPhpError();
     }
     return $result;

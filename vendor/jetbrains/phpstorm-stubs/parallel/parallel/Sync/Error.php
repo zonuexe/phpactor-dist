@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301\parallel\Sync;
+namespace parallel\Sync;
 
-class Error extends \parallel\Error
-{
-}
+class Error extends \parallel\Error {}

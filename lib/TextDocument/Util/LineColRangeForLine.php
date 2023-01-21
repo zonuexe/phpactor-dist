@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument\Util;
+namespace Phpactor\TextDocument\Util;
 
-use Phpactor202301\Phpactor\TextDocument\LineCol;
-use Phpactor202301\Phpactor\TextDocument\LineColRange;
+use Phpactor\TextDocument\LineCol;
+use Phpactor\TextDocument\LineColRange;
 use RuntimeException;
 final class LineColRangeForLine
 {
@@ -27,4 +27,3 @@ final class LineColRangeForLine
         return new LineColRange(new LineCol($lineNo, $start + 1), new LineCol($lineNo, $end));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\Util\\LineColRangeForLine', 'Phpactor\\TextDocument\\Util\\LineColRangeForLine', \false);

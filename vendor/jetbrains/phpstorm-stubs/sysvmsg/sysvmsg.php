@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of sysvmsg v.
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
 /**
  * Create or attach to a message queue
  * @link https://php.net/manual/en/function.msg-get-queue.php
@@ -18,9 +17,8 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
  * @return resource|SysvMessageQueue|false a resource handle that can be used to access the System V message queue.
  */
 #[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue|false"], default: "resource|false")]
-function msg_get_queue(int $key, int $permissions = 0666)
-{
-}
+function msg_get_queue(int $key, int $permissions = 0666) {}
+
 /**
  * Send a message to a message queue
  * @link https://php.net/manual/en/function.msg-send.php
@@ -57,9 +55,8 @@ function msg_get_queue(int $key, int $permissions = 0666)
  * <i>msg_stime</i> is set to the current time.
  * </p>
  */
-function msg_send(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, int $message_type, $message, bool $serialize = \true, bool $blocking = \true, &$error_code) : bool
-{
-}
+function msg_send(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, &$error_code): bool {}
+
 /**
  * Receive a message from a message queue
  * @link https://php.net/manual/en/function.msg-receive.php
@@ -145,9 +142,8 @@ function msg_send(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], defaul
  * msg_rtime is set to the current time.
  * </p>
  */
-function msg_receive(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, int $desired_message_type, &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = \true, int $flags = 0, &$error_code) : bool
-{
-}
+function msg_receive(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, int $desired_message_type, &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = true, int $flags = 0, &$error_code): bool {}
+
 /**
  * Destroy a message queue
  * @link https://php.net/manual/en/function.msg-remove-queue.php
@@ -156,9 +152,8 @@ function msg_receive(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], def
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function msg_remove_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue) : bool
-{
-}
+function msg_remove_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue): bool {}
+
 /**
  * Returns information from the message queue data structure
  * @link https://php.net/manual/en/function.msg-stat-queue.php
@@ -233,10 +228,20 @@ function msg_remove_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"]
  * </tr>
  * </table>
  */
-#[ArrayShape(["msg_perm.uid" => "int", "msg_perm.gid" => "int", "msg_perm.mode" => "int", "msg_stime" => "int", "msg_rtime" => "int", "msg_ctime" => "int", "msg_qnum" => "int", "msg_qbytes" => "int", "msg_lspid" => "int", "msg_lrpid" => "int"])]
-function msg_stat_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue) : array|false
-{
-}
+#[ArrayShape([
+    "msg_perm.uid" => "int",
+    "msg_perm.gid" => "int",
+    "msg_perm.mode" => "int",
+    "msg_stime" => "int",
+    "msg_rtime" => "int",
+    "msg_ctime" => "int",
+    "msg_qnum" => "int",
+    "msg_qbytes" => "int",
+    "msg_lspid" => "int",
+    "msg_lrpid" => "int",
+])]
+function msg_stat_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue): array|false {}
+
 /**
  * Set information in the message queue data structure
  * @link https://php.net/manual/en/function.msg-set-queue.php
@@ -249,9 +254,8 @@ function msg_stat_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function msg_set_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, array $data) : bool
-{
-}
+function msg_set_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], default: "resource")] $queue, array $data): bool {}
+
 /**
  * Check whether a message queue exists
  * @link https://php.net/manual/en/function.msg-queue-exists.php
@@ -260,14 +264,14 @@ function msg_set_queue(#[LanguageLevelTypeAware(["8.0" => "SysvMessageQueue"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function msg_queue_exists(int $key) : bool
-{
-}
-\define('MSG_IPC_NOWAIT', 1);
-\define('MSG_EAGAIN', 11);
-\define('MSG_ENOMSG', 42);
-\define('MSG_NOERROR', 2);
-\define('MSG_EXCEPT', 4);
+function msg_queue_exists(int $key): bool {}
+
+define('MSG_IPC_NOWAIT', 1);
+define('MSG_EAGAIN', 11);
+define('MSG_ENOMSG', 42);
+define('MSG_NOERROR', 2);
+define('MSG_EXCEPT', 4);
+
 /**
  * @since 8.0
  */
@@ -277,12 +281,7 @@ final class SysvMessageQueue
      * Cannot directly construct SysvMessageQueue, use msg_get_queue() instead
      * @see msg_get_queue()
      */
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 }
-/**
- * @since 8.0
- */
-\class_alias('Phpactor202301\\SysvMessageQueue', 'SysvMessageQueue', \false);
+
 // End of sysvmsg v.

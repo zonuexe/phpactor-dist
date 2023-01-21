@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\FileListProvider;
+namespace Phpactor\Indexer\Model\FileListProvider;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\DirtyDocumentTracker;
-use Phpactor202301\Phpactor\Indexer\Model\FileList;
-use Phpactor202301\Phpactor\Indexer\Model\FileListProvider;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Indexer\Model\DirtyDocumentTracker;
+use Phpactor\Indexer\Model\FileList;
+use Phpactor\Indexer\Model\FileListProvider;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\TextDocument\TextDocumentUri;
 use RuntimeException;
 use SplFileInfo;
 class DirtyFileListProvider implements FileListProvider, DirtyDocumentTracker
@@ -55,4 +55,3 @@ class DirtyFileListProvider implements FileListProvider, DirtyDocumentTracker
         \unlink($this->dirtyPath);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\FileListProvider\\DirtyFileListProvider', 'Phpactor\\Indexer\\Model\\FileListProvider\\DirtyFileListProvider', \false);

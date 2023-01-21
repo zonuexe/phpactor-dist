@@ -1,11 +1,12 @@
 <?php
 
-namespace Phpactor202301\parallel;
+namespace parallel;
 
 use Countable;
 use parallel\Events\Event;
 use parallel\Events\Input;
 use Traversable;
+
 /**
  * ### The Event Loop
  * ---------------------------------------------------------------------------------------------------------------------
@@ -16,23 +17,23 @@ use Traversable;
 final class Events implements Countable, Traversable
 {
     /* Input */
+
     /**
      * Shall set input for this event loop
      * @param Events\Input $input
      */
-    public function setInput(Input $input) : void
-    {
-    }
+    public function setInput(Input $input): void {}
+
     /* Targets */
+
     /**
      * Shall watch for events on the given channel
      * @param Channel $channel
      *
      * @throws Events\Error\Existence if channel was already added.
      */
-    public function addChannel(Channel $channel) : void
-    {
-    }
+    public function addChannel(Channel $channel): void {}
+
     /**
      * Shall watch for events on the given future
      *
@@ -41,19 +42,18 @@ final class Events implements Countable, Traversable
      *
      * @throws Events\Error\Existence if target with the given name was already added.
      */
-    public function addFuture(string $name, Future $future) : void
-    {
-    }
+    public function addFuture(string $name, Future $future): void {}
+
     /**
      * Shall remove the given target
      * @param string $target
      *
      * @throws Events\Error\Existence if target with the given name was not found.
      */
-    public function remove(string $target) : void
-    {
-    }
+    public function remove(string $target): void {}
+
     /* Behaviour */
+
     /**
      * Shall set blocking mode
      *
@@ -72,10 +72,10 @@ final class Events implements Countable, Traversable
      *
      * @throws Events\Error if loop has timeout set.
      */
-    public function setBlocking(bool $blocking) : void
-    {
-    }
+    public function setBlocking(bool $blocking): void {}
+
     /* Behaviour */
+
     /**
      * Shall set the timeout in microseconds
      *
@@ -89,10 +89,10 @@ final class Events implements Countable, Traversable
      *
      * @param int $timeout
      */
-    public function setTimeout(int $timeout) : void
-    {
-    }
+    public function setTimeout(int $timeout): void {}
+
     /* Polling */
+
     /**
      * Shall poll for the next event
      *
@@ -104,13 +104,10 @@ final class Events implements Countable, Traversable
      *
      * @throws Events\Error\Timeout if timeout is used and reached.
      */
-    public function poll() : ?Event
-    {
-    }
+    public function poll(): ?Event {}
+
     /**
      * @return int
      */
-    public function count() : int
-    {
-    }
+    public function count(): int {}
 }

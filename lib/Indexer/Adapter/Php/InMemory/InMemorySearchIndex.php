@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Php\InMemory;
+namespace Phpactor\Indexer\Adapter\Php\InMemory;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\RecordFactory;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\RecordFactory;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\SearchIndex;
 class InMemorySearchIndex implements SearchIndex
 {
     /**
@@ -43,4 +43,3 @@ class InMemorySearchIndex implements SearchIndex
         return isset($this->buffer[$record->identifier()]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Php\\InMemory\\InMemorySearchIndex', 'Phpactor\\Indexer\\Adapter\\Php\\InMemory\\InMemorySearchIndex', \false);

@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\Formatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\Formatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
 class InterfaceFormatter implements Formatter
 {
     public function canFormat(object $object) : bool
@@ -23,4 +23,3 @@ class InterfaceFormatter implements Formatter
         return \implode('', $info);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\InterfaceFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\InterfaceFormatter', \false);

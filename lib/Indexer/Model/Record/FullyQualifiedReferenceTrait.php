@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
-use Phpactor202301\Phpactor\Indexer\Model\Exception\CorruptedRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor\Indexer\Model\Exception\CorruptedRecord;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\TextDocument\ByteOffset;
 trait FullyQualifiedReferenceTrait
 {
     private string $fqn;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider;
+namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Stream\DuplexStream;
+use Phpactor\LanguageServer\Core\Server\Stream\DuplexStream;
 final class Connection
 {
     /**
@@ -27,4 +27,3 @@ final class Connection
         return $this->id;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\Connection', 'Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\Connection', \false);

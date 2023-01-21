@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\ArrayShape;
 
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Compiles and caches a PHP script without executing it
@@ -14,9 +13,8 @@ use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
  * cache is disabled.
  * @since 5.5
  */
-function opcache_compile_file(string $filename) : bool
-{
-}
+function opcache_compile_file(string $filename): bool {}
+
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
  * Invalidates a cached script
@@ -29,9 +27,8 @@ function opcache_compile_file(string $filename) : bool
  * cache is disabled.
  * @since 5.5
  */
-function opcache_invalidate(string $filename, bool $force = \false) : bool
-{
-}
+function opcache_invalidate(string $filename, bool $force = false): bool {}
+
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
  * Resets the contents of the opcode cache
@@ -39,9 +36,8 @@ function opcache_invalidate(string $filename, bool $force = \false) : bool
  * @return bool Returns <b>TRUE</b> if the opcode cache was reset, or <b>FALSE</b> if the opcode cache is disabled.
  * @since 5.5
  */
-function opcache_reset() : bool
-{
-}
+function opcache_reset(): bool {}
+
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Get status information about the cache
@@ -50,10 +46,21 @@ function opcache_reset() : bool
  * @return array|false <p>Returns an array of information, optionally containing script specific state information</p>
  * @since 5.5
  */
-#[ArrayShape(['opcache_enabled' => 'bool', 'file_cache' => 'string', 'file_cache_only' => 'bool', 'cache_full' => 'bool', 'restart_pending' => 'bool', 'restart_in_progress' => 'bool', 'memory_usage' => 'array', 'interned_strings_usage' => 'array', 'opcache_statistics' => 'array', 'preload_statistics' => 'array', 'scripts' => 'array'])]
-function opcache_get_status(bool $include_scripts = \true) : array|false
-{
-}
+#[ArrayShape([
+    'opcache_enabled' => 'bool',
+    'file_cache' => 'string',
+    'file_cache_only' => 'bool',
+    'cache_full' => 'bool',
+    'restart_pending' => 'bool',
+    'restart_in_progress' => 'bool',
+    'memory_usage' => 'array',
+    'interned_strings_usage' => 'array',
+    'opcache_statistics' => 'array',
+    'preload_statistics' => 'array',
+    'scripts' => 'array',
+])]
+function opcache_get_status(bool $include_scripts = true): array|false {}
+
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Get configuration information about the cache
@@ -62,9 +69,8 @@ function opcache_get_status(bool $include_scripts = \true) : array|false
  * @since 5.5
  */
 #[ArrayShape(["directives" => "array", "version" => "string[]", "blacklist" => "array"])]
-function opcache_get_configuration() : array|false
-{
-}
+function opcache_get_configuration(): array|false {}
+
 /**
  * (PHP 5 &gt;= 5.6, PECL ZendOpcache &gt;= 7.0.4 )<br/>
  * This function checks if a PHP script has been cached in OPCache.
@@ -74,6 +80,4 @@ function opcache_get_configuration() : array|false
  * @return bool Returns TRUE if file is cached in OPCache, FALSE otherwise.
  * @since 5.6
  */
-function opcache_is_script_cached(string $filename) : bool
-{
-}
+function opcache_is_script_cached(string $filename): bool {}

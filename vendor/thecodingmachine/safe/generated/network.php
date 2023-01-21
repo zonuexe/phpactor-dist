@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\NetworkException;
+use Safe\Exceptions\NetworkException;
+
 /**
  * closelog closes the descriptor being used to write to
  * the system logger.  The use of closelog is optional.
@@ -10,14 +11,16 @@ use Phpactor202301\Safe\Exceptions\NetworkException;
  * @throws NetworkException
  *
  */
-function closelog() : void
+function closelog(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \closelog();
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
 }
+
+
 /**
  * Fetch DNS Resource Records associated with the given
  * hostname.
@@ -242,15 +245,17 @@ function closelog() : void
  * @throws NetworkException
  *
  */
-function dns_get_record(string $hostname, int $type = \DNS_ANY, ?array &$authns = null, ?array &$addtl = null, bool $raw = \false) : array
+function dns_get_record(string $hostname, int $type = DNS_ANY, ?array &$authns = null, ?array &$addtl = null, bool $raw = false): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \dns_get_record($hostname, $type, $authns, $addtl, $raw);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Initiates a socket connection to the resource specified by
  * hostname.
@@ -301,17 +306,19 @@ function dns_get_record(string $hostname, int $type = \DNS_ANY, ?array &$authns 
  */
 function fsockopen(string $hostname, int $port = -1, ?int &$errno = null, ?string &$errstr = null, float $timeout = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($timeout !== null) {
         $result = \fsockopen($hostname, $port, $errno, $errstr, $timeout);
     } else {
         $result = \fsockopen($hostname, $port, $errno, $errstr);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * gethostname gets the standard host name for
  * the local machine.
@@ -321,15 +328,17 @@ function fsockopen(string $hostname, int $port = -1, ?int &$errno = null, ?strin
  * @throws NetworkException
  *
  */
-function gethostname() : string
+function gethostname(): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \gethostname();
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * getprotobyname returns the protocol number
  * associated with the protocol name as per
@@ -340,15 +349,17 @@ function gethostname() : string
  * @throws NetworkException
  *
  */
-function getprotobyname(string $name) : int
+function getprotobyname(string $name): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getprotobyname($name);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * getprotobynumber returns the protocol name
  * associated with protocol number as per
@@ -359,15 +370,17 @@ function getprotobyname(string $name) : int
  * @throws NetworkException
  *
  */
-function getprotobynumber(int $number) : string
+function getprotobynumber(int $number): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getprotobynumber($number);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Registers a function that will be called when PHP starts sending output.
  *
@@ -380,14 +393,16 @@ function getprotobynumber(int $number) : string
  * @throws NetworkException
  *
  */
-function header_register_callback(callable $callback) : void
+function header_register_callback(callable $callback): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \header_register_callback($callback);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -396,15 +411,17 @@ function header_register_callback(callable $callback) : void
  * @throws NetworkException
  *
  */
-function inet_ntop(string $in_addr) : string
+function inet_ntop(string $in_addr): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \inet_ntop($in_addr);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * openlog opens a connection to the system
  * logger for a program.
@@ -537,14 +554,16 @@ function inet_ntop(string $in_addr) : string
  * @throws NetworkException
  *
  */
-function openlog(string $ident, int $option, int $facility) : void
+function openlog(string $ident, int $option, int $facility): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \openlog($ident, $option, $facility);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
 }
+
+
 /**
  * syslog generates a log message that will be
  * distributed by the system logger.
@@ -610,11 +629,11 @@ function openlog(string $ident, int $option, int $facility) : void
  * @throws NetworkException
  *
  */
-function syslog(int $priority, string $message) : void
+function syslog(int $priority, string $message): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \syslog($priority, $message);
-    if ($result === \false) {
+    if ($result === false) {
         throw NetworkException::createFromPhpError();
     }
 }

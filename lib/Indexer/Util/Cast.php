@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Util;
+namespace Phpactor\Indexer\Util;
 
 use RuntimeException;
 class Cast
@@ -58,4 +58,3 @@ class Cast
         return (array) $value;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Util\\Cast', 'Phpactor\\Indexer\\Util\\Cast', \false);

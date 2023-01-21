@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
 interface Filesystem
 {
-    public function fileList() : FileList;
+    public function fileList() : \Phpactor\Filesystem\Domain\FileList;
     /**
      * @param FilePath|string $srcLocation
      * @param FilePath|string $destLocation
@@ -18,8 +18,8 @@ interface Filesystem
      * @param FilePath|string $srcLocation
      * @param FilePath|string $destLocation
      */
-    public function copy($srcLocation, $destLocation) : CopyReport;
-    public function createPath(string $path) : FilePath;
+    public function copy($srcLocation, $destLocation) : \Phpactor\Filesystem\Domain\CopyReport;
+    public function createPath(string $path) : \Phpactor\Filesystem\Domain\FilePath;
     /**
      * @param FilePath|string $path
      */
@@ -33,4 +33,3 @@ interface Filesystem
      */
     public function exists($path) : bool;
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\Filesystem', 'Phpactor\\Filesystem\\Domain\\Filesystem', \false);

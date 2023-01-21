@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer;
+namespace Phpactor\LanguageServer;
 
 use Phpactor202301\Amp\ByteStream\ResourceInputStream;
 use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Initializer\RequestInitializer;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ServerStats;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\ResourceStreamProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\SocketStreamProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Stream\ResourceDuplexStream;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\LanguageServer;
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
+use Phpactor\LanguageServer\Core\Server\Initializer\RequestInitializer;
+use Phpactor\LanguageServer\Core\Server\ServerStats;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\ResourceStreamProvider;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\SocketStreamProvider;
+use Phpactor\LanguageServer\Core\Server\Stream\ResourceDuplexStream;
+use Phpactor\LanguageServer\Core\Server\LanguageServer;
+use Phpactor\LanguageServer\Test\LanguageServerTester;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 final class LanguageServerBuilder
@@ -93,4 +93,3 @@ final class LanguageServerBuilder
         return new LanguageServer($this->dispatcherFactory, $this->logger, $provider, new RequestInitializer(), $this->stats ?: new ServerStats());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\LanguageServerBuilder', 'Phpactor\\LanguageServer\\LanguageServerBuilder', \false);

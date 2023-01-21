@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -30,7 +30,7 @@ class TextDocumentEdit
      * @param VersionedTextDocumentIdentifier $textDocument
      * @param array<TextEdit> $edits
      */
-    public function __construct(VersionedTextDocumentIdentifier $textDocument, array $edits)
+    public function __construct(\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier $textDocument, array $edits)
     {
         $this->textDocument = $textDocument;
         $this->edits = $edits;
@@ -41,7 +41,7 @@ class TextDocumentEdit
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'edits' => ['names' => [TextEdit::class], 'iterable' => \true]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'edits' => ['names' => [\Phpactor\LanguageServerProtocol\TextEdit::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -91,10 +91,3 @@ class TextDocumentEdit
         throw $lastException;
     }
 }
-/**
- * Describes textual changes on a text document. A TextDocumentEdit describes all changes
- * on a document version Si and after they are applied move the document to version Si+1.
- * So the creator of a TextDocumentEdit doesn't need to sort the array of edits or do any
- * kind of ordering. However the edits must be non overlapping.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\TextDocumentEdit', 'Phpactor\\LanguageServerProtocol\\TextDocumentEdit', \false);

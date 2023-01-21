@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter;
+namespace Phpactor\LanguageServer\Core\Server\Transmitter;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider\Connection;
-final class ConnectionMessageTransmitter implements MessageTransmitter
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Server\StreamProvider\Connection;
+final class ConnectionMessageTransmitter implements \Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter
 {
     private const WRITE_CHUNK_SIZE = 256;
     /**
@@ -15,10 +15,10 @@ final class ConnectionMessageTransmitter implements MessageTransmitter
      * @var MessageFormatter
      */
     private $formatter;
-    public function __construct(Connection $connection, MessageFormatter $formatter = null)
+    public function __construct(Connection $connection, \Phpactor\LanguageServer\Core\Server\Transmitter\MessageFormatter $formatter = null)
     {
         $this->connection = $connection;
-        $this->formatter = $formatter ?: new LspMessageFormatter();
+        $this->formatter = $formatter ?: new \Phpactor\LanguageServer\Core\Server\Transmitter\LspMessageFormatter();
     }
     public function transmit(Message $response) : void
     {
@@ -28,4 +28,3 @@ final class ConnectionMessageTransmitter implements MessageTransmitter
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\ConnectionMessageTransmitter', 'Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\ConnectionMessageTransmitter', \false);

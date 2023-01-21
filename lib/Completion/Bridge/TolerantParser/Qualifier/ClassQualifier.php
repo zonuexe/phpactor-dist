@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier;
+namespace Phpactor\Completion\Bridge\TolerantParser\Qualifier;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
@@ -8,7 +8,7 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 /**
  * Return true if the node is a candidate for class name completion.
  */
@@ -40,7 +40,3 @@ class ClassQualifier implements TolerantQualifier
         return null;
     }
 }
-/**
- * Return true if the node is a candidate for class name completion.
- */
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\Qualifier\\ClassQualifier', 'Phpactor\\Completion\\Bridge\\TolerantParser\\Qualifier\\ClassQualifier', \false);

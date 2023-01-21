@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Simple;
+namespace Phpactor\ClassFileConverter\Adapter\Simple;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassNameCandidates;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\ClassFileConverter\Domain\ClassNameCandidates;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\ClassName;
 class SimpleFileToClass implements FileToClass
 {
     /**
@@ -14,7 +14,7 @@ class SimpleFileToClass implements FileToClass
     private $classScanner;
     public function __construct()
     {
-        $this->classScanner = new ClassScanner();
+        $this->classScanner = new \Phpactor\ClassFileConverter\Adapter\Simple\ClassScanner();
     }
     public function fileToClassCandidates(FilePath $filePath) : ClassNameCandidates
     {
@@ -26,4 +26,3 @@ class SimpleFileToClass implements FileToClass
         return ClassNameCandidates::fromClassNames($classNames);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Simple\\SimpleFileToClass', 'Phpactor\\ClassFileConverter\\Adapter\\Simple\\SimpleFileToClass', \false);

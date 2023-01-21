@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
 trait HasPathTrait
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
 use RuntimeException;
 use SplFileInfo;
@@ -18,7 +18,7 @@ final class FilePath
     {
         return $this->path;
     }
-    public static function fromString(string $string) : FilePath
+    public static function fromString(string $string) : \Phpactor\Filesystem\Domain\FilePath
     {
         $url = \parse_url($string);
         if (\false === $url) {
@@ -34,7 +34,7 @@ final class FilePath
         }
         return new self((string) $path);
     }
-    public static function fromParts(array $parts) : FilePath
+    public static function fromParts(array $parts) : \Phpactor\Filesystem\Domain\FilePath
     {
         $path = Path::join(...$parts);
         if (!\str_starts_with($path, '/')) {
@@ -42,13 +42,13 @@ final class FilePath
         }
         return new self($path);
     }
-    public static function fromSplFileInfo(SplFileInfo $fileInfo) : FilePath
+    public static function fromSplFileInfo(SplFileInfo $fileInfo) : \Phpactor\Filesystem\Domain\FilePath
     {
         return new self((string) $fileInfo);
     }
-    public static function fromUnknown($path) : FilePath
+    public static function fromUnknown($path) : \Phpactor\Filesystem\Domain\FilePath
     {
-        if ($path instanceof FilePath) {
+        if ($path instanceof \Phpactor\Filesystem\Domain\FilePath) {
             return $path;
         }
         if (\is_string($path)) {
@@ -70,7 +70,7 @@ final class FilePath
     {
         return new SplFileInfo($this->path());
     }
-    public function makeAbsoluteFromString(string $path) : FilePath
+    public function makeAbsoluteFromString(string $path) : \Phpactor\Filesystem\Domain\FilePath
     {
         if (Path::isAbsolute($path)) {
             $path = self::fromString($path);
@@ -85,15 +85,15 @@ final class FilePath
     {
         return Path::getExtension($this->path);
     }
-    public function concatPath(FilePath $path) : FilePath
+    public function concatPath(\Phpactor\Filesystem\Domain\FilePath $path) : \Phpactor\Filesystem\Domain\FilePath
     {
         return new self(Path::join($this->path(), (string) $path));
     }
-    public function isWithin(FilePath $path) : bool
+    public function isWithin(\Phpactor\Filesystem\Domain\FilePath $path) : bool
     {
         return \str_starts_with($this->path(), $path->path() . '/');
     }
-    public function isWithinOrSame(FilePath $path) : bool
+    public function isWithinOrSame(\Phpactor\Filesystem\Domain\FilePath $path) : bool
     {
         if ($this->path() == $path->path()) {
             return \true;
@@ -109,4 +109,3 @@ final class FilePath
         return $this->path;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\FilePath', 'Phpactor\\Filesystem\\Domain\\FilePath', \false);

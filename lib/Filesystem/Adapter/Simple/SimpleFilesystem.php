@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Adapter\Simple;
+namespace Phpactor\Filesystem\Adapter\Simple;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\Filesystem\Domain\FileList;
+use Phpactor\Filesystem\Domain\FilePath;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileListProvider;
-use Phpactor202301\Phpactor\Filesystem\Domain\CopyReport;
+use Phpactor\Filesystem\Domain\FileListProvider;
+use Phpactor\Filesystem\Domain\CopyReport;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
@@ -23,7 +23,7 @@ class SimpleFilesystem implements Filesystem
     public function __construct($path, ?FileListProvider $fileListProvider = null, ?SymfonyFilesystem $filesystem = null)
     {
         $this->path = FilePath::fromUnknown($path);
-        $this->fileListProvider = $fileListProvider ?: new SimpleFileListProvider($this->path);
+        $this->fileListProvider = $fileListProvider ?: new \Phpactor\Filesystem\Adapter\Simple\SimpleFileListProvider($this->path);
         $this->filesystem = $filesystem ?: new SymfonyFilesystem();
     }
     public function fileList() : FileList
@@ -103,4 +103,3 @@ class SimpleFilesystem implements Filesystem
         return CopyReport::fromSrcAndDestFiles(FileList::fromFilePaths($srcFiles), FileList::fromFilePaths($destFiles));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Adapter\\Simple\\SimpleFilesystem', 'Phpactor\\Filesystem\\Adapter\\Simple\\SimpleFilesystem', \false);

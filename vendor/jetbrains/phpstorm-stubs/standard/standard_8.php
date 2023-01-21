@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\ExpectedValues;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Generate a system log message
  * @link https://php.net/manual/en/function.syslog.php
@@ -63,18 +62,16 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function syslog(int $priority, string $message) : bool
-{
-}
+function syslog(int $priority, string $message): bool {}
+
 /**
  * Close connection to system logger
  * @link https://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function closelog() : bool
-{
-}
+function closelog(): bool {}
+
 /**
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
@@ -83,9 +80,8 @@ function closelog() : bool
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */
-function header_register_callback(callable $callback) : bool
-{
-}
+function header_register_callback(callable $callback): bool {}
+
 /**
  * Get the size of an image from a string.
  * @param string $string The image data, as a string.
@@ -107,9 +103,8 @@ function header_register_callback(callable $callback) : bool
  * @since 5.4
  */
 #[ArrayShape([0 => 'int', 1 => 'int', 2 => 'int', 3 => 'string', 'bits' => 'int', 'channels' => 'int', 'mime' => 'string'])]
-function getimagesizefromstring(string $string, &$image_info) : array|false
-{
-}
+function getimagesizefromstring(string $string, &$image_info): array|false {}
+
 /**
  * Set the stream chunk size.
  * @param resource $stream The target stream.
@@ -120,9 +115,8 @@ function getimagesizefromstring(string $string, &$image_info) : array|false
  * @since 5.4
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function stream_set_chunk_size($stream, int $size)
-{
-}
+function stream_set_chunk_size($stream, int $size) {}
+
 /**
  * Initializes all syslog related variables
  * @link https://php.net/manual/en/function.define-syslog-variables.php
@@ -130,9 +124,8 @@ function stream_set_chunk_size($stream, int $size)
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function define_syslog_variables()
-{
-}
+function define_syslog_variables() {}
+
 /**
  * Calculate the metaphone key of a string
  * @link https://php.net/manual/en/function.metaphone.php
@@ -147,9 +140,8 @@ function define_syslog_variables()
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function metaphone(string $string, int $max_phonemes = 0) : false|string
-{
-}
+function metaphone(string $string, int $max_phonemes = 0): false|string {}
+
 /**
  * Turn on output buffering
  * @link https://php.net/manual/en/function.ob-start.php
@@ -215,25 +207,22 @@ function metaphone(string $string, int $max_phonemes = 0) : false|string
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start($callback, int $chunk_size = 0, int $flags = \PHP_OUTPUT_HANDLER_STDFLAGS) : bool
-{
-}
+function ob_start($callback, int $chunk_size = 0, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS): bool {}
+
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
  * @return bool
  */
-function ob_flush() : bool
-{
-}
+function ob_flush(): bool {}
+
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
  * @return bool
  */
-function ob_clean() : bool
-{
-}
+function ob_clean(): bool {}
+
 /**
  * Flush (send) the output buffer and turn off output buffering
  * @link https://php.net/manual/en/function.ob-end-flush.php
@@ -241,9 +230,8 @@ function ob_clean() : bool
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_flush() : bool
-{
-}
+function ob_end_flush(): bool {}
+
 /**
  * Clean (erase) the output buffer and turn off output buffering
  * @link https://php.net/manual/en/function.ob-end-clean.php
@@ -251,44 +239,39 @@ function ob_end_flush() : bool
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
  */
-function ob_end_clean() : bool
-{
-}
+function ob_end_clean(): bool {}
+
 /**
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
  */
-function ob_get_flush() : string|false
-{
-}
+function ob_get_flush(): string|false {}
+
 /**
  * Get current buffer contents and delete current output buffer
  * @link https://php.net/manual/en/function.ob-get-clean.php
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  */
-function ob_get_clean() : string|false
-{
-}
+function ob_get_clean(): string|false {}
+
 /**
  * Return the length of the output buffer
  * @link https://php.net/manual/en/function.ob-get-length.php
  * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  */
-function ob_get_length() : int|false
-{
-}
+function ob_get_length(): int|false {}
+
 /**
  * Return the nesting level of the output buffering mechanism
  * @link https://php.net/manual/en/function.ob-get-level.php
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
  */
-function ob_get_level() : int
-{
-}
+function ob_get_level(): int {}
+
 /**
  * Get status of output buffers
  * @link https://php.net/manual/en/function.ob-get-status.php
@@ -358,20 +341,27 @@ function ob_get_level() : int
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
-#[ArrayShape(["level" => "int", "type" => "int", "flags" => "int", "name" => "string", "del" => "int", "chunk_size" => "int", "buffer_size" => "int", "buffer_used" => "int"])]
-function ob_get_status(bool $full_status = \false) : array
-{
-}
+#[ArrayShape([
+    "level" => "int",
+    "type" => "int",
+    "flags" => "int",
+    "name" => "string",
+    "del" => "int",
+    "chunk_size" => "int",
+    "buffer_size" => "int",
+    "buffer_used" => "int",
+])]
+function ob_get_status(bool $full_status = false): array {}
+
 /**
  * Return the contents of the output buffer
  * @link https://php.net/manual/en/function.ob-get-contents.php
  * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  */
-#[Pure(\true)]
-function ob_get_contents() : string|false
-{
-}
+#[Pure(true)]
+function ob_get_contents(): string|false {}
+
 /**
  * Turn implicit flush on/off
  * @link https://php.net/manual/en/function.ob-implicit-flush.php
@@ -381,9 +371,8 @@ function ob_get_contents() : string|false
  * </p>
  * @return void
  */
-function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = \true) : void
-{
-}
+function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: "int")] $enable = true): void {}
+
 /**
  * List all output handlers in use
  * @link https://php.net/manual/en/function.ob-list-handlers.php
@@ -393,9 +382,8 @@ function ob_implicit_flush(#[LanguageLevelTypeAware(["8.0" => "bool"], default: 
  * ob_list_handlers will return "default output
  * handler".
  */
-function ob_list_handlers() : array
-{
-}
+function ob_list_handlers(): array {}
+
 /**
  * Sort an array by key
  * @link https://php.net/manual/en/function.ksort.php
@@ -410,9 +398,8 @@ function ob_list_handlers() : array
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function ksort(array &$array, int $flags = \SORT_REGULAR) : bool
-{
-}
+function ksort(array &$array, int $flags = SORT_REGULAR): bool {}
+
 /**
  * Sort an array by key in reverse order
  * @link https://php.net/manual/en/function.krsort.php
@@ -427,9 +414,8 @@ function ksort(array &$array, int $flags = \SORT_REGULAR) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function krsort(array &$array, int $flags = \SORT_REGULAR) : bool
-{
-}
+function krsort(array &$array, int $flags = SORT_REGULAR): bool {}
+
 /**
  * Sort an array using a "natural order" algorithm
  * @link https://php.net/manual/en/function.natsort.php
@@ -438,9 +424,8 @@ function krsort(array &$array, int $flags = \SORT_REGULAR) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function natsort(array &$array) : bool
-{
-}
+function natsort(array &$array): bool {}
+
 /**
  * Sort an array using a case insensitive "natural order" algorithm
  * @link https://php.net/manual/en/function.natcasesort.php
@@ -449,9 +434,8 @@ function natsort(array &$array) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function natcasesort(array &$array) : bool
-{
-}
+function natcasesort(array &$array): bool {}
+
 /**
  * Sort an array and maintain index association
  * @link https://php.net/manual/en/function.asort.php
@@ -466,9 +450,8 @@ function natcasesort(array &$array) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function asort(array &$array, int $flags = \SORT_REGULAR) : bool
-{
-}
+function asort(array &$array, int $flags = SORT_REGULAR): bool {}
+
 /**
  * Sort an array in reverse order and maintain index association
  * @link https://php.net/manual/en/function.arsort.php
@@ -483,9 +466,8 @@ function asort(array &$array, int $flags = \SORT_REGULAR) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function arsort(array &$array, int $flags = \SORT_REGULAR) : bool
-{
-}
+function arsort(array &$array, int $flags = SORT_REGULAR): bool {}
+
 /**
  * Sort an array
  * @link https://php.net/manual/en/function.sort.php
@@ -503,9 +485,8 @@ function arsort(array &$array, int $flags = \SORT_REGULAR) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function sort(array &$array, int $flags = \SORT_REGULAR) : bool
-{
-}
+function sort(array &$array, int $flags = SORT_REGULAR): bool {}
+
 /**
  * Sort an array in reverse order
  * @link https://php.net/manual/en/function.rsort.php
@@ -519,9 +500,8 @@ function sort(array &$array, int $flags = \SORT_REGULAR) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function rsort(array &$array, int $flags = \SORT_REGULAR) : bool
-{
-}
+function rsort(array &$array, int $flags = SORT_REGULAR): bool {}
+
 /**
  * Sort an array by values using a user-defined comparison function
  * @link https://php.net/manual/en/function.usort.php
@@ -536,9 +516,8 @@ function rsort(array &$array, int $flags = \SORT_REGULAR) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function usort(array &$array, callable $callback) : bool
-{
-}
+function usort(array &$array, callable $callback): bool {}
+
 /**
  * Sort an array with a user-defined comparison function and maintain index association
  * @link https://php.net/manual/en/function.uasort.php
@@ -552,9 +531,8 @@ function usort(array &$array, callable $callback) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function uasort(array &$array, callable $callback) : bool
-{
-}
+function uasort(array &$array, callable $callback): bool {}
+
 /**
  * Sort an array by keys using a user-defined comparison function
  * @link https://php.net/manual/en/function.uksort.php
@@ -575,9 +553,8 @@ function uasort(array &$array, callable $callback) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function uksort(array &$array, callable $callback) : bool
-{
-}
+function uksort(array &$array, callable $callback): bool {}
+
 /**
  * Shuffle an array
  * @link https://php.net/manual/en/function.shuffle.php
@@ -587,9 +564,8 @@ function uksort(array &$array, callable $callback) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function shuffle(array &$array) : bool
-{
-}
+function shuffle(array &$array): bool {}
+
 /**
  * Apply a user function to every member of an array
  * @link https://php.net/manual/en/function.array-walk.php
@@ -623,9 +599,8 @@ function shuffle(array &$array) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function array_walk(object|array &$array, callable $callback, mixed $arg) : bool
-{
-}
+function array_walk(object|array &$array, callable $callback, mixed $arg): bool {}
+
 /**
  * Apply a user function recursively to every member of an array
  * @link https://php.net/manual/en/function.array-walk-recursive.php
@@ -653,9 +628,8 @@ function array_walk(object|array &$array, callable $callback, mixed $arg) : bool
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function array_walk_recursive(object|array &$array, callable $callback, mixed $arg) : bool
-{
-}
+function array_walk_recursive(object|array &$array, callable $callback, mixed $arg): bool {}
+
 /**
  * Counts all elements in an array, or something in an object.
  * <p>For objects, if you have SPL installed, you can hook into count() by implementing interface {@see Countable}.
@@ -684,9 +658,8 @@ function array_walk_recursive(object|array &$array, callable $callback, mixed $a
  * </p>
  */
 #[Pure]
-function count(\Countable|array $value, int $mode = \COUNT_NORMAL) : int
-{
-}
+function count(Countable|array $value, int $mode = COUNT_NORMAL): int {}
+
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
@@ -699,9 +672,8 @@ function count(\Countable|array $value, int $mode = \COUNT_NORMAL) : int
  * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
-function end(object|array &$array) : mixed
-{
-}
+function end(object|array &$array): mixed {}
+
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
@@ -713,9 +685,8 @@ function end(object|array &$array) : mixed
  * elements.
  * @meta
  */
-function prev(object|array &$array) : mixed
-{
-}
+function prev(object|array &$array): mixed {}
+
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
@@ -726,9 +697,8 @@ function prev(object|array &$array) : mixed
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next(object|array &$array) : mixed
-{
-}
+function next(object|array &$array): mixed {}
+
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
@@ -739,9 +709,8 @@ function next(object|array &$array) : mixed
  * empty.
  * @meta
  */
-function reset(object|array &$array) : mixed
-{
-}
+function reset(object|array &$array): mixed {}
+
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
@@ -756,9 +725,8 @@ function reset(object|array &$array) : mixed
  * @meta
  */
 #[Pure]
-function current(object|array $array) : mixed
-{
-}
+function current(object|array $array): mixed {}
+
 /**
  * Fetch a key from an array
  * @link https://php.net/manual/en/function.key.php
@@ -772,9 +740,8 @@ function current(object|array $array) : mixed
  * empty, key returns null.
  */
 #[Pure]
-function key(object|array $array) : string|int|null
-{
-}
+function key(object|array $array): string|int|null {}
+
 /**
  * Find lowest value
  * @link https://php.net/manual/en/function.min.php
@@ -784,9 +751,12 @@ function key(object|array $array) : string|int|null
  * parameter values.
  */
 #[Pure]
-function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values, mixed ...$values) : mixed
-{
-}
+function min(
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    mixed ...$values
+): mixed {}
+
 /**
  * Find highest value
  * @link https://php.net/manual/en/function.max.php
@@ -796,9 +766,12 @@ function min(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[PhpSt
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values, mixed ...$values) : mixed
-{
-}
+function max(
+    #[PhpStormStubsElementAvailable(from: '8.0')] mixed $value,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] mixed $values,
+    mixed ...$values
+): mixed {}
+
 /**
  * Checks if a value exists in an array
  * @link https://php.net/manual/en/function.in-array.php
@@ -822,9 +795,8 @@ function max(#[PhpStormStubsElementAvailable(from: '8.0')] mixed $value, #[PhpSt
  * false otherwise.
  */
 #[Pure]
-function in_array(mixed $needle, array $haystack, bool $strict = \false) : bool
-{
-}
+function in_array(mixed $needle, array $haystack, bool $strict = false): bool {}
+
 /**
  * Searches the array for a given value and returns the first corresponding key if successful
  * @link https://php.net/manual/en/function.array-search.php
@@ -854,9 +826,8 @@ function in_array(mixed $needle, array $haystack, bool $strict = \false) : bool
  * search_value parameter instead.
  */
 #[Pure]
-function array_search(mixed $needle, array $haystack, bool $strict = \false) : string|int|false
-{
-}
+function array_search(mixed $needle, array $haystack, bool $strict = false): string|int|false {}
+
 /**
  * Import variables into the current symbol table from an array
  * @link https://php.net/manual/en/function.extract.php
@@ -883,9 +854,21 @@ function array_search(mixed $needle, array $haystack, bool $strict = \false) : s
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract(array &$array, #[ExpectedValues(flags: [\EXTR_OVERWRITE, \EXTR_SKIP, \EXTR_PREFIX_SAME, \EXTR_PREFIX_ALL, \EXTR_PREFIX_INVALID, \EXTR_IF_EXISTS, \EXTR_PREFIX_IF_EXISTS, \EXTR_REFS])] int $flags = \EXTR_OVERWRITE, string $prefix = "") : int
-{
-}
+function extract(
+    array &$array,
+    #[ExpectedValues(flags: [
+               EXTR_OVERWRITE,
+               EXTR_SKIP,
+               EXTR_PREFIX_SAME,
+               EXTR_PREFIX_ALL,
+               EXTR_PREFIX_INVALID,
+               EXTR_IF_EXISTS,
+               EXTR_PREFIX_IF_EXISTS,
+               EXTR_REFS
+           ])] int $flags = EXTR_OVERWRITE,
+    string $prefix = ""
+): int {}
+
 /**
  * Create array containing variables and their values
  * @link https://php.net/manual/en/function.compact.php
@@ -900,9 +883,8 @@ function extract(array &$array, #[ExpectedValues(flags: [\EXTR_OVERWRITE, \EXTR_
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names, ...$var_names) : array
-{
-}
+function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $var_names, ...$var_names): array {}
+
 /**
  * Fill an array with values
  * @link https://php.net/manual/en/function.array-fill.php
@@ -919,9 +901,8 @@ function compact(#[PhpStormStubsElementAvailable(from: '8.0')] $var_name, #[PhpS
  * @return array the filled array
  */
 #[Pure]
-function array_fill(int $start_index, int $count, mixed $value) : array
-{
-}
+function array_fill(int $start_index, int $count, mixed $value): array {}
+
 /**
  * Fill an array with values, specifying keys
  * @link https://php.net/manual/en/function.array-fill-keys.php
@@ -935,9 +916,8 @@ function array_fill(int $start_index, int $count, mixed $value) : array
  * @return array the filled array
  */
 #[Pure]
-function array_fill_keys(array $keys, mixed $value) : array
-{
-}
+function array_fill_keys(array $keys, mixed $value): array {}
+
 /**
  * Create an array containing a range of elements
  * @link https://php.net/manual/en/function.range.php
@@ -957,9 +937,8 @@ function array_fill_keys(array $keys, mixed $value) : array
  * end, inclusive.
  */
 #[Pure]
-function range($start, $end, int|float $step = 1) : array
-{
-}
+function range($start, $end, int|float $step = 1): array {}
+
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
@@ -973,9 +952,13 @@ function range($start, $end, int|float $step = 1) : array
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort(&$array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = \SORT_ASC, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = \SORT_REGULAR, &...$rest) : bool
-{
-}
+function array_multisort(
+    &$array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_order = SORT_ASC,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $sort_flags = SORT_REGULAR,
+    &...$rest
+): bool {}
+
 /**
  * Push elements onto the end of array
  * Since 7.3.0 this function can be called with only one parameter.
@@ -989,9 +972,12 @@ function array_multisort(&$array, #[PhpStormStubsElementAvailable(from: '5.3', t
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push(array &$array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values, mixed ...$values) : int
-{
-}
+function array_push(
+    array &$array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values,
+    mixed ...$values
+): int {}
+
 /**
  * Pop the element off the end of array
  * @link https://php.net/manual/en/function.array-pop.php
@@ -1003,9 +989,8 @@ function array_push(array &$array, #[PhpStormStubsElementAvailable(from: '5.3', 
  * null will be returned.
  * @meta
  */
-function array_pop(array &$array) : mixed
-{
-}
+function array_pop(array &$array): mixed {}
+
 /**
  * Shift an element off the beginning of array
  * @link https://php.net/manual/en/function.array-shift.php
@@ -1016,9 +1001,8 @@ function array_pop(array &$array) : mixed
  * empty or is not an array.
  * @meta
  */
-function array_shift(array &$array) : mixed
-{
-}
+function array_shift(array &$array): mixed {}
+
 /**
  * Prepend elements to the beginning of an array
  * Since 7.3.0 this function can be called with only one parameter.
@@ -1032,9 +1016,8 @@ function array_shift(array &$array) : mixed
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values, mixed ...$values) : int
-{
-}
+function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] $values, mixed ...$values): int {}
+
 /**
  * Remove a portion of the array and replace it with something else
  * @link https://php.net/manual/en/function.array-splice.php
@@ -1079,9 +1062,8 @@ function array_unshift(array &$array, #[PhpStormStubsElementAvailable(from: '5.3
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice(array &$array, int $offset, ?int $length, mixed $replacement = []) : array
-{
-}
+function array_splice(array &$array, int $offset, ?int $length, mixed $replacement = []): array {}
+
 /**
  * Extract a slice of the array
  * @link https://php.net/manual/en/function.array-slice.php
@@ -1112,9 +1094,8 @@ function array_splice(array &$array, int $offset, ?int $length, mixed $replaceme
  * @meta
  */
 #[Pure]
-function array_slice(array $array, int $offset, ?int $length, bool $preserve_keys = \false) : array
-{
-}
+function array_slice(array $array, int $offset, ?int $length, bool $preserve_keys = false): array {}
+
 /**
  * Merges the elements of one or more arrays together (if the input arrays have the same string keys, then the later value for that key will overwrite the previous one; if the arrays contain numeric keys, the later value will be appended)
  * Since 7.4.0 this function can be called without any parameter, and it will return empty array.
@@ -1126,6 +1107,8 @@ function array_slice(array $array, int $offset, ?int $length, bool $preserve_key
  * @meta
  */
 #[Pure]
-function array_merge(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays, array ...$arrays) : array
-{
-}
+function array_merge(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $array,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $arrays,
+    array ...$arrays
+): array {}

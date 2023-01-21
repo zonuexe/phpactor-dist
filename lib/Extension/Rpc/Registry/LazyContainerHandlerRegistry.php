@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Registry;
+namespace Phpactor\Extension\Rpc\Registry;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Exception\HandlerNotFound;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\HandlerRegistry;
+use Phpactor\Extension\Rpc\Exception\HandlerNotFound;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\HandlerRegistry;
 use Phpactor202301\Psr\Container\ContainerInterface;
 class LazyContainerHandlerRegistry implements HandlerRegistry
 {
@@ -27,4 +27,3 @@ class LazyContainerHandlerRegistry implements HandlerRegistry
         }, $this->serviceMap);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Registry\\LazyContainerHandlerRegistry', 'Phpactor\\Extension\\Rpc\\Registry\\LazyContainerHandlerRegistry', \false);

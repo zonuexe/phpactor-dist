@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Watcher;
+namespace Phpactor\Extension\LanguageServerIndexer\Watcher;
 
 use Phpactor202301\Amp\Deferred;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileBuilder;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileEvent;
-use Phpactor202301\Phpactor\LanguageServer\Event\FilesChanged;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\AmpFsWatch\ModifiedFileBuilder;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServerProtocol\FileEvent;
+use Phpactor\LanguageServer\Event\FilesChanged;
+use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 use function Phpactor202301\Amp\call;
 class LanguageServerWatcher implements Watcher, WatcherProcess, ListenerProviderInterface
@@ -85,4 +85,3 @@ class LanguageServerWatcher implements Watcher, WatcherProcess, ListenerProvider
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerIndexer\\Watcher\\LanguageServerWatcher', 'Phpactor\\Extension\\LanguageServerIndexer\\Watcher\\LanguageServerWatcher', \false);

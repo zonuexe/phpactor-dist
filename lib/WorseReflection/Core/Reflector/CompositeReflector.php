@@ -1,27 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
 class CompositeReflector implements Reflector
 {
-    public function __construct(private ClassReflector $classReflector, private SourceCodeReflector $sourceCodeReflector, private FunctionReflector $functionReflector, private ConstantReflector $constantReflector)
+    public function __construct(private \Phpactor\WorseReflection\Core\Reflector\ClassReflector $classReflector, private \Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector $sourceCodeReflector, private \Phpactor\WorseReflection\Core\Reflector\FunctionReflector $functionReflector, private \Phpactor\WorseReflection\Core\Reflector\ConstantReflector $constantReflector)
     {
     }
     public function reflectClass($className) : ReflectionClass
@@ -97,4 +97,3 @@ class CompositeReflector implements Reflector
         return $this->constantReflector->sourceCodeForConstant($name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\CompositeReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\CompositeReflector', \false);

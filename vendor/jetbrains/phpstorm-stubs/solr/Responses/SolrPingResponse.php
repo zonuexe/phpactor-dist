@@ -1,37 +1,33 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrPingResponse<br/>
  * This class represents a response to a ping request to the server
  * @link https://php.net/manual/en/class.solrpingresponse.php
  */
-final class SolrPingResponse extends \SolrResponse
+final class SolrPingResponse extends SolrResponse
 {
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * SolrPingResponse constructor.
      * @link https://php.net/manual/en/solrpingresponse.construct.php
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Destructor
      * @link https://php.net/manual/en/solrpingresponse.destruct.php
      */
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the response from the server
@@ -41,20 +37,5 @@ final class SolrPingResponse extends \SolrResponse
      * HEAD request.)
      * </p>
      */
-    public function getResponse()
-    {
-    }
+    public function getResponse() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrPingResponse<br/>
- * This class represents a response to a ping request to the server
- * @link https://php.net/manual/en/class.solrpingresponse.php
- */
-\class_alias('Phpactor202301\\SolrPingResponse', 'SolrPingResponse', \false);

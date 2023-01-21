@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
+use Phpactor\WorseReflection\Core\SourceCode;
 interface SourceCodeReflector
 {
     /**
@@ -62,4 +62,3 @@ interface SourceCodeReflector
      */
     public function reflectConstantsIn($sourceCode) : ReflectionDeclaredConstantCollection;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\SourceCodeReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\SourceCodeReflector', \false);

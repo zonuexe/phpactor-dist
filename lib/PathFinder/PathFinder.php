@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\PathFinder;
+namespace Phpactor\PathFinder;
 
-use Phpactor202301\Phpactor\PathFinder\Exception\NoMatchingSourceException;
+use Phpactor\PathFinder\Exception\NoMatchingSourceException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class PathFinder
 {
@@ -15,19 +15,19 @@ class PathFinder
     /**
      * @param array<string, string> $destinations
      */
-    public static function fromDestinations(array $destinations) : PathFinder
+    public static function fromDestinations(array $destinations) : \Phpactor\PathFinder\PathFinder
     {
         return new self('', \array_map(function (string $pattern) {
-            return Pattern::fromPattern($pattern);
+            return \Phpactor\PathFinder\Pattern::fromPattern($pattern);
         }, $destinations));
     }
     /**
      * @param array<string, string> $destinations
      */
-    public static function fromAbsoluteDestinations(string $basePath, array $destinations) : PathFinder
+    public static function fromAbsoluteDestinations(string $basePath, array $destinations) : \Phpactor\PathFinder\PathFinder
     {
         return new self($basePath, \array_map(function (string $pattern) {
-            return Pattern::fromPattern($pattern);
+            return \Phpactor\PathFinder\Pattern::fromPattern($pattern);
         }, $destinations));
     }
     /**
@@ -45,7 +45,7 @@ class PathFinder
         $destinations = [];
         $sourcePattern = $this->findSourcePattern($filePath);
         foreach ($this->destinations as $name => $pattern) {
-            \assert($pattern instanceof Pattern);
+            \assert($pattern instanceof \Phpactor\PathFinder\Pattern);
             if ($pattern === $sourcePattern) {
                 continue;
             }
@@ -54,17 +54,16 @@ class PathFinder
         }
         return $destinations;
     }
-    private function findSourcePattern(string $filePath) : Pattern
+    private function findSourcePattern(string $filePath) : \Phpactor\PathFinder\Pattern
     {
         foreach ($this->destinations as $name => $pattern) {
-            \assert($pattern instanceof Pattern);
+            \assert($pattern instanceof \Phpactor\PathFinder\Pattern);
             if ($pattern->fits($filePath)) {
                 return $pattern;
             }
         }
-        throw new NoMatchingSourceException(\sprintf('Could not find matching source pattern for "%s", known patterns: "%s"', $filePath, \implode('", "', \array_map(function (Pattern $pattern) {
+        throw new NoMatchingSourceException(\sprintf('Could not find matching source pattern for "%s", known patterns: "%s"', $filePath, \implode('", "', \array_map(function (\Phpactor\PathFinder\Pattern $pattern) {
             return $pattern->toString();
         }, $this->destinations))));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\PathFinder\\PathFinder', 'Phpactor\\PathFinder\\PathFinder', \false);

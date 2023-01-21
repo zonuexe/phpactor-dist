@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Test;
+namespace Phpactor\LanguageServer\Test;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeResult;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\LspMessageSerializer;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\MessageSerializer;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\TestMessageTransmitter;
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester\ServicesTester;
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester\TextDocumentTester;
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester\WorkspaceTester;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServerProtocol\InitializeResult;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\Transmitter\LspMessageSerializer;
+use Phpactor\LanguageServer\Core\Server\Transmitter\MessageSerializer;
+use Phpactor\LanguageServer\Core\Server\Transmitter\TestMessageTransmitter;
+use Phpactor\LanguageServer\Test\LanguageServerTester\ServicesTester;
+use Phpactor\LanguageServer\Test\LanguageServerTester\TextDocumentTester;
+use Phpactor\LanguageServer\Test\LanguageServerTester\WorkspaceTester;
 use RuntimeException;
 use function Phpactor202301\Amp\Promise\wait;
 final class LanguageServerTester
@@ -162,4 +162,3 @@ final class LanguageServerTester
         return $this->messageSerializer->normalize($params);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Test\\LanguageServerTester', 'Phpactor\\LanguageServer\\Test\\LanguageServerTester', \false);

@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+namespace Phpactor\LanguageServer\Test\LanguageServerTester;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ExecuteCommandParams;
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+use Phpactor\LanguageServerProtocol\ExecuteCommandParams;
+use Phpactor\LanguageServer\Test\LanguageServerTester;
 class WorkspaceTester
 {
     /**
@@ -23,4 +23,3 @@ class WorkspaceTester
         return $this->tester->request('workspace/executeCommand', new ExecuteCommandParams($command, $args));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Test\\LanguageServerTester\\WorkspaceTester', 'Phpactor\\LanguageServer\\Test\\LanguageServerTester\\WorkspaceTester', \false);

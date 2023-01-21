@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransform\Rpc;
+namespace Phpactor\Extension\CodeTransform\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\GenerateNew;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-class ClassNewHandler extends AbstractClassGenerateHandler
+use Phpactor\CodeTransform\Domain\GenerateNew;
+use Phpactor\CodeTransform\Domain\SourceCode;
+class ClassNewHandler extends \Phpactor\Extension\CodeTransform\Rpc\AbstractClassGenerateHandler
 {
     const NAME = 'class_new';
     public function name() : string
@@ -23,4 +23,3 @@ class ClassNewHandler extends AbstractClassGenerateHandler
         return $generator->generateNew($className);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransform\\Rpc\\ClassNewHandler', 'Phpactor\\Extension\\CodeTransform\\Rpc\\ClassNewHandler', \false);

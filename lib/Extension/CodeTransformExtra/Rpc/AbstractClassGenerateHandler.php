@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\InputCallbackResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\Exception\FileAlreadyExists;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\AbstractClassGenerator;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReplaceFileSourceResponse;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\Extension\Rpc\Response\InputCallbackResponse;
+use Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\CodeTransformExtra\Application\Exception\FileAlreadyExists;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
+use Phpactor\Extension\CodeTransformExtra\Application\AbstractClassGenerator;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\Rpc\Response\ReplaceFileSourceResponse;
 abstract class AbstractClassGenerateHandler extends AbstractHandler
 {
     const PARAM_CURRENT_PATH = 'current_path';
@@ -51,4 +51,3 @@ abstract class AbstractClassGenerateHandler extends AbstractHandler
     protected abstract function generate(array $arguments) : SourceCode;
     protected abstract function newMessage() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\AbstractClassGenerateHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\AbstractClassGenerateHandler', \false);

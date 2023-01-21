@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Type;
+namespace Phpactor\DocblockParser\Ast\Type;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\TypeNode;
 class ConstantNode extends TypeNode
 {
     protected const CHILD_NAMES = ['name', 'doubleColon', 'constant'];
@@ -11,4 +11,3 @@ class ConstantNode extends TypeNode
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Type\\ConstantNode', 'Phpactor\\DocblockParser\\Ast\\Type\\ConstantNode', \false);

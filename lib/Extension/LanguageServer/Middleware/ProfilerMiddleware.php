@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Middleware;
+namespace Phpactor\Extension\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use function Phpactor202301\Amp\call;
 class ProfilerMiddleware implements Middleware
@@ -50,4 +50,3 @@ class ProfilerMiddleware implements Middleware
         $this->logger->info($message, $context);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Middleware\\ProfilerMiddleware', 'Phpactor\\Extension\\LanguageServer\\Middleware\\ProfilerMiddleware', \false);

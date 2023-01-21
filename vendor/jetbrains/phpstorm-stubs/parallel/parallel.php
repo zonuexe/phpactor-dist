@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\parallel;
+namespace parallel;
 
 use Closure;
+
 /**
  * Shall use the provided file to bootstrap all runtimes created for automatic scheduling via @see run().
  *
@@ -11,9 +12,8 @@ use Closure;
  * @throws Runtime\Error\Bootstrap if previously called for this process.
  * @throws Runtime\Error\Bootstrap if called after @see run().
  */
-function bootstrap(string $file) : void
-{
-}
+function bootstrap(string $file): void {}
+
 /**
  * @see Runtime::run() for more details
  * @link https://www.php.net/manual/en/parallel.run
@@ -35,14 +35,11 @@ function bootstrap(string $file) : void
  * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
  * @throws Runtime\Error\IllegalReturn if task returns illegally.
  */
-function run(Closure $task, array $argv = null) : ?Future
-{
-}
+function run(Closure $task, array $argv = null): ?Future {}
+
 #ifdef ZEND_DEBUG
 /**
  * @return int
  */
-function count() : int
-{
-}
+function count(): int {}
 #endif

@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerRename;
+namespace Phpactor\Extension\LanguageServerRename;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServerRename\Handler\FileRenameHandler;
-use Phpactor202301\Phpactor\Rename\Model\FileRenamer;
-use Phpactor202301\Phpactor\Rename\Model\Renamer\ChainRenamer;
-use Phpactor202301\Phpactor\Extension\LanguageServerRename\Handler\RenameHandler;
-use Phpactor202301\Phpactor\Rename\Model\Renamer;
-use Phpactor202301\Phpactor\Extension\LanguageServerRename\Util\LocatedTextEditConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServerRename\Handler\FileRenameHandler;
+use Phpactor\Rename\Model\FileRenamer;
+use Phpactor\Rename\Model\Renamer\ChainRenamer;
+use Phpactor\Extension\LanguageServerRename\Handler\RenameHandler;
+use Phpactor\Rename\Model\Renamer;
+use Phpactor\Extension\LanguageServerRename\Util\LocatedTextEditConverter;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\TextDocument\TextDocumentLocator;
 class LanguageServerRenameExtension implements Extension
 {
     public const TAG_RENAMER = 'language_server_rename.renamer';
@@ -39,4 +39,3 @@ class LanguageServerRenameExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerRename\\LanguageServerRenameExtension', 'Phpactor\\Extension\\LanguageServerRename\\LanguageServerRenameExtension', \false);

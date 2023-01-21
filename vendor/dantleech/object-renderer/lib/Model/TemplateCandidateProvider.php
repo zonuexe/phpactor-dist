@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Model;
+namespace Phpactor\ObjectRenderer\Model;
 
 interface TemplateCandidateProvider
 {
@@ -9,4 +9,3 @@ interface TemplateCandidateProvider
      */
     public function resolveFor(string $className) : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Model\\TemplateCandidateProvider', 'Phpactor\\ObjectRenderer\\Model\\TemplateCandidateProvider', \false);

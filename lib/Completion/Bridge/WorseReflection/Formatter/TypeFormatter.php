@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\Formatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\Formatter;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\WorseReflection\TypeUtil;
 class TypeFormatter implements Formatter
 {
     public function canFormat(object $object) : bool
@@ -18,4 +18,3 @@ class TypeFormatter implements Formatter
         return TypeUtil::shortenClassTypes($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\TypeFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\TypeFormatter', \false);

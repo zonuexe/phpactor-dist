@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReferenceFinder;
+namespace Phpactor\WorseReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\PotentialLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocations;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\PotentialLocation;
+use Phpactor\ReferenceFinder\TypeLocation;
+use Phpactor\ReferenceFinder\TypeLocations;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\TypeFactory;
 use function assert;
 class TolerantVariableDefintionLocator implements DefinitionLocator
 {
-    public function __construct(private TolerantVariableReferenceFinder $finder)
+    public function __construct(private \Phpactor\WorseReferenceFinder\TolerantVariableReferenceFinder $finder)
     {
     }
     public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : TypeLocations
@@ -31,4 +31,3 @@ class TolerantVariableDefintionLocator implements DefinitionLocator
         throw new CouldNotLocateDefinition('Could not locate any references to variable');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReferenceFinder\\TolerantVariableDefintionLocator', 'Phpactor\\WorseReferenceFinder\\TolerantVariableDefintionLocator', \false);

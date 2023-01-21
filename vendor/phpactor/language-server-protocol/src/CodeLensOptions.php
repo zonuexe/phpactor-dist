@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class CodeLensOptions extends WorkDoneProgressOptions
+class CodeLensOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      * Code lens has a resolve provider as well.
@@ -89,9 +89,3 @@ class CodeLensOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Code Lens provider options of a [CodeLensRequest](#CodeLensRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeLensOptions', 'Phpactor\\LanguageServerProtocol\\CodeLensOptions', \false);

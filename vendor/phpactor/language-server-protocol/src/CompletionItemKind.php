@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface CompletionItemKind
 {
@@ -31,4 +31,3 @@ interface CompletionItemKind
     public const OPERATOR = 24;
     public const TYPE_PARAMETER = 25;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CompletionItemKind', 'Phpactor\\LanguageServerProtocol\\CompletionItemKind', \false);

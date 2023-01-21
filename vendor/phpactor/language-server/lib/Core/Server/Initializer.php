@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server;
+namespace Phpactor\LanguageServer\Core\Server;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 interface Initializer
 {
     /**
@@ -16,4 +16,3 @@ interface Initializer
      */
     public function provideInitializeParams(Message $message) : InitializeParams;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Initializer', 'Phpactor\\LanguageServer\\Core\\Server\\Initializer', \false);

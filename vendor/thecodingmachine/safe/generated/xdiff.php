@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\XdiffException;
+use Safe\Exceptions\XdiffException;
+
 /**
  * Makes a binary diff of two files and stores the result in a patch file.
  * This function works with both text and binary files. Resulting patch
@@ -15,14 +16,16 @@ use Phpactor202301\Safe\Exceptions\XdiffException;
  * @throws XdiffException
  *
  */
-function xdiff_file_bdiff(string $old_file, string $new_file, string $dest) : void
+function xdiff_file_bdiff(string $old_file, string $new_file, string $dest): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_file_bdiff($old_file, $new_file, $dest);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
 }
+
+
 /**
  * Patches a file with a binary
  * patch and stores the result in a file dest.
@@ -35,14 +38,16 @@ function xdiff_file_bdiff(string $old_file, string $new_file, string $dest) : vo
  * @throws XdiffException
  *
  */
-function xdiff_file_bpatch(string $file, string $patch, string $dest) : void
+function xdiff_file_bpatch(string $file, string $patch, string $dest): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_file_bpatch($file, $patch, $dest);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
 }
+
+
 /**
  * Makes a binary diff of two files and stores the result in a patch file.
  * This function works with both text and binary files. Resulting patch
@@ -57,14 +62,16 @@ function xdiff_file_bpatch(string $file, string $patch, string $dest) : void
  * @throws XdiffException
  *
  */
-function xdiff_file_diff_binary(string $old_file, string $new_file, string $dest) : void
+function xdiff_file_diff_binary(string $old_file, string $new_file, string $dest): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_file_diff_binary($old_file, $new_file, $dest);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
 }
+
+
 /**
  * Makes an unified diff containing differences between old_file and
  * new_file and stores it in dest file. The
@@ -83,14 +90,16 @@ function xdiff_file_diff_binary(string $old_file, string $new_file, string $dest
  * @throws XdiffException
  *
  */
-function xdiff_file_diff(string $old_file, string $new_file, string $dest, int $context = 3, bool $minimal = \false) : void
+function xdiff_file_diff(string $old_file, string $new_file, string $dest, int $context = 3, bool $minimal = false): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_file_diff($old_file, $new_file, $dest, $context, $minimal);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
 }
+
+
 /**
  * Patches a file with a binary
  * patch and stores the result in a file dest.
@@ -105,14 +114,16 @@ function xdiff_file_diff(string $old_file, string $new_file, string $dest, int $
  * @throws XdiffException
  *
  */
-function xdiff_file_patch_binary(string $file, string $patch, string $dest) : void
+function xdiff_file_patch_binary(string $file, string $patch, string $dest): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_file_patch_binary($file, $patch, $dest);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
 }
+
+
 /**
  * Makes a binary diff of two files and stores the result in a patch file.
  * The difference between this function and xdiff_file_bdiff is different
@@ -130,14 +141,16 @@ function xdiff_file_patch_binary(string $file, string $patch, string $dest) : vo
  * @throws XdiffException
  *
  */
-function xdiff_file_rabdiff(string $old_file, string $new_file, string $dest) : void
+function xdiff_file_rabdiff(string $old_file, string $new_file, string $dest): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_file_rabdiff($old_file, $new_file, $dest);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
 }
+
+
 /**
  * Patches a string str with a binary patch.
  * This function accepts patches created both via xdiff_string_bdiff
@@ -149,15 +162,17 @@ function xdiff_file_rabdiff(string $old_file, string $new_file, string $dest) : 
  * @throws XdiffException
  *
  */
-function xdiff_string_bpatch(string $str, string $patch) : string
+function xdiff_string_bpatch(string $str, string $patch): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_string_bpatch($str, $patch);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Patches a string str with a binary patch.
  * This function accepts patches created both via xdiff_string_bdiff
@@ -171,15 +186,17 @@ function xdiff_string_bpatch(string $str, string $patch) : string
  * @throws XdiffException
  *
  */
-function xdiff_string_patch_binary(string $str, string $patch) : string
+function xdiff_string_patch_binary(string $str, string $patch): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xdiff_string_patch_binary($str, $patch);
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Patches a str string with an unified patch in patch parameter
  * and returns the result. patch has to be an unified diff created by
@@ -202,9 +219,9 @@ function xdiff_string_patch_binary(string $str, string $patch) : string
  * @throws XdiffException
  *
  */
-function xdiff_string_patch(string $str, string $patch, int $flags = null, ?string &$error = null) : string
+function xdiff_string_patch(string $str, string $patch, int $flags = null, ?string &$error = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($error !== null) {
         $result = \xdiff_string_patch($str, $patch, $flags, $error);
     } elseif ($flags !== null) {
@@ -212,7 +229,7 @@ function xdiff_string_patch(string $str, string $patch, int $flags = null, ?stri
     } else {
         $result = \xdiff_string_patch($str, $patch);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw XdiffException::createFromPhpError();
     }
     return $result;

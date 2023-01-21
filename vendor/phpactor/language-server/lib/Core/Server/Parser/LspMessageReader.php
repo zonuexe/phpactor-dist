@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Parser;
+namespace Phpactor\LanguageServer\Core\Server\Parser;
 
 use Phpactor202301\Amp\ByteStream\InputStream;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RawMessage;
+use Phpactor\LanguageServer\Core\Rpc\RawMessage;
 use function json_encode;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Parser\Exception\CouldNotDecodeBody;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Parser\Exception\CouldNotParseHeader;
-final class LspMessageReader implements RequestReader
+use Phpactor\LanguageServer\Core\Server\Parser\Exception\CouldNotDecodeBody;
+use Phpactor\LanguageServer\Core\Server\Parser\Exception\CouldNotParseHeader;
+final class LspMessageReader implements \Phpactor\LanguageServer\Core\Server\Parser\RequestReader
 {
     const EVENT_REQUEST_READY = 'request.ready';
     const HEADER_CONTENT_LENGTH = 'Content-Length';
@@ -101,4 +101,3 @@ final class LspMessageReader implements RequestReader
         return $array;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Parser\\LspMessageReader', 'Phpactor\\LanguageServer\\Core\\Server\\Parser\\LspMessageReader', \false);

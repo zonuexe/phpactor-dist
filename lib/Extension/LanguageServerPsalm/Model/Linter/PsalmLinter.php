@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\Linter;
+namespace Phpactor\Extension\LanguageServerPsalm\Model\Linter;
 
 use Phpactor202301\Amp\Promise;
 use Generator;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\Linter;
-use Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model\PsalmProcess;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Extension\LanguageServerPsalm\Model\Linter;
+use Phpactor\Extension\LanguageServerPsalm\Model\PsalmProcess;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\TextDocument\TextDocumentUri;
 class PsalmLinter implements Linter
 {
     public function __construct(private PsalmProcess $process)
@@ -28,4 +28,3 @@ class PsalmLinter implements Linter
         return (yield $this->process->analyse(TextDocumentUri::fromString($url)->path()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPsalm\\Model\\Linter\\PsalmLinter', 'Phpactor\\Extension\\LanguageServerPsalm\\Model\\Linter\\PsalmLinter', \false);

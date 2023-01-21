@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidates;
-use Phpactor202301\Phpactor\FilePathResolver\Expanders;
+use Phpactor\ConfigLoader\Core\PathCandidates;
+use Phpactor\FilePathResolver\Expanders;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
 use Phpactor202301\Symfony\Component\Console\Terminal;
 class ConfigDumpCommand extends Command
@@ -53,4 +53,3 @@ class ConfigDumpCommand extends Command
         $output->write(\PHP_EOL);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\ConfigDumpCommand', 'Phpactor\\Extension\\Core\\Command\\ConfigDumpCommand', \false);

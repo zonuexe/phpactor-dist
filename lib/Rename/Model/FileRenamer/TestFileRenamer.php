@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model\FileRenamer;
+namespace Phpactor\Rename\Model\FileRenamer;
 
 use Phpactor202301\Amp\Failure;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotRename;
-use Phpactor202301\Phpactor\Rename\Model\FileRenamer;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEditsMap;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Rename\Model\Exception\CouldNotRename;
+use Phpactor\Rename\Model\FileRenamer;
+use Phpactor\Rename\Model\LocatedTextEditsMap;
+use Phpactor\TextDocument\TextDocumentUri;
 class TestFileRenamer implements FileRenamer
 {
     private LocatedTextEditsMap $workspaceEdits;
@@ -24,4 +24,3 @@ class TestFileRenamer implements FileRenamer
         return new Success($this->workspaceEdits);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\FileRenamer\\TestFileRenamer', 'Phpactor\\Rename\\Model\\FileRenamer\\TestFileRenamer', \false);

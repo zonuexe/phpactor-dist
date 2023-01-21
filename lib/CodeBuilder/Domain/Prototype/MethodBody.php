@@ -1,28 +1,27 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class MethodBody extends Prototype
+final class MethodBody extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
 {
-    public function __construct(private ?Lines $lines = null)
+    public function __construct(private ?\Phpactor\CodeBuilder\Domain\Prototype\Lines $lines = null)
     {
         parent::__construct();
     }
-    public static function fromLines(array $lines) : MethodBody
+    public static function fromLines(array $lines) : \Phpactor\CodeBuilder\Domain\Prototype\MethodBody
     {
-        return new self(Lines::fromLines($lines));
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Lines::fromLines($lines));
     }
-    public static function empty() : MethodBody
+    public static function empty() : \Phpactor\CodeBuilder\Domain\Prototype\MethodBody
     {
-        return new self(Lines::empty());
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Lines::empty());
     }
     public static function none()
     {
         return new self();
     }
-    public function lines() : ?Lines
+    public function lines() : ?\Phpactor\CodeBuilder\Domain\Prototype\Lines
     {
         return $this->lines;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\MethodBody', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\MethodBody', \false);

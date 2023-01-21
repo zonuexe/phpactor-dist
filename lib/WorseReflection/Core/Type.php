@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\AggregateType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClosureType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Generalizable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntersectionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Literal;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MixedType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NullableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\PrimitiveType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\VoidType;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Type\AggregateType;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\ClosureType;
+use Phpactor\WorseReflection\Core\Type\Generalizable;
+use Phpactor\WorseReflection\Core\Type\IntersectionType;
+use Phpactor\WorseReflection\Core\Type\Literal;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\MixedType;
+use Phpactor\WorseReflection\Core\Type\NullableType;
+use Phpactor\WorseReflection\Core\Type\PrimitiveType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\Type\VoidType;
 abstract class Type
 {
     public abstract function __toString() : string;
@@ -31,7 +31,7 @@ abstract class Type
      * - "hello"        < does not accept string
      * - ""             - does not accept string
      */
-    public abstract function accepts(Type $type) : Trinary;
+    public abstract function accepts(\Phpactor\WorseReflection\Core\Type $type) : \Phpactor\WorseReflection\Core\Trinary;
     /**
      * Return a collection of first-class types.
      *
@@ -40,10 +40,10 @@ abstract class Type
      *
      * @return Types<Type>
      */
-    public function expandTypes() : Types
+    public function expandTypes() : \Phpactor\WorseReflection\Core\Types
     {
         /** @phpstan-ignore-next-line */
-        return new Types([$this]);
+        return new \Phpactor\WorseReflection\Core\Types([$this]);
     }
     /**
      * Return ALL types referenced in this type.
@@ -55,10 +55,10 @@ abstract class Type
      * - `Closure(Foobar,int): float`: Will return `Closure` (as a "class" type), `Foobar`, `int` and `float` `
      * @return Types<Type>
      */
-    public function allTypes() : Types
+    public function allTypes() : \Phpactor\WorseReflection\Core\Types
     {
         /** @phpstan-ignore-next-line */
-        return new Types([$this]);
+        return new \Phpactor\WorseReflection\Core\Types([$this]);
     }
     public function isDefined() : bool
     {
@@ -84,7 +84,7 @@ abstract class Type
     {
         return \false;
     }
-    public function addType(Type $type) : AggregateType
+    public function addType(\Phpactor\WorseReflection\Core\Type $type) : AggregateType
     {
         return new UnionType($this, $type);
     }
@@ -100,10 +100,10 @@ abstract class Type
             $type = $type->generalize()->reduce();
         }
         if ($type instanceof UnionType) {
-            return \implode('|', \array_map(fn(Type $t) => $t->short(), $type->types));
+            return \implode('|', \array_map(fn(\Phpactor\WorseReflection\Core\Type $t) => $t->short(), $type->types));
         }
         if ($type instanceof IntersectionType) {
-            return \implode('&', \array_map(fn(Type $t) => $t->short(), $type->types));
+            return \implode('&', \array_map(fn(\Phpactor\WorseReflection\Core\Type $t) => $t->short(), $type->types));
         }
         if ($type instanceof NullableType) {
             return '?' . $type->type->short();
@@ -119,9 +119,9 @@ abstract class Type
     public function toLocalType(ReflectionScope $scope) : self
     {
         // TODO: do not modify type by reference
-        return $this->map(fn(Type $type) => $scope->resolveLocalType(clone $type));
+        return $this->map(fn(\Phpactor\WorseReflection\Core\Type $type) => $scope->resolveLocalType(clone $type));
     }
-    public static function fromTypes(Type ...$types) : Type
+    public static function fromTypes(\Phpactor\WorseReflection\Core\Type ...$types) : \Phpactor\WorseReflection\Core\Type
     {
         if (\count($types) === 0) {
             return new MissingType();
@@ -131,29 +131,29 @@ abstract class Type
         }
         return new UnionType(...$types);
     }
-    public function generalize() : Type
+    public function generalize() : \Phpactor\WorseReflection\Core\Type
     {
-        return $this->map(function (Type $type) {
+        return $this->map(function (\Phpactor\WorseReflection\Core\Type $type) {
             return $type instanceof Generalizable ? $type->generalize() : $type;
         });
     }
-    public function equals(Type $type) : bool
+    public function equals(\Phpactor\WorseReflection\Core\Type $type) : bool
     {
         return $this->__toString() === $type->__toString();
     }
-    public function instanceof(Type $type) : Trinary
+    public function instanceof(\Phpactor\WorseReflection\Core\Type $type) : \Phpactor\WorseReflection\Core\Trinary
     {
-        return Trinary::fromBoolean($type->equals($this));
+        return \Phpactor\WorseReflection\Core\Trinary::fromBoolean($type->equals($this));
     }
     public function isNull() : bool
     {
         return \false;
     }
-    public function stripNullable() : Type
+    public function stripNullable() : \Phpactor\WorseReflection\Core\Type
     {
         return $this;
     }
-    public function reduce() : Type
+    public function reduce() : \Phpactor\WorseReflection\Core\Type
     {
         return $this;
     }
@@ -161,22 +161,22 @@ abstract class Type
     {
         return \false;
     }
-    public function isEmpty() : Trinary
+    public function isEmpty() : \Phpactor\WorseReflection\Core\Trinary
     {
-        $empty = TypeFactory::unionEmpty()->accepts($this);
+        $empty = \Phpactor\WorseReflection\Core\TypeFactory::unionEmpty()->accepts($this);
         if ($empty->isTrue() || $empty->isFalse()) {
             return $empty;
         }
         if ($this instanceof Literal) {
-            return Trinary::false();
+            return \Phpactor\WorseReflection\Core\Trinary::false();
         }
-        return Trinary::maybe();
+        return \Phpactor\WorseReflection\Core\Trinary::maybe();
     }
     public function isMixed() : bool
     {
         return $this instanceof MixedType;
     }
-    public function mergeType(Type $type) : Type
+    public function mergeType(\Phpactor\WorseReflection\Core\Type $type) : \Phpactor\WorseReflection\Core\Type
     {
         if ($this instanceof MissingType) {
             return $type;
@@ -184,21 +184,20 @@ abstract class Type
         if ($this instanceof AggregateType) {
             return $this->add($type);
         }
-        return TypeFactory::intersection($this, $type);
+        return \Phpactor\WorseReflection\Core\TypeFactory::intersection($this, $type);
     }
     /**
      * @param Closure(Type): Type $mapper
      */
-    public function map(Closure $mapper) : Type
+    public function map(Closure $mapper) : \Phpactor\WorseReflection\Core\Type
     {
         return $mapper($this);
     }
     /**
      * If this type can "consume" or replace the given type
      */
-    public function consumes(Type $type2) : Trinary
+    public function consumes(\Phpactor\WorseReflection\Core\Type $type2) : \Phpactor\WorseReflection\Core\Trinary
     {
-        return Trinary::maybe();
+        return \Phpactor\WorseReflection\Core\Trinary::maybe();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type', 'Phpactor\\WorseReflection\\Core\\Type', \false);

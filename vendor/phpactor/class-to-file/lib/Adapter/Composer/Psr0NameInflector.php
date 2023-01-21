@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer;
+namespace Phpactor\ClassFileConverter\Adapter\Composer;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-final class Psr0NameInflector implements NameInflector
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+final class Psr0NameInflector implements \Phpactor\ClassFileConverter\Adapter\Composer\NameInflector
 {
     public const NAMESPACE_SEPARATOR = '_';
     public function inflectToRelativePath(string $prefix, ClassName $className, string $mappedPath) : FilePath
@@ -24,4 +24,3 @@ final class Psr0NameInflector implements NameInflector
         return ClassName::fromString($className);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Composer\\Psr0NameInflector', 'Phpactor\\ClassFileConverter\\Adapter\\Composer\\Psr0NameInflector', \false);

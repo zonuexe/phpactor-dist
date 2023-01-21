@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Container;
+namespace Phpactor\Container;
 
 use Closure;
 interface ContainerBuilder
@@ -13,6 +13,5 @@ interface ContainerBuilder
     /**
      * @param array<string,mixed> $parameters
      */
-    public function build(array $parameters) : Container;
+    public function build(array $parameters) : \Phpactor\Container\Container;
 }
-\class_alias('Phpactor202301\\Phpactor\\Container\\ContainerBuilder', 'Phpactor\\Container\\ContainerBuilder', \false);

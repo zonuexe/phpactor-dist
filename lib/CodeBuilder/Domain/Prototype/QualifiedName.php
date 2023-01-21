@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 class QualifiedName
 {
@@ -11,9 +11,8 @@ class QualifiedName
     {
         return $this->name;
     }
-    public static function fromString(string $name) : QualifiedName
+    public static function fromString(string $name) : \Phpactor\CodeBuilder\Domain\Prototype\QualifiedName
     {
         return new static($name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\QualifiedName', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\QualifiedName', \false);

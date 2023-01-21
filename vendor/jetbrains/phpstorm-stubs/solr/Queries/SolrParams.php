@@ -1,20 +1,18 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrParams<br/>
  * This class represents a a collection of name-value pairs sent to the Solr server during a request.
  * @link https://php.net/manual/en/class.solrparams.php
  */
-abstract class SolrParams implements \Serializable
+abstract class SolrParams implements Serializable
 {
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -30,9 +28,8 @@ abstract class SolrParams implements \Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function add($name, $value)
-    {
-    }
+    public function add($name, $value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds a parameter to the object
@@ -47,9 +44,8 @@ abstract class SolrParams implements \Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function addParam($name, $value)
-    {
-    }
+    public function addParam($name, $value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * This is an alias for SolrParams::getParam
@@ -61,9 +57,8 @@ abstract class SolrParams implements \Serializable
      * Returns an array or string depending on the type of parameter
      * </p>
      */
-    public final function get($param_name)
-    {
-    }
+    final public function get($param_name) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns a parameter value
@@ -75,9 +70,8 @@ abstract class SolrParams implements \Serializable
      * Returns an array or string depending on the type of parameter
      * </p>
      */
-    public final function getParam($param_name)
-    {
-    }
+    final public function getParam($param_name) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array of non URL-encoded parameters
@@ -86,9 +80,8 @@ abstract class SolrParams implements \Serializable
      * Returns an array of non URL-encoded parameters
      * </p>
      */
-    public final function getParams()
-    {
-    }
+    final public function getParams() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array of URL-encoded parameters
@@ -97,9 +90,8 @@ abstract class SolrParams implements \Serializable
      * Returns an array of URL-encoded parameters
      * </p>
      */
-    public final function getPreparedParams()
-    {
-    }
+    final public function getPreparedParams() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Used for custom serialization
@@ -108,9 +100,8 @@ abstract class SolrParams implements \Serializable
      * Used for custom serialization
      * </p>
      */
-    public final function serialize()
-    {
-    }
+    final public function serialize() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * An alias of SolrParams::setParam
@@ -125,9 +116,8 @@ abstract class SolrParams implements \Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public final function set($name, $value)
-    {
-    }
+    final public function set($name, $value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the parameter to the specified value
@@ -142,9 +132,8 @@ abstract class SolrParams implements \Serializable
      * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function setParam($name, $value)
-    {
-    }
+    public function setParam($name, $value) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns all the name-value pair parameters in the object
@@ -156,9 +145,8 @@ abstract class SolrParams implements \Serializable
      * Returns a string on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public final function toString($url_encode = \false)
-    {
-    }
+    final public function toString($url_encode = false) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Used for custom serialization
@@ -167,20 +155,5 @@ abstract class SolrParams implements \Serializable
      * The serialized representation of the object
      * </p>
      */
-    public final function unserialize($serialized)
-    {
-    }
+    final public function unserialize($serialized) {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrParams<br/>
- * This class represents a a collection of name-value pairs sent to the Solr server during a request.
- * @link https://php.net/manual/en/class.solrparams.php
- */
-\class_alias('Phpactor202301\\SolrParams', 'SolrParams', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Adapter\TolerantParser;
+namespace Phpactor\ClassMover\Adapter\TolerantParser;
 
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
@@ -13,18 +13,18 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\ClassReference;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\ImportedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\NamespaceReference;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\Position;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\QualifiedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\ClassFinder;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\NameImportTable;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\Namespace_;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ClassMover\Domain\Reference\ClassReference;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Name\ImportedName;
+use Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
+use Phpactor\ClassMover\Domain\Reference\NamespaceReference;
+use Phpactor\ClassMover\Domain\Reference\NamespacedClassReferences;
+use Phpactor\ClassMover\Domain\Reference\Position;
+use Phpactor\ClassMover\Domain\Name\QualifiedName;
+use Phpactor\ClassMover\Domain\ClassFinder;
+use Phpactor\ClassMover\Domain\Name\NameImportTable;
+use Phpactor\ClassMover\Domain\Name\Namespace_;
+use Phpactor\TextDocument\TextDocument;
 class TolerantClassFinder implements ClassFinder
 {
     private $parser;
@@ -130,4 +130,3 @@ class TolerantClassFinder implements ClassFinder
         return NamespaceReference::fromNameAndPosition(Namespace_::fromString($namespace->name->getText()), Position::fromStartAndEnd($namespace->name->getStartPosition(), $namespace->name->getEndPosition()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Adapter\\TolerantParser\\TolerantClassFinder', 'Phpactor\\ClassMover\\Adapter\\TolerantParser\\TolerantClassFinder', \false);

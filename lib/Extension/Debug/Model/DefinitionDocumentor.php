@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Debug\Model;
+namespace Phpactor\Extension\Debug\Model;
 
-use Phpactor202301\Phpactor\MapResolver\Definition;
+use Phpactor\MapResolver\Definition;
 class DefinitionDocumentor
 {
     public function document(string $prefix, Definition $definition) : string
@@ -30,4 +30,3 @@ class DefinitionDocumentor
         return \implode("\n", $help);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Debug\\Model\\DefinitionDocumentor', 'Phpactor\\Extension\\Debug\\Model\\DefinitionDocumentor', \false);

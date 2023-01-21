@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Adapter\Psr;
+namespace Phpactor\LanguageServer\Adapter\Psr;
 
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
@@ -27,4 +27,3 @@ class AggregateEventDispatcher implements EventDispatcherInterface
         return $event;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Adapter\\Psr\\AggregateEventDispatcher', 'Phpactor\\LanguageServer\\Adapter\\Psr\\AggregateEventDispatcher', \false);

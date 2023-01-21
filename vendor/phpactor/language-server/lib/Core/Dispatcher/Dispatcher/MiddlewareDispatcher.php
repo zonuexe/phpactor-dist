@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+namespace Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 final class MiddlewareDispatcher implements Dispatcher
 {
     /**
@@ -26,4 +26,3 @@ final class MiddlewareDispatcher implements Dispatcher
         return $handler->handle($request);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\Dispatcher\\MiddlewareDispatcher', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\Dispatcher\\MiddlewareDispatcher', \false);

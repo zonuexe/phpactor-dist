@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\parallel;
+namespace parallel;
 
 use Throwable;
+
 /**
  * A Future represents the return value or uncaught exception from a task, and exposes an API for cancellation.
  *
@@ -14,6 +15,7 @@ use Throwable;
 final class Future
 {
     /* Resolution */
+
     /**
      * Shall return (and if necessary wait for) return from task
      *
@@ -25,25 +27,24 @@ final class Future
      * @throws Future\Error\Foreign if task raised an unrecognized uncaught exception.
      * @throws Throwable Shall rethrow \Throwable uncaught in task
      */
-    public function value()
-    {
-    }
+    public function value() {}
+
     /* State */
+
     /**
      * Shall indicate if the task is completed
      * @return bool
      */
-    public function done() : bool
-    {
-    }
+    public function done(): bool {}
+
     /**
      * Shall indicate if the task was cancelled
      * @return bool
      */
-    public function cancelled() : bool
-    {
-    }
+    public function cancelled(): bool {}
+
     /* Cancellation */
+
     /**
      * Shall try to cancel the task
      * Note: If task is running, it will be interrupted.
@@ -54,7 +55,5 @@ final class Future
      * @throws Future\Error\Killed if \parallel\Runtime executing task was killed.
      * @throws Future\Error\Cancelled if task was already cancelled.
      */
-    public function cancel() : bool
-    {
-    }
+    public function cancel(): bool {}
 }

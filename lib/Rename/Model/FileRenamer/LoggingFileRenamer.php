@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model\FileRenamer;
+namespace Phpactor\Rename\Model\FileRenamer;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Rename\Model\FileRenamer;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Rename\Model\FileRenamer;
+use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use function Phpactor202301\Amp\call;
 class LoggingFileRenamer implements FileRenamer
@@ -21,4 +21,3 @@ class LoggingFileRenamer implements FileRenamer
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\FileRenamer\\LoggingFileRenamer', 'Phpactor\\Rename\\Model\\FileRenamer\\LoggingFileRenamer', \false);

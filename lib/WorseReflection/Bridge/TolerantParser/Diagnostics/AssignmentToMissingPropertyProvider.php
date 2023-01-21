@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
@@ -11,16 +11,16 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Token;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class AssignmentToMissingPropertyProvider implements DiagnosticProvider
 {
     public function exit(NodeContextResolver $resolver, Frame $frame, Node $node) : Generator
@@ -72,7 +72,7 @@ class AssignmentToMissingPropertyProvider implements DiagnosticProvider
         if ($class->properties()->has($memberName)) {
             return;
         }
-        (yield new AssignmentToMissingPropertyDiagnostic(ByteOffsetRange::fromInts($node->getStartPosition(), $node->getEndPosition()), $class->name()->__toString(), $memberName, $this->resolvePropertyType($resolver, $frame, $rightOperand, $accessExpression), $accessExpression ? \true : \false));
+        (yield new \Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\AssignmentToMissingPropertyDiagnostic(ByteOffsetRange::fromInts($node->getStartPosition(), $node->getEndPosition()), $class->name()->__toString(), $memberName, $this->resolvePropertyType($resolver, $frame, $rightOperand, $accessExpression), $accessExpression ? \true : \false));
     }
     public function enter(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable
     {
@@ -87,4 +87,3 @@ class AssignmentToMissingPropertyProvider implements DiagnosticProvider
         return new ArrayType($accessExpression instanceof SubscriptExpression ? null : $resolver->resolveNode($frame, $accessExpression)->type(), $type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\AssignmentToMissingPropertyProvider', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\AssignmentToMissingPropertyProvider', \false);

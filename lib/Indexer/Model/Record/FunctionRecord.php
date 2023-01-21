@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-final class FunctionRecord implements HasFileReferences, HasPath, Record, HasFullyQualifiedName
+use Phpactor\Indexer\Model\Record;
+final class FunctionRecord implements \Phpactor\Indexer\Model\Record\HasFileReferences, \Phpactor\Indexer\Model\Record\HasPath, Record, \Phpactor\Indexer\Model\Record\HasFullyQualifiedName
 {
-    use FullyQualifiedReferenceTrait;
-    use HasFileReferencesTrait;
-    use HasPathTrait;
+    use \Phpactor\Indexer\Model\Record\FullyQualifiedReferenceTrait;
+    use \Phpactor\Indexer\Model\Record\HasFileReferencesTrait;
+    use \Phpactor\Indexer\Model\Record\HasPathTrait;
     public const RECORD_TYPE = 'function';
     public static function fromName(string $name) : self
     {
@@ -18,4 +18,3 @@ final class FunctionRecord implements HasFileReferences, HasPath, Record, HasFul
         return self::RECORD_TYPE;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record\\FunctionRecord', 'Phpactor\\Indexer\\Model\\Record\\FunctionRecord', \false);

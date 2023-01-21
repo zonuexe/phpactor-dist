@@ -7,14 +7,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat\Pattern;
+namespace Phpactor\Extension\Behat\Behat\Pattern;
 
 /**
  * Defines a way to handle turnip patterns.
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */
-final class TurnipPatternPolicy implements PatternPolicy
+final class TurnipPatternPolicy implements \Phpactor\Extension\Behat\Behat\Pattern\PatternPolicy
 {
     public const TOKEN_REGEX = "[\"']?(?P<%s>(?<=\")[^\"]*(?=\")|(?<=')[^']*(?=')|\\-?[\\w\\.\\,]+)['\"]?";
     public const PLACEHOLDER_REGEXP = "/\\\\:(\\w+)/";
@@ -56,7 +56,7 @@ final class TurnipPatternPolicy implements PatternPolicy
     private function replaceTokenWithRegexCaptureGroup(array $tokenMatch) : string
     {
         if (\strlen($tokenMatch[1]) >= 32) {
-            throw new InvalidPatternException("Token name should not exceed 32 characters, but `{$tokenMatch[1]}` was used.");
+            throw new \Phpactor\Extension\Behat\Behat\Pattern\InvalidPatternException("Token name should not exceed 32 characters, but `{$tokenMatch[1]}` was used.");
         }
         return \sprintf(self::TOKEN_REGEX, $tokenMatch[1]);
     }
@@ -87,9 +87,3 @@ final class TurnipPatternPolicy implements PatternPolicy
         return \str_replace('\\\\/', '/', $regex);
     }
 }
-/**
- * Defines a way to handle turnip patterns.
- *
- * @author Konstantin Kudryashov <ever.zet@gmail.com>
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\Pattern\\TurnipPatternPolicy', 'Phpactor\\Extension\\Behat\\Behat\\Pattern\\TurnipPatternPolicy', \false);

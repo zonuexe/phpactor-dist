@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model;
+namespace Phpactor\Extension\LanguageServerPhpstan\Model;
 
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\Diagnostic;
 use function Phpactor202301\Amp\ByteStream\buffer;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class PhpstanProcess
 {
-    private DiagnosticsParser $parser;
+    private \Phpactor\Extension\LanguageServerPhpstan\Model\DiagnosticsParser $parser;
     private string $phpstanBin;
-    public function __construct(private string $cwd, private PhpstanConfig $config, private LoggerInterface $logger, DiagnosticsParser $parser = null)
+    public function __construct(private string $cwd, private \Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanConfig $config, private LoggerInterface $logger, \Phpactor\Extension\LanguageServerPhpstan\Model\DiagnosticsParser $parser = null)
     {
-        $this->parser = $parser ?: new DiagnosticsParser();
+        $this->parser = $parser ?: new \Phpactor\Extension\LanguageServerPhpstan\Model\DiagnosticsParser();
     }
     /**
      * @return Promise<array<Diagnostic>>
@@ -40,4 +40,3 @@ class PhpstanProcess
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Model\\PhpstanProcess', 'Phpactor\\Extension\\LanguageServerPhpstan\\Model\\PhpstanProcess', \false);

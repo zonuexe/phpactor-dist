@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SodiumException;
+use Safe\Exceptions\SodiumException;
+
 /**
  * Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt, and memory and CPU limits to generate an ASCII-encoded hash suitable for password storage.
  *
@@ -18,15 +19,17 @@ use Phpactor202301\Safe\Exceptions\SodiumException;
  * @throws SodiumException
  *
  */
-function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit) : string
+function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sodium_crypto_pwhash_str($password, $opslimit, $memlimit);
-    if ($result === \false) {
+    if ($result === false) {
         throw SodiumException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function provides low-level access to libsodium's crypto_pwhash key derivation function. Unless you have specific reason to use this function, you should use sodium_crypto_pwhash_str or password_hash functions instead.
  *
@@ -40,15 +43,15 @@ function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit
  * @throws SodiumException
  *
  */
-function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $alg = null) : string
+function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $alg = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($alg !== null) {
         $result = \sodium_crypto_pwhash($length, $password, $salt, $opslimit, $memlimit, $alg);
     } else {
         $result = \sodium_crypto_pwhash($length, $password, $salt, $opslimit, $memlimit);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw SodiumException::createFromPhpError();
     }
     return $result;

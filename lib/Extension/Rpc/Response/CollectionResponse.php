@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response;
 /**
  * Stack of actions.
  * Each action will be executed one-after-the-other in the editor.
@@ -44,8 +44,3 @@ class CollectionResponse implements Response
         $this->actions[] = $action;
     }
 }
-/**
- * Stack of actions.
- * Each action will be executed one-after-the-other in the editor.
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\CollectionResponse', 'Phpactor\\Extension\\Rpc\\Response\\CollectionResponse', \false);

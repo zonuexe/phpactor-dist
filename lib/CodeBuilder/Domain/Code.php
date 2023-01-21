@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain;
+namespace Phpactor\CodeBuilder\Domain;
 
 class Code
 {
@@ -16,4 +16,3 @@ class Code
         return new self($string);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Code', 'Phpactor\\CodeBuilder\\Domain\\Code', \false);

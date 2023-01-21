@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
-abstract class TagNode extends Node
+abstract class TagNode extends \Phpactor\DocblockParser\Ast\Node
 {
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\TagNode', 'Phpactor\\DocblockParser\\Ast\\TagNode', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\MapResolver;
+namespace Phpactor\MapResolver;
 
 use ArrayIterator;
 use Iterator;
@@ -31,19 +31,15 @@ class Definitions implements IteratorAggregate
     {
         return new ArrayIterator($this->definitions);
     }
-    public function get(string $name) : Definition
+    public function get(string $name) : \Phpactor\MapResolver\Definition
     {
         if (!isset($this->definitions[$name])) {
             throw new RuntimeException(\sprintf('Definition "%s" does not exist', $name));
         }
         return $this->definitions[$name];
     }
-    private function add(Definition $definition) : void
+    private function add(\Phpactor\MapResolver\Definition $definition) : void
     {
         $this->definitions[$definition->name()] = $definition;
     }
 }
-/**
- * @implements IteratorAggregate<Definition>
- */
-\class_alias('Phpactor202301\\Phpactor\\MapResolver\\Definitions', 'Phpactor\\MapResolver\\Definitions', \false);

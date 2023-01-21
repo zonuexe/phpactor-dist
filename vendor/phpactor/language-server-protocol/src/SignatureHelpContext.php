@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -49,7 +49,7 @@ class SignatureHelpContext
      * @param bool $isRetrigger
      * @param SignatureHelp|null $activeSignatureHelp
      */
-    public function __construct($triggerKind, bool $isRetrigger, ?string $triggerCharacter = null, ?SignatureHelp $activeSignatureHelp = null)
+    public function __construct($triggerKind, bool $isRetrigger, ?string $triggerCharacter = null, ?\Phpactor\LanguageServerProtocol\SignatureHelp $activeSignatureHelp = null)
     {
         $this->triggerKind = $triggerKind;
         $this->triggerCharacter = $triggerCharacter;
@@ -62,7 +62,7 @@ class SignatureHelpContext
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['triggerKind' => ['names' => [], 'iterable' => \false], 'triggerCharacter' => ['names' => [], 'iterable' => \false], 'isRetrigger' => ['names' => [], 'iterable' => \false], 'activeSignatureHelp' => ['names' => [SignatureHelp::class], 'iterable' => \false]];
+        $map = ['triggerKind' => ['names' => [], 'iterable' => \false], 'triggerCharacter' => ['names' => [], 'iterable' => \false], 'isRetrigger' => ['names' => [], 'iterable' => \false], 'activeSignatureHelp' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureHelp::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -112,7 +112,3 @@ class SignatureHelpContext
         throw $lastException;
     }
 }
-/**
- * Additional information about the context in which a signature help request was triggered.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SignatureHelpContext', 'Phpactor\\LanguageServerProtocol\\SignatureHelpContext', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -28,7 +28,7 @@ class SelectionRange
      * @param Range $range
      * @param SelectionRange|null $parent
      */
-    public function __construct(Range $range, ?SelectionRange $parent = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, ?\Phpactor\LanguageServerProtocol\SelectionRange $parent = null)
     {
         $this->range = $range;
         $this->parent = $parent;
@@ -39,7 +39,7 @@ class SelectionRange
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'parent' => ['names' => [SelectionRange::class], 'iterable' => \false]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'parent' => ['names' => [\Phpactor\LanguageServerProtocol\SelectionRange::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -89,8 +89,3 @@ class SelectionRange
         throw $lastException;
     }
 }
-/**
- * A selection range represents a part of a selection hierarchy. A selection range
- * may have a parent selection range that contains it.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SelectionRange', 'Phpactor\\LanguageServerProtocol\\SelectionRange', \false);

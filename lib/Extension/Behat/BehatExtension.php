@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat;
+namespace Phpactor\Extension\Behat;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\Behat\Adapter\Symfony\SymfonyDiContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Adapter\Worse\WorseContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Adapter\Worse\WorseStepFactory;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\BehatConfig;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver\ChainContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepGenerator;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepParser;
-use Phpactor202301\Phpactor\Extension\Behat\Completor\FeatureStepCompletor;
-use Phpactor202301\Phpactor\Extension\Behat\ReferenceFinder\StepDefinitionLocator;
-use Phpactor202301\Phpactor\Extension\Completion\CompletionExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\Behat\Adapter\Symfony\SymfonyDiContextClassResolver;
+use Phpactor\Extension\Behat\Adapter\Worse\WorseContextClassResolver;
+use Phpactor\Extension\Behat\Adapter\Worse\WorseStepFactory;
+use Phpactor\Extension\Behat\Behat\BehatConfig;
+use Phpactor\Extension\Behat\Behat\ContextClassResolver;
+use Phpactor\Extension\Behat\Behat\ContextClassResolver\ChainContextClassResolver;
+use Phpactor\Extension\Behat\Behat\StepGenerator;
+use Phpactor\Extension\Behat\Behat\StepParser;
+use Phpactor\Extension\Behat\Completor\FeatureStepCompletor;
+use Phpactor\Extension\Behat\ReferenceFinder\StepDefinitionLocator;
+use Phpactor\Extension\Completion\CompletionExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
 class BehatExtension implements OptionalExtension
 {
     const PARAM_CONFIG_PATH = 'behat.config_path';
@@ -62,4 +62,3 @@ class BehatExtension implements OptionalExtension
         return 'behat';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\BehatExtension', 'Phpactor\\Extension\\Behat\\BehatExtension', \false);

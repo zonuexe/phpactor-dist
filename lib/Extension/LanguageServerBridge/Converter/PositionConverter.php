@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter;
+namespace Phpactor\Extension\LanguageServerBridge\Converter;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\LineCol;
-use Phpactor202301\Phpactor\TextDocument\Util\LineAtOffset;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\LineCol;
+use Phpactor\TextDocument\Util\LineAtOffset;
 class PositionConverter
 {
     public static function intByteOffsetToPosition(int $offset, string $text) : Position
@@ -29,4 +29,3 @@ class PositionConverter
         return ByteOffset::fromInt($byteOffset->toInt() + $position->character);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBridge\\Converter\\PositionConverter', 'Phpactor\\Extension\\LanguageServerBridge\\Converter\\PositionConverter', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Model;
+namespace Phpactor\Extension\LanguageServerReferenceFinder\Model;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentHighlightKind;
+use Phpactor\LanguageServerProtocol\DocumentHighlightKind;
 class Highlight
 {
     /**
@@ -12,4 +12,3 @@ class Highlight
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\Model\\Highlight', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\Model\\Highlight', \false);

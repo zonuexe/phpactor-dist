@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -69,7 +69,7 @@ class DocumentSymbol
      * @param Range $selectionRange
      * @param array<DocumentSymbol>|null $children
      */
-    public function __construct(string $name, $kind, Range $range, Range $selectionRange, ?string $detail = null, ?bool $deprecated = null, ?array $children = null)
+    public function __construct(string $name, $kind, \Phpactor\LanguageServerProtocol\Range $range, \Phpactor\LanguageServerProtocol\Range $selectionRange, ?string $detail = null, ?bool $deprecated = null, ?array $children = null)
     {
         $this->name = $name;
         $this->detail = $detail;
@@ -85,7 +85,7 @@ class DocumentSymbol
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['name' => ['names' => [], 'iterable' => \false], 'detail' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'range' => ['names' => [Range::class], 'iterable' => \false], 'selectionRange' => ['names' => [Range::class], 'iterable' => \false], 'children' => ['names' => [DocumentSymbol::class], 'iterable' => \true]];
+        $map = ['name' => ['names' => [], 'iterable' => \false], 'detail' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'selectionRange' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'children' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentSymbol::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -135,10 +135,3 @@ class DocumentSymbol
         throw $lastException;
     }
 }
-/**
- * Represents programming constructs like variables, classes, interfaces etc.
- * that appear in a document. Document symbols can be hierarchical and they
- * have two ranges: one that encloses its definition and one that points to
- * its most interesting range, e.g. the range of an identifier.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentSymbol', 'Phpactor\\LanguageServerProtocol\\DocumentSymbol', \false);

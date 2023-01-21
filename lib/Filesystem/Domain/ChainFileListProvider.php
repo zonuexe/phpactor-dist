@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
 use AppendIterator;
-class ChainFileListProvider implements FileListProvider
+class ChainFileListProvider implements \Phpactor\Filesystem\Domain\FileListProvider
 {
     /**
      * @var FileListProvider[]
@@ -18,17 +18,16 @@ class ChainFileListProvider implements FileListProvider
             $this->add($provider);
         }
     }
-    public function fileList() : FileList
+    public function fileList() : \Phpactor\Filesystem\Domain\FileList
     {
         $iterator = new AppendIterator();
         foreach ($this->providers as $provider) {
             $iterator->append($provider->fileList()->getSplFileInfoIterator());
         }
-        return FileList::fromIterator($iterator);
+        return \Phpactor\Filesystem\Domain\FileList::fromIterator($iterator);
     }
-    private function add(FileListProvider $provider) : void
+    private function add(\Phpactor\Filesystem\Domain\FileListProvider $provider) : void
     {
         $this->providers[] = $provider;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\ChainFileListProvider', 'Phpactor\\Filesystem\\Domain\\ChainFileListProvider', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query;
+namespace Phpactor\Indexer\Model\Query;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\IndexQuery;
-use Phpactor202301\Phpactor\Indexer\Model\LocationConfidence;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
-use Phpactor202301\Phpactor\TextDocument\Location;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\IndexQuery;
+use Phpactor\Indexer\Model\LocationConfidence;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\TextDocument\Location;
 class FunctionQuery implements IndexQuery
 {
     public function __construct(private Index $index)
@@ -34,4 +34,3 @@ class FunctionQuery implements IndexQuery
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\FunctionQuery', 'Phpactor\\Indexer\\Model\\Query\\FunctionQuery', \false);

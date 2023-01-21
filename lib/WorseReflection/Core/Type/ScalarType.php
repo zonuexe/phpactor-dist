@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-abstract class ScalarType extends PrimitiveType implements Comparable
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+abstract class ScalarType extends \Phpactor\WorseReflection\Core\Type\PrimitiveType implements \Phpactor\WorseReflection\Core\Type\Comparable
 {
-    use ComparableTrait;
+    use \Phpactor\WorseReflection\Core\Type\ComparableTrait;
     public function __toString() : string
     {
         return $this->toPhpString();
@@ -19,13 +19,12 @@ abstract class ScalarType extends PrimitiveType implements Comparable
         if ($type instanceof $this) {
             return Trinary::true();
         }
-        if ($type instanceof MixedType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\MixedType) {
             return Trinary::maybe();
         }
-        if ($type instanceof MissingType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\MissingType) {
             return Trinary::maybe();
         }
         return Trinary::false();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ScalarType', 'Phpactor\\WorseReflection\\Core\\Type\\ScalarType', \false);

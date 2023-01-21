@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReferenceFinder;
+namespace Phpactor\WorseReferenceFinder;
 
 use Exception;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -8,18 +8,18 @@ use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocations;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\Util\WordAtOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\TypeLocation;
+use Phpactor\ReferenceFinder\TypeLocations;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\Util\WordAtOffset;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Reflector;
 class WorsePlainTextClassDefinitionLocator implements DefinitionLocator
 {
     private Parser $parser;
@@ -126,4 +126,3 @@ class WorsePlainTextClassDefinitionLocator implements DefinitionLocator
         return $name->__toString();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReferenceFinder\\WorsePlainTextClassDefinitionLocator', 'Phpactor\\WorseReferenceFinder\\WorsePlainTextClassDefinitionLocator', \false);

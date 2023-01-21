@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\TextDocument\TextDocumentUri;
 class GenerateMethodHandler extends AbstractHandler
 {
     const NAME = 'generate_method';
@@ -37,4 +37,3 @@ class GenerateMethodHandler extends AbstractHandler
         return $originalSource;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\GenerateMethodHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\GenerateMethodHandler', \false);

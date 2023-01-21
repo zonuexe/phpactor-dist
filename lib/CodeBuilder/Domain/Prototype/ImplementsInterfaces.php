@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 /**
  * @extends Collection<Type>
  */
-class ImplementsInterfaces extends Collection
+class ImplementsInterfaces extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
     public function __toString()
     {
@@ -26,7 +26,3 @@ class ImplementsInterfaces extends Collection
         return 'implement interface';
     }
 }
-/**
- * @extends Collection<Type>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\ImplementsInterfaces', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\ImplementsInterfaces', \false);

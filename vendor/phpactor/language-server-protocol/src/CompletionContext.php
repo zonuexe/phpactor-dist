@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -89,7 +89,3 @@ class CompletionContext
         throw $lastException;
     }
 }
-/**
- * Contains additional information about the context in which a completion request is triggered.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CompletionContext', 'Phpactor\\LanguageServerProtocol\\CompletionContext', \false);

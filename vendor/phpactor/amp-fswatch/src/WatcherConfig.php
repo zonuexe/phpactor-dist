@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch;
+namespace Phpactor\AmpFsWatch;
 
 class WatcherConfig
 {
@@ -66,4 +66,3 @@ class WatcherConfig
         return $this->lastUpdateReferenceFile;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\WatcherConfig', 'Phpactor\\AmpFsWatch\\WatcherConfig', \false);

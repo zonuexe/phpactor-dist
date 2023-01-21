@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 interface Record
 {
@@ -14,4 +14,3 @@ interface Record
      */
     public function identifier() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record', 'Phpactor\\Indexer\\Model\\Record', \false);

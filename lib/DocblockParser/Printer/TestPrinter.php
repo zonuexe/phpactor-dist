@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Printer;
+namespace Phpactor\DocblockParser\Printer;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Element;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Node;
-use Phpactor202301\Phpactor\DocblockParser\Printer;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\Element;
+use Phpactor\DocblockParser\Ast\Node;
+use Phpactor\DocblockParser\Printer;
+use Phpactor\DocblockParser\Ast\Token;
 final class TestPrinter implements Printer
 {
     private int $indent = 0;
@@ -39,4 +39,3 @@ final class TestPrinter implements Printer
         return "\n" . \str_repeat(' ', $this->indent);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Printer\\TestPrinter', 'Phpactor\\DocblockParser\\Printer\\TestPrinter', \false);

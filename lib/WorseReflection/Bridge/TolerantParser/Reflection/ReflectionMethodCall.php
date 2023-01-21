@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-class ReflectionMethodCall extends AbstractReflectionMethodCall
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+class ReflectionMethodCall extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionMethodCall
 {
     private MemberAccessExpression $node;
     public function __construct(ServiceLocator $locator, Frame $frame, MemberAccessExpression $node)
@@ -17,4 +17,3 @@ class ReflectionMethodCall extends AbstractReflectionMethodCall
         return \false;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionMethodCall', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionMethodCall', \false);

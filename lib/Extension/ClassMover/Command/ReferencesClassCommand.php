@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Command;
+namespace Phpactor\Extension\ClassMover\Command;
 
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassReferences;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\ClassMover\Application\ClassReferences;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
 use Phpactor202301\Symfony\Component\Console\Helper\Table;
-use Phpactor202301\Phpactor\Phpactor;
-use Phpactor202301\Phpactor\Extension\Core\Console\Formatter\Highlight;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FilesystemHandler;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FormatHandler;
+use Phpactor\Phpactor;
+use Phpactor\Extension\Core\Console\Formatter\Highlight;
+use Phpactor\Extension\Core\Console\Handler\FilesystemHandler;
+use Phpactor\Extension\Core\Console\Handler\FormatHandler;
 class ReferencesClassCommand extends Command
 {
     public function __construct(private ClassReferences $referenceFinder, private DumperRegistry $dumperRegistry)
@@ -83,4 +83,3 @@ class ReferencesClassCommand extends Command
         $table->addRow([Phpactor::relativizePath($filePath), $reference['line_no'], Highlight::highlightAtCol($reference['line'], $reference['reference'], $reference['col_no'], $ansi), $reference['start'], $reference['end']]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Command\\ReferencesClassCommand', 'Phpactor\\Extension\\ClassMover\\Command\\ReferencesClassCommand', \false);

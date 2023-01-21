@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
 class Context
 {
@@ -16,4 +16,3 @@ class Context
         return $this->suite;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\Context', 'Phpactor\\Extension\\Behat\\Behat\\Context', \false);

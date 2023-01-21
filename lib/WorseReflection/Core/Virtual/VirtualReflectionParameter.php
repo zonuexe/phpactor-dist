@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Virtual;
+namespace Phpactor\WorseReflection\Core\Virtual;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\DefaultValue;
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\DefaultValue;
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Type;
 class VirtualReflectionParameter implements ReflectionParameter
 {
     public function __construct(private string $name, private ReflectionFunctionLike $functionLike, private Type $inferredType, private Type $type, private DefaultValue $default, private bool $byReference, private ReflectionScope $scope, private Position $position, private int $index)
@@ -62,4 +62,3 @@ class VirtualReflectionParameter implements ReflectionParameter
         return $this->index;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionParameter', 'Phpactor\\WorseReflection\\Core\\Virtual\\VirtualReflectionParameter', \false);

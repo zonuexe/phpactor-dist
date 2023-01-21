@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SimplexmlException;
+use Safe\Exceptions\SimplexmlException;
+
 /**
  * This function takes a node of a DOM
  * document and makes it into a SimpleXML node. This new object can
@@ -17,15 +18,17 @@ use Phpactor202301\Safe\Exceptions\SimplexmlException;
  * @throws SimplexmlException
  *
  */
-function simplexml_import_dom(\DOMNode $node, string $class_name = "SimpleXMLElement") : \SimpleXMLElement
+function simplexml_import_dom(\DOMNode $node, string $class_name = "SimpleXMLElement"): \SimpleXMLElement
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \simplexml_import_dom($node, $class_name);
-    if ($result === \false) {
+    if ($result === false) {
         throw SimplexmlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Convert the well-formed XML document in the given file to an object.
  *
@@ -51,15 +54,17 @@ function simplexml_import_dom(\DOMNode $node, string $class_name = "SimpleXMLEle
  * @throws SimplexmlException
  *
  */
-function simplexml_load_file(string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = \false) : \SimpleXMLElement
+function simplexml_load_file(string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = false): \SimpleXMLElement
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \simplexml_load_file($filename, $class_name, $options, $ns, $is_prefix);
-    if ($result === \false) {
+    if ($result === false) {
         throw SimplexmlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Takes a well-formed XML string and returns it as an object.
  *
@@ -78,11 +83,11 @@ function simplexml_load_file(string $filename, string $class_name = "SimpleXMLEl
  * @throws SimplexmlException
  *
  */
-function simplexml_load_string(string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = \false) : \SimpleXMLElement
+function simplexml_load_string(string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = false): \SimpleXMLElement
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \simplexml_load_string($data, $class_name, $options, $ns, $is_prefix);
-    if ($result === \false) {
+    if ($result === false) {
         throw SimplexmlException::createFromPhpError();
     }
     return $result;

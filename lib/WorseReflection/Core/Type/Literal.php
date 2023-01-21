@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 interface Literal
 {
@@ -14,4 +14,3 @@ interface Literal
      */
     public function withValue($value);
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\Literal', 'Phpactor\\WorseReflection\\Core\\Type\\Literal', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 use Generator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class ChainCompletor implements Completor
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+class ChainCompletor implements \Phpactor\Completion\Core\Completor
 {
     /**
      * @param Completor[] $completors
@@ -24,4 +24,3 @@ class ChainCompletor implements Completor
         return $isComplete;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\ChainCompletor', 'Phpactor\\Completion\\Core\\ChainCompletor', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Adapter\PathCandidate;
+namespace Phpactor\ConfigLoader\Adapter\PathCandidate;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidate;
+use Phpactor\ConfigLoader\Core\PathCandidate;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 use Phpactor202301\XdgBaseDir\Xdg;
 class XdgPathCandidate implements PathCandidate
@@ -19,4 +19,3 @@ class XdgPathCandidate implements PathCandidate
         return $this->loader;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Adapter\\PathCandidate\\XdgPathCandidate', 'Phpactor\\ConfigLoader\\Adapter\\PathCandidate\\XdgPathCandidate', \false);

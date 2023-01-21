@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Registry;
+namespace Phpactor\Extension\Rpc\Registry;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Exception\HandlerNotFound;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\HandlerRegistry;
+use Phpactor\Extension\Rpc\Exception\HandlerNotFound;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\HandlerRegistry;
 class ActiveHandlerRegistry implements HandlerRegistry
 {
     private $handlers = [];
@@ -30,4 +30,3 @@ class ActiveHandlerRegistry implements HandlerRegistry
         $this->handlers[$handler->name()] = $handler;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Registry\\ActiveHandlerRegistry', 'Phpactor\\Extension\\Rpc\\Registry\\ActiveHandlerRegistry', \false);

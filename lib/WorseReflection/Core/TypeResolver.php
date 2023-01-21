@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 interface TypeResolver
 {
-    public function resolve(Type $type) : Type;
+    public function resolve(\Phpactor\WorseReflection\Core\Type $type) : \Phpactor\WorseReflection\Core\Type;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\TypeResolver', 'Phpactor\\WorseReflection\\Core\\TypeResolver', \false);

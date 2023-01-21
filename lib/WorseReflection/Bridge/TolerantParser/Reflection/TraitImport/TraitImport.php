@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
 
 class TraitImport
 {
@@ -15,7 +15,7 @@ class TraitImport
     {
         return $this->traitAliases;
     }
-    public function getAlias($name) : TraitAlias
+    public function getAlias($name) : \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitAlias
     {
         return $this->traitAliases[$name];
     }
@@ -24,4 +24,3 @@ class TraitImport
         return \array_key_exists($name, $this->traitAliases);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitImport', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitImport', \false);

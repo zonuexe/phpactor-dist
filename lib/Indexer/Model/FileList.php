@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use ArrayIterator;
 use Countable;
@@ -43,7 +43,7 @@ class FileList implements IteratorAggregate, Countable
     {
         return new self([new SplFileInfo($subPath)]);
     }
-    public function merge(FileList $fileList) : self
+    public function merge(\Phpactor\Indexer\Model\FileList $fileList) : self
     {
         return new self(\array_merge($this->splFileInfos, $fileList->splFileInfos));
     }
@@ -59,7 +59,3 @@ class FileList implements IteratorAggregate, Countable
         return \count($this->splFileInfos);
     }
 }
-/**
- * @implements \IteratorAggregate<SplFileInfo>
- */
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\FileList', 'Phpactor\\Indexer\\Model\\FileList', \false);

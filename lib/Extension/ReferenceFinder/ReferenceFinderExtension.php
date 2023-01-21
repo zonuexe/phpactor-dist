@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ReferenceFinder;
+namespace Phpactor\Extension\ReferenceFinder;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\ReferenceFinder\ChainDefinitionLocationProvider;
-use Phpactor202301\Phpactor\ReferenceFinder\ChainImplementationFinder;
-use Phpactor202301\Phpactor\ReferenceFinder\ChainReferenceFinder;
-use Phpactor202301\Phpactor\ReferenceFinder\ChainTypeLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NullNameSearcher;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\ReferenceFinder\ChainDefinitionLocationProvider;
+use Phpactor\ReferenceFinder\ChainImplementationFinder;
+use Phpactor\ReferenceFinder\ChainReferenceFinder;
+use Phpactor\ReferenceFinder\ChainTypeLocator;
+use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\ReferenceFinder\Search\NullNameSearcher;
 class ReferenceFinderExtension implements Extension
 {
     const SERVICE_DEFINITION_LOCATOR = 'reference_finder.definition_locator';
@@ -69,4 +69,3 @@ class ReferenceFinderExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ReferenceFinder\\ReferenceFinderExtension', 'Phpactor\\Extension\\ReferenceFinder\\ReferenceFinderExtension', \false);

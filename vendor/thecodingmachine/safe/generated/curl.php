@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\CurlException;
+use Safe\Exceptions\CurlException;
+
 /**
  * This function URL encodes the given string according to RFC 3986.
  *
@@ -13,15 +14,17 @@ use Phpactor202301\Safe\Exceptions\CurlException;
  * @throws CurlException
  *
  */
-function curl_escape($ch, string $str) : string
+function curl_escape($ch, string $str): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_escape($ch, $str);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromCurlResource($ch);
     }
     return $result;
 }
+
+
 /**
  * Execute the given cURL session.
  *
@@ -38,13 +41,15 @@ function curl_escape($ch, string $str) : string
  */
 function curl_exec($ch)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_exec($ch);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromCurlResource($ch);
     }
     return $result;
 }
+
+
 /**
  * Gets information about the last transfer.
  *
@@ -509,17 +514,19 @@ function curl_exec($ch)
  */
 function curl_getinfo($ch, int $opt = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($opt !== null) {
         $result = \curl_getinfo($ch, $opt);
     } else {
         $result = \curl_getinfo($ch);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromCurlResource($ch);
     }
     return $result;
 }
+
+
 /**
  * Initializes a new session and return a cURL handle for use with the
  * curl_setopt, curl_exec,
@@ -537,13 +544,15 @@ function curl_getinfo($ch, int $opt = null)
  */
 function curl_init(string $url = null)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_init($url);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Return an integer containing the last multi curl error number.
  *
@@ -553,15 +562,17 @@ function curl_init(string $url = null)
  * @throws CurlException
  *
  */
-function curl_multi_errno($mh) : int
+function curl_multi_errno($mh): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_multi_errno($mh);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Ask the multi handle if there are any messages or information from the individual transfers.
  * Messages may include information such as an error code from the transfer or just the fact
@@ -607,15 +618,17 @@ function curl_multi_errno($mh) : int
  * @throws CurlException
  *
  */
-function curl_multi_info_read($mh, ?int &$msgs_in_queue = null) : array
+function curl_multi_info_read($mh, ?int &$msgs_in_queue = null): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_multi_info_read($mh, $msgs_in_queue);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Allows the processing of multiple cURL handles asynchronously.
  *
@@ -625,13 +638,15 @@ function curl_multi_info_read($mh, ?int &$msgs_in_queue = null) : array
  */
 function curl_multi_init()
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_multi_init();
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets an option on the given cURL session handle.
  *
@@ -3016,14 +3031,16 @@ function curl_multi_init()
  * @throws CurlException
  *
  */
-function curl_setopt($ch, int $option, $value) : void
+function curl_setopt($ch, int $option, $value): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_setopt($ch, $option, $value);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromCurlResource($ch);
     }
 }
+
+
 /**
  * Return an integer containing the last share curl error number.
  *
@@ -3032,15 +3049,17 @@ function curl_setopt($ch, int $option, $value) : void
  * @throws CurlException
  *
  */
-function curl_share_errno($sh) : int
+function curl_share_errno($sh): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_share_errno($sh);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets an option on the given cURL share handle.
  *
@@ -3106,14 +3125,16 @@ function curl_share_errno($sh) : int
  * @throws CurlException
  *
  */
-function curl_share_setopt($sh, int $option, string $value) : void
+function curl_share_setopt($sh, int $option, string $value): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_share_setopt($sh, $option, $value);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromPhpError();
     }
 }
+
+
 /**
  * This function decodes the given URL encoded string.
  *
@@ -3124,11 +3145,11 @@ function curl_share_setopt($sh, int $option, string $value) : void
  * @throws CurlException
  *
  */
-function curl_unescape($ch, string $str) : string
+function curl_unescape($ch, string $str): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \curl_unescape($ch, $str);
-    if ($result === \false) {
+    if ($result === false) {
         throw CurlException::createFromCurlResource($ch);
     }
     return $result;

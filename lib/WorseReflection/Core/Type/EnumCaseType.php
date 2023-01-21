@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class EnumCaseType extends ReflectedClassType implements ClassLikeType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+class EnumCaseType extends \Phpactor\WorseReflection\Core\Type\ReflectedClassType implements \Phpactor\WorseReflection\Core\Type\ClassLikeType
 {
-    public function __construct(ClassReflector $reflector, public ClassType $enumType, public string $caseName)
+    public function __construct(ClassReflector $reflector, public \Phpactor\WorseReflection\Core\Type\ClassType $enumType, public string $caseName)
     {
         parent::__construct($reflector, ClassName::fromString('UnitEnumCase'));
     }
@@ -25,4 +25,3 @@ class EnumCaseType extends ReflectedClassType implements ClassLikeType
         return Trinary::maybe();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\EnumCaseType', 'Phpactor\\WorseReflection\\Core\\Type\\EnumCaseType', \false);

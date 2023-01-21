@@ -1,54 +1,54 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser;
+namespace Phpactor\DocblockParser;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\ArrayKeyValueList;
-use Phpactor202301\Phpactor\DocblockParser\Ast\ArrayKeyValueNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\ConditionalNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\DeprecatedTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Docblock;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ExtendsTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ImplementsTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\MethodTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\MixinTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\ParameterList;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ParameterTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\PropertyTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ReturnTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\TemplateTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TextNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeList;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ArrayNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ArrayShapeNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\CallableNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ClassNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Node;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ParamTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TagNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ConstantNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\GenericNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\IntersectionNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ListBracketsNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ListNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\LiteralFloatNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\LiteralIntegerNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\LiteralStringNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\NullNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\NullableNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ParenthesizedType;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ScalarNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ThisNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\UnionNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\UnsupportedNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\UnknownTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\ValueNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Value\NullValue;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\VarTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ThrowsTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\VariableNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tokens;
+use Phpactor\DocblockParser\Ast\ArrayKeyValueList;
+use Phpactor\DocblockParser\Ast\ArrayKeyValueNode;
+use Phpactor\DocblockParser\Ast\ConditionalNode;
+use Phpactor\DocblockParser\Ast\Tag\DeprecatedTag;
+use Phpactor\DocblockParser\Ast\Docblock;
+use Phpactor\DocblockParser\Ast\Tag\ExtendsTag;
+use Phpactor\DocblockParser\Ast\Tag\ImplementsTag;
+use Phpactor\DocblockParser\Ast\Tag\MethodTag;
+use Phpactor\DocblockParser\Ast\Tag\MixinTag;
+use Phpactor\DocblockParser\Ast\ParameterList;
+use Phpactor\DocblockParser\Ast\Tag\ParameterTag;
+use Phpactor\DocblockParser\Ast\Tag\PropertyTag;
+use Phpactor\DocblockParser\Ast\Tag\ReturnTag;
+use Phpactor\DocblockParser\Ast\Tag\TemplateTag;
+use Phpactor\DocblockParser\Ast\TextNode;
+use Phpactor\DocblockParser\Ast\TypeList;
+use Phpactor\DocblockParser\Ast\Type\ArrayNode;
+use Phpactor\DocblockParser\Ast\Type\ArrayShapeNode;
+use Phpactor\DocblockParser\Ast\Type\CallableNode;
+use Phpactor\DocblockParser\Ast\Type\ClassNode;
+use Phpactor\DocblockParser\Ast\Node;
+use Phpactor\DocblockParser\Ast\Tag\ParamTag;
+use Phpactor\DocblockParser\Ast\TagNode;
+use Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\Type\ConstantNode;
+use Phpactor\DocblockParser\Ast\Type\GenericNode;
+use Phpactor\DocblockParser\Ast\Type\IntersectionNode;
+use Phpactor\DocblockParser\Ast\Type\ListBracketsNode;
+use Phpactor\DocblockParser\Ast\Type\ListNode;
+use Phpactor\DocblockParser\Ast\Type\LiteralFloatNode;
+use Phpactor\DocblockParser\Ast\Type\LiteralIntegerNode;
+use Phpactor\DocblockParser\Ast\Type\LiteralStringNode;
+use Phpactor\DocblockParser\Ast\Type\NullNode;
+use Phpactor\DocblockParser\Ast\Type\NullableNode;
+use Phpactor\DocblockParser\Ast\Type\ParenthesizedType;
+use Phpactor\DocblockParser\Ast\Type\ScalarNode;
+use Phpactor\DocblockParser\Ast\Type\ThisNode;
+use Phpactor\DocblockParser\Ast\Type\UnionNode;
+use Phpactor\DocblockParser\Ast\Type\UnsupportedNode;
+use Phpactor\DocblockParser\Ast\UnknownTag;
+use Phpactor\DocblockParser\Ast\ValueNode;
+use Phpactor\DocblockParser\Ast\Value\NullValue;
+use Phpactor\DocblockParser\Ast\Tag\VarTag;
+use Phpactor\DocblockParser\Ast\Tag\ThrowsTag;
+use Phpactor\DocblockParser\Ast\VariableNode;
+use Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\Tokens;
 final class Parser
 {
     /**
@@ -549,4 +549,3 @@ final class Parser
         return new ConditionalNode($variable, $is, $isType, $question, $left, $colon, $right);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Parser', 'Phpactor\\DocblockParser\\Parser', \false);

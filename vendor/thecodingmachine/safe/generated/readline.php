@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ReadlineException;
+use Safe\Exceptions\ReadlineException;
+
 /**
  * This function adds a line to the command line history.
  *
@@ -10,14 +11,16 @@ use Phpactor202301\Safe\Exceptions\ReadlineException;
  * @throws ReadlineException
  *
  */
-function readline_add_history(string $line) : void
+function readline_add_history(string $line): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \readline_add_history($line);
-    if ($result === \false) {
+    if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets up a readline callback interface then prints
  * prompt and immediately returns.
@@ -67,28 +70,32 @@ function readline_add_history(string $line) : void
  * @throws ReadlineException
  *
  */
-function readline_callback_handler_install(string $prompt, callable $callback) : void
+function readline_callback_handler_install(string $prompt, callable $callback): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \readline_callback_handler_install($prompt, $callback);
-    if ($result === \false) {
+    if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }
+
+
 /**
  * This function clears the entire command line history.
  *
  * @throws ReadlineException
  *
  */
-function readline_clear_history() : void
+function readline_clear_history(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \readline_clear_history();
-    if ($result === \false) {
+    if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }
+
+
 /**
  * This function registers a completion function. This is the same kind of
  * functionality you'd get if you hit your tab key while using Bash.
@@ -98,14 +105,16 @@ function readline_clear_history() : void
  * @throws ReadlineException
  *
  */
-function readline_completion_function(callable $function) : void
+function readline_completion_function(callable $function): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \readline_completion_function($function);
-    if ($result === \false) {
+    if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }
+
+
 /**
  * This function reads a command history from a file.
  *
@@ -113,18 +122,20 @@ function readline_completion_function(callable $function) : void
  * @throws ReadlineException
  *
  */
-function readline_read_history(string $filename = null) : void
+function readline_read_history(string $filename = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($filename !== null) {
         $result = \readline_read_history($filename);
     } else {
         $result = \readline_read_history();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }
+
+
 /**
  * This function writes the command history to a file.
  *
@@ -132,15 +143,15 @@ function readline_read_history(string $filename = null) : void
  * @throws ReadlineException
  *
  */
-function readline_write_history(string $filename = null) : void
+function readline_write_history(string $filename = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($filename !== null) {
         $result = \readline_write_history($filename);
     } else {
         $result = \readline_write_history();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }

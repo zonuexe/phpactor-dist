@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\RpminfoException;
+use Safe\Exceptions\RpminfoException;
+
 /**
  * Add an additional retrieved tag in subsequent queries.
  *
@@ -10,11 +11,11 @@ use Phpactor202301\Safe\Exceptions\RpminfoException;
  * @throws RpminfoException
  *
  */
-function rpmaddtag(int $tag) : void
+function rpmaddtag(int $tag): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\rpmaddtag($tag);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \rpmaddtag($tag);
+    if ($result === false) {
         throw RpminfoException::createFromPhpError();
     }
 }

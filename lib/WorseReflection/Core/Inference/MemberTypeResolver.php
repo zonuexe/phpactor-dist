@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
 class MemberTypeResolver
 {
     const TYPE_METHODS = 'methods';
@@ -18,15 +18,15 @@ class MemberTypeResolver
     public function __construct(private ClassReflector $reflector)
     {
     }
-    public function methodType(Type $containerType, NodeContext $info, string $name) : NodeContext
+    public function methodType(Type $containerType, \Phpactor\WorseReflection\Core\Inference\NodeContext $info, string $name) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         return $this->memberType(self::TYPE_METHODS, $containerType, $info, $name);
     }
-    public function constantType(Type $containerType, NodeContext $info, string $name) : NodeContext
+    public function constantType(Type $containerType, \Phpactor\WorseReflection\Core\Inference\NodeContext $info, string $name) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         return $this->memberType(self::TYPE_CONSTANTS, $containerType, $info, $name);
     }
-    public function propertyType(Type $containerType, NodeContext $info, string $name) : NodeContext
+    public function propertyType(Type $containerType, \Phpactor\WorseReflection\Core\Inference\NodeContext $info, string $name) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         if (\mb_substr($name, 0, 1) == '$') {
             $name = \mb_substr($name, 1);
@@ -40,7 +40,7 @@ class MemberTypeResolver
     {
         return $this->reflector->reflectClassLike($containerType->name);
     }
-    private function memberType(string $memberType, Type $containerType, NodeContext $info, string $name)
+    private function memberType(string $memberType, Type $containerType, \Phpactor\WorseReflection\Core\Inference\NodeContext $info, string $name)
     {
         if ($containerType instanceof MissingType) {
             return $info->withIssue(\sprintf('No type available for containing class "%s" for method "%s"', (string) $containerType, $name));
@@ -75,4 +75,3 @@ class MemberTypeResolver
         return $info->withType($member->inferredType());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\MemberTypeResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\MemberTypeResolver', \false);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor\ReferenceFinder\Search\NameSearchResult;
 interface NameSearcher
 {
     /**
@@ -12,4 +12,3 @@ interface NameSearcher
      */
     public function search(string $search, ?string $type = null) : Generator;
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\NameSearcher', 'Phpactor\\ReferenceFinder\\NameSearcher', \false);

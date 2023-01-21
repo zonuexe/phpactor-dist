@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\ReferenceFinder\NameSearcher;
 class TypeSuggestionProvider
 {
     const BUILT_IN_TYPES = ['string', 'float', 'int', 'bool', 'callable', 'array', 'void', 'never'];
@@ -66,4 +66,3 @@ class TypeSuggestionProvider
         return $split[\array_key_last($split)];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\TypeSuggestionProvider', 'Phpactor\\Completion\\Bridge\\TolerantParser\\TypeSuggestionProvider', \false);

@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301\parallel\Future;
+namespace parallel\Future;
 
-class Error extends \parallel\Error
-{
-}
+class Error extends \parallel\Error {}

@@ -1,10 +1,8 @@
 <?php
 
-namespace Phpactor202301\LDAP;
+namespace LDAP;
 
 /**
  * @since 8.1
  */
-final class ResultEntry
-{
-}
+final class ResultEntry {}

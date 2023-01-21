@@ -1,24 +1,24 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection;
+namespace Phpactor\WorseReflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache\NullCache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache\TtlCache;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\PsrLog\ArrayLogger;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\ChainSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\InternalLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\NullSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\StringSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflector\TolerantFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\Cache\NullCache;
+use Phpactor\WorseReflection\Core\Cache\TtlCache;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\Bridge\PsrLog\ArrayLogger;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\ChainSourceLocator;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\InternalLocator;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\NullSourceLocator;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\StringSourceLocator;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflector\TolerantFactory;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
+use Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
 use Phpactor202301\Psr\Log\LoggerInterface;
 final class ReflectorBuilder
 {
@@ -58,11 +58,11 @@ final class ReflectorBuilder
     /**
      * Create a new instance of the builder
      */
-    public static function create() : ReflectorBuilder
+    public static function create() : \Phpactor\WorseReflection\ReflectorBuilder
     {
         return new self();
     }
-    public function withSourceReflectorFactory(SourceCodeReflectorFactory $sourceReflectorFactory) : ReflectorBuilder
+    public function withSourceReflectorFactory(SourceCodeReflectorFactory $sourceReflectorFactory) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->sourceReflectorFactory = $sourceReflectorFactory;
         return $this;
@@ -70,7 +70,7 @@ final class ReflectorBuilder
     /**
      * Replace the logger implementation.
      */
-    public function withLogger(LoggerInterface $logger) : ReflectorBuilder
+    public function withLogger(LoggerInterface $logger) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->logger = $logger;
         return $this;
@@ -78,7 +78,7 @@ final class ReflectorBuilder
     /**
      * Add a source locator
      */
-    public function addLocator(SourceCodeLocator $locator, int $priority = 0) : ReflectorBuilder
+    public function addLocator(SourceCodeLocator $locator, int $priority = 0) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->locators[] = [$priority, $locator];
         return $this;
@@ -86,18 +86,18 @@ final class ReflectorBuilder
     /**
      * Add some source code
      */
-    public function addSource($code) : ReflectorBuilder
+    public function addSource($code) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $source = SourceCode::fromUnknown($code);
         $this->addLocator(new StringSourceLocator($source));
         return $this;
     }
-    public function addFrameWalker(Walker $frameWalker) : ReflectorBuilder
+    public function addFrameWalker(Walker $frameWalker) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->framewalkers[] = $frameWalker;
         return $this;
     }
-    public function addMemberProvider(ReflectionMemberProvider $provider) : ReflectorBuilder
+    public function addMemberProvider(ReflectionMemberProvider $provider) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->memberProviders[] = $provider;
         return $this;
@@ -110,7 +110,7 @@ final class ReflectorBuilder
     /**
      * Build the reflector
      */
-    public function build() : Reflector
+    public function build() : \Phpactor\WorseReflection\Reflector
     {
         $this->addLocator(InternalLocator::forInternalStubs(), 255);
         return (new ServiceLocator($this->buildLocator(), $this->buildLogger(), $this->buildReflectorFactory(), $this->framewalkers, $this->memberProviders, $this->diagnosticProviders, $this->memberContextResolvers, $this->buildCache(), $this->enableContextualSourceLocation))->reflector();
@@ -126,7 +126,7 @@ final class ReflectorBuilder
      *          passed to source reflector methods will be retained
      *          for the duration of the process.
      */
-    public function enableContextualSourceLocation() : ReflectorBuilder
+    public function enableContextualSourceLocation() : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->enableContextualSourceLocation = \true;
         return $this;
@@ -136,12 +136,12 @@ final class ReflectorBuilder
      *
      * Wraps the ClassReflector in a memonizing cache.
      */
-    public function enableCache() : ReflectorBuilder
+    public function enableCache() : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->enableCache = \true;
         return $this;
     }
-    public function withCache(Cache $cache) : ReflectorBuilder
+    public function withCache(Cache $cache) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->cache = $cache;
         return $this;
@@ -149,7 +149,7 @@ final class ReflectorBuilder
     /**
      * Set the cache lifetime in seconds (floats accepted)
      */
-    public function cacheLifetime(float $lifetime) : ReflectorBuilder
+    public function cacheLifetime(float $lifetime) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->cacheLifetime = $lifetime;
         return $this;
@@ -194,4 +194,3 @@ final class ReflectorBuilder
         return new NullCache();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\ReflectorBuilder', 'Phpactor\\WorseReflection\\ReflectorBuilder', \false);

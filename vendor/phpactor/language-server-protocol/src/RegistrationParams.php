@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -26,7 +26,7 @@ class RegistrationParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['registrations' => ['names' => [Registration::class], 'iterable' => \true]];
+        $map = ['registrations' => ['names' => [\Phpactor\LanguageServerProtocol\Registration::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -76,4 +76,3 @@ class RegistrationParams
         throw $lastException;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\RegistrationParams', 'Phpactor\\LanguageServerProtocol\\RegistrationParams', \false);

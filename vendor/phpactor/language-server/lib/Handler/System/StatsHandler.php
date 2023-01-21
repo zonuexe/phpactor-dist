@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\System;
+namespace Phpactor\LanguageServer\Handler\System;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ServerStatsReader;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Server\ServerStatsReader;
 class StatsHandler implements Handler
 {
     const METHOD_STATUS = 'phpactor/stats';
@@ -36,4 +36,3 @@ class StatsHandler implements Handler
         return new Success(null);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\System\\StatsHandler', 'Phpactor\\LanguageServer\\Handler\\System\\StatsHandler', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application;
+namespace Phpactor\Extension\SourceCodeFilesystemExtra\SourceCodeFilestem\Application;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
 use SplFileInfo;
 class ClassSearch
 {
@@ -74,4 +74,3 @@ class ClassSearch
         return \str_replace('\\', '/', $name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\SourceCodeFilesystemExtra\\SourceCodeFilestem\\Application\\ClassSearch', 'Phpactor\\Extension\\SourceCodeFilesystemExtra\\SourceCodeFilestem\\Application\\ClassSearch', \false);

@@ -1,28 +1,28 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\MemberTypeContextualiser;
-use Phpactor202301\Phpactor\WorseReflection\Core\NodeText;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod as CoreReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection as CoreReflectionParameterCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\TypeResolver\MethodTypeResolver;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TypeResolver\DeclaredMemberTypeResolver;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\MemberTypeContextualiser;
+use Phpactor\WorseReflection\Core\NodeText;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod as CoreReflectionMethod;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection as CoreReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Reflection\TypeResolver\MethodTypeResolver;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TypeResolver\DeclaredMemberTypeResolver;
 use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
 use InvalidArgumentException;
-class ReflectionMethod extends AbstractReflectionClassMember implements CoreReflectionMethod
+class ReflectionMethod extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClassMember implements CoreReflectionMethod
 {
     private MethodTypeResolver $returnTypeResolver;
     private DeclaredMemberTypeResolver $memberTypeResolver;
@@ -135,4 +135,3 @@ class ReflectionMethod extends AbstractReflectionClassMember implements CoreRefl
         return $this->serviceLocator;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionMethod', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionMethod', \false);

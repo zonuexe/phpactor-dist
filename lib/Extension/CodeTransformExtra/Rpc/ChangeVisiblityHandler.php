@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\MapResolver\Resolver;
 class ChangeVisiblityHandler implements Handler
 {
     const NAME = 'change_visibility';
@@ -33,4 +33,3 @@ class ChangeVisiblityHandler implements Handler
         return UpdateFileSourceResponse::fromPathOldAndNewSource($source->path(), $arguments[self::PARAM_SOURCE], (string) $source);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\ChangeVisiblityHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\ChangeVisiblityHandler', \false);

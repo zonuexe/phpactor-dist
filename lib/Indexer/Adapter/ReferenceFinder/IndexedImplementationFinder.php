@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder;
+namespace Phpactor\Indexer\Adapter\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder\Util\ContainerTypeResolver;
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\QueryClient;
-use Phpactor202301\Phpactor\Indexer\Model\Record\HasPath;
-use Phpactor202301\Phpactor\ReferenceFinder\ClassImplementationFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\Locations;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Indexer\Adapter\ReferenceFinder\Util\ContainerTypeResolver;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\QueryClient;
+use Phpactor\Indexer\Model\Record\HasPath;
+use Phpactor\ReferenceFinder\ClassImplementationFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\Locations;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Reflector;
 class IndexedImplementationFinder implements ClassImplementationFinder
 {
     private ContainerTypeResolver $containerTypeResolver;
@@ -117,4 +117,3 @@ class IndexedImplementationFinder implements ClassImplementationFinder
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\ReferenceFinder\\IndexedImplementationFinder', 'Phpactor\\Indexer\\Adapter\\ReferenceFinder\\IndexedImplementationFinder', \false);

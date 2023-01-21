@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\CubridException;
+use Safe\Exceptions\CubridException;
+
 /**
  * This function frees the memory occupied by the result data. It returns
  * TRUE on success. Note that it can only frees the
@@ -13,14 +14,16 @@ use Phpactor202301\Safe\Exceptions\CubridException;
  * @throws CubridException
  *
  */
-function cubrid_free_result($req_identifier) : void
+function cubrid_free_result($req_identifier): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_free_result($req_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
 }
+
+
 /**
  * This function returns the current CUBRID connection charset and is similar
  * to the CUBRID MySQL compatible function
@@ -33,15 +36,17 @@ function cubrid_free_result($req_identifier) : void
  * @throws CubridException
  *
  */
-function cubrid_get_charset($conn_identifier) : string
+function cubrid_get_charset($conn_identifier): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_get_charset($conn_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns a string that represents the client library version.
  *
@@ -51,15 +56,17 @@ function cubrid_get_charset($conn_identifier) : string
  * @throws CubridException
  *
  */
-function cubrid_get_client_info() : string
+function cubrid_get_client_info(): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_get_client_info();
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns the CUBRID database parameters or it returns FALSE on
  * failure. It returns an associative array with the values for the following
@@ -176,15 +183,17 @@ function cubrid_get_client_info() : string
  * @throws CubridException
  *
  */
-function cubrid_get_db_parameter($conn_identifier) : array
+function cubrid_get_db_parameter($conn_identifier): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_get_db_parameter($conn_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns a string that represents the CUBRID server version.
  *
@@ -195,15 +204,17 @@ function cubrid_get_db_parameter($conn_identifier) : array
  * @throws CubridException
  *
  */
-function cubrid_get_server_info($conn_identifier) : string
+function cubrid_get_server_info($conn_identifier): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_get_server_info($conn_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_insert_id function retrieves the ID
  * generated for the AUTO_INCREMENT column which is updated by the previous
@@ -221,19 +232,21 @@ function cubrid_get_server_info($conn_identifier) : string
  * @throws CubridException
  *
  */
-function cubrid_insert_id($conn_identifier = null) : string
+function cubrid_insert_id($conn_identifier = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($conn_identifier !== null) {
         $result = \cubrid_insert_id($conn_identifier);
     } else {
         $result = \cubrid_insert_id();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_lob2_new function is used to create a lob object (both BLOB and CLOB).
  * This function should be used before you bind a lob object.
@@ -250,7 +263,7 @@ function cubrid_insert_id($conn_identifier = null) : string
  */
 function cubrid_lob2_new($conn_identifier = null, string $type = "BLOB")
 {
-    \error_clear_last();
+    error_clear_last();
     if ($type !== "BLOB") {
         $result = \cubrid_lob2_new($conn_identifier, $type);
     } elseif ($conn_identifier !== null) {
@@ -258,11 +271,13 @@ function cubrid_lob2_new($conn_identifier = null, string $type = "BLOB")
     } else {
         $result = \cubrid_lob2_new();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_lob2_size function is used to get the size of a lob object.
  *
@@ -273,15 +288,17 @@ function cubrid_lob2_new($conn_identifier = null, string $type = "BLOB")
  * @throws CubridException
  *
  */
-function cubrid_lob2_size($lob_identifier) : int
+function cubrid_lob2_size($lob_identifier): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_lob2_size($lob_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_lob2_size64 function is used to get the
  * size of a lob object.  If the size of a lob object is larger than an
@@ -295,15 +312,17 @@ function cubrid_lob2_size($lob_identifier) : int
  * @throws CubridException
  *
  */
-function cubrid_lob2_size64($lob_identifier) : string
+function cubrid_lob2_size64($lob_identifier): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_lob2_size64($lob_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_lob2_tell function is used to tell the cursor position of the LOB object.
  *
@@ -314,15 +333,17 @@ function cubrid_lob2_size64($lob_identifier) : string
  * @throws CubridException
  *
  */
-function cubrid_lob2_tell($lob_identifier) : int
+function cubrid_lob2_tell($lob_identifier): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_lob2_tell($lob_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_lob2_tell64 function is used to tell the
  * cursor position of the LOB object. If the size of a lob object is larger
@@ -336,15 +357,17 @@ function cubrid_lob2_tell($lob_identifier) : int
  * @throws CubridException
  *
  */
-function cubrid_lob2_tell64($lob_identifier) : string
+function cubrid_lob2_tell64($lob_identifier): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_lob2_tell64($lob_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The cubrid_set_db_parameter function is used to set
  * the CUBRID database parameters. It can set the following CUBRID database
@@ -362,11 +385,11 @@ function cubrid_lob2_tell64($lob_identifier) : string
  * @throws CubridException
  *
  */
-function cubrid_set_db_parameter($conn_identifier, int $param_type, int $param_value) : void
+function cubrid_set_db_parameter($conn_identifier, int $param_type, int $param_value): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cubrid_set_db_parameter($conn_identifier, $param_type, $param_value);
-    if ($result === \false) {
+    if ($result === false) {
         throw CubridException::createFromPhpError();
     }
 }

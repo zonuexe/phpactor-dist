@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Completor;
+namespace Phpactor\Completion\Core\Completor;
 
 use Generator;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\Completion\Core\LabelFormatter;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\Completion\Core\LabelFormatter;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class LabelFormattingCompletor implements Completor
 {
     public function __construct(private Completor $completor, private LabelFormatter $labelFormatter)
@@ -29,4 +29,3 @@ class LabelFormattingCompletor implements Completor
         return $suggestions->getReturn();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Completor\\LabelFormattingCompletor', 'Phpactor\\Completion\\Core\\Completor\\LabelFormattingCompletor', \false);

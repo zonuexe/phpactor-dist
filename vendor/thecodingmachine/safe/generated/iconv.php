@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\IconvException;
+use Safe\Exceptions\IconvException;
+
 /**
  * Retrieve internal configuration variables of iconv extension.
  *
@@ -24,13 +25,15 @@ use Phpactor202301\Safe\Exceptions\IconvException;
  */
 function iconv_get_encoding(string $type = "all")
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \iconv_get_encoding($type);
-    if ($result === \false) {
+    if ($result === false) {
         throw IconvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Changes the value of the internal configuration variable specified by
  * type to charset.
@@ -45,14 +48,16 @@ function iconv_get_encoding(string $type = "all")
  * @throws IconvException
  *
  */
-function iconv_set_encoding(string $type, string $charset) : void
+function iconv_set_encoding(string $type, string $charset): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \iconv_set_encoding($type, $charset);
-    if ($result === \false) {
+    if ($result === false) {
         throw IconvException::createFromPhpError();
     }
 }
+
+
 /**
  * Performs a character set conversion on the string
  * str from in_charset
@@ -80,11 +85,11 @@ function iconv_set_encoding(string $type, string $charset) : void
  * @throws IconvException
  *
  */
-function iconv(string $in_charset, string $out_charset, string $str) : string
+function iconv(string $in_charset, string $out_charset, string $str): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \iconv($in_charset, $out_charset, $str);
-    if ($result === \false) {
+    if ($result === false) {
         throw IconvException::createFromPhpError();
     }
     return $result;

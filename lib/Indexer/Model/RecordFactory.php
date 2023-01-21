@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ConstantRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Record\ConstantRecord;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\Indexer\Model\Record\MemberRecord;
 use RuntimeException;
 class RecordFactory
 {
-    public static function create(string $type, string $identifier) : Record
+    public static function create(string $type, string $identifier) : \Phpactor\Indexer\Model\Record
     {
         if ($type === ClassRecord::RECORD_TYPE) {
             return ClassRecord::fromName($identifier);
@@ -30,4 +30,3 @@ class RecordFactory
         throw new RuntimeException(\sprintf('Do not know how to create record of type "%s" with identifier "%s"', $type, $identifier));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\RecordFactory', 'Phpactor\\Indexer\\Model\\RecordFactory', \false);

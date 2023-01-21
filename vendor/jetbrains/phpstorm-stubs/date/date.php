@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of date v.5.3.2-0.dotdeb.1
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Parse about any English textual datetime description into a Unix timestamp
  * @link https://php.net/manual/en/function.strtotime.php
@@ -23,10 +22,9 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * @return int|false a timestamp on success, false otherwise. Previous to PHP 5.1.0,
  * this function would return -1 on failure.
  */
-#[Pure(\true)]
-function strtotime(string $datetime, ?int $baseTimestamp) : int|false
-{
-}
+#[Pure(true)]
+function strtotime(string $datetime, ?int $baseTimestamp): int|false {}
+
 /**
  * Format a local time/date
  * @link https://php.net/manual/en/function.date.php
@@ -295,11 +293,10 @@ function strtotime(string $datetime, ?int $baseTimestamp) : int|false
  * timestamp, false is returned and an
  * E_WARNING level error is emitted.
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function date(string $format, ?int $timestamp)
-{
-}
+function date(string $format, ?int $timestamp) {}
+
 /**
  * Format a local time/date as integer
  * @link https://php.net/manual/en/function.idate.php
@@ -393,10 +390,9 @@ function date(string $format, ?int $timestamp)
  * fewer digits than you would expect. See the example below.
  * </p>
  */
-#[Pure(\true)]
-function idate(string $format, ?int $timestamp) : int|false
-{
-}
+#[Pure(true)]
+function idate(string $format, ?int $timestamp): int|false {}
+
 /**
  * Format a GMT/UTC date/time
  * @link https://php.net/manual/en/function.gmdate.php
@@ -409,11 +405,10 @@ function idate(string $format, ?int $timestamp) : int|false
  * timestamp, false is returned and an
  * E_WARNING level error is emitted.
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function gmdate(string $format, ?int $timestamp)
-{
-}
+function gmdate(string $format, ?int $timestamp) {}
+
 /**
  * Get Unix timestamp for a date
  * @link https://php.net/manual/en/function.mktime.php
@@ -464,10 +459,19 @@ function gmdate(string $format, ?int $timestamp)
  * If the arguments are invalid, the function returns false (before PHP 5.1
  * it returned -1).
  */
-#[Pure(\true)]
-function mktime(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null, #[PhpStormStubsElementAvailable(from: '8.0')] int $hour, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null, #[Deprecated('Use the new timezone handling functions instead', since: '5.3')] #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')] $is_dst = -1) : int|false
-{
-}
+#[Pure(true)]
+function mktime(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour,
+    ?int $minute = null,
+    ?int $second = null,
+    ?int $month = null,
+    ?int $day = null,
+    ?int $year = null,
+    #[Deprecated('Use the new timezone handling functions instead', since: '5.3')]
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')] $is_dst = -1
+): int|false {}
+
 /**
  * Get Unix timestamp for a GMT date
  * @link https://php.net/manual/en/function.gmmktime.php
@@ -495,10 +499,18 @@ function mktime(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $ho
  * </p>
  * @return int|false a integer Unix timestamp.
  */
-#[Pure(\true)]
-function gmmktime(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null, #[PhpStormStubsElementAvailable(from: '8.0')] int $hour, ?int $minute = null, ?int $second = null, ?int $month = null, ?int $day = null, ?int $year = null, #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')] $is_dst = null) : int|false
-{
-}
+#[Pure(true)]
+function gmmktime(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $hour = null,
+    #[PhpStormStubsElementAvailable(from: '8.0')] int $hour,
+    ?int $minute = null,
+    ?int $second = null,
+    ?int $month = null,
+    ?int $day = null,
+    ?int $year = null,
+    #[PhpStormStubsElementAvailable(from: '5.5', to: '5.6')] $is_dst = null
+): int|false {}
+
 /**
  * Validate a Gregorian date
  * @link https://php.net/manual/en/function.checkdate.php
@@ -515,10 +527,9 @@ function gmmktime(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] int $
  * </p>
  * @return bool true if the date given is valid; otherwise returns false.
  */
-#[Pure(\true)]
-function checkdate(int $month, int $day, int $year) : bool
-{
-}
+#[Pure(true)]
+function checkdate(int $month, int $day, int $year): bool {}
+
 /**
  * Format a local time/date according to locale settings
  * The following characters are recognized in the
@@ -777,9 +788,8 @@ function checkdate(int $month, int $day, int $year) : bool
  * @deprecated 8.1
  */
 #[Deprecated(since: '8.1')]
-function strftime(string $format, ?int $timestamp) : string|false
-{
-}
+function strftime(string $format, ?int $timestamp): string|false {}
+
 /**
  * Format a GMT/UTC time/date according to locale settings
  * @link https://php.net/manual/en/function.gmstrftime.php
@@ -795,17 +805,15 @@ function strftime(string $format, ?int $timestamp) : string|false
  * @deprecated 8.1
  */
 #[Deprecated(since: '8.1')]
-function gmstrftime(string $format, ?int $timestamp) : string|false
-{
-}
+function gmstrftime(string $format, ?int $timestamp): string|false {}
+
 /**
  * Return current Unix timestamp
  * @link https://php.net/manual/en/function.time.php
  * @return int <p>Returns the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT).</p>
  */
-function time() : int
-{
-}
+function time(): int {}
+
 /**
  * Get the local time
  * @link https://php.net/manual/en/function.localtime.php
@@ -821,11 +829,20 @@ function time() : int
  * "tm_sec" - seconds
  * @return array
  */
-#[Pure(\true)]
-#[ArrayShape(['tm_sec' => 'int', 'tm_min' => 'int', 'tm_hour' => 'int', 'tm_mday' => 'int', 'tm_mon' => 'int', 'tm_year' => 'int', 'tm_wday' => 'int', 'tm_yday' => 'int', 'tm_isdst' => 'int'])]
-function localtime(?int $timestamp, bool $associative = \false) : array
-{
-}
+#[Pure(true)]
+#[ArrayShape([
+    'tm_sec' => 'int',
+    'tm_min' => 'int',
+    'tm_hour' => 'int',
+    'tm_mday' => 'int',
+    'tm_mon' => 'int',
+    'tm_year' => 'int',
+    'tm_wday' => 'int',
+    'tm_yday' => 'int',
+    'tm_isdst' => 'int',
+])]
+function localtime(?int $timestamp, bool $associative = false): array {}
+
 /**
  * Get date/time information
  * @link https://php.net/manual/en/function.getdate.php
@@ -905,11 +922,22 @@ function localtime(?int $timestamp, bool $associative = \false) : array
  * </tr>
  * </table>
  */
-#[Pure(\true)]
-#[ArrayShape(['seconds' => 'int', 'minutes' => 'int', 'hours' => 'int', 'mday' => 'int', 'wday' => 'int', 'mon' => 'int', 'year' => 'int', 'yday' => 'int', 'weekday' => 'int', 'month' => 'string', 0 => 'int'])]
-function getdate(?int $timestamp) : array
-{
-}
+#[Pure(true)]
+#[ArrayShape([
+    'seconds' => 'int',
+    'minutes' => 'int',
+    'hours' => 'int',
+    'mday' => 'int',
+    'wday' => 'int',
+    'mon' => 'int',
+    'year' => 'int',
+    'yday' => 'int',
+    'weekday' => 'int',
+    'month' => 'string',
+    0 => 'int',
+])]
+function getdate(?int $timestamp): array {}
+
 /**
  * Returns new DateTime object
  * @link https://php.net/manual/en/function.date-create.php
@@ -921,10 +949,9 @@ function getdate(?int $timestamp) : array
  * </p>
  * @return DateTime|false DateTime object on success or false on failure.
  */
-#[Pure(\true)]
-function date_create(string $datetime = 'now', ?\DateTimeZone $timezone) : \DateTime|false
-{
-}
+#[Pure(true)]
+function date_create(string $datetime = 'now', ?DateTimeZone $timezone): DateTime|false {}
+
 /**
  * (PHP 5.5)<br/>
  * Alias:
@@ -940,10 +967,9 @@ function date_create(string $datetime = 'now', ?\DateTimeZone $timezone) : \Date
  * </p>
  * @return DateTimeImmutable|false DateTime object on success or false on failure.
  */
-#[Pure(\true)]
-function date_create_immutable(string $datetime = 'now', ?\DateTimeZone $timezone) : \DateTimeImmutable|false
-{
-}
+#[Pure(true)]
+function date_create_immutable(string $datetime = 'now', ?DateTimeZone $timezone): DateTimeImmutable|false {}
+
 /**
  * Returns new DateTimeImmutable object formatted according to the specified format
  * @link https://php.net/manual/en/function.date-create-immutable-from-format.php
@@ -952,10 +978,9 @@ function date_create_immutable(string $datetime = 'now', ?\DateTimeZone $timezon
  * @param DateTimeZone|null $timezone [optional]
  * @return DateTimeImmutable|false
  */
-#[Pure(\true)]
-function date_create_immutable_from_format(string $format, string $datetime, ?\DateTimeZone $timezone) : \DateTimeImmutable|false
-{
-}
+#[Pure(true)]
+function date_create_immutable_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTimeImmutable|false {}
+
 /**
  * Alias:
  * {@see DateTime::createFromFormat}
@@ -969,10 +994,9 @@ function date_create_immutable_from_format(string $format, string $datetime, ?\D
  * @return DateTime|false <p> Returns a new
  * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
  */
-#[Pure(\true)]
-function date_create_from_format(string $format, string $datetime, ?\DateTimeZone $timezone) : \DateTime|false
-{
-}
+#[Pure(true)]
+function date_create_from_format(string $format, string $datetime, ?DateTimeZone $timezone): DateTime|false {}
+
 /**
  * Returns associative array with detailed info about given date
  * @link https://php.net/manual/en/function.date-parse.php
@@ -982,12 +1006,30 @@ function date_create_from_format(string $format, string $datetime, ?\DateTimeZon
  * @return array|false array with information about the parsed date
  * on success or false on failure.
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-#[ArrayShape(["year" => "int", "month" => "int", "day" => "int", "hour" => "int", "minute" => "int", "second" => "int", "fraction" => "double", "is_localtime" => "bool", "zone_type" => "int", "zone" => "int", "is_dst" => "bool", "tz_abbr" => "string", "tz_id" => "string", "relative" => "array", "warning_count" => "int", "warnings" => "array", "error_count" => "int", "errors" => "array"])]
-function date_parse(string $datetime) : false|array
-{
-}
+#[ArrayShape([
+    "year" => "int",
+    "month" => "int",
+    "day" => "int",
+    "hour" => "int",
+    "minute" => "int",
+    "second" => "int",
+    "fraction" => "double",
+    "is_localtime" => "bool",
+    "zone_type" => "int",
+    "zone" => "int",
+    "is_dst" => "bool",
+    "tz_abbr" => "string",
+    "tz_id" => "string",
+    "relative" => "array",
+    "warning_count" => "int",
+    "warnings" => "array",
+    "error_count" => "int",
+    "errors" => "array"
+])]
+function date_parse(string $datetime): false|array {}
+
 /**
  * Get info about given date formatted according to the specified format
  * @link https://php.net/manual/en/function.date-parse-from-format.php
@@ -999,11 +1041,29 @@ function date_parse(string $datetime) : false|array
  * </p>
  * @return array associative array with detailed info about given date.
  */
-#[Pure(\true)]
-#[ArrayShape(['year' => 'int', 'month' => 'int', 'day' => 'int', 'hour' => 'int', 'minute' => 'int', 'second' => 'int', 'fraction' => 'double', 'is_localtime' => 'bool', 'zone_type' => 'int', 'zone' => 'int', 'is_dst' => 'bool', 'tz_abbr' => 'string', 'tz_id' => 'string', 'relative' => 'array', 'warning_count' => 'int', 'warnings' => 'array', 'error_count' => 'int', 'errors' => 'array'])]
-function date_parse_from_format(string $format, string $datetime) : array
-{
-}
+#[Pure(true)]
+#[ArrayShape([
+    'year' => 'int',
+    'month' => 'int',
+    'day' => 'int',
+    'hour' => 'int',
+    'minute' => 'int',
+    'second' => 'int',
+    'fraction' => 'double',
+    'is_localtime' => 'bool',
+    'zone_type' => 'int',
+    'zone' => 'int',
+    'is_dst' => 'bool',
+    'tz_abbr' => 'string',
+    'tz_id' => 'string',
+    'relative' => 'array',
+    'warning_count' => 'int',
+    'warnings' => 'array',
+    'error_count' => 'int',
+    'errors' => 'array'
+])]
+function date_parse_from_format(string $format, string $datetime): array {}
+
 /**
  * Returns the warnings and errors
  * Alias:
@@ -1012,10 +1072,9 @@ function date_parse_from_format(string $format, string $datetime) : array
  * @return array|false <p>Returns array containing info about warnings and errors.</p>
  */
 #[ArrayShape(["warning_count" => "int", "warnings" => "string[]", "error_count" => "int", "errors" => "string[]"])]
-#[Pure(\true)]
-function date_get_last_errors() : array|false
-{
-}
+#[Pure(true)]
+function date_get_last_errors(): array|false {}
+
 /**
  * Alias:
  * {@see DateTime::format}
@@ -1024,11 +1083,10 @@ function date_get_last_errors() : array|false
  * @param string $format
  * @return string|false formatted date string on success or <b>FALSE</b> on failure.
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function date_format(\DateTimeInterface $object, string $format)
-{
-}
+function date_format(DateTimeInterface $object, string $format) {}
+
 /**
  * Alter the timestamp of a DateTime object by incrementing or decrementing
  * in a format accepted by strtotime().
@@ -1039,9 +1097,8 @@ function date_format(\DateTimeInterface $object, string $format)
  * @param string $modifier A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.
  * @return DateTime|false Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  */
-function date_modify(\DateTime $object, string $modifier) : \DateTime|false
-{
-}
+function date_modify(DateTime $object, string $modifier): DateTime|false {}
+
 /**
  * Alias:
  * {@see DateTime::add}
@@ -1055,9 +1112,8 @@ function date_modify(\DateTime $object, string $modifier) : \DateTime|false
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_add(\DateTime $object, \DateInterval $interval)
-{
-}
+function date_add(DateTime $object, DateInterval $interval) {}
+
 /**
  * Subtracts an amount of days, months, years, hours, minutes and seconds from a datetime object
  * Alias:
@@ -1072,9 +1128,8 @@ function date_add(\DateTime $object, \DateInterval $interval)
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_sub(\DateTime $object, \DateInterval $interval)
-{
-}
+function date_sub(DateTime $object, DateInterval $interval) {}
+
 /**
  * Alias:
  * {@see DateTime::getTimezone}
@@ -1090,10 +1145,9 @@ function date_sub(\DateTime $object, \DateInterval $interval)
  * or <b>FALSE</b> on failure.
  * </p>
  */
-#[Pure(\true)]
-function date_timezone_get(\DateTimeInterface $object) : \DateTimeZone|false
-{
-}
+#[Pure(true)]
+function date_timezone_get(DateTimeInterface $object): DateTimeZone|false {}
+
 /**
  * Sets the time zone for the datetime object
  * Alias:
@@ -1108,9 +1162,8 @@ function date_timezone_get(\DateTimeInterface $object) : \DateTimeZone|false
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timezone_set(#[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTimeInterface")] $object, \DateTimeZone $timezone)
-{
-}
+function date_timezone_set(#[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTimeInterface")] $object, DateTimeZone $timezone) {}
+
 /**
  * Alias:
  * {@see DateTime::getOffset}
@@ -1119,11 +1172,10 @@ function date_timezone_set(#[LanguageLevelTypeAware(["8.0" => "DateTime"], defau
  * returned by {@see date_create()}</p>
  * @return int|false <p>Returns the timezone offset in seconds from UTC on success or <b>FALSE</b> on failure.</p>
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function date_offset_get(\DateTimeInterface $object)
-{
-}
+function date_offset_get(DateTimeInterface $object) {}
+
 /**
  * Returns the difference between two datetime objects
  * Alias:
@@ -1134,11 +1186,10 @@ function date_offset_get(\DateTimeInterface $object)
  * @param bool $absolute [optional] Whether to return absolute difference.
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "DateInterval"], default: "DateInterval|false")]
-function date_diff(\DateTimeInterface $baseObject, \DateTimeInterface $targetObject, bool $absolute = \false)
-{
-}
+function date_diff(DateTimeInterface $baseObject, DateTimeInterface $targetObject, bool $absolute = false) {}
+
 /**
  * Alias:
  * {@see DateTime::setTime}
@@ -1151,9 +1202,14 @@ function date_diff(\DateTimeInterface $baseObject, \DateTimeInterface $targetObj
  * @return DateTime <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
-function date_time_set(\DateTime $object, int $hour, int $minute, int $second = 0, #[PhpStormStubsElementAvailable(from: '7.1')] int $microsecond = 0) : \DateTime
-{
-}
+function date_time_set(
+    DateTime $object,
+    int $hour,
+    int $minute,
+    int $second = 0,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $microsecond = 0
+): DateTime {}
+
 /**
  * Alias:
  * {@see DateTime::setDate}
@@ -1171,9 +1227,8 @@ function date_time_set(\DateTime $object, int $hour, int $minute, int $second = 
  * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_date_set(\DateTime $object, int $year, int $month, int $day) : \DateTime|false
-{
-}
+function date_date_set(DateTime $object, int $year, int $month, int $day): DateTime|false {}
+
 /**
  * Alias:
  * {@see DateTime::setISODate}
@@ -1187,9 +1242,8 @@ function date_date_set(\DateTime $object, int $year, int $month, int $day) : \Da
  * </p>
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_isodate_set(\DateTime $object, int $year, int $week, int $dayOfWeek = 1)
-{
-}
+function date_isodate_set(DateTime $object, int $year, int $week, int $dayOfWeek = 1) {}
+
 /**
  * Sets the date and time based on an unix timestamp
  * Alias:
@@ -1203,9 +1257,8 @@ function date_isodate_set(\DateTime $object, int $year, int $week, int $dayOfWee
  * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
 #[LanguageLevelTypeAware(["8.0" => "DateTime"], default: "DateTime|false")]
-function date_timestamp_set(\DateTime $object, int $timestamp) : \DateTime|false
-{
-}
+function date_timestamp_set(DateTime $object, int $timestamp): DateTime|false {}
+
 /**
  * Gets the unix timestamp
  * Alias:
@@ -1214,10 +1267,9 @@ function date_timestamp_set(\DateTime $object, int $timestamp) : \DateTime|false
  * @param DateTimeInterface $object
  * @return int <p>Returns the Unix timestamp representing the date.</p>
  */
-#[Pure(\true)]
-function date_timestamp_get(\DateTimeInterface $object) : int
-{
-}
+#[Pure(true)]
+function date_timestamp_get(DateTimeInterface $object): int {}
+
 /**
  * Returns new DateTimeZone object
  * @link https://php.net/manual/en/function.timezone-open.php
@@ -1227,10 +1279,9 @@ function date_timestamp_get(\DateTimeInterface $object) : int
  * </p>
  * @return DateTimeZone|false DateTimeZone object on success or false on failure.
  */
-#[Pure(\true)]
-function timezone_open(string $timezone) : \DateTimeZone|false
-{
-}
+#[Pure(true)]
+function timezone_open(string $timezone): DateTimeZone|false {}
+
 /**
  * Alias:
  * {@see DateTimeZone::getName}
@@ -1240,9 +1291,8 @@ function timezone_open(string $timezone) : \DateTimeZone|false
  * @return string One of the timezone names in the list of timezones.
  */
 #[Pure]
-function timezone_name_get(\DateTimeZone $object) : string
-{
-}
+function timezone_name_get(DateTimeZone $object): string {}
+
 /**
  * Returns the timezone name from abbreviation
  * @link https://php.net/manual/en/function.timezone-name-from-abbr.php
@@ -1263,10 +1313,9 @@ function timezone_name_get(\DateTimeZone $object) : string
  * @return string|false time zone name on success or false on failure.
  * @since 5.1.3
  */
-#[Pure(\true)]
-function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1) : string|false
-{
-}
+#[Pure(true)]
+function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1): string|false {}
+
 /**
  * Alias:
  * {@link DateTimeZone::getOffset}
@@ -1278,11 +1327,10 @@ function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST =
  * @param DateTimeInterface $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
  * @return int|false <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function timezone_offset_get(\DateTimeZone $object, \DateTimeInterface $datetime)
-{
-}
+function timezone_offset_get(DateTimeZone $object, DateTimeInterface $datetime) {}
+
 /**
  * Returns all transitions for the timezone
  * Alias:
@@ -1295,10 +1343,9 @@ function timezone_offset_get(\DateTimeZone $object, \DateTimeInterface $datetime
  * @param int $timestampEnd [optional] <p>End timestamp</p>
  * @return array|false <p>Returns numerically indexed array containing associative array with all transitions on success or FALSE on failure.</p>
  */
-#[Pure(\true)]
-function timezone_transitions_get(\DateTimeZone $object, int $timestampBegin, int $timestampEnd) : array|false
-{
-}
+#[Pure(true)]
+function timezone_transitions_get(DateTimeZone $object, int $timestampBegin, int $timestampEnd): array|false {}
+
 /**
  * Alias:
  * {@see DateTimeZone::getLocation}
@@ -1306,11 +1353,15 @@ function timezone_transitions_get(\DateTimeZone $object, int $timestampBegin, in
  * @param DateTimeZone $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}</p>
  * @return array|false <p>Array containing location information about timezone.</p>
  */
-#[Pure(\true)]
-#[ArrayShape(['country_code' => 'string', 'latitude' => 'double', 'longitude' => 'double', 'comments' => 'string'])]
-function timezone_location_get(\DateTimeZone $object) : array|false
-{
-}
+#[Pure(true)]
+#[ArrayShape([
+    'country_code' => 'string',
+    'latitude' => 'double',
+    'longitude' => 'double',
+    'comments' => 'string',
+])]
+function timezone_location_get(DateTimeZone $object): array|false {}
+
 /**
  * Returns a numerically indexed array containing all defined timezone identifiers
  * Alias:
@@ -1321,11 +1372,10 @@ function timezone_location_get(\DateTimeZone $object) : array|false
  * Note: This option is only used when $timezoneGroup is set to DateTimeZone::PER_COUNTRY.
  * @return array|false Returns array on success or FALSE on failure.
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function timezone_identifiers_list(int $timezoneGroup = \DateTimeZone::ALL, ?string $countryCode)
-{
-}
+function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, ?string $countryCode) {}
+
 /**
  * Returns associative array containing dst, offset and the timezone name
  * Alias:
@@ -1335,18 +1385,16 @@ function timezone_identifiers_list(int $timezoneGroup = \DateTimeZone::ALL, ?str
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function timezone_abbreviations_list()
-{
-}
+function timezone_abbreviations_list() {}
+
 /**
  * Gets the version of the timezonedb
  * @link https://php.net/manual/en/function.timezone-version-get.php
  * @return string a string.
  */
 #[Pure]
-function timezone_version_get() : string
-{
-}
+function timezone_version_get(): string {}
+
 /**
  * Alias:
  * {@see DateInterval::createFromDateString}
@@ -1358,10 +1406,9 @@ function timezone_version_get() : string
  * @return DateInterval|false
  * <p>Returns a new DateInterval instance.</p>
  */
-#[Pure(\true)]
-function date_interval_create_from_date_string(string $datetime) : \DateInterval|false
-{
-}
+#[Pure(true)]
+function date_interval_create_from_date_string(string $datetime): DateInterval|false {}
+
 /**
  * Alias:
  * {@see DateInterval::format}
@@ -1370,10 +1417,9 @@ function date_interval_create_from_date_string(string $datetime) : \DateInterval
  * @param string $format
  * @return string
  */
-#[Pure(\true)]
-function date_interval_format(\DateInterval $object, string $format) : string
-{
-}
+#[Pure(true)]
+function date_interval_format(DateInterval $object, string $format): string {}
+
 /**
  * Sets the default timezone used by all date/time functions in a script
  * @link https://php.net/manual/en/function.date-default-timezone-set.php
@@ -1386,18 +1432,16 @@ function date_interval_format(\DateInterval $object, string $format) : string
  * timezone_identifier isn't valid, or true
  * otherwise.
  */
-function date_default_timezone_set(string $timezoneId) : bool
-{
-}
+function date_default_timezone_set(string $timezoneId): bool {}
+
 /**
  * Gets the default timezone used by all date/time functions in a script
  * @link https://php.net/manual/en/function.date-default-timezone-get.php
  * @return string a string.
  */
 #[Pure]
-function date_default_timezone_get() : string
-{
-}
+function date_default_timezone_get(): string {}
+
 /**
  * Returns time of sunrise for a given day and location
  * @link https://php.net/manual/en/function.date-sunrise.php
@@ -1446,11 +1490,10 @@ function date_default_timezone_get() : string
  * success or false on failure.
  * @deprecated in 8.1.  Use {@link date_sun_info} instead
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
-function date_sunrise(int $timestamp, int $returnFormat = \SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset) : string|int|float|false
-{
-}
+function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
+
 /**
  * Returns time of sunset for a given day and location
  * @link https://php.net/manual/en/function.date-sunset.php
@@ -1499,11 +1542,10 @@ function date_sunrise(int $timestamp, int $returnFormat = \SUNFUNCS_RET_STRING, 
  * success or false on failure.
  * @deprecated in 8.1.  Use {@link date_sun_info} instead
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[Deprecated(reason: 'in 8.1.  Use date_sun_info instead', since: '8.1')]
-function date_sunset(int $timestamp, int $returnFormat = \SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset) : string|int|float|false
-{
-}
+function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, ?float $latitude, ?float $longitude, ?float $zenith, ?float $utcOffset): string|int|float|false {}
+
 /**
  * Returns an array with information about sunset/sunrise and twilight begin/end
  * @link https://php.net/manual/en/function.date-sun-info.php
@@ -1544,10 +1586,19 @@ function date_sunset(int $timestamp, int $returnFormat = \SUNFUNCS_RET_STRING, ?
  * above the respective zenith for the whole day.
  * @since 5.1.2
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-#[ArrayShape(["sunrise" => "int", "sunset" => "int", "transit" => "int", "civil_twilight_begin" => "int", "civil_twilight_end" => "int", "nautical_twilight_begin" => "int", "nautical_twilight_end" => "int", "astronomical_twilight_begin" => "int", "astronomical_twilight_end" => "int"])]
-function date_sun_info(int $timestamp, float $latitude, float $longitude) : array|false
-{
-}
+#[ArrayShape([
+    "sunrise" => "int",
+    "sunset" => "int",
+    "transit" => "int",
+    "civil_twilight_begin" => "int",
+    "civil_twilight_end" => "int",
+    "nautical_twilight_begin" => "int",
+    "nautical_twilight_end" => "int",
+    "astronomical_twilight_begin" => "int",
+    "astronomical_twilight_end" => "int"
+])]
+function date_sun_info(int $timestamp, float $latitude, float $longitude): array|false {}
+
 // End of date v.5.3.2-0.dotdeb.1

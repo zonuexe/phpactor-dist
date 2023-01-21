@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
-class ArrayLiteral extends ArrayType implements Literal, Generalizable, ArrayAccessType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\TypeUtil;
+class ArrayLiteral extends \Phpactor\WorseReflection\Core\Type\ArrayType implements \Phpactor\WorseReflection\Core\Type\Literal, \Phpactor\WorseReflection\Core\Type\Generalizable, \Phpactor\WorseReflection\Core\Type\ArrayAccessType
 {
     /**
      * @param array<array-key,Type> $typeMap
@@ -50,7 +50,7 @@ class ArrayLiteral extends ArrayType implements Literal, Generalizable, ArrayAcc
     }
     public function generalize() : Type
     {
-        return new ArrayType($this->keyType, $this->valueType);
+        return new \Phpactor\WorseReflection\Core\Type\ArrayType($this->keyType, $this->valueType);
     }
     /**
      * @param array-key $offset $offset
@@ -60,7 +60,7 @@ class ArrayLiteral extends ArrayType implements Literal, Generalizable, ArrayAcc
         if (isset($this->typeMap[$offset])) {
             return $this->typeMap[$offset];
         }
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function withValue($value) : self
     {
@@ -88,16 +88,15 @@ class ArrayLiteral extends ArrayType implements Literal, Generalizable, ArrayAcc
         $map[] = $type;
         return new self($map);
     }
-    public function toShape() : ArrayShapeType
+    public function toShape() : \Phpactor\WorseReflection\Core\Type\ArrayShapeType
     {
-        return new ArrayShapeType($this->typeMap);
+        return new \Phpactor\WorseReflection\Core\Type\ArrayShapeType($this->typeMap);
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof ArrayType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ArrayType) {
             return Trinary::maybe();
         }
         return parent::accepts($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ArrayLiteral', 'Phpactor\\WorseReflection\\Core\\Type\\ArrayLiteral', \false);

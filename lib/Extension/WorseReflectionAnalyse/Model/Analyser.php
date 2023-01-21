@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionAnalyse\Model;
+namespace Phpactor\Extension\WorseReflectionAnalyse\Model;
 
 use Generator;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\Filesystem\Domain\FileList;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 use Throwable;
@@ -44,4 +44,3 @@ class Analyser
         return $filesystem->fileList()->phpFiles()->within(FilePath::fromString($absPath));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionAnalyse\\Model\\Analyser', 'Phpactor\\Extension\\WorseReflectionAnalyse\\Model\\Analyser', \false);

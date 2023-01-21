@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application;
+namespace Phpactor\Extension\CodeTransformExtra\Application;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Phpactor;
-class ClassNew extends AbstractClassGenerator
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Phpactor;
+class ClassNew extends \Phpactor\Extension\CodeTransformExtra\Application\AbstractClassGenerator
 {
     public function generate(string $src, string $variant = 'default', bool $overwrite = \false) : SourceCode
     {
@@ -17,4 +17,3 @@ class ClassNew extends AbstractClassGenerator
         return $code;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Application\\ClassNew', 'Phpactor\\Extension\\CodeTransformExtra\\Application\\ClassNew', \false);

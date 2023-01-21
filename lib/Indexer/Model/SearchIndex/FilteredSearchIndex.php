@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
+namespace Phpactor\Indexer\Model\SearchIndex;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\SearchIndex;
 class FilteredSearchIndex implements SearchIndex
 {
     /**
@@ -34,4 +34,3 @@ class FilteredSearchIndex implements SearchIndex
         $this->innerIndex->remove($record);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\SearchIndex\\FilteredSearchIndex', 'Phpactor\\Indexer\\Model\\SearchIndex\\FilteredSearchIndex', \false);

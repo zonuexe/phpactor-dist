@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier;
+namespace Phpactor\Completion\Bridge\TolerantParser\Qualifier;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 class AlwaysQualfifier implements TolerantQualifier
 {
     public function couldComplete(Node $node) : ?Node
@@ -11,4 +11,3 @@ class AlwaysQualfifier implements TolerantQualifier
         return $node;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\Qualifier\\AlwaysQualfifier', 'Phpactor\\Completion\\Bridge\\TolerantParser\\Qualifier\\AlwaysQualfifier', \false);

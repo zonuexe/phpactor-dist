@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\JetBrains\PhpStorm;
+namespace JetBrains\PhpStorm;
 
 use Attribute;
+
 /**
  * The attribute specifies possible array keys and their types.
  *
@@ -14,10 +15,8 @@ use Attribute;
  * <b>#[ArrayShape(["f" => "int", "string", "x" => "float"])]</b>
  * This usage applied on an element effectively means that the array has 3 elements, the keys are "f", 1, and "x", and the corresponding types are "int", "string", and "float".
  */
-#[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD | Attribute::TARGET_PARAMETER | Attribute::TARGET_PROPERTY)]
+#[Attribute(Attribute::TARGET_FUNCTION|Attribute::TARGET_METHOD|Attribute::TARGET_PARAMETER|Attribute::TARGET_PROPERTY)]
 class ArrayShape
 {
-    public function __construct(array $shape)
-    {
-    }
+    public function __construct(array $shape) {}
 }

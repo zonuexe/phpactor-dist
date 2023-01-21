@@ -1,38 +1,38 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArrayElementList;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ListExpressionList;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrayCreationExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ListIntrinsicExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
 use Phpactor202301\Microsoft\PhpParser\Token;
 use Phpactor202301\Microsoft\PhpParser\Node\ArrayElement;
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\AggregateType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayAccessType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayLiteral;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Literal;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\AggregateType;
+use Phpactor\WorseReflection\Core\Type\ArrayAccessType;
+use Phpactor\WorseReflection\Core\Type\ArrayLiteral;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Type\Literal;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\StringType;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\TypeUtil;
 class AssignmentExpressionResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -205,4 +205,3 @@ class AssignmentExpressionResolver implements Resolver
         return new MissingType();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\AssignmentExpressionResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\AssignmentExpressionResolver', \false);

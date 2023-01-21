@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 final class DefaultValue
 {
@@ -8,11 +8,11 @@ final class DefaultValue
     private function __construct(private $value = null)
     {
     }
-    public static function fromValue($value) : DefaultValue
+    public static function fromValue($value) : \Phpactor\WorseReflection\Core\DefaultValue
     {
         return new self($value);
     }
-    public static function undefined() : DefaultValue
+    public static function undefined() : \Phpactor\WorseReflection\Core\DefaultValue
     {
         $new = new self();
         $new->undefined = \true;
@@ -27,4 +27,3 @@ final class DefaultValue
         return $this->value;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DefaultValue', 'Phpactor\\WorseReflection\\Core\\DefaultValue', \false);

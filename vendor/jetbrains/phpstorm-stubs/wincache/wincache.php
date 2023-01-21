@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Stubs for WinCache extension by Microsoft (v1.1.0)
  * @link https://secure.php.net/manual/en/book.wincache.php
@@ -16,6 +13,7 @@ namespace Phpactor202301;
  * Author: Andriy Bazanov
  * Date  : 2010-09-30
  */
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Retrieves information about files cached in the file cache
@@ -41,9 +39,8 @@ namespace Phpactor202301;
  * </ul></li>
  * </ul></p>
  */
-function wincache_fcache_fileinfo($summaryonly = \false)
-{
-}
+function wincache_fcache_fileinfo($summaryonly = false) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Retrieves information about memory usage by file cache.
@@ -58,9 +55,8 @@ function wincache_fcache_fileinfo($summaryonly = \false)
  * <li><em>memory_overhead</em> - amount of memory in bytes used for the file cache internal structures</li>
  * </ul></p>
  */
-function wincache_fcache_meminfo()
-{
-}
+function wincache_fcache_meminfo() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Obtains an exclusive lock on a given key.
@@ -76,9 +72,8 @@ function wincache_fcache_meminfo()
  * that have the same parent process identifier. </p>
  * @return bool Returns TRUE on success or FALSE on failure.
  */
-function wincache_lock($key, $isglobal = \false)
-{
-}
+function wincache_lock($key, $isglobal = false) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Retrieves information about opcode cache content and its usage
@@ -107,9 +102,8 @@ function wincache_lock($key, $isglobal = \false)
  * </ul></li>
  * </ul></p>
  */
-function wincache_ocache_fileinfo($summaryonly = \false)
-{
-}
+function wincache_ocache_fileinfo($summaryonly = false) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Retrieves information about memory usage by opcode cache.
@@ -124,9 +118,8 @@ function wincache_ocache_fileinfo($summaryonly = \false)
  * <li><em>memory_overhead</em> - amount of memory in bytes used for the opcode cache internal structures</li>
  * </ul></p>
  */
-function wincache_ocache_meminfo()
-{
-}
+function wincache_ocache_meminfo() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Refreshes the cache entries for the files, whose names were passed in the input argument.
@@ -137,9 +130,8 @@ function wincache_ocache_meminfo()
  * or relative file paths can be used.</p>
  * @return bool Returns TRUE on success or FALSE on failure.
  */
-function wincache_refresh_if_changed(array $files)
-{
-}
+function wincache_refresh_if_changed(array $files) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Retrieves information about cached mappings between relative file paths and
@@ -156,9 +148,8 @@ function wincache_refresh_if_changed(array $files)
  * </ul></li>
  * </ul></p>
  */
-function wincache_rplist_fileinfo()
-{
-}
+function wincache_rplist_fileinfo() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.0.0)<br/>
  * Retrieves information about memory usage by resolve file path cache.
@@ -173,9 +164,8 @@ function wincache_rplist_fileinfo()
  * <li><em>memory_overhead</em> - amount of memory in bytes used for the internal structures of resolve file path cache</li>
  * </ul></p>
  */
-function wincache_rplist_meminfo()
-{
-}
+function wincache_rplist_meminfo() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Retrieves information about session cache content and its usage.
@@ -204,9 +194,8 @@ function wincache_rplist_meminfo()
  * </ul></li>
  * </ul></p>
  */
-function wincache_scache_info($summaryonly = \false)
-{
-}
+function wincache_scache_info($summaryonly = false) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Retrieves information about memory usage by session cache.
@@ -221,9 +210,8 @@ function wincache_scache_info($summaryonly = \false)
  * <li><em>memory_overhead</em> - amount of memory in bytes used for the session cache internal structures</li>
  * </ul></p>
  */
-function wincache_scache_meminfo()
-{
-}
+function wincache_scache_meminfo() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Adds a variable in user cache, only if this variable doesn't already exist in the cache.
@@ -255,9 +243,8 @@ function wincache_scache_meminfo()
  * for which the addition failed in the user cache.</li>
  * </ul></p>
  */
-function wincache_ucache_add($key, $value, $ttl = 0)
-{
-}
+function wincache_ucache_add($key, $value, $ttl = 0) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Compares the variable associated with the <em>key</em> with <em>old_value</em>
@@ -270,18 +257,16 @@ function wincache_ucache_add($key, $value, $ttl = 0)
  * if a match is found. The value should be of type long, otherwise the function returns FALSE.
  * @return bool Returns TRUE on success or FALSE on failure.
  */
-function wincache_ucache_cas($key, $old_value, $new_value)
-{
-}
+function wincache_ucache_cas($key, $old_value, $new_value) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Clears/deletes all the values stored in the user cache.
  * @link https://secure.php.net/manual/en/function.wincache-ucache-clear.php
  * @return bool Returns TRUE on success or FALSE on failure.
  */
-function wincache_ucache_clear()
-{
-}
+function wincache_ucache_clear() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Decrements the value associated with the key by 1 or as specified by dec_by.
@@ -296,9 +281,8 @@ function wincache_ucache_clear()
  * <p>Will be set to TRUE on success and FALSE on failure.</p>
  * @return int|false Returns the decremented value on success and FALSE on failure.
  */
-function wincache_ucache_dec($key, $dec_by = 1, &$success)
-{
-}
+function wincache_ucache_dec($key, $dec_by = 1, &$success) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Deletes the elements in the user cache pointed by key.
@@ -310,9 +294,8 @@ function wincache_ucache_dec($key, $dec_by = 1, &$success)
  * the array fails to get deleted from the user cache, otherwise returns an
  * array which consists of all the keys that are deleted.</p>
  */
-function wincache_ucache_delete($key)
-{
-}
+function wincache_ucache_delete($key) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Checks if a variable with the key exists in the user cache or not.
@@ -320,9 +303,8 @@ function wincache_ucache_delete($key)
  * @param string $key The key that was used to store the variable in the cache. key is case sensitive.
  * @return bool Returns TRUE if variable with the key exitsts, otherwise returns FALSE.
  */
-function wincache_ucache_exists($key)
-{
-}
+function wincache_ucache_exists($key) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Gets a variable stored in the user cache.
@@ -339,9 +321,8 @@ function wincache_ucache_exists($key)
  * operation in user cache was successful. If none of the keys in the key array finds a
  * match in the user cache an empty array will be returned.</p>
  */
-function wincache_ucache_get($key, &$success)
-{
-}
+function wincache_ucache_get($key, &$success) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Increments the value associated with the key by 1 or as specified by inc_by.
@@ -356,9 +337,8 @@ function wincache_ucache_get($key, &$success)
  * <p>Will be set to TRUE on success and FALSE on failure.</p>
  * @return int|false Returns the incremented value on success and FALSE on failure.
  */
-function wincache_ucache_inc($key, $inc_by = 1, &$success)
-{
-}
+function wincache_ucache_inc($key, $inc_by = 1, &$success) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Retrieves information about data stored in the user cache.
@@ -393,9 +373,8 @@ function wincache_ucache_inc($key, $inc_by = 1, &$success)
  * </ul></li>
  * </ul></p>
  */
-function wincache_ucache_info(bool $summaryonly = \false, $key = null)
-{
-}
+function wincache_ucache_info(bool $summaryonly = false, $key = null) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Retrieves information about memory usage by user cache.
@@ -410,9 +389,8 @@ function wincache_ucache_info(bool $summaryonly = \false, $key = null)
  * <li><em>memory_overhead</em> - amount of memory in bytes used for the user cache internal structures</li>
  * </ul></p>
  */
-function wincache_ucache_meminfo()
-{
-}
+function wincache_ucache_meminfo() {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Adds a variable in user cache and overwrites a variable if it already exists in the cache.
@@ -448,9 +426,8 @@ function wincache_ucache_meminfo()
  * name=&gt;value pair for which the addition failed in the user cache.</li>
  * </ul></p>
  */
-function wincache_ucache_set($key, $value, $ttl = 0)
-{
-}
+function wincache_ucache_set($key, $value, $ttl = 0) {}
+
 /**
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Releases an exclusive lock that was obtained on a given key by using wincache_lock().
@@ -459,6 +436,4 @@ function wincache_ucache_set($key, $value, $ttl = 0)
  * @param string $key Name of the key in the cache to release the lock on.
  * @return bool Returns TRUE on success or FALSE on failure.
  */
-function wincache_unlock($key)
-{
-}
+function wincache_unlock($key) {}

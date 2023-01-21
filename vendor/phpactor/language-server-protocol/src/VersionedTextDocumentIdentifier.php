@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentIdentifier
  */
-class VersionedTextDocumentIdentifier extends TextDocumentIdentifier
+class VersionedTextDocumentIdentifier extends \Phpactor\LanguageServerProtocol\TextDocumentIdentifier
 {
     /**
      * The version number of this document. If a versioned text document identifier
@@ -94,9 +94,3 @@ class VersionedTextDocumentIdentifier extends TextDocumentIdentifier
         throw $lastException;
     }
 }
-/**
- * An identifier to denote a specific version of a text document.
- *
- * Mixins (implemented TS interfaces): TextDocumentIdentifier
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\VersionedTextDocumentIdentifier', 'Phpactor\\LanguageServerProtocol\\VersionedTextDocumentIdentifier', \false);

@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of wddx v.
+
 /**
  * Serialize a single value into a WDDX packet
  * @link https://php.net/manual/en/function.wddx-serialize-value.php
@@ -15,9 +14,8 @@ namespace Phpactor202301;
  * @return string|false the WDDX packet, or <b>FALSE</b> on error.
  * @removed 7.4
  */
-function wddx_serialize_value($var, $comment = null)
-{
-}
+function wddx_serialize_value($var, $comment = null) {}
+
 /**
  * Serialize variables into a WDDX packet
  * @link https://php.net/manual/en/function.wddx-serialize-vars.php
@@ -29,9 +27,8 @@ function wddx_serialize_value($var, $comment = null)
  * @return string|false the WDDX packet, or <b>FALSE</b> on error.
  * @removed 7.4
  */
-function wddx_serialize_vars($var_name, ...$_)
-{
-}
+function wddx_serialize_vars($var_name, ...$_) {}
+
 /**
  * Starts a new WDDX packet with structure inside it
  * @link https://php.net/manual/en/function.wddx-packet-start.php
@@ -41,9 +38,8 @@ function wddx_serialize_vars($var_name, ...$_)
  * @return resource|false a packet ID for use in later functions, or <b>FALSE</b> on error.
  * @removed 7.4
  */
-function wddx_packet_start($comment = null)
-{
-}
+function wddx_packet_start($comment = null) {}
+
 /**
  * Ends a WDDX packet with the specified ID
  * @link https://php.net/manual/en/function.wddx-packet-end.php
@@ -53,9 +49,8 @@ function wddx_packet_start($comment = null)
  * @return string the string containing the WDDX packet.
  * @removed 7.4
  */
-function wddx_packet_end($packet_id)
-{
-}
+function wddx_packet_end($packet_id) {}
+
 /**
  * Add variables to a WDDX packet with the specified ID
  * @link https://php.net/manual/en/function.wddx-add-vars.php
@@ -70,9 +65,8 @@ function wddx_packet_end($packet_id)
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @removed 7.4
  */
-function wddx_add_vars($packet_id, $var_name, ...$_)
-{
-}
+function wddx_add_vars($packet_id, $var_name, ...$_) {}
+
 /**
  * Unserializes a WDDX packet
  * @link https://php.net/manual/en/function.wddx-deserialize.php
@@ -83,7 +77,6 @@ function wddx_add_vars($packet_id, $var_name, ...$_)
  * array. Note that structures are deserialized into associative arrays.
  * @removed 7.4
  */
-function wddx_deserialize($packet)
-{
-}
+function wddx_deserialize($packet) {}
+
 // End of wddx v.

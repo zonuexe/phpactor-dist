@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Navigation\Navigator;
+namespace Phpactor\Extension\Navigation\Navigator;
 
-use Phpactor202301\Phpactor\PathFinder\Exception\NoMatchingSourceException;
-use Phpactor202301\Phpactor\PathFinder\PathFinder;
-class PathFinderNavigator implements Navigator
+use Phpactor\PathFinder\Exception\NoMatchingSourceException;
+use Phpactor\PathFinder\PathFinder;
+class PathFinderNavigator implements \Phpactor\Extension\Navigation\Navigator\Navigator
 {
     public function __construct(private PathFinder $pathFinder)
     {
@@ -18,4 +18,3 @@ class PathFinderNavigator implements Navigator
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\Navigator\\PathFinderNavigator', 'Phpactor\\Extension\\Navigation\\Navigator\\PathFinderNavigator', \false);

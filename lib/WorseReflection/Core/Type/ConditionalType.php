@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
 class ConditionalType extends Type
 {
     public function __construct(private string $variable, private Type $isType, private Type $left, private Type $right)
@@ -35,7 +35,7 @@ class ConditionalType extends Type
         }
         $argumentType = $functionArguments->at($parameter->index())->type();
         $evaluator = function (Type $type) use($functionLike, $functionArguments) : Type {
-            if ($type instanceof ParenthesizedType && $type->type instanceof ConditionalType) {
+            if ($type instanceof \Phpactor\WorseReflection\Core\Type\ParenthesizedType && $type->type instanceof \Phpactor\WorseReflection\Core\Type\ConditionalType) {
                 return $type->type->evaluate($functionLike, $functionArguments);
             }
             return $type;
@@ -50,7 +50,6 @@ class ConditionalType extends Type
     }
     public function map(Closure $mapper) : Type
     {
-        return new ConditionalType($this->variable, $this->isType->map($mapper), $this->left->map($mapper), $this->right->map($mapper));
+        return new \Phpactor\WorseReflection\Core\Type\ConditionalType($this->variable, $this->isType->map($mapper), $this->left->map($mapper), $this->right->map($mapper));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ConditionalType', 'Phpactor\\WorseReflection\\Core\\Type\\ConditionalType', \false);

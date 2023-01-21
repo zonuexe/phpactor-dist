@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider;
+namespace Phpactor\ObjectRenderer\Model\TemplateProvider;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
 class SuffixAppendingTemplateProvider implements TemplateCandidateProvider
 {
     /**
@@ -25,4 +25,3 @@ class SuffixAppendingTemplateProvider implements TemplateCandidateProvider
         }, $this->innerResolver->resolveFor($className));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\Model\\TemplateProvider\\SuffixAppendingTemplateProvider', 'Phpactor\\ObjectRenderer\\Model\\TemplateProvider\\SuffixAppendingTemplateProvider', \false);

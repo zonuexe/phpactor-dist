@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class CompletionOptions extends WorkDoneProgressOptions
+class CompletionOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      * Most tools trigger completion request automatically without explicitly requesting
@@ -118,9 +118,3 @@ class CompletionOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Completion options.
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CompletionOptions', 'Phpactor\\LanguageServerProtocol\\CompletionOptions', \false);

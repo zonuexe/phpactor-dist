@@ -1,29 +1,29 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflector;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflector;
 
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\MethodCallNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection as TolerantReflectionClassCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionOffset as TolerantReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
+use Phpactor\WorseReflection\Core\Exception\MethodCallNotFound;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection as TolerantReflectionClassCollection;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionOffset as TolerantReflectionOffset;
+use Phpactor\WorseReflection\Core\Inference\NodeReflector;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as CoreReflectionFunctionCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as TolerantReflectionFunctionCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as CoreReflectionFunctionCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as TolerantReflectionFunctionCollection;
 class TolerantSourceCodeReflector implements SourceCodeReflector
 {
     public function __construct(private ServiceLocator $serviceLocator, private Parser $parser)
@@ -110,4 +110,3 @@ class TolerantSourceCodeReflector implements SourceCodeReflector
         return $rootNode;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflector\\TolerantSourceCodeReflector', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflector\\TolerantSourceCodeReflector', \false);

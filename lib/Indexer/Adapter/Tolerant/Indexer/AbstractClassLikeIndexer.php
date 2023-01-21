@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
-use Phpactor202301\Phpactor\Indexer\Model\Exception\CannotIndexNode;
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
+use Phpactor\Indexer\Model\Exception\CannotIndexNode;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\TextDocument\TextDocument;
 abstract class AbstractClassLikeIndexer implements TolerantIndexer
 {
     public function beforeParse(Index $index, TextDocument $document) : void
@@ -60,4 +60,3 @@ abstract class AbstractClassLikeIndexer implements TolerantIndexer
         return $record;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\AbstractClassLikeIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\AbstractClassLikeIndexer', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassToFileExtra\Rpc;
+namespace Phpactor\Extension\ClassToFileExtra\Rpc;
 
-use Phpactor202301\Phpactor\Extension\ClassToFileExtra\Application\FileInfo;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReturnResponse;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\ClassToFileExtra\Application\FileInfo;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\Rpc\Response\ReturnResponse;
+use Phpactor\MapResolver\Resolver;
 class FileInfoHandler extends AbstractHandler
 {
     const NAME = 'file_info';
@@ -27,4 +27,3 @@ class FileInfoHandler extends AbstractHandler
         return ReturnResponse::fromValue($fileInfo);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassToFileExtra\\Rpc\\FileInfoHandler', 'Phpactor\\Extension\\ClassToFileExtra\\Rpc\\FileInfoHandler', \false);

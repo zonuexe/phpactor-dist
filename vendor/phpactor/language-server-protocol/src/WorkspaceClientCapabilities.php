@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -57,7 +57,7 @@ class WorkspaceClientCapabilities
      * @param WorkspaceSymbolClientCapabilities|null $symbol
      * @param ExecuteCommandClientCapabilities|null $executeCommand
      */
-    public function __construct(?bool $applyEdit = null, ?WorkspaceEditClientCapabilities $workspaceEdit = null, ?DidChangeConfigurationClientCapabilities $didChangeConfiguration = null, ?DidChangeWatchedFilesClientCapabilities $didChangeWatchedFiles = null, ?WorkspaceSymbolClientCapabilities $symbol = null, ?ExecuteCommandClientCapabilities $executeCommand = null)
+    public function __construct(?bool $applyEdit = null, ?\Phpactor\LanguageServerProtocol\WorkspaceEditClientCapabilities $workspaceEdit = null, ?\Phpactor\LanguageServerProtocol\DidChangeConfigurationClientCapabilities $didChangeConfiguration = null, ?\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesClientCapabilities $didChangeWatchedFiles = null, ?\Phpactor\LanguageServerProtocol\WorkspaceSymbolClientCapabilities $symbol = null, ?\Phpactor\LanguageServerProtocol\ExecuteCommandClientCapabilities $executeCommand = null)
     {
         $this->applyEdit = $applyEdit;
         $this->workspaceEdit = $workspaceEdit;
@@ -72,7 +72,7 @@ class WorkspaceClientCapabilities
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['applyEdit' => ['names' => [], 'iterable' => \false], 'workspaceEdit' => ['names' => [WorkspaceEditClientCapabilities::class], 'iterable' => \false], 'didChangeConfiguration' => ['names' => [DidChangeConfigurationClientCapabilities::class], 'iterable' => \false], 'didChangeWatchedFiles' => ['names' => [DidChangeWatchedFilesClientCapabilities::class], 'iterable' => \false], 'symbol' => ['names' => [WorkspaceSymbolClientCapabilities::class], 'iterable' => \false], 'executeCommand' => ['names' => [ExecuteCommandClientCapabilities::class], 'iterable' => \false]];
+        $map = ['applyEdit' => ['names' => [], 'iterable' => \false], 'workspaceEdit' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceEditClientCapabilities::class], 'iterable' => \false], 'didChangeConfiguration' => ['names' => [\Phpactor\LanguageServerProtocol\DidChangeConfigurationClientCapabilities::class], 'iterable' => \false], 'didChangeWatchedFiles' => ['names' => [\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesClientCapabilities::class], 'iterable' => \false], 'symbol' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceSymbolClientCapabilities::class], 'iterable' => \false], 'executeCommand' => ['names' => [\Phpactor\LanguageServerProtocol\ExecuteCommandClientCapabilities::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -122,7 +122,3 @@ class WorkspaceClientCapabilities
         throw $lastException;
     }
 }
-/**
- * Workspace specific client capabilities.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\WorkspaceClientCapabilities', 'Phpactor\\LanguageServerProtocol\\WorkspaceClientCapabilities', \false);

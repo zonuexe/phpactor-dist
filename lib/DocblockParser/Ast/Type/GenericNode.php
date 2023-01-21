@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Type;
+namespace Phpactor\DocblockParser\Ast\Type;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Element;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeList;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\Element;
+use Phpactor\DocblockParser\Ast\TypeList;
+use Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\Token;
 class GenericNode extends TypeNode
 {
     protected const CHILD_NAMES = ['type', 'open', 'parameters', 'close'];
@@ -35,4 +35,3 @@ class GenericNode extends TypeNode
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Type\\GenericNode', 'Phpactor\\DocblockParser\\Ast\\Type\\GenericNode', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
 use Generator;
 use Phpactor202301\Symfony\Component\Yaml\Yaml;
@@ -77,10 +77,9 @@ class BehatConfig
                     if (\is_array($context)) {
                         $context = (string) \key($context);
                     }
-                    (yield new Context($suiteName, $context));
+                    (yield new \Phpactor\Extension\Behat\Behat\Context($suiteName, $context));
                 }
             }
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\BehatConfig', 'Phpactor\\Extension\\Behat\\Behat\\BehatConfig', \false);

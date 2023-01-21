@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -27,7 +27,7 @@ class WillSaveTextDocumentParams
      * @param TextDocumentIdentifier $textDocument
      * @param TextDocumentSaveReason::* $reason
      */
-    public function __construct(TextDocumentIdentifier $textDocument, $reason)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, $reason)
     {
         $this->textDocument = $textDocument;
         $this->reason = $reason;
@@ -38,7 +38,7 @@ class WillSaveTextDocumentParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'reason' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'reason' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -88,7 +88,3 @@ class WillSaveTextDocumentParams
         throw $lastException;
     }
 }
-/**
- * The parameters send in a will save text document notification.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\WillSaveTextDocumentParams', 'Phpactor\\LanguageServerProtocol\\WillSaveTextDocumentParams', \false);

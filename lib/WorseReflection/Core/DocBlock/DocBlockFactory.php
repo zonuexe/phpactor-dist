@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DocBlock;
+namespace Phpactor\WorseReflection\Core\DocBlock;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
 interface DocBlockFactory
 {
-    public function create(string $docblock, ReflectionScope $scope) : DocBlock;
+    public function create(string $docblock, ReflectionScope $scope) : \Phpactor\WorseReflection\Core\DocBlock\DocBlock;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockFactory', 'Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockFactory', \false);

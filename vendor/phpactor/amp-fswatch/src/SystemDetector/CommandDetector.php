@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\SystemDetector;
+namespace Phpactor\AmpFsWatch\SystemDetector;
 
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
@@ -25,4 +25,3 @@ class CommandDetector
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\SystemDetector\\CommandDetector', 'Phpactor\\AmpFsWatch\\SystemDetector\\CommandDetector', \false);

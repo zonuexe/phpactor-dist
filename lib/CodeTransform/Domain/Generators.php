@@ -1,18 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
 /**
  * @extends AbstractCollection<Generator>
  */
-final class Generators extends AbstractCollection
+final class Generators extends \Phpactor\CodeTransform\Domain\AbstractCollection
 {
     protected function type() : string
     {
-        return Generator::class;
+        return \Phpactor\CodeTransform\Domain\Generator::class;
     }
 }
-/**
- * @extends AbstractCollection<Generator>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Generators', 'Phpactor\\CodeTransform\\Domain\\Generators', \false);

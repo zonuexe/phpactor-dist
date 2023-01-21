@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use RuntimeException;
 use IteratorAggregate;
@@ -14,7 +14,7 @@ final class NameImports implements IteratorAggregate
             $this->add($short, $item);
         }
     }
-    public static function fromNames(array $nameImports) : NameImports
+    public static function fromNames(array $nameImports) : \Phpactor\WorseReflection\Core\NameImports
     {
         return new self($nameImports);
     }
@@ -29,24 +29,23 @@ final class NameImports implements IteratorAggregate
         }
         return $this->nameImports[$alias];
     }
-    public function resolveLocalName(Name $name) : Name
+    public function resolveLocalName(\Phpactor\WorseReflection\Core\Name $name) : \Phpactor\WorseReflection\Core\Name
     {
         foreach ($this->nameImports as $alias => $importedName) {
-            \assert($importedName instanceof Name);
+            \assert($importedName instanceof \Phpactor\WorseReflection\Core\Name);
             if (!$importedName->isAncestorOrSame($name)) {
                 continue;
             }
             return $name->substitute($importedName, $alias);
         }
-        return Name::fromString($name->short());
+        return \Phpactor\WorseReflection\Core\Name::fromString($name->short());
     }
     public function hasAlias(string $alias)
     {
         return isset($this->nameImports[$alias]);
     }
-    private function add(string $short, Name $item) : void
+    private function add(string $short, \Phpactor\WorseReflection\Core\Name $item) : void
     {
         $this->nameImports[$short] = $item;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\NameImports', 'Phpactor\\WorseReflection\\Core\\NameImports', \false);

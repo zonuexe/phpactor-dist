@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
+use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionScope;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class NodeContextResolver
 {
@@ -26,12 +26,12 @@ class NodeContextResolver
     /**
      * @param Node|Token|MissingToken $node
      */
-    public function resolveNode(Frame $frame, $node) : NodeContext
+    public function resolveNode(\Phpactor\WorseReflection\Core\Inference\Frame $frame, $node) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         try {
             return $this->doResolveNodeWithCache($frame, $node);
         } catch (CouldNotResolveNode $couldNotResolveNode) {
-            return NodeContextFactory::forNode($node)->withIssue($couldNotResolveNode->getMessage());
+            return \Phpactor\WorseReflection\Core\Inference\NodeContextFactory::forNode($node)->withIssue($couldNotResolveNode->getMessage());
         }
     }
     public function reflector() : Reflector
@@ -50,11 +50,11 @@ class NodeContextResolver
      *
      * @param Node|Token|MissingToken|array<MissingToken> $node
      */
-    private function doResolveNodeWithCache(Frame $frame, $node) : NodeContext
+    private function doResolveNodeWithCache(\Phpactor\WorseReflection\Core\Inference\Frame $frame, $node) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         // somehow we can get an array of missing tokens here instead of an object...
         if (!\is_object($node)) {
-            return NodeContext::none();
+            return \Phpactor\WorseReflection\Core\Inference\NodeContext::none();
         }
         $key = 'sc:' . \spl_object_id($node) . ':' . $frame->version();
         return $this->cache->getOrSet($key, function () use($frame, $node) {
@@ -66,7 +66,7 @@ class NodeContextResolver
             return $context;
         });
     }
-    private function doResolveNode(Frame $frame, Node $node) : NodeContext
+    private function doResolveNode(\Phpactor\WorseReflection\Core\Inference\Frame $frame, Node $node) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $this->logger->debug(\sprintf('Resolving: %s', \get_class($node)));
         if (isset($this->resolverMap[\get_class($node)])) {
@@ -75,4 +75,3 @@ class NodeContextResolver
         throw new CouldNotResolveNode(\sprintf('Did not know how to resolve node of type "%s" with text "%s"', \get_class($node), $node->getText()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\NodeContextResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\NodeContextResolver', \false);

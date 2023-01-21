@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCompletion;
+namespace Phpactor\Extension\LanguageServerCompletion;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Completion\CompletionExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
-use Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Handler\SignatureHelpHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util\SuggestionNameFormatter;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Handler\CompletionHandler;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Completion\CompletionExtension;
+use Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
+use Phpactor\Extension\LanguageServerCompletion\Handler\SignatureHelpHandler;
+use Phpactor\Extension\LanguageServerCompletion\Util\SuggestionNameFormatter;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\Extension\LanguageServerCompletion\Handler\CompletionHandler;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\MapResolver\Resolver;
 class LanguageServerCompletionExtension implements Extension
 {
     private const PARAM_TRIM_LEADING_DOLLAR = 'language_server_completion.trim_leading_dollar';
@@ -42,4 +42,3 @@ class LanguageServerCompletionExtension implements Extension
         return $container->get(ClientCapabilities::class);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCompletion\\LanguageServerCompletionExtension', 'Phpactor\\Extension\\LanguageServerCompletion\\LanguageServerCompletionExtension', \false);

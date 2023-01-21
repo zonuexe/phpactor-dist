@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-final class ResourceType extends PrimitiveType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+final class ResourceType extends \Phpactor\WorseReflection\Core\Type\PrimitiveType
 {
     public function __toString() : string
     {
@@ -16,7 +16,6 @@ final class ResourceType extends PrimitiveType
     }
     public function accepts(Type $type) : Trinary
     {
-        return Trinary::fromBoolean($type instanceof ResourceType);
+        return Trinary::fromBoolean($type instanceof \Phpactor\WorseReflection\Core\Type\ResourceType);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ResourceType', 'Phpactor\\WorseReflection\\Core\\Type\\ResourceType', \false);

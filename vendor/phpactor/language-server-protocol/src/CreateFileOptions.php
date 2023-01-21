@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -88,7 +88,3 @@ class CreateFileOptions
         throw $lastException;
     }
 }
-/**
- * Options to create a file.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CreateFileOptions', 'Phpactor\\LanguageServerProtocol\\CreateFileOptions', \false);

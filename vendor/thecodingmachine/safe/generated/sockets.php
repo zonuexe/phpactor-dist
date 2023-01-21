@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SocketsException;
+use Safe\Exceptions\SocketsException;
+
 /**
  * After the socket socket has been created
  * using socket_create, bound to a name with
@@ -35,13 +36,15 @@ use Phpactor202301\Safe\Exceptions\SocketsException;
  */
 function socket_accept($socket)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_accept($socket);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Create a Socket resource, and bind it to the provided AddrInfo resource.  The return
  * value of this function may be used with socket_listen.
@@ -53,13 +56,15 @@ function socket_accept($socket)
  */
 function socket_addrinfo_bind($addr)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_addrinfo_bind($addr);
     if ($result === null) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Create a Socket resource, and connect it to the provided AddrInfo resource.  The return
  * value of this function may be used with the rest of the socket functions.
@@ -71,13 +76,15 @@ function socket_addrinfo_bind($addr)
  */
 function socket_addrinfo_connect($addr)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_addrinfo_connect($addr);
     if ($result === null) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Binds the name given in address to the socket
  * described by socket. This has to be done before
@@ -98,14 +105,16 @@ function socket_addrinfo_connect($addr)
  * @throws SocketsException
  *
  */
-function socket_bind($socket, string $address, int $port = 0) : void
+function socket_bind($socket, string $address, int $port = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_bind($socket, $address, $port);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * Initiate a connection to address using the socket resource
  * socket, which must be a valid socket
@@ -126,14 +135,16 @@ function socket_bind($socket, string $address, int $port = 0) : void
  * @throws SocketsException
  *
  */
-function socket_connect($socket, string $address, int $port = 0) : void
+function socket_connect($socket, string $address, int $port = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_connect($socket, $address, $port);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * socket_create_listen creates a new socket resource of
  * type AF_INET listening on all
@@ -158,13 +169,15 @@ function socket_connect($socket, string $address, int $port = 0) : void
  */
 function socket_create_listen(int $port, int $backlog = 128)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_create_listen($port, $backlog);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * socket_create_pair creates two connected and
  * indistinguishable sockets, and stores them in fd.
@@ -190,14 +203,16 @@ function socket_create_listen(int $port, int $backlog = 128)
  * @throws SocketsException
  *
  */
-function socket_create_pair(int $domain, int $type, int $protocol, ?iterable &$fd) : void
+function socket_create_pair(int $domain, int $type, int $protocol, ?iterable &$fd): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_create_pair($domain, $type, $protocol, $fd);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates and returns a socket resource, also referred to as an endpoint
  * of communication. A typical network connection is made up of 2 sockets, one
@@ -223,13 +238,15 @@ function socket_create_pair(int $domain, int $type, int $protocol, ?iterable &$f
  */
 function socket_create(int $domain, int $type, int $protocol)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_create($domain, $type, $protocol);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -240,13 +257,15 @@ function socket_create(int $domain, int $type, int $protocol)
  */
 function socket_export_stream($socket)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_export_stream($socket);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The socket_get_option function retrieves the value for
  * the option specified by the optname parameter for the
@@ -285,13 +304,15 @@ function socket_export_stream($socket)
  */
 function socket_get_option($socket, int $level, int $optname)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_get_option($socket, $level, $optname);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Queries the remote side of the given socket which may either result in
  * host/port or in a Unix filesystem path, dependent on its type.
@@ -315,14 +336,16 @@ function socket_get_option($socket, int $level, int $optname)
  * @throws SocketsException
  *
  */
-function socket_getpeername($socket, string &$address, ?int &$port = null) : void
+function socket_getpeername($socket, string &$address, ?int &$port = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_getpeername($socket, $address, $port);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -343,14 +366,16 @@ function socket_getpeername($socket, string &$address, ?int &$port = null) : voi
  * @throws SocketsException
  *
  */
-function socket_getsockname($socket, ?string &$addr, ?int &$port = null) : void
+function socket_getsockname($socket, ?string &$addr, ?int &$port = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_getsockname($socket, $addr, $port);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * Imports a stream that encapsulates a socket into a socket extension resource.
  *
@@ -361,13 +386,15 @@ function socket_getsockname($socket, ?string &$addr, ?int &$port = null) : void
  */
 function socket_import_stream($stream)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_import_stream($stream);
     if ($result === null) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * After the socket socket has been created
  * using socket_create and bound to a name with
@@ -396,14 +423,16 @@ function socket_import_stream($stream)
  * @throws SocketsException
  *
  */
-function socket_listen($socket, int $backlog = 0) : void
+function socket_listen($socket, int $backlog = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_listen($socket, $backlog);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * The function socket_read reads from the socket
  * resource socket created by the
@@ -440,15 +469,17 @@ function socket_listen($socket, int $backlog = 0) : void
  * @throws SocketsException
  *
  */
-function socket_read($socket, int $length, int $type = \PHP_BINARY_READ) : string
+function socket_read($socket, int $length, int $type = PHP_BINARY_READ): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_read($socket, $length, $type);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The function socket_send sends
  * len bytes to the socket
@@ -499,15 +530,17 @@ function socket_read($socket, int $length, int $type = \PHP_BINARY_READ) : strin
  * @throws SocketsException
  *
  */
-function socket_send($socket, string $buf, int $len, int $flags) : int
+function socket_send($socket, string $buf, int $len, int $flags): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_send($socket, $buf, $len, $flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -518,15 +551,17 @@ function socket_send($socket, string $buf, int $len, int $flags) : int
  * @throws SocketsException
  *
  */
-function socket_sendmsg($socket, array $message, int $flags = 0) : int
+function socket_sendmsg($socket, array $message, int $flags = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_sendmsg($socket, $message, $flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The function socket_sendto sends
  * len bytes from buf
@@ -581,15 +616,17 @@ function socket_sendmsg($socket, array $message, int $flags = 0) : int
  * @throws SocketsException
  *
  */
-function socket_sendto($socket, string $buf, int $len, int $flags, string $addr, int $port = 0) : int
+function socket_sendto($socket, string $buf, int $len, int $flags, string $addr, int $port = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_sendto($socket, $buf, $len, $flags, $addr, $port);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * The socket_set_block function removes the
  * O_NONBLOCK flag on the socket specified by the
@@ -604,14 +641,16 @@ function socket_sendto($socket, string $buf, int $len, int $flags, string $addr,
  * @throws SocketsException
  *
  */
-function socket_set_block($socket) : void
+function socket_set_block($socket): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_set_block($socket);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * The socket_set_nonblock function sets the
  * O_NONBLOCK flag on the socket specified by
@@ -627,14 +666,16 @@ function socket_set_block($socket) : void
  * @throws SocketsException
  *
  */
-function socket_set_nonblock($socket) : void
+function socket_set_nonblock($socket): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_set_nonblock($socket);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * The socket_set_option function sets the option
  * specified by the optname parameter, at the
@@ -657,14 +698,16 @@ function socket_set_nonblock($socket) : void
  * @throws SocketsException
  *
  */
-function socket_set_option($socket, int $level, int $optname, $optval) : void
+function socket_set_option($socket, int $level, int $optname, $optval): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_set_option($socket, $level, $optname, $optval);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * The socket_shutdown function allows you to stop
  * incoming, outgoing or all data (the default) from being sent through the
@@ -700,14 +743,16 @@ function socket_set_option($socket, int $level, int $optname, $optval) : void
  * @throws SocketsException
  *
  */
-function socket_shutdown($socket, int $how = 2) : void
+function socket_shutdown($socket, int $how = 2): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_shutdown($socket, $how);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }
+
+
 /**
  * Exports the WSAPROTOCOL_INFO structure into shared memory and returns
  * an identifier to be used with socket_wsaprotocol_info_import. The
@@ -719,15 +764,17 @@ function socket_shutdown($socket, int $how = 2) : void
  * @throws SocketsException
  *
  */
-function socket_wsaprotocol_info_export($socket, int $target_pid) : string
+function socket_wsaprotocol_info_export($socket, int $target_pid): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_wsaprotocol_info_export($socket, $target_pid);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Imports a socket which has formerly been exported from another process.
  *
@@ -739,13 +786,15 @@ function socket_wsaprotocol_info_export($socket, int $target_pid) : string
  */
 function socket_wsaprotocol_info_import(string $info_id)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_wsaprotocol_info_import($info_id);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Releases the shared memory corresponding to the given info_id.
  *
@@ -754,11 +803,11 @@ function socket_wsaprotocol_info_import(string $info_id)
  * @throws SocketsException
  *
  */
-function socket_wsaprotocol_info_release(string $info_id) : void
+function socket_wsaprotocol_info_release(string $info_id): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \socket_wsaprotocol_info_release($info_id);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
 }

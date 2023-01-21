@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Add two arbitrary precision numbers
  * @link https://php.net/manual/en/function.bcadd.php
@@ -23,9 +22,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * @return string The sum of the two operands, as a string.
  */
 #[Pure]
-function bcadd(string $num1, string $num2, ?int $scale = null) : string
-{
-}
+function bcadd(string $num1, string $num2, ?int $scale = null): string {}
+
 /**
  * Subtract one arbitrary precision number from another
  * @link https://php.net/manual/en/function.bcsub.php
@@ -44,9 +42,8 @@ function bcadd(string $num1, string $num2, ?int $scale = null) : string
  * @return string The result of the subtraction, as a string.
  */
 #[Pure]
-function bcsub(string $num1, string $num2, ?int $scale = null) : string
-{
-}
+function bcsub(string $num1, string $num2, ?int $scale = null): string {}
+
 /**
  * Multiply two arbitrary precision numbers
  * @link https://php.net/manual/en/function.bcmul.php
@@ -65,9 +62,8 @@ function bcsub(string $num1, string $num2, ?int $scale = null) : string
  * @return string the result as a string.
  */
 #[Pure]
-function bcmul(string $num1, string $num2, ?int $scale = null) : string
-{
-}
+function bcmul(string $num1, string $num2, ?int $scale = null): string {}
+
 /**
  * Divide two arbitrary precision numbers
  * @link https://php.net/manual/en/function.bcdiv.php
@@ -88,9 +84,8 @@ function bcmul(string $num1, string $num2, ?int $scale = null) : string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcdiv(string $num1, string $num2, ?int $scale = 0) : ?string
-{
-}
+function bcdiv(string $num1, string $num2, ?int $scale = 0): ?string {}
+
 /**
  * Divide two arbitrary precision numbers
  * @link https://php.net/manual/en/function.bcdiv.php
@@ -111,9 +106,8 @@ function bcdiv(string $num1, string $num2, ?int $scale = 0) : ?string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcdiv(string $num1, string $num2, ?int $scale = null) : string
-{
-}
+function bcdiv(string $num1, string $num2, ?int $scale = null): string {}
+
 /**
  * Get modulus of an arbitrary precision number
  * @link https://php.net/manual/en/function.bcmod.php
@@ -134,9 +128,8 @@ function bcdiv(string $num1, string $num2, ?int $scale = null) : string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function bcmod(string $num1, string $num2, ?int $scale = 0) : ?string
-{
-}
+function bcmod(string $num1, string $num2, ?int $scale = 0): ?string {}
+
 /**
  * Get modulus of an arbitrary precision number
  * @link https://php.net/manual/en/function.bcmod.php
@@ -157,9 +150,8 @@ function bcmod(string $num1, string $num2, ?int $scale = 0) : ?string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function bcmod(string $num1, string $num2, ?int $scale = null) : string
-{
-}
+function bcmod(string $num1, string $num2, ?int $scale = null): string {}
+
 /**
  * Raise an arbitrary precision number to another
  * @link https://php.net/manual/en/function.bcpow.php
@@ -180,9 +172,8 @@ function bcmod(string $num1, string $num2, ?int $scale = null) : string
  * @return string the result as a string.
  */
 #[Pure]
-function bcpow(string $num, string $exponent, ?int $scale = null) : string
-{
-}
+function bcpow(string $num, string $exponent, ?int $scale = null): string {}
+
 /**
  * Get the square root of an arbitrary precision number
  * @link https://php.net/manual/en/function.bcsqrt.php
@@ -195,9 +186,8 @@ function bcpow(string $num, string $exponent, ?int $scale = null) : string
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-function bcsqrt(string $num, ?int $scale)
-{
-}
+function bcsqrt(string $num, ?int $scale) {}
+
 /**
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
@@ -205,9 +195,11 @@ function bcsqrt(string $num, ?int $scale)
  * @return int|bool
  */
 #[LanguageLevelTypeAware(['7.3' => 'int'], default: 'bool')]
-function bcscale(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int $scale, #[PhpStormStubsElementAvailable(from: '7.3')] #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')] $scale = null)
-{
-}
+function bcscale(
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int $scale,
+    #[PhpStormStubsElementAvailable(from: '7.3')] #[LanguageLevelTypeAware(['8.0' => 'int|null'], default: 'int')] $scale = null
+) {}
+
 /**
  * Compare two arbitrary precision numbers
  * @link https://php.net/manual/en/function.bccomp.php
@@ -227,9 +219,8 @@ function bcscale(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.2')] int $s
  * <i>right_operand</i>, -1 otherwise.
  */
 #[Pure]
-function bccomp(string $num1, string $num2, ?int $scale = null) : int
-{
-}
+function bccomp(string $num1, string $num2, ?int $scale = null): int {}
+
 /**
  * Raise an arbitrary precision number to another, reduced by a specified modulus
  * @link https://php.net/manual/en/function.bcpowmod.php
@@ -254,6 +245,4 @@ function bccomp(string $num1, string $num2, ?int $scale = null) : int
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "?string")]
-function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null)
-{
-}
+function bcpowmod(string $num, string $exponent, string $modulus, ?int $scale = null) {}

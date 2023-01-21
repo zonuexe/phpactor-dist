@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\ReferenceFinder;
+namespace Phpactor\Completion\Bridge\TolerantParser\ReferenceFinder;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Completor\NameSearcherCompletor as CoreNameSearcherCompletor;
-use Phpactor202301\Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Core\Completor\NameSearcherCompletor as CoreNameSearcherCompletor;
+use Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
 class ExpressionNameCompletor extends CoreNameSearcherCompletor implements TolerantCompletor
 {
     public function __construct(NameSearcher $nameSearcher, private ObjectFormatter $snippetFormatter, DocumentPrioritizer $prioritizer = null)
@@ -54,4 +54,3 @@ class ExpressionNameCompletor extends CoreNameSearcherCompletor implements Toler
         return !$parent instanceof ObjectCreationExpression;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\ReferenceFinder\\ExpressionNameCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\ReferenceFinder\\ExpressionNameCompletor', \false);

@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\WebSocket;
+declare(strict_types=1);
+
+namespace Swoole\WebSocket;
 
 class Frame
 {
@@ -10,23 +11,20 @@ class Frame
     public $opcode = 1;
     public $flags = 1;
     public $finish;
-    public function __toString() : string
-    {
-    }
+
+    public function __toString(): string {}
+
     /**
      * @param mixed $data
      * @param mixed|null $opcode
      * @param mixed|null $flags
      * @return mixed
      */
-    public static function pack($data, $opcode = null, $flags = null)
-    {
-    }
+    public static function pack($data, $opcode = null, $flags = null) {}
+
     /**
      * @param mixed $data
      * @return mixed
      */
-    public static function unpack($data)
-    {
-    }
+    public static function unpack($data) {}
 }

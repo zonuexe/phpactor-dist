@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 /**
@@ -17,12 +17,6 @@ interface Walker
      * @return class-string[]
      */
     public function nodeFqns() : array;
-    public function enter(FrameResolver $resolver, Frame $frame, Node $node) : Frame;
-    public function exit(FrameResolver $resolver, Frame $frame, Node $node) : Frame;
+    public function enter(\Phpactor\WorseReflection\Core\Inference\FrameResolver $resolver, \Phpactor\WorseReflection\Core\Inference\Frame $frame, Node $node) : \Phpactor\WorseReflection\Core\Inference\Frame;
+    public function exit(\Phpactor\WorseReflection\Core\Inference\FrameResolver $resolver, \Phpactor\WorseReflection\Core\Inference\Frame $frame, Node $node) : \Phpactor\WorseReflection\Core\Inference\Frame;
 }
-/**
- * Frame walkers can manipulate a frame.
- *
- * Use this extension point to maniputlate types.
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Walker', 'Phpactor\\WorseReflection\\Core\\Inference\\Walker', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder;
+namespace Phpactor\CodeBuilder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Prototype;
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Domain\Code;
 class SourceBuilder
 {
     public function __construct(private Renderer $generator, private Updater $updater)
@@ -20,4 +20,3 @@ class SourceBuilder
         return $this->updater->textEditsFor($prototype, $code)->apply($code);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\SourceBuilder', 'Phpactor\\CodeBuilder\\SourceBuilder', \false);

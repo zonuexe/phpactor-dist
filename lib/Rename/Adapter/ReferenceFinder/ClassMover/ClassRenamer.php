@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\ReferenceFinder\ClassMover;
+namespace Phpactor\Rename\Adapter\ReferenceFinder\ClassMover;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
@@ -11,20 +11,20 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Phpactor\ClassMover\ClassMover;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\QualifiedName;
-use Phpactor202301\Phpactor\Rename\Adapter\Tolerant\TokenUtil;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotConvertClassToUri;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotRename;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEdit;
-use Phpactor202301\Phpactor\Rename\Model\NameToUriConverter;
-use Phpactor202301\Phpactor\Rename\Model\RenameResult;
-use Phpactor202301\Phpactor\Rename\Model\Renamer;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\ClassMover\ClassMover;
+use Phpactor\ClassMover\Domain\Name\QualifiedName;
+use Phpactor\Rename\Adapter\Tolerant\TokenUtil;
+use Phpactor\Rename\Model\Exception\CouldNotConvertClassToUri;
+use Phpactor\Rename\Model\Exception\CouldNotRename;
+use Phpactor\Rename\Model\LocatedTextEdit;
+use Phpactor\Rename\Model\NameToUriConverter;
+use Phpactor\Rename\Model\RenameResult;
+use Phpactor\Rename\Model\Renamer;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentLocator;
 use RuntimeException;
 final class ClassRenamer implements Renamer
 {
@@ -104,4 +104,3 @@ final class ClassRenamer implements Renamer
         return $newName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ReferenceFinder\\ClassMover\\ClassRenamer', 'Phpactor\\Rename\\Adapter\\ReferenceFinder\\ClassMover\\ClassRenamer', \false);

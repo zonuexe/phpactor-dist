@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Php\Model;
+namespace Phpactor\Extension\Php\Model;
 
-class RuntimePhpVersionResolver implements PhpVersionResolver
+class RuntimePhpVersionResolver implements \Phpactor\Extension\Php\Model\PhpVersionResolver
 {
     public function resolve() : ?string
     {
         return \phpversion();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Php\\Model\\RuntimePhpVersionResolver', 'Phpactor\\Extension\\Php\\Model\\RuntimePhpVersionResolver', \false);

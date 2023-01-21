@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter;
+namespace Phpactor\Extension\LanguageServerBridge\Converter;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class TextDocumentConverter
 {
     public static function fromLspTextItem(TextDocumentItem $item) : TextDocument
@@ -17,4 +17,3 @@ class TextDocumentConverter
         return $builder->build();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBridge\\Converter\\TextDocumentConverter', 'Phpactor\\Extension\\LanguageServerBridge\\Converter\\TextDocumentConverter', \false);

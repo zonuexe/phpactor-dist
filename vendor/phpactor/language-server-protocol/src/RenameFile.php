@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): ResourceOperation
  */
-class RenameFile extends ResourceOperation
+class RenameFile extends \Phpactor\LanguageServerProtocol\ResourceOperation
 {
     /**
      * The resource operation kind.
@@ -50,7 +50,7 @@ class RenameFile extends ResourceOperation
      * @param RenameFileOptions|null $options
      * @param string|null $annotationId
      */
-    public function __construct(string $kind, string $oldUri, string $newUri, ?RenameFileOptions $options = null, ?string $annotationId = null)
+    public function __construct(string $kind, string $oldUri, string $newUri, ?\Phpactor\LanguageServerProtocol\RenameFileOptions $options = null, ?string $annotationId = null)
     {
         $this->kind = $kind;
         $this->oldUri = $oldUri;
@@ -64,7 +64,7 @@ class RenameFile extends ResourceOperation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['kind' => ['names' => [], 'iterable' => \false], 'oldUri' => ['names' => [], 'iterable' => \false], 'newUri' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [RenameFileOptions::class], 'iterable' => \false], 'annotationId' => ['names' => [], 'iterable' => \false]];
+        $map = ['kind' => ['names' => [], 'iterable' => \false], 'oldUri' => ['names' => [], 'iterable' => \false], 'newUri' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [\Phpactor\LanguageServerProtocol\RenameFileOptions::class], 'iterable' => \false], 'annotationId' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -114,9 +114,3 @@ class RenameFile extends ResourceOperation
         throw $lastException;
     }
 }
-/**
- * Rename file operation
- *
- * Mixins (implemented TS interfaces): ResourceOperation
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\RenameFile', 'Phpactor\\LanguageServerProtocol\\RenameFile', \false);

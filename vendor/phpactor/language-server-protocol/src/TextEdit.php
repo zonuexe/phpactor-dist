@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -29,7 +29,7 @@ class TextEdit
      * @param Range $range
      * @param string $newText
      */
-    public function __construct(Range $range, string $newText)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, string $newText)
     {
         $this->range = $range;
         $this->newText = $newText;
@@ -40,7 +40,7 @@ class TextEdit
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'newText' => ['names' => [], 'iterable' => \false]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'newText' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -90,7 +90,3 @@ class TextEdit
         throw $lastException;
     }
 }
-/**
- * A text edit applicable to a text document.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\TextEdit', 'Phpactor\\LanguageServerProtocol\\TextEdit', \false);

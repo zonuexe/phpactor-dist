@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use ArrayIterator;
 use Countable;
@@ -15,7 +15,7 @@ final class WorkspaceEdits implements IteratorAggregate, Countable
      * @var TextDocumentEdits[]
      */
     private array $documentEdits;
-    public function __construct(TextDocumentEdits ...$documentEdits)
+    public function __construct(\Phpactor\TextDocument\TextDocumentEdits ...$documentEdits)
     {
         $this->documentEdits = $documentEdits;
     }
@@ -35,7 +35,3 @@ final class WorkspaceEdits implements IteratorAggregate, Countable
         return \count($this->documentEdits);
     }
 }
-/**
- * @implements IteratorAggregate<int, TextDocumentEdits>
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\WorkspaceEdits', 'Phpactor\\TextDocument\\WorkspaceEdits', \false);

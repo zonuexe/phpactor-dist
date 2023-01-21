@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\SourceCodeFilesystem;
+namespace Phpactor\Extension\SourceCodeFilesystem;
 
-use Phpactor202301\Phpactor\Extension\ComposerAutoloader\ComposerAutoloaderExtension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\Filesystem\Adapter\Composer\ComposerFileListProvider;
-use Phpactor202301\Phpactor\Filesystem\Adapter\Git\GitFilesystem;
-use Phpactor202301\Phpactor\Filesystem\Adapter\Simple\SimpleFilesystem;
-use Phpactor202301\Phpactor\Filesystem\Domain\ChainFileListProvider;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\Filesystem\Domain\MappedFilesystemRegistry;
-use Phpactor202301\Phpactor\Filesystem\Domain\Exception\NotSupported;
-use Phpactor202301\Phpactor\Filesystem\Domain\FallbackFilesystemRegistry;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\ComposerAutoloader\ComposerAutoloaderExtension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\Filesystem\Adapter\Composer\ComposerFileListProvider;
+use Phpactor\Filesystem\Adapter\Git\GitFilesystem;
+use Phpactor\Filesystem\Adapter\Simple\SimpleFilesystem;
+use Phpactor\Filesystem\Domain\ChainFileListProvider;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\MappedFilesystemRegistry;
+use Phpactor\Filesystem\Domain\Exception\NotSupported;
+use Phpactor\Filesystem\Domain\FallbackFilesystemRegistry;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\MapResolver\Resolver;
 class SourceCodeFilesystemExtension implements Extension
 {
     const FILESYSTEM_GIT = 'git';
@@ -72,4 +72,3 @@ class SourceCodeFilesystemExtension implements Extension
         return $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->getParameter(self::PARAM_PROJECT_ROOT));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\SourceCodeFilesystem\\SourceCodeFilesystemExtension', 'Phpactor\\Extension\\SourceCodeFilesystem\\SourceCodeFilesystemExtension', \false);

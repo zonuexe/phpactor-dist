@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-final class FloatLiteralType extends FloatType implements Literal, Generalizable
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+final class FloatLiteralType extends \Phpactor\WorseReflection\Core\Type\FloatType implements \Phpactor\WorseReflection\Core\Type\Literal, \Phpactor\WorseReflection\Core\Type\Generalizable
 {
-    use LiteralTrait;
+    use \Phpactor\WorseReflection\Core\Type\LiteralTrait;
     public function __construct(public float $value)
     {
     }
@@ -20,13 +20,13 @@ final class FloatLiteralType extends FloatType implements Literal, Generalizable
     }
     public function generalize() : Type
     {
-        return new FloatType();
+        return new \Phpactor\WorseReflection\Core\Type\FloatType();
     }
-    public function identity() : NumericType
+    public function identity() : \Phpactor\WorseReflection\Core\Type\NumericType
     {
         return new self(+$this->value());
     }
-    public function negative() : NumericType
+    public function negative() : \Phpactor\WorseReflection\Core\Type\NumericType
     {
         return new self(-$this->value());
     }
@@ -38,13 +38,12 @@ final class FloatLiteralType extends FloatType implements Literal, Generalizable
     }
     public function accepts(Type $type) : Trinary
     {
-        if ($type instanceof FloatLiteralType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\FloatLiteralType) {
             return Trinary::fromBoolean($type->equals($this));
         }
-        if ($type instanceof FloatType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\FloatType) {
             return Trinary::maybe();
         }
         return parent::accepts($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\FloatLiteralType', 'Phpactor\\WorseReflection\\Core\\Type\\FloatLiteralType', \false);

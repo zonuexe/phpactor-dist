@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\StreamException;
+use Safe\Exceptions\StreamException;
+
 /**
  * Sets parameters on the specified context.
  *
@@ -14,14 +15,16 @@ use Phpactor202301\Safe\Exceptions\StreamException;
  * @throws StreamException
  *
  */
-function stream_context_set_params($stream_or_context, array $params) : void
+function stream_context_set_params($stream_or_context, array $params): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_context_set_params($stream_or_context, $params);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Makes a copy of up to maxlength bytes
  * of data from the current position (or from the
@@ -38,15 +41,17 @@ function stream_context_set_params($stream_or_context, array $params) : void
  * @throws StreamException
  *
  */
-function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset = 0) : int
+function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_copy_to_stream($source, $dest, $maxlength, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Adds filtername to the list of filters
  * attached to stream.
@@ -80,7 +85,7 @@ function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset 
  */
 function stream_filter_append($stream, string $filtername, int $read_write = null, $params = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($params !== null) {
         $result = \stream_filter_append($stream, $filtername, $read_write, $params);
     } elseif ($read_write !== null) {
@@ -88,11 +93,13 @@ function stream_filter_append($stream, string $filtername, int $read_write = nul
     } else {
         $result = \stream_filter_append($stream, $filtername);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Adds filtername to the list of filters
  * attached to stream.
@@ -127,7 +134,7 @@ function stream_filter_append($stream, string $filtername, int $read_write = nul
  */
 function stream_filter_prepend($stream, string $filtername, int $read_write = null, $params = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($params !== null) {
         $result = \stream_filter_prepend($stream, $filtername, $read_write, $params);
     } elseif ($read_write !== null) {
@@ -135,11 +142,13 @@ function stream_filter_prepend($stream, string $filtername, int $read_write = nu
     } else {
         $result = \stream_filter_prepend($stream, $filtername);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * stream_filter_register allows you to implement
  * your own filter on any registered stream used with all the other
@@ -158,14 +167,16 @@ function stream_filter_prepend($stream, string $filtername, int $read_write = nu
  * @throws StreamException
  *
  */
-function stream_filter_register(string $filtername, string $classname) : void
+function stream_filter_register(string $filtername, string $classname): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_filter_register($filtername, $classname);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Removes a stream filter previously added to a stream with
  * stream_filter_prepend or
@@ -177,14 +188,16 @@ function stream_filter_register(string $filtername, string $classname) : void
  * @throws StreamException
  *
  */
-function stream_filter_remove($stream_filter) : void
+function stream_filter_remove($stream_filter): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_filter_remove($stream_filter);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Identical to file_get_contents, except that
  * stream_get_contents operates on an already open
@@ -201,15 +214,17 @@ function stream_filter_remove($stream_filter) : void
  * @throws StreamException
  *
  */
-function stream_get_contents($handle, int $maxlength = -1, int $offset = -1) : string
+function stream_get_contents($handle, int $maxlength = -1, int $offset = -1): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_get_contents($handle, $maxlength, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Determines if stream stream refers to a valid terminal type device.
  * This is a more portable version of posix_isatty, since it works on Windows systems too.
@@ -218,14 +233,16 @@ function stream_get_contents($handle, int $maxlength = -1, int $offset = -1) : s
  * @throws StreamException
  *
  */
-function stream_isatty($stream) : void
+function stream_isatty($stream): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_isatty($stream);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Resolve filename against the include path according to the same rules as fopen/include.
  *
@@ -234,15 +251,17 @@ function stream_isatty($stream) : void
  * @throws StreamException
  *
  */
-function stream_resolve_include_path(string $filename) : string
+function stream_resolve_include_path(string $filename): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_resolve_include_path($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets blocking or non-blocking mode on a stream.
  *
@@ -261,14 +280,16 @@ function stream_resolve_include_path(string $filename) : string
  * @throws StreamException
  *
  */
-function stream_set_blocking($stream, bool $mode) : void
+function stream_set_blocking($stream, bool $mode): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_set_blocking($stream, $mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the timeout value on stream,
  * expressed in the sum of seconds and
@@ -284,14 +305,16 @@ function stream_set_blocking($stream, bool $mode) : void
  * @throws StreamException
  *
  */
-function stream_set_timeout($stream, int $seconds, int $microseconds = 0) : void
+function stream_set_timeout($stream, int $seconds, int $microseconds = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_set_timeout($stream, $seconds, $microseconds);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Accept a connection on a socket previously created by
  * stream_socket_server.
@@ -310,7 +333,7 @@ function stream_set_timeout($stream, int $seconds, int $microseconds = 0) : void
  */
 function stream_socket_accept($server_socket, float $timeout = null, ?string &$peername = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($peername !== null) {
         $result = \stream_socket_accept($server_socket, $timeout, $peername);
     } elseif ($timeout !== null) {
@@ -318,11 +341,13 @@ function stream_socket_accept($server_socket, float $timeout = null, ?string &$p
     } else {
         $result = \stream_socket_accept($server_socket);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Initiates a stream or datagram connection to the destination specified
  * by remote_socket.  The type of socket created
@@ -372,23 +397,25 @@ function stream_socket_accept($server_socket, float $timeout = null, ?string &$p
  * @throws StreamException
  *
  */
-function stream_socket_client(string $remote_socket, int &$errno = null, string &$errstr = null, float $timeout = null, int $flags = \STREAM_CLIENT_CONNECT, $context = null)
+function stream_socket_client(string $remote_socket, int &$errno = null, string &$errstr = null, float $timeout = null, int $flags = STREAM_CLIENT_CONNECT, $context = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \stream_socket_client($remote_socket, $errno, $errstr, $timeout, $flags, $context);
-    } elseif ($flags !== \STREAM_CLIENT_CONNECT) {
+    } elseif ($flags !== STREAM_CLIENT_CONNECT) {
         $result = \stream_socket_client($remote_socket, $errno, $errstr, $timeout, $flags);
     } elseif ($timeout !== null) {
         $result = \stream_socket_client($remote_socket, $errno, $errstr, $timeout);
     } else {
         $result = \stream_socket_client($remote_socket, $errno, $errstr);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * stream_socket_pair creates a pair of connected,
  * indistinguishable socket streams. This function is commonly used in IPC
@@ -412,15 +439,17 @@ function stream_socket_client(string $remote_socket, int &$errno = null, string 
  * @throws StreamException
  *
  */
-function stream_socket_pair(int $domain, int $type, int $protocol) : iterable
+function stream_socket_pair(int $domain, int $type, int $protocol): iterable
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_socket_pair($domain, $type, $protocol);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Creates a stream or datagram socket on the specified
  * local_socket.
@@ -463,19 +492,21 @@ function stream_socket_pair(int $domain, int $type, int $protocol) : iterable
  * @throws StreamException
  *
  */
-function stream_socket_server(string $local_socket, int &$errno = null, string &$errstr = null, int $flags = \STREAM_SERVER_BIND | \STREAM_SERVER_LISTEN, $context = null)
+function stream_socket_server(string $local_socket, int &$errno = null, string &$errstr = null, int $flags = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $context = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \stream_socket_server($local_socket, $errno, $errstr, $flags, $context);
     } else {
         $result = \stream_socket_server($local_socket, $errno, $errstr, $flags);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Shutdowns (partially or not) a full-duplex connection.
  *
@@ -489,14 +520,16 @@ function stream_socket_server(string $local_socket, int &$errno = null, string &
  * @throws StreamException
  *
  */
-function stream_socket_shutdown($stream, int $how) : void
+function stream_socket_shutdown($stream, int $how): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_socket_shutdown($stream, $how);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Tells whether the stream supports locking through
  * flock.
@@ -505,14 +538,16 @@ function stream_socket_shutdown($stream, int $how) : void
  * @throws StreamException
  *
  */
-function stream_supports_lock($stream) : void
+function stream_supports_lock($stream): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_supports_lock($stream);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Allows you to implement your own protocol handlers and streams for use
  * with all the other filesystem functions (such as fopen,
@@ -526,14 +561,16 @@ function stream_supports_lock($stream) : void
  * @throws StreamException
  *
  */
-function stream_wrapper_register(string $protocol, string $classname, int $flags = 0) : void
+function stream_wrapper_register(string $protocol, string $classname, int $flags = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_wrapper_register($protocol, $classname, $flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Restores a built-in wrapper previously unregistered with
  * stream_wrapper_unregister.
@@ -542,14 +579,16 @@ function stream_wrapper_register(string $protocol, string $classname, int $flags
  * @throws StreamException
  *
  */
-function stream_wrapper_restore(string $protocol) : void
+function stream_wrapper_restore(string $protocol): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_wrapper_restore($protocol);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }
+
+
 /**
  * Allows you to disable an already defined stream wrapper. Once the wrapper
  * has been disabled you may override it with a user-defined wrapper using
@@ -560,11 +599,11 @@ function stream_wrapper_restore(string $protocol) : void
  * @throws StreamException
  *
  */
-function stream_wrapper_unregister(string $protocol) : void
+function stream_wrapper_unregister(string $protocol): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stream_wrapper_unregister($protocol);
-    if ($result === \false) {
+    if ($result === false) {
         throw StreamException::createFromPhpError();
     }
 }

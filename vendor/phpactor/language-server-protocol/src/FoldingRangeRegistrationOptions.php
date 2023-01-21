@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -9,7 +9,7 @@ use RuntimeException;
 /**
  * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, FoldingRangeOptions, StaticRegistrationOptions
  */
-class FoldingRangeRegistrationOptions extends TextDocumentRegistrationOptions
+class FoldingRangeRegistrationOptions extends \Phpactor\LanguageServerProtocol\TextDocumentRegistrationOptions
 {
     /**
      * A document selector to identify the scope of the registration. If set to null
@@ -97,7 +97,3 @@ class FoldingRangeRegistrationOptions extends TextDocumentRegistrationOptions
         throw $lastException;
     }
 }
-/**
- * Mixins (implemented TS interfaces): TextDocumentRegistrationOptions, FoldingRangeOptions, StaticRegistrationOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FoldingRangeRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\FoldingRangeRegistrationOptions', \false);

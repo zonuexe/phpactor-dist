@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\LabelFormatter;
+namespace Phpactor\Completion\Core\LabelFormatter;
 
-use Phpactor202301\Phpactor\Completion\Core\LabelFormatter;
+use Phpactor\Completion\Core\LabelFormatter;
 class HelpfulLabelFormatter implements LabelFormatter
 {
     /**
@@ -27,4 +27,3 @@ class HelpfulLabelFormatter implements LabelFormatter
         return $label;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\LabelFormatter\\HelpfulLabelFormatter', 'Phpactor\\Completion\\Core\\LabelFormatter\\HelpfulLabelFormatter', \false);

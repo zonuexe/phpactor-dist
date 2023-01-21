@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionConstant as CoreReflectionConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionConstant as CoreReflectionConstant;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\TypeFactory;
 use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
-class ReflectionConstant extends AbstractReflectionClassMember implements CoreReflectionConstant
+use Phpactor\WorseReflection\TypeUtil;
+class ReflectionConstant extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClassMember implements CoreReflectionConstant
 {
     public function __construct(private ServiceLocator $serviceLocator, private ReflectionClassLike $class, private ClassConstDeclaration $declaration, private ConstElement $node)
     {
@@ -72,4 +72,3 @@ class ReflectionConstant extends AbstractReflectionClassMember implements CoreRe
         return $this->serviceLocator;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionConstant', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionConstant', \false);

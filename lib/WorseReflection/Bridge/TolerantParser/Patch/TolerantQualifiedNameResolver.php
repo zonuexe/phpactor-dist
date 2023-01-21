@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Patch;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Patch;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
@@ -109,10 +109,3 @@ class TolerantQualifiedNameResolver
         return ($node->parent instanceof Node\Statement\ExpressionStatement || $node->parent instanceof Expression) && !($node->parent instanceof Node\Expression\MemberAccessExpression || $node->parent instanceof CallExpression || $node->parent instanceof ObjectCreationExpression || $node->parent instanceof Node\Expression\ScopedPropertyAccessExpression || $node->parent instanceof AnonymousFunctionCreationExpression || $node->parent instanceof Node\Expression\BinaryExpression && $node->parent->operator->kind === TokenKind::InstanceOfKeyword);
     }
 }
-/**
- * This is a hack to allow resolving trait use clauses, which are for some reason
- * not supported in tolerant parser.
- *
- * See: https://github.com/Microsoft/tolerant-php-parser/issues/164
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Patch\\TolerantQualifiedNameResolver', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Patch\\TolerantQualifiedNameResolver', \false);

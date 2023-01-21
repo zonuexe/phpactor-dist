@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
-class ConditionalNode extends TypeNode
+class ConditionalNode extends \Phpactor\DocblockParser\Ast\TypeNode
 {
     protected const CHILD_NAMES = ['variable', 'is', 'isType', 'question', 'left', 'colon', 'right'];
-    public function __construct(public VariableNode $variable, public ?Token $is = null, public ?TypeNode $isType = null, public ?Token $question = null, public ?TypeNode $left = null, public ?Token $colon = null, public ?TypeNode $right = null)
+    public function __construct(public \Phpactor\DocblockParser\Ast\VariableNode $variable, public ?\Phpactor\DocblockParser\Ast\Token $is = null, public ?\Phpactor\DocblockParser\Ast\TypeNode $isType = null, public ?\Phpactor\DocblockParser\Ast\Token $question = null, public ?\Phpactor\DocblockParser\Ast\TypeNode $left = null, public ?\Phpactor\DocblockParser\Ast\Token $colon = null, public ?\Phpactor\DocblockParser\Ast\TypeNode $right = null)
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\ConditionalNode', 'Phpactor\\DocblockParser\\Ast\\ConditionalNode', \false);

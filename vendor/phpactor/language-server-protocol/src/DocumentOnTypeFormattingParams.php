@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -41,7 +41,7 @@ class DocumentOnTypeFormattingParams
      * @param string $ch
      * @param FormattingOptions $options
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Position $position, string $ch, FormattingOptions $options)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Position $position, string $ch, \Phpactor\LanguageServerProtocol\FormattingOptions $options)
     {
         $this->textDocument = $textDocument;
         $this->position = $position;
@@ -54,7 +54,7 @@ class DocumentOnTypeFormattingParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [Position::class], 'iterable' => \false], 'ch' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [FormattingOptions::class], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false], 'ch' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [\Phpactor\LanguageServerProtocol\FormattingOptions::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -104,7 +104,3 @@ class DocumentOnTypeFormattingParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [DocumentOnTypeFormattingRequest](#DocumentOnTypeFormattingRequest).
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentOnTypeFormattingParams', 'Phpactor\\LanguageServerProtocol\\DocumentOnTypeFormattingParams', \false);

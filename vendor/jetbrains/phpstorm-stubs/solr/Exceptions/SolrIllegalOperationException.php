@@ -1,20 +1,18 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrIllegalOperationException<br/>
  * This object is thrown when an illegal or unsupported operation is performed on an object.
  * @link https://php.net/manual/en/class.solrillegaloperationexception.php
  */
-class SolrIllegalOperationException extends \SolrException
+class SolrIllegalOperationException extends SolrException
 {
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -25,20 +23,5 @@ class SolrIllegalOperationException extends \SolrException
      * developers.
      * </p>
      */
-    public function getInternalInfo()
-    {
-    }
+    public function getInternalInfo() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrIllegalOperationException<br/>
- * This object is thrown when an illegal or unsupported operation is performed on an object.
- * @link https://php.net/manual/en/class.solrillegaloperationexception.php
- */
-\class_alias('Phpactor202301\\SolrIllegalOperationException', 'SolrIllegalOperationException', \false);

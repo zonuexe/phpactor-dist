@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -29,7 +29,7 @@ class DiagnosticRelatedInformation
      * @param Location $location
      * @param string $message
      */
-    public function __construct(Location $location, string $message)
+    public function __construct(\Phpactor\LanguageServerProtocol\Location $location, string $message)
     {
         $this->location = $location;
         $this->message = $message;
@@ -40,7 +40,7 @@ class DiagnosticRelatedInformation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['location' => ['names' => [Location::class], 'iterable' => \false], 'message' => ['names' => [], 'iterable' => \false]];
+        $map = ['location' => ['names' => [\Phpactor\LanguageServerProtocol\Location::class], 'iterable' => \false], 'message' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -90,9 +90,3 @@ class DiagnosticRelatedInformation
         throw $lastException;
     }
 }
-/**
- * Represents a related message and source code location for a diagnostic. This should be
- * used to point to code locations that cause or related to a diagnostics, e.g when duplicating
- * a symbol in a scope.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DiagnosticRelatedInformation', 'Phpactor\\LanguageServerProtocol\\DiagnosticRelatedInformation', \false);

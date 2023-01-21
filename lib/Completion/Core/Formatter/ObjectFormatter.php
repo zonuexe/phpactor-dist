@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Formatter;
+namespace Phpactor\Completion\Core\Formatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Exception\CouldNotFormat;
+use Phpactor\Completion\Core\Exception\CouldNotFormat;
 class ObjectFormatter
 {
     /**
@@ -37,9 +37,8 @@ class ObjectFormatter
         }
         return \false;
     }
-    private function add(Formatter $formatter) : void
+    private function add(\Phpactor\Completion\Core\Formatter\Formatter $formatter) : void
     {
         $this->formatters[] = $formatter;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Formatter\\ObjectFormatter', 'Phpactor\\Completion\\Core\\Formatter\\ObjectFormatter', \false);

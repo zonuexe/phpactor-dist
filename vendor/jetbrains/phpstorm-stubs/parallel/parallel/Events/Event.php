@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\parallel\Events;
+namespace parallel\Events;
 
 /**
  * When an Event is returned, @see Event::$object shall be removed from the loop that returned it, should the event be a
@@ -13,16 +13,19 @@ final class Event
      * @var int
      */
     public $type;
+
     /**
      * Shall be the source of the event (target name)
      * @var string
      */
     public $source;
+
     /**
      * Shall be either Future or Channel
      * @var object
      */
     public $object;
+
     /**
      * Shall be set for Read/Error events
      * @var mixed

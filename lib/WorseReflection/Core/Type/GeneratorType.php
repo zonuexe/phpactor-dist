@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class GeneratorType extends GenericClassType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Type;
+class GeneratorType extends \Phpactor\WorseReflection\Core\Type\GenericClassType
 {
     public function __construct(ClassReflector $reflector, Type $keyType, Type $valueType)
     {
-        if ((!$keyType->isDefined() || $keyType instanceof ArrayKeyType) && $valueType->isDefined()) {
+        if ((!$keyType->isDefined() || $keyType instanceof \Phpactor\WorseReflection\Core\Type\ArrayKeyType) && $valueType->isDefined()) {
             parent::__construct($reflector, ClassName::fromString('Generator'), [$valueType]);
             return;
         }
@@ -21,7 +21,7 @@ class GeneratorType extends GenericClassType
         if (\count($this->arguments) >= 2) {
             return $this->arguments[0];
         }
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function valueType() : Type
     {
@@ -31,9 +31,9 @@ class GeneratorType extends GenericClassType
         if (\count($this->arguments) >= 2) {
             return $this->arguments[1];
         }
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
-    public function withValue(Type $type) : GeneratorType
+    public function withValue(Type $type) : \Phpactor\WorseReflection\Core\Type\GeneratorType
     {
         $new = clone $this;
         if (\count($new->arguments) === 1) {
@@ -47,7 +47,7 @@ class GeneratorType extends GenericClassType
         $new->arguments[] = $type;
         return $new;
     }
-    public function withKey(Type $type) : GeneratorType
+    public function withKey(Type $type) : \Phpactor\WorseReflection\Core\Type\GeneratorType
     {
         $new = clone $this;
         if (\count($this->arguments) === 2) {
@@ -68,4 +68,3 @@ class GeneratorType extends GenericClassType
         return $t;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\GeneratorType', 'Phpactor\\WorseReflection\\Core\\Type\\GeneratorType', \false);

@@ -1,13 +1,11 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrClient<br/>
@@ -19,28 +17,40 @@ final class SolrClient
 {
     /** @var int Used when updating the search servlet. */
     public const SEARCH_SERVLET_TYPE = 1;
+
     /** @var int Used when updating the update servlet. */
     public const UPDATE_SERVLET_TYPE = 2;
+
     /** @var int Used when updating the threads servlet. */
     public const THREADS_SERVLET_TYPE = 4;
+
     /** @var int Used when updating the ping servlet. */
     public const PING_SERVLET_TYPE = 8;
+
     /** @var int Used when updating the terms servlet. */
     public const TERMS_SERVLET_TYPE = 16;
+
     /** @var int Used when retrieving system information from the system servlet. */
     public const SYSTEM_SERVLET_TYPE = 32;
+
     /** @var string This is the initial value for the search servlet. */
     public const DEFAULT_SEARCH_SERVLET = 'select';
+
     /** @var string This is the initial value for the update servlet. */
     public const DEFAULT_UPDATE_SERVLET = 'update';
+
     /** @var string This is the initial value for the threads servlet. */
     public const DEFAULT_THREADS_SERVLET = 'admin/threads';
+
     /** @var string This is the initial value for the ping servlet. */
     public const DEFAULT_PING_SERVLET = 'admin/ping';
+
     /** @var string This is the initial value for the terms servlet used for the TermsComponent. */
     public const DEFAULT_TERMS_SERVLET = 'terms';
+
     /** @var string This is the initial value for the system servlet used to obtain Solr Server information. */
     public const DEFAULT_SYSTEM_SERVLET = 'admin/system';
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds a document to the index
@@ -78,9 +88,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function addDocument(\SolrInputDocument $doc, $overwrite = \true, $commitWithin = 0)
-    {
-    }
+    public function addDocument(SolrInputDocument $doc, $overwrite = true, $commitWithin = 0) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds a collection of SolrInputDocument instances to the index
@@ -118,9 +127,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function addDocuments(array $docs, $overwrite = \true, $commitWithin = 0)
-    {
-    }
+    public function addDocuments(array $docs, $overwrite = true, $commitWithin = 0) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Finalizes all add/deletes made to the index
@@ -151,9 +159,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function commit($softCommit = \false, $waitSearcher = \true, $expungeDeletes = \false)
-    {
-    }
+    public function commit($softCommit = false, $waitSearcher = true, $expungeDeletes = false) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * SolrClient constructor.
@@ -191,9 +198,8 @@ final class SolrClient
      * </p>
      * @throws SolrIllegalArgumentException
      */
-    public function __construct(array $clientOptions)
-    {
-    }
+    public function __construct(array $clientOptions) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Delete by Id
@@ -211,9 +217,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function deleteById($id)
-    {
-    }
+    public function deleteById($id) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Deletes by Ids
@@ -232,9 +237,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function deleteByIds(array $ids)
-    {
-    }
+    public function deleteByIds(array $ids) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes all documents matching any of the queries
@@ -252,9 +256,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function deleteByQueries(array $queries)
-    {
-    }
+    public function deleteByQueries(array $queries) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Deletes all documents matching the given query
@@ -272,17 +275,15 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function deleteByQuery($query)
-    {
-    }
+    public function deleteByQuery($query) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Destructor for SolrClient
      * @link https://php.net/manual/en/solrclient.destruct.php
      */
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Get Document By Id. Utilizes Solr Realtime Get (RTG).
@@ -292,9 +293,8 @@ final class SolrClient
      * </p>
      * @return SolrQueryResponse
      */
-    public function getById($id)
-    {
-    }
+    public function getById($id) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Get Documents by their Ids. Utilizes Solr Realtime Get (RTG).
@@ -304,9 +304,8 @@ final class SolrClient
      * </p>
      * @return SolrQueryResponse
      */
-    public function getByIds(array $ids)
-    {
-    }
+    public function getByIds(array $ids) {}
+
     /**
      * (PECL solr &gt;= 0.9.7)<br/>
      * Returns the debug data for the last connection attempt
@@ -315,9 +314,8 @@ final class SolrClient
      * Returns a string on success and null if there is nothing to return.
      * </p>
      */
-    public function getDebug()
-    {
-    }
+    public function getDebug() {}
+
     /**
      * (PECL solr &gt;= 0.9.6)<br/>
      * Returns the client options set internally
@@ -326,9 +324,8 @@ final class SolrClient
      * Returns an array containing all the options for the SolrClient object set internally.
      * </p>
      */
-    public function getOptions()
-    {
-    }
+    public function getOptions() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Defragments the index
@@ -353,9 +350,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function optimize($maxSegments = 1, $softCommit = \true, $waitSearcher = \true)
-    {
-    }
+    public function optimize($maxSegments = 1, $softCommit = true, $waitSearcher = true) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Checks if Solr server is still up
@@ -370,9 +366,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function ping()
-    {
-    }
+    public function ping() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sends a query to the server
@@ -390,9 +385,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function query(\SolrParams $query)
-    {
-    }
+    public function query(SolrParams $query) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sends a raw update request
@@ -413,9 +407,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function request($raw_request)
-    {
-    }
+    public function request($raw_request) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Rollbacks all add/deletes made to the index since the last commit
@@ -430,9 +423,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function rollback()
-    {
-    }
+    public function rollback() {}
+
     /**
      * (PECL solr &gt;= 0.9.11)<br/>
      * Sets the response writer used to prepare the response from Solr
@@ -446,9 +438,8 @@ final class SolrClient
      * <li>xml</li>
      * </ul>
      */
-    public function setResponseWriter($responseWriter)
-    {
-    }
+    public function setResponseWriter($responseWriter) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Changes the specified servlet type to a new value
@@ -470,9 +461,8 @@ final class SolrClient
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function setServlet($type, $value)
-    {
-    }
+    public function setServlet($type, $value) {}
+
     /**
      * (PECL solr &gt;= 2.0.0)<br/>
      * Retrieve Solr Server information
@@ -487,9 +477,8 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function system()
-    {
-    }
+    public function system() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Checks the threads status
@@ -504,21 +493,5 @@ final class SolrClient
      * Throws SolrServerException if the Solr Server had failed to satisfy the request.
      * </p>
      */
-    public function threads()
-    {
-    }
+    public function threads() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrClient<br/>
- * This class is used to send requests to a Solr server. Currently, cloning and serialization of SolrClient instances is
- * not supported.
- * @link https://php.net/manual/en/class.solrclient.php
- */
-\class_alias('Phpactor202301\\SolrClient', 'SolrClient', \false);

@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-interface SearchIndex extends SearchClient
+interface SearchIndex extends \Phpactor\Indexer\Model\SearchClient
 {
-    public function write(Record $record) : void;
-    public function remove(Record $record) : void;
+    public function write(\Phpactor\Indexer\Model\Record $record) : void;
+    public function remove(\Phpactor\Indexer\Model\Record $record) : void;
     public function flush() : void;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\SearchIndex', 'Phpactor\\Indexer\\Model\\SearchIndex', \false);

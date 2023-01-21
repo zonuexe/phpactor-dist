@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CompletionExtra;
+namespace Phpactor\Extension\CompletionExtra;
 
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Extension\CompletionExtra\Rpc\HoverHandler;
-use Phpactor202301\Phpactor\Extension\Completion\CompletionExtension;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\CompletionExtra\Command\CompleteCommand;
-use Phpactor202301\Phpactor\Extension\CompletionExtra\Application\Complete;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Extension\CompletionExtra\Rpc\HoverHandler;
+use Phpactor\Extension\Completion\CompletionExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Extension\CompletionExtra\Command\CompleteCommand;
+use Phpactor\Extension\CompletionExtra\Application\Complete;
 class CompletionExtraExtension implements Extension
 {
     const CLASS_COMPLETOR_LIMIT = 'completion.completor.class.limit';
@@ -44,4 +44,3 @@ class CompletionExtraExtension implements Extension
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CompletionExtra\\CompletionExtraExtension', 'Phpactor\\Extension\\CompletionExtra\\CompletionExtraExtension', \false);

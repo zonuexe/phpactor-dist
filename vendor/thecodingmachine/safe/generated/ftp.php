@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\FtpException;
+use Safe\Exceptions\FtpException;
+
 /**
  * Sends an ALLO command to the remote FTP server to
  * allocate space for a file to be uploaded.
@@ -14,14 +15,16 @@ use Phpactor202301\Safe\Exceptions\FtpException;
  * @throws FtpException
  *
  */
-function ftp_alloc($ftp_stream, int $filesize, string &$result = null) : void
+function ftp_alloc($ftp_stream, int $filesize, string &$result = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_alloc($ftp_stream, $filesize, $result);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -32,14 +35,16 @@ function ftp_alloc($ftp_stream, int $filesize, string &$result = null) : void
  * @throws FtpException
  *
  */
-function ftp_append($ftp, string $remote_file, string $local_file, int $mode = \FTP_BINARY) : void
+function ftp_append($ftp, string $remote_file, string $local_file, int $mode = FTP_BINARY): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_append($ftp, $remote_file, $local_file, $mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * Changes to the parent directory.
  *
@@ -47,14 +52,16 @@ function ftp_append($ftp, string $remote_file, string $local_file, int $mode = \
  * @throws FtpException
  *
  */
-function ftp_cdup($ftp_stream) : void
+function ftp_cdup($ftp_stream): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_cdup($ftp_stream);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * Changes the current directory to the specified one.
  *
@@ -63,14 +70,16 @@ function ftp_cdup($ftp_stream) : void
  * @throws FtpException
  *
  */
-function ftp_chdir($ftp_stream, string $directory) : void
+function ftp_chdir($ftp_stream, string $directory): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_chdir($ftp_stream, $directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the permissions on the specified remote file to
  * mode.
@@ -82,15 +91,17 @@ function ftp_chdir($ftp_stream, string $directory) : void
  * @throws FtpException
  *
  */
-function ftp_chmod($ftp_stream, int $mode, string $filename) : int
+function ftp_chmod($ftp_stream, int $mode, string $filename): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_chmod($ftp_stream, $mode, $filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * ftp_close closes the given link identifier
  * and releases the resource.
@@ -99,14 +110,16 @@ function ftp_chmod($ftp_stream, int $mode, string $filename) : int
  * @throws FtpException
  *
  */
-function ftp_close($ftp_stream) : void
+function ftp_close($ftp_stream): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_close($ftp_stream);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_connect opens an FTP connection to the
  * specified host.
@@ -125,13 +138,15 @@ function ftp_close($ftp_stream) : void
  */
 function ftp_connect(string $host, int $port = 21, int $timeout = 90)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_connect($host, $port, $timeout);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * ftp_delete deletes the file specified by
  * path from the FTP server.
@@ -141,14 +156,16 @@ function ftp_connect(string $host, int $port = 21, int $timeout = 90)
  * @throws FtpException
  *
  */
-function ftp_delete($ftp_stream, string $path) : void
+function ftp_delete($ftp_stream, string $path): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_delete($ftp_stream, $path);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_fget retrieves remote_file
  * from the FTP server, and writes it to the given file pointer.
@@ -162,14 +179,16 @@ function ftp_delete($ftp_stream, string $path) : void
  * @throws FtpException
  *
  */
-function ftp_fget($ftp_stream, $handle, string $remote_file, int $mode = \FTP_BINARY, int $resumepos = 0) : void
+function ftp_fget($ftp_stream, $handle, string $remote_file, int $mode = FTP_BINARY, int $resumepos = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_fget($ftp_stream, $handle, $remote_file, $mode, $resumepos);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_fput uploads the data from a file pointer
  * to a remote file on the FTP server.
@@ -183,14 +202,16 @@ function ftp_fget($ftp_stream, $handle, string $remote_file, int $mode = \FTP_BI
  * @throws FtpException
  *
  */
-function ftp_fput($ftp_stream, string $remote_file, $handle, int $mode = \FTP_BINARY, int $startpos = 0) : void
+function ftp_fput($ftp_stream, string $remote_file, $handle, int $mode = FTP_BINARY, int $startpos = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_fput($ftp_stream, $remote_file, $handle, $mode, $startpos);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_get retrieves a remote file from the FTP server,
  * and saves it into a local file.
@@ -204,14 +225,16 @@ function ftp_fput($ftp_stream, string $remote_file, $handle, int $mode = \FTP_BI
  * @throws FtpException
  *
  */
-function ftp_get($ftp_stream, string $local_file, string $remote_file, int $mode = \FTP_BINARY, int $resumepos = 0) : void
+function ftp_get($ftp_stream, string $local_file, string $remote_file, int $mode = FTP_BINARY, int $resumepos = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_get($ftp_stream, $local_file, $remote_file, $mode, $resumepos);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * Logs in to the given FTP stream.
  *
@@ -221,14 +244,16 @@ function ftp_get($ftp_stream, string $local_file, string $remote_file, int $mode
  * @throws FtpException
  *
  */
-function ftp_login($ftp_stream, string $username, string $password) : void
+function ftp_login($ftp_stream, string $username, string $password): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_login($ftp_stream, $username, $password);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates the specified directory on the FTP server.
  *
@@ -238,15 +263,17 @@ function ftp_login($ftp_stream, string $username, string $password) : void
  * @throws FtpException
  *
  */
-function ftp_mkdir($ftp_stream, string $directory) : string
+function ftp_mkdir($ftp_stream, string $directory): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_mkdir($ftp_stream, $directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -256,15 +283,17 @@ function ftp_mkdir($ftp_stream, string $directory) : string
  * @throws FtpException
  *
  */
-function ftp_mlsd($ftp_stream, string $directory) : array
+function ftp_mlsd($ftp_stream, string $directory): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_mlsd($ftp_stream, $directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -277,15 +306,17 @@ function ftp_mlsd($ftp_stream, string $directory) : array
  * @throws FtpException
  *
  */
-function ftp_nlist($ftp_stream, string $directory) : array
+function ftp_nlist($ftp_stream, string $directory): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_nlist($ftp_stream, $directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * ftp_pasv turns on or off passive mode. In
  * passive mode, data connections are initiated by the client,
@@ -300,14 +331,16 @@ function ftp_nlist($ftp_stream, string $directory) : array
  * @throws FtpException
  *
  */
-function ftp_pasv($ftp_stream, bool $pasv) : void
+function ftp_pasv($ftp_stream, bool $pasv): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_pasv($ftp_stream, $pasv);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_put stores a local file on the FTP server.
  *
@@ -320,14 +353,16 @@ function ftp_pasv($ftp_stream, bool $pasv) : void
  * @throws FtpException
  *
  */
-function ftp_put($ftp_stream, string $remote_file, string $local_file, int $mode = \FTP_BINARY, int $startpos = 0) : void
+function ftp_put($ftp_stream, string $remote_file, string $local_file, int $mode = FTP_BINARY, int $startpos = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_put($ftp_stream, $remote_file, $local_file, $mode, $startpos);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -336,15 +371,17 @@ function ftp_put($ftp_stream, string $remote_file, string $local_file, int $mode
  * @throws FtpException
  *
  */
-function ftp_pwd($ftp_stream) : string
+function ftp_pwd($ftp_stream): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_pwd($ftp_stream);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * ftp_rename renames a file or a directory on the FTP
  * server.
@@ -355,14 +392,16 @@ function ftp_pwd($ftp_stream) : string
  * @throws FtpException
  *
  */
-function ftp_rename($ftp_stream, string $oldname, string $newname) : void
+function ftp_rename($ftp_stream, string $oldname, string $newname): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_rename($ftp_stream, $oldname, $newname);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * Removes the specified directory on the FTP server.
  *
@@ -372,14 +411,16 @@ function ftp_rename($ftp_stream, string $oldname, string $newname) : void
  * @throws FtpException
  *
  */
-function ftp_rmdir($ftp_stream, string $directory) : void
+function ftp_rmdir($ftp_stream, string $directory): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_rmdir($ftp_stream, $directory);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_site sends the given SITE
  * command to the FTP server.
@@ -394,14 +435,16 @@ function ftp_rmdir($ftp_stream, string $directory) : void
  * @throws FtpException
  *
  */
-function ftp_site($ftp_stream, string $command) : void
+function ftp_site($ftp_stream, string $command): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_site($ftp_stream, $command);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
 }
+
+
 /**
  * ftp_ssl_connect opens an explicit SSL-FTP connection to the
  * specified host. That implies that
@@ -425,13 +468,15 @@ function ftp_site($ftp_stream, string $command) : void
  */
 function ftp_ssl_connect(string $host, int $port = 21, int $timeout = 90)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_ssl_connect($host, $port, $timeout);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the system type identifier of the remote FTP server.
  *
@@ -440,11 +485,11 @@ function ftp_ssl_connect(string $host, int $port = 21, int $timeout = 90)
  * @throws FtpException
  *
  */
-function ftp_systype($ftp_stream) : string
+function ftp_systype($ftp_stream): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ftp_systype($ftp_stream);
-    if ($result === \false) {
+    if ($result === false) {
         throw FtpException::createFromPhpError();
     }
     return $result;

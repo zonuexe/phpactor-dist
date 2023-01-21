@@ -1,15 +1,16 @@
 <?php
 
-namespace Phpactor202301;
-
 class V8Js
 {
     /* Constants */
+
     public const V8_VERSION = '';
     public const FLAG_NONE = 1;
     public const FLAG_FORCE_ARRAY = 2;
     public const FLAG_PROPAGATE_PHP_EXCEPTIONS = 4;
+
     /* Methods */
+
     /**
      * Initializes and starts V8 engine and returns new V8Js object with it's own V8 context.
      * Snapshots are supported by V8 4.3.7 and higher.
@@ -19,17 +20,15 @@ class V8Js
      * @param bool $report_uncaught_exceptions
      * @param string $snapshot_blob
      */
-    public function __construct($object_name = "PHP", array $variables = [], array $extensions = [], $report_uncaught_exceptions = \true, $snapshot_blob = null)
-    {
-    }
+    public function __construct($object_name = "PHP", array $variables = [], array $extensions = [], $report_uncaught_exceptions = true, $snapshot_blob = null) {}
+
     /**
      * Provide a function or method to be used to load required modules. This can be any valid PHP callable.
      * The loader function will receive the normalised module path and should return Javascript code to be executed.
      * @param callable $loader
      */
-    public function setModuleLoader(callable $loader)
-    {
-    }
+    public function setModuleLoader(callable $loader) {}
+
     /**
      * Provide a function or method to be used to normalise module paths. This can be any valid PHP callable.
      * This can be used in combination with setModuleLoader to influence normalisation of the module path (which
@@ -40,9 +39,8 @@ class V8Js
      * module loader (unless the module was cached before).
      * @param callable $normaliser
      */
-    public function setModuleNormaliser(callable $normaliser)
-    {
-    }
+    public function setModuleNormaliser(callable $normaliser) {}
+
     /**
      * Compiles and executes script in object's context with optional identifier string.
      * A time limit (milliseconds) and/or memory limit (bytes) can be provided to restrict execution. These options will throw a V8JsTimeLimitException or V8JsMemoryLimitException.
@@ -53,18 +51,16 @@ class V8Js
      * @param int $memory_limit in bytes
      * @return mixed
      */
-    public function executeString($script, $identifier = '', $flags = \V8Js::FLAG_NONE, $time_limit = 0, $memory_limit = 0)
-    {
-    }
+    public function executeString($script, $identifier = '', $flags = V8Js::FLAG_NONE, $time_limit = 0, $memory_limit = 0) {}
+
     /**
      * Compiles a script in object's context with optional identifier string.
      * @param $script
      * @param string $identifier
      * @return resource
      */
-    public function compileString($script, $identifier = '')
-    {
-    }
+    public function compileString($script, $identifier = '') {}
+
     /**
      * Executes a precompiled script in object's context.
      * A time limit (milliseconds) and/or memory limit (bytes) can be provided to restrict execution. These options will throw a V8JsTimeLimitException or V8JsMemoryLimitException.
@@ -73,46 +69,41 @@ class V8Js
      * @param int $time_limit
      * @param int $memory_limit
      */
-    public function executeScript($script, $flags = \V8Js::FLAG_NONE, $time_limit = 0, $memory_limit = 0)
-    {
-    }
+    public function executeScript($script, $flags = V8Js::FLAG_NONE, $time_limit = 0, $memory_limit = 0) {}
+
     /**
      * Set the time limit (in milliseconds) for this V8Js object
      * works similar to the set_time_limit php
      * @param int $limit
      */
-    public function setTimeLimit($limit)
-    {
-    }
+    public function setTimeLimit($limit) {}
+
     /**
      * Set the memory limit (in bytes) for this V8Js object
      * @param int $limit
      */
-    public function setMemoryLimit($limit)
-    {
-    }
+    public function setMemoryLimit($limit) {}
+
     /**
      * Set the average object size (in bytes) for this V8Js object.
      * V8's "amount of external memory" is adjusted by this value for every exported object.  V8 triggers a garbage collection once this totals to 192 MB.
      * @param int $average_object_size
      */
-    public function setAverageObjectSize($average_object_size)
-    {
-    }
+    public function setAverageObjectSize($average_object_size) {}
+
     /**
      * Returns uncaught pending exception or null if there is no pending exception.
      * @return V8JsScriptException|null
      */
-    public function getPendingException()
-    {
-    }
+    public function getPendingException() {}
+
     /**
      * Clears the uncaught pending exception
      */
-    public function clearPendingException()
-    {
-    }
+    public function clearPendingException() {}
+
     /* Static methods */
+
     /**
      * Registers persistent context independent global Javascript extension.
      * NOTE! These extensions exist until PHP is shutdown and they need to be registered before V8 is initialized.
@@ -123,16 +114,14 @@ class V8Js
      * @param bool $auto_enable
      * @return bool
      */
-    public static function registerExtension($extension_name, $code, array $dependencies, $auto_enable = \false)
-    {
-    }
+    public static function registerExtension($extension_name, $code, array $dependencies, $auto_enable = false) {}
+
     /**
      * Returns extensions successfully registered with V8Js::registerExtension().
      * @return string[]
      */
-    public static function getExtensions()
-    {
-    }
+    public static function getExtensions() {}
+
     /**
      * Creates a custom V8 heap snapshot with the provided JavaScript source embedded.
      * Snapshots are supported by V8 4.3.7 and higher.  For older versions of V8 this
@@ -140,56 +129,42 @@ class V8Js
      * @param string $embed_source
      * @return string|false
      */
-    public static function createSnapshot($embed_source)
-    {
-    }
+    public static function createSnapshot($embed_source) {}
 }
-\class_alias('Phpactor202301\\V8Js', 'V8Js', \false);
-final class V8JsScriptException extends \Exception
+
+final class V8JsScriptException extends Exception
 {
     /**
      * @return string
      */
-    public final function getJsFileName()
-    {
-    }
+    final public function getJsFileName() {}
+
     /**
      * @return int
      */
-    public final function getJsLineNumber()
-    {
-    }
+    final public function getJsLineNumber() {}
+
     /**
      * @return int
      */
-    public final function getJsStartColumn()
-    {
-    }
+    final public function getJsStartColumn() {}
+
     /**
      * @return int
      */
-    public final function getJsEndColumn()
-    {
-    }
+    final public function getJsEndColumn() {}
+
     /**
      * @return string
      */
-    public final function getJsSourceLine()
-    {
-    }
+    final public function getJsSourceLine() {}
+
     /**
      * @return string
      */
-    public final function getJsTrace()
-    {
-    }
+    final public function getJsTrace() {}
 }
-\class_alias('Phpactor202301\\V8JsScriptException', 'V8JsScriptException', \false);
-final class V8JsTimeLimitException extends \Exception
-{
-}
-\class_alias('Phpactor202301\\V8JsTimeLimitException', 'V8JsTimeLimitException', \false);
-final class V8JsMemoryLimitException extends \Exception
-{
-}
-\class_alias('Phpactor202301\\V8JsMemoryLimitException', 'V8JsMemoryLimitException', \false);
+
+final class V8JsTimeLimitException extends Exception {}
+
+final class V8JsMemoryLimitException extends Exception {}

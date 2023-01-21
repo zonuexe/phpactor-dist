@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use ArrayIterator;
 use Countable;
@@ -8,7 +8,7 @@ use IteratorAggregate;
 /**
  * @implements IteratorAggregate<int,Token|Element>
  */
-class TypeList extends Node implements IteratorAggregate, Countable
+class TypeList extends \Phpactor\DocblockParser\Ast\Node implements IteratorAggregate, Countable
 {
     protected const CHILD_NAMES = ['list'];
     /**
@@ -28,14 +28,10 @@ class TypeList extends Node implements IteratorAggregate, Countable
     {
         return \count($this->list);
     }
-    public function types() : TypeNodes
+    public function types() : \Phpactor\DocblockParser\Ast\TypeNodes
     {
-        return new TypeNodes(...\array_filter($this->list, function (Element $element) {
-            return $element instanceof TypeNode;
+        return new \Phpactor\DocblockParser\Ast\TypeNodes(...\array_filter($this->list, function (\Phpactor\DocblockParser\Ast\Element $element) {
+            return $element instanceof \Phpactor\DocblockParser\Ast\TypeNode;
         }));
     }
 }
-/**
- * @implements IteratorAggregate<int,Token|Element>
- */
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\TypeList', 'Phpactor\\DocblockParser\\Ast\\TypeList', \false);

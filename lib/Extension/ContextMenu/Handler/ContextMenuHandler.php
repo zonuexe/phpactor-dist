@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ContextMenu\Handler;
+namespace Phpactor\Extension\ContextMenu\Handler;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
-use Phpactor202301\Phpactor\Extension\ContextMenu\Model\Action;
-use Phpactor202301\Phpactor\Extension\ContextMenu\Model\ContextMenu;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\InputCallbackResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\Extension\ContextMenu\ContextMenuExtension;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Container\Container;
+use Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
+use Phpactor\Extension\ContextMenu\Model\Action;
+use Phpactor\Extension\ContextMenu\Model\ContextMenu;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\Response\InputCallbackResponse;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\Extension\ContextMenu\ContextMenuExtension;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Container\Container;
 class ContextMenuHandler implements Handler
 {
     const NAME = 'context_menu';
@@ -105,4 +105,3 @@ class ContextMenuHandler implements Handler
         return $parameters;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ContextMenu\\Handler\\ContextMenuHandler', 'Phpactor\\Extension\\ContextMenu\\Handler\\ContextMenuHandler', \false);

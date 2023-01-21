@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\ByteOffsetRange;
 interface Diagnostic
 {
     public function range() : ByteOffsetRange;
-    public function severity() : DiagnosticSeverity;
+    public function severity() : \Phpactor\WorseReflection\Core\DiagnosticSeverity;
     public function message() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Diagnostic', 'Phpactor\\WorseReflection\\Core\\Diagnostic', \false);

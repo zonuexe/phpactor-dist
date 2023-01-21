@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Logger;
+namespace Phpactor\Extension\Logger;
 
 use Phpactor202301\Monolog\Formatter\JsonFormatter;
 use Phpactor202301\Monolog\Formatter\LineFormatter;
 use Phpactor202301\Monolog\Handler\NullHandler;
 use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Phpactor\Extension\Logger\Formatter\FormatterRegistry;
-use Phpactor202301\Phpactor\Extension\Logger\Formatter\PrettyFormatter;
+use Phpactor\Extension\Logger\Formatter\FormatterRegistry;
+use Phpactor\Extension\Logger\Formatter\PrettyFormatter;
 use Phpactor202301\Psr\Log\LogLevel;
 use Phpactor202301\Monolog\Handler\StreamHandler;
 use Phpactor202301\Monolog\Handler\FingersCrossedHandler;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Container;
+use Phpactor\Container\Extension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\ContainerBuilder;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use RuntimeException;
 class LoggingExtension implements Extension
@@ -41,7 +41,7 @@ class LoggingExtension implements Extension
     }
     public static function channelLogger(Container $container, string $name) : LoggerInterface
     {
-        return (new LoggerFactory($container->get(self::SERVICE_LOGGER)))->get($name);
+        return (new \Phpactor\Extension\Logger\LoggerFactory($container->get(self::SERVICE_LOGGER)))->get($name);
     }
     private function registerInfrastructure(ContainerBuilder $container) : void
     {
@@ -76,13 +76,12 @@ class LoggingExtension implements Extension
     {
         $container->register(PrettyFormatter::class, function () {
             return new PrettyFormatter();
-        }, [LoggingExtension::TAG_FORMATTER => ['alias' => 'pretty']]);
+        }, [\Phpactor\Extension\Logger\LoggingExtension::TAG_FORMATTER => ['alias' => 'pretty']]);
         $container->register(LineFormatter::class, function () {
             return new LineFormatter();
-        }, [LoggingExtension::TAG_FORMATTER => ['alias' => 'line']]);
+        }, [\Phpactor\Extension\Logger\LoggingExtension::TAG_FORMATTER => ['alias' => 'line']]);
         $container->register(JsonFormatter::class, function () {
             return new JsonFormatter();
-        }, [LoggingExtension::TAG_FORMATTER => ['alias' => 'json']]);
+        }, [\Phpactor\Extension\Logger\LoggingExtension::TAG_FORMATTER => ['alias' => 'json']]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Logger\\LoggingExtension', 'Phpactor\\Extension\\Logger\\LoggingExtension', \false);

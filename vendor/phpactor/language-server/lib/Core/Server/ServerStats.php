@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server;
+namespace Phpactor\LanguageServer\Core\Server;
 
 use DateInterval;
 use DateTimeImmutable;
 /**
  * Class which can be passed _to_ the server in order to collect statistics.
  */
-final class ServerStats implements ServerStatsReader
+final class ServerStats implements \Phpactor\LanguageServer\Core\Server\ServerStatsReader
 {
     /**
      * @var DateTimeImmutable
@@ -52,7 +52,3 @@ final class ServerStats implements ServerStatsReader
         return $this->requestCount;
     }
 }
-/**
- * Class which can be passed _to_ the server in order to collect statistics.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\ServerStats', 'Phpactor\\LanguageServer\\Core\\Server\\ServerStats', \false);

@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
 interface FileListProvider
 {
-    public function fileList() : FileList;
+    public function fileList() : \Phpactor\Filesystem\Domain\FileList;
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\FileListProvider', 'Phpactor\\Filesystem\\Domain\\FileListProvider', \false);

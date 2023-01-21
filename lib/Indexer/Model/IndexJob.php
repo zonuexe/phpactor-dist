@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use Generator;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use SplFileInfo;
 class IndexJob
 {
-    public function __construct(private IndexBuilder $indexBuilder, private FileList $fileList)
+    public function __construct(private \Phpactor\Indexer\Model\IndexBuilder $indexBuilder, private \Phpactor\Indexer\Model\FileList $fileList)
     {
     }
     /**
@@ -35,4 +35,3 @@ class IndexJob
         return $this->fileList->count();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\IndexJob', 'Phpactor\\Indexer\\Model\\IndexJob', \false);

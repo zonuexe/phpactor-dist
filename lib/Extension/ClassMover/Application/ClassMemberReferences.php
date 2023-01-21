@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Application;
+namespace Phpactor\Extension\ClassMover\Application;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\MemberFinder;
-use Phpactor202301\Phpactor\ClassMover\Domain\MemberReplacer;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\MemberReference;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\MemberReferences;
-use Phpactor202301\Phpactor\ClassMover\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Finder\FileFinder;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\ClassMover\Domain\Model\ClassMemberQuery;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\ClassMover\Domain\MemberFinder;
+use Phpactor\ClassMover\Domain\MemberReplacer;
+use Phpactor\ClassMover\Domain\Reference\MemberReference;
+use Phpactor\ClassMover\Domain\Reference\MemberReferences;
+use Phpactor\ClassMover\Domain\SourceCode;
+use Phpactor\Extension\ClassMover\Application\Finder\FileFinder;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\ClassMover\Domain\Model\ClassMemberQuery;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\WorseReflection\Reflector;
 class ClassMemberReferences
 {
     public function __construct(private ClassFileNormalizer $classFileNormalizer, private MemberFinder $memberFinder, private MemberReplacer $memberReplacer, private FilesystemRegistry $filesystemRegistry, private Reflector $reflector)
@@ -114,4 +114,3 @@ class ClassMemberReferences
         return $query;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Application\\ClassMemberReferences', 'Phpactor\\Extension\\ClassMover\\Application\\ClassMemberReferences', \false);

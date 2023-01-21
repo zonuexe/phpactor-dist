@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Rpc;
+namespace Phpactor\Extension\Core\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Core\Application\CacheClear;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Core\Application\CacheClear;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
 class CacheClearHandler implements Handler
 {
     const NAME = 'cache_clear';
@@ -25,4 +25,3 @@ class CacheClearHandler implements Handler
         return EchoResponse::fromMessage(\sprintf('Cache cleared: %s', $this->cacheClear->cachePath()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Rpc\\CacheClearHandler', 'Phpactor\\Extension\\Core\\Rpc\\CacheClearHandler', \false);

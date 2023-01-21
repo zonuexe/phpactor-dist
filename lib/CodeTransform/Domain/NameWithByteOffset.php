@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
-use Phpactor202301\Phpactor\Name\Name;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor\Name\Name;
+use Phpactor\TextDocument\ByteOffset;
 use RuntimeException;
 final class NameWithByteOffset
 {
@@ -31,4 +31,3 @@ final class NameWithByteOffset
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\NameWithByteOffset', 'Phpactor\\CodeTransform\\Domain\\NameWithByteOffset', \false);

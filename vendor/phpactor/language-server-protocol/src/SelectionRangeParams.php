@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
  */
-class SelectionRangeParams extends WorkDoneProgressParams
+class SelectionRangeParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The text document.
@@ -44,7 +44,7 @@ class SelectionRangeParams extends WorkDoneProgressParams
      * @param int|string|null $workDoneToken
      * @param int|string|null $partialResultToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, array $positions, $workDoneToken = null, $partialResultToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, array $positions, $workDoneToken = null, $partialResultToken = null)
     {
         $this->textDocument = $textDocument;
         $this->positions = $positions;
@@ -57,7 +57,7 @@ class SelectionRangeParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'positions' => ['names' => [Position::class], 'iterable' => \true], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'positions' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \true], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -107,9 +107,3 @@ class SelectionRangeParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * A parameter literal used in selection range requests.
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SelectionRangeParams', 'Phpactor\\LanguageServerProtocol\\SelectionRangeParams', \false);

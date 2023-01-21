@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 final class FunctionStubRegistry
 {
@@ -10,7 +10,7 @@ final class FunctionStubRegistry
     public function __construct(private array $functionMap)
     {
     }
-    public function get(string $name) : ?FunctionStub
+    public function get(string $name) : ?\Phpactor\WorseReflection\Core\Inference\FunctionStub
     {
         if (!isset($this->functionMap[$name])) {
             return null;
@@ -18,4 +18,3 @@ final class FunctionStubRegistry
         return $this->functionMap[$name];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FunctionStubRegistry', 'Phpactor\\WorseReflection\\Core\\Inference\\FunctionStubRegistry', \false);

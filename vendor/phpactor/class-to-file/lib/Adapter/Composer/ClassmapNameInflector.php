@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer;
+namespace Phpactor\ClassFileConverter\Adapter\Composer;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-final class ClassmapNameInflector implements NameInflector
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+final class ClassmapNameInflector implements \Phpactor\ClassFileConverter\Adapter\Composer\NameInflector
 {
     public function inflectToRelativePath(string $prefix, ClassName $className, string $mappedPath) : FilePath
     {
@@ -15,4 +15,3 @@ final class ClassmapNameInflector implements NameInflector
         return ClassName::fromString($classPrefix);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Composer\\ClassmapNameInflector', 'Phpactor\\ClassFileConverter\\Adapter\\Composer\\ClassmapNameInflector', \false);

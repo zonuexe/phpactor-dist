@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Stubs for stomp
  * https://pecl.php.net/package/stomp
@@ -16,25 +13,22 @@ class Stomp
      * @param string $password The password
      * @param array  $headers additional headers (example: receipt).
      */
-    public function __construct($broker = null, $username = null, $password = null, array $headers = [])
-    {
-    }
+    public function __construct($broker = null, $username = null, $password = null, array $headers = []) {}
+
     /**
      * Get the current stomp session ID
      *
      * @return string|false stomp session ID if it exists, or FALSE otherwise
      */
-    public function getSessionId()
-    {
-    }
+    public function getSessionId() {}
+
     /**
      * Close stomp connection
      *
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function disconnect()
-    {
-    }
+    public function disconnect() {}
+
     /**
      * Sends a message to a destination in the messaging system
      *
@@ -43,9 +37,8 @@ class Stomp
      * @param array             $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function send($destination, $msg, array $headers = [])
-    {
-    }
+    public function send($destination, $msg, array $headers = []) {}
+
     /**
      * Register to listen to a given destination
      *
@@ -53,9 +46,8 @@ class Stomp
      * @param array  $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function subscribe($destination, array $headers = [])
-    {
-    }
+    public function subscribe($destination, array $headers = []) {}
+
     /**
      * Remove an existing subscription
      *
@@ -63,53 +55,47 @@ class Stomp
      * @param array  $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function unsubscribe($destination, array $headers = [])
-    {
-    }
+    public function unsubscribe($destination, array $headers = []) {}
+
     /**
      * Indicate whether or not there is a frame ready to read
      *
      * @return bool TRUE if there is one, or FALSE otherwise
      */
-    public function hasFrame()
-    {
-    }
+    public function hasFrame() {}
+
     /**
      * Read the next frame
      *
      * @param string $className name of the class to instantiate.
      * @return object|false on success, or FALSE on failure
      */
-    public function readFrame($className = 'stompFrame')
-    {
-    }
+    public function readFrame($className = 'stompFrame') {}
+
     /**
      * Start a transaction
      *
      * @param string $transaction_id transaction id
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function begin($transaction_id)
-    {
-    }
+    public function begin($transaction_id) {}
+
     /**
      * Commit a transaction in progress
      *
      * @param string $transaction_id transaction id
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function commit($transaction_id)
-    {
-    }
+    public function commit($transaction_id) {}
+
     /**
      * Roll back a transaction in progress
      *
      * @param string $transaction_id transaction id
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function abort($transaction_id)
-    {
-    }
+    public function abort($transaction_id) {}
+
     /**
      * Acknowledge consumption of a message from a subscription using client acknowledgment
      *
@@ -117,17 +103,15 @@ class Stomp
      * @param array             $headers additional headers (example: receipt).
      * @return bool TRUE on success, or FALSE on failure
      */
-    public function ack($msg, array $headers = [])
-    {
-    }
+    public function ack($msg, array $headers = []) {}
+
     /**
      * Get the last stomp error
      *
      * @return string|false Error message, or FALSE if no error
      */
-    public function error()
-    {
-    }
+    public function error() {}
+
     /**
      * Set timeout
      *
@@ -135,23 +119,16 @@ class Stomp
      * @param int $microseconds the microseconds part of the timeout to be set
      * @return void
      */
-    public function setTimeout($seconds, $microseconds = 0)
-    {
-    }
+    public function setTimeout($seconds, $microseconds = 0) {}
+
     /**
      * Get timeout
      *
      * @return array Array with timeout informations
      */
-    public function getTimeout()
-    {
-    }
+    public function getTimeout() {}
 }
-/**
- * Stubs for stomp
- * https://pecl.php.net/package/stomp
- */
-\class_alias('Phpactor202301\\Stomp', 'Stomp', \false);
+
 class StompFrame
 {
     /**
@@ -159,38 +136,37 @@ class StompFrame
      * @var string
      */
     public $command;
+
     /**
      * Frame headers
      * @var array
      */
     public $headers;
+
     /**
      * Frame body
      * @var string
      */
     public $body;
 }
-\class_alias('Phpactor202301\\StompFrame', 'StompFrame', \false);
-class StompException extends \Exception
+
+class StompException extends Exception
 {
     /**
      * Get the stomp server error details
      *
      * @return string
      */
-    public function getDetails()
-    {
-    }
+    public function getDetails() {}
 }
-\class_alias('Phpactor202301\\StompException', 'StompException', \false);
+
 /**
  * Get the current version of the stomp extension
  *
  * @return string version
  */
-function stomp_version()
-{
-}
+function stomp_version() {}
+
 /**
  * Opens a connection
  *
@@ -200,27 +176,24 @@ function stomp_version()
  * @param array  $headers additional headers (example: receipt).
  * @return resource|false stomp connection identifier on success, or FALSE on failure
  */
-function stomp_connect($broker = null, $username = null, $password = null, array $headers = [])
-{
-}
+function stomp_connect($broker = null, $username = null, $password = null, array $headers = []) {}
+
 /**
  * Gets the current stomp session ID
  *
  * @param resource $link identifier returned by stomp_connect
  * @return string|false stomp session ID if it exists, or FALSE otherwise
  */
-function stomp_get_session_id($link)
-{
-}
+function stomp_get_session_id($link) {}
+
 /**
  * Closes stomp connection
  *
  * @param resource $link identifier returned by stomp_connect
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_close($link)
-{
-}
+function stomp_close($link) {}
+
 /**
  * Sends a message to a destination in the messaging system
  *
@@ -230,9 +203,8 @@ function stomp_close($link)
  * @param array             $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_send($link, $destination, $msg, array $headers = [])
-{
-}
+function stomp_send($link, $destination, $msg, array $headers = []) {}
+
 /**
  * Registers to listen to a given destination
  *
@@ -241,9 +213,8 @@ function stomp_send($link, $destination, $msg, array $headers = [])
  * @param array     $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_subscribe($link, $destination, array $headers = [])
-{
-}
+function stomp_subscribe($link, $destination, array $headers = []) {}
+
 /**
  * Removes an existing subscription
  *
@@ -252,27 +223,24 @@ function stomp_subscribe($link, $destination, array $headers = [])
  * @param array     $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_unsubscribe($link, $destination, array $headers = [])
-{
-}
+function stomp_unsubscribe($link, $destination, array $headers = []) {}
+
 /**
  * Indicates whether or not there is a frame ready to read
  *
  * @param resource $link identifier returned by stomp_connect
  * @return bool TRUE if there is one, or FALSE otherwise
  */
-function stomp_has_frame($link)
-{
-}
+function stomp_has_frame($link) {}
+
 /**
  * Reads the next frame
  *
  * @param resource $link identifier returned by stomp_connect
  * @return array|false on success, or FALSE on failure
  */
-function stomp_read_frame($link)
-{
-}
+function stomp_read_frame($link) {}
+
 /**
  * Starts a transaction
  *
@@ -280,9 +248,8 @@ function stomp_read_frame($link)
  * @param string    $transaction_id transaction id
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_begin($link, $transaction_id)
-{
-}
+function stomp_begin($link, $transaction_id) {}
+
 /**
  * Commits a transaction in progress
  *
@@ -290,9 +257,8 @@ function stomp_begin($link, $transaction_id)
  * @param string    $transaction_id transaction id
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_commit($link, $transaction_id)
-{
-}
+function stomp_commit($link, $transaction_id) {}
+
 /**
  * Rolls back a transaction in progress
  *
@@ -300,9 +266,8 @@ function stomp_commit($link, $transaction_id)
  * @param string    $transaction_id transaction id
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_abort($link, $transaction_id)
-{
-}
+function stomp_abort($link, $transaction_id) {}
+
 /**
  * Acknowledge consumption of a message from a subscription using client acknowledgment
  *
@@ -311,18 +276,16 @@ function stomp_abort($link, $transaction_id)
  * @param array             $headers additional headers (example: receipt).
  * @return bool TRUE on success, or FALSE on failure
  */
-function stomp_ack($link, $msg, array $headers = [])
-{
-}
+function stomp_ack($link, $msg, array $headers = []) {}
+
 /**
  * Gets the last stomp error
  *
  * @param resource $link identifier returned by stomp_connect
  * @return string|false Error message, or FALSE if no error
  */
-function stomp_error($link)
-{
-}
+function stomp_error($link) {}
+
 /**
  * Set timeout
  *
@@ -331,15 +294,12 @@ function stomp_error($link)
  * @param int       $microseconds the microseconds part of the timeout to be set
  * @return void
  */
-function stomp_set_timeout($link, $seconds, $microseconds = 0)
-{
-}
+function stomp_set_timeout($link, $seconds, $microseconds = 0) {}
+
 /**
  * Get timeout
  *
  * @param resource $link identifier returned by stomp_connect
  * @return array Array with timeout informations
  */
-function stomp_get_timeout($link)
-{
-}
+function stomp_get_timeout($link) {}

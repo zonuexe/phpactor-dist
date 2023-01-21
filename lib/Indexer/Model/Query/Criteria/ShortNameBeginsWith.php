@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
+namespace Phpactor\Indexer\Model\Query\Criteria;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\HasShortName;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\HasShortName;
 class ShortNameBeginsWith extends Criteria
 {
     public function __construct(private string $name)
@@ -21,4 +21,3 @@ class ShortNameBeginsWith extends Criteria
         return \str_starts_with($record->shortName(), $this->name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\Criteria\\ShortNameBeginsWith', 'Phpactor\\Indexer\\Model\\Query\\Criteria\\ShortNameBeginsWith', \false);

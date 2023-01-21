@@ -1,14 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\FileRecord;
 interface RecordReferenceEnhancer
 {
     /**
      * Add additional information to the record reference, e.g. determine its
      * container type through static analysis.
      */
-    public function enhance(FileRecord $record, RecordReference $reference) : RecordReference;
+    public function enhance(FileRecord $record, \Phpactor\Indexer\Model\RecordReference $reference) : \Phpactor\Indexer\Model\RecordReference;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\RecordReferenceEnhancer', 'Phpactor\\Indexer\\Model\\RecordReferenceEnhancer', \false);

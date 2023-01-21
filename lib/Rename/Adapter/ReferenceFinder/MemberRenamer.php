@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\ReferenceFinder;
+namespace Phpactor\Rename\Adapter\ReferenceFinder;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -14,14 +14,14 @@ use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
 use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\ReferenceFinder\ClassImplementationFinder;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEdit;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-class MemberRenamer extends AbstractReferenceRenamer
+use Phpactor\ReferenceFinder\ClassImplementationFinder;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\Rename\Model\LocatedTextEdit;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentLocator;
+class MemberRenamer extends \Phpactor\Rename\Adapter\ReferenceFinder\AbstractReferenceRenamer
 {
     public function __construct(ReferenceFinder $referenceFinder, TextDocumentLocator $locator, Parser $parser, private ClassImplementationFinder $implementationFinder)
     {
@@ -84,4 +84,3 @@ class MemberRenamer extends AbstractReferenceRenamer
         yield from parent::doRename($textDocument, $offset, $range, $originalName, $newName);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ReferenceFinder\\MemberRenamer', 'Phpactor\\Rename\\Adapter\\ReferenceFinder\\MemberRenamer', \false);

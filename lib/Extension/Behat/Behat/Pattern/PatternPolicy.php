@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat\Pattern;
+namespace Phpactor\Extension\Behat\Behat\Pattern;
 
 interface PatternPolicy
 {
@@ -11,4 +11,3 @@ interface PatternPolicy
      */
     public function transformPatternToRegex($pattern) : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\Pattern\\PatternPolicy', 'Phpactor\\Extension\\Behat\\Behat\\Pattern\\PatternPolicy', \false);

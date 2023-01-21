@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 class UpdatePolicy
 {
@@ -15,9 +15,8 @@ class UpdatePolicy
     {
         return $this->doUpdate;
     }
-    public static function update() : UpdatePolicy
+    public static function update() : \Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy
     {
         return new self(\true);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\UpdatePolicy', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\UpdatePolicy', \false);

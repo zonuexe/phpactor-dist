@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Initializer;
+namespace Phpactor\LanguageServer\Core\Server\Initializer;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Initializer;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Server\Initializer;
 use RuntimeException;
 final class RequestInitializer implements Initializer
 {
@@ -20,4 +20,3 @@ final class RequestInitializer implements Initializer
         return InitializeParams::fromArray($request->params, \true);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Initializer\\RequestInitializer', 'Phpactor\\LanguageServer\\Core\\Server\\Initializer\\RequestInitializer', \false);

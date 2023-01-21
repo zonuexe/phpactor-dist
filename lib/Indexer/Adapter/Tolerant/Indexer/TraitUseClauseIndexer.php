@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
-use Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
+use Phpactor\TextDocument\TextDocument;
 class TraitUseClauseIndexer implements TolerantIndexer
 {
     public function canIndex(Node $node) : bool
@@ -47,4 +47,3 @@ class TraitUseClauseIndexer implements TolerantIndexer
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\TraitUseClauseIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\TraitUseClauseIndexer', \false);

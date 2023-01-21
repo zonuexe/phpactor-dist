@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder\Search;
+namespace Phpactor\ReferenceFinder\Search;
 
 use Generator;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\NameSearcher;
 class PredefinedNameSearcher implements NameSearcher
 {
     /**
@@ -25,4 +25,3 @@ class PredefinedNameSearcher implements NameSearcher
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\Search\\PredefinedNameSearcher', 'Phpactor\\ReferenceFinder\\Search\\PredefinedNameSearcher', \false);

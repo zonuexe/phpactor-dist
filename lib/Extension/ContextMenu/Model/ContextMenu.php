@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ContextMenu\Model;
+namespace Phpactor\Extension\ContextMenu\Model;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use RuntimeException;
@@ -10,7 +10,7 @@ class ContextMenu
     public function __construct(array $actions, private array $contexts)
     {
         foreach ($actions as $name => $action) {
-            $this->actions[$name] = Invoke::new(Action::class, $action);
+            $this->actions[$name] = Invoke::new(\Phpactor\Extension\ContextMenu\Model\Action::class, $action);
         }
         $this->validate();
     }
@@ -31,7 +31,7 @@ class ContextMenu
             return $this->getAction($action);
         }, $this->contexts[$context]));
     }
-    private function getAction(string $name) : Action
+    private function getAction(string $name) : \Phpactor\Extension\ContextMenu\Model\Action
     {
         if (!isset($this->actions[$name])) {
             throw new RuntimeException(\sprintf('Action "%s" does not exist, known actions: "%s"', $name, \implode('", "', \array_keys($this->actions))));
@@ -56,4 +56,3 @@ class ContextMenu
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ContextMenu\\Model\\ContextMenu', 'Phpactor\\Extension\\ContextMenu\\Model\\ContextMenu', \false);

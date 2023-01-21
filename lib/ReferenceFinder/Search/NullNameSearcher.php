@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder\Search;
+namespace Phpactor\ReferenceFinder\Search;
 
 use Generator;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\NameSearcher;
 class NullNameSearcher implements NameSearcher
 {
     public function search(string $search, ?string $type = null) : Generator
@@ -11,4 +11,3 @@ class NullNameSearcher implements NameSearcher
         yield from [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\Search\\NullNameSearcher', 'Phpactor\\ReferenceFinder\\Search\\NullNameSearcher', \false);

@@ -1,13 +1,11 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrInputDocument<br/>
@@ -18,16 +16,22 @@ final class SolrInputDocument
 {
     /** @var int Sorts the fields in ascending order. */
     public const SORT_DEFAULT = 1;
+
     /** @var int Sorts the fields in ascending order. */
     public const SORT_ASC = 1;
+
     /** @var int Sorts the fields in descending order. */
     public const SORT_DESC = 2;
+
     /** @var int Sorts the fields by name */
     public const SORT_FIELD_NAME = 1;
+
     /** @var int Sorts the fields by number of values. */
     public const SORT_FIELD_VALUE_COUNT = 2;
+
     /** @var int Sorts the fields by boost value. */
     public const SORT_FIELD_BOOST_VALUE = 4;
+
     /**
      * (PECL solr &gt;= 2.3.0)<br/>
      * Adds a child document for block indexing
@@ -38,9 +42,8 @@ final class SolrInputDocument
      * @throws SolrIllegalArgumentException
      * @throws SolrException
      */
-    public function addChildDocument(\SolrInputDocument $child)
-    {
-    }
+    public function addChildDocument(SolrInputDocument $child) {}
+
     /**
      * (PECL solr &gt;= 2.3.0)<br/>
      * Adds an array of child documents
@@ -51,9 +54,8 @@ final class SolrInputDocument
      * @throws SolrIllegalArgumentException
      * @throws SolrException
      */
-    public function addChildDocuments(array &$docs)
-    {
-    }
+    public function addChildDocuments(array &$docs) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Adds a field to the document
@@ -72,9 +74,8 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function addField($fieldName, $fieldValue, $fieldBoostValue = 0.0)
-    {
-    }
+    public function addField($fieldName, $fieldValue, $fieldBoostValue = 0.0) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Resets the input document
@@ -83,25 +84,22 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function clear()
-    {
-    }
+    public function clear() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Creates a copy of a SolrDocument
      * @link https://php.net/manual/en/solrinputdocument.clone.php
      */
-    public function __clone()
-    {
-    }
+    public function __clone() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * SolrInputDocument constructor.
      * @link https://php.net/manual/en/solrinputdocument.construct.php
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Removes a field from the document
@@ -113,17 +111,15 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function deleteField($fieldName)
-    {
-    }
+    public function deleteField($fieldName) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Destructor
      * @link https://php.net/manual/en/solrinputdocument.destruct.php
      */
-    public function __destruct()
-    {
-    }
+    public function __destruct() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Checks if a field exists
@@ -135,9 +131,8 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> if the field was found and <b>FALSE</b> if it was not found.
      * </p>
      */
-    public function fieldExists($fieldName)
-    {
-    }
+    public function fieldExists($fieldName) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Retrieves the current boost value for the document
@@ -146,27 +141,24 @@ final class SolrInputDocument
      * Returns the boost value on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function getBoost()
-    {
-    }
+    public function getBoost() {}
+
     /**
      * (PECL solr &gt;= 2.3.0)<br/>
      * Returns an array of child documents (SolrInputDocument)
      * @link https://php.net/manual/en/solrinputdocument.getchilddocuments.php
      * @return SolrInputDocument[]
      */
-    public function getChildDocuments()
-    {
-    }
+    public function getChildDocuments() {}
+
     /**
      * (PECL solr &gt;= 2.3.0)<br/>
      * Returns the number of child documents
      * @link https://php.net/manual/en/solrinputdocument.getchilddocumentscount.php
      * @return int
      */
-    public function getChildDocumentsCount()
-    {
-    }
+    public function getChildDocumentsCount() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Retrieves a field by name
@@ -176,9 +168,8 @@ final class SolrInputDocument
      * </p>
      * @return SolrDocumentField|false Returns a SolrDocumentField object on success and <b>FALSE</b> on failure.
      */
-    public function getField($fieldName)
-    {
-    }
+    public function getField($fieldName) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Retrieves the boost value for a particular field
@@ -190,9 +181,8 @@ final class SolrInputDocument
      * Returns the boost value for the field or <b>FALSE</b> if there was an error.
      * </p>
      */
-    public function getFieldBoost($fieldName)
-    {
-    }
+    public function getFieldBoost($fieldName) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the number of fields in the document
@@ -201,9 +191,8 @@ final class SolrInputDocument
      * Returns an integer on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function getFieldCount()
-    {
-    }
+    public function getFieldCount() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array containing all the fields in the document
@@ -212,9 +201,8 @@ final class SolrInputDocument
      * Returns an array on success and <b>FALSE</b> on failure.
      * </p>
      */
-    public function getFieldNames()
-    {
-    }
+    public function getFieldNames() {}
+
     /**
      * (PECL solr &gt;= 2.3.0)<br/>
      * Checks whether the document has any child documents
@@ -223,9 +211,8 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> if the document has any child documents
      * </p>
      */
-    public function hasChildDocuments()
-    {
-    }
+    public function hasChildDocuments() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Merges one input document into another
@@ -241,9 +228,8 @@ final class SolrInputDocument
      * number of fields in the new document.
      * </p>
      */
-    public function merge(\SolrInputDocument $sourceDoc, $overwrite = \true)
-    {
-    }
+    public function merge(SolrInputDocument $sourceDoc, $overwrite = true) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * This is an alias of SolrInputDocument::clear
@@ -252,9 +238,8 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function reset()
-    {
-    }
+    public function reset() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the boost value for this document
@@ -266,9 +251,8 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function setBoost($documentBoostValue)
-    {
-    }
+    public function setBoost($documentBoostValue) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the index-time boost value for a field
@@ -280,9 +264,8 @@ final class SolrInputDocument
      * The index time boost value.
      * </p>
      */
-    public function setFieldBoost($fieldName, $fieldBoostValue)
-    {
-    }
+    public function setFieldBoost($fieldName, $fieldBoostValue) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sorts the fields within the document
@@ -307,9 +290,8 @@ final class SolrInputDocument
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function sort($sortOrderBy, $sortDirection = \SolrInputDocument::SORT_ASC)
-    {
-    }
+    public function sort($sortOrderBy, $sortDirection = SolrInputDocument::SORT_ASC) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns an array representation of the input document
@@ -318,20 +300,5 @@ final class SolrInputDocument
      * Returns an array containing the fields. It returns FALSE on failure.
      * </p>
      */
-    public function toArray()
-    {
-    }
+    public function toArray() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrInputDocument<br/>
- * This class represents a Solr document that is about to be submitted to the Solr index.
- * @link https://php.net/manual/en/class.solrinputdocument.php
- */
-\class_alias('Phpactor202301\\SolrInputDocument', 'SolrInputDocument', \false);

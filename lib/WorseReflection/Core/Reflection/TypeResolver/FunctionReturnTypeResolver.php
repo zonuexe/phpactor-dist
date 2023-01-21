@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\TypeResolver;
+namespace Phpactor\WorseReflection\Core\Reflection\TypeResolver;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\TypeUtil;
 class FunctionReturnTypeResolver
 {
     public function __construct(private ReflectionFunction $function)
@@ -19,4 +19,3 @@ class FunctionReturnTypeResolver
         return $function->docblock()->returnType();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\TypeResolver\\FunctionReturnTypeResolver', 'Phpactor\\WorseReflection\\Core\\Reflection\\TypeResolver\\FunctionReturnTypeResolver', \false);

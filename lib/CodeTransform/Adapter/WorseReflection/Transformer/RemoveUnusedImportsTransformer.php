@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
 
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostic;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostics;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Transformer;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnusedImportDiagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics as WorseDiagnostics;
+use Phpactor\CodeTransform\Domain\Diagnostic;
+use Phpactor\CodeTransform\Domain\Diagnostics;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\Transformer;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnusedImportDiagnostic;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Diagnostics as WorseDiagnostics;
 class RemoveUnusedImportsTransformer implements Transformer
 {
     /**
@@ -96,4 +96,3 @@ class RemoveUnusedImportsTransformer implements Transformer
         return TextEdit::create($groupClauses->getStartPosition(), $groupClauses->getEndPosition() - $groupClauses->getStartPosition(), \implode(', ', $names));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\RemoveUnusedImportsTransformer', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\RemoveUnusedImportsTransformer', \false);

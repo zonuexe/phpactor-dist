@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\RenameVariable;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\CodeTransform\Domain\Refactor\RenameVariable;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 class RenameVariableHandler extends AbstractHandler
 {
     const NAME = 'rename_variable';
@@ -42,4 +42,3 @@ class RenameVariableHandler extends AbstractHandler
         return UpdateFileSourceResponse::fromPathOldAndNewSource($sourceCode->path(), $arguments[self::PARAM_SOURCE], (string) $sourceCode);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\RenameVariableHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\RenameVariableHandler', \false);

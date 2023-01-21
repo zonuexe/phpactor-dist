@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Handler;
+namespace Phpactor\Extension\LanguageServerCompletion\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SignatureHelpOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
-use Phpactor202301\Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
-use Phpactor202301\Phpactor\Completion\Core\SignatureHelper;
-use Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util\PhpactorToLspSignature;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\SignatureHelpOptions;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
+use Phpactor\Completion\Core\SignatureHelper;
+use Phpactor\Extension\LanguageServerCompletion\Util\PhpactorToLspSignature;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class SignatureHelpHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private SignatureHelper $helper)
@@ -43,4 +43,3 @@ class SignatureHelpHandler implements Handler, CanRegisterCapabilities
         $capabilities->signatureHelpProvider = $options;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCompletion\\Handler\\SignatureHelpHandler', 'Phpactor\\Extension\\LanguageServerCompletion\\Handler\\SignatureHelpHandler', \false);

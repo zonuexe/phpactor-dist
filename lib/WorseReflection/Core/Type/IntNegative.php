@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-class IntNegative extends IntType
+class IntNegative extends \Phpactor\WorseReflection\Core\Type\IntType
 {
     public function __toString() : string
     {
@@ -13,4 +13,3 @@ class IntNegative extends IntType
         return 'int';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\IntNegative', 'Phpactor\\WorseReflection\\Core\\Type\\IntNegative', \false);

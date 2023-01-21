@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\Completion\Core\Completor\NameSearcherCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Completion\Core\Util\OffsetHelper;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\Completion\Core\Completor\NameSearcherCompletor;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Completion\Core\Util\OffsetHelper;
+use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Reflector;
 class DoctrineAnnotationCompletor extends NameSearcherCompletor implements Completor
 {
     private Parser $parser;
@@ -102,4 +102,3 @@ class DoctrineAnnotationCompletor extends NameSearcherCompletor implements Compl
         return $annotation;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\DoctrineAnnotationCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\DoctrineAnnotationCompletor', \false);

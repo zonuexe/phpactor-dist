@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntersectionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\IntersectionType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
 class TypeCombinator
 {
     public static function remove(Type $from, Type $type) : Type
@@ -79,4 +79,3 @@ class TypeCombinator
         return (new UnionType(...$types))->reduce();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\TypeCombinator', 'Phpactor\\WorseReflection\\Core\\Inference\\TypeCombinator', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 interface IndexQuery
 {
@@ -9,4 +9,3 @@ interface IndexQuery
      */
     public function get(string $identifier);
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\IndexQuery', 'Phpactor\\Indexer\\Model\\IndexQuery', \false);

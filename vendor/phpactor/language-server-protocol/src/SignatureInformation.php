@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -50,7 +50,7 @@ class SignatureInformation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['label' => ['names' => [], 'iterable' => \false], 'documentation' => ['names' => [MarkupContent::class], 'iterable' => \false], 'parameters' => ['names' => [ParameterInformation::class], 'iterable' => \true]];
+        $map = ['label' => ['names' => [], 'iterable' => \false], 'documentation' => ['names' => [\Phpactor\LanguageServerProtocol\MarkupContent::class], 'iterable' => \false], 'parameters' => ['names' => [\Phpactor\LanguageServerProtocol\ParameterInformation::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -100,9 +100,3 @@ class SignatureInformation
         throw $lastException;
     }
 }
-/**
- * Represents the signature of something callable. A signature
- * can have a label, like a function-name, a doc-comment, and
- * a set of parameters.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SignatureInformation', 'Phpactor\\LanguageServerProtocol\\SignatureInformation', \false);

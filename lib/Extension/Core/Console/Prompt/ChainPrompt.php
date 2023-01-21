@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Console\Prompt;
+namespace Phpactor\Extension\Core\Console\Prompt;
 
 use RuntimeException;
-final class ChainPrompt implements Prompt
+final class ChainPrompt implements \Phpactor\Extension\Core\Console\Prompt\Prompt
 {
     private $prompts;
     public function __construct(array $prompts)
@@ -30,9 +30,8 @@ final class ChainPrompt implements Prompt
     {
         return 'chain';
     }
-    private function addPrompt(Prompt $prompt) : void
+    private function addPrompt(\Phpactor\Extension\Core\Console\Prompt\Prompt $prompt) : void
     {
         $this->prompts[$prompt->name()] = $prompt;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Console\\Prompt\\ChainPrompt', 'Phpactor\\Extension\\Core\\Console\\Prompt\\ChainPrompt', \false);

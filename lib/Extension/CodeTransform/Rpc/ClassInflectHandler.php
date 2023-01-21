@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransform\Rpc;
+namespace Phpactor\Extension\CodeTransform\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\GenerateFromExisting;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-class ClassInflectHandler extends AbstractClassGenerateHandler
+use Phpactor\CodeTransform\Domain\GenerateFromExisting;
+use Phpactor\CodeTransform\Domain\SourceCode;
+class ClassInflectHandler extends \Phpactor\Extension\CodeTransform\Rpc\AbstractClassGenerateHandler
 {
     const NAME = 'class_inflect';
     public function name() : string
@@ -24,4 +24,3 @@ class ClassInflectHandler extends AbstractClassGenerateHandler
         return $inflector->generateFromExisting($currentClass, $targetClass);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransform\\Rpc\\ClassInflectHandler', 'Phpactor\\Extension\\CodeTransform\\Rpc\\ClassInflectHandler', \false);

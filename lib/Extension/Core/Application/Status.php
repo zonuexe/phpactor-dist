@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Application;
+namespace Phpactor\Extension\Core\Application;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidates;
-use Phpactor202301\Phpactor\Extension\Php\Model\PhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\ConfigLoader\Core\PathCandidates;
+use Phpactor\Extension\Php\Model\PhpVersionResolver;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
 use Phpactor202301\Symfony\Component\Process\ExecutableFinder;
 use Phpactor202301\Symfony\Component\Process\Process;
 class Status
@@ -55,4 +55,3 @@ class Status
         return ['phpactor_version' => $matches[1], 'phpactor_is_develop' => $this->warnOnDevelop && \str_contains($matches[2], 'develop')];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Application\\Status', 'Phpactor\\Extension\\Core\\Application\\Status', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Helper;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Helper;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder\MissingMethod;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodDiagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder;
+use Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder\MissingMethod;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodDiagnostic;
+use Phpactor\WorseReflection\Reflector;
 class WorseMissingMethodFinder implements MissingMethodFinder
 {
     public function __construct(private Reflector $reflector)
@@ -23,4 +23,3 @@ class WorseMissingMethodFinder implements MissingMethodFinder
         return $missing;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Helper\\WorseMissingMethodFinder', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Helper\\WorseMissingMethodFinder', \false);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Handler;
+namespace Phpactor\LanguageServer\Core\Handler;
 
 use Closure;
-final class ClosureHandler implements Handler
+final class ClosureHandler implements \Phpactor\LanguageServer\Core\Handler\Handler
 {
     /**
      * @var string
@@ -34,4 +34,3 @@ final class ClosureHandler implements Handler
         return $this->closure->__invoke(...$args);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Handler\\ClosureHandler', 'Phpactor\\LanguageServer\\Core\\Handler\\ClosureHandler', \false);

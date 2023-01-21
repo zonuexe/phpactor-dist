@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Model;
+namespace Phpactor\Extension\LanguageServerReferenceFinder\Model;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -19,18 +19,18 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentHighlight;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentHighlightKind;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\EfficientLineCols;
+use Phpactor\LanguageServerProtocol\DocumentHighlight;
+use Phpactor\LanguageServerProtocol\DocumentHighlightKind;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\EfficientLineCols;
 class Highlighter
 {
     public function __construct(private Parser $parser)
     {
     }
-    public function highlightsFor(string $source, ByteOffset $offset) : Highlights
+    public function highlightsFor(string $source, ByteOffset $offset) : \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlights
     {
         $offsets = [];
         $highlights = [];
@@ -46,7 +46,7 @@ class Highlighter
             $endPos = $lineCols->get($highlight->end);
             $lspHighlights[] = new DocumentHighlight(new Range(new Position($startPos->line() - 1, $startPos->col() - 1), new Position($endPos->line() - 1, $endPos->col() - 1)), $highlight->kind);
         }
-        return new Highlights(...$lspHighlights);
+        return new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlights(...$lspHighlights);
     }
     /**
      * @return Generator<Highlight>
@@ -105,10 +105,10 @@ class Highlighter
         $name = $this->normalizeVarName($name);
         foreach ($rootNode->getDescendantNodes() as $childNode) {
             if ($childNode instanceof Variable && $childNode->getName() === $name) {
-                (yield new Highlight($childNode->getStartPosition(), $childNode->getEndPosition(), $this->variableKind($childNode)));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($childNode->getStartPosition(), $childNode->getEndPosition(), $this->variableKind($childNode)));
             }
             if ($childNode instanceof Parameter && $this->normalizeVarName((string) $childNode->variableName->getText($childNode->getFileContents())) === $name) {
-                (yield new Highlight($childNode->variableName->getStartPosition(), $childNode->variableName->getEndPosition(), DocumentHighlightKind::READ));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($childNode->variableName->getStartPosition(), $childNode->variableName->getEndPosition(), DocumentHighlightKind::READ));
             }
         }
     }
@@ -133,15 +133,15 @@ class Highlighter
     {
         foreach ($rootNode->getDescendantNodes() as $node) {
             if ($node instanceof Parameter && null !== $node->visibilityToken && (string) $node->getName() === $name) {
-                (yield new Highlight($node->variableName->getStartPosition(), $node->variableName->getEndPosition(), DocumentHighlightKind::TEXT));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->variableName->getStartPosition(), $node->variableName->getEndPosition(), DocumentHighlightKind::TEXT));
                 continue;
             }
             if ($node instanceof Variable && $node->getFirstAncestor(PropertyDeclaration::class) && (string) $node->getName() === $name) {
-                (yield new Highlight($node->getStartPosition(), $node->getEndPosition(), DocumentHighlightKind::TEXT));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->getStartPosition(), $node->getEndPosition(), DocumentHighlightKind::TEXT));
             }
             if ($node instanceof MemberAccessExpression) {
                 if ($name === $node->memberName->getText($rootNode->getFileContents())) {
-                    (yield new Highlight($node->memberName->getStartPosition(), $node->memberName->getEndPosition(), $this->variableKind($node)));
+                    (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->memberName->getStartPosition(), $node->memberName->getEndPosition(), $this->variableKind($node)));
                 }
             }
         }
@@ -166,11 +166,11 @@ class Highlighter
     {
         foreach ($rootNode->getDescendantNodes() as $node) {
             if ($node instanceof MethodDeclaration && $node->getName() === $name) {
-                (yield new Highlight($node->name->getStartPosition(), $node->name->getEndPosition(), DocumentHighlightKind::TEXT));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->name->getStartPosition(), $node->name->getEndPosition(), DocumentHighlightKind::TEXT));
             }
             if ($node instanceof MemberAccessExpression) {
                 if ($name === $node->memberName->getText($rootNode->getFileContents())) {
-                    (yield new Highlight($node->memberName->getStartPosition(), $node->memberName->getEndPosition(), $this->variableKind($node)));
+                    (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->memberName->getStartPosition(), $node->memberName->getEndPosition(), $this->variableKind($node)));
                 }
             }
             if ($node instanceof ScopedPropertyAccessExpression) {
@@ -179,7 +179,7 @@ class Highlighter
                     return;
                 }
                 if ($name === $memberName->getText($rootNode->getFileContents())) {
-                    (yield new Highlight($memberName->getStartPosition(), $memberName->getEndPosition(), $this->variableKind($node)));
+                    (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($memberName->getStartPosition(), $memberName->getEndPosition(), $this->variableKind($node)));
                 }
             }
         }
@@ -191,7 +191,7 @@ class Highlighter
     {
         foreach ($rootNode->getDescendantNodes() as $node) {
             if ($node instanceof ConstElement && (string) $node->getNamespacedName() === $name) {
-                (yield new Highlight($node->name->getStartPosition(), $node->name->getEndPosition(), DocumentHighlightKind::TEXT));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->name->getStartPosition(), $node->name->getEndPosition(), DocumentHighlightKind::TEXT));
             }
             if ($node instanceof ScopedPropertyAccessExpression) {
                 $memberName = $node->memberName;
@@ -199,7 +199,7 @@ class Highlighter
                     return;
                 }
                 if ($name === $memberName->getText($rootNode->getFileContents())) {
-                    (yield new Highlight($memberName->getStartPosition(), $memberName->getEndPosition(), $this->variableKind($node)));
+                    (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($memberName->getStartPosition(), $memberName->getEndPosition(), $this->variableKind($node)));
                 }
             }
         }
@@ -213,14 +213,14 @@ class Highlighter
             if ($node instanceof NamespaceUseClause && (string) $node->namespaceName === $fullyQualfiedName) {
                 $nameParts = $node->namespaceName->nameParts;
                 $name = \end($nameParts);
-                (yield new Highlight($name->getStartPosition(), $name->getEndPosition(), DocumentHighlightKind::TEXT));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($name->getStartPosition(), $name->getEndPosition(), DocumentHighlightKind::TEXT));
             }
             if ($node instanceof ClassDeclaration && (string) $node->getNamespacedName() === $fullyQualfiedName) {
-                (yield new Highlight($node->name->getStartPosition(), $node->name->getEndPosition(), DocumentHighlightKind::TEXT));
+                (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->name->getStartPosition(), $node->name->getEndPosition(), DocumentHighlightKind::TEXT));
             }
             if ($node instanceof QualifiedName) {
                 if ($fullyQualfiedName === (string) $node->getResolvedName()) {
-                    (yield new Highlight($node->getStartPosition(), $node->getEndPosition(), $this->variableKind($node)));
+                    (yield new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlight($node->getStartPosition(), $node->getEndPosition(), $this->variableKind($node)));
                 }
             }
         }
@@ -230,4 +230,3 @@ class Highlighter
         return \ltrim($varName, '$');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\Model\\Highlighter', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\Model\\Highlighter', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
 interface TextDocumentLocator
 {
     /**
@@ -10,6 +10,5 @@ interface TextDocumentLocator
      *
      * @throws TextDocumentNotFound
      */
-    public function get(TextDocumentUri $uri) : TextDocument;
+    public function get(\Phpactor\TextDocument\TextDocumentUri $uri) : \Phpactor\TextDocument\TextDocument;
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocumentLocator', 'Phpactor\\TextDocument\\TextDocumentLocator', \false);

@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ReferenceFinderRpc;
+namespace Phpactor\Extension\ReferenceFinderRpc;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\ReferenceFinderRpc\Handler\GotoDefinitionHandler;
-use Phpactor202301\Phpactor\Extension\ReferenceFinderRpc\Handler\GotoImplementationHandler;
-use Phpactor202301\Phpactor\Extension\ReferenceFinderRpc\Handler\GotoTypeHandler;
-use Phpactor202301\Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\ReferenceFinderRpc\Handler\GotoDefinitionHandler;
+use Phpactor\Extension\ReferenceFinderRpc\Handler\GotoImplementationHandler;
+use Phpactor\Extension\ReferenceFinderRpc\Handler\GotoTypeHandler;
+use Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\MapResolver\Resolver;
 class ReferenceFinderRpcExtension implements Extension
 {
     public function load(ContainerBuilder $container) : void
@@ -29,4 +29,3 @@ class ReferenceFinderRpcExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ReferenceFinderRpc\\ReferenceFinderRpcExtension', 'Phpactor\\Extension\\ReferenceFinderRpc\\ReferenceFinderRpcExtension', \false);

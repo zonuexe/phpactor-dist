@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\System;
+namespace Phpactor\LanguageServer\Handler\System;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceManager;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Service\ServiceManager;
 class ServiceHandler implements Handler
 {
     /**
@@ -46,4 +46,3 @@ class ServiceHandler implements Handler
         return new Success($this->manager->runningServices());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\System\\ServiceHandler', 'Phpactor\\LanguageServer\\Handler\\System\\ServiceHandler', \false);

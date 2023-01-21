@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
+namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\FunctionLike;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -8,10 +8,10 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression;
 use Phpactor202301\Microsoft\PhpParser\Node\StatementNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractExpression;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractExpression;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 use function end;
 use function iterator_to_array;
 use function preg_match;
@@ -134,4 +134,3 @@ class TolerantExtractExpression implements ExtractExpression
         return $this->outerExpression($parent, $originalNode);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantExtractExpression', 'Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantExtractExpression', \false);

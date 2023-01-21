@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
 use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Util\NodeHelper;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Parameter as PhpactorParameter;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Method;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Util\NodeHelper;
+use Phpactor\CodeBuilder\Domain\Prototype\Parameter as PhpactorParameter;
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Domain\Prototype\Method;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Parameters;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
+use Phpactor\CodeBuilder\Domain\Prototype\Parameters;
+use Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ReturnType;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\QualifiedNameListUtil;
+use Phpactor\CodeBuilder\Domain\Prototype\ReturnType;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\WorseReflection\Core\Util\QualifiedNameListUtil;
 abstract class AbstractMethodUpdater
 {
     public function __construct(private Renderer $renderer)
@@ -201,4 +201,3 @@ abstract class AbstractMethodUpdater
         $edits->add(TextEdit::create($methodDeclaration->getFullStartPosition(), \strlen($methodDeclaration->getLeadingCommentAndWhitespaceText()), $methodPrototype->docblock()->__toString()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\AbstractMethodUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\AbstractMethodUpdater', \false);

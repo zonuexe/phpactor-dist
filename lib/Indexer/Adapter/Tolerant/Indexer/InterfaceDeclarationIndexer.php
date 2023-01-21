@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class InterfaceDeclarationIndexer extends AbstractClassLikeIndexer
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\TextDocument\TextDocument;
+class InterfaceDeclarationIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Indexer\AbstractClassLikeIndexer
 {
     public function canIndex(Node $node) : bool
     {
@@ -35,4 +35,3 @@ class InterfaceDeclarationIndexer extends AbstractClassLikeIndexer
         $this->indexInterfaceList($interfaceList, $classRecord, $index);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\InterfaceDeclarationIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\InterfaceDeclarationIndexer', \false);

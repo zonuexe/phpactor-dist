@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Name;
+namespace Phpactor\ClassMover\Domain\Name;
 
-class MemberName extends Label
+class MemberName extends \Phpactor\ClassMover\Domain\Name\Label
 {
     public function matches(string $name)
     {
@@ -14,4 +14,3 @@ class MemberName extends Label
         return \false;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Name\\MemberName', 'Phpactor\\ClassMover\\Domain\\Name\\MemberName', \false);

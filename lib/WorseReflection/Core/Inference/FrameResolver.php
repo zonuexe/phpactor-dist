@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Phpactor202301\Microsoft\PhpParser\FunctionLike;
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
@@ -9,7 +9,7 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreation
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Reflector;
 use RuntimeException;
 final class FrameResolver
 {
@@ -17,13 +17,13 @@ final class FrameResolver
      * @param Walker[] $globalWalkers
      * @param array<class-string,Walker[]> $nodeWalkers
      */
-    public function __construct(private NodeContextResolver $nodeContextResolver, private array $globalWalkers, private array $nodeWalkers)
+    public function __construct(private \Phpactor\WorseReflection\Core\Inference\NodeContextResolver $nodeContextResolver, private array $globalWalkers, private array $nodeWalkers)
     {
     }
     /**
      * @param Walker[] $walkers
      */
-    public static function create(NodeContextResolver $nodeContextResolver, array $walkers = []) : self
+    public static function create(\Phpactor\WorseReflection\Core\Inference\NodeContextResolver $nodeContextResolver, array $walkers = []) : self
     {
         $globalWalkers = [];
         $nodeWalkers = [];
@@ -42,14 +42,14 @@ final class FrameResolver
         }
         return new self($nodeContextResolver, $globalWalkers, $nodeWalkers);
     }
-    public function build(Node $node) : Frame
+    public function build(Node $node) : \Phpactor\WorseReflection\Core\Inference\Frame
     {
         return $this->walkNode($this->resolveScopeNode($node), $node);
     }
     /**
      * @param Node|Token|MissingToken $node
      */
-    public function resolveNode(Frame $frame, $node) : NodeContext
+    public function resolveNode(\Phpactor\WorseReflection\Core\Inference\Frame $frame, $node) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $info = $this->nodeContextResolver->resolveNode($frame, $node);
         if ($info->issues()) {
@@ -61,10 +61,10 @@ final class FrameResolver
     {
         return $this->nodeContextResolver->reflector();
     }
-    public function walkNode(Node $node, Node $targetNode, ?Frame $frame = null) : ?Frame
+    public function walkNode(Node $node, Node $targetNode, ?\Phpactor\WorseReflection\Core\Inference\Frame $frame = null) : ?\Phpactor\WorseReflection\Core\Inference\Frame
     {
         if ($frame === null) {
-            $frame = new Frame($node->getNodeKindName());
+            $frame = new \Phpactor\WorseReflection\Core\Inference\Frame($node->getNodeKindName());
         }
         foreach ($this->globalWalkers as $walker) {
             $frame = $walker->enter($this, $frame, $node);
@@ -98,7 +98,7 @@ final class FrameResolver
         }
         return null;
     }
-    public function withWalker(Walker $walker) : self
+    public function withWalker(\Phpactor\WorseReflection\Core\Inference\Walker $walker) : self
     {
         $new = $this;
         $new->globalWalkers[] = $walker;
@@ -114,11 +114,11 @@ final class FrameResolver
             $new->globalWalkers[] = $walker;
         }
         foreach ($this->nodeWalkers as $fqn => $walkers) {
-            $new->nodeWalkers[$fqn] = \array_filter($walkers, fn(Walker $walker) => \get_class($walker) !== $className);
+            $new->nodeWalkers[$fqn] = \array_filter($walkers, fn(\Phpactor\WorseReflection\Core\Inference\Walker $walker) => \get_class($walker) !== $className);
         }
         return $new;
     }
-    public function resolver() : NodeContextResolver
+    public function resolver() : \Phpactor\WorseReflection\Core\Inference\NodeContextResolver
     {
         return $this->nodeContextResolver;
     }
@@ -143,4 +143,3 @@ final class FrameResolver
         return $scopeNode;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FrameResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\FrameResolver', \false);

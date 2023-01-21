@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
-use Phpactor202301\Phpactor\Indexer\Model\MemberReference;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\MemberReference;
+use Phpactor\Indexer\Model\Record;
 use RuntimeException;
-class MemberRecord implements HasFileReferences, Record, HasShortName
+class MemberRecord implements \Phpactor\Indexer\Model\Record\HasFileReferences, Record, \Phpactor\Indexer\Model\Record\HasShortName
 {
-    use HasFileReferencesTrait;
+    use \Phpactor\Indexer\Model\Record\HasFileReferencesTrait;
     public const RECORD_TYPE = 'member';
     public const TYPE_METHOD = 'method';
     public const TYPE_CONSTANT = 'constant';
@@ -73,4 +73,3 @@ class MemberRecord implements HasFileReferences, Record, HasShortName
         return $this->memberName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record\\MemberRecord', 'Phpactor\\Indexer\\Model\\Record\\MemberRecord', \false);

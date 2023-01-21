@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\CalendarException;
+use Safe\Exceptions\CalendarException;
+
 /**
  * This function will return a Unix timestamp corresponding to the
  * Julian Day given in jday or FALSE if
@@ -15,11 +16,11 @@ use Phpactor202301\Safe\Exceptions\CalendarException;
  * @throws CalendarException
  *
  */
-function jdtounix(int $jday) : int
+function jdtounix(int $jday): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \jdtounix($jday);
-    if ($result === \false) {
+    if ($result === false) {
         throw CalendarException::createFromPhpError();
     }
     return $result;

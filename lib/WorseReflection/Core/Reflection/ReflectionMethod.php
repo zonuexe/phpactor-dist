@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-interface ReflectionMethod extends ReflectionMember, ReflectionFunctionLike
+use Phpactor\WorseReflection\Core\Type;
+interface ReflectionMethod extends \Phpactor\WorseReflection\Core\Reflection\ReflectionMember, \Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike
 {
     /**
      * @deprecated - use type()
@@ -12,4 +12,3 @@ interface ReflectionMethod extends ReflectionMember, ReflectionFunctionLike
     public function isAbstract() : bool;
     public function isStatic() : bool;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionMethod', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionMethod', \false);

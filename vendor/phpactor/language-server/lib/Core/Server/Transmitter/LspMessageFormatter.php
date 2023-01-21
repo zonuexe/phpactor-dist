@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter;
+namespace Phpactor\LanguageServer\Core\Server\Transmitter;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-final class LspMessageFormatter implements MessageFormatter
+use Phpactor\LanguageServer\Core\Rpc\Message;
+final class LspMessageFormatter implements \Phpactor\LanguageServer\Core\Server\Transmitter\MessageFormatter
 {
     /**
      * @var MessageSerializer
      */
     private $serializer;
-    public function __construct(?MessageSerializer $serializer = null)
+    public function __construct(?\Phpactor\LanguageServer\Core\Server\Transmitter\MessageSerializer $serializer = null)
     {
-        $this->serializer = $serializer ?: new LspMessageSerializer();
+        $this->serializer = $serializer ?: new \Phpactor\LanguageServer\Core\Server\Transmitter\LspMessageSerializer();
     }
     public function format(Message $message) : string
     {
@@ -20,4 +20,3 @@ final class LspMessageFormatter implements MessageFormatter
         return \implode('', [\implode("\r\n", $headers), "\r\n\r\n", $body]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\LspMessageFormatter', 'Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\LspMessageFormatter', \false);

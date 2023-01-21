@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query;
+namespace Phpactor\Indexer\Model\Query;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\IndexQuery;
-use Phpactor202301\Phpactor\Indexer\Model\LocationConfidence;
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\TextDocument\Location;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\IndexQuery;
+use Phpactor\Indexer\Model\LocationConfidence;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\TextDocument\Location;
 class ClassQuery implements IndexQuery
 {
     public function __construct(private Index $index)
@@ -47,4 +47,3 @@ class ClassQuery implements IndexQuery
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\ClassQuery', 'Phpactor\\Indexer\\Model\\Query\\ClassQuery', \false);

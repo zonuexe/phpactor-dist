@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\ByteOffsetRange;
 class Diagnostic
 {
     public const ERROR = 1;
@@ -25,4 +25,3 @@ class Diagnostic
         return $this->message;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Diagnostic', 'Phpactor\\CodeTransform\\Domain\\Diagnostic', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\SnippetFormatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\SnippetFormatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
 class FunctionLikeSnippetFormatter implements Formatter
 {
     public function canFormat(object $functionLike) : bool
@@ -20,4 +20,3 @@ class FunctionLikeSnippetFormatter implements Formatter
         return $name . $formatter->format($parameters);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\SnippetFormatter\\FunctionLikeSnippetFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\SnippetFormatter\\FunctionLikeSnippetFormatter', \false);

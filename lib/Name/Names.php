@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Name;
+namespace Phpactor\Name;
 
 use ArrayIterator;
 use Countable;
@@ -8,7 +8,7 @@ use IteratorAggregate;
 class Names implements Countable, IteratorAggregate
 {
     private array $names;
-    private function __construct(Name ...$names)
+    private function __construct(\Phpactor\Name\Name ...$names)
     {
         $this->names = $names;
     }
@@ -25,4 +25,3 @@ class Names implements Countable, IteratorAggregate
         return new ArrayIterator($this->names);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Name\\Names', 'Phpactor\\Name\\Names', \false);

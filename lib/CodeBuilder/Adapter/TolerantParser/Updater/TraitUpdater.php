@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\TraitPrototype;
-class TraitUpdater extends ClassLikeUpdater
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
+use Phpactor\CodeBuilder\Domain\Prototype\TraitPrototype;
+class TraitUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassLikeUpdater
 {
     public function updateTrait(Edits $edits, TraitPrototype $classPrototype, TraitDeclaration $classNode) : void
     {
@@ -24,4 +24,3 @@ class TraitUpdater extends ClassLikeUpdater
         return $node->traitMemberDeclarations;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\TraitUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\TraitUpdater', \false);

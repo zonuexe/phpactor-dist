@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Middleware;
+namespace Phpactor\Extension\LanguageServer\Middleware;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\Middleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Middleware\RequestHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Middleware\Middleware;
+use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use function Phpactor202301\Amp\call;
 class TraceMiddleware implements Middleware
@@ -43,4 +43,3 @@ class TraceMiddleware implements Middleware
         })($encoded));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Middleware\\TraceMiddleware', 'Phpactor\\Extension\\LanguageServer\\Middleware\\TraceMiddleware', \false);

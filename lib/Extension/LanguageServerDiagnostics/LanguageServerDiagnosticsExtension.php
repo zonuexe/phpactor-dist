@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerDiagnostics;
+namespace Phpactor\Extension\LanguageServerDiagnostics;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServerDiagnostics\Model\PhpLinter;
-use Phpactor202301\Phpactor\Extension\LanguageServerDiagnostics\Provider\PhpLintDiagnosticProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServerDiagnostics\Model\PhpLinter;
+use Phpactor\Extension\LanguageServerDiagnostics\Provider\PhpLintDiagnosticProvider;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\TextDocument\TextDocumentLocator;
 class LanguageServerDiagnosticsExtension implements Extension
 {
     public function load(ContainerBuilder $container) : void
@@ -22,4 +22,3 @@ class LanguageServerDiagnosticsExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerDiagnostics\\LanguageServerDiagnosticsExtension', 'Phpactor\\Extension\\LanguageServerDiagnostics\\LanguageServerDiagnosticsExtension', \false);

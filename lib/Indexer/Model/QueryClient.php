@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\ClassQuery;
-use Phpactor202301\Phpactor\Indexer\Model\Query\ConstantQuery;
-use Phpactor202301\Phpactor\Indexer\Model\Query\FileQuery;
-use Phpactor202301\Phpactor\Indexer\Model\Query\FunctionQuery;
-use Phpactor202301\Phpactor\Indexer\Model\Query\MemberQuery;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReferenceEnhancer\NullRecordReferenceEnhancer;
+use Phpactor\Indexer\Model\Query\ClassQuery;
+use Phpactor\Indexer\Model\Query\ConstantQuery;
+use Phpactor\Indexer\Model\Query\FileQuery;
+use Phpactor\Indexer\Model\Query\FunctionQuery;
+use Phpactor\Indexer\Model\Query\MemberQuery;
+use Phpactor\Indexer\Model\RecordReferenceEnhancer\NullRecordReferenceEnhancer;
 class QueryClient
 {
     private ClassQuery $classQuery;
     private FunctionQuery $functionQuery;
     private FileQuery $fileQuery;
     private MemberQuery $memberQuery;
-    private Index $index;
-    private ?RecordReferenceEnhancer $enhancer;
+    private \Phpactor\Indexer\Model\Index $index;
+    private ?\Phpactor\Indexer\Model\RecordReferenceEnhancer $enhancer;
     private ConstantQuery $constantQuery;
-    public function __construct(Index $index, ?RecordReferenceEnhancer $enhancer = null)
+    public function __construct(\Phpactor\Indexer\Model\Index $index, ?\Phpactor\Indexer\Model\RecordReferenceEnhancer $enhancer = null)
     {
         $enhancer = $enhancer ?: new NullRecordReferenceEnhancer();
         $this->classQuery = new ClassQuery($index);
@@ -49,4 +49,3 @@ class QueryClient
         return $this->constantQuery;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\QueryClient', 'Phpactor\\Indexer\\Model\\QueryClient', \false);

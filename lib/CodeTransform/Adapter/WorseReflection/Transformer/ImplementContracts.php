@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostic;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostics;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Transformer;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeTransform\Domain\Diagnostic;
+use Phpactor\CodeTransform\Domain\Diagnostics;
+use Phpactor\CodeTransform\Domain\Transformer;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextEdits;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
 class ImplementContracts implements Transformer
 {
     public function __construct(private Reflector $reflector, private Updater $updater, private BuilderFactory $factory)
@@ -97,4 +97,3 @@ class ImplementContracts implements Transformer
         return $methods;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\ImplementContracts', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\ImplementContracts', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Domain;
+namespace Phpactor\ClassFileConverter\Domain;
 
-class ChainClassToFile implements ClassToFile
+class ChainClassToFile implements \Phpactor\ClassFileConverter\Domain\ClassToFile
 {
     /**
      * @var array
@@ -14,7 +14,7 @@ class ChainClassToFile implements ClassToFile
             $this->add($converter);
         }
     }
-    public function classToFileCandidates(ClassName $className) : FilePathCandidates
+    public function classToFileCandidates(\Phpactor\ClassFileConverter\Domain\ClassName $className) : \Phpactor\ClassFileConverter\Domain\FilePathCandidates
     {
         $paths = [];
         foreach ($this->converters as $converter) {
@@ -22,11 +22,10 @@ class ChainClassToFile implements ClassToFile
                 $paths[] = $candidate;
             }
         }
-        return FilePathCandidates::fromFilePaths($paths);
+        return \Phpactor\ClassFileConverter\Domain\FilePathCandidates::fromFilePaths($paths);
     }
-    private function add(ClassToFile $classToFile) : void
+    private function add(\Phpactor\ClassFileConverter\Domain\ClassToFile $classToFile) : void
     {
         $this->converters[] = $classToFile;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Domain\\ChainClassToFile', 'Phpactor\\ClassFileConverter\\Domain\\ChainClassToFile', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Util;
+namespace Phpactor\WorseReflection\Core\Util;
 
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
@@ -72,4 +72,3 @@ class QualifiedNameListUtil
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Util\\QualifiedNameListUtil', 'Phpactor\\WorseReflection\\Core\\Util\\QualifiedNameListUtil', \false);

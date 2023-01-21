@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+namespace Phpactor\LanguageServer\Test\LanguageServerTester;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidChangeTextDocumentNotification;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidChangeTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidSaveTextDocumentNotification;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidSaveTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServer\Test\ProtocolFactory;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidOpenTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidOpenTextDocumentNotification;
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+use Phpactor\LanguageServerProtocol\DidChangeTextDocumentNotification;
+use Phpactor\LanguageServerProtocol\DidChangeTextDocumentParams;
+use Phpactor\LanguageServerProtocol\DidSaveTextDocumentNotification;
+use Phpactor\LanguageServerProtocol\DidSaveTextDocumentParams;
+use Phpactor\LanguageServer\Test\ProtocolFactory;
+use Phpactor\LanguageServerProtocol\DidOpenTextDocumentParams;
+use Phpactor\LanguageServerProtocol\DidOpenTextDocumentNotification;
+use Phpactor\LanguageServer\Test\LanguageServerTester;
 class TextDocumentTester
 {
     /**
@@ -33,4 +33,3 @@ class TextDocumentTester
         $this->tester->notifyAndWait(DidSaveTextDocumentNotification::METHOD, new DidSaveTextDocumentParams(ProtocolFactory::versionedTextDocumentIdentifier($uri, 1)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Test\\LanguageServerTester\\TextDocumentTester', 'Phpactor\\LanguageServer\\Test\\LanguageServerTester\\TextDocumentTester', \false);

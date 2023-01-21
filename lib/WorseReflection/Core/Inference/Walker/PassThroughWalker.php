@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\CatchClause;
@@ -11,10 +11,10 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\YieldExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ForeachStatement;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\IfStatementNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FrameResolver;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FrameResolver;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\Core\Inference\Walker;
 /**
  * Temporary class to bridge to the node resolvers (originally all these
  * classes were "walkers") the goal is to remove the "walker" concept.
@@ -35,8 +35,3 @@ class PassThroughWalker implements Walker
         return $frame;
     }
 }
-/**
- * Temporary class to bridge to the node resolvers (originally all these
- * classes were "walkers") the goal is to remove the "walker" concept.
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Walker\\PassThroughWalker', 'Phpactor\\WorseReflection\\Core\\Inference\\Walker\\PassThroughWalker', \false);

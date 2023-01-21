@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
 interface TypeLocator
 {
     /**
@@ -15,6 +15,5 @@ interface TypeLocator
      * If this locator cannot provide a location it MUST throw a
      * CouldNotLocateType exception.
      */
-    public function locateTypes(TextDocument $document, ByteOffset $byteOffset) : TypeLocations;
+    public function locateTypes(TextDocument $document, ByteOffset $byteOffset) : \Phpactor\ReferenceFinder\TypeLocations;
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\TypeLocator', 'Phpactor\\ReferenceFinder\\TypeLocator', \false);

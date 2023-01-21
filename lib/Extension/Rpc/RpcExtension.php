@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc;
+namespace Phpactor\Extension\Rpc;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Debug\DebugExtension;
-use Phpactor202301\Phpactor\Extension\Debug\Model\DefinitionDocumentor;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\Command\RpcCommand;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\EchoHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Registry\LazyContainerHandlerRegistry;
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Debug\DebugExtension;
+use Phpactor\Extension\Debug\Model\DefinitionDocumentor;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Rpc\Command\RpcCommand;
+use Phpactor\Extension\Rpc\Handler\EchoHandler;
+use Phpactor\Extension\Rpc\Registry\LazyContainerHandlerRegistry;
+use Phpactor\Extension\Rpc\RequestHandler\ExceptionCatchingHandler;
+use Phpactor\Extension\Rpc\RequestHandler\LoggingHandler;
+use Phpactor\Extension\Rpc\RequestHandler\RequestHandler;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
 use RuntimeException;
 class RpcExtension implements Extension
 {
@@ -43,8 +43,8 @@ class RpcExtension implements Extension
             }
             return new LazyContainerHandlerRegistry($container, $handlers);
         });
-        $container->register(RpcCommandDocumentor::class, function ($container) {
-            return new RpcCommandDocumentor($container->get('rpc.handler_registry'), $container->get(DefinitionDocumentor::class));
+        $container->register(\Phpactor\Extension\Rpc\RpcCommandDocumentor::class, function ($container) {
+            return new \Phpactor\Extension\Rpc\RpcCommandDocumentor($container->get('rpc.handler_registry'), $container->get(DefinitionDocumentor::class));
         }, [DebugExtension::TAG_DOCUMENTOR => ['name' => self::RPC_DOCUMENTOR_NAME]]);
         $this->registerHandlers($container);
     }
@@ -60,4 +60,3 @@ class RpcExtension implements Extension
         }, [self::TAG_RPC_HANDLER => ['name' => 'echo']]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RpcExtension', 'Phpactor\\Extension\\Rpc\\RpcExtension', \false);

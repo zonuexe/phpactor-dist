@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Util;
+namespace Phpactor\Indexer\Util;
 
 class PhpNameMatcher
 {
@@ -14,4 +14,3 @@ class PhpNameMatcher
         return (bool) \preg_match('{^[a-zA-Z_\\x80-\\xff\\][\\a-zA-Z0-9_\\x80-\\xff]*$}', $name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Util\\PhpNameMatcher', 'Phpactor\\Indexer\\Util\\PhpNameMatcher', \false);

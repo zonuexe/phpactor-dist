@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model;
+namespace Phpactor\Rename\Model;
 
 use Generator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextDocument;
 interface Renamer
 {
     public function getRenameRange(TextDocument $textDocument, ByteOffset $offset) : ?ByteOffsetRange;
@@ -14,4 +14,3 @@ interface Renamer
      */
     public function rename(TextDocument $textDocument, ByteOffset $offset, string $newName) : Generator;
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\Renamer', 'Phpactor\\Rename\\Model\\Renamer', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Simple;
+namespace Phpactor\ClassFileConverter\Adapter\Simple;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFile;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePathCandidates;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\ClassToFile;
+use Phpactor\ClassFileConverter\Domain\FilePathCandidates;
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePath;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RegexIterator;
@@ -22,7 +22,7 @@ class SimpleClassToFile implements ClassToFile
     public function __construct(string $cwd)
     {
         $this->cwd = $cwd;
-        $this->classScanner = new ClassScanner();
+        $this->classScanner = new \Phpactor\ClassFileConverter\Adapter\Simple\ClassScanner();
     }
     public function classToFileCandidates(ClassName $className) : FilePathCandidates
     {
@@ -40,4 +40,3 @@ class SimpleClassToFile implements ClassToFile
         return FilePathCandidates::fromFilePaths($candidates);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Simple\\SimpleClassToFile', 'Phpactor\\ClassFileConverter\\Adapter\\Simple\\SimpleClassToFile', \false);

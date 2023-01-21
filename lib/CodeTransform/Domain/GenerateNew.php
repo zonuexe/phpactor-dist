@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
-interface GenerateNew extends Generator
+interface GenerateNew extends \Phpactor\CodeTransform\Domain\Generator
 {
     /**
      * Examples:
@@ -10,6 +10,5 @@ interface GenerateNew extends Generator
      * - New class
      * - Interface from existing class
      */
-    public function generateNew(ClassName $targetName) : SourceCode;
+    public function generateNew(\Phpactor\CodeTransform\Domain\ClassName $targetName) : \Phpactor\CodeTransform\Domain\SourceCode;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\GenerateNew', 'Phpactor\\CodeTransform\\Domain\\GenerateNew', \false);

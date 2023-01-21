@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\GenerateConstructor;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentEdits;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\WorkspaceEdits;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionObjectCreationExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionArgument;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeTransform\Domain\Refactor\GenerateConstructor;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentEdits;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\WorkspaceEdits;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionObjectCreationExpression;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionArgument;
+use Phpactor\WorseReflection\Reflector;
 class WorseGenerateConstructor implements GenerateConstructor
 {
     public function __construct(private Reflector $reflector, private BuilderFactory $factory, private Updater $updater, private Parser $parser)
@@ -63,4 +63,3 @@ class WorseGenerateConstructor implements GenerateConstructor
         return new WorkspaceEdits(new TextDocumentEdits(TextDocumentUri::fromString($newObject->class()->sourceCode()->mustGetUri()), $this->updater->textEditsFor($builder->build(), Code::fromString($newObject->class()->sourceCode()))));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseGenerateConstructor', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseGenerateConstructor', \false);

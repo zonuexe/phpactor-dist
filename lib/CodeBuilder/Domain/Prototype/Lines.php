@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 /**
  * @extends Collection<Line>
  */
-class Lines extends Collection
+class Lines extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
     public function __toString()
     {
@@ -20,7 +20,3 @@ class Lines extends Collection
         return 'line';
     }
 }
-/**
- * @extends Collection<Line>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Lines', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Lines', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\UrlException;
+use Safe\Exceptions\UrlException;
+
 /**
  * Decodes a base64 encoded data.
  *
@@ -16,15 +17,17 @@ use Phpactor202301\Safe\Exceptions\UrlException;
  * @throws UrlException
  *
  */
-function base64_decode(string $data, bool $strict = \false) : string
+function base64_decode(string $data, bool $strict = false): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \base64_decode($data, $strict);
-    if ($result === \false) {
+    if ($result === false) {
         throw UrlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * get_headers returns an array with the headers sent
  * by the server in response to a HTTP request.
@@ -39,19 +42,21 @@ function base64_decode(string $data, bool $strict = \false) : string
  * @throws UrlException
  *
  */
-function get_headers(string $url, int $format = 0, $context = null) : array
+function get_headers(string $url, int $format = 0, $context = null): array
 {
-    \error_clear_last();
+    error_clear_last();
     if ($context !== null) {
         $result = \get_headers($url, $format, $context);
     } else {
         $result = \get_headers($url, $format);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw UrlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function parses a URL and returns an associative array containing any
  * of the various components of the URL that are present.
@@ -130,9 +135,9 @@ function get_headers(string $url, int $format = 0, $context = null) : array
  */
 function parse_url(string $url, int $component = -1)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \parse_url($url, $component);
-    if ($result === \false) {
+    if ($result === false) {
         throw UrlException::createFromPhpError();
     }
     return $result;

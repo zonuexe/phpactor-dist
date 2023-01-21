@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-final class ChainReferenceFinder implements ReferenceFinder
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+final class ChainReferenceFinder implements \Phpactor\ReferenceFinder\ReferenceFinder
 {
     /**
      * @var ReferenceFinder[]
@@ -23,9 +23,8 @@ final class ChainReferenceFinder implements ReferenceFinder
             yield from $finder->findReferences($document, $byteOffset);
         }
     }
-    private function add(ReferenceFinder $finder) : void
+    private function add(\Phpactor\ReferenceFinder\ReferenceFinder $finder) : void
     {
         $this->finders[] = $finder;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\ChainReferenceFinder', 'Phpactor\\ReferenceFinder\\ChainReferenceFinder', \false);

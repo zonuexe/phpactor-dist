@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -8,13 +8,13 @@ use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-class WorseParameterCompletor extends AbstractParameterCompletor implements TolerantCompletor
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+class WorseParameterCompletor extends \Phpactor\Completion\Bridge\TolerantParser\WorseReflection\AbstractParameterCompletor implements TolerantCompletor
 {
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
     {
@@ -78,4 +78,3 @@ class WorseParameterCompletor extends AbstractParameterCompletor implements Tole
         return $this->reflector->reflectFunction((string) $name);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\WorseParameterCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\WorseParameterCompletor', \false);

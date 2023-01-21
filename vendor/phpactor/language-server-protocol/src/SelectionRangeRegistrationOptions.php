@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -9,7 +9,7 @@ use RuntimeException;
 /**
  * Mixins (implemented TS interfaces): SelectionRangeOptions, TextDocumentRegistrationOptions, StaticRegistrationOptions
  */
-class SelectionRangeRegistrationOptions extends SelectionRangeOptions
+class SelectionRangeRegistrationOptions extends \Phpactor\LanguageServerProtocol\SelectionRangeOptions
 {
     /**
      *
@@ -97,7 +97,3 @@ class SelectionRangeRegistrationOptions extends SelectionRangeOptions
         throw $lastException;
     }
 }
-/**
- * Mixins (implemented TS interfaces): SelectionRangeOptions, TextDocumentRegistrationOptions, StaticRegistrationOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SelectionRangeRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\SelectionRangeRegistrationOptions', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -41,7 +41,7 @@ class ClientCapabilities
      * @param array<mixed>|null $window
      * @param array<mixed>|null $experimental
      */
-    public function __construct(?array $workspace = null, ?TextDocumentClientCapabilities $textDocument = null, ?array $window = null, ?array $experimental = null)
+    public function __construct(?array $workspace = null, ?\Phpactor\LanguageServerProtocol\TextDocumentClientCapabilities $textDocument = null, ?array $window = null, ?array $experimental = null)
     {
         $this->workspace = $workspace;
         $this->textDocument = $textDocument;
@@ -54,7 +54,7 @@ class ClientCapabilities
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['workspace' => ['names' => [], 'iterable' => \false], 'textDocument' => ['names' => [TextDocumentClientCapabilities::class], 'iterable' => \false], 'window' => ['names' => [], 'iterable' => \false], 'experimental' => ['names' => [], 'iterable' => \false]];
+        $map = ['workspace' => ['names' => [], 'iterable' => \false], 'textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentClientCapabilities::class], 'iterable' => \false], 'window' => ['names' => [], 'iterable' => \false], 'experimental' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -104,7 +104,3 @@ class ClientCapabilities
         throw $lastException;
     }
 }
-/**
- * Mixins (implemented TS interfaces): _ClientCapabilities, WorkspaceFoldersClientCapabilities, ConfigurationClientCapabilities, WorkDoneProgressClientCapabilities
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ClientCapabilities', 'Phpactor\\LanguageServerProtocol\\ClientCapabilities', \false);

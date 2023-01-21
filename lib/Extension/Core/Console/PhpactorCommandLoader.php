@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Console;
+namespace Phpactor\Extension\Core\Console;
 
 use Phpactor202301\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 class PhpactorCommandLoader extends ContainerCommandLoader
@@ -12,4 +12,3 @@ class PhpactorCommandLoader extends ContainerCommandLoader
         return $command;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Console\\PhpactorCommandLoader', 'Phpactor\\Extension\\Core\\Console\\PhpactorCommandLoader', \false);

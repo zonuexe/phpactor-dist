@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Attribute;
@@ -12,21 +12,21 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpre
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\Completion\Core\ParameterInformation;
-use Phpactor202301\Phpactor\Completion\Core\SignatureHelp;
-use Phpactor202301\Phpactor\Completion\Core\SignatureHelper;
-use Phpactor202301\Phpactor\Completion\Core\SignatureInformation;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\Completion\Core\ParameterInformation;
+use Phpactor\Completion\Core\SignatureHelp;
+use Phpactor\Completion\Core\SignatureHelper;
+use Phpactor\Completion\Core\SignatureInformation;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Reflector;
 class WorseSignatureHelper implements SignatureHelper
 {
     private Parser $parser;
@@ -192,4 +192,3 @@ class WorseSignatureHelper implements SignatureHelper
         return [null, null];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\WorseSignatureHelper', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\WorseSignatureHelper', \false);

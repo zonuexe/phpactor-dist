@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class DefinitionAndReferenceFinder implements ReferenceFinder
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+class DefinitionAndReferenceFinder implements \Phpactor\ReferenceFinder\ReferenceFinder
 {
-    public function __construct(private DefinitionLocator $locator, private ReferenceFinder $referenceFinder)
+    public function __construct(private \Phpactor\ReferenceFinder\DefinitionLocator $locator, private \Phpactor\ReferenceFinder\ReferenceFinder $referenceFinder)
     {
     }
     public function findReferences(TextDocument $document, ByteOffset $byteOffset) : Generator
     {
         try {
             $location = $this->locator->locateDefinition($document, $byteOffset);
-            (yield PotentialLocation::surely($location->first()->location()));
+            (yield \Phpactor\ReferenceFinder\PotentialLocation::surely($location->first()->location()));
         } catch (CouldNotLocateDefinition) {
         }
         foreach ($this->referenceFinder->findReferences($document, $byteOffset) as $reference) {
@@ -23,4 +23,3 @@ class DefinitionAndReferenceFinder implements ReferenceFinder
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\DefinitionAndReferenceFinder', 'Phpactor\\ReferenceFinder\\DefinitionAndReferenceFinder', \false);

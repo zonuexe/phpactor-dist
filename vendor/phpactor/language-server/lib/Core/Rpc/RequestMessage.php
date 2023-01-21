@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Rpc;
+namespace Phpactor\LanguageServer\Core\Rpc;
 
-final class RequestMessage extends Message
+final class RequestMessage extends \Phpactor\LanguageServer\Core\Rpc\Message
 {
     /**
      * @var string|int
@@ -30,4 +30,3 @@ final class RequestMessage extends Message
         return ['id' => $this->id, 'method' => $this->method, 'params' => $this->params];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Rpc\\RequestMessage', 'Phpactor\\LanguageServer\\Core\\Rpc\\RequestMessage', \false);

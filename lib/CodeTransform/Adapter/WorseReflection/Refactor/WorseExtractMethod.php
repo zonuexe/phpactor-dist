@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\FunctionLike;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -9,24 +9,24 @@ use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentEdits;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\TextDocument\TextDocumentEdits;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\WorseReflection\Reflector;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Assignments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Utils\TextUtils;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Inference\Assignments;
+use Phpactor\WorseReflection\Core\Inference\Variable;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeBuilder\Domain\Builder\MethodBuilder;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\CodeTransform\Domain\Utils\TextUtils;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
 use function iterator_to_array;
 use function prev;
 class WorseExtractMethod implements ExtractMethod
@@ -322,4 +322,3 @@ class WorseExtractMethod implements ExtractMethod
         return $node;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseExtractMethod', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseExtractMethod', \false);

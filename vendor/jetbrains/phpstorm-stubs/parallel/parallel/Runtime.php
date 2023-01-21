@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\parallel;
+namespace parallel;
 
 use Closure;
+
 /**
  * Each runtime represents a single PHP thread, the thread is created (and bootstrapped) upon construction. The thread
  * then waits for tasks to be scheduled: Scheduled tasks will be executed FIFO and then the thread will resume waiting
@@ -22,6 +23,7 @@ use Closure;
 final class Runtime
 {
     /* Create */
+
     /**
      * Shall construct a new runtime without bootstrapping.
      * Shall construct a bootstrapped runtime.
@@ -31,10 +33,10 @@ final class Runtime
      * @throws Runtime\Error if thread could not be created
      * @throws Runtime\Error\Bootstrap if bootstrapping failed
      */
-    public function __construct(?string $bootstrap = null)
-    {
-    }
+    public function __construct(?string $bootstrap = null) {}
+
     /* Execute */
+
     /**
      * Shall schedule task for execution in parallel, passing argv at execution time.
      *
@@ -91,19 +93,18 @@ final class Runtime
      * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
      * @throws Runtime\Error\IllegalReturn if task returns illegally.
      */
-    public function run(Closure $task, ?array $argv = null) : ?Future
-    {
-    }
+    public function run(Closure $task, ?array $argv = null): ?Future {}
+
     /* Join */
+
     /**
      * Shall request that the runtime shutsdown.
      * Note: Tasks scheduled for execution will be executed before the shutdown occurs.
      *
      * @throws Runtime\Error\Closed if Runtime was already closed.
      */
-    public function close() : void
-    {
-    }
+    public function close(): void {}
+
     /**
      * Shall attempt to force the runtime to shutdown.
      *
@@ -112,7 +113,5 @@ final class Runtime
      *
      * @throws Runtime\Error\Closed if Runtime was closed.
      */
-    public function kill() : void
-    {
-    }
+    public function kill(): void {}
 }

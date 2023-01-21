@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractConstant;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractConstant;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 class ExtractConstantHandler extends AbstractHandler
 {
     const NAME = 'extract_constant';
@@ -39,4 +39,3 @@ class ExtractConstantHandler extends AbstractHandler
         return UpdateFileSourceResponse::fromPathOldAndNewSource($arguments[self::PARAM_PATH], $arguments[self::PARAM_SOURCE], $textEdits->textEdits()->apply($arguments[self::PARAM_SOURCE]));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\ExtractConstantHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\ExtractConstantHandler', \false);

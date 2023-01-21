@@ -1,42 +1,42 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
-use Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\CachedParserFactory;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\DocblockParserFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache\NullCache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache\StaticCache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\NodeContextFromMemberAccess;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker\DiagnosticsWalker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker\PassThroughWalker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker\FunctionLikeWalker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker\IncludeWalker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker\VariableWalker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeToTypeConverter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FrameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\ChainReflectionMemberProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\CoreReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\CompositeReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector\MemonizedReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCode\ContextualSourceCodeReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\ChainSourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\TemporarySourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
+use Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\CachedParserFactory;
+use Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\DocblockParserFactory;
+use Phpactor\WorseReflection\Core\Cache\NullCache;
+use Phpactor\WorseReflection\Core\Cache\StaticCache;
+use Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\NodeContextFromMemberAccess;
+use Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\Core\Inference\Walker\DiagnosticsWalker;
+use Phpactor\WorseReflection\Core\Inference\Walker\PassThroughWalker;
+use Phpactor\WorseReflection\Core\Inference\Walker\FunctionLikeWalker;
+use Phpactor\WorseReflection\Core\Inference\Walker\IncludeWalker;
+use Phpactor\WorseReflection\Core\Inference\Walker\VariableWalker;
+use Phpactor\WorseReflection\Core\Inference\NodeToTypeConverter;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\FrameResolver;
+use Phpactor\WorseReflection\Core\Virtual\ChainReflectionMemberProvider;
+use Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Reflector\CoreReflector;
+use Phpactor\WorseReflection\Core\Reflector\CompositeReflector;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector\MemonizedReflector;
+use Phpactor\WorseReflection\Core\Reflector\SourceCode\ContextualSourceCodeReflector;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\ChainSourceLocator;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\TemporarySourceLocator;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class ServiceLocator
 {
-    private SourceCodeLocator $sourceLocator;
+    private \Phpactor\WorseReflection\Core\SourceCodeLocator $sourceLocator;
     private LoggerInterface $logger;
     private Reflector $reflector;
     private DocBlockFactory $docblockFactory;
-    private Cache $cache;
+    private \Phpactor\WorseReflection\Core\Cache $cache;
     private NodeToTypeConverter $nameResolver;
     /**
      * @param Walker[] $frameWalkers
@@ -44,7 +44,7 @@ class ServiceLocator
      * @param DiagnosticProvider[] $diagnosticProviders
      * @param MemberContextResolver[] $memberContextResolvers
      */
-    public function __construct(SourceCodeLocator $sourceLocator, LoggerInterface $logger, SourceCodeReflectorFactory $reflectorFactory, private array $frameWalkers, private array $methodProviders, private array $diagnosticProviders, private array $memberContextResolvers, Cache $cache, bool $enableContextualLocation = \false)
+    public function __construct(\Phpactor\WorseReflection\Core\SourceCodeLocator $sourceLocator, LoggerInterface $logger, SourceCodeReflectorFactory $reflectorFactory, private array $frameWalkers, private array $methodProviders, private array $diagnosticProviders, private array $memberContextResolvers, \Phpactor\WorseReflection\Core\Cache $cache, bool $enableContextualLocation = \false)
     {
         $sourceReflector = $reflectorFactory->create($this);
         if ($enableContextualLocation) {
@@ -74,7 +74,7 @@ class ServiceLocator
     {
         return $this->logger;
     }
-    public function sourceLocator() : SourceCodeLocator
+    public function sourceLocator() : \Phpactor\WorseReflection\Core\SourceCodeLocator
     {
         return $this->sourceLocator;
     }
@@ -84,7 +84,7 @@ class ServiceLocator
     }
     public function symbolContextResolver() : NodeContextResolver
     {
-        return new NodeContextResolver($this->reflector, $this->docblockFactory, $this->logger, new StaticCache(), (new DefaultResolverFactory($this->reflector, $this->nameResolver, new GenericMapResolver($this->reflector), new NodeContextFromMemberAccess(new GenericMapResolver($this->reflector), $this->memberContextResolvers)))->createResolvers());
+        return new NodeContextResolver($this->reflector, $this->docblockFactory, $this->logger, new StaticCache(), (new \Phpactor\WorseReflection\Core\DefaultResolverFactory($this->reflector, $this->nameResolver, new GenericMapResolver($this->reflector), new NodeContextFromMemberAccess(new GenericMapResolver($this->reflector), $this->memberContextResolvers)))->createResolvers());
     }
     public function frameBuilder() : FrameResolver
     {
@@ -94,7 +94,7 @@ class ServiceLocator
     {
         return new ChainReflectionMemberProvider(...$this->methodProviders);
     }
-    public function cache() : Cache
+    public function cache() : \Phpactor\WorseReflection\Core\Cache
     {
         return $this->cache;
     }
@@ -103,4 +103,3 @@ class ServiceLocator
         return new DiagnosticsWalker($this->diagnosticProviders);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\ServiceLocator', 'Phpactor\\WorseReflection\\Core\\ServiceLocator', \false);

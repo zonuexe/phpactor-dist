@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -48,7 +48,7 @@ class LocationLink
      * @param Range $targetRange
      * @param Range $targetSelectionRange
      */
-    public function __construct(string $targetUri, Range $targetRange, Range $targetSelectionRange, ?Range $originSelectionRange = null)
+    public function __construct(string $targetUri, \Phpactor\LanguageServerProtocol\Range $targetRange, \Phpactor\LanguageServerProtocol\Range $targetSelectionRange, ?\Phpactor\LanguageServerProtocol\Range $originSelectionRange = null)
     {
         $this->originSelectionRange = $originSelectionRange;
         $this->targetUri = $targetUri;
@@ -61,7 +61,7 @@ class LocationLink
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['originSelectionRange' => ['names' => [Range::class], 'iterable' => \false], 'targetUri' => ['names' => [], 'iterable' => \false], 'targetRange' => ['names' => [Range::class], 'iterable' => \false], 'targetSelectionRange' => ['names' => [Range::class], 'iterable' => \false]];
+        $map = ['originSelectionRange' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'targetUri' => ['names' => [], 'iterable' => \false], 'targetRange' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'targetSelectionRange' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -111,8 +111,3 @@ class LocationLink
         throw $lastException;
     }
 }
-/**
- * Represents the connection of two locations. Provides additional metadata over normal [locations](#Location),
- * including an origin range.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\LocationLink', 'Phpactor\\LanguageServerProtocol\\LocationLink', \false);

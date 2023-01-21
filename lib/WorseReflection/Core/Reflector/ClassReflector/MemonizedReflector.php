@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+namespace Phpactor\WorseReflection\Core\Reflector\ClassReflector;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\CycleDetected;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ConstantReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\FunctionReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\Exception\CycleDetected;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflector\ConstantReflector;
+use Phpactor\WorseReflection\Core\Reflector\FunctionReflector;
+use Phpactor\WorseReflection\Core\SourceCode;
 class MemonizedReflector implements ClassReflector, FunctionReflector, ConstantReflector
 {
     private const FUNC_PREFIX = '__func__';
@@ -108,4 +108,3 @@ class MemonizedReflector implements ClassReflector, FunctionReflector, ConstantR
         return $result;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\ClassReflector\\MemonizedReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\ClassReflector\\MemonizedReflector', \false);

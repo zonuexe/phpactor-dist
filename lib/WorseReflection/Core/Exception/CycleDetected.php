@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Exception;
+namespace Phpactor\WorseReflection\Core\Exception;
 
-class CycleDetected extends NotFound
+class CycleDetected extends \Phpactor\WorseReflection\Core\Exception\NotFound
 {
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Exception\\CycleDetected', 'Phpactor\\WorseReflection\\Core\\Exception\\CycleDetected', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Util;
+namespace Phpactor\WorseReflection\Core\Util;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
@@ -17,13 +17,13 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
 use Phpactor202301\Microsoft\PhpParser\Token;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntersectionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\IntersectionType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Reflector;
 class NodeUtil
 {
     private const RESERVED_NAMES = ['iterable', 'resource'];
@@ -269,4 +269,3 @@ class NodeUtil
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Util\\NodeUtil', 'Phpactor\\WorseReflection\\Core\\Util\\NodeUtil', \false);

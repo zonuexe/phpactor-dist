@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Logger;
+namespace Phpactor\Extension\LanguageServer\Logger;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class ClientLogger implements LoggerInterface
 {
@@ -50,4 +50,3 @@ class ClientLogger implements LoggerInterface
         $this->innerLogger->log($message, $context);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Logger\\ClientLogger', 'Phpactor\\Extension\\LanguageServer\\Logger\\ClientLogger', \false);

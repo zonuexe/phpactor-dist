@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\Record\MemberRecord;
 class MemberReference
 {
     /**
@@ -36,4 +36,3 @@ class MemberReference
         return $this->memberName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\MemberReference', 'Phpactor\\Indexer\\Model\\MemberReference', \false);

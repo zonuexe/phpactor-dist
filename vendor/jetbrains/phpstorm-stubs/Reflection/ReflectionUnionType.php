@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * @since 8.0
  */
-class ReflectionUnionType extends \ReflectionType
+class ReflectionUnionType extends ReflectionType
 {
     /**
      * Get list of named types of union type
@@ -14,11 +13,5 @@ class ReflectionUnionType extends \ReflectionType
      * @return ReflectionNamedType[]
      */
     #[Pure]
-    public function getTypes() : array
-    {
-    }
+    public function getTypes(): array {}
 }
-/**
- * @since 8.0
- */
-\class_alias('Phpactor202301\\ReflectionUnionType', 'ReflectionUnionType', \false);

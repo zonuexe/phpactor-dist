@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Event;
+namespace Phpactor\LanguageServer\Event;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
 class TextDocumentClosed
 {
     /**
@@ -18,4 +18,3 @@ class TextDocumentClosed
         return $this->identifier;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Event\\TextDocumentClosed', 'Phpactor\\LanguageServer\\Event\\TextDocumentClosed', \false);

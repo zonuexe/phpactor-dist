@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\Utils;
+namespace Phpactor\CodeTransform\Domain\Utils;
 
 class TextUtils
 {
@@ -46,4 +46,3 @@ class TextUtils
         return \mb_strlen($matches[1]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Utils\\TextUtils', 'Phpactor\\CodeTransform\\Domain\\Utils\\TextUtils', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ApacheException;
+use Safe\Exceptions\ApacheException;
+
 /**
  * Fetch the Apache version.
  *
@@ -10,15 +11,17 @@ use Phpactor202301\Safe\Exceptions\ApacheException;
  * @throws ApacheException
  *
  */
-function apache_get_version() : string
+function apache_get_version(): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apache_get_version();
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Retrieve an Apache environment variable specified by
  * variable.
@@ -31,15 +34,17 @@ function apache_get_version() : string
  * @throws ApacheException
  *
  */
-function apache_getenv(string $variable, bool $walk_to_top = \false) : string
+function apache_getenv(string $variable, bool $walk_to_top = false): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apache_getenv($variable, $walk_to_top);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Fetches all HTTP request headers from the current request. Works in the
  * Apache, FastCGI, CLI, FPM and NSAPI server module
@@ -49,15 +54,17 @@ function apache_getenv(string $variable, bool $walk_to_top = \false) : string
  * @throws ApacheException
  *
  */
-function apache_request_headers() : array
+function apache_request_headers(): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apache_request_headers();
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * apache_reset_timeout resets the Apache write timer,
  * which defaults to 300 seconds. With set_time_limit(0);
@@ -70,14 +77,16 @@ function apache_request_headers() : array
  * @throws ApacheException
  *
  */
-function apache_reset_timeout() : void
+function apache_reset_timeout(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apache_reset_timeout();
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
 }
+
+
 /**
  * Fetch all HTTP response headers.  Works in the
  * Apache, FastCGI, CLI, FPM and NSAPI server module
@@ -87,15 +96,17 @@ function apache_reset_timeout() : void
  * @throws ApacheException
  *
  */
-function apache_response_headers() : array
+function apache_response_headers(): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apache_response_headers();
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * apache_setenv sets the value of the Apache
  * environment variable specified by
@@ -107,14 +118,16 @@ function apache_response_headers() : array
  * @throws ApacheException
  *
  */
-function apache_setenv(string $variable, string $value, bool $walk_to_top = \false) : void
+function apache_setenv(string $variable, string $value, bool $walk_to_top = false): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apache_setenv($variable, $value, $walk_to_top);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
 }
+
+
 /**
  * Fetches all HTTP headers from the current request.
  *
@@ -126,15 +139,17 @@ function apache_setenv(string $variable, string $value, bool $walk_to_top = \fal
  * @throws ApacheException
  *
  */
-function getallheaders() : array
+function getallheaders(): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getallheaders();
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * virtual is an Apache-specific function which
  * is similar to &lt;!--#include virtual...--&gt; in
@@ -152,11 +167,11 @@ function getallheaders() : array
  * @throws ApacheException
  *
  */
-function virtual(string $filename) : void
+function virtual(string $filename): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \virtual($filename);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApacheException::createFromPhpError();
     }
 }

@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\Twig;
+namespace Phpactor\CodeBuilder\Adapter\Twig;
 
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer82;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Prototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\CodeBuilder\Util\TextFormat;
+use Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer82;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Prototype\Prototype;
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Util\TextFormat;
 use Phpactor202301\Twig\Environment;
 use Phpactor202301\Twig\Loader\FilesystemLoader;
 use Phpactor202301\Twig\Error\LoaderError;
 final class TwigRenderer implements Renderer
 {
     private Environment $twig;
-    private TemplateNameResolver $templateNameResolver;
-    public function __construct(Environment $twig = null, TemplateNameResolver $templateNameResolver = null)
+    private \Phpactor\CodeBuilder\Adapter\Twig\TemplateNameResolver $templateNameResolver;
+    public function __construct(Environment $twig = null, \Phpactor\CodeBuilder\Adapter\Twig\TemplateNameResolver $templateNameResolver = null)
     {
         $this->twig = $twig ?: $this->createTwig();
-        $this->templateNameResolver = $templateNameResolver ?: new ClassShortNameResolver();
+        $this->templateNameResolver = $templateNameResolver ?: new \Phpactor\CodeBuilder\Adapter\Twig\ClassShortNameResolver();
     }
     public function render(Prototype $prototype, string $variant = null) : Code
     {
@@ -38,7 +38,7 @@ final class TwigRenderer implements Renderer
     private function createTwig() : Environment
     {
         $twig = new Environment(new FilesystemLoader(__DIR__ . '/../../../../templates/code'), ['strict_variables' => \true, 'autoescape' => \false]);
-        $twig->addExtension(new TwigExtension(new TextFormat(), new WorseTypeRenderer82()));
+        $twig->addExtension(new \Phpactor\CodeBuilder\Adapter\Twig\TwigExtension(new TextFormat(), new WorseTypeRenderer82()));
         return $twig;
     }
     private function twigRender(Prototype $prototype, string $templateName, string $variant = null) : string
@@ -46,4 +46,3 @@ final class TwigRenderer implements Renderer
         return $this->twig->render($templateName, ['prototype' => $prototype, 'generator' => $this, 'variant' => $variant]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\Twig\\TwigRenderer', 'Phpactor\\CodeBuilder\\Adapter\\Twig\\TwigRenderer', \false);

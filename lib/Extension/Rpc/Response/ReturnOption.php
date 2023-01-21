@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
 class ReturnOption
 {
@@ -20,4 +20,3 @@ class ReturnOption
         return $this->value;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\ReturnOption', 'Phpactor\\Extension\\Rpc\\Response\\ReturnOption', \false);

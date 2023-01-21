@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class TraitDeclarationIndexer extends AbstractClassLikeIndexer
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\TextDocument\TextDocument;
+class TraitDeclarationIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Indexer\AbstractClassLikeIndexer
 {
     public function canIndex(Node $node) : bool
     {
@@ -20,4 +20,3 @@ class TraitDeclarationIndexer extends AbstractClassLikeIndexer
         $index->write($record);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\TraitDeclarationIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\TraitDeclarationIndexer', \false);

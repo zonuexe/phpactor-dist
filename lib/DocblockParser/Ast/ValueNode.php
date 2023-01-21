@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
-abstract class ValueNode extends Node
+abstract class ValueNode extends \Phpactor\DocblockParser\Ast\Node
 {
     /**
      * @return mixed
      */
     public abstract function value();
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\ValueNode', 'Phpactor\\DocblockParser\\Ast\\ValueNode', \false);

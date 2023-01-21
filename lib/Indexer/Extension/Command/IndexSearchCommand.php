@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Extension\Command;
+namespace Phpactor\Indexer\Extension\Command;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\SearchClient;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
@@ -73,4 +73,3 @@ class IndexSearchCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Extension\\Command\\IndexSearchCommand', 'Phpactor\\Indexer\\Extension\\Command\\IndexSearchCommand', \false);

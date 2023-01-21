@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier\ClassQualifier;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
+use Phpactor\Completion\Bridge\TolerantParser\Qualifier\ClassQualifier;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class ImportedNameCompletor implements TolerantCompletor, TolerantQualifiable
 {
     private ClassQualifier $qualifier;
@@ -37,4 +37,3 @@ class ImportedNameCompletor implements TolerantCompletor, TolerantQualifiable
         return $this->qualifier;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\ImportedNameCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\ImportedNameCompletor', \false);

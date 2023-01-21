@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\PatternMatching;
+namespace Phpactor\AmpFsWatch\Watcher\PatternMatching;
 
 use Phpactor202301\Webmozart\Glob\Glob;
 class PatternMatcher
@@ -11,4 +11,3 @@ class PatternMatcher
         return Glob::match($path, $pattern);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\PatternMatching\\PatternMatcher', 'Phpactor\\AmpFsWatch\\Watcher\\PatternMatching\\PatternMatcher', \false);

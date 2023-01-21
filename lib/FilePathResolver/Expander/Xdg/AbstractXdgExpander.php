@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver\Expander\Xdg;
+namespace Phpactor\FilePathResolver\Expander\Xdg;
 
-use Phpactor202301\Phpactor\FilePathResolver\Expander;
+use Phpactor\FilePathResolver\Expander;
 use Phpactor202301\XdgBaseDir\Xdg;
 abstract class AbstractXdgExpander implements Expander
 {
@@ -16,4 +16,3 @@ abstract class AbstractXdgExpander implements Expander
         return $this->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\Expander\\Xdg\\AbstractXdgExpander', 'Phpactor\\FilePathResolver\\Expander\\Xdg\\AbstractXdgExpander', \false);

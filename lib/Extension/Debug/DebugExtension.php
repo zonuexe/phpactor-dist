@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Debug;
+namespace Phpactor\Extension\Debug;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\PhpactorContainer;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Debug\Command\GenerateDocumentationCommand;
-use Phpactor202301\Phpactor\Extension\Debug\Model\ExtensionDocumentor;
-use Phpactor202301\Phpactor\Extension\Debug\Model\DocumentorRegistry;
-use Phpactor202301\Phpactor\Extension\Debug\Model\DefinitionDocumentor;
-use Phpactor202301\Phpactor\Extension\Core\Model\JsonSchemaBuilder;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Container\PhpactorContainer;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Debug\Command\GenerateDocumentationCommand;
+use Phpactor\Extension\Debug\Model\ExtensionDocumentor;
+use Phpactor\Extension\Debug\Model\DocumentorRegistry;
+use Phpactor\Extension\Debug\Model\DefinitionDocumentor;
+use Phpactor\Extension\Core\Model\JsonSchemaBuilder;
+use Phpactor\MapResolver\Resolver;
 use RuntimeException;
 class DebugExtension implements Extension
 {
@@ -47,4 +47,3 @@ class DebugExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Debug\\DebugExtension', 'Phpactor\\Extension\\Debug\\DebugExtension', \false);

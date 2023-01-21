@@ -1,15 +1,15 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class KeywordCompletor implements TolerantCompletor
 {
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
@@ -47,4 +47,3 @@ class KeywordCompletor implements TolerantCompletor
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\KeywordCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\KeywordCompletor', \false);

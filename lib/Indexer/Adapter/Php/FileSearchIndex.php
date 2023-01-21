@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Php;
+namespace Phpactor\Indexer\Adapter\Php;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\RecordFactory;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\SearchIndex;
-use Phpactor202301\Safe\Exceptions\FilesystemException;
-use function Phpactor202301\Safe\file_get_contents;
-use function Phpactor202301\Safe\file_put_contents;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\RecordFactory;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\SearchIndex;
+use Safe\Exceptions\FilesystemException;
+use function Safe\file_get_contents;
+use function Safe\file_put_contents;
 class FileSearchIndex implements SearchIndex
 {
     /**
@@ -103,4 +103,3 @@ class FileSearchIndex implements SearchIndex
         return $record->recordType() . $record->identifier();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Php\\FileSearchIndex', 'Phpactor\\Indexer\\Adapter\\Php\\FileSearchIndex', \false);

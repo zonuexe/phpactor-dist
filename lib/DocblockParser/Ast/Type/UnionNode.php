@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Type;
+namespace Phpactor\DocblockParser\Ast\Type;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeList;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\TypeList;
+use Phpactor\DocblockParser\Ast\TypeNode;
 class UnionNode extends TypeNode
 {
     protected const CHILD_NAMES = ['types'];
@@ -11,4 +11,3 @@ class UnionNode extends TypeNode
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Type\\UnionNode', 'Phpactor\\DocblockParser\\Ast\\Type\\UnionNode', \false);

@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * Stubs for the LuaSandbox PECL extension.
  *
@@ -12,6 +10,7 @@ namespace Phpactor202301;
  * @package luasandbox
  * @version 3.0.3
  */
+
 /**
  * The <i>LuaSandbox</i> class creates a Lua environment and allows for execution of Lua code.
  *
@@ -25,16 +24,19 @@ class LuaSandbox
      * to return timings in samples.
      */
     public const SAMPLES = 0;
+
     /**
      * Used with <code>LuaSandbox::getProfilerFunctionReport()</code>
      * to return timings in seconds.
      */
     public const SECONDS = 1;
+
     /**
      * Used with <code>LuaSandbox::getProfilerFunctionReport()</code>
      * to return timings in percentages of the total.
      */
     public const PERCENT = 2;
+
     /**
      * Call a function in a Lua global variable.
      *
@@ -55,9 +57,8 @@ class LuaSandbox
      * @see LuaSandboxFunction::call()
      * @since luasandbox >= 1.0.0
      */
-    public function callFunction($name, array $arguments)
-    {
-    }
+    public function callFunction($name, array $arguments) {}
+
     /**
      * Disable the profiler.
      *
@@ -66,9 +67,8 @@ class LuaSandbox
      * @see LuaSandbox::enableProfiler()
      * @see LuaSandbox::getProfilerFunctionReport()
      */
-    public function disableProfiler()
-    {
-    }
+    public function disableProfiler() {}
+
     /**
      * Enable the profiler.
      *
@@ -84,9 +84,8 @@ class LuaSandbox
      * @see LuaSandbox::disableProfiler()
      * @see LuaSandbox::getProfilerFunctionReport()
      */
-    public function enableProfiler($period = 0.02)
-    {
-    }
+    public function enableProfiler($period = 0.02) {}
+
     /**
      * Fetch the current CPU time usage of the Lua environment.
      *
@@ -104,9 +103,8 @@ class LuaSandbox
      * @see LuaSandbox::getPeakMemoryUsage()
      * @see LuaSandbox::setCPULimit()
      */
-    public function getCPUUsage()
-    {
-    }
+    public function getCPUUsage() {}
+
     /**
      * Fetch the current memory usage of the Lua environment.
      *
@@ -117,9 +115,8 @@ class LuaSandbox
      * @see LuaSandbox::getCPUUsage()
      * @see LuaSandbox::setMemoryLimit()
      */
-    public function getMemoryUsage()
-    {
-    }
+    public function getMemoryUsage() {}
+
     /**
      * Fetch the peak memory usage of the Lua environment.
      *
@@ -130,9 +127,8 @@ class LuaSandbox
      * @see LuaSandbox::getCPUUsage()
      * @see LuaSandbox::setMemoryLimit()
      */
-    public function getPeakMemoryUsage()
-    {
-    }
+    public function getPeakMemoryUsage() {}
+
     /**
      * Fetch profiler data.
      *
@@ -159,9 +155,8 @@ class LuaSandbox
      * @see LuaSandbox::SECONDS
      * @see LuaSandbox::PERCENT
      */
-    public function getProfilerFunctionReport($units = \LuaSandbox::SECONDS)
-    {
-    }
+    public function getProfilerFunctionReport($units = LuaSandbox::SECONDS) {}
+
     /**
      * Return the versions of LuaSandbox and Lua.
      *
@@ -171,9 +166,8 @@ class LuaSandbox
      * <li>Lua (string), the library name and version as defined by the LUA_RELEASE macro, for example, "Lua 5.1.5".</li>
      * @since luasandbox >= 1.6.0
      */
-    public static function getVersionInfo()
-    {
-    }
+    public static function getVersionInfo() {}
+
     /**
      * Load a precompiled binary chunk into the Lua environment.
      *
@@ -186,9 +180,8 @@ class LuaSandbox
      * @since luasandbox >= 1.0.0
      * @see LuaSandbox::loadString()
      */
-    public function loadBinary($code, $chunkName = '')
-    {
-    }
+    public function loadBinary($code, $chunkName = '') {}
+
     /**
      * Load Lua code into the Lua environment.
      *
@@ -203,9 +196,8 @@ class LuaSandbox
      * @see LuaSandbox::registerLibrary()
      * @see LuaSandbox::wrapPhpFunction()
      */
-    public function loadString($code, $chunkName = '')
-    {
-    }
+    public function loadString($code, $chunkName = '') {}
+
     /**
      * Pause the CPU usage timer.
      *
@@ -227,9 +219,8 @@ class LuaSandbox
      * @see LuaSandbox::setCPULimit()
      * @see LuaSandbox::unpauseUsageTimer()
      */
-    public function pauseUsageTimer()
-    {
-    }
+    public function pauseUsageTimer() {}
+
     /**
      * Register a set of PHP functions as a Lua library.
      *
@@ -249,9 +240,8 @@ class LuaSandbox
      * @see LuaSandbox::loadString()
      * @see LuaSandbox::wrapPhpFunction()
      */
-    public function registerLibrary($libname, $functions)
-    {
-    }
+    public function registerLibrary($libname, $functions) {}
+
     /**
      * Set the CPU time limit for the Lua environment.
      *
@@ -273,9 +263,8 @@ class LuaSandbox
      * @see LuaSandbox::getCPUUsage()
      * @see LuaSandbox::setMemoryLimit()
      */
-    public function setCPULimit($limit)
-    {
-    }
+    public function setCPULimit($limit) {}
+
     /**
      * Set the memory limit for the Lua environment.
      *
@@ -287,9 +276,8 @@ class LuaSandbox
      * @see LuaSandbox::getPeakMemoryUsage()
      * @see LuaSandbox::setCPULimit()
      */
-    public function setMemoryLimit($limit)
-    {
-    }
+    public function setMemoryLimit($limit) {}
+
     /**
      * Unpause the timer paused by <code>LuaSandbox::pauseUsageTimer()</code>.
      *
@@ -298,9 +286,8 @@ class LuaSandbox
      * @see LuaSandbox::setCPULimit()
      * @see LuaSandbox::unpauseUsageTimer()
      */
-    public function unpauseUsageTimer()
-    {
-    }
+    public function unpauseUsageTimer() {}
+
     /**
      * Wrap a PHP callable in a LuaSandboxFunction.
      *
@@ -323,27 +310,9 @@ class LuaSandbox
      * @see LuaSandbox::loadString()
      * @see LuaSandbox::registerLibrary()
      */
-    public function wrapPhpFunction($function)
-    {
-    }
+    public function wrapPhpFunction($function) {}
 }
-/**
- * Stubs for the LuaSandbox PECL extension.
- *
- * <p><i>LuaSandbox</i> is an extension for PHP 5, PHP 7, and HHVM to allow safely running
- * untrusted Lua 5.1 code from within PHP.</p>
- *
- * @link https://www.php.net/manual/en/book.luasandbox.php
- * @package luasandbox
- * @version 3.0.3
- */
-/**
- * The <i>LuaSandbox</i> class creates a Lua environment and allows for execution of Lua code.
- *
- * @link https://www.php.net/manual/en/class.luasandbox.php
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandbox', 'LuaSandbox', \false);
+
 /**
  * Represents a Lua function, allowing it to be called from PHP.
  *
@@ -402,9 +371,8 @@ class LuaSandboxFunction
      * which may be empty, or false on error.</p>
      * @since luasandbox >= 1.0.0
      */
-    public function call($arguments)
-    {
-    }
+    public function call($arguments) {}
+
     /**
      * Dump the function as a binary blob.
      *
@@ -412,39 +380,22 @@ class LuaSandboxFunction
      * @return string <p>Returns a string that may be passed to <code>LuaSandbox::loadBinary()</code>.</p>
      * @since luasandbox >= 1.0.0
      */
-    public function dump()
-    {
-    }
+    public function dump() {}
 }
-/**
- * Represents a Lua function, allowing it to be called from PHP.
- *
- * <p>A <i>LuaSandboxFunction</i> may be obtained as a return value from Lua,
- * as a parameter passed to a callback from Lua,
- * or by using <code>LuaSandbox::wrapPhpFunction()</code>, <code>LuaSandbox::loadString()</code>,
- * or <code>LuaSandbox::loadBinary()</code>.</p>
- *
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandboxFunction', 'LuaSandboxFunction', \false);
+
 /**
  * Base class for LuaSandbox exceptions.
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxError extends \Exception
+class LuaSandboxError extends Exception
 {
     public const RUN = 2;
     public const SYNTAX = 3;
     public const MEM = 4;
     public const ERR = 5;
 }
-/**
- * Base class for LuaSandbox exceptions.
- *
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandboxError', 'LuaSandboxError', \false);
+
 /**
  * Catchable <i>LuaSandbox</i> runtime exceptions.
  *
@@ -452,17 +403,8 @@ class LuaSandboxError extends \Exception
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxRuntimeError extends \LuaSandboxError
-{
-}
-/**
- * Catchable <i>LuaSandbox</i> runtime exceptions.
- *
- * <p>These may be caught inside Lua using <code>pcall()</code> or <code>xpcall()</code>.</p>
- *
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandboxRuntimeError', 'LuaSandboxRuntimeError', \false);
+class LuaSandboxRuntimeError extends LuaSandboxError {}
+
 /**
  * Uncatchable <i>LuaSandbox</i> exceptions.
  *
@@ -470,74 +412,34 @@ class LuaSandboxRuntimeError extends \LuaSandboxError
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxFatalError extends \LuaSandboxError
-{
-}
-/**
- * Uncatchable <i>LuaSandbox</i> exceptions.
- *
- * <p>These may not be caught inside Lua using <code>pcall()</code> or <code>xpcall()</code>.</p>
- *
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandboxFatalError', 'LuaSandboxFatalError', \false);
+class LuaSandboxFatalError extends LuaSandboxError {}
+
 /**
  * Exception thrown when Lua encounters an error inside an error handler.
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxErrorError extends \LuaSandboxFatalError
-{
-}
-/**
- * Exception thrown when Lua encounters an error inside an error handler.
- *
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandboxErrorError', 'LuaSandboxErrorError', \false);
+class LuaSandboxErrorError extends LuaSandboxFatalError {}
+
 /**
  * Exception thrown when Lua cannot allocate memory.
  *
  * @since luasandbox >= 1.0.0
  * @see LuaSandbox::setMemoryLimit()
  */
-class LuaSandboxMemoryError extends \LuaSandboxFatalError
-{
-}
-/**
- * Exception thrown when Lua cannot allocate memory.
- *
- * @since luasandbox >= 1.0.0
- * @see LuaSandbox::setMemoryLimit()
- */
-\class_alias('Phpactor202301\\LuaSandboxMemoryError', 'LuaSandboxMemoryError', \false);
+class LuaSandboxMemoryError extends LuaSandboxFatalError {}
+
 /**
  * Exception thrown when Lua code cannot be parsed.
  *
  * @since luasandbox >= 1.0.0
  */
-class LuaSandboxSyntaxError extends \LuaSandboxFatalError
-{
-}
-/**
- * Exception thrown when Lua code cannot be parsed.
- *
- * @since luasandbox >= 1.0.0
- */
-\class_alias('Phpactor202301\\LuaSandboxSyntaxError', 'LuaSandboxSyntaxError', \false);
+class LuaSandboxSyntaxError extends LuaSandboxFatalError {}
+
 /**
  * Exception thrown when the configured CPU time limit is exceeded.
  *
  * @since luasandbox >= 1.0.0
  * @see LuaSandbox::setCPULimit()
  */
-class LuaSandboxTimeoutError extends \LuaSandboxFatalError
-{
-}
-/**
- * Exception thrown when the configured CPU time limit is exceeded.
- *
- * @since luasandbox >= 1.0.0
- * @see LuaSandbox::setCPULimit()
- */
-\class_alias('Phpactor202301\\LuaSandboxTimeoutError', 'LuaSandboxTimeoutError', \false);
+class LuaSandboxTimeoutError extends LuaSandboxFatalError {}

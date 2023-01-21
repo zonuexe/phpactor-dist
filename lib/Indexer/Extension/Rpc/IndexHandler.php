@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Extension\Rpc;
+namespace Phpactor\Indexer\Extension\Rpc;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Loop;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFile;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Indexer\Model\Indexer;
+use Phpactor\AmpFsWatch\ModifiedFile;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Indexer\Model\Indexer;
 class IndexHandler implements Handler
 {
     const NAME = 'index';
@@ -49,4 +49,3 @@ class IndexHandler implements Handler
         return self::NAME;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Extension\\Rpc\\IndexHandler', 'Phpactor\\Indexer\\Extension\\Rpc\\IndexHandler', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ErrorfuncException;
+use Safe\Exceptions\ErrorfuncException;
+
 /**
  * Sends an error message to the web server's error log or to a file.
  *
@@ -65,9 +66,9 @@ use Phpactor202301\Safe\Exceptions\ErrorfuncException;
  * @throws ErrorfuncException
  *
  */
-function error_log(string $message, int $message_type = 0, string $destination = null, string $extra_headers = null) : void
+function error_log(string $message, int $message_type = 0, string $destination = null, string $extra_headers = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($extra_headers !== null) {
         $result = \error_log($message, $message_type, $destination, $extra_headers);
     } elseif ($destination !== null) {
@@ -75,7 +76,7 @@ function error_log(string $message, int $message_type = 0, string $destination =
     } else {
         $result = \error_log($message, $message_type);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw ErrorfuncException::createFromPhpError();
     }
 }

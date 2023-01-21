@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\MssqlException;
+use Safe\Exceptions\MssqlException;
+
 /**
  * Binds a parameter to a stored procedure or a remote stored procedure.
  *
@@ -32,14 +33,16 @@ use Phpactor202301\Safe\Exceptions\MssqlException;
  * @throws MssqlException
  *
  */
-function mssql_bind($stmt, string $param_name, &$var, int $type, bool $is_output = \false, bool $is_null = \false, int $maxlen = -1) : void
+function mssql_bind($stmt, string $param_name, &$var, int $type, bool $is_output = false, bool $is_null = false, int $maxlen = -1): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_bind($stmt, $param_name, $var, $type, $is_output, $is_null, $maxlen);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }
+
+
 /**
  * Closes the link to a MS SQL Server database that's associated with the
  * specified link identifier.  If the link identifier isn't specified, the
@@ -57,18 +60,20 @@ function mssql_bind($stmt, string $param_name, &$var, int $type, bool $is_output
  * @throws MssqlException
  *
  */
-function mssql_close($link_identifier = null) : void
+function mssql_close($link_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
         $result = \mssql_close($link_identifier);
     } else {
         $result = \mssql_close();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }
+
+
 /**
  * mssql_connect establishes a connection to a
  * MS SQL server.
@@ -92,10 +97,10 @@ function mssql_close($link_identifier = null) : void
  * @throws MssqlException
  *
  */
-function mssql_connect(string $servername = null, string $username = null, string $password = null, bool $new_link = \false)
+function mssql_connect(string $servername = null, string $username = null, string $password = null, bool $new_link = false)
 {
-    \error_clear_last();
-    if ($new_link !== \false) {
+    error_clear_last();
+    if ($new_link !== false) {
         $result = \mssql_connect($servername, $username, $password, $new_link);
     } elseif ($password !== null) {
         $result = \mssql_connect($servername, $username, $password);
@@ -106,11 +111,13 @@ function mssql_connect(string $servername = null, string $username = null, strin
     } else {
         $result = \mssql_connect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * mssql_data_seek moves the internal row
  * pointer of the MS SQL result associated with the specified result
@@ -123,14 +130,16 @@ function mssql_connect(string $servername = null, string $username = null, strin
  * @throws MssqlException
  *
  */
-function mssql_data_seek($result_identifier, int $row_number) : void
+function mssql_data_seek($result_identifier, int $row_number): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_data_seek($result_identifier, $row_number);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }
+
+
 /**
  * Returns the length of field no. offset in
  * result.
@@ -142,15 +151,17 @@ function mssql_data_seek($result_identifier, int $row_number) : void
  * @throws MssqlException
  *
  */
-function mssql_field_length($result, int $offset = -1) : int
+function mssql_field_length($result, int $offset = -1): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_field_length($result, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the name of field no. offset in
  * result.
@@ -162,15 +173,17 @@ function mssql_field_length($result, int $offset = -1) : int
  * @throws MssqlException
  *
  */
-function mssql_field_name($result, int $offset = -1) : string
+function mssql_field_name($result, int $offset = -1): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_field_name($result, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Seeks to the specified field offset.  If the next call to
  * mssql_fetch_field won't include a field
@@ -182,14 +195,16 @@ function mssql_field_name($result, int $offset = -1) : string
  * @throws MssqlException
  *
  */
-function mssql_field_seek($result, int $field_offset) : void
+function mssql_field_seek($result, int $field_offset): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_field_seek($result, $field_offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }
+
+
 /**
  * Returns the type of field no. offset in
  * result.
@@ -201,15 +216,17 @@ function mssql_field_seek($result, int $field_offset) : void
  * @throws MssqlException
  *
  */
-function mssql_field_type($result, int $offset = -1) : string
+function mssql_field_type($result, int $offset = -1): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_field_type($result, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * mssql_free_result only needs to be called
  * if you are worried about using too much memory while your script
@@ -223,14 +240,16 @@ function mssql_field_type($result, int $offset = -1) : string
  * @throws MssqlException
  *
  */
-function mssql_free_result($result) : void
+function mssql_free_result($result): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_free_result($result);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }
+
+
 /**
  * mssql_free_statement only needs to be called
  * if you are worried about using too much memory while your script
@@ -243,14 +262,16 @@ function mssql_free_result($result) : void
  * @throws MssqlException
  *
  */
-function mssql_free_statement($stmt) : void
+function mssql_free_statement($stmt): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \mssql_free_statement($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }
+
+
 /**
  * Initializes a stored procedure or a remote stored procedure.
  *
@@ -265,17 +286,19 @@ function mssql_free_statement($stmt) : void
  */
 function mssql_init(string $sp_name, $link_identifier = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
         $result = \mssql_init($sp_name, $link_identifier);
     } else {
         $result = \mssql_init($sp_name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * mssql_pconnect acts very much like
  * mssql_connect with two major differences.
@@ -307,10 +330,10 @@ function mssql_init(string $sp_name, $link_identifier = null)
  * @throws MssqlException
  *
  */
-function mssql_pconnect(string $servername = null, string $username = null, string $password = null, bool $new_link = \false)
+function mssql_pconnect(string $servername = null, string $username = null, string $password = null, bool $new_link = false)
 {
-    \error_clear_last();
-    if ($new_link !== \false) {
+    error_clear_last();
+    if ($new_link !== false) {
         $result = \mssql_pconnect($servername, $username, $password, $new_link);
     } elseif ($password !== null) {
         $result = \mssql_pconnect($servername, $username, $password);
@@ -321,11 +344,13 @@ function mssql_pconnect(string $servername = null, string $username = null, stri
     } else {
         $result = \mssql_pconnect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * mssql_query sends a query to the currently active
  * database on the server that's associated with the specified link
@@ -347,7 +372,7 @@ function mssql_pconnect(string $servername = null, string $username = null, stri
  */
 function mssql_query(string $query, $link_identifier = null, int $batch_size = 0)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($batch_size !== 0) {
         $result = \mssql_query($query, $link_identifier, $batch_size);
     } elseif ($link_identifier !== null) {
@@ -355,11 +380,13 @@ function mssql_query(string $query, $link_identifier = null, int $batch_size = 0
     } else {
         $result = \mssql_query($query);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * mssql_select_db sets the current active
  * database on the server that's associated with the specified link
@@ -385,15 +412,15 @@ function mssql_query(string $query, $link_identifier = null, int $batch_size = 0
  * @throws MssqlException
  *
  */
-function mssql_select_db(string $database_name, $link_identifier = null) : void
+function mssql_select_db(string $database_name, $link_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
         $result = \mssql_select_db($database_name, $link_identifier);
     } else {
         $result = \mssql_select_db($database_name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MssqlException::createFromPhpError();
     }
 }

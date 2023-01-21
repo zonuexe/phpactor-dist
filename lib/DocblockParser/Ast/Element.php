@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 interface Element
 {
@@ -17,4 +17,3 @@ interface Element
      */
     public function end() : int;
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Element', 'Phpactor\\DocblockParser\\Ast\\Element', \false);

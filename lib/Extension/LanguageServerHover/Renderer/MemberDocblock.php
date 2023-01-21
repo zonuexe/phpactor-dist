@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerHover\Renderer;
+namespace Phpactor\Extension\LanguageServerHover\Renderer;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 class MemberDocblock
 {
     public function __construct(private ReflectionMember $member)
@@ -55,4 +55,3 @@ class MemberDocblock
         return [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerHover\\Renderer\\MemberDocblock', 'Phpactor\\Extension\\LanguageServerHover\\Renderer\\MemberDocblock', \false);

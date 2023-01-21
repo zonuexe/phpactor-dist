@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ClassPrototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Constant;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ExtendsClass;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ImplementsInterfaces;
-class ClassUpdater extends ClassLikeUpdater
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
+use Phpactor\CodeBuilder\Domain\Prototype\ClassPrototype;
+use Phpactor\CodeBuilder\Domain\Prototype\Constant;
+use Phpactor\CodeBuilder\Domain\Prototype\ExtendsClass;
+use Phpactor\CodeBuilder\Domain\Prototype\ImplementsInterfaces;
+class ClassUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassLikeUpdater
 {
     public function updateClass(Edits $edits, ClassPrototype $classPrototype, ClassDeclaration $classNode) : void
     {
@@ -96,4 +96,3 @@ class ClassUpdater extends ClassLikeUpdater
         $edits->replace($classNode->classInterfaceClause, ' implements ' . $names);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\ClassUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\ClassUpdater', \false);

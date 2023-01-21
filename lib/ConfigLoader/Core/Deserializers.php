@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Core;
+namespace Phpactor\ConfigLoader\Core;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\Exception\DeserializerNotFound;
+use Phpactor\ConfigLoader\Core\Exception\DeserializerNotFound;
 class Deserializers
 {
     private array $deserializerMap = [];
@@ -12,16 +12,15 @@ class Deserializers
             $this->add($deserializerExtension, $deserializer);
         }
     }
-    public function get(string $extension) : Deserializer
+    public function get(string $extension) : \Phpactor\ConfigLoader\Core\Deserializer
     {
         if (!isset($this->deserializerMap[$extension])) {
             throw new DeserializerNotFound(\sprintf('No deserializer registered for extension "%s", deserializers available for: "%s"', $extension, \implode('", "', \array_keys($this->deserializerMap))));
         }
         return $this->deserializerMap[$extension];
     }
-    private function add($deserializerExtension, Deserializer $deserializer) : void
+    private function add($deserializerExtension, \Phpactor\ConfigLoader\Core\Deserializer $deserializer) : void
     {
         $this->deserializerMap[$deserializerExtension] = $deserializer;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Core\\Deserializers', 'Phpactor\\ConfigLoader\\Core\\Deserializers', \false);

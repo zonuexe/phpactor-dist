@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * @since 7.1
  */
-class ReflectionNamedType extends \ReflectionType
+class ReflectionNamedType extends ReflectionType
 {
     /**
      * Get the text of the type hint.
@@ -17,9 +16,8 @@ class ReflectionNamedType extends \ReflectionType
      * @since 7.1
      */
     #[Pure]
-    public function getName()
-    {
-    }
+    public function getName() {}
+
     /**
      * Checks if it is a built-in type
      *
@@ -31,11 +29,5 @@ class ReflectionNamedType extends \ReflectionType
      */
     #[Pure]
     #[TentativeType]
-    public function isBuiltin() : bool
-    {
-    }
+    public function isBuiltin(): bool {}
 }
-/**
- * @since 7.1
- */
-\class_alias('Phpactor202301\\ReflectionNamedType', 'ReflectionNamedType', \false);

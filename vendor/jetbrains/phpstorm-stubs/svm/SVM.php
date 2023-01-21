@@ -1,9 +1,7 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Support Vector Machine Library
+
  * LibSVM is an efficient solver for SVM classification and regression problems. The svm extension wraps this in a PHP interface for easy use in PHP scripts.
  * @since 7.0
  * @link https://www.php.net/manual/en/class.svm.php
@@ -15,90 +13,112 @@ class SVM
      * @const The basic C_SVC SVM type. The default, and a good starting point
      */
     public const C_SVC = 0;
+
     /**
      * @const NU_SVC type uses a different, more flexible, error weighting
      */
     public const NU_SVC = 1;
+
     /**
      * @const One class SVM type. Train just on a single class, using outliers as negative examples
      */
     public const ONE_CLASS = 2;
+
     /**
      * @const A SVM type for regression (predicting a value rather than just a class)
      */
     public const EPSILON_SVR = 3;
+
     /**
      * @const A NU style SVM regression type
      */
     public const NU_SVR = 4;
+
     /**
      * @const A very simple kernel, can work well on large document classification problems
      */
     public const KERNEL_LINEAR = 0;
+
     /**
      * @const A polynomial kernel
      */
     public const KERNEL_POLY = 1;
+
     /**
      * @const The common Gaussian RBD kernel. Handles non-linear problems well and is a good default for classification
      */
     public const KERNEL_RBF = 2;
+
     /**
      * @const A kernel based on the sigmoid function. Using this makes the SVM very similar to a two layer sigmoid based neural network
      */
     public const KERNEL_SIGMOID = 3;
+
     /**
      * @const A precomputed kernel - currently unsupported.
      */
     public const KERNEL_PRECOMPUTED = 4;
+
     /**
      * @const The options key for the SVM type
      */
     public const OPT_TYPE = 101;
+
     /**
      * @const The options key for the kernel type
      */
     public const OPT_KERNEL_TYPE = 102;
+
     /**
      * @const OPT_DEGREE
      */
     public const OPT_DEGREE = 103;
+
     /**
      * @const Training parameter, boolean, for whether to use the shrinking heuristics
      */
     public const OPT_SHRINKING = 104;
+
     /**
      * @const Training parameter, boolean, for whether to collect and use probability estimates
      */
     public const OPT_PROPABILITY = 105;
+
     /**
      * @const Algorithm parameter for Poly, RBF and Sigmoid kernel types.
      */
     public const OPT_GAMMA = 201;
+
     /**
      * @const The option key for the nu parameter, only used in the NU_ SVM types
      */
     public const OPT_NU = 202;
+
     /**
      * @const The option key for the Epsilon parameter, used in epsilon regression
      */
     public const OPT_EPS = 203;
+
     /**
      * @const Training parameter used by Episilon SVR regression
      */
     public const OPT_P = 204;
+
     /**
      * @const Algorithm parameter for poly and sigmoid kernels
      */
     public const OPT_COEF_ZERO = 205;
+
     /**
      * @const The option for the cost parameter that controls tradeoff between errors and generality - effectively the penalty for misclassifying training examples.
      */
     public const OPT_C = 206;
+
     /**
      * @const Memory cache size, in MB
      */
     public const OPT_CACHE_SIZE = 207;
+
     /* Methods */
     /**
      * Construct a new SVM object
@@ -107,9 +127,8 @@ class SVM
      * @throws SVMException Throws SVMException if the libsvm library could not be loaded
      * @link https://www.php.net/manual/en/svm.construct.php
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
+
     /**
      * Test training params on subsets of the training data
      *
@@ -119,9 +138,8 @@ class SVM
      * @return float The correct percentage, expressed as a floating point number from 0-1. In the case of NU_SVC or EPSILON_SVR kernels the mean squared error will returned instead.
      * @link https://www.php.net/manual/en/svm.crossvalidate.php
      */
-    public function crossvalidate(array $problem, int $number_of_folds) : float
-    {
-    }
+    public function crossvalidate(array $problem, int $number_of_folds): float {}
+
     /**
      * Return the current training parameters
      *
@@ -129,9 +147,8 @@ class SVM
      * @return array Returns an array of configuration settings.
      * @link https://www.php.net/manual/en/svm.getoptions.php
      */
-    public function getOptions() : array
-    {
-    }
+    public function getOptions(): array {}
+
     /**
      * Set training parameters
      *
@@ -141,9 +158,8 @@ class SVM
      * @throws SVMException
      * @link https://www.php.net/manual/en/svm.setoptions.php
      */
-    public function setOptions(array $params) : bool
-    {
-    }
+    public function setOptions(array $params): bool {}
+
     /**
      * Create a SVMModel based on training data
      *
@@ -154,14 +170,5 @@ class SVM
      * @throws SMVException
      * @link https://www.php.net/manual/en/svm.train.php
      */
-    public function train(array $problem, array $weights = null) : \SVMModel
-    {
-    }
+    public function train(array $problem, array $weights = null): SVMModel {}
 }
-/**
- * Support Vector Machine Library
- * LibSVM is an efficient solver for SVM classification and regression problems. The svm extension wraps this in a PHP interface for easy use in PHP scripts.
- * @since 7.0
- * @link https://www.php.net/manual/en/class.svm.php
- */
-\class_alias('Phpactor202301\\SVM', 'SVM', \false);

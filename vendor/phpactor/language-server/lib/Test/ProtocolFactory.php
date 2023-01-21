@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Test;
+namespace Phpactor\LanguageServer\Test;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\InitializeParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextEdit;
-use Phpactor202301\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\InitializeParams;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\TextEdit;
+use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 final class ProtocolFactory
 {
     public static function textDocumentItem(string $uri, string $content) : TextDocumentItem
@@ -58,4 +58,3 @@ final class ProtocolFactory
         return new TextEdit(self::range($line1, $char1, $line2, $char2), $text);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Test\\ProtocolFactory', 'Phpactor\\LanguageServer\\Test\\ProtocolFactory', \false);

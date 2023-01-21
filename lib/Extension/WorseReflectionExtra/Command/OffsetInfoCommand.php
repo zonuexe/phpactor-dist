@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Command;
+namespace Phpactor\Extension\WorseReflectionExtra\Command;
 
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Application\OffsetInfo;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FormatHandler;
+use Phpactor\Extension\WorseReflectionExtra\Application\OffsetInfo;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\Core\Console\Handler\FormatHandler;
 class OffsetInfoCommand extends Command
 {
     public function __construct(private OffsetInfo $infoForOffset, private DumperRegistry $dumperRegistry)
@@ -32,4 +32,3 @@ class OffsetInfoCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionExtra\\Command\\OffsetInfoCommand', 'Phpactor\\Extension\\WorseReflectionExtra\\Command\\OffsetInfoCommand', \false);

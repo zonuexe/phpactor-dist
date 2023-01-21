@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
 class StepScorer
 {
@@ -22,4 +22,3 @@ class StepScorer
         return $scored;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\StepScorer', 'Phpactor\\Extension\\Behat\\Behat\\StepScorer', \false);

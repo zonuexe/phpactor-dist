@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Rpc;
+namespace Phpactor\LanguageServer\Core\Rpc;
 
 final class ResponseError
 {
@@ -26,4 +26,3 @@ final class ResponseError
         $this->data = $data;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Rpc\\ResponseError', 'Phpactor\\LanguageServer\\Core\\Rpc\\ResponseError', \false);

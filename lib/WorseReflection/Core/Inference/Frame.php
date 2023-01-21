@@ -1,37 +1,37 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\VoidType;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\VoidType;
 class Frame
 {
-    private PropertyAssignments $properties;
-    private LocalAssignments $locals;
-    private Problems $problems;
+    private \Phpactor\WorseReflection\Core\Inference\PropertyAssignments $properties;
+    private \Phpactor\WorseReflection\Core\Inference\LocalAssignments $locals;
+    private \Phpactor\WorseReflection\Core\Inference\Problems $problems;
     /**
      * @var Frame[]
      */
     private array $children = [];
     private ?Type $returnType = null;
     private int $version = 1;
-    private VarDocBuffer $varDocBuffer;
-    public function __construct(private string $name, LocalAssignments $locals = null, PropertyAssignments $properties = null, Problems $problems = null, private ?Frame $parent = null)
+    private \Phpactor\WorseReflection\Core\Inference\VarDocBuffer $varDocBuffer;
+    public function __construct(private string $name, \Phpactor\WorseReflection\Core\Inference\LocalAssignments $locals = null, \Phpactor\WorseReflection\Core\Inference\PropertyAssignments $properties = null, \Phpactor\WorseReflection\Core\Inference\Problems $problems = null, private ?\Phpactor\WorseReflection\Core\Inference\Frame $parent = null)
     {
-        $this->properties = $properties ?: PropertyAssignments::create();
-        $this->locals = $locals ?: LocalAssignments::create();
-        $this->problems = $problems ?: Problems::create();
-        $this->varDocBuffer = new VarDocBuffer();
+        $this->properties = $properties ?: \Phpactor\WorseReflection\Core\Inference\PropertyAssignments::create();
+        $this->locals = $locals ?: \Phpactor\WorseReflection\Core\Inference\LocalAssignments::create();
+        $this->problems = $problems ?: \Phpactor\WorseReflection\Core\Inference\Problems::create();
+        $this->varDocBuffer = new \Phpactor\WorseReflection\Core\Inference\VarDocBuffer();
     }
     public function __toString() : string
     {
-        return \implode("\n", \array_map(function (Assignments $assignments, string $type) {
+        return \implode("\n", \array_map(function (\Phpactor\WorseReflection\Core\Inference\Assignments $assignments, string $type) {
             return $type . "\n:" . $assignments->__toString();
         }, [$this->properties, $this->locals], ['properties', 'locals']));
     }
-    public function new(string $name) : Frame
+    public function new(string $name) : \Phpactor\WorseReflection\Core\Inference\Frame
     {
         $frame = new self($name, null, null, null, $this);
         $this->children[] = $frame;
@@ -40,19 +40,19 @@ class Frame
     /**
      * @return Assignments<Variable>
      */
-    public function locals() : Assignments
+    public function locals() : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
         return $this->locals;
     }
-    public function properties() : Assignments
+    public function properties() : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
         return $this->properties;
     }
-    public function problems() : Problems
+    public function problems() : \Phpactor\WorseReflection\Core\Inference\Problems
     {
         return $this->problems;
     }
-    public function parent() : Frame
+    public function parent() : \Phpactor\WorseReflection\Core\Inference\Frame
     {
         return $this->parent;
     }
@@ -85,7 +85,7 @@ class Frame
         $this->version++;
         return $this;
     }
-    public function applyTypeAssertions(TypeAssertions $typeAssertions, int $contextOffset, ?int $createAtOffset = null) : void
+    public function applyTypeAssertions(\Phpactor\WorseReflection\Core\Inference\TypeAssertions $typeAssertions, int $contextOffset, ?int $createAtOffset = null) : void
     {
         foreach ([[$typeAssertions->properties(), $this->properties()], [$typeAssertions->variables(), $this->locals()]] as [$typeAssertions, $frameVariables]) {
             foreach ($typeAssertions as $typeAssertion) {
@@ -94,7 +94,7 @@ class Frame
                     $original = $variable;
                 }
                 $originalType = $original ? $original->type() : new MissingType();
-                $variable = new Variable($typeAssertion->name(), $createAtOffset ?: $typeAssertion->offset(), $typeAssertion->apply($originalType), $typeAssertion->classType());
+                $variable = new \Phpactor\WorseReflection\Core\Inference\Variable($typeAssertion->name(), $createAtOffset ?: $typeAssertion->offset(), $typeAssertion->apply($originalType), $typeAssertion->classType());
                 $type = $variable->type();
                 $frameVariables->set($variable);
             }
@@ -112,9 +112,8 @@ class Frame
     {
         return \sprintf('%s-%s-%s-%s', $this->locals()->version(), $this->properties()->version(), $this->varDocBuffer()->version(), $this->version);
     }
-    public function varDocBuffer() : VarDocBuffer
+    public function varDocBuffer() : \Phpactor\WorseReflection\Core\Inference\VarDocBuffer
     {
         return $this->varDocBuffer;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Frame', 'Phpactor\\WorseReflection\\Core\\Inference\\Frame', \false);

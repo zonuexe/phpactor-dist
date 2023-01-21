@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\Refactor;
+namespace Phpactor\CodeTransform\Domain\Refactor;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\WorkspaceEdits;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\WorkspaceEdits;
 interface GenerateConstructor
 {
     public function generateMethod(TextDocument $document, ByteOffset $offset) : WorkspaceEdits;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Refactor\\GenerateConstructor', 'Phpactor\\CodeTransform\\Domain\\Refactor\\GenerateConstructor', \false);

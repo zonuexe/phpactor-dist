@@ -1,19 +1,17 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of SPL v.0.2
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Return available SPL classes
  * @link https://php.net/manual/en/function.spl-classes.php
  * @return array
  */
 #[Pure]
-function spl_classes() : array
-{
-}
+function spl_classes(): array {}
+
 /**
  * Default implementation for __autoload()
  * @link https://php.net/manual/en/function.spl-autoload.php
@@ -27,9 +25,8 @@ function spl_classes() : array
  * @return void
  * @since 5.1.2
  */
-function spl_autoload(string $class, ?string $file_extensions) : void
-{
-}
+function spl_autoload(string $class, ?string $file_extensions): void {}
+
 /**
  * Register and return default file extensions for spl_autoload
  * @link https://php.net/manual/en/function.spl-autoload-extensions.php
@@ -44,9 +41,8 @@ function spl_autoload(string $class, ?string $file_extensions) : void
  * spl_autoload.
  * @since 5.1.2
  */
-function spl_autoload_extensions(?string $file_extensions) : string
-{
-}
+function spl_autoload_extensions(?string $file_extensions): string {}
+
 /**
  * Register given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-register.php
@@ -63,9 +59,8 @@ function spl_autoload_extensions(?string $file_extensions) : string
  * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
-function spl_autoload_register(?callable $callback, bool $throw = \true, bool $prepend = \false) : bool
-{
-}
+function spl_autoload_register(?callable $callback, bool $throw = true, bool $prepend = false): bool {}
+
 /**
  * Unregister given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-unregister.php
@@ -75,9 +70,8 @@ function spl_autoload_register(?callable $callback, bool $throw = \true, bool $p
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function spl_autoload_unregister(callable $callback) : bool
-{
-}
+function spl_autoload_unregister(callable $callback): bool {}
+
 /**
  * Return all registered __autoload() functions
  * @link https://php.net/manual/en/function.spl-autoload-functions.php
@@ -87,9 +81,8 @@ function spl_autoload_unregister(callable $callback) : bool
  * @since 5.1.2
  */
 #[LanguageLevelTypeAware(["8.0" => "array"], default: "array|false")]
-function spl_autoload_functions()
-{
-}
+function spl_autoload_functions() {}
+
 /**
  * Try all registered __autoload() functions to load the requested class
  * @link https://php.net/manual/en/function.spl-autoload-call.php
@@ -99,9 +92,8 @@ function spl_autoload_functions()
  * @return void
  * @since 5.1.2
  */
-function spl_autoload_call(string $class) : void
-{
-}
+function spl_autoload_call(string $class): void {}
+
 /**
  * Return the parent classes of the given class
  * @link https://php.net/manual/en/function.class-parents.php
@@ -116,9 +108,8 @@ function spl_autoload_call(string $class) : void
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_parents($object_or_class, bool $autoload = \true) : array|false
-{
-}
+function class_parents($object_or_class, bool $autoload = true): array|false {}
+
 /**
  * Return the interfaces which are implemented by the given class
  * @link https://php.net/manual/en/function.class-implements.php
@@ -133,9 +124,8 @@ function class_parents($object_or_class, bool $autoload = \true) : array|false
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_implements($object_or_class, bool $autoload = \true) : array|false
-{
-}
+function class_implements($object_or_class, bool $autoload = true): array|false {}
+
 /**
  * Return hash id for given object
  * @link https://php.net/manual/en/function.spl-object-hash.php
@@ -144,9 +134,8 @@ function class_implements($object_or_class, bool $autoload = \true) : array|fals
  * the same object.
  */
 #[Pure]
-function spl_object_hash(object $object) : string
-{
-}
+function spl_object_hash(object $object): string {}
+
 /**
  * Copy the iterator into an array
  * @link https://php.net/manual/en/function.iterator-to-array.php
@@ -158,9 +147,8 @@ function spl_object_hash(object $object) : string
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator, bool $preserve_keys = \true) : array
-{
-}
+function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator, bool $preserve_keys = true): array {}
+
 /**
  * Count the elements in an iterator
  * @link https://php.net/manual/en/function.iterator-count.php
@@ -170,9 +158,8 @@ function iterator_to_array(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array
  * @return int The number of elements in iterator.
  */
 #[Pure]
-function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator) : int
-{
-}
+function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'], default: 'Traversable')] $iterator): int {}
+
 /**
  * Call a function for every element in an iterator
  * @link https://php.net/manual/en/function.iterator-apply.php
@@ -189,10 +176,10 @@ function iterator_count(#[LanguageLevelTypeAware(['8.2' => 'Traversable|array'],
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply(\Traversable $iterator, callable $callback, ?array $args) : int
-{
-}
+function iterator_apply(Traversable $iterator, callable $callback, ?array $args): int {}
+
 // End of SPL v.0.2
+
 /**
  * Return the traits used by the given class
  * @param object|string $object_or_class An object (class instance) or a string (class name).
@@ -203,15 +190,12 @@ function iterator_apply(\Traversable $iterator, callable $callback, ?array $args
  * @see get_declared_traits()
  * @since 5.4
  */
-function class_uses($object_or_class, bool $autoload = \true) : array|false
-{
-}
+function class_uses($object_or_class, bool $autoload = true): array|false {}
+
 /**
  * return the integer object handle for given object
  * @param object $object
  * @return int
  * @since 7.2
  */
-function spl_object_id(object $object) : int
-{
-}
+function spl_object_id(object $object): int {}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Util;
+namespace Phpactor\CodeBuilder\Util;
 
 use RuntimeException;
 class TextFormat
@@ -13,7 +13,7 @@ class TextFormat
         if ($level < 0) {
             throw new RuntimeException(\sprintf('Level must be greater than or equal to 0, got "%s"', $level));
         }
-        $lines = TextUtil::lines($string);
+        $lines = \Phpactor\CodeBuilder\Util\TextUtil::lines($string);
         $lines = \array_map(function ($line) use($level) {
             return \str_repeat($this->indentation, $level) . $line;
         }, $lines);
@@ -28,4 +28,3 @@ class TextFormat
         return $this->indent($this->indentRemove($text), $level);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Util\\TextFormat', 'Phpactor\\CodeBuilder\\Util\\TextFormat', \false);

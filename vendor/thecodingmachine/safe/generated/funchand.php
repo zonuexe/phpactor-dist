@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\FunchandException;
+use Safe\Exceptions\FunchandException;
+
 /**
  * Creates an anonymous function from the parameters passed, and
  * returns a unique name for it.
@@ -13,15 +14,17 @@ use Phpactor202301\Safe\Exceptions\FunchandException;
  * @throws FunchandException
  *
  */
-function create_function(string $args, string $code) : string
+function create_function(string $args, string $code): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \create_function($args, $code);
-    if ($result === \false) {
+    if ($result === false) {
         throw FunchandException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -30,15 +33,15 @@ function create_function(string $args, string $code) : string
  * @throws FunchandException
  *
  */
-function register_tick_function(callable $function, ...$params) : void
+function register_tick_function(callable $function, ...$params): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($params !== []) {
         $result = \register_tick_function($function, ...$params);
     } else {
         $result = \register_tick_function($function);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw FunchandException::createFromPhpError();
     }
 }

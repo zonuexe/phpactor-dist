@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerSelectionRange;
+namespace Phpactor\Extension\LanguageServerSelectionRange;
 
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServerSelectionRange\Handler\SelectionRangeHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerSelectionRange\Model\RangeProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServerSelectionRange\Handler\SelectionRangeHandler;
+use Phpactor\Extension\LanguageServerSelectionRange\Model\RangeProvider;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\MapResolver\Resolver;
 class LanguageServerSelectionRangeExtension implements Extension
 {
     public function load(ContainerBuilder $container) : void
@@ -25,4 +25,3 @@ class LanguageServerSelectionRangeExtension implements Extension
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerSelectionRange\\LanguageServerSelectionRangeExtension', 'Phpactor\\Extension\\LanguageServerSelectionRange\\LanguageServerSelectionRangeExtension', \false);

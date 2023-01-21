@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReferenceFinder;
+namespace Phpactor\WorseReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocations;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
+use Phpactor\ReferenceFinder\TypeLocation;
+use Phpactor\ReferenceFinder\TypeLocations;
+use Phpactor\ReferenceFinder\TypeLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Reflector;
 class WorseReflectionTypeLocator implements TypeLocator
 {
     public function __construct(private Reflector $reflector)
@@ -65,4 +65,3 @@ class WorseReflectionTypeLocator implements TypeLocator
         throw new CouldNotLocateType(\sprintf('Cannot goto to primitive type %s "%s"', \get_class($type), $type->__toString()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReferenceFinder\\WorseReflectionTypeLocator', 'Phpactor\\WorseReferenceFinder\\WorseReflectionTypeLocator', \false);

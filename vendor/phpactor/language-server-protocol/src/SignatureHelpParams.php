@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentPositionParams, WorkDoneProgressParams
  */
-class SignatureHelpParams extends TextDocumentPositionParams
+class SignatureHelpParams extends \Phpactor\LanguageServerProtocol\TextDocumentPositionParams
 {
     /**
      * The signature help context. This is only available if the client specifies
@@ -44,7 +44,7 @@ class SignatureHelpParams extends TextDocumentPositionParams
      * @param Position $position
      * @param int|string|null $workDoneToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Position $position, ?SignatureHelpContext $context = null, $workDoneToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Position $position, ?\Phpactor\LanguageServerProtocol\SignatureHelpContext $context = null, $workDoneToken = null)
     {
         $this->context = $context;
         $this->textDocument = $textDocument;
@@ -57,7 +57,7 @@ class SignatureHelpParams extends TextDocumentPositionParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['context' => ['names' => [SignatureHelpContext::class], 'iterable' => \false], 'textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [Position::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['context' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureHelpContext::class], 'iterable' => \false], 'textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -107,9 +107,3 @@ class SignatureHelpParams extends TextDocumentPositionParams
         throw $lastException;
     }
 }
-/**
- * Parameters for a [SignatureHelpRequest](#SignatureHelpRequest).
- *
- * Mixins (implemented TS interfaces): TextDocumentPositionParams, WorkDoneProgressParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\SignatureHelpParams', 'Phpactor\\LanguageServerProtocol\\SignatureHelpParams', \false);

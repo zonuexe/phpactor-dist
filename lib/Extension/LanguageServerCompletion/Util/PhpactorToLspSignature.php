@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util;
+namespace Phpactor\Extension\LanguageServerCompletion\Util;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\MarkupContent;
-use Phpactor202301\Phpactor\LanguageServerProtocol\MarkupKind;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ParameterInformation;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SignatureHelp;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SignatureInformation;
-use Phpactor202301\Phpactor\Completion\Core\SignatureHelp as PhpactorSignatureHelp;
+use Phpactor\LanguageServerProtocol\MarkupContent;
+use Phpactor\LanguageServerProtocol\MarkupKind;
+use Phpactor\LanguageServerProtocol\ParameterInformation;
+use Phpactor\LanguageServerProtocol\SignatureHelp;
+use Phpactor\LanguageServerProtocol\SignatureInformation;
+use Phpactor\Completion\Core\SignatureHelp as PhpactorSignatureHelp;
 class PhpactorToLspSignature
 {
     public static function toLspSignatureHelp(PhpactorSignatureHelp $phpactorHelp) : SignatureHelp
@@ -23,4 +23,3 @@ class PhpactorToLspSignature
         return new SignatureHelp($signatures, $phpactorHelp->activeSignature(), $phpactorHelp->activeParameter());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCompletion\\Util\\PhpactorToLspSignature', 'Phpactor\\Extension\\LanguageServerCompletion\\Util\\PhpactorToLspSignature', \false);

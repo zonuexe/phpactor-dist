@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Model;
+namespace Phpactor\Extension\LanguageServerReferenceFinder\Model;
 
 use ArrayIterator;
 use Countable;
 use Iterator;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DocumentHighlight;
+use Phpactor\LanguageServerProtocol\DocumentHighlight;
 use RuntimeException;
 /**
  * @implements IteratorAggregate<DocumentHighlight>
@@ -62,7 +62,3 @@ class Highlights implements IteratorAggregate, Countable
         return new self();
     }
 }
-/**
- * @implements IteratorAggregate<DocumentHighlight>
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\Model\\Highlights', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\Model\\Highlights', \false);

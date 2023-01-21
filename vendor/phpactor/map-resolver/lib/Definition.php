@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\MapResolver;
+namespace Phpactor\MapResolver;
 
 class Definition
 {
@@ -76,4 +76,3 @@ class Definition
         return $this->description;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\MapResolver\\Definition', 'Phpactor\\MapResolver\\Definition', \false);

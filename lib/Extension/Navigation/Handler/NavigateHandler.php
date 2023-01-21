@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Navigation\Handler;
+namespace Phpactor\Extension\Navigation\Handler;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Navigation\Application\Navigator;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Navigation\Application\Navigator;
 use RuntimeException;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 class NavigateHandler extends AbstractHandler
 {
     const NAME = 'navigate';
@@ -54,4 +54,3 @@ class NavigateHandler extends AbstractHandler
         return OpenFileResponse::fromPath($path);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\Handler\\NavigateHandler', 'Phpactor\\Extension\\Navigation\\Handler\\NavigateHandler', \false);

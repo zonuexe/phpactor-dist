@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Util;
+namespace Phpactor\Indexer\Util;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -47,4 +47,3 @@ class Filesystem
         return $size;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Util\\Filesystem', 'Phpactor\\Indexer\\Util\\Filesystem', \false);

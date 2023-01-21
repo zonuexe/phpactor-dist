@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpCsFixer;
+namespace Phpactor\Extension\LanguageServerPhpCsFixer;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpCsFixer\Formatter\PhpCsFixerFormatter;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\Extension\LanguageServerPhpCsFixer\Formatter\PhpCsFixerFormatter;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\MapResolver\Resolver;
 class LanguageServerPhpCsFixerExtension implements OptionalExtension
 {
     public const PARAM_PHP_CS_FIXER_BIN = 'language_server_php_cs_fixer.bin';
@@ -30,4 +30,3 @@ class LanguageServerPhpCsFixerExtension implements OptionalExtension
         return 'language_server_php_cs_fixer';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpCsFixer\\LanguageServerPhpCsFixerExtension', 'Phpactor\\Extension\\LanguageServerPhpCsFixer\\LanguageServerPhpCsFixerExtension', \false);

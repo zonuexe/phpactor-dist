@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Application;
+namespace Phpactor\Extension\ClassMover\Application;
 
-use Phpactor202301\Phpactor\ClassMover\ClassMover as ClassMoverFacade;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\Phpactor;
+use Phpactor\ClassMover\ClassMover as ClassMoverFacade;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\Phpactor;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 use Phpactor202301\Webmozart\Glob\Glob;
-use Phpactor202301\Phpactor\Filesystem\Domain\CopyReport;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Logger\ClassCopyLogger;
+use Phpactor\Filesystem\Domain\CopyReport;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\Extension\ClassMover\Application\Logger\ClassCopyLogger;
 use Exception;
 use RuntimeException;
 class ClassCopy
@@ -79,4 +79,3 @@ class ClassCopy
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Application\\ClassCopy', 'Phpactor\\Extension\\ClassMover\\Application\\ClassCopy', \false);

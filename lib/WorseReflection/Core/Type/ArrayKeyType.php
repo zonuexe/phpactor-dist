@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class ArrayKeyType extends ScalarType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+class ArrayKeyType extends \Phpactor\WorseReflection\Core\Type\ScalarType
 {
     public function __toString() : string
     {
@@ -20,16 +20,15 @@ class ArrayKeyType extends ScalarType
         if (!$parentAccepts->isFalse()) {
             return $parentAccepts;
         }
-        if ($type instanceof IntType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\IntType) {
             return Trinary::true();
         }
-        if ($type instanceof FloatType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\FloatType) {
             return Trinary::true();
         }
-        if ($type instanceof StringType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\StringType) {
             return Trinary::true();
         }
         return Trinary::false();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ArrayKeyType', 'Phpactor\\WorseReflection\\Core\\Type\\ArrayKeyType', \false);

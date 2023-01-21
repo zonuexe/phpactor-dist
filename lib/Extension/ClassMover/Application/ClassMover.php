@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Application;
+namespace Phpactor\Extension\ClassMover\Application;
 
 use Exception;
-use Phpactor202301\Phpactor\ClassMover\ClassMover as ClassMoverFacade;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\PathFinder\Exception\NoMatchingSourceException;
-use Phpactor202301\Phpactor\PathFinder\PathFinder;
-use Phpactor202301\Phpactor\Phpactor;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Logger\ClassMoverLogger;
+use Phpactor\ClassMover\ClassMover as ClassMoverFacade;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\PathFinder\Exception\NoMatchingSourceException;
+use Phpactor\PathFinder\PathFinder;
+use Phpactor\Phpactor;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\Filesystem\Domain\FilesystemRegistry;
+use Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
+use Phpactor\Extension\ClassMover\Application\Logger\ClassMoverLogger;
 use RuntimeException;
 class ClassMover
 {
@@ -127,4 +127,3 @@ class ClassMover
         return $paths;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Application\\ClassMover', 'Phpactor\\Extension\\ClassMover\\Application\\ClassMover', \false);

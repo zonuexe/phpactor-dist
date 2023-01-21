@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+namespace Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 use RuntimeException;
 final class TestResponseWatcher implements ResponseWatcher
 {
@@ -18,7 +18,7 @@ final class TestResponseWatcher implements ResponseWatcher
     private $requestIds = [];
     public function __construct(?ResponseWatcher $innerWatcher = null)
     {
-        $this->innerWatcher = $innerWatcher ?: new DeferredResponseWatcher();
+        $this->innerWatcher = $innerWatcher ?: new \Phpactor\LanguageServer\Core\Server\ResponseWatcher\DeferredResponseWatcher();
     }
     public function handle(ResponseMessage $response) : void
     {
@@ -44,4 +44,3 @@ final class TestResponseWatcher implements ResponseWatcher
         return $this->innerWatcher->waitForResponse($requestId);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\ResponseWatcher\\TestResponseWatcher', 'Phpactor\\LanguageServer\\Core\\Server\\ResponseWatcher\\TestResponseWatcher', \false);

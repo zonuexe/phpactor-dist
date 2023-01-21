@@ -1,10 +1,10 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
+namespace Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextEdit as LspTextEdit;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
+use Phpactor\LanguageServerProtocol\TextEdit as LspTextEdit;
 use Throwable;
 class NameImporterResult
 {
@@ -38,20 +38,19 @@ class NameImporterResult
     {
         return $this->error;
     }
-    public static function createEmptyResult() : NameImporterResult
+    public static function createEmptyResult() : \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult
     {
-        return new NameImporterResult(\true, null, null, null);
+        return new \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult(\true, null, null, null);
     }
     /**
      * @param array<LspTextEdit>|null $textEdits
      */
-    public static function createResult(NameImport $nameImport, ?array $textEdits) : NameImporterResult
+    public static function createResult(NameImport $nameImport, ?array $textEdits) : \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult
     {
-        return new NameImporterResult(\true, $nameImport, $textEdits, null);
+        return new \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult(\true, $nameImport, $textEdits, null);
     }
-    public static function createErrorResult(Throwable $error) : NameImporterResult
+    public static function createErrorResult(Throwable $error) : \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult
     {
-        return new NameImporterResult(\false, null, null, $error);
+        return new \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporterResult(\false, null, null, $error);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\Model\\NameImport\\NameImporterResult', 'Phpactor\\Extension\\LanguageServerCodeTransform\\Model\\NameImport\\NameImporterResult', \false);

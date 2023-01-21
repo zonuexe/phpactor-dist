@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Name;
+namespace Phpactor\Name;
 
-use Phpactor202301\Phpactor\Name\Exception\InvalidName;
-final class QualifiedName implements Name
+use Phpactor\Name\Exception\InvalidName;
+final class QualifiedName implements \Phpactor\Name\Name
 {
     const NAMESPACE_SEPARATOR = '\\';
     private array $parts;
@@ -18,19 +18,19 @@ final class QualifiedName implements Name
     {
         return \implode(self::NAMESPACE_SEPARATOR, $this->parts);
     }
-    public static function fromArray(array $parts) : QualifiedName
+    public static function fromArray(array $parts) : \Phpactor\Name\QualifiedName
     {
         return new self($parts);
     }
-    public static function fromString(string $string) : QualifiedName
+    public static function fromString(string $string) : \Phpactor\Name\QualifiedName
     {
         return new self(\array_filter(\explode(self::NAMESPACE_SEPARATOR, $string)));
     }
-    public function toFullyQualifiedName() : FullyQualifiedName
+    public function toFullyQualifiedName() : \Phpactor\Name\FullyQualifiedName
     {
-        return FullyQualifiedName::fromQualifiedName($this);
+        return \Phpactor\Name\FullyQualifiedName::fromQualifiedName($this);
     }
-    public function head() : QualifiedName
+    public function head() : \Phpactor\Name\QualifiedName
     {
         $parts = $this->parts;
         return new self([\array_pop($parts)]);
@@ -38,13 +38,13 @@ final class QualifiedName implements Name
     /**
      * @return QualifiedName
      */
-    public function tail() : Name
+    public function tail() : \Phpactor\Name\Name
     {
         $parts = $this->parts;
         \array_pop($parts);
         return new self($parts);
     }
-    public function isDescendantOf(Name $name) : bool
+    public function isDescendantOf(\Phpactor\Name\Name $name) : bool
     {
         return \array_slice($this->parts, 0, $name->count()) === $name->toArray();
     }
@@ -62,7 +62,7 @@ final class QualifiedName implements Name
     /**
      * @return QualifiedName
      */
-    public function prepend(Name $name) : Name
+    public function prepend(\Phpactor\Name\Name $name) : \Phpactor\Name\Name
     {
         $parts = $this->parts;
         \array_unshift($parts, ...$name->toArray());
@@ -71,11 +71,10 @@ final class QualifiedName implements Name
     /**
      * @return QualifiedName
      */
-    public function append(Name $name) : Name
+    public function append(\Phpactor\Name\Name $name) : \Phpactor\Name\Name
     {
         $parts = $this->parts;
         $parts = \array_merge($parts, $name->toArray());
         return new self($parts);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Name\\QualifiedName', 'Phpactor\\Name\\QualifiedName', \false);

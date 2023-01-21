@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SqlsrvException;
+use Safe\Exceptions\SqlsrvException;
+
 /**
  * The transaction begun by sqlsrv_begin_transaction includes
  * all statements that were executed after the call to
@@ -17,14 +18,16 @@ use Phpactor202301\Safe\Exceptions\SqlsrvException;
  * @throws SqlsrvException
  *
  */
-function sqlsrv_begin_transaction($conn) : void
+function sqlsrv_begin_transaction($conn): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_begin_transaction($conn);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Cancels a statement. Any results associated with the statement that have not
  * been consumed are deleted. After sqlsrv_cancel has been
@@ -37,14 +40,16 @@ function sqlsrv_begin_transaction($conn) : void
  * @throws SqlsrvException
  *
  */
-function sqlsrv_cancel($stmt) : void
+function sqlsrv_cancel($stmt): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_cancel($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Returns information about the client and specified connection
  *
@@ -82,15 +87,17 @@ function sqlsrv_cancel($stmt) : void
  * @throws SqlsrvException
  *
  */
-function sqlsrv_client_info($conn) : array
+function sqlsrv_client_info($conn): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_client_info($conn);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Closes an open connection and releases resourses associated with the connection.
  *
@@ -98,14 +105,16 @@ function sqlsrv_client_info($conn) : array
  * @throws SqlsrvException
  *
  */
-function sqlsrv_close($conn) : void
+function sqlsrv_close($conn): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_close($conn);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Commits a transaction that was begun with sqlsrv_begin_transaction.
  * The connection is returned to auto-commit mode after sqlsrv_commit
@@ -120,14 +129,16 @@ function sqlsrv_close($conn) : void
  * @throws SqlsrvException
  *
  */
-function sqlsrv_commit($conn) : void
+function sqlsrv_commit($conn): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_commit($conn);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Changes the driver error handling and logging configurations.
  *
@@ -170,14 +181,16 @@ function sqlsrv_commit($conn) : void
  * @throws SqlsrvException
  *
  */
-function sqlsrv_configure(string $setting, $value) : void
+function sqlsrv_configure(string $setting, $value): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_configure($setting, $value);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Executes a statement prepared with sqlsrv_prepare. This
  * function is ideal for executing a prepared statement multiple times with
@@ -187,14 +200,16 @@ function sqlsrv_configure(string $setting, $value) : void
  * @throws SqlsrvException
  *
  */
-function sqlsrv_execute($stmt) : void
+function sqlsrv_execute($stmt): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_execute($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Frees all resources for the specified statement. The statement cannot be used
  * after sqlsrv_free_stmt has been called on it. If
@@ -208,14 +223,16 @@ function sqlsrv_execute($stmt) : void
  * @throws SqlsrvException
  *
  */
-function sqlsrv_free_stmt($stmt) : void
+function sqlsrv_free_stmt($stmt): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_free_stmt($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }
+
+
 /**
  * Gets field data from the currently selected row. Fields must be accessed in
  * order. Field indices start at 0.
@@ -236,17 +253,19 @@ function sqlsrv_free_stmt($stmt) : void
  */
 function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($getAsType !== null) {
         $result = \sqlsrv_get_field($stmt, $fieldIndex, $getAsType);
     } else {
         $result = \sqlsrv_get_field($stmt, $fieldIndex);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Makes the next result of the specified statement active. Results include result
  * sets, row counts, and output parameters.
@@ -257,15 +276,17 @@ function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = null)
  * @throws SqlsrvException
  *
  */
-function sqlsrv_next_result($stmt) : ?bool
+function sqlsrv_next_result($stmt): ?bool
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_next_result($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Retrieves the number of fields (columns) on a statement.
  *
@@ -276,15 +297,17 @@ function sqlsrv_next_result($stmt) : ?bool
  * @throws SqlsrvException
  *
  */
-function sqlsrv_num_fields($stmt) : int
+function sqlsrv_num_fields($stmt): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_num_fields($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Retrieves the number of rows in a result set. This function requires that the
  * statement resource be created with a static or keyset cursor. For more information,
@@ -302,15 +325,17 @@ function sqlsrv_num_fields($stmt) : int
  * @throws SqlsrvException
  *
  */
-function sqlsrv_num_rows($stmt) : int
+function sqlsrv_num_rows($stmt): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_num_rows($stmt);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Prepares a query for execution. This function is ideal for preparing a query
  * that will be executed multiple times with different parameter values.
@@ -334,7 +359,7 @@ function sqlsrv_num_rows($stmt) : int
  */
 function sqlsrv_prepare($conn, string $sql, array $params = null, array $options = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($options !== null) {
         $result = \sqlsrv_prepare($conn, $sql, $params, $options);
     } elseif ($params !== null) {
@@ -342,11 +367,13 @@ function sqlsrv_prepare($conn, string $sql, array $params = null, array $options
     } else {
         $result = \sqlsrv_prepare($conn, $sql);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Prepares and executes a query.
  *
@@ -369,7 +396,7 @@ function sqlsrv_prepare($conn, string $sql, array $params = null, array $options
  */
 function sqlsrv_query($conn, string $sql, array $params = null, array $options = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($options !== null) {
         $result = \sqlsrv_query($conn, $sql, $params, $options);
     } elseif ($params !== null) {
@@ -377,11 +404,13 @@ function sqlsrv_query($conn, string $sql, array $params = null, array $options =
     } else {
         $result = \sqlsrv_query($conn, $sql);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Rolls back a transaction that was begun with sqlsrv_begin_transaction
  * and returns the connection to auto-commit mode.
@@ -390,11 +419,11 @@ function sqlsrv_query($conn, string $sql, array $params = null, array $options =
  * @throws SqlsrvException
  *
  */
-function sqlsrv_rollback($conn) : void
+function sqlsrv_rollback($conn): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sqlsrv_rollback($conn);
-    if ($result === \false) {
+    if ($result === false) {
         throw SqlsrvException::createFromPhpError();
     }
 }

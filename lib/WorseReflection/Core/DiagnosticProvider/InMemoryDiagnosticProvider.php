@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
+namespace Phpactor\WorseReflection\Core\DiagnosticProvider;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 class InMemoryDiagnosticProvider implements DiagnosticProvider
 {
     /**
@@ -30,4 +30,3 @@ class InMemoryDiagnosticProvider implements DiagnosticProvider
         return [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DiagnosticProvider\\InMemoryDiagnosticProvider', 'Phpactor\\WorseReflection\\Core\\DiagnosticProvider\\InMemoryDiagnosticProvider', \false);

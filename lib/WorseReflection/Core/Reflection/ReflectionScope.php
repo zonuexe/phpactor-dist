@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\NameImports;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\NameImports;
+use Phpactor\WorseReflection\Core\Type;
 interface ReflectionScope
 {
     public function nameImports() : NameImports;
@@ -12,7 +12,6 @@ interface ReflectionScope
     /**
      * @param null|Type|string $type
      */
-    public function resolveFullyQualifiedName($type, ReflectionClassLike $classLike = null) : Type;
+    public function resolveFullyQualifiedName($type, \Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike $classLike = null) : Type;
     public function resolveLocalType(Type $type) : Type;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionScope', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionScope', \false);

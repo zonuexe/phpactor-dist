@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitImports;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as PhpactorReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
-abstract class AbstractReflectionClass extends AbstractReflectedNode implements ReflectionClassLike
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitImports;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as PhpactorReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
+abstract class AbstractReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectedNode implements ReflectionClassLike
 {
     public abstract function name() : ClassName;
     public abstract function docblock() : DocBlock;
@@ -25,14 +25,14 @@ abstract class AbstractReflectionClass extends AbstractReflectedNode implements 
      */
     public function isInterface() : bool
     {
-        return $this instanceof ReflectionInterface;
+        return $this instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
     }
     /**
      * @deprecated Use instanceof instead
      */
     public function isTrait() : bool
     {
-        return $this instanceof ReflectionTrait;
+        return $this instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionTrait;
     }
     public function isEnum() : bool
     {
@@ -43,7 +43,7 @@ abstract class AbstractReflectionClass extends AbstractReflectedNode implements 
      */
     public function isClass() : bool
     {
-        return $this instanceof ReflectionClass;
+        return $this instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionClass;
     }
     public function isConcrete() : bool
     {
@@ -85,4 +85,3 @@ abstract class AbstractReflectionClass extends AbstractReflectedNode implements 
         return $methods;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\AbstractReflectionClass', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\AbstractReflectionClass', \false);

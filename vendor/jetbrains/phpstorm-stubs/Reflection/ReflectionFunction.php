@@ -1,32 +1,33 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Immutable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * The <b>ReflectionFunction</b> class reports
  * information about a function.
  *
  * @link https://php.net/manual/en/class.reflectionfunction.php
  */
-class ReflectionFunction extends \ReflectionFunctionAbstract
+class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
      * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
      */
     #[Immutable]
     public $name;
+
     /**
      * Indicates deprecated functions.
      *
      * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants.is-deprecated
      */
     public const IS_DEPRECATED = 2048;
+
     /**
      * Constructs a ReflectionFunction object
      *
@@ -34,18 +35,16 @@ class ReflectionFunction extends \ReflectionFunctionAbstract
      * @param string|Closure $function The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'Closure|string'], default: '')] $function)
-    {
-    }
+    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'Closure|string'], default: '')] $function) {}
+
     /**
      * Returns the string representation of the ReflectionFunction object.
      *
      * @link https://php.net/manual/en/reflectionfunction.tostring.php
      */
     #[TentativeType]
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
+
     /**
      * Exports function
      *
@@ -59,9 +58,8 @@ class ReflectionFunction extends \ReflectionFunctionAbstract
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($name, $return = \false)
-    {
-    }
+    public static function export($name, $return = false) {}
+
     /**
      * Checks if function is disabled
      *
@@ -71,9 +69,8 @@ class ReflectionFunction extends \ReflectionFunctionAbstract
     #[Deprecated(since: '8.0')]
     #[Pure]
     #[TentativeType]
-    public function isDisabled() : bool
-    {
-    }
+    public function isDisabled(): bool {}
+
     /**
      * Invokes function
      *
@@ -84,9 +81,8 @@ class ReflectionFunction extends \ReflectionFunctionAbstract
      * @return mixed Returns the result of the invoked function call.
      */
     #[TentativeType]
-    public function invoke(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args) : mixed
-    {
-    }
+    public function invoke(#[LanguageLevelTypeAware(['8.0' => 'mixed'], default: '')] ...$args): mixed {}
+
     /**
      * Invokes function args
      *
@@ -96,9 +92,8 @@ class ReflectionFunction extends \ReflectionFunctionAbstract
      * @return mixed the result of the invoked function
      */
     #[TentativeType]
-    public function invokeArgs(array $args) : mixed
-    {
-    }
+    public function invokeArgs(array $args): mixed {}
+
     /**
      * Returns a dynamically created closure for the function
      *
@@ -107,18 +102,8 @@ class ReflectionFunction extends \ReflectionFunctionAbstract
      */
     #[Pure]
     #[TentativeType]
-    public function getClosure() : \Closure
-    {
-    }
+    public function getClosure(): Closure {}
+
     #[PhpStormStubsElementAvailable(from: '8.2')]
-    public function isAnonymous() : bool
-    {
-    }
+    public function isAnonymous(): bool {}
 }
-/**
- * The <b>ReflectionFunction</b> class reports
- * information about a function.
- *
- * @link https://php.net/manual/en/class.reflectionfunction.php
- */
-\class_alias('Phpactor202301\\ReflectionFunction', 'ReflectionFunction', \false);

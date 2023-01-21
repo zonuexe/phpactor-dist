@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 interface DefinitionLocator
 {
     /**
@@ -16,6 +16,5 @@ interface DefinitionLocator
      *
      * @throws CouldNotLocateDefinition
      */
-    public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : TypeLocations;
+    public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : \Phpactor\ReferenceFinder\TypeLocations;
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\DefinitionLocator', 'Phpactor\\ReferenceFinder\\DefinitionLocator', \false);

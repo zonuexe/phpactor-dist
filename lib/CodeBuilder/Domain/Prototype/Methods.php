@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 /**
  * @extends Collection<Method>
  */
-class Methods extends Collection
+class Methods extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
     /**
      * @param Method[] $methods
@@ -22,7 +22,3 @@ class Methods extends Collection
         return 'method';
     }
 }
-/**
- * @extends Collection<Method>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Methods', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Methods', \false);

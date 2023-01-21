@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * This class represents a RAR archive, which may be formed by several volumes (parts) and which contains a number of
  * RAR entries (i.e., files, directories and other special objects such as symbolic links).
@@ -11,7 +8,7 @@ namespace Phpactor202301;
  *
  * @link https://php.net/manual/en/class.rararchive.php
  */
-final class RarArchive implements \Traversable
+final class RarArchive implements Traversable
 {
     /**
      * Open RAR archive
@@ -31,9 +28,8 @@ final class RarArchive implements \Traversable
      *
      * @return RarArchive|false the requested RarArchive instance or FALSE on failure.
      */
-    public static function open($filename, $password = null, ?callable $volume_callback = null)
-    {
-    }
+    public static function open($filename, $password = null, ?callable $volume_callback = null) {}
+
     /**
      * Close RAR archive and free all resources
      *
@@ -41,9 +37,8 @@ final class RarArchive implements \Traversable
      *
      * @return bool TRUE on success or FALSE on failure
      */
-    public function close()
-    {
-    }
+    public function close() {}
+
     /**
      * Get comment text from the RAR archive
      *
@@ -51,17 +46,15 @@ final class RarArchive implements \Traversable
      *
      * @return string|null the comment or NULL if there is none
      */
-    public function getComment()
-    {
-    }
+    public function getComment() {}
+
     /**
      * Get full list of entries from the RAR archive
      *
      * @return RarEntry[]|false array of {@see RarEntry} objects or FALSE on failure
      */
-    public function getEntries()
-    {
-    }
+    public function getEntries() {}
+
     /**
      * Get entry object from the RAR archive
      *
@@ -73,9 +66,8 @@ final class RarArchive implements \Traversable
      *
      * @return RarEntry|false the matching RarEntry object or FALSE on failure
      */
-    public function getEntry($entryname)
-    {
-    }
+    public function getEntry($entryname) {}
+
     /**
      * Test whether an archive is broken (incomplete)
      *
@@ -88,9 +80,8 @@ final class RarArchive implements \Traversable
      *         exceptions with {@see RarException::setUsingExceptions()}; however, this should be unnecessary as a program
      *         should not operate on closed files.
      */
-    public function isBroken()
-    {
-    }
+    public function isBroken() {}
+
     /**
      * Check whether the RAR archive is solid
      *
@@ -100,9 +91,8 @@ final class RarArchive implements \Traversable
      *
      * @return bool TRUE if the archive is solid, FALSE otherwise
      */
-    public function isSolid()
-    {
-    }
+    public function isSolid() {}
+
     /**
      * Whether opening broken archives is allowed
      *
@@ -116,9 +106,8 @@ final class RarArchive implements \Traversable
      *
      * @return bool TRUE или FALSE в случае возникновения ошибки. It will only fail if the file has already been closed
      */
-    public function setAllowBroken($allow_broken)
-    {
-    }
+    public function setAllowBroken($allow_broken) {}
+
     /**
      * Get text representation
      *
@@ -132,20 +121,8 @@ final class RarArchive implements \Traversable
      * @return string A textual representation of this RarArchive object. The content of this
      *          representation is unspecified.
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-/**
- * This class represents a RAR archive, which may be formed by several volumes (parts) and which contains a number of
- * RAR entries (i.e., files, directories and other special objects such as symbolic links).
- *
- * Objects of this class can be traversed, yielding the entries stored in the respective RAR archive.
- * Those entries can also be obtained through {@see \RarArchive::getEntry} and {@see \RarArchive::getEntries}.
- *
- * @link https://php.net/manual/en/class.rararchive.php
- */
-\class_alias('Phpactor202301\\RarArchive', 'RarArchive', \false);
 /**
  * A RAR entry, representing a directory or a compressed file inside a RAR archive
  *
@@ -158,168 +135,201 @@ final class RarEntry
      * Use instead of {@see RAR_HOST_MSDOS}.
      */
     public const HOST_MSDOS = 0;
+
     /**
      * If the return value of {@see RarEntry::getHostOs()} equals this constant, OS/2 was used to add this entry.
      * Intended to replace {@see RAR_HOST_OS2}.
      */
     public const HOST_OS2 = 1;
+
     /**
      * If the return value of {@see RarEntry::getHostOs()} equals this constant, Microsoft Windows was used to add this entry.
      * Intended to replace {@see RAR_HOST_WIN32}
      */
     public const HOST_WIN32 = 2;
+
     /**
      * If the return value of {@see RarEntry::getHostOs()} equals this constant, an unspecified UNIX OS was used to add
      * this entry. Intended to replace {@see RAR_HOST_UNIX}.
      */
     public const HOST_UNIX = 3;
+
     /**
      * If the return value of {@see RarEntry::getHostOs()} equals this constant, Mac OS was used to add this entry.
      */
     public const HOST_MACOS = 4;
+
     /**
      * If the return value of {@see RarEntry::getHostOs()} equals this constant, BeOS was used to add this entry.
      * Intended to replace {@see RAR_HOST_BEOS}.
      */
     public const HOST_BEOS = 5;
+
     /**
      * Bit that represents a Windows entry with a read-only attribute. To be used with {@see RarEntry::getAttr()} on
      * entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_READONLY = 1;
+
     /**
      * Bit that represents a Windows entry with a hidden attribute. To be used with {@see RarEntry::getAttr()} on
      * entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_HIDDEN = 2;
+
     /**
      * Bit that represents a Windows entry with a system attribute. To be used with {@see RarEntry::getAttr()} on
      * entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_SYSTEM = 4;
+
     /**
      * Bit that represents a Windows entry with a directory attribute (entry is a directory). To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows. See also
      * {@see RarEntry::isDirectory()}, which also works with entries that were not added in WinRAR.
      */
     public const ATTRIBUTE_WIN_DIRECTORY = 16;
+
     /**
      * Bit that represents a Windows entry with an archive attribute. To be used with {@see RarEntry::getAttr()} on
      * entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_ARCHIVE = 32;
+
     /**
      * Bit that represents a Windows entry with a device attribute. To be used with {@see RarEntry::getAttr()} on
      * entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_DEVICE = 64;
+
     /**
      * Bit that represents a Windows entry with a normal file attribute (entry is NOT a directory). To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows. See also
      * {@see RarEntry::isDirectory()}, which also works with entries that were not added in WinRAR.
      */
     public const ATTRIBUTE_WIN_NORMAL = 128;
+
     /**
      * Bit that represents a Windows entry with a temporary attribute. To be used with {@see RarEntry::getAttr()} on
      * entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_TEMPORARY = 256;
+
     /**
      * Bit that represents a Windows entry with a sparse file attribute (file is an NTFS sparse file). To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_SPARSE_FILE = 512;
+
     /**
      * Bit that represents a Windows entry with a reparse point attribute (entry is an NTFS reparse point, e.g. a
      * directory junction or a mount file system). To be used with {@see RarEntry::getAttr()} on entries whose host OS
      * is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_REPARSE_POINT = 1024;
+
     /**
      * Bit that represents a Windows entry with a compressed attribute (NTFS only). To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_COMPRESSED = 2048;
+
     /**
      * Bit that represents a Windows entry with an offline attribute (entry is offline and not accessible). To be used
      * with {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_OFFLINE = 4096;
+
     /**
      * Bit that represents a Windows entry with a not content indexed attribute (entry is to be indexed). To be used
      * with {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_NOT_CONTENT_INDEXED = 8192;
+
     /**
      * Bit that represents a Windows entry with an encrypted attribute (NTFS only). To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_ENCRYPTED = 16384;
+
     /**
      * Bit that represents a Windows entry with a virtual attribute. To be used with {@see RarEntry::getAttr()}
      * on entries whose host OS is Microsoft Windows.
      */
     public const ATTRIBUTE_WIN_VIRTUAL = 65536;
+
     /**
      * Bit that represents a UNIX entry that is world executable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_WORLD_EXECUTE = 1;
+
     /**
      * Bit that represents a UNIX entry that is world writable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_WORLD_WRITE = 2;
+
     /**
      * Bit that represents a UNIX entry that is world readable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_WORLD_READ = 4;
+
     /**
      * Bit that represents a UNIX entry that is group executable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_GROUP_EXECUTE = 8;
+
     /**
      * Bit that represents a UNIX entry that is group writable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_GROUP_WRITE = 16;
+
     /**
      * Bit that represents a UNIX entry that is group readable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_GROUP_READ = 32;
+
     /**
      * Bit that represents a UNIX entry that is owner executable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_OWNER_EXECUTE = 64;
+
     /**
      * Bit that represents a UNIX entry that is owner writable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_OWNER_WRITE = 128;
+
     /**
      * Bit that represents a UNIX entry that is owner readable. To be used with {@see RarEntry::getAttr()} on entries
      * whose host OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_OWNER_READ = 256;
+
     /**
      * Bit that represents the UNIX sticky bit. To be used with {@see RarEntry::getAttr()} on entries whose host OS is
      * UNIX.
      */
     public const ATTRIBUTE_UNIX_STICKY = 512;
+
     /**
      * Bit that represents the UNIX setgid attribute. To be used with {@see RarEntry::getAttr()} on entries whose host
      * OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_SETGID = 1024;
+
     /**
      * Bit that represents the UNIX setuid attribute. To be used with {@see RarEntry::getAttr()} on entries whose host
      * OS is UNIX.
      */
     public const ATTRIBUTE_UNIX_SETUID = 2048;
+
     /**
      * Mask to isolate the last four bits (nibble) of UNIX attributes (_S_IFMT, the type of file mask). To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constants
@@ -329,17 +339,20 @@ final class RarEntry
      * {@see RarEntry::ATTRIBUTE_UNIX_SYM_LINK} and {@see RarEntry::ATTRIBUTE_UNIX_SOCKET}.
      */
     public const ATTRIBUTE_UNIX_FINAL_QUARTET = 61440;
+
     /**
      * Unix FIFOs will have attributes whose last four bits have this value. To be used with {@see RarEntry::getAttr()}
      * on entries whose host OS is UNIX and with the constant {@see RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET}.
      */
     public const ATTRIBUTE_UNIX_FIFO = 4096;
+
     /**
      * Unix character devices will have attributes whose last four bits have this value. To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constant
      * {@see RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET}.
      */
     public const ATTRIBUTE_UNIX_CHAR_DEV = 8192;
+
     /**
      * Unix directories will have attributes whose last four bits have this value. To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constant
@@ -349,12 +362,14 @@ final class RarEntry
      * systems.
      */
     public const ATTRIBUTE_UNIX_DIRECTORY = 16384;
+
     /**
      * Unix block devices will have attributes whose last four bits have this value. To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constant
      * {@see RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET}.
      */
     public const ATTRIBUTE_UNIX_BLOCK_DEV = 24576;
+
     /**
      * Unix regular files (not directories) will have attributes whose last four bits have this value. To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constant
@@ -362,18 +377,21 @@ final class RarEntry
      * entries that were added in other operating systems.
      */
     public const ATTRIBUTE_UNIX_REGULAR_FILE = 32768;
+
     /**
      * Unix symbolic links will have attributes whose last four bits have this value. To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constant
      * {@see RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET}.
      */
     public const ATTRIBUTE_UNIX_SYM_LINK = 40960;
+
     /**
      * Unix sockets will have attributes whose last four bits have this value. To be used with
      * {@see RarEntry::getAttr()} on entries whose host OS is UNIX and with the constant
      * {@see RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET}.
      */
     public const ATTRIBUTE_UNIX_SOCKET = 49152;
+
     /**
      * Extract entry from the archive
      *
@@ -398,9 +416,8 @@ final class RarEntry
      *
      * @return bool TRUE on success or FALSE on failure
      */
-    public function extract($dir, $filepath = "", $password = null, $extended_data = \false)
-    {
-    }
+    public function extract($dir, $filepath = "", $password = null, $extended_data = false) {}
+
     /**
      * Get attributes of the entry
      *
@@ -410,9 +427,8 @@ final class RarEntry
      *
      * @return int|false the attributes or FALSE on error
      */
-    public function getAttr()
-    {
-    }
+    public function getAttr() {}
+
     /**
      * Get CRC of the entry
      *
@@ -422,9 +438,8 @@ final class RarEntry
      *
      * @return string|false the CRC of the archive entry or FALSE on error
      */
-    public function getCrc()
-    {
-    }
+    public function getCrc() {}
+
     /**
      * Get entry last modification time
      *
@@ -432,9 +447,8 @@ final class RarEntry
      *
      * @return string|false entry last modification time as string in format YYYY-MM-DD HH:II:SS, or FALSE on errors
      */
-    public function getFileTime()
-    {
-    }
+    public function getFileTime() {}
+
     /**
      * Get entry host OS
      *
@@ -444,9 +458,8 @@ final class RarEntry
      *
      * @return int|false the code of the host OS, or FALSE on error
      */
-    public function getHostOs()
-    {
-    }
+    public function getHostOs() {}
+
     /**
      * Get pack method of the entry
      *
@@ -456,9 +469,8 @@ final class RarEntry
      *
      * @return int|false the method number or FALSE on error
      */
-    public function getMethod()
-    {
-    }
+    public function getMethod() {}
+
     /**
      * Get name of the entry
      *
@@ -468,9 +480,8 @@ final class RarEntry
      *
      * @return string|false the entry name as a string, or FALSE on error.
      */
-    public function getName()
-    {
-    }
+    public function getName() {}
+
     /**
      * Get packed size of the entry
      *
@@ -478,9 +489,8 @@ final class RarEntry
      *
      * @return int|false the packed size, or FALSE on error
      */
-    public function getPackedSize()
-    {
-    }
+    public function getPackedSize() {}
+
     /**
      * Get file handler for entry
      *
@@ -498,17 +508,15 @@ final class RarEntry
      *
      * @return resource|false file handler or FALSE on failure
      */
-    public function getStream($password = '')
-    {
-    }
+    public function getStream($password = '') {}
+
     /**
      * Get unpacked size of the entry
      * @link https://php.net/manual/en/rarentry.getunpackedsize.php
      * @return int|false the unpacked size, or FALSE on error
      */
-    public function getUnpackedSize()
-    {
-    }
+    public function getUnpackedSize() {}
+
     /**
      * Get minimum version of RAR program required to unpack the entry
      *
@@ -519,9 +527,8 @@ final class RarEntry
      *
      * @return int|false the version or FALSE on error
      */
-    public function getVersion()
-    {
-    }
+    public function getVersion() {}
+
     /**
      * Test whether an entry represents a directory
      *
@@ -529,9 +536,8 @@ final class RarEntry
      *
      * @return bool TRUE if this entry is a directory and FALSE otherwise.
      */
-    public function isDirectory()
-    {
-    }
+    public function isDirectory() {}
+
     /**
      * Test whether an entry is encrypted
      *
@@ -539,9 +545,8 @@ final class RarEntry
      *
      * @return bool TRUE if the current entry is encrypted and FALSE otherwise
      */
-    public function isEncrypted()
-    {
-    }
+    public function isEncrypted() {}
+
     /**
      * Get text representation of entry
      *
@@ -553,16 +558,8 @@ final class RarEntry
      *
      * @return string A textual representation for the entry
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-/**
- * A RAR entry, representing a directory or a compressed file inside a RAR archive
- *
- * @link https://php.net/manual/en/class.rarentry.php
- */
-\class_alias('Phpactor202301\\RarEntry', 'RarEntry', \false);
 /**
  * This class serves two purposes:
  * it is the type of the exceptions thrown by the RAR extension functions and methods and it allows, through static
@@ -586,7 +583,7 @@ final class RarEntry
  *
  * @link https://php.net/manual/en/class.rarexception.php
  */
-final class RarException extends \Exception
+final class RarException extends Exception
 {
     /**
      * Check whether error handling with exceptions is in use
@@ -595,9 +592,8 @@ final class RarException extends \Exception
      *
      * @return bool TRUE if exceptions are being used, FALSE otherwise
      */
-    public static function isUsingExceptions()
-    {
-    }
+    public static function isUsingExceptions() {}
+
     /**
      * Activate and deactivate error handling with exceptions
      *
@@ -605,31 +601,5 @@ final class RarException extends \Exception
      *
      * @param bool $using_exceptions Should be TRUE to activate exception throwing, FALSE to deactivate (the default)
      */
-    public static function setUsingExceptions($using_exceptions)
-    {
-    }
+    public static function setUsingExceptions($using_exceptions) {}
 }
-/**
- * This class serves two purposes:
- * it is the type of the exceptions thrown by the RAR extension functions and methods and it allows, through static
- * methods to query and define the error behaviour of the extension, i.e., whether exceptions are thrown or only
- * warnings are emitted.<br>
- * The following error codes are used:<br><ul>
- * <li>-1 - error outside UnRAR library</li>
- * <li>11 - insufficient memory</li>
- * <li>12 - bad data</li>
- * <li>13 - bad archive</li>
- * <li>14 - unknown format</li>
- * <li>15 - file open error</li>
- * <li>16 - file create error</li>
- * <li>17 - file close error</li>
- * <li>18 - read error</li>
- * <li>19 - write error</li>
- * <li>20 - buffer too small</li>
- * <li>21 - unkown RAR error</li>
- * <li>22 - password required but not given</li>
- * </ul>
- *
- * @link https://php.net/manual/en/class.rarexception.php
- */
-\class_alias('Phpactor202301\\RarException', 'RarException', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\Util\Filesystem;
+use Phpactor\Indexer\Util\Filesystem;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 use Phpactor202301\Symfony\Component\Finder\SplFileInfo;
 class IndexInfo
@@ -46,4 +46,3 @@ class IndexInfo
         return (\time() - $this->updatedAt) / self::SECONDS_IN_DAY;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\IndexInfo', 'Phpactor\\Indexer\\Model\\IndexInfo', \false);

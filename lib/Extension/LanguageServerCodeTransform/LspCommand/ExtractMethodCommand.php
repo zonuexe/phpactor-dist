@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
+namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
+use Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
+use Phpactor\LanguageServer\Core\Command\Command;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 class ExtractMethodCommand implements Command
 {
     public const NAME = 'extract_method';
@@ -35,4 +35,3 @@ class ExtractMethodCommand implements Command
         return $this->clientApi->workspace()->applyEdit(new WorkspaceEdit([$uri => TextEditConverter::toLspTextEdits($textEdits->textEdits(), $textDocument->text)]), 'Extract method');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\ExtractMethodCommand', 'Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\ExtractMethodCommand', \false);

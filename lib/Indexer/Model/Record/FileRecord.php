@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
-use Phpactor202301\Phpactor\Indexer\Model\Exception\CorruptedRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReference;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReferences;
+use Phpactor\Indexer\Model\Exception\CorruptedRecord;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\RecordReference;
+use Phpactor\Indexer\Model\RecordReferences;
 use SplFileInfo;
-class FileRecord implements HasPath, Record
+class FileRecord implements \Phpactor\Indexer\Model\Record\HasPath, Record
 {
-    use HasPathTrait;
+    use \Phpactor\Indexer\Model\Record\HasPathTrait;
     public const RECORD_TYPE = 'file';
     /**
      * @var array<array{string,string,int}>
@@ -60,4 +60,3 @@ class FileRecord implements HasPath, Record
         return $this;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record\\FileRecord', 'Phpactor\\Indexer\\Model\\Record\\FileRecord', \false);

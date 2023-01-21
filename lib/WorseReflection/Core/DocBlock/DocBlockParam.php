@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\DocBlock;
+namespace Phpactor\WorseReflection\Core\DocBlock;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type;
 class DocBlockParam
 {
     public function __construct(private string $name, private Type $type)
@@ -17,4 +17,3 @@ class DocBlockParam
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockParam', 'Phpactor\\WorseReflection\\Core\\DocBlock\\DocBlockParam', \false);

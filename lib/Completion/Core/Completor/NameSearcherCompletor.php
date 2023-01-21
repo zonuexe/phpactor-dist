@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Completor;
+namespace Phpactor\Completion\Core\Completor;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Phpactor\Completion\Core\DocumentPrioritizer\DefaultResultPrioritizer;
-use Phpactor202301\Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Completion\Core\DocumentPrioritizer\DefaultResultPrioritizer;
+use Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor\TextDocument\TextDocumentUri;
 abstract class NameSearcherCompletor
 {
     private DocumentPrioritizer $prioritizer;
@@ -71,4 +71,3 @@ abstract class NameSearcherCompletor
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Completor\\NameSearcherCompletor', 'Phpactor\\Completion\\Core\\Completor\\NameSearcherCompletor', \false);

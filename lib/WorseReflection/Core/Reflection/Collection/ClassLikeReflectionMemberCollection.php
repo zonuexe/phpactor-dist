@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use Closure;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -15,28 +15,28 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionConstant;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnumCase as PhpactorReflectionEnumCase;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionPromotedProperty;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionConstant as PhpactorReflectionConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod as PhpactorReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty as PhpactorReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionConstant;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnumCase as PhpactorReflectionEnumCase;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionPromotedProperty;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionConstant as PhpactorReflectionConstant;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod as PhpactorReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty as PhpactorReflectionProperty;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 use Traversable;
 /**
  * @extends AbstractReflectionCollection<ReflectionMember>
  * @implements ReflectionMemberCollection<ReflectionMember>
  */
-final class ClassLikeReflectionMemberCollection extends AbstractReflectionCollection implements ReflectionMemberCollection
+final class ClassLikeReflectionMemberCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection implements \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
 {
     private const MEMBER_TYPES = ['constants', 'properties', 'methods', 'enumCases'];
     /**
@@ -77,7 +77,7 @@ final class ClassLikeReflectionMemberCollection extends AbstractReflectionCollec
             yield from $this->{$collection};
         }
     }
-    public function merge(ReflectionCollection $collection) : AbstractReflectionCollection
+    public function merge(\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection $collection) : \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection
     {
         $new = clone $this;
         foreach ($collection as $member) {
@@ -104,7 +104,7 @@ final class ClassLikeReflectionMemberCollection extends AbstractReflectionCollec
     /**
      * @return static<ReflectionMember>
      */
-    public function byMemberClass(string $fqn) : ReflectionCollection
+    public function byMemberClass(string $fqn) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection
     {
         return $this->filter(function (ReflectionMember $member) use($fqn) {
             return $member instanceof $fqn;
@@ -113,13 +113,13 @@ final class ClassLikeReflectionMemberCollection extends AbstractReflectionCollec
     /**
      * @return self
      */
-    public function byMemberType(string $type) : ReflectionCollection
+    public function byMemberType(string $type) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection
     {
         return $this->filter(function (ReflectionMember $member) use($type) {
             return $member->memberType() === $type;
         });
     }
-    public function byVisibilities(array $visibilities) : ReflectionMemberCollection
+    public function byVisibilities(array $visibilities) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) use($visibilities) {
             foreach ($visibilities as $visiblity) {
@@ -130,51 +130,51 @@ final class ClassLikeReflectionMemberCollection extends AbstractReflectionCollec
             return \false;
         });
     }
-    public function belongingTo(ClassName $class) : ReflectionMemberCollection
+    public function belongingTo(ClassName $class) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) use($class) {
             return $member->declaringClass()->name() == $class;
         });
     }
-    public function atOffset(int $offset) : ReflectionMemberCollection
+    public function atOffset(int $offset) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) use($offset) {
             return $member->position()->start() <= $offset && $member->position()->end() >= $offset;
         });
     }
-    public function byName(string $name) : ReflectionMemberCollection
+    public function byName(string $name) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) use($name) {
             return $member->name() === $name;
         });
     }
-    public function virtual() : ReflectionMemberCollection
+    public function virtual() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) {
             return $member->isVirtual();
         });
     }
-    public function real() : ReflectionMemberCollection
+    public function real() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) {
             return \false === $member->isVirtual();
         });
     }
-    public function methods() : ReflectionMethodCollection
+    public function methods() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection
     {
-        return new ReflectionMethodCollection($this->methods);
+        return new \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection($this->methods);
     }
-    public function properties() : ReflectionPropertyCollection
+    public function properties() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection
     {
-        return new ReflectionPropertyCollection($this->properties);
+        return new \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection($this->properties);
     }
-    public function constants() : ReflectionConstantCollection
+    public function constants() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection
     {
-        return new ReflectionConstantCollection($this->constants);
+        return new \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection($this->constants);
     }
-    public function enumCases() : ReflectionEnumCaseCollection
+    public function enumCases() : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionEnumCaseCollection
     {
-        return new ReflectionEnumCaseCollection($this->enumCases);
+        return new \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionEnumCaseCollection($this->enumCases);
     }
     public function map(Closure $closure)
     {
@@ -272,8 +272,3 @@ final class ClassLikeReflectionMemberCollection extends AbstractReflectionCollec
         return $new;
     }
 }
-/**
- * @extends AbstractReflectionCollection<ReflectionMember>
- * @implements ReflectionMemberCollection<ReflectionMember>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ClassLikeReflectionMemberCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ClassLikeReflectionMemberCollection', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Completor;
+namespace Phpactor\Completion\Core\Completor;
 
 use Generator;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class DedupeCompletor implements Completor
 {
     public function __construct(private Completor $innerCompletor, private bool $matchNameImport = \false)
@@ -29,4 +29,3 @@ class DedupeCompletor implements Completor
         return $suggestions->getReturn();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Completor\\DedupeCompletor', 'Phpactor\\Completion\\Core\\Completor\\DedupeCompletor', \false);

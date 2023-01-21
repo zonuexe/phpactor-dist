@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\Location;
 class LocationConfidence
 {
     public const CONFIDENCE_SURELY = 'surely';
@@ -44,4 +44,3 @@ class LocationConfidence
         return $this->location;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\LocationConfidence', 'Phpactor\\Indexer\\Model\\LocationConfidence', \false);

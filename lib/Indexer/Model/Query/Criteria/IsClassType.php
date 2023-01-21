@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
+namespace Phpactor\Indexer\Model\Query\Criteria;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\ClassRecord;
 class IsClassType extends Criteria
 {
     public function __construct(private ?string $type)
@@ -18,4 +18,3 @@ class IsClassType extends Criteria
         return $record->type() === $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\Criteria\\IsClassType', 'Phpactor\\Indexer\\Model\\Query\\Criteria\\IsClassType', \false);

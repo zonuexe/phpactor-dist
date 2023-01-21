@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use Iterator;
 use IteratorAggregate;
@@ -9,14 +9,14 @@ use IteratorAggregate;
  */
 class TextDocumentEdits implements IteratorAggregate
 {
-    public function __construct(private TextDocumentUri $uri, private TextEdits $textEdits)
+    public function __construct(private \Phpactor\TextDocument\TextDocumentUri $uri, private \Phpactor\TextDocument\TextEdits $textEdits)
     {
     }
-    public function uri() : TextDocumentUri
+    public function uri() : \Phpactor\TextDocument\TextDocumentUri
     {
         return $this->uri;
     }
-    public function textEdits() : TextEdits
+    public function textEdits() : \Phpactor\TextDocument\TextEdits
     {
         return $this->textEdits;
     }
@@ -28,7 +28,3 @@ class TextDocumentEdits implements IteratorAggregate
         return $this->textEdits->getIterator();
     }
 }
-/**
- * @implements IteratorAggregate<int, TextEdit>
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocumentEdits', 'Phpactor\\TextDocument\\TextDocumentEdits', \false);

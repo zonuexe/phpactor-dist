@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response;
 /**
  * Instruct the editor to return the value to the RPC caller.
  *
@@ -21,7 +21,7 @@ class ReturnResponse implements Response
     {
         return ['value' => $this->value];
     }
-    public static function fromValue($value) : ReturnResponse
+    public static function fromValue($value) : \Phpactor\Extension\Rpc\Response\ReturnResponse
     {
         return new self($value);
     }
@@ -30,9 +30,3 @@ class ReturnResponse implements Response
         return $this->value;
     }
 }
-/**
- * Instruct the editor to return the value to the RPC caller.
- *
- * NOTE: No actions can be performed after this action.
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\ReturnResponse', 'Phpactor\\Extension\\Rpc\\Response\\ReturnResponse', \false);

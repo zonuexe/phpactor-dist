@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class TestReferenceFinder implements ReferenceFinder
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+class TestReferenceFinder implements \Phpactor\ReferenceFinder\ReferenceFinder
 {
     /**
      * @var PotentialLocation[]
      */
     private array $locations;
-    public function __construct(PotentialLocation ...$locations)
+    public function __construct(\Phpactor\ReferenceFinder\PotentialLocation ...$locations)
     {
         $this->locations = $locations;
     }
@@ -22,4 +22,3 @@ class TestReferenceFinder implements ReferenceFinder
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\TestReferenceFinder', 'Phpactor\\ReferenceFinder\\TestReferenceFinder', \false);

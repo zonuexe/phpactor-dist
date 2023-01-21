@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Reference;
+namespace Phpactor\Extension\Rpc\Response\Reference;
 
 class FileReferences
 {
@@ -17,13 +17,12 @@ class FileReferences
     }
     public function toArray()
     {
-        return ['file' => $this->filePath, 'references' => \array_map(function (Reference $reference) {
+        return ['file' => $this->filePath, 'references' => \array_map(function (\Phpactor\Extension\Rpc\Response\Reference\Reference $reference) {
             return $reference->toArray();
         }, $this->references)];
     }
-    private function addReference(Reference $reference) : void
+    private function addReference(\Phpactor\Extension\Rpc\Response\Reference\Reference $reference) : void
     {
         $this->references[] = $reference;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Reference\\FileReferences', 'Phpactor\\Extension\\Rpc\\Response\\Reference\\FileReferences', \false);

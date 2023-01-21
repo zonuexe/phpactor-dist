@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Util;
+namespace Phpactor\Completion\Core\Util;
 
 use RuntimeException;
 use function preg_last_error_msg;
@@ -15,4 +15,3 @@ class OffsetHelper
         return \mb_strlen($source);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Util\\OffsetHelper', 'Phpactor\\Completion\\Core\\Util\\OffsetHelper', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\LibxmlException;
+use Safe\Exceptions\LibxmlException;
+
 /**
  * Retrieve last error from libxml.
  *
@@ -11,15 +12,17 @@ use Phpactor202301\Safe\Exceptions\LibxmlException;
  * @throws LibxmlException
  *
  */
-function libxml_get_last_error() : \LibXMLError
+function libxml_get_last_error(): \LibXMLError
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \libxml_get_last_error();
-    if ($result === \false) {
+    if ($result === false) {
         throw LibxmlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Changes the default external entity loader.
  *
@@ -30,11 +33,11 @@ function libxml_get_last_error() : \LibXMLError
  * @throws LibxmlException
  *
  */
-function libxml_set_external_entity_loader(callable $resolver_function) : void
+function libxml_set_external_entity_loader(callable $resolver_function): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \libxml_set_external_entity_loader($resolver_function);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibxmlException::createFromPhpError();
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\Formatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\Formatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
 class MethodFormatter implements Formatter
 {
     public function canFormat(object $object) : bool
@@ -38,4 +38,3 @@ class MethodFormatter implements Formatter
         return \implode('', $info);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\MethodFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\MethodFormatter', \false);

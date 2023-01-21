@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
-use Phpactor202301\Phpactor\Name\Name;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticSeverity;
+use Phpactor\Name\Name;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\DiagnosticSeverity;
 class UnresolvableNameDiagnostic implements Diagnostic
 {
     public const TYPE_CLASS = 'class';
@@ -48,4 +48,3 @@ class UnresolvableNameDiagnostic implements Diagnostic
         return $this->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\UnresolvableNameDiagnostic', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\UnresolvableNameDiagnostic', \false);

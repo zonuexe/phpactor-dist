@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Type;
+namespace Phpactor\DocblockParser\Ast\Type;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\Token;
 class NullNode extends TypeNode
 {
     protected const CHILD_NAMES = ['null'];
@@ -15,4 +15,3 @@ class NullNode extends TypeNode
         return $this->null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Type\\NullNode', 'Phpactor\\DocblockParser\\Ast\\Type\\NullNode', \false);

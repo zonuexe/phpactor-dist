@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\PathFinder;
+namespace Phpactor\PathFinder;
 
-use Phpactor202301\Phpactor\PathFinder\Exception\NoPlaceHoldersException;
+use Phpactor\PathFinder\Exception\NoPlaceHoldersException;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class Pattern
@@ -71,4 +71,3 @@ class Pattern
         }, $this->tokenNames), \array_fill(0, \count($this->tokenNames), '')));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\PathFinder\\Pattern', 'Phpactor\\PathFinder\\Pattern', \false);

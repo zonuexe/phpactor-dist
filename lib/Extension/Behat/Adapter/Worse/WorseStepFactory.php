@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Adapter\Worse;
+namespace Phpactor\Extension\Behat\Adapter\Worse;
 
 use Generator;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Context;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Step;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepFactory;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepParser;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\Extension\Behat\Behat\Context;
+use Phpactor\Extension\Behat\Behat\ContextClassResolver;
+use Phpactor\Extension\Behat\Behat\Step;
+use Phpactor\Extension\Behat\Behat\StepFactory;
+use Phpactor\Extension\Behat\Behat\StepParser;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
 class WorseStepFactory implements StepFactory
 {
     public function __construct(private ClassReflector $reflector, private ContextClassResolver $contextClassResolver)
@@ -35,4 +35,3 @@ class WorseStepFactory implements StepFactory
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Adapter\\Worse\\WorseStepFactory', 'Phpactor\\Extension\\Behat\\Adapter\\Worse\\WorseStepFactory', \false);

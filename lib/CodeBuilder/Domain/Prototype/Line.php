@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 final class Line
 {
@@ -11,9 +11,8 @@ final class Line
     {
         return $this->line;
     }
-    public static function fromString(string $line) : Line
+    public static function fromString(string $line) : \Phpactor\CodeBuilder\Domain\Prototype\Line
     {
         return new self($line);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Line', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Line', \false);

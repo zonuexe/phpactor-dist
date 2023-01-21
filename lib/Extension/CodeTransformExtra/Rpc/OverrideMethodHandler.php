@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\WorseReflection\Reflector;
 use InvalidArgumentException;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ListInput;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\OverrideMethod;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\Rpc\Response\Input\ListInput;
+use Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\CodeTransform\Domain\Refactor\OverrideMethod;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 class OverrideMethodHandler extends AbstractHandler
 {
     const NAME = 'override_method';
@@ -76,4 +76,3 @@ class OverrideMethodHandler extends AbstractHandler
         return \array_combine($methodNames, $methodNames);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\OverrideMethodHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\OverrideMethodHandler', \false);

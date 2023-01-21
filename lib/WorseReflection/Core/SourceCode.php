@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLanguage;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentLanguage;
+use Phpactor\TextDocument\TextDocumentUri;
 use InvalidArgumentException;
 use RuntimeException;
 class SourceCode implements TextDocument
@@ -19,9 +19,9 @@ class SourceCode implements TextDocument
     /**
      * @param SourceCode|TextDocument|string $value
      */
-    public static function fromUnknown($value) : SourceCode
+    public static function fromUnknown($value) : \Phpactor\WorseReflection\Core\SourceCode
     {
-        if ($value instanceof SourceCode) {
+        if ($value instanceof \Phpactor\WorseReflection\Core\SourceCode) {
             return $value;
         }
         if ($value instanceof TextDocument) {
@@ -79,4 +79,3 @@ class SourceCode implements TextDocument
         return $this->path;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\SourceCode', 'Phpactor\\WorseReflection\\Core\\SourceCode', \false);

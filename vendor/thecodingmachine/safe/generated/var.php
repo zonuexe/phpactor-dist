@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\VarException;
+use Safe\Exceptions\VarException;
+
 /**
  * Set the type of variable var to
  * type.
@@ -49,11 +50,11 @@ use Phpactor202301\Safe\Exceptions\VarException;
  * @throws VarException
  *
  */
-function settype(&$var, string $type) : void
+function settype(&$var, string $type): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \settype($var, $type);
-    if ($result === \false) {
+    if ($result === false) {
         throw VarException::createFromPhpError();
     }
 }

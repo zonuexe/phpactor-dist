@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Input;
+namespace Phpactor\Extension\Rpc\Response\Input;
 
-class ChoiceInput implements Input
+class ChoiceInput implements \Phpactor\Extension\Rpc\Response\Input\Input
 {
     private function __construct(private string $name, private string $label, private array $choices, private ?string $default = null, private array $keyMap = [])
     {
@@ -44,4 +44,3 @@ class ChoiceInput implements Input
         return ['default' => $this->default, 'label' => $this->label, 'choices' => $this->choices, 'keyMap' => $this->keyMap];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Input\\ChoiceInput', 'Phpactor\\Extension\\Rpc\\Response\\Input\\ChoiceInput', \false);

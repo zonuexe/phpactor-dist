@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\SuggestionDocumentor;
+namespace Phpactor\Completion\Bridge\WorseReflection\SuggestionDocumentor;
 
 use Closure;
-use Phpactor202301\Phpactor\Completion\Bridge\ObjectRenderer\ItemDocumentation;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Completion\Core\SuggestionDocumentor;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Bridge\ObjectRenderer\ItemDocumentation;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Completion\Core\SuggestionDocumentor;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Reflector;
 class WorseSuggestionDocumentor implements SuggestionDocumentor
 {
     public function __construct(private Reflector $reflector, private ObjectRenderer $renderer)
@@ -49,4 +49,3 @@ class WorseSuggestionDocumentor implements SuggestionDocumentor
         };
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\SuggestionDocumentor\\WorseSuggestionDocumentor', 'Phpactor\\Completion\\Bridge\\WorseReflection\\SuggestionDocumentor\\WorseSuggestionDocumentor', \false);

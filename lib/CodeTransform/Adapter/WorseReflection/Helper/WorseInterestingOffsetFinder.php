@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Helper;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Helper;
 
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 class WorseInterestingOffsetFinder implements InterestingOffsetFinder
 {
     private Parser $parser;
@@ -40,4 +40,3 @@ class WorseInterestingOffsetFinder implements InterestingOffsetFinder
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Helper\\WorseInterestingOffsetFinder', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Helper\\WorseInterestingOffsetFinder', \false);

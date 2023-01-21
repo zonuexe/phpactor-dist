@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Symfony\Completor;
+namespace Phpactor\Extension\Symfony\Completor;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -8,15 +8,15 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerService;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerService;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Reflector;
 class SymfonyContainerCompletor implements TolerantCompletor
 {
     const CONTAINER_CLASS = 'Phpactor202301\\Symfony\\Component\\DependencyInjection\\ContainerInterface';
@@ -73,4 +73,3 @@ class SymfonyContainerCompletor implements TolerantCompletor
         return $service->type->isClass() && $service->id === $service->type->__toString();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Symfony\\Completor\\SymfonyContainerCompletor', 'Phpactor\\Extension\\Symfony\\Completor\\SymfonyContainerCompletor', \false);

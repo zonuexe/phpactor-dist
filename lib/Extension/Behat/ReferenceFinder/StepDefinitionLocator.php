@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\ReferenceFinder;
+namespace Phpactor\Extension\Behat\ReferenceFinder;
 
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Step;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepGenerator;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepParser;
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\TypeLocations;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\Util\LineAtOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\Extension\Behat\Behat\Step;
+use Phpactor\Extension\Behat\Behat\StepGenerator;
+use Phpactor\Extension\Behat\Behat\StepParser;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
+use Phpactor\ReferenceFinder\TypeLocation;
+use Phpactor\ReferenceFinder\TypeLocations;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\Util\LineAtOffset;
+use Phpactor\WorseReflection\Core\TypeFactory;
 class StepDefinitionLocator implements DefinitionLocator
 {
     public function __construct(private StepGenerator $generator, private StepParser $parser)
@@ -51,4 +51,3 @@ class StepDefinitionLocator implements DefinitionLocator
         return $steps;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\ReferenceFinder\\StepDefinitionLocator', 'Phpactor\\Extension\\Behat\\ReferenceFinder\\StepDefinitionLocator', \false);

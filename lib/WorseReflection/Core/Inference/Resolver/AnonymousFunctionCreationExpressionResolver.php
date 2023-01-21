@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClosureType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Type\ClosureType;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class AnonymousFunctionCreationExpressionResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -32,4 +32,3 @@ class AnonymousFunctionCreationExpressionResolver implements Resolver
         return NodeContextFactory::create($node->getText(), $node->getStartPosition(), $node->getEndPosition(), ['type' => $type]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\AnonymousFunctionCreationExpressionResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\AnonymousFunctionCreationExpressionResolver', \false);

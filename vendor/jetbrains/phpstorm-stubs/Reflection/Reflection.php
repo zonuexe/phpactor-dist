@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\TentativeType;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
 /**
  * The reflection class.
  *
@@ -20,9 +19,8 @@ class Reflection
      * @return string[] An array of modifier names.
      */
     #[TentativeType]
-    public static function getModifierNames(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $modifiers) : array
-    {
-    }
+    public static function getModifierNames(#[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $modifiers): array {}
+
     /**
      * Exports
      *
@@ -35,13 +33,5 @@ class Reflection
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export(\Reflector $reflector, $return = \false)
-    {
-    }
+    public static function export(Reflector $reflector, $return = false) {}
 }
-/**
- * The reflection class.
- *
- * @link https://php.net/manual/en/class.reflection.php
- */
-\class_alias('Phpactor202301\\Reflection', 'Reflection', \false);

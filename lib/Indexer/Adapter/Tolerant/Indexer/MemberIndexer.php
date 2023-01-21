@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
@@ -10,13 +10,13 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\TraitSelectOrAliasClause;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\MemberReference;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReference;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\MemberRecord;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\MemberReference;
+use Phpactor\Indexer\Model\RecordReference;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\TextDocument\TextDocument;
 class MemberIndexer implements TolerantIndexer
 {
     public function canIndex(Node $node) : bool
@@ -163,4 +163,3 @@ class MemberIndexer implements TolerantIndexer
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\MemberIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\MemberIndexer', \false);

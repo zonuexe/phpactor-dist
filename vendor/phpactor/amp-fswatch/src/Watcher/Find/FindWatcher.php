@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\Find;
+namespace Phpactor\AmpFsWatch\Watcher\Find;
 
 use Phpactor202301\Amp\ByteStream\LineReader;
 use Phpactor202301\Amp\Delayed;
@@ -8,12 +8,12 @@ use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Process\ProcessInputStream;
 use DateTimeImmutable;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFile;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileQueue;
-use Phpactor202301\Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherConfig;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\ModifiedFile;
+use Phpactor\AmpFsWatch\ModifiedFileQueue;
+use Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherConfig;
+use Phpactor\AmpFsWatch\WatcherProcess;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use RuntimeException;
@@ -167,4 +167,3 @@ class FindWatcher implements Watcher, WatcherProcess
         return 'find (BSD/GNU)';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\Find\\FindWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\Find\\FindWatcher', \false);

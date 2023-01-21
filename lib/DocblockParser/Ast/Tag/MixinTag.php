@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Tag;
+namespace Phpactor\DocblockParser\Ast\Tag;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TagNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Type\ClassNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\TagNode;
+use Phpactor\DocblockParser\Ast\Type\ClassNode;
+use Phpactor\DocblockParser\Ast\Token;
 class MixinTag extends TagNode
 {
     protected const CHILD_NAMES = ['tag', 'class'];
@@ -16,4 +16,3 @@ class MixinTag extends TagNode
         return $this->class;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Tag\\MixinTag', 'Phpactor\\DocblockParser\\Ast\\Tag\\MixinTag', \false);

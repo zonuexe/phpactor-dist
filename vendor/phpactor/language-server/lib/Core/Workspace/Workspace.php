@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Workspace;
+namespace Phpactor\LanguageServer\Core\Workspace;
 
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Exception\UnknownDocument;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
+use Phpactor\LanguageServer\Core\Workspace\Exception\UnknownDocument;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 /**
@@ -96,7 +96,3 @@ class Workspace implements Countable, IteratorAggregate
         return new ArrayIterator($this->documents);
     }
 }
-/**
- * @implements IteratorAggregate<string,TextDocumentItem>
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Workspace\\Workspace', 'Phpactor\\LanguageServer\\Core\\Workspace\\Workspace', \false);

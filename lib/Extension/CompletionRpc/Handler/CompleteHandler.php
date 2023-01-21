@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CompletionRpc\Handler;
+namespace Phpactor\Extension\CompletionRpc\Handler;
 
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Completion\Core\TypedCompletorRegistry;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ReturnResponse;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Completion\Core\TypedCompletorRegistry;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\ReturnResponse;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class CompleteHandler implements Handler
 {
     const NAME = 'complete';
@@ -40,4 +40,3 @@ class CompleteHandler implements Handler
         return ReturnResponse::fromValue(['suggestions' => $suggestions, 'issues' => []]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CompletionRpc\\Handler\\CompleteHandler', 'Phpactor\\Extension\\CompletionRpc\\Handler\\CompleteHandler', \false);

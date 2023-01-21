@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SplException;
+use Safe\Exceptions\SplException;
+
 /**
  * This function returns an array with the names of the interfaces that the
  * given class and its parents implement.
@@ -14,15 +15,17 @@ use Phpactor202301\Safe\Exceptions\SplException;
  * @throws SplException
  *
  */
-function class_implements($class, bool $autoload = \true) : array
+function class_implements($class, bool $autoload = true): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \class_implements($class, $autoload);
-    if ($result === \false) {
+    if ($result === false) {
         throw SplException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns an array with the name of the parent classes of
  * the given class.
@@ -34,15 +37,17 @@ function class_implements($class, bool $autoload = \true) : array
  * @throws SplException
  *
  */
-function class_parents($class, bool $autoload = \true) : array
+function class_parents($class, bool $autoload = true): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \class_parents($class, $autoload);
-    if ($result === \false) {
+    if ($result === false) {
         throw SplException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns an array with the names of the traits that the
  * given class uses. This does however not include
@@ -55,15 +60,17 @@ function class_parents($class, bool $autoload = \true) : array
  * @throws SplException
  *
  */
-function class_uses($class, bool $autoload = \true) : array
+function class_uses($class, bool $autoload = true): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \class_uses($class, $autoload);
-    if ($result === \false) {
+    if ($result === false) {
         throw SplException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Register a function with the spl provided __autoload queue. If the queue
  * is not yet activated it will be activated.
@@ -92,22 +99,24 @@ function class_uses($class, bool $autoload = \true) : array
  * @throws SplException
  *
  */
-function spl_autoload_register(callable $autoload_function = null, bool $throw = \true, bool $prepend = \false) : void
+function spl_autoload_register(callable $autoload_function = null, bool $throw = true, bool $prepend = false): void
 {
-    \error_clear_last();
-    if ($prepend !== \false) {
+    error_clear_last();
+    if ($prepend !== false) {
         $result = \spl_autoload_register($autoload_function, $throw, $prepend);
-    } elseif ($throw !== \true) {
+    } elseif ($throw !== true) {
         $result = \spl_autoload_register($autoload_function, $throw);
     } elseif ($autoload_function !== null) {
         $result = \spl_autoload_register($autoload_function);
     } else {
         $result = \spl_autoload_register();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw SplException::createFromPhpError();
     }
 }
+
+
 /**
  * Removes a function from the autoload queue. If the queue
  * is activated and empty after removing the given function then it will
@@ -120,11 +129,11 @@ function spl_autoload_register(callable $autoload_function = null, bool $throw =
  * @throws SplException
  *
  */
-function spl_autoload_unregister($autoload_function) : void
+function spl_autoload_unregister($autoload_function): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \spl_autoload_unregister($autoload_function);
-    if ($result === \false) {
+    if ($result === false) {
         throw SplException::createFromPhpError();
     }
 }

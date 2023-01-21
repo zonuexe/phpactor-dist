@@ -1,14 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
+use Phpactor202301\Microsoft\PhpParser\MissingToken;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\Record\ClassRecord;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-class ClassDeclarationIndexer extends AbstractClassLikeIndexer
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\Indexer\Model\Index;
+class ClassDeclarationIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Indexer\AbstractClassLikeIndexer
 {
     public function canIndex(Node $node) : bool
     {
@@ -45,6 +46,10 @@ class ClassDeclarationIndexer extends AbstractClassLikeIndexer
         if (null === ($baseClass = $baseClause->baseClass)) {
             return;
         }
+        /** @phpstan-ignore-next-line */
+        if ($baseClass instanceof MissingToken) {
+            return;
+        }
         $name = $baseClass->getResolvedName();
         $record->addImplements(FullyQualifiedName::fromString((string) $name));
         $baseClassRecord = $index->get(ClassRecord::fromName($name));
@@ -53,4 +58,3 @@ class ClassDeclarationIndexer extends AbstractClassLikeIndexer
         $index->write($baseClassRecord);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\ClassDeclarationIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\ClassDeclarationIndexer', \false);

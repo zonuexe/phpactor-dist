@@ -1,42 +1,42 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Adapter\WorseTolerant;
+namespace Phpactor\ClassMover\Adapter\WorseTolerant;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\MemberFinder;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\MemberReferences;
-use Phpactor202301\Phpactor\ClassMover\Domain\SourceCode;
-use Phpactor202301\Phpactor\ClassMover\Domain\Model\ClassMemberQuery;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
+use Phpactor\ClassMover\Domain\MemberFinder;
+use Phpactor\ClassMover\Domain\Reference\MemberReferences;
+use Phpactor\ClassMover\Domain\SourceCode;
+use Phpactor\ClassMover\Domain\Model\ClassMemberQuery;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\MemberReference;
-use Phpactor202301\Phpactor\ClassMover\Domain\Reference\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\ClassMover\Domain\Model\Class_;
+use Phpactor\ClassMover\Domain\Reference\MemberReference;
+use Phpactor\ClassMover\Domain\Reference\Position;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\ClassMover\Domain\Model\Class_;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\MemberName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\ClassMover\Domain\Name\MemberName;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor202301\Microsoft\PhpParser\Token;
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\ReflectorBuilder;
+use Phpactor\WorseReflection\ReflectorBuilder;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
 class WorseTolerantMemberFinder implements MemberFinder
 {
     private Reflector $reflector;
@@ -309,4 +309,3 @@ class WorseTolerantMemberFinder implements MemberFinder
         return $start;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Adapter\\WorseTolerant\\WorseTolerantMemberFinder', 'Phpactor\\ClassMover\\Adapter\\WorseTolerant\\WorseTolerantMemberFinder', \false);

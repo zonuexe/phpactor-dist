@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
 use Generator;
 use RuntimeException;
-abstract class AbstractBuilder implements Builder
+abstract class AbstractBuilder implements \Phpactor\CodeBuilder\Domain\Builder\Builder
 {
     private $originalProperties = [];
     public function snapshot() : void
@@ -46,7 +46,7 @@ abstract class AbstractBuilder implements Builder
         foreach (static::childNames() as $childName) {
             $children = (array) $this->{$childName};
             foreach ($children as $child) {
-                if (!$child instanceof Builder) {
+                if (!$child instanceof \Phpactor\CodeBuilder\Domain\Builder\Builder) {
                     throw new RuntimeException(\sprintf('Child "%s" is not a builder instance, it is a "%s"', $childName, \is_object($child) ? \get_class($child) : \gettype($child)));
                 }
                 (yield $child);
@@ -54,4 +54,3 @@ abstract class AbstractBuilder implements Builder
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\AbstractBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\AbstractBuilder', \false);

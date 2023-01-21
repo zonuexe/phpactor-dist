@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\LibeventException;
+use Safe\Exceptions\LibeventException;
+
 /**
  * event_add schedules the execution of the event
  * when the event specified in event_set occurs or in at least the time
@@ -18,14 +19,16 @@ use Phpactor202301\Safe\Exceptions\LibeventException;
  * @throws LibeventException
  *
  */
-function event_add($event, int $timeout = -1) : void
+function event_add($event, int $timeout = -1): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_add($event, $timeout);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Abort the active event loop immediately. The behaviour is similar to
  * break statement.
@@ -34,14 +37,16 @@ function event_add($event, int $timeout = -1) : void
  * @throws LibeventException
  *
  */
-function event_base_loopbreak($event_base) : void
+function event_base_loopbreak($event_base): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_base_loopbreak($event_base);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * The next event loop iteration after the given timer expires will complete
  * normally, then exit without blocking for events again.
@@ -51,14 +56,16 @@ function event_base_loopbreak($event_base) : void
  * @throws LibeventException
  *
  */
-function event_base_loopexit($event_base, int $timeout = -1) : void
+function event_base_loopexit($event_base, int $timeout = -1): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_base_loopexit($event_base, $timeout);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Returns new event base, which can be used later in event_base_set,
  * event_base_loop and other functions.
@@ -70,13 +77,15 @@ function event_base_loopexit($event_base, int $timeout = -1) : void
  */
 function event_base_new()
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_base_new();
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets the number of different event priority levels.
  *
@@ -90,14 +99,16 @@ function event_base_new()
  * @throws LibeventException
  *
  */
-function event_base_priority_init($event_base, int $npriorities) : void
+function event_base_priority_init($event_base, int $npriorities): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_base_priority_init($event_base, $npriorities);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Some event mechanisms do not survive across fork. The
  * event_base needs to be reinitialized with this
@@ -107,14 +118,16 @@ function event_base_priority_init($event_base, int $npriorities) : void
  * @throws LibeventException
  *
  */
-function event_base_reinit($event_base) : void
+function event_base_reinit($event_base): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\event_base_reinit($event_base);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \event_base_reinit($event_base);
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Associates the event_base with the
  * event.
@@ -124,14 +137,16 @@ function event_base_reinit($event_base) : void
  * @throws LibeventException
  *
  */
-function event_base_set($event, $event_base) : void
+function event_base_set($event, $event_base): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_base_set($event, $event_base);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Assign the specified bevent to the
  * event_base.
@@ -141,14 +156,16 @@ function event_base_set($event, $event_base) : void
  * @throws LibeventException
  *
  */
-function event_buffer_base_set($bevent, $event_base) : void
+function event_buffer_base_set($bevent, $event_base): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_buffer_base_set($bevent, $event_base);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Disables the specified buffered event.
  *
@@ -158,14 +175,16 @@ function event_buffer_base_set($bevent, $event_base) : void
  * @throws LibeventException
  *
  */
-function event_buffer_disable($bevent, int $events) : void
+function event_buffer_disable($bevent, int $events): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_buffer_disable($bevent, $events);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Enables the specified buffered event.
  *
@@ -175,14 +194,16 @@ function event_buffer_disable($bevent, int $events) : void
  * @throws LibeventException
  *
  */
-function event_buffer_enable($bevent, int $events) : void
+function event_buffer_enable($bevent, int $events): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_buffer_enable($bevent, $events);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Libevent provides an abstraction layer on top of the regular event API.
  * Using buffered event you don't need to deal with the I/O manually, instead
@@ -204,17 +225,19 @@ function event_buffer_enable($bevent, int $events) : void
  */
 function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($arg !== null) {
         $result = \event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg);
     } else {
         $result = \event_buffer_new($stream, $readcb, $writecb, $errorcb);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Assign a priority to the bevent.
  *
@@ -224,14 +247,16 @@ function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null)
  * @throws LibeventException
  *
  */
-function event_buffer_priority_set($bevent, int $priority) : void
+function event_buffer_priority_set($bevent, int $priority): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_buffer_priority_set($bevent, $priority);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets or changes existing callbacks for the buffered event.
  *
@@ -246,18 +271,20 @@ function event_buffer_priority_set($bevent, int $priority) : void
  * @throws LibeventException
  *
  */
-function event_buffer_set_callback($event, $readcb, $writecb, $errorcb, $arg = null) : void
+function event_buffer_set_callback($event, $readcb, $writecb, $errorcb, $arg = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($arg !== null) {
         $result = \event_buffer_set_callback($event, $readcb, $writecb, $errorcb, $arg);
     } else {
         $result = \event_buffer_set_callback($event, $readcb, $writecb, $errorcb);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Writes data to the specified buffered event. The data is appended to the
  * output buffer and written to the descriptor when it becomes available for
@@ -270,14 +297,16 @@ function event_buffer_set_callback($event, $readcb, $writecb, $errorcb, $arg = n
  * @throws LibeventException
  *
  */
-function event_buffer_write($bevent, string $data, int $data_size = -1) : void
+function event_buffer_write($bevent, string $data, int $data_size = -1): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_buffer_write($bevent, $data, $data_size);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Cancels the event.
  *
@@ -285,14 +314,16 @@ function event_buffer_write($bevent, string $data, int $data_size = -1) : void
  * @throws LibeventException
  *
  */
-function event_del($event) : void
+function event_del($event): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_del($event);
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates and returns a new event resource.
  *
@@ -302,13 +333,15 @@ function event_del($event) : void
  */
 function event_new()
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \event_new();
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Assign a priority to the event.
  *
@@ -319,14 +352,16 @@ function event_new()
  * @throws LibeventException
  *
  */
-function event_priority_set($event, int $priority) : void
+function event_priority_set($event, int $priority): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\event_priority_set($event, $priority);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \event_priority_set($event, $priority);
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Prepares the event to be used in event_add. The event
  * is prepared to call the function specified by the callback
@@ -388,18 +423,20 @@ function event_priority_set($event, int $priority) : void
  * @throws LibeventException
  *
  */
-function event_set($event, $fd, int $events, $callback, $arg = null) : void
+function event_set($event, $fd, int $events, $callback, $arg = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($arg !== null) {
         $result = \event_set($event, $fd, $events, $callback, $arg);
     } else {
         $result = \event_set($event, $fd, $events, $callback);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }
+
+
 /**
  * Prepares the timer event to be used in event_add. The
  * event is prepared to call the function specified by the
@@ -445,15 +482,15 @@ function event_set($event, $fd, int $events, $callback, $arg = null) : void
  * @throws LibeventException
  *
  */
-function event_timer_set($event, callable $callback, $arg = null) : void
+function event_timer_set($event, callable $callback, $arg = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($arg !== null) {
         $result = \event_timer_set($event, $callback, $arg);
     } else {
         $result = \event_timer_set($event, $callback);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw LibeventException::createFromPhpError();
     }
 }

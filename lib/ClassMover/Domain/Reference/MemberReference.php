@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\MemberName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Model\Class_;
+use Phpactor\ClassMover\Domain\Name\MemberName;
+use Phpactor\ClassMover\Domain\Model\Class_;
 class MemberReference
 {
-    private function __construct(private MemberName $method, private Position $position, private ?Class_ $class = null)
+    private function __construct(private MemberName $method, private \Phpactor\ClassMover\Domain\Reference\Position $position, private ?Class_ $class = null)
     {
     }
     public function __toString()
     {
         return \sprintf('[%s:%s] %s', $this->position->start(), $this->position->end(), (string) $this->method);
     }
-    public static function fromMemberNameAndPosition(MemberName $method, Position $position) : MemberReference
+    public static function fromMemberNameAndPosition(MemberName $method, \Phpactor\ClassMover\Domain\Reference\Position $position) : \Phpactor\ClassMover\Domain\Reference\MemberReference
     {
         return new self($method, $position);
     }
-    public static function fromMemberNamePositionAndClass(MemberName $method, Position $position, Class_ $class) : MemberReference
+    public static function fromMemberNamePositionAndClass(MemberName $method, \Phpactor\ClassMover\Domain\Reference\Position $position, Class_ $class) : \Phpactor\ClassMover\Domain\Reference\MemberReference
     {
         return new self($method, $position, $class);
     }
@@ -25,7 +25,7 @@ class MemberReference
     {
         return $this->method;
     }
-    public function position() : Position
+    public function position() : \Phpactor\ClassMover\Domain\Reference\Position
     {
         return $this->position;
     }
@@ -42,4 +42,3 @@ class MemberReference
         return $this->class;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\MemberReference', 'Phpactor\\ClassMover\\Domain\\Reference\\MemberReference', \false);

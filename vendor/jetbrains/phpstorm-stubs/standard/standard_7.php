@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Open Internet or Unix domain socket connection
  * @link https://php.net/manual/en/function.fsockopen.php
@@ -49,9 +48,15 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen(string $hostname, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port, #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1, &$error_code, &$error_message, ?float $timeout)
-{
-}
+function fsockopen(
+    string $hostname,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
+    &$error_code,
+    &$error_message,
+    ?float $timeout
+) {}
+
 /**
  * Open persistent Internet or Unix domain socket connection
  * @link https://php.net/manual/en/function.pfsockopen.php
@@ -63,9 +68,15 @@ function fsockopen(string $hostname, #[PhpStormStubsElementAvailable(from: '5.3'
  * @param float|null $timeout [optional]
  * @return resource|false
  */
-function pfsockopen(string $hostname, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port, #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1, &$error_code, &$error_message, ?float $timeout)
-{
-}
+function pfsockopen(
+    string $hostname,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $port,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $port = -1,
+    &$error_code,
+    &$error_message,
+    ?float $timeout
+) {}
+
 /**
  * Pack data into binary string
  * @link https://php.net/manual/en/function.pack.php
@@ -172,9 +183,12 @@ function pfsockopen(string $hostname, #[PhpStormStubsElementAvailable(from: '5.3
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function pack(string $format, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $values, mixed ...$values)
-{
-}
+function pack(
+    string $format,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.3')] $values,
+    mixed ...$values
+) {}
+
 /**
  * Unpack data from binary string
  * @link https://php.net/manual/en/function.unpack.php
@@ -189,9 +203,12 @@ function pack(string $format, #[PhpStormStubsElementAvailable(from: '5.3', to: '
  * string or false if the format string contains errors
  */
 #[Pure]
-function unpack(string $format, string $string, #[PhpStormStubsElementAvailable(from: '7.1')] int $offset = 0) : array|false
-{
-}
+function unpack(
+    string $format,
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $offset = 0
+): array|false {}
+
 /**
  * Tells what the user's browser is capable of
  * @link https://php.net/manual/en/function.get-browser.php
@@ -219,10 +236,9 @@ function unpack(string $format, string $string, #[PhpStormStubsElementAvailable(
  * cookies are accepted is to set one with setcookie,
  * reload, and check for the value.
  */
-#[Pure(\true)]
-function get_browser(?string $user_agent, bool $return_array = \false) : object|array|false
-{
-}
+#[Pure(true)]
+function get_browser(?string $user_agent, bool $return_array = false): object|array|false {}
+
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php
@@ -243,9 +259,8 @@ function get_browser(?string $user_agent, bool $return_array = \false) : object|
  */
 #[Pure]
 #[PhpStormStubsElementAvailable(to: '7.4')]
-function crypt($string, $salt) : ?string
-{
-}
+function crypt($string, $salt): ?string {}
+
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php
@@ -266,9 +281,8 @@ function crypt($string, $salt) : ?string
  */
 #[Pure]
 #[PhpStormStubsElementAvailable('8.0')]
-function crypt(string $string, string $salt) : string
-{
-}
+function crypt(string $string, string $salt): string {}
+
 /**
  * Open directory handle
  * @link https://php.net/manual/en/function.opendir.php
@@ -293,9 +307,8 @@ function crypt(string $string, string $salt) : string
  * '@' to the
  * front of the function name.
  */
-function opendir(string $directory, $context)
-{
-}
+function opendir(string $directory, $context) {}
+
 /**
  * Close directory handle
  * @link https://php.net/manual/en/function.closedir.php
@@ -307,9 +320,8 @@ function opendir(string $directory, $context)
  * </p>
  * @return void
  */
-function closedir($dir_handle) : void
-{
-}
+function closedir($dir_handle): void {}
+
 /**
  * Change directory
  * @link https://php.net/manual/en/function.chdir.php
@@ -318,9 +330,8 @@ function closedir($dir_handle) : void
  * </p>
  * @return bool true on success or false on failure.
  */
-function chdir(string $directory) : bool
-{
-}
+function chdir(string $directory): bool {}
+
 /**
  * Change the root directory
  * @link https://php.net/manual/en/function.chroot.php
@@ -329,9 +340,8 @@ function chdir(string $directory) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function chroot(string $directory) : bool
-{
-}
+function chroot(string $directory): bool {}
+
 /**
  * Gets the current working directory
  * @link https://php.net/manual/en/function.getcwd.php
@@ -346,10 +356,9 @@ function chroot(string $directory) : bool
  * modes and permissions.
  * </p>
  */
-#[Pure(\true)]
-function getcwd() : string|false
-{
-}
+#[Pure(true)]
+function getcwd(): string|false {}
+
 /**
  * Rewind directory handle
  * @link https://php.net/manual/en/function.rewinddir.php
@@ -361,9 +370,8 @@ function getcwd() : string|false
  * </p>
  * @see https://bugs.php.net/bug.php?id=75485
  */
-function rewinddir($dir_handle) : void
-{
-}
+function rewinddir($dir_handle): void {}
+
 /**
  * Read entry from directory handle
  * @link https://php.net/manual/en/function.readdir.php
@@ -375,9 +383,8 @@ function rewinddir($dir_handle) : void
  * </p>
  * @return string|false the filename on success or false on failure.
  */
-function readdir($dir_handle) : string|false
-{
-}
+function readdir($dir_handle): string|false {}
+
 /**
  * Return an instance of the Directory class
  * @link https://php.net/manual/en/function.dir.php
@@ -388,9 +395,8 @@ function readdir($dir_handle) : string|false
  * @return Directory|false an instance of Directory, or <b>NULL</b> with wrong
  * parameters, or <b>FALSE</b> in case of another error
  */
-function dir(string $directory, $context) : \Directory|false
-{
-}
+function dir(string $directory, $context): Directory|false {}
+
 /**
  * Alias of dir()
  * @param string $directory
@@ -399,9 +405,8 @@ function dir(string $directory, $context) : \Directory|false
  * @return Directory|false
  * @see dir()
  */
-function getdir(string $directory, $context = null) : \Directory|false
-{
-}
+function getdir(string $directory, $context = null): Directory|false {}
+
 /**
  * List files and directories inside the specified path
  * @link https://php.net/manual/en/function.scandir.php
@@ -423,9 +428,8 @@ function getdir(string $directory, $context = null) : \Directory|false
  * boolean false is returned, and an error of level
  * E_WARNING is generated.
  */
-function scandir(string $directory, int $sorting_order = 0, $context) : array|false
-{
-}
+function scandir(string $directory, int $sorting_order = 0, $context): array|false {}
+
 /**
  * Find pathnames matching a pattern
  * @link https://php.net/manual/en/function.glob.php
@@ -448,10 +452,9 @@ function scandir(string $directory, int $sorting_order = 0, $context) : array|fa
  * On some systems it is impossible to distinguish between empty match and an
  * error.</p>
  */
-#[Pure(\true)]
-function glob(string $pattern, int $flags = 0) : array|false
-{
-}
+#[Pure(true)]
+function glob(string $pattern, int $flags = 0): array|false {}
+
 /**
  * Gets last access time of file
  * @link https://php.net/manual/en/function.fileatime.php
@@ -461,10 +464,9 @@ function glob(string $pattern, int $flags = 0) : array|false
  * @return int|false the time the file was last accessed, or false on failure.
  * The time is returned as a Unix timestamp.
  */
-#[Pure(\true)]
-function fileatime(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function fileatime(string $filename): int|false {}
+
 /**
  * Gets inode change time of file
  * @link https://php.net/manual/en/function.filectime.php
@@ -474,10 +476,9 @@ function fileatime(string $filename) : int|false
  * @return int|false the time the file was last changed, or false on failure.
  * The time is returned as a Unix timestamp.
  */
-#[Pure(\true)]
-function filectime(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function filectime(string $filename): int|false {}
+
 /**
  * Gets file group
  * @link https://php.net/manual/en/function.filegroup.php
@@ -489,10 +490,9 @@ function filectime(string $filename) : int|false
  * posix_getgrgid to resolve it to a group name.
  * Upon failure, false is returned.
  */
-#[Pure(\true)]
-function filegroup(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function filegroup(string $filename): int|false {}
+
 /**
  * Gets file inode
  * @link https://php.net/manual/en/function.fileinode.php
@@ -501,10 +501,9 @@ function filegroup(string $filename) : int|false
  * </p>
  * @return int|false the inode number of the file, or false on failure.
  */
-#[Pure(\true)]
-function fileinode(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function fileinode(string $filename): int|false {}
+
 /**
  * Gets file modification time
  * @link https://php.net/manual/en/function.filemtime.php
@@ -515,10 +514,9 @@ function fileinode(string $filename) : int|false
  * The time is returned as a Unix timestamp, which is
  * suitable for the date function.
  */
-#[Pure(\true)]
-function filemtime(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function filemtime(string $filename): int|false {}
+
 /**
  * Gets file owner
  * @link https://php.net/manual/en/function.fileowner.php
@@ -529,10 +527,9 @@ function filemtime(string $filename) : int|false
  * The user ID is returned in numerical format, use
  * posix_getpwuid to resolve it to a username.
  */
-#[Pure(\true)]
-function fileowner(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function fileowner(string $filename): int|false {}
+
 /**
  * Gets file permissions
  * @link https://php.net/manual/en/function.fileperms.php
@@ -541,10 +538,9 @@ function fileowner(string $filename) : int|false
  * </p>
  * @return int|false the permissions on the file, or false on failure.
  */
-#[Pure(\true)]
-function fileperms(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function fileperms(string $filename): int|false {}
+
 /**
  * Gets file size
  * @link https://php.net/manual/en/function.filesize.php
@@ -554,10 +550,9 @@ function fileperms(string $filename) : int|false
  * @return int|false the size of the file in bytes, or false (and generates an error
  * of level E_WARNING) in case of an error.
  */
-#[Pure(\true)]
-function filesize(string $filename) : int|false
-{
-}
+#[Pure(true)]
+function filesize(string $filename): int|false {}
+
 /**
  * Gets file type
  * @link https://php.net/manual/en/function.filetype.php
@@ -572,10 +567,9 @@ function filesize(string $filename) : int|false
  * produce an E_NOTICE message if the stat call fails
  * or if the file type is unknown.
  */
-#[Pure(\true)]
-function filetype(string $filename) : string|false
-{
-}
+#[Pure(true)]
+function filetype(string $filename): string|false {}
+
 /**
  * Checks whether a file or directory exists
  * @link https://php.net/manual/en/function.file-exists.php
@@ -602,10 +596,9 @@ function filetype(string $filename) : string|false
  * <p>
  * The check is done using the real UID/GID instead of the effective one.
  */
-#[Pure(\true)]
-function file_exists(string $filename) : bool
-{
-}
+#[Pure(true)]
+function file_exists(string $filename): bool {}
+
 /**
  * Tells whether the filename is writable
  * @link https://php.net/manual/en/function.is-writable.php
@@ -615,10 +608,9 @@ function file_exists(string $filename) : bool
  * @return bool true if the filename exists and is
  * writable.
  */
-#[Pure(\true)]
-function is_writable(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_writable(string $filename): bool {}
+
 /**
  * Alias:
  * {@see is_writable}
@@ -629,10 +621,9 @@ function is_writable(string $filename) : bool
  * @return bool true if the filename exists and is
  * writable.
  */
-#[Pure(\true)]
-function is_writeable(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_writeable(string $filename): bool {}
+
 /**
  * Tells whether a file or a directory exists and is readable
  * @link https://php.net/manual/en/function.is-readable.php
@@ -642,10 +633,9 @@ function is_writeable(string $filename) : bool
  * @return bool true if the file or directory specified by
  * filename exists and is readable, false otherwise.
  */
-#[Pure(\true)]
-function is_readable(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_readable(string $filename): bool {}
+
 /**
  * Tells whether the filename is executable
  * @link https://php.net/manual/en/function.is-executable.php
@@ -655,10 +645,9 @@ function is_readable(string $filename) : bool
  * @return bool true if the filename exists and is executable, or false on
  * error.
  */
-#[Pure(\true)]
-function is_executable(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_executable(string $filename): bool {}
+
 /**
  * Tells whether the filename is a regular file
  * @link https://php.net/manual/en/function.is-file.php
@@ -668,10 +657,9 @@ function is_executable(string $filename) : bool
  * @return bool true if the filename exists and is a regular file, false
  * otherwise.
  */
-#[Pure(\true)]
-function is_file(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_file(string $filename): bool {}
+
 /**
  * Tells whether the filename is a directory
  * @link https://php.net/manual/en/function.is-dir.php
@@ -684,10 +672,9 @@ function is_file(string $filename) : bool
  * @return bool true if the filename exists and is a directory, false
  * otherwise.
  */
-#[Pure(\true)]
-function is_dir(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_dir(string $filename): bool {}
+
 /**
  * Tells whether the filename is a symbolic link
  * @link https://php.net/manual/en/function.is-link.php
@@ -697,10 +684,9 @@ function is_dir(string $filename) : bool
  * @return bool true if the filename exists and is a symbolic link, false
  * otherwise.
  */
-#[Pure(\true)]
-function is_link(string $filename) : bool
-{
-}
+#[Pure(true)]
+function is_link(string $filename): bool {}
+
 /**
  * Gives information about a file
  * @link https://php.net/manual/en/function.stat.php
@@ -790,11 +776,24 @@ function is_link(string $filename) : bool
  * <p>
  * In case of error, stat returns false.
  */
-#[Pure(\true)]
-#[ArrayShape(["dev" => "int", "ino" => "int", "mode" => "int", "nlink" => "int", "uid" => "int", "gid" => "int", "rdev" => "int", "size" => "int", "atime" => "int", "mtime" => "int", "ctime" => "int", "blksize" => "int", "blocks" => "int"])]
-function stat(string $filename) : array|false
-{
-}
+#[Pure(true)]
+#[ArrayShape([
+    "dev" => "int",
+    "ino" => "int",
+    "mode" => "int",
+    "nlink" => "int",
+    "uid" => "int",
+    "gid" => "int",
+    "rdev" => "int",
+    "size" => "int",
+    "atime" => "int",
+    "mtime" => "int",
+    "ctime" => "int",
+    "blksize" => "int",
+    "blocks" => "int"
+])]
+function stat(string $filename): array|false {}
+
 /**
  * Gives information about a file or symbolic link
  * @link https://php.net/manual/en/function.lstat.php
@@ -809,10 +808,9 @@ function stat(string $filename) : array|false
  * link, the status of the symbolic link is returned, not the status of the
  * file pointed to by the symbolic link.
  */
-#[Pure(\true)]
-function lstat(string $filename) : array|false
-{
-}
+#[Pure(true)]
+function lstat(string $filename): array|false {}
+
 /**
  * Changes file owner
  * @link https://php.net/manual/en/function.chown.php
@@ -824,9 +822,8 @@ function lstat(string $filename) : array|false
  * </p>
  * @return bool true on success or false on failure.
  */
-function chown(string $filename, string|int $user) : bool
-{
-}
+function chown(string $filename, string|int $user): bool {}
+
 /**
  * Changes file group
  * @link https://php.net/manual/en/function.chgrp.php
@@ -838,9 +835,8 @@ function chown(string $filename, string|int $user) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function chgrp(string $filename, string|int $group) : bool
-{
-}
+function chgrp(string $filename, string|int $group): bool {}
+
 /**
  * Changes user ownership of symlink
  * @link https://php.net/manual/en/function.lchown.php
@@ -853,9 +849,8 @@ function chgrp(string $filename, string|int $group) : bool
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function lchown(string $filename, string|int $user) : bool
-{
-}
+function lchown(string $filename, string|int $user): bool {}
+
 /**
  * Changes group ownership of symlink
  * @link https://php.net/manual/en/function.lchgrp.php
@@ -868,9 +863,8 @@ function lchown(string $filename, string|int $user) : bool
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function lchgrp(string $filename, string|int $group) : bool
-{
-}
+function lchgrp(string $filename, string|int $group): bool {}
+
 /**
  * Changes file mode
  * @link https://php.net/manual/en/function.chmod.php
@@ -904,9 +898,8 @@ function lchgrp(string $filename, string|int $group) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function chmod(string $filename, int $permissions) : bool
-{
-}
+function chmod(string $filename, int $permissions): bool {}
+
 /**
  * Sets access and modification time of file
  * @link https://php.net/manual/en/function.touch.php
@@ -924,9 +917,8 @@ function chmod(string $filename, int $permissions) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function touch(string $filename, ?int $mtime, ?int $atime) : bool
-{
-}
+function touch(string $filename, ?int $mtime, ?int $atime): bool {}
+
 /**
  * Clears file status cache
  * @link https://php.net/manual/en/function.clearstatcache.php
@@ -939,9 +931,8 @@ function touch(string $filename, ?int $mtime, ?int $atime) : bool
  * </p>
  * @return void
  */
-function clearstatcache(bool $clear_realpath_cache = \false, string $filename = '') : void
-{
-}
+function clearstatcache(bool $clear_realpath_cache = false, string $filename = ''): void {}
+
 /**
  * Returns the total size of a filesystem or disk partition
  * @link https://php.net/manual/en/function.disk-total-space.php
@@ -951,10 +942,9 @@ function clearstatcache(bool $clear_realpath_cache = \false, string $filename = 
  * @return float|false the total number of bytes as a float
  * or false on failure.
  */
-#[Pure(\true)]
-function disk_total_space(string $directory) : float|false
-{
-}
+#[Pure(true)]
+function disk_total_space(string $directory): float|false {}
+
 /**
  * Returns available space in directory
  * @link https://php.net/manual/en/function.disk-free-space.php
@@ -969,10 +959,9 @@ function disk_total_space(string $directory) : float|false
  * @return float|false the number of available bytes as a float
  * or false on failure.
  */
-#[Pure(\true)]
-function disk_free_space(string $directory) : float|false
-{
-}
+#[Pure(true)]
+function disk_free_space(string $directory): float|false {}
+
 /**
  * Alias of {@see disk_free_space}
  * @link https://php.net/manual/en/function.diskfreespace.php
@@ -980,10 +969,9 @@ function disk_free_space(string $directory) : float|false
  * @param string $directory
  * @return float|false
  */
-#[Pure(\true)]
-function diskfreespace(string $directory) : float|false
-{
-}
+#[Pure(true)]
+function diskfreespace(string $directory): float|false {}
+
 /**
  * Send mail
  * @link https://php.net/manual/en/function.mail.php
@@ -1070,9 +1058,8 @@ function diskfreespace(string $directory) : float|false
  * it does NOT mean the mail will actually reach the intended destination.
  * </p>
  */
-function mail(string $to, string $subject, string $message, array|string $additional_headers = [], string $additional_params = '') : bool
-{
-}
+function mail(string $to, string $subject, string $message, array|string $additional_headers = [], string $additional_params = ''): bool {}
+
 /**
  * Calculate the hash value needed by EZMLM
  * @link https://php.net/manual/en/function.ezmlm-hash.php
@@ -1083,9 +1070,8 @@ function mail(string $to, string $subject, string $message, array|string $additi
  * @removed 8.0
  */
 #[Deprecated(since: '7.4')]
-function ezmlm_hash(string $addr) : int
-{
-}
+function ezmlm_hash(string $addr): int {}
+
 /**
  * Open connection to system logger
  * @link https://php.net/manual/en/function.openlog.php
@@ -1207,6 +1193,4 @@ function ezmlm_hash(string $addr) : int
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(["8.2" => "true"], default: "bool")]
-function openlog(string $prefix, int $flags, int $facility)
-{
-}
+function openlog(string $prefix, int $flags, int $facility) {}

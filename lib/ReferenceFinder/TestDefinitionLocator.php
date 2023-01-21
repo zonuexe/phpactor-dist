@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class TestDefinitionLocator implements DefinitionLocator
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Type;
+class TestDefinitionLocator implements \Phpactor\ReferenceFinder\DefinitionLocator
 {
-    public function __construct(private ?TypeLocations $location)
+    public function __construct(private ?\Phpactor\ReferenceFinder\TypeLocations $location)
     {
     }
     public static function fromSingleLocation(Type $type, ?Location $location) : self
@@ -17,9 +17,9 @@ class TestDefinitionLocator implements DefinitionLocator
         if (null === $location) {
             return new self(null);
         }
-        return new self(new TypeLocations([new TypeLocation($type, $location)]));
+        return new self(new \Phpactor\ReferenceFinder\TypeLocations([new \Phpactor\ReferenceFinder\TypeLocation($type, $location)]));
     }
-    public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : TypeLocations
+    public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : \Phpactor\ReferenceFinder\TypeLocations
     {
         if (null === $this->location) {
             throw new CouldNotLocateDefinition('Definition not found');
@@ -27,4 +27,3 @@ class TestDefinitionLocator implements DefinitionLocator
         return $this->location;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\TestDefinitionLocator', 'Phpactor\\ReferenceFinder\\TestDefinitionLocator', \false);

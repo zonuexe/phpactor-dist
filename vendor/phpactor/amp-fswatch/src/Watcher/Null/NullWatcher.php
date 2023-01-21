@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\Null;
+namespace Phpactor\AmpFsWatch\Watcher\Null;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\Watcher;
 class NullWatcher implements Watcher, WatcherProcess
 {
     /**
@@ -38,4 +38,3 @@ class NullWatcher implements Watcher, WatcherProcess
         return 'null';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\Null\\NullWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\Null\\NullWatcher', \false);

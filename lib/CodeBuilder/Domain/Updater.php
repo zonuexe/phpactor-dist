@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain;
+namespace Phpactor\CodeBuilder\Domain;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Prototype;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeBuilder\Domain\Prototype\Prototype;
+use Phpactor\TextDocument\TextEdits;
 interface Updater
 {
-    public function textEditsFor(Prototype $prototype, Code $code) : TextEdits;
+    public function textEditsFor(Prototype $prototype, \Phpactor\CodeBuilder\Domain\Code $code) : TextEdits;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Updater', 'Phpactor\\CodeBuilder\\Domain\\Updater', \false);

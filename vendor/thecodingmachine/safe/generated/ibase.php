@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\IbaseException;
+use Safe\Exceptions\IbaseException;
+
 /**
  * This function will discard a BLOB if it has not yet been closed by
  * fbird_blob_close.
@@ -11,14 +12,16 @@ use Phpactor202301\Safe\Exceptions\IbaseException;
  * @throws IbaseException
  *
  */
-function fbird_blob_cancel($blob_handle) : void
+function fbird_blob_cancel($blob_handle): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fbird_blob_cancel($blob_handle);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -31,9 +34,9 @@ function fbird_blob_cancel($blob_handle) : void
  * @throws IbaseException
  *
  */
-function ibase_add_user($service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null) : void
+function ibase_add_user($service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($last_name !== null) {
         $result = \ibase_add_user($service_handle, $user_name, $password, $first_name, $middle_name, $last_name);
     } elseif ($middle_name !== null) {
@@ -43,10 +46,12 @@ function ibase_add_user($service_handle, string $user_name, string $password, st
     } else {
         $result = \ibase_add_user($service_handle, $user_name, $password);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * This function passes the arguments to the (remote) database server. There it starts a new backup process. Therefore you
  * won't get any responses.
@@ -74,15 +79,17 @@ function ibase_add_user($service_handle, string $user_name, string $password, st
  * @throws IbaseException
  *
  */
-function ibase_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = \false)
+function ibase_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = false)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_backup($service_handle, $source_db, $dest_file, $options, $verbose);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function will discard a BLOB if it has not yet been closed by
  * ibase_blob_close.
@@ -91,14 +98,16 @@ function ibase_backup($service_handle, string $source_db, string $dest_file, int
  * @throws IbaseException
  *
  */
-function ibase_blob_cancel($blob_handle) : void
+function ibase_blob_cancel($blob_handle): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_blob_cancel($blob_handle);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * ibase_blob_create creates a new BLOB for filling with
  * data.
@@ -112,13 +121,15 @@ function ibase_blob_cancel($blob_handle) : void
  */
 function ibase_blob_create($link_identifier = null)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_blob_create($link_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function returns at most len bytes from a BLOB
  * that has been opened for reading by ibase_blob_open.
@@ -129,15 +140,17 @@ function ibase_blob_create($link_identifier = null)
  * @throws IbaseException
  *
  */
-function ibase_blob_get($blob_handle, int $len) : string
+function ibase_blob_get($blob_handle, int $len): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_blob_get($blob_handle, $len);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Closes the link to an InterBase database that's associated with
  * a connection id returned from ibase_connect.
@@ -150,14 +163,16 @@ function ibase_blob_get($blob_handle, int $len) : string
  * @throws IbaseException
  *
  */
-function ibase_close($connection_id = null) : void
+function ibase_close($connection_id = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_close($connection_id);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Commits a transaction without closing it.
  *
@@ -171,14 +186,16 @@ function ibase_close($connection_id = null) : void
  * @throws IbaseException
  *
  */
-function ibase_commit_ret($link_or_trans_identifier = null) : void
+function ibase_commit_ret($link_or_trans_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_commit_ret($link_or_trans_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Commits a transaction.
  *
@@ -190,14 +207,16 @@ function ibase_commit_ret($link_or_trans_identifier = null) : void
  * @throws IbaseException
  *
  */
-function ibase_commit($link_or_trans_identifier = null) : void
+function ibase_commit($link_or_trans_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_commit($link_or_trans_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Establishes a connection to an Firebird/InterBase server.
  *
@@ -233,7 +252,7 @@ function ibase_commit($link_or_trans_identifier = null) : void
  */
 function ibase_connect(string $database = null, string $username = null, string $password = null, string $charset = null, int $buffers = null, int $dialect = null, string $role = null, int $sync = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($sync !== null) {
         $result = \ibase_connect($database, $username, $password, $charset, $buffers, $dialect, $role, $sync);
     } elseif ($role !== null) {
@@ -253,11 +272,13 @@ function ibase_connect(string $database = null, string $username = null, string 
     } else {
         $result = \ibase_connect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -266,14 +287,16 @@ function ibase_connect(string $database = null, string $username = null, string 
  * @throws IbaseException
  *
  */
-function ibase_delete_user($service_handle, string $user_name) : void
+function ibase_delete_user($service_handle, string $user_name): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_delete_user($service_handle, $user_name);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * This functions drops a database that was opened by either ibase_connect
  * or ibase_pconnect. The database is closed and deleted from the server.
@@ -283,14 +306,16 @@ function ibase_delete_user($service_handle, string $user_name) : void
  * @throws IbaseException
  *
  */
-function ibase_drop_db($connection = null) : void
+function ibase_drop_db($connection = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_drop_db($connection);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * This function causes the registered event handler specified by
  * event to be cancelled. The callback function will
@@ -301,14 +326,16 @@ function ibase_drop_db($connection = null) : void
  * @throws IbaseException
  *
  */
-function ibase_free_event_handler($event) : void
+function ibase_free_event_handler($event): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_free_event_handler($event);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Frees a prepared query.
  *
@@ -316,14 +343,16 @@ function ibase_free_event_handler($event) : void
  * @throws IbaseException
  *
  */
-function ibase_free_query($query) : void
+function ibase_free_query($query): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_free_query($query);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Frees a result set.
  *
@@ -332,14 +361,16 @@ function ibase_free_query($query) : void
  * @throws IbaseException
  *
  */
-function ibase_free_result($result_identifier) : void
+function ibase_free_result($result_identifier): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_free_result($result_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -350,14 +381,16 @@ function ibase_free_result($result_identifier) : void
  * @throws IbaseException
  *
  */
-function ibase_maintain_db($service_handle, string $db, int $action, int $argument = 0) : void
+function ibase_maintain_db($service_handle, string $db, int $action, int $argument = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_maintain_db($service_handle, $db, $action, $argument);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -370,9 +403,9 @@ function ibase_maintain_db($service_handle, string $db, int $action, int $argume
  * @throws IbaseException
  *
  */
-function ibase_modify_user($service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null) : void
+function ibase_modify_user($service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($last_name !== null) {
         $result = \ibase_modify_user($service_handle, $user_name, $password, $first_name, $middle_name, $last_name);
     } elseif ($middle_name !== null) {
@@ -382,10 +415,12 @@ function ibase_modify_user($service_handle, string $user_name, string $password,
     } else {
         $result = \ibase_modify_user($service_handle, $user_name, $password);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * This function assigns a name to a result set. This name can be used later in
  * UPDATE|DELETE ... WHERE CURRENT OF name statements.
@@ -395,14 +430,16 @@ function ibase_modify_user($service_handle, string $user_name, string $password,
  * @throws IbaseException
  *
  */
-function ibase_name_result($result, string $name) : void
+function ibase_name_result($result, string $name): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_name_result($result, $name);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Opens a persistent connection to an InterBase database.
  *
@@ -445,7 +482,7 @@ function ibase_name_result($result, string $name) : void
  */
 function ibase_pconnect(string $database = null, string $username = null, string $password = null, string $charset = null, int $buffers = null, int $dialect = null, string $role = null, int $sync = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($sync !== null) {
         $result = \ibase_pconnect($database, $username, $password, $charset, $buffers, $dialect, $role, $sync);
     } elseif ($role !== null) {
@@ -465,11 +502,13 @@ function ibase_pconnect(string $database = null, string $username = null, string
     } else {
         $result = \ibase_pconnect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function passes the arguments to the (remote) database server. There it starts a new restore process. Therefore you
  * won't get any responses.
@@ -500,15 +539,17 @@ function ibase_pconnect(string $database = null, string $username = null, string
  * @throws IbaseException
  *
  */
-function ibase_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = \false)
+function ibase_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = false)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_restore($service_handle, $source_file, $dest_db, $options, $verbose);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Rolls back a transaction without closing it.
  *
@@ -522,14 +563,16 @@ function ibase_restore($service_handle, string $source_file, string $dest_db, in
  * @throws IbaseException
  *
  */
-function ibase_rollback_ret($link_or_trans_identifier = null) : void
+function ibase_rollback_ret($link_or_trans_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_rollback_ret($link_or_trans_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  * Rolls back a transaction.
  *
@@ -541,14 +584,16 @@ function ibase_rollback_ret($link_or_trans_identifier = null) : void
  * @throws IbaseException
  *
  */
-function ibase_rollback($link_or_trans_identifier = null) : void
+function ibase_rollback($link_or_trans_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_rollback($link_or_trans_identifier);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }
+
+
 /**
  *
  *
@@ -562,13 +607,15 @@ function ibase_rollback($link_or_trans_identifier = null) : void
  */
 function ibase_service_attach(string $host, string $dba_username, string $dba_password)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_service_attach($host, $dba_username, $dba_password);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -576,11 +623,11 @@ function ibase_service_attach(string $host, string $dba_username, string $dba_pa
  * @throws IbaseException
  *
  */
-function ibase_service_detach($service_handle) : void
+function ibase_service_detach($service_handle): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ibase_service_detach($service_handle);
-    if ($result === \false) {
+    if ($result === false) {
         throw IbaseException::createFromPhpError();
     }
 }

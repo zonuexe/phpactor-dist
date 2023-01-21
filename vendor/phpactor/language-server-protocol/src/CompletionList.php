@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -39,7 +39,7 @@ class CompletionList
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['isIncomplete' => ['names' => [], 'iterable' => \false], 'items' => ['names' => [CompletionItem::class], 'iterable' => \true]];
+        $map = ['isIncomplete' => ['names' => [], 'iterable' => \false], 'items' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionItem::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -89,8 +89,3 @@ class CompletionList
         throw $lastException;
     }
 }
-/**
- * Represents a collection of [completion items](#CompletionItem) to be presented
- * in the editor.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CompletionList', 'Phpactor\\LanguageServerProtocol\\CompletionList', \false);

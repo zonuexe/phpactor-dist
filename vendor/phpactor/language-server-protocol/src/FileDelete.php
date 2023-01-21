@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -80,7 +80,3 @@ class FileDelete
         throw $lastException;
     }
 }
-/**
- * Represents information on a file/folder delete.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileDelete', 'Phpactor\\LanguageServerProtocol\\FileDelete', \false);

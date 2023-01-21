@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\ExpectedValues;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * (PHP 5.5.0)<br/>
  * Get the boolean value of a variable
@@ -14,9 +13,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * @since 5.5
  */
 #[Pure]
-function boolval(mixed $value) : bool
-{
-}
+function boolval(mixed $value): bool {}
+
 /**
  * Get the integer value of a variable
  * @link https://php.net/manual/en/function.intval.php
@@ -44,9 +42,8 @@ function boolval(mixed $value) : bool
  * apply.
  */
 #[Pure]
-function intval(mixed $value, int $base = 10) : int
-{
-}
+function intval(mixed $value, int $base = 10): int {}
+
 /**
  * Get float value of a variable
  * @link https://php.net/manual/en/function.floatval.php
@@ -54,9 +51,8 @@ function intval(mixed $value, int $base = 10) : int
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
  */
 #[Pure]
-function floatval(mixed $value) : float
-{
-}
+function floatval(mixed $value): float {}
+
 /**
  * (PHP 4.2.0, PHP 5)<br/>
  * Alias:
@@ -67,9 +63,8 @@ function floatval(mixed $value) : float
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
  */
 #[Pure]
-function doubleval(mixed $value) : float
-{
-}
+function doubleval(mixed $value): float {}
+
 /**
  * Get string value of a variable
  * @link https://php.net/manual/en/function.strval.php
@@ -83,9 +78,8 @@ function doubleval(mixed $value) : float
  * @return string The string value of var.
  */
 #[Pure]
-function strval(mixed $value) : string
-{
-}
+function strval(mixed $value): string {}
+
 /**
  * Get the type of a variable
  * @link https://php.net/manual/en/function.gettype.php
@@ -107,10 +101,11 @@ function strval(mixed $value) : string
  * "resource (closed)" since 7.2.0
  */
 #[Pure]
-#[ExpectedValues(["boolean", "integer", "double", "string", "array", "object", "resource", "NULL", "unknown type", "resource (closed)"])]
-function gettype(mixed $value) : string
-{
-}
+#[ExpectedValues([
+    "boolean", "integer", "double", "string", "array", "object", "resource", "NULL", "unknown type", "resource (closed)"
+])]
+function gettype(mixed $value): string {}
+
 /**
  * Set the type of a variable
  * @link https://php.net/manual/en/function.settype.php
@@ -145,9 +140,8 @@ function gettype(mixed $value) : string
  * </ul>
  * @return bool true on success or false on failure.
  */
-function settype(mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type) : bool
-{
-}
+function settype(mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integer", "float", "double", "string", "array", "object", "null"])] string $type): bool {}
+
 /**
  * Finds whether a variable is null.
  * @link https://php.net/manual/en/function.is-null.php
@@ -158,9 +152,8 @@ function settype(mixed &$var, #[ExpectedValues(["bool", "boolean", "int", "integ
  * otherwise.
  */
 #[Pure]
-function is_null(mixed $value) : bool
-{
-}
+function is_null(mixed $value): bool {}
+
 /**
  * Finds whether a variable is a resource
  * @link https://php.net/manual/en/function.is-resource.php
@@ -171,9 +164,8 @@ function is_null(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_resource(mixed $value) : bool
-{
-}
+function is_resource(mixed $value): bool {}
+
 /**
  * Finds out whether a variable is a boolean
  * @link https://php.net/manual/en/function.is-bool.php
@@ -184,9 +176,8 @@ function is_resource(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_bool(mixed $value) : bool
-{
-}
+function is_bool(mixed $value): bool {}
+
 /**
  * Alias:
  * {@see is_int}
@@ -198,9 +189,8 @@ function is_bool(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_long(mixed $value) : bool
-{
-}
+function is_long(mixed $value): bool {}
+
 /**
  * Finds whether the type of a variable is float
  * @link https://php.net/manual/en/function.is-float.php
@@ -211,9 +201,8 @@ function is_long(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_float(mixed $value) : bool
-{
-}
+function is_float(mixed $value): bool {}
+
 /**
  * Find whether the type of a variable is integer
  * @link https://php.net/manual/en/function.is-int.php
@@ -224,9 +213,8 @@ function is_float(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_int(mixed $value) : bool
-{
-}
+function is_int(mixed $value): bool {}
+
 /**
  * Alias:
  * {@see is_int}
@@ -238,9 +226,8 @@ function is_int(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_integer(mixed $value) : bool
-{
-}
+function is_integer(mixed $value): bool {}
+
 /**
  * Alias:
  * {@see is_float}
@@ -252,9 +239,8 @@ function is_integer(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_double(mixed $value) : bool
-{
-}
+function is_double(mixed $value): bool {}
+
 /**
  * Alias:
  * {@see is_float}
@@ -267,9 +253,8 @@ function is_double(mixed $value) : bool
  */
 #[Pure]
 #[Deprecated(since: '7.4')]
-function is_real(mixed $var) : bool
-{
-}
+function is_real(mixed $var): bool {}
+
 /**
  * Finds whether a variable is a number or a numeric string
  * @link https://php.net/manual/en/function.is-numeric.php
@@ -280,9 +265,8 @@ function is_real(mixed $var) : bool
  * string, false otherwise.
  */
 #[Pure]
-function is_numeric(mixed $value) : bool
-{
-}
+function is_numeric(mixed $value): bool {}
+
 /**
  * Find whether the type of a variable is string
  * @link https://php.net/manual/en/function.is-string.php
@@ -293,9 +277,8 @@ function is_numeric(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_string(mixed $value) : bool
-{
-}
+function is_string(mixed $value): bool {}
+
 /**
  * Finds whether a variable is an array
  * @link https://php.net/manual/en/function.is-array.php
@@ -306,9 +289,8 @@ function is_string(mixed $value) : bool
  * false otherwise.
  */
 #[Pure]
-function is_array(mixed $value) : bool
-{
-}
+function is_array(mixed $value): bool {}
+
 /**
  * Finds whether a variable is an object
  * @link https://php.net/manual/en/function.is-object.php
@@ -319,9 +301,8 @@ function is_array(mixed $value) : bool
  * Since 7.2.0 returns true for unserialized objects without a class definition (class of <b>__PHP_Incomplete_Class</b>).
  */
 #[Pure]
-function is_object(mixed $value) : bool
-{
-}
+function is_object(mixed $value): bool {}
+
 /**
  * Finds whether a variable is a scalar
  * @link https://php.net/manual/en/function.is-scalar.php
@@ -332,9 +313,8 @@ function is_object(mixed $value) : bool
  * otherwise.
  */
 #[Pure]
-function is_scalar(mixed $value) : bool
-{
-}
+function is_scalar(mixed $value): bool {}
+
 /**
  * Verify that the contents of a variable can be called as a function
  * @link https://php.net/manual/en/function.is-callable.php
@@ -358,9 +338,8 @@ function is_scalar(mixed $value) : bool
  * @return bool <b>TRUE</b> if $var is callable, <b>FALSE</b>
  * otherwise.
  */
-function is_callable(mixed $value, bool $syntax_only = \false, &$callable_name) : bool
-{
-}
+function is_callable(mixed $value, bool $syntax_only = false, &$callable_name): bool {}
+
 /**
  * Verify that the contents of a variable is a countable value
  * @link https://secure.php.net/is_countable
@@ -370,9 +349,8 @@ function is_callable(mixed $value, bool $syntax_only = \false, &$callable_name) 
  * @since 7.3
  */
 #[Pure]
-function is_countable(mixed $value) : bool
-{
-}
+function is_countable(mixed $value): bool {}
+
 /**
  * Closes process file pointer
  * @link https://php.net/manual/en/function.pclose.php
@@ -385,9 +363,8 @@ function is_countable(mixed $value) : bool
  * If PHP has been compiled with <tt>--enable-sigchild</tt>, the return value of this function is undefined.
  * </p>
  */
-function pclose($handle) : int
-{
-}
+function pclose($handle): int {}
+
 /**
  * Opens process file pointer
  * @link https://php.net/manual/en/function.popen.php
@@ -407,9 +384,8 @@ function pclose($handle) : int
  * <p>
  * If an error occurs, returns false.
  */
-function popen(string $command, string $mode)
-{
-}
+function popen(string $command, string $mode) {}
+
 /**
  * Outputs a file
  * @link https://php.net/manual/en/function.readfile.php
@@ -425,9 +401,8 @@ function popen(string $command, string $mode)
  * </p>
  * @return false|int the number of bytes read from the file, or FALSE on failure
  */
-function readfile(string $filename, bool $use_include_path = \false, $context) : int|false
-{
-}
+function readfile(string $filename, bool $use_include_path = false, $context): int|false {}
+
 /**
  * Rewind the position of a file pointer
  * @link https://php.net/manual/en/function.rewind.php
@@ -437,9 +412,8 @@ function readfile(string $filename, bool $use_include_path = \false, $context) :
  * </p>
  * @return bool true on success or false on failure.
  */
-function rewind($stream) : bool
-{
-}
+function rewind($stream): bool {}
+
 /**
  * Removes directory
  * @link https://php.net/manual/en/function.rmdir.php
@@ -449,9 +423,8 @@ function rewind($stream) : bool
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function rmdir(string $directory, $context) : bool
-{
-}
+function rmdir(string $directory, $context): bool {}
+
 /**
  * Changes the current umask
  * @link https://php.net/manual/en/function.umask.php
@@ -461,9 +434,8 @@ function rmdir(string $directory, $context) : bool
  * @return int umask without arguments simply returns the
  * current umask otherwise the old umask is returned.
  */
-function umask(?int $mask) : int
-{
-}
+function umask(?int $mask): int {}
+
 /**
  * Closes an open file pointer
  * @link https://php.net/manual/en/function.fclose.php
@@ -473,9 +445,8 @@ function umask(?int $mask) : int
  * </p>
  * @return bool true on success or false on failure.
  */
-function fclose($stream) : bool
-{
-}
+function fclose($stream): bool {}
+
 /**
  * Tests for end-of-file on a file pointer
  * @link https://php.net/manual/en/function.feof.php
@@ -483,10 +454,9 @@ function fclose($stream) : bool
  * @return bool true if the file pointer is at EOF or an error occurs
  * (including socket timeout); otherwise returns false.
  */
-#[Pure(\true)]
-function feof($stream) : bool
-{
-}
+#[Pure(true)]
+function feof($stream): bool {}
+
 /**
  * Gets character from file pointer
  * @link https://php.net/manual/en/function.fgetc.php
@@ -494,9 +464,8 @@ function feof($stream) : bool
  * @return string|false a string containing a single character read from the file pointed
  * to by handle. Returns false on EOF.
  */
-function fgetc($stream) : string|false
-{
-}
+function fgetc($stream): string|false {}
+
 /**
  * Gets line from file pointer
  * @link https://php.net/manual/en/function.fgets.php
@@ -519,9 +488,8 @@ function fgetc($stream) : string|false
  * <p>
  * If an error occurs, returns false.
  */
-function fgets($stream, ?int $length) : string|false
-{
-}
+function fgets($stream, ?int $length): string|false {}
+
 /**
  * Gets line from file pointer and strip HTML tags
  * @link https://php.net/manual/en/function.fgetss.php
@@ -542,9 +510,8 @@ function fgets($stream, ?int $length) : string|false
  * @removed 8.0
  */
 #[Deprecated(since: '7.3')]
-function fgetss($handle, ?int $length = null, $allowable_tags = null) : false|string
-{
-}
+function fgetss($handle, ?int $length = null, $allowable_tags = null): false|string {}
+
 /**
  * Binary-safe file read
  * @link https://php.net/manual/en/function.fread.php
@@ -554,9 +521,8 @@ function fgetss($handle, ?int $length = null, $allowable_tags = null) : false|st
  * </p>
  * @return string|false the read string or false on failure.
  */
-function fread($stream, int $length) : string|false
-{
-}
+function fread($stream, int $length): string|false {}
+
 /**
  * Opens file or URL
  * @link https://php.net/manual/en/function.fopen.php
@@ -738,9 +704,8 @@ function fread($stream, int $length) : string|false
  * @param resource $context [optional]
  * @return resource|false a file pointer resource on success, or false on error.
  */
-function fopen(string $filename, string $mode, bool $use_include_path = \false, $context)
-{
-}
+function fopen(string $filename, string $mode, bool $use_include_path = false, $context) {}
+
 /**
  * Output all remaining data on a file pointer
  * @link https://php.net/manual/en/function.fpassthru.php
@@ -751,9 +716,8 @@ function fopen(string $filename, string $mode, bool $use_include_path = \false, 
  * and passed through to the output.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function fpassthru($stream)
-{
-}
+function fpassthru($stream) {}
+
 /**
  * Truncates a file to a given length
  * @link https://php.net/manual/en/function.ftruncate.php
@@ -776,9 +740,8 @@ function fpassthru($stream)
  * </p>
  * @return bool true on success or false on failure.
  */
-function ftruncate($stream, int $size) : bool
-{
-}
+function ftruncate($stream, int $size): bool {}
+
 /**
  * Gets information about a file using an open file pointer
  * @link https://php.net/manual/en/function.fstat.php
@@ -786,10 +749,9 @@ function ftruncate($stream, int $size) : bool
  * @return array|false an array with the statistics of the file; the format of the array
  * is described in detail on the stat manual page.
  */
-#[Pure(\true)]
-function fstat($stream) : array|false
-{
-}
+#[Pure(true)]
+function fstat($stream): array|false {}
+
 /**
  * Seeks on a file pointer
  * @link https://php.net/manual/en/function.fseek.php
@@ -816,9 +778,8 @@ function fstat($stream) : array|false
  * @return int Upon success, returns 0; otherwise, returns -1. Note that seeking
  * past EOF is not considered an error.
  */
-function fseek($stream, int $offset, int $whence = \SEEK_SET) : int
-{
-}
+function fseek($stream, int $offset, int $whence = SEEK_SET): int {}
+
 /**
  * Returns the current position of the file read/write pointer
  * @link https://php.net/manual/en/function.ftell.php
@@ -834,35 +795,31 @@ function fseek($stream, int $offset, int $whence = \SEEK_SET) : int
  * <p>
  * If an error occurs, returns false.
  */
-#[Pure(\true)]
-function ftell($stream) : int|false
-{
-}
+#[Pure(true)]
+function ftell($stream): int|false {}
+
 /**
  * Flushes the output to a file
  * @link https://php.net/manual/en/function.fflush.php
  * @param resource $stream The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return bool true on success or false on failure.
  */
-function fflush($stream) : bool
-{
-}
+function fflush($stream): bool {}
+
 /**
  * Sync file to storage. Similar to fflush() but blocks until OS buffers have flushed.
  * @param resource $stream
  * @since 8.1
  */
-function fsync($stream) : bool
-{
-}
+function fsync($stream): bool {}
+
 /**
  * Sync file data only to storage. Similar to fsync but does not flush modified metadata. POSIX only, aliased to fsync on Win32.
  * @param resource $stream
  * @since 8.1
  */
-function fdatasync($stream) : bool
-{
-}
+function fdatasync($stream): bool {}
+
 /**
  * Binary-safe file write
  * @link https://php.net/manual/en/function.fwrite.php
@@ -884,9 +841,8 @@ function fdatasync($stream) : bool
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
-function fwrite($stream, string $data, ?int $length) : int|false
-{
-}
+function fwrite($stream, string $data, ?int $length): int|false {}
+
 /**
  * Alias:
  * {@see fwrite}
@@ -911,9 +867,8 @@ function fwrite($stream, string $data, ?int $length) : int|false
  * @link https://php.net/manual/en/function.fputs.php
  * Binary-safe file write
  */
-function fputs($stream, string $data, ?int $length) : int|false
-{
-}
+function fputs($stream, string $data, ?int $length): int|false {}
+
 /**
  * Attempts to create the directory specified by pathname.
  * @link https://php.net/manual/en/function.mkdir.php
@@ -940,9 +895,8 @@ function fputs($stream, string $data, ?int $length) : int|false
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function mkdir(string $directory, int $permissions = 0777, bool $recursive = \false, $context) : bool
-{
-}
+function mkdir(string $directory, int $permissions = 0777, bool $recursive = false, $context): bool {}
+
 /**
  * Renames a file or directory
  * @link https://php.net/manual/en/function.rename.php
@@ -959,9 +913,8 @@ function mkdir(string $directory, int $permissions = 0777, bool $recursive = \fa
  * @param resource $context [optional]
  * @return bool true on success or false on failure.
  */
-function rename(string $from, string $to, $context) : bool
-{
-}
+function rename(string $from, string $to, $context): bool {}
+
 /**
  * Copies file
  * @link https://php.net/manual/en/function.copy.php
@@ -982,9 +935,8 @@ function rename(string $from, string $to, $context) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function copy(string $from, string $to, $context) : bool
-{
-}
+function copy(string $from, string $to, $context): bool {}
+
 /**
  * Create file with unique file name
  * @link https://php.net/manual/en/function.tempnam.php
@@ -998,18 +950,16 @@ function copy(string $from, string $to, $context) : bool
  * @return string|false the new temporary filename, or false on
  * failure.
  */
-function tempnam(string $directory, string $prefix) : string|false
-{
-}
+function tempnam(string $directory, string $prefix): string|false {}
+
 /**
  * Creates a temporary file
  * @link https://php.net/manual/en/function.tmpfile.php
  * @return resource|false a file handle, similar to the one returned by
  * fopen, for the new file or false on failure.
  */
-function tmpfile()
-{
-}
+function tmpfile() {}
+
 /**
  * Reads entire file into an array
  * @link https://php.net/manual/en/function.file.php
@@ -1039,10 +989,9 @@ function tmpfile()
  * present.
  * </p>
  */
-#[Pure(\true)]
-function file(string $filename, int $flags = 0, $context) : array|false
-{
-}
+#[Pure(true)]
+function file(string $filename, int $flags = 0, $context): array|false {}
+
 /**
  * Reads entire file into a string
  * @link https://php.net/manual/en/function.file-get-contents.php
@@ -1067,10 +1016,9 @@ function file(string $filename, int $flags = 0, $context) : array|false
  * </p>
  * @return string|false The function returns the read data or false on failure.
  */
-#[Pure(\true)]
-function file_get_contents(string $filename, bool $use_include_path = \false, $context, int $offset = 0, ?int $length) : string|false
-{
-}
+#[Pure(true)]
+function file_get_contents(string $filename, bool $use_include_path = false, $context, int $offset = 0, ?int $length): string|false {}
+
 /**
  * Write a string to a file
  * @link https://php.net/manual/en/function.file-put-contents.php
@@ -1142,6 +1090,4 @@ function file_get_contents(string $filename, bool $use_include_path = \false, $c
  * @return int|false The function returns the number of bytes that were written to the file, or
  * false on failure.
  */
-function file_put_contents(string $filename, mixed $data, int $flags = 0, $context) : int|false
-{
-}
+function file_put_contents(string $filename, mixed $data, int $flags = 0, $context): int|false {}

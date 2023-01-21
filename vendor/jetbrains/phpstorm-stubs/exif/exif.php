@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of exif v.1.4 $Id$
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * Reads the EXIF headers from JPEG or TIFF
  * @link https://php.net/manual/en/function.exif-read-data.php
@@ -78,9 +77,8 @@ use Phpactor202301\JetBrains\PhpStorm\Deprecated;
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
  */
-function exif_read_data($file, ?string $required_sections, bool $as_arrays = \false, bool $read_thumbnail = \false) : array|false
-{
-}
+function exif_read_data($file, ?string $required_sections, bool $as_arrays = false, bool $read_thumbnail = false): array|false {}
+
 /**
  * Alias of <b>exif_read_data</b>
  * @link https://php.net/manual/en/function.read-exif-data.php
@@ -91,9 +89,8 @@ function exif_read_data($file, ?string $required_sections, bool $as_arrays = \fa
  * @removed 8.0
  */
 #[Deprecated(replacement: "exif_read_data(%parametersList%)", since: "7.2")]
-function read_exif_data($filename, $sections = null, $arrays = \false, $thumbnail = \false)
-{
-}
+function read_exif_data($filename, $sections = null, $arrays = false, $thumbnail = false) {}
+
 /**
  * Get the header name for an index
  * @link https://php.net/manual/en/function.exif-tagname.php
@@ -103,9 +100,8 @@ function read_exif_data($filename, $sections = null, $arrays = \false, $thumbnai
  * @return string|false the header name, or <b>FALSE</b> if <i>index</i> is
  * not a defined EXIF tag id.
  */
-function exif_tagname(int $index) : string|false
-{
-}
+function exif_tagname(int $index): string|false {}
+
 /**
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
  * @link https://php.net/manual/en/function.exif-thumbnail.php
@@ -127,9 +123,8 @@ function exif_tagname(int $index) : string|false
  * @return string|false the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
  */
-function exif_thumbnail($file, &$width, &$height, &$image_type) : string|false
-{
-}
+function exif_thumbnail($file, &$width, &$height, &$image_type): string|false {}
+
 /**
  * Determine the type of an image
  * @link https://php.net/manual/en/function.exif-imagetype.php
@@ -144,8 +139,8 @@ function exif_thumbnail($file, &$width, &$height, &$image_type) : string|false
  * and return <b>FALSE</b> if it is unable to read enough bytes from the file to
  * determine the image type.
  */
-function exif_imagetype(string $filename) : int|false
-{
-}
-\define('EXIF_USE_MBSTRING', 1);
+function exif_imagetype(string $filename): int|false {}
+
+define('EXIF_USE_MBSTRING', 1);
+
 // End of exif v.1.4 $Id$

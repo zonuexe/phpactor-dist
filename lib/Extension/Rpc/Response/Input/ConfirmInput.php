@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Input;
+namespace Phpactor\Extension\Rpc\Response\Input;
 
-class ConfirmInput implements Input
+class ConfirmInput implements \Phpactor\Extension\Rpc\Response\Input\Input
 {
     private function __construct(private string $name, private string $label)
     {
@@ -24,4 +24,3 @@ class ConfirmInput implements Input
         return ['label' => $this->label];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Input\\ConfirmInput', 'Phpactor\\Extension\\Rpc\\Response\\Input\\ConfirmInput', \false);

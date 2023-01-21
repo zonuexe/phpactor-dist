@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Extension\Command;
+namespace Phpactor\Indexer\Extension\Command;
 
-use Phpactor202301\Phpactor\Indexer\Model\RecordReference;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\MemberRecord;
-use Phpactor202301\Phpactor\Indexer\Model\QueryClient;
-use Phpactor202301\Phpactor\Indexer\Util\Cast;
+use Phpactor\Indexer\Model\RecordReference;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\Indexer\Model\QueryClient;
+use Phpactor\Indexer\Util\Cast;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
@@ -83,4 +83,3 @@ class IndexQueryCommand extends Command
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Extension\\Command\\IndexQueryCommand', 'Phpactor\\Indexer\\Extension\\Command\\IndexQueryCommand', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentPositionParams, WorkDoneProgressParams, PartialResultParams
  */
-class DocumentHighlightParams extends TextDocumentPositionParams
+class DocumentHighlightParams extends \Phpactor\LanguageServerProtocol\TextDocumentPositionParams
 {
     /**
      * The text document.
@@ -44,7 +44,7 @@ class DocumentHighlightParams extends TextDocumentPositionParams
      * @param int|string|null $workDoneToken
      * @param int|string|null $partialResultToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Position $position, $workDoneToken = null, $partialResultToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Position $position, $workDoneToken = null, $partialResultToken = null)
     {
         $this->textDocument = $textDocument;
         $this->position = $position;
@@ -57,7 +57,7 @@ class DocumentHighlightParams extends TextDocumentPositionParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [Position::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -107,9 +107,3 @@ class DocumentHighlightParams extends TextDocumentPositionParams
         throw $lastException;
     }
 }
-/**
- * Parameters for a [DocumentHighlightRequest](#DocumentHighlightRequest).
- *
- * Mixins (implemented TS interfaces): TextDocumentPositionParams, WorkDoneProgressParams, PartialResultParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentHighlightParams', 'Phpactor\\LanguageServerProtocol\\DocumentHighlightParams', \false);

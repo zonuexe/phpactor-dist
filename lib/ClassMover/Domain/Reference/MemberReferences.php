@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
 use IteratorAggregate;
 use Countable;
@@ -15,7 +15,7 @@ final class MemberReferences implements IteratorAggregate, Countable
             $this->add($item);
         }
     }
-    public static function fromMemberReferences(array $methodReferences) : MemberReferences
+    public static function fromMemberReferences(array $methodReferences) : \Phpactor\ClassMover\Domain\Reference\MemberReferences
     {
         return new self($methodReferences);
     }
@@ -23,15 +23,15 @@ final class MemberReferences implements IteratorAggregate, Countable
     {
         return new ArrayIterator($this->methodReferences);
     }
-    public function withClasses() : MemberReferences
+    public function withClasses() : \Phpactor\ClassMover\Domain\Reference\MemberReferences
     {
-        return self::fromMemberReferences(\array_filter($this->methodReferences, function (MemberReference $reference) {
+        return self::fromMemberReferences(\array_filter($this->methodReferences, function (\Phpactor\ClassMover\Domain\Reference\MemberReference $reference) {
             return $reference->hasClass();
         }));
     }
-    public function withoutClasses() : MemberReferences
+    public function withoutClasses() : \Phpactor\ClassMover\Domain\Reference\MemberReferences
     {
-        return self::fromMemberReferences(\array_filter($this->methodReferences, function (MemberReference $reference) {
+        return self::fromMemberReferences(\array_filter($this->methodReferences, function (\Phpactor\ClassMover\Domain\Reference\MemberReference $reference) {
             return \false === $reference->hasClass();
         }));
     }
@@ -42,16 +42,15 @@ final class MemberReferences implements IteratorAggregate, Countable
     public function unique() : self
     {
         $members = [];
-        return self::fromMemberReferences(\array_filter($this->methodReferences, function (MemberReference $reference) use(&$members) {
+        return self::fromMemberReferences(\array_filter($this->methodReferences, function (\Phpactor\ClassMover\Domain\Reference\MemberReference $reference) use(&$members) {
             $hash = \sprintf('%s.%s.%s', $reference->methodName(), $reference->position()->start(), $reference->position()->end());
             $inArray = \false === \in_array($hash, $members);
             $members[] = $hash;
             return $inArray;
         }));
     }
-    private function add(MemberReference $item) : void
+    private function add(\Phpactor\ClassMover\Domain\Reference\MemberReference $item) : void
     {
         $this->methodReferences[] = $item;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\MemberReferences', 'Phpactor\\ClassMover\\Domain\\Reference\\MemberReferences', \false);

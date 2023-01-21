@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
 use ArrayIterator;
 use Iterator;
@@ -11,7 +11,7 @@ use IteratorAggregate;
 class NameWithByteOffsets implements IteratorAggregate
 {
     private $nameWithByteOffsets;
-    public function __construct(NameWithByteOffset ...$nameWithByteOffsets)
+    public function __construct(\Phpactor\CodeTransform\Domain\NameWithByteOffset ...$nameWithByteOffsets)
     {
         $this->nameWithByteOffsets = $nameWithByteOffsets;
     }
@@ -22,7 +22,7 @@ class NameWithByteOffsets implements IteratorAggregate
     public function onlyUniqueNames() : self
     {
         $seen = [];
-        return new self(...\array_filter($this->nameWithByteOffsets, function (NameWithByteOffset $byteOffset) use(&$seen) {
+        return new self(...\array_filter($this->nameWithByteOffsets, function (\Phpactor\CodeTransform\Domain\NameWithByteOffset $byteOffset) use(&$seen) {
             $name = $byteOffset->name()->__toString();
             if (\in_array($name, $seen)) {
                 return \false;
@@ -32,7 +32,3 @@ class NameWithByteOffsets implements IteratorAggregate
         }));
     }
 }
-/**
- * @implements IteratorAggregate<NameWithByteOffset>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\NameWithByteOffsets', 'Phpactor\\CodeTransform\\Domain\\NameWithByteOffsets', \false);

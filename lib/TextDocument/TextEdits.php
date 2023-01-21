@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use ArrayIterator;
 use Countable;
@@ -16,14 +16,14 @@ class TextEdits implements IteratorAggregate, Countable
      * @var TextEdit[]
      */
     private array $textEdits;
-    public function __construct(TextEdit ...$textEdits)
+    public function __construct(\Phpactor\TextDocument\TextEdit ...$textEdits)
     {
-        \usort($textEdits, function (TextEdit $a, TextEdit $b) {
+        \usort($textEdits, function (\Phpactor\TextDocument\TextEdit $a, \Phpactor\TextDocument\TextEdit $b) {
             return $a->start() <=> $b->start();
         });
         $this->textEdits = $textEdits;
     }
-    public static function one(TextEdit $textEdit) : self
+    public static function one(\Phpactor\TextDocument\TextEdit $textEdit) : self
     {
         return new self($textEdit);
     }
@@ -50,7 +50,7 @@ class TextEdits implements IteratorAggregate, Countable
      *
      * Edits from this set are ordered before those of the merged edits.
      */
-    public function merge(TextEdits $edits) : self
+    public function merge(\Phpactor\TextDocument\TextEdits $edits) : self
     {
         return new self(...\array_merge($this->textEdits, $edits->textEdits));
     }
@@ -62,7 +62,7 @@ class TextEdits implements IteratorAggregate, Countable
         $prevEditStart = \PHP_INT_MAX;
         for ($i = \count($this->textEdits) - 1; $i >= 0; $i--) {
             $edit = $this->textEdits[$i];
-            \assert($edit instanceof TextEdit);
+            \assert($edit instanceof \Phpactor\TextDocument\TextEdit);
             if ($prevEditStart < $edit->start()->toInt() || $prevEditStart < $edit->end()->toInt()) {
                 throw new OutOfBoundsException(\sprintf("Overlapping text edit:\n%s", self::renderDebugTextEdits($edit, $this->textEdits)));
             }
@@ -76,7 +76,7 @@ class TextEdits implements IteratorAggregate, Countable
         }
         return $text;
     }
-    public function add(TextEdit $textEdit) : self
+    public function add(\Phpactor\TextDocument\TextEdit $textEdit) : self
     {
         return new self(...\array_merge($this->textEdits, [$textEdit]));
     }
@@ -87,14 +87,10 @@ class TextEdits implements IteratorAggregate, Countable
     /**
      * @param array<TextEdit> $edits
      */
-    private static function renderDebugTextEdits(TextEdit $edit, array $edits) : string
+    private static function renderDebugTextEdits(\Phpactor\TextDocument\TextEdit $edit, array $edits) : string
     {
-        return \implode("\n", \array_map(function (TextEdit $otherEdit) use($edit) {
+        return \implode("\n", \array_map(function (\Phpactor\TextDocument\TextEdit $otherEdit) use($edit) {
             return \sprintf('%s%s %s "%s"', $edit === $otherEdit ? '> ' : '  ', $otherEdit->start()->toInt(), $otherEdit->end()->toInt(), \str_replace("\n", '\\n', $otherEdit->replacement()));
         }, $edits));
     }
 }
-/**
- * @implements IteratorAggregate<int, TextEdit>
- */
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextEdits', 'Phpactor\\TextDocument\\TextEdits', \false);

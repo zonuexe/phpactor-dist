@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Domain;
+namespace Phpactor\ClassFileConverter\Domain;
 
 use IteratorAggregate;
 use ArrayIterator;
@@ -27,16 +27,15 @@ final class ClassNameCandidates implements IteratorAggregate
     {
         return empty($this->classNames);
     }
-    public function best() : ClassName
+    public function best() : \Phpactor\ClassFileConverter\Domain\ClassName
     {
         if (empty($this->classNames)) {
             throw new RuntimeException('There are no class name candidates');
         }
         return \reset($this->classNames);
     }
-    private function add(ClassName $className) : void
+    private function add(\Phpactor\ClassFileConverter\Domain\ClassName $className) : void
     {
         $this->classNames[$className->__toString()] = $className;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Domain\\ClassNameCandidates', 'Phpactor\\ClassFileConverter\\Domain\\ClassNameCandidates', \false);

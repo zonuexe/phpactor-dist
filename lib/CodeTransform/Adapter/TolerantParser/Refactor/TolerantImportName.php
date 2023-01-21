@@ -1,29 +1,29 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
+namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportName;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
+use Phpactor\CodeTransform\Domain\Refactor\ImportName;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameAlreadyImportedException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameAlreadyImportedException;
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\AliasAlreadyUsedException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\ClassIsCurrentClassException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameAlreadyInNamespaceException;
-use Phpactor202301\Phpactor\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\AliasAlreadyUsedException;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\ClassIsCurrentClassException;
+use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameAlreadyInNamespaceException;
+use Phpactor\Name\FullyQualifiedName;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class TolerantImportName implements ImportName
 {
     private Parser $parser;
@@ -179,4 +179,3 @@ class TolerantImportName implements ImportName
         return $this->importGlobals === \false && $nameImport->isFunction() && $nameImport->name()->count() === 1;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantImportName', 'Phpactor\\CodeTransform\\Adapter\\TolerantParser\\Refactor\\TolerantImportName', \false);

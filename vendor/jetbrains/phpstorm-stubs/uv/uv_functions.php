@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // Stubs for ext-uv: https://github.com/bwoebi/php-uv
+
 /**
  * Decrement reference.
  *
@@ -10,44 +9,39 @@ namespace Phpactor202301;
  *
  * @return void
  */
-function uv_unref($uv_t)
-{
-}
+function uv_unref($uv_t) {}
+
 /**
  * Get last error code.
  *
  * @param resource|null $uv_loop uv loop handle.
  * @return int
  */
-function uv_last_error($uv_loop = null) : int
-{
-}
+function uv_last_error($uv_loop = null): int {}
+
 /**
  * Get error code name.
  *
  * @param int $error_code libuv error code.
  * @return string
  */
-function uv_err_name(int $error_code) : string
-{
-}
+function uv_err_name(int $error_code): string {}
+
 /**
  * Get error message.
  *
  * @param int $error_code libuv error code
  * @return string
  */
-function uv_strerror(int $error_code) : string
-{
-}
+function uv_strerror(int $error_code): string {}
+
 /**
  * @param resource $uv_loop uv loop handle.
  *
  * @return void
  */
-function uv_update_time($uv_loop)
-{
-}
+function uv_update_time($uv_loop) {}
+
 /**
  * Increment reference count.
  *
@@ -55,9 +49,8 @@ function uv_update_time($uv_loop)
  *
  * @return void
  */
-function uv_ref($uv_handle)
-{
-}
+function uv_ref($uv_handle) {}
+
 /**
  * Run event loop.
  *
@@ -65,17 +58,15 @@ function uv_ref($uv_handle)
  *
  * @return void
  */
-function uv_run($uv_loop = null)
-{
-}
+function uv_run($uv_loop = null) {}
+
 /**
  * @param resource|null $uv_loop
  *
  * @return void
  */
-function uv_run_once($uv_loop = null)
-{
-}
+function uv_run_once($uv_loop = null) {}
+
 /**
  * Delete specified loop resource.
  *
@@ -83,15 +74,13 @@ function uv_run_once($uv_loop = null)
  *
  * @return void
  */
-function uv_loop_delete($uv_loop)
-{
-}
+function uv_loop_delete($uv_loop) {}
+
 /**
  * @return int
  */
-function uv_now() : int
-{
-}
+function uv_now(): int {}
+
 /**
  * Binds a name to a socket.
  *
@@ -100,9 +89,8 @@ function uv_now() : int
  *
  * @return void
  */
-function uv_tcp_bind($uv_tcp, $uv_sockaddr)
-{
-}
+function uv_tcp_bind($uv_tcp, $uv_sockaddr) {}
+
 /**
  * Binds a name to a socket.
  *
@@ -111,9 +99,8 @@ function uv_tcp_bind($uv_tcp, $uv_sockaddr)
  *
  * @return void
  */
-function uv_tcp_bind6($uv_tcp, $uv_sockaddr)
-{
-}
+function uv_tcp_bind6($uv_tcp, $uv_sockaddr) {}
+
 /**
  * Send buffer to speicified uv resource.
  *
@@ -123,9 +110,8 @@ function uv_tcp_bind6($uv_tcp, $uv_sockaddr)
  *
  * @return void
  */
-function uv_write($handle, string $data, callable $callback)
-{
-}
+function uv_write($handle, string $data, callable $callback) {}
+
 /**
  * @param resource $handle
  * @param string $data
@@ -134,18 +120,16 @@ function uv_write($handle, string $data, callable $callback)
  *
  * @return void
  */
-function uv_write2($handle, string $data, $send, callable $callback)
-{
-}
+function uv_write2($handle, string $data, $send, callable $callback) {}
+
 /**
  * Set Nagel's flags for specified tcp resource.
  *
  * @param resource $handle libuv tcp resource.
  * @param bool $enable true means enabled. false means disabled.
  */
-function uv_tcp_nodelay($handle, bool $enable)
-{
-}
+function uv_tcp_nodelay($handle, bool $enable) {}
+
 /**
  * Accepts a connection on a socket.
  *
@@ -154,9 +138,8 @@ function uv_tcp_nodelay($handle, bool $enable)
  *
  * @return void
  */
-function uv_accept($server, $client)
-{
-}
+function uv_accept($server, $client) {}
+
 /**
  * Shutdown uv handle.
  *
@@ -165,9 +148,8 @@ function uv_accept($server, $client)
  *
  * @return void
  */
-function uv_shutdown($handle, callable $callback)
-{
-}
+function uv_shutdown($handle, callable $callback) {}
+
 /**
  * Close uv handle.
  *
@@ -176,9 +158,8 @@ function uv_shutdown($handle, callable $callback)
  *
  * @return void
  */
-function uv_close($handle, callable $callback)
-{
-}
+function uv_close($handle, callable $callback) {}
+
 /**
  * Starts read callback for uv resources.
  *
@@ -188,18 +169,16 @@ function uv_close($handle, callable $callback)
  * @param resource $handle uv resources (uv_tcp, uv_udp, uv_pipe ...etc.)
  * @param callable $callback callable variables. this callback parameter expects (resource $handle, long $nread, string buffer).
  */
-function uv_read_start($handle, callable $callback)
-{
-}
+function uv_read_start($handle, callable $callback) {}
+
 /**
  * @param resource $handle
  * @param callable $callback
  *
  * @return void
  */
-function uv_read2_start($handle, callable $callback)
-{
-}
+function uv_read2_start($handle, callable $callback) {}
+
 /**
  * Stop read callback.
  *
@@ -207,9 +186,8 @@ function uv_read2_start($handle, callable $callback)
  *
  * @return void
  */
-function uv_read_stop($handle)
-{
-}
+function uv_read_stop($handle) {}
+
 /**
  * Create a ipv4 sockaddr.
  *
@@ -218,9 +196,8 @@ function uv_read_stop($handle)
  *
  * @return resource
  */
-function uv_ip4_addr(string $ipv4_addr, int $port)
-{
-}
+function uv_ip4_addr(string $ipv4_addr, int $port) {}
+
 /**
  * Create a ipv6 sockaddr.
  *
@@ -229,9 +206,8 @@ function uv_ip4_addr(string $ipv4_addr, int $port)
  *
  * @return resource
  */
-function uv_ip6_addr(string $ipv6_addr, int $port)
-{
-}
+function uv_ip6_addr(string $ipv6_addr, int $port) {}
+
 /**
  * Listens for a connection on a uv handle.
  *
@@ -241,9 +217,8 @@ function uv_ip6_addr(string $ipv6_addr, int $port)
  *
  * @return void
  */
-function uv_listen($handle, int $backlog, callable $callback)
-{
-}
+function uv_listen($handle, int $backlog, callable $callback) {}
+
 /**
  * Connect to specified ip address and port.
  *
@@ -253,9 +228,8 @@ function uv_listen($handle, int $backlog, callable $callback)
  *
  * @return void
  */
-function uv_tcp_connect($handle, $ipv4_addr, callable $callback)
-{
-}
+function uv_tcp_connect($handle, $ipv4_addr, callable $callback) {}
+
 /**
  * Connect to specified ip address and port.
  *
@@ -265,9 +239,8 @@ function uv_tcp_connect($handle, $ipv4_addr, callable $callback)
  *
  * @return void
  */
-function uv_tcp_connect6($handle, $ipv6_addr, callable $callback)
-{
-}
+function uv_tcp_connect6($handle, $ipv6_addr, callable $callback) {}
+
 /**
  * Initialize timer handle.
  *
@@ -275,9 +248,8 @@ function uv_tcp_connect6($handle, $ipv6_addr, callable $callback)
  *
  * @return resource
  */
-function uv_timer_init($loop = null)
-{
-}
+function uv_timer_init($loop = null) {}
+
 /**
  * Initialize timer handle.
  *
@@ -288,9 +260,8 @@ function uv_timer_init($loop = null)
  *
  * @return void
  */
-function uv_timer_start($timer, int $timeout, int $repeat, callable $callback)
-{
-}
+function uv_timer_start($timer, int $timeout, int $repeat, callable $callback) {}
+
 /**
  * stop specified timer.
  *
@@ -298,9 +269,8 @@ function uv_timer_start($timer, int $timeout, int $repeat, callable $callback)
  *
  * @return int
  */
-function uv_timer_stop($timer) : int
-{
-}
+function uv_timer_stop($timer): int {}
+
 /**
  * Restart timer.
  *
@@ -308,9 +278,8 @@ function uv_timer_stop($timer) : int
  *
  * @return void
  */
-function uv_timer_again($timer)
-{
-}
+function uv_timer_again($timer) {}
+
 /**
  * Set repeat count.
  *
@@ -319,9 +288,8 @@ function uv_timer_again($timer)
  *
  * @return void
  */
-function uv_timer_set_repeat($timer, int $repeat)
-{
-}
+function uv_timer_set_repeat($timer, int $repeat) {}
+
 /**
  * Returns repeat interval.
  *
@@ -329,9 +297,8 @@ function uv_timer_set_repeat($timer, int $repeat)
  *
  * @return int
  */
-function uv_timer_get_repeat($timer) : int
-{
-}
+function uv_timer_get_repeat($timer): int {}
+
 /**
  * Initialize uv idle handle.
  *
@@ -339,9 +306,8 @@ function uv_timer_get_repeat($timer) : int
  *
  * @return resource initialized idle handle.
  */
-function uv_idle_init($loop = null)
-{
-}
+function uv_idle_init($loop = null) {}
+
 /**
  * start idle callback.
  *
@@ -350,9 +316,8 @@ function uv_idle_init($loop = null)
  *
  * @return void
  */
-function uv_idle_start($idle, callable $callback)
-{
-}
+function uv_idle_start($idle, callable $callback) {}
+
 /**
  * Stop idle callback.
  *
@@ -360,9 +325,8 @@ function uv_idle_start($idle, callable $callback)
  *
  * @return void
  */
-function uv_idle_stop($idle)
-{
-}
+function uv_idle_stop($idle) {}
+
 /**
  * @param resource $loop
  * @param callable $callback
@@ -372,9 +336,8 @@ function uv_idle_stop($idle)
  *
  * @return void
  */
-function uv_getaddrinfo($loop, callable $callback, string $node, string $service, array $hints)
-{
-}
+function uv_getaddrinfo($loop, callable $callback, string $node, string $service, array $hints) {}
+
 /**
  * Create a tcp socket.
  *
@@ -382,25 +345,22 @@ function uv_getaddrinfo($loop, callable $callback, string $node, string $service
  *
  * @return resource uv resource which initialized for tcp.
  */
-function uv_tcp_init($loop = null)
-{
-}
+function uv_tcp_init($loop = null) {}
+
 /**
  * Return default loop handle.
  *
  * @return resource
  */
-function uv_default_loop()
-{
-}
+function uv_default_loop() {}
+
 /**
  * Create a new loop handle.
  *
  * @return resource
  */
-function uv_loop_new()
-{
-}
+function uv_loop_new() {}
+
 /**
  * Create a udp socket.
  *
@@ -408,9 +368,8 @@ function uv_loop_new()
  *
  * @return resource uv resource which initialized for udp.
  */
-function uv_udp_init($loop = null)
-{
-}
+function uv_udp_init($loop = null) {}
+
 /**
  * Listens for a connection on a uv udp handle.
  *
@@ -420,9 +379,8 @@ function uv_udp_init($loop = null)
  *
  * @return void
  */
-function uv_udp_bind($resource, $address, int $flags)
-{
-}
+function uv_udp_bind($resource, $address, int $flags) {}
+
 /**
  * Listens for a connection on a uv udp handle.
  *
@@ -432,9 +390,8 @@ function uv_udp_bind($resource, $address, int $flags)
  *
  * @return void
  */
-function uv_udp_bind6($resource, $address, int $flags)
-{
-}
+function uv_udp_bind6($resource, $address, int $flags) {}
+
 /**
  * Start receive callback.
  *
@@ -443,9 +400,8 @@ function uv_udp_bind6($resource, $address, int $flags)
  *
  * @return void
  */
-function uv_udp_recv_start($handle, callable $callback)
-{
-}
+function uv_udp_recv_start($handle, callable $callback) {}
+
 /**
  * Stop receive callback.
  *
@@ -453,9 +409,8 @@ function uv_udp_recv_start($handle, callable $callback)
  *
  * @return void
  */
-function uv_udp_recv_stop($handle)
-{
-}
+function uv_udp_recv_stop($handle) {}
+
 /**
  * Join or leave udp muticast group.
  *
@@ -466,9 +421,8 @@ function uv_udp_recv_stop($handle)
  *
  * @return int
  */
-function uv_udp_set_membership($handle, string $multicast_addr, string $interface_addr, int $membership) : int
-{
-}
+function uv_udp_set_membership($handle, string $multicast_addr, string $interface_addr, int $membership): int {}
+
 /**
  * Set multicast loop.
  *
@@ -477,9 +431,8 @@ function uv_udp_set_membership($handle, string $multicast_addr, string $interfac
  *
  * @return void
  */
-function uv_udp_set_multicast_loop($handle, int $enabled)
-{
-}
+function uv_udp_set_multicast_loop($handle, int $enabled) {}
+
 /**
  * Set multicast ttl.
  *
@@ -488,9 +441,8 @@ function uv_udp_set_multicast_loop($handle, int $enabled)
  *
  * @return void
  */
-function uv_udp_set_multicast_ttl($handle, int $ttl)
-{
-}
+function uv_udp_set_multicast_ttl($handle, int $ttl) {}
+
 /**
  * Set udp broadcast.
  *
@@ -499,9 +451,8 @@ function uv_udp_set_multicast_ttl($handle, int $ttl)
  *
  * @return void
  */
-function uv_udp_set_broadcast($handle, bool $enabled)
-{
-}
+function uv_udp_set_broadcast($handle, bool $enabled) {}
+
 /**
  * Send buffer to specified address.
  *
@@ -512,9 +463,8 @@ function uv_udp_set_broadcast($handle, bool $enabled)
  *
  * @return void
  */
-function uv_udp_send($handle, string $data, $uv_addr, callable $callback)
-{
-}
+function uv_udp_send($handle, string $data, $uv_addr, callable $callback) {}
+
 /**
  * Send buffer to specified address.
  *
@@ -525,33 +475,29 @@ function uv_udp_send($handle, string $data, $uv_addr, callable $callback)
  *
  * @return void
  */
-function uv_udp_send6($handle, string $data, $uv_addr6, callable $callback)
-{
-}
+function uv_udp_send6($handle, string $data, $uv_addr6, callable $callback) {}
+
 /**
  * @param resource $handle
  *
  * @return bool
  */
-function uv_is_active($handle) : bool
-{
-}
+function uv_is_active($handle): bool {}
+
 /**
  * @param resource $handle
  *
  * @return bool
  */
-function uv_is_readable($handle) : bool
-{
-}
+function uv_is_readable($handle): bool {}
+
 /**
  * @param resource $handle
  *
  * @return bool
  */
-function uv_is_writable($handle) : bool
-{
-}
+function uv_is_writable($handle): bool {}
+
 /**
  * @param resource $loop
  * @param callable $closure
@@ -559,17 +505,15 @@ function uv_is_writable($handle) : bool
  *
  * @return bool
  */
-function uv_walk($loop, callable $closure, array $opaque = null) : bool
-{
-}
+function uv_walk($loop, callable $closure, array $opaque = null): bool {}
+
 /**
  * @param resource $uv
  *
  * @return int
  */
-function uv_guess_handle($uv) : int
-{
-}
+function uv_guess_handle($uv): int {}
+
 /**
  * Returns current uv type. (this is not libuv function. util for php-uv).
  *
@@ -577,9 +521,8 @@ function uv_guess_handle($uv) : int
  *
  * @return int  should return UV::IS_UV_* constatns. e.g) UV::IS_UV_TCP.
  */
-function uv_handle_type($uv) : int
-{
-}
+function uv_handle_type($uv): int {}
+
 /**
  * Initialize pipe resource.
  *
@@ -588,9 +531,8 @@ function uv_handle_type($uv) : int
  *
  * @return resource
  */
-function uv_pipe_init($loop, int $ipc)
-{
-}
+function uv_pipe_init($loop, int $ipc) {}
+
 /**
  * Open a pipe resource.
  *
@@ -599,9 +541,8 @@ function uv_pipe_init($loop, int $ipc)
  *
  * @return void
  */
-function uv_pipe_open($handle, int $pipe)
-{
-}
+function uv_pipe_open($handle, int $pipe) {}
+
 /**
  * Create a named pipe.
  *
@@ -610,9 +551,8 @@ function uv_pipe_open($handle, int $pipe)
  *
  * @return int
  */
-function uv_pipe_bind($handle, string $name) : int
-{
-}
+function uv_pipe_bind($handle, string $name): int {}
+
 /**
  * Connect to named pipe.
  *
@@ -622,18 +562,16 @@ function uv_pipe_bind($handle, string $name) : int
  *
  * @return void
  */
-function uv_pipe_connect($handle, string $path, callable $callback)
-{
-}
+function uv_pipe_connect($handle, string $path, callable $callback) {}
+
 /**
  * @param resource $handle
  * @param void $count
  *
  * @return void
  */
-function uv_pipe_pending_instances($handle, $count)
-{
-}
+function uv_pipe_pending_instances($handle, $count) {}
+
 /**
  * @param resource $loop
  * @param array $options
@@ -641,9 +579,8 @@ function uv_pipe_pending_instances($handle, $count)
  *
  * @return resource
  */
-function uv_ares_init_options($loop, array $options, int $optmask)
-{
-}
+function uv_ares_init_options($loop, array $options, int $optmask) {}
+
 /**
  * @param resource $handle
  * @param string $name
@@ -652,9 +589,8 @@ function uv_ares_init_options($loop, array $options, int $optmask)
  *
  * @return void
  */
-function ares_gethostbyname($handle, string $name, int $flag, callable $callback)
-{
-}
+function ares_gethostbyname($handle, string $name, int $flag, callable $callback) {}
+
 /**
  * Returns current loadaverage.
  *
@@ -662,70 +598,61 @@ function ares_gethostbyname($handle, string $name, int $flag, callable $callback
  *
  * @return array
  */
-function uv_loadavg() : array
-{
-}
+function uv_loadavg(): array {}
+
 /**
  * Returns current uptime.
  *
  * @return float
  */
-function uv_uptime() : float
-{
-}
+function uv_uptime(): float {}
+
 /**
  * Returns current free memory size.
  *
  * @return int
  */
-function uv_get_free_memory() : int
-{
-}
+function uv_get_free_memory(): int {}
+
 /**
  * Returns total memory size.
  *
  * @return int
  */
-function uv_get_total_memory() : int
-{
-}
+function uv_get_total_memory(): int {}
+
 /**
  * @return int
  */
-function uv_hrtime() : int
-{
-}
+function uv_hrtime(): int {}
+
 /**
  * Returns current exepath. basically this will returns current php path.
  *
  * @return string
  */
-function uv_exepath() : string
-{
-}
+function uv_exepath(): string {}
+
 /**
  * Returns current cpu informations.
  *
  * @return array
  */
-function uv_cpu_info() : array
-{
-}
+function uv_cpu_info(): array {}
+
 /**
  * @return array
  */
-function uv_interface_addresses() : array
-{
-}
+function uv_interface_addresses(): array {}
+
 /**
  * @param resource $fd
  * @param int $flags
  *
  * @return resource
  */
-function uv_stdio_new($fd, int $flags)
-{
-}
+function uv_stdio_new($fd, int $flags) {}
+
 /**
  * @param resource $loop
  * @param string $command
@@ -739,9 +666,8 @@ function uv_stdio_new($fd, int $flags)
  *
  * @return resource
  */
-function uv_spawn($loop, string $command, array $args, array $stdio, string $cwd, array $env = [], ?callable $callback = null, ?int $flags = null, ?array $options = null)
-{
-}
+function uv_spawn($loop, string $command, array $args, array $stdio, string $cwd, array $env = [], ?callable $callback = null, ?int $flags = null, ?array $options = null) {}
+
 /**
  * Send signal to specified uv process resource.
  *
@@ -750,51 +676,45 @@ function uv_spawn($loop, string $command, array $args, array $stdio, string $cwd
  *
  * @return void
  */
-function uv_process_kill($handle, int $signal)
-{
-}
+function uv_process_kill($handle, int $signal) {}
+
 /**
  * Send signal to specified pid.
  *
  * @param int $pid process id.
  * @param int $signal
  */
-function uv_kill(int $pid, int $signal)
-{
-}
+function uv_kill(int $pid, int $signal) {}
+
 /**
  * Change working directory.
  *
  * @param string $directory
  * @return bool
  */
-function uv_chdir(string $directory) : bool
-{
-}
+function uv_chdir(string $directory): bool {}
+
 /**
  * Initialize rwlock resource.
  *
  * @return resource returns uv rwlock resource.
  */
-function uv_rwlock_init()
-{
-}
+function uv_rwlock_init() {}
+
 /**
  * Set read lock.
  *
  * @param resource $handle uv resource handle (uv rwlock).
  */
-function uv_rwlock_rdlock($handle)
-{
-}
+function uv_rwlock_rdlock($handle) {}
+
 /**
  * @param resource $handle
  *
  * @return bool
  */
-function uv_rwlock_tryrdlock($handle) : bool
-{
-}
+function uv_rwlock_tryrdlock($handle): bool {}
+
 /**
  * Unlock read lock.
  *
@@ -802,9 +722,8 @@ function uv_rwlock_tryrdlock($handle) : bool
  *
  * @return void
  */
-function uv_rwlock_rdunlock($handle)
-{
-}
+function uv_rwlock_rdunlock($handle) {}
+
 /**
  * Set write lock.
  *
@@ -812,31 +731,27 @@ function uv_rwlock_rdunlock($handle)
  *
  * @return void
  */
-function uv_rwlock_wrlock($handle)
-{
-}
+function uv_rwlock_wrlock($handle) {}
+
 /**
  * @param resource $handle
  */
-function uv_rwlock_trywrlock($handle)
-{
-}
+function uv_rwlock_trywrlock($handle) {}
+
 /**
  * Unlock write lock.
  *
  * @param resource $handle uv resource handle (uv rwlock).
  */
-function uv_rwlock_wrunlock($handle)
-{
-}
+function uv_rwlock_wrunlock($handle) {}
+
 /**
  * Initialize mutex resource.
  *
  * @return resource uv mutex resource
  */
-function uv_mutex_init()
-{
-}
+function uv_mutex_init() {}
+
 /**
  * Lock mutex.
  *
@@ -844,26 +759,23 @@ function uv_mutex_init()
  *
  * @return void
  */
-function uv_mutex_lock($lock)
-{
-}
+function uv_mutex_lock($lock) {}
+
 /**
  * @param resource $lock
  *
  * @return bool
  */
-function uv_mutex_trylock($lock) : bool
-{
-}
+function uv_mutex_trylock($lock): bool {}
+
 /**
  * Initialize semaphore resource.
  *
  * @param int $value
  * @return resource
  */
-function uv_sem_init(int $value)
-{
-}
+function uv_sem_init(int $value) {}
+
 /**
  * Post semaphore.
  *
@@ -871,25 +783,22 @@ function uv_sem_init(int $value)
  *
  * @return void
  */
-function uv_sem_post($sem)
-{
-}
+function uv_sem_post($sem) {}
+
 /**
  * @param resource $sem
  *
  * @return void
  */
-function uv_sem_wait($sem)
-{
-}
+function uv_sem_wait($sem) {}
+
 /**
  * @param resource $sem
  *
  * @return void
  */
-function uv_sem_trywait($sem)
-{
-}
+function uv_sem_trywait($sem) {}
+
 /**
  * Initialize prepare resource.
  *
@@ -897,9 +806,8 @@ function uv_sem_trywait($sem)
  *
  * @return resource
  */
-function uv_prepare_init($loop)
-{
-}
+function uv_prepare_init($loop) {}
+
 /**
  * Setup prepare loop callback. (pre loop callback)
  *
@@ -908,9 +816,8 @@ function uv_prepare_init($loop)
  *
  * @return void
  */
-function uv_prepare_start($handle, callable $callback)
-{
-}
+function uv_prepare_start($handle, callable $callback) {}
+
 /**
  * Stop prepare callback.
  *
@@ -918,9 +825,8 @@ function uv_prepare_start($handle, callable $callback)
  *
  * @return void
  */
-function uv_prepare_stop($handle)
-{
-}
+function uv_prepare_stop($handle) {}
+
 /**
  * Setup check resource.
  *
@@ -928,9 +834,8 @@ function uv_prepare_stop($handle)
  *
  * @return resource
  */
-function uv_check_init($loop)
-{
-}
+function uv_check_init($loop) {}
+
 /**
  * Stats check loop callback. (after loop callback)
  *
@@ -939,9 +844,8 @@ function uv_check_init($loop)
  *
  * @return void
  */
-function uv_check_start($handle, callable $callback)
-{
-}
+function uv_check_start($handle, callable $callback) {}
+
 /**
  * Stop check callback.
  *
@@ -949,9 +853,8 @@ function uv_check_start($handle, callable $callback)
  *
  * @return void
  */
-function uv_check_stop($handle)
-{
-}
+function uv_check_stop($handle) {}
+
 /**
  * Setup async callback.
  *
@@ -960,9 +863,8 @@ function uv_check_stop($handle)
  *
  * @return resource uv async resource.
  */
-function uv_async_init($loop, callable $callback)
-{
-}
+function uv_async_init($loop, callable $callback) {}
+
 /**
  * Send async callback immediately.
  *
@@ -970,9 +872,8 @@ function uv_async_init($loop, callable $callback)
  *
  * @return void
  */
-function uv_async_send($handle)
-{
-}
+function uv_async_send($handle) {}
+
 /**
  * Execute callbacks in another thread (requires Thread Safe enabled PHP).
  *
@@ -982,9 +883,8 @@ function uv_async_send($handle)
  *
  * @return void
  */
-function uv_queue_work($loop, callable $callback, callable $after_callback)
-{
-}
+function uv_queue_work($loop, callable $callback, callable $after_callback) {}
+
 /**
  * Open specified file.
  *
@@ -996,9 +896,8 @@ function uv_queue_work($loop, callable $callback, callable $after_callback)
  *
  * @return resource
  */
-function uv_fs_open($loop, string $path, int $flag, int $mode, callable $callback)
-{
-}
+function uv_fs_open($loop, string $path, int $flag, int $mode, callable $callback) {}
+
 /**
  * Async read.
  *
@@ -1010,9 +909,8 @@ function uv_fs_open($loop, string $path, int $flag, int $mode, callable $callbac
  *
  * @return void
  */
-function uv_fs_read($loop, $fd, int $offset, int $length, callable $callback)
-{
-}
+function uv_fs_read($loop, $fd, int $offset, int $length, callable $callback) {}
+
 /**
  * Close specified file descriptor.
  *
@@ -1022,9 +920,8 @@ function uv_fs_read($loop, $fd, int $offset, int $length, callable $callback)
  *
  * @return void
  */
-function uv_fs_close($loop, $fd, callable $callback)
-{
-}
+function uv_fs_close($loop, $fd, callable $callback) {}
+
 /**
  * Write buffer to specified file descriptor.
  *
@@ -1036,9 +933,8 @@ function uv_fs_close($loop, $fd, callable $callback)
  *
  * @return void
  */
-function uv_fs_write($loop, $fd, string $buffer, int $offset, callable $callback)
-{
-}
+function uv_fs_write($loop, $fd, string $buffer, int $offset, callable $callback) {}
+
 /**
  * Async fsync.
  *
@@ -1048,9 +944,8 @@ function uv_fs_write($loop, $fd, string $buffer, int $offset, callable $callback
  *
  * @return void
  */
-function uv_fs_fsync($loop, $fd, callable $callback)
-{
-}
+function uv_fs_fsync($loop, $fd, callable $callback) {}
+
 /**
  * Async fdatasync.
  *
@@ -1060,9 +955,8 @@ function uv_fs_fsync($loop, $fd, callable $callback)
  *
  * @return void
  */
-function uv_fs_fdatasync($loop, $fd, callable $callback)
-{
-}
+function uv_fs_fdatasync($loop, $fd, callable $callback) {}
+
 /**
  * Async ftruncate.
  *
@@ -1073,9 +967,8 @@ function uv_fs_fdatasync($loop, $fd, callable $callback)
  *
  * @return void
  */
-function uv_fs_ftruncate($loop, $fd, int $offset, callable $callback)
-{
-}
+function uv_fs_ftruncate($loop, $fd, int $offset, callable $callback) {}
+
 /**
  * Async mkdir.
  *
@@ -1086,9 +979,8 @@ function uv_fs_ftruncate($loop, $fd, int $offset, callable $callback)
  *
  * @return void
  */
-function uv_fs_mkdir($loop, string $path, int $mode, callable $callback)
-{
-}
+function uv_fs_mkdir($loop, string $path, int $mode, callable $callback) {}
+
 /**
  * Async rmdir.
  *
@@ -1098,9 +990,8 @@ function uv_fs_mkdir($loop, string $path, int $mode, callable $callback)
  *
  * @return void
  */
-function uv_fs_rmdir($loop, string $path, callable $callback)
-{
-}
+function uv_fs_rmdir($loop, string $path, callable $callback) {}
+
 /**
  * Async unlink.
  *
@@ -1110,9 +1001,8 @@ function uv_fs_rmdir($loop, string $path, callable $callback)
  *
  * @return void
  */
-function uv_fs_unlink($loop, string $path, callable $callback)
-{
-}
+function uv_fs_unlink($loop, string $path, callable $callback) {}
+
 /**
  * Async rename.
  *
@@ -1123,9 +1013,8 @@ function uv_fs_unlink($loop, string $path, callable $callback)
  *
  * @return void
  */
-function uv_fs_rename($loop, string $from, string $to, callable $callback)
-{
-}
+function uv_fs_rename($loop, string $from, string $to, callable $callback) {}
+
 /**
  * Async utime.
  *
@@ -1137,9 +1026,8 @@ function uv_fs_rename($loop, string $from, string $to, callable $callback)
  *
  * @return void
  */
-function uv_fs_utime($loop, string $path, int $utime, int $atime, callable $callback)
-{
-}
+function uv_fs_utime($loop, string $path, int $utime, int $atime, callable $callback) {}
+
 /**
  * Async futime.
  *
@@ -1151,9 +1039,8 @@ function uv_fs_utime($loop, string $path, int $utime, int $atime, callable $call
  *
  * @return void
  */
-function uv_fs_futime($loop, $fd, int $utime, int $atime, callable $callback)
-{
-}
+function uv_fs_futime($loop, $fd, int $utime, int $atime, callable $callback) {}
+
 /**
  * Async chmod.
  *
@@ -1164,9 +1051,8 @@ function uv_fs_futime($loop, $fd, int $utime, int $atime, callable $callback)
  *
  * @return void
  */
-function uv_fs_chmod($loop, string $path, int $mode, callable $callback)
-{
-}
+function uv_fs_chmod($loop, string $path, int $mode, callable $callback) {}
+
 /**
  * Async fchmod.
  *
@@ -1177,9 +1063,8 @@ function uv_fs_chmod($loop, string $path, int $mode, callable $callback)
  *
  * @return void
  */
-function uv_fs_fchmod($loop, $fd, int $mode, callable $callback)
-{
-}
+function uv_fs_fchmod($loop, $fd, int $mode, callable $callback) {}
+
 /**
  * Async chown.
  *
@@ -1191,9 +1076,8 @@ function uv_fs_fchmod($loop, $fd, int $mode, callable $callback)
  *
  * @return void
  */
-function uv_fs_chown($loop, string $path, int $uid, int $gid, callable $callback)
-{
-}
+function uv_fs_chown($loop, string $path, int $uid, int $gid, callable $callback) {}
+
 /**
  * Async fchown.
  *
@@ -1205,9 +1089,8 @@ function uv_fs_chown($loop, string $path, int $uid, int $gid, callable $callback
  *
  * @return void
  */
-function uv_fs_fchown($loop, $fd, int $uid, int $gid, callable $callback)
-{
-}
+function uv_fs_fchown($loop, $fd, int $uid, int $gid, callable $callback) {}
+
 /**
  * Async link.
  *
@@ -1218,9 +1101,8 @@ function uv_fs_fchown($loop, $fd, int $uid, int $gid, callable $callback)
  *
  * @return void
  */
-function uv_fs_link($loop, string $from, string $to, callable $callback)
-{
-}
+function uv_fs_link($loop, string $from, string $to, callable $callback) {}
+
 /**
  * Async symlink.
  *
@@ -1232,9 +1114,8 @@ function uv_fs_link($loop, string $from, string $to, callable $callback)
  *
  * @return void
  */
-function uv_fs_symlink($loop, string $from, string $to, int $flags, callable $callback)
-{
-}
+function uv_fs_symlink($loop, string $from, string $to, int $flags, callable $callback) {}
+
 /**
  * Async readlink.
  *
@@ -1244,9 +1125,8 @@ function uv_fs_symlink($loop, string $from, string $to, int $flags, callable $ca
  *
  * @return void
  */
-function uv_fs_readlink($loop, string $path, callable $callback)
-{
-}
+function uv_fs_readlink($loop, string $path, callable $callback) {}
+
 /**
  * Async stat.
  *
@@ -1256,9 +1136,8 @@ function uv_fs_readlink($loop, string $path, callable $callback)
  *
  * @return void
  */
-function uv_fs_stat($loop, string $path, callable $callback)
-{
-}
+function uv_fs_stat($loop, string $path, callable $callback) {}
+
 /**
  * Async lstat.
  *
@@ -1268,9 +1147,8 @@ function uv_fs_stat($loop, string $path, callable $callback)
  *
  * @return void
  */
-function uv_fs_lstat($loop, string $path, callable $callback)
-{
-}
+function uv_fs_lstat($loop, string $path, callable $callback) {}
+
 /**
  * Async fstat.
  *
@@ -1280,9 +1158,8 @@ function uv_fs_lstat($loop, string $path, callable $callback)
  *
  * @return void
  */
-function uv_fs_fstat($loop, $fd, callable $callback)
-{
-}
+function uv_fs_fstat($loop, $fd, callable $callback) {}
+
 /**
  * Async readdir.
  *
@@ -1293,9 +1170,8 @@ function uv_fs_fstat($loop, $fd, callable $callback)
  *
  * @return void
  */
-function uv_fs_readdir($loop, string $path, int $flags, callable $callback)
-{
-}
+function uv_fs_readdir($loop, string $path, int $flags, callable $callback) {}
+
 /**
  * Async sendfile.
  *
@@ -1306,9 +1182,8 @@ function uv_fs_readdir($loop, string $path, int $flags, callable $callback)
  * @param int $length
  * @param callable $callback
  */
-function uv_fs_sendfile($loop, $in_fd, $out_fd, int $offset, int $length, callable $callback)
-{
-}
+function uv_fs_sendfile($loop, $in_fd, $out_fd, int $offset, int $length, callable $callback) {}
+
 /**
  * Initialize fs event.
  *
@@ -1319,9 +1194,8 @@ function uv_fs_sendfile($loop, $in_fd, $out_fd, int $offset, int $length, callab
  *
  * @return resource
  */
-function uv_fs_event_init($loop, string $path, callable $callback, int $flags = 0)
-{
-}
+function uv_fs_event_init($loop, string $path, callable $callback, int $flags = 0) {}
+
 /**
  * Initialize tty resource. you have to open tty your hand.
  *
@@ -1331,9 +1205,8 @@ function uv_fs_event_init($loop, string $path, callable $callback, int $flags = 
  *
  * @return resource
  */
-function uv_tty_init($loop, $fd, int $readable)
-{
-}
+function uv_tty_init($loop, $fd, int $readable) {}
+
 /**
  * @param resource $tty
  * @param int &$width
@@ -1341,70 +1214,61 @@ function uv_tty_init($loop, $fd, int $readable)
  *
  * @return int
  */
-function uv_tty_get_winsize($tty, int &$width, int &$height) : int
-{
-}
+function uv_tty_get_winsize($tty, int &$width, int &$height): int {}
+
 /**
  * @param resource $tty
  * @param int $mode
  *
  * @return int
  */
-function uv_tty_set_mode($tty, int $mode) : int
-{
-}
+function uv_tty_set_mode($tty, int $mode): int {}
+
 /**
  * @return void
  */
-function uv_tty_reset_mode()
-{
-}
+function uv_tty_reset_mode() {}
+
 /**
  * @param resource $uv_sockaddr
  *
  * @return string
  */
-function uv_tcp_getsockname($uv_sockaddr) : string
-{
-}
+function uv_tcp_getsockname($uv_sockaddr): string {}
+
 /**
  * @param resource $uv_sockaddr
  *
  * @return string
  */
-function uv_tcp_getpeername($uv_sockaddr) : string
-{
-}
+function uv_tcp_getpeername($uv_sockaddr): string {}
+
 /**
  * @param resource $uv_sockaddr
  *
  * @return string
  */
-function uv_udp_getsockname($uv_sockaddr) : string
-{
-}
+function uv_udp_getsockname($uv_sockaddr): string {}
+
 /**
  * @return int
  */
-function uv_resident_set_memory() : int
-{
-}
+function uv_resident_set_memory(): int {}
+
 /**
  * @param resource $address
  *
  * @return string
  */
-function uv_ip4_name($address) : string
-{
-}
+function uv_ip4_name($address): string {}
+
 /**
  * @param resource $address
  *
  * @return string
  */
-function uv_ip6_name($address) : string
-{
-}
+function uv_ip6_name($address): string {}
+
 /**
  * Initialize poll.
  *
@@ -1413,9 +1277,8 @@ function uv_ip6_name($address) : string
  *
  * @return resource uv resource which initialized poll.
  */
-function uv_poll_init($uv_loop, $fd)
-{
-}
+function uv_poll_init($uv_loop, $fd) {}
+
 /**
  * Start polling.
  *
@@ -1425,25 +1288,22 @@ function uv_poll_init($uv_loop, $fd)
  *
  * @return void
  */
-function uv_poll_start($handle, int $events, callable $callback)
-{
-}
+function uv_poll_start($handle, int $events, callable $callback) {}
+
 /**
  * @param resource $poll
  *
  * @return void
  */
-function uv_poll_stop($poll)
-{
-}
+function uv_poll_stop($poll) {}
+
 /**
  * @param resource|null $uv_loop
  *
  * @return resource
  */
-function uv_fs_poll_init($uv_loop = null)
-{
-}
+function uv_fs_poll_init($uv_loop = null) {}
+
 /**
  * @param resource $handle
  * @param $callback
@@ -1452,30 +1312,25 @@ function uv_fs_poll_init($uv_loop = null)
  *
  * @return resource
  */
-function uv_fs_poll_start($handle, $callback, string $path, int $interval)
-{
-}
+function uv_fs_poll_start($handle, $callback, string $path, int $interval) {}
+
 /**
  * @param resource $poll
  *
  * @return void
  */
-function uv_fs_poll_stop($poll)
-{
-}
+function uv_fs_poll_stop($poll) {}
+
 /**
  * @param resource $uv_loop uv loop handle
  *
  * @return void
  */
-function uv_stop($uv_loop)
-{
-}
+function uv_stop($uv_loop) {}
+
 /**
  * @param resource $sig_handle
  *
  * @return int
  */
-function uv_signal_stop($sig_handle) : int
-{
-}
+function uv_signal_stop($sig_handle): int {}

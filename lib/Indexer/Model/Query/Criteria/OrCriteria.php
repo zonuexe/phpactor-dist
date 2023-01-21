@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
+namespace Phpactor\Indexer\Model\Query\Criteria;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
 class OrCriteria extends Criteria
 {
     /**
@@ -24,4 +24,3 @@ class OrCriteria extends Criteria
         return \false;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\Criteria\\OrCriteria', 'Phpactor\\Indexer\\Model\\Query\\Criteria\\OrCriteria', \false);

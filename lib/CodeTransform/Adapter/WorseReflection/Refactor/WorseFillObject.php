@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Helper\EmptyValueRenderer;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\FillObject;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionObjectCreationExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\HasEmptyType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeTransform\Adapter\WorseReflection\Helper\EmptyValueRenderer;
+use Phpactor\CodeTransform\Domain\Refactor\FillObject;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionObjectCreationExpression;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\HasEmptyType;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Reflector;
 class WorseFillObject implements FillObject
 {
     private EmptyValueRenderer $valueRenderer;
@@ -95,4 +95,3 @@ class WorseFillObject implements FillObject
         return $this->valueRenderer->render($type->emptyType());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseFillObject', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseFillObject', \false);

@@ -1,18 +1,17 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * The ReflectionType class reports information about a function's parameters.
  *
  * @link https://www.php.net/manual/en/class.reflectiontype.php
  * @since 7.0
  */
-abstract class ReflectionType implements \Stringable
+abstract class ReflectionType implements Stringable
 {
     /**
      * Checks if null is allowed
@@ -22,9 +21,8 @@ abstract class ReflectionType implements \Stringable
      * @since 7.0
      */
     #[TentativeType]
-    public function allowsNull() : bool
-    {
-    }
+    public function allowsNull(): bool {}
+
     /**
      * Checks if it is a built-in type
      *
@@ -35,9 +33,8 @@ abstract class ReflectionType implements \Stringable
      * class and moved to the {@see ReflectionNamedType} child.
      */
     #[Pure]
-    public function isBuiltin()
-    {
-    }
+    public function isBuiltin() {}
+
     /**
      * To string
      *
@@ -47,32 +44,21 @@ abstract class ReflectionType implements \Stringable
      * @see ReflectionNamedType::getName()
      */
     #[Deprecated(since: "7.1")]
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
+
     /**
      * Cloning of this class is prohibited
      *
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    private final function __clone() : void
-    {
-    }
+    final private function __clone(): void {}
+
     /**
      * Cloning of this class is prohibited
      *
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone() : void
-    {
-    }
+    private function __clone(): void {}
 }
-/**
- * The ReflectionType class reports information about a function's parameters.
- *
- * @link https://www.php.net/manual/en/class.reflectiontype.php
- * @since 7.0
- */
-\class_alias('Phpactor202301\\ReflectionType', 'ReflectionType', \false);

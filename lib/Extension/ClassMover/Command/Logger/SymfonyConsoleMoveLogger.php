@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Command\Logger;
+namespace Phpactor\Extension\ClassMover\Command\Logger;
 
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\ClassMover\FoundReferences;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Logger\ClassMoverLogger;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\FoundReferences;
+use Phpactor\Extension\ClassMover\Application\Logger\ClassMoverLogger;
 class SymfonyConsoleMoveLogger implements ClassMoverLogger
 {
     public function __construct(private OutputInterface $output)
@@ -27,4 +27,3 @@ class SymfonyConsoleMoveLogger implements ClassMoverLogger
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Command\\Logger\\SymfonyConsoleMoveLogger', 'Phpactor\\Extension\\ClassMover\\Command\\Logger\\SymfonyConsoleMoveLogger', \false);

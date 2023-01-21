@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
-final class ChainDefinitionLocationProvider implements DefinitionLocator
+final class ChainDefinitionLocationProvider implements \Phpactor\ReferenceFinder\DefinitionLocator
 {
     /**
      * @var DefinitionLocator[]
@@ -22,7 +22,7 @@ final class ChainDefinitionLocationProvider implements DefinitionLocator
             $this->add($provider);
         }
     }
-    public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : TypeLocations
+    public function locateDefinition(TextDocument $document, ByteOffset $byteOffset) : \Phpactor\ReferenceFinder\TypeLocations
     {
         $messages = [];
         foreach ($this->providers as $provider) {
@@ -41,9 +41,8 @@ final class ChainDefinitionLocationProvider implements DefinitionLocator
         }
         throw new CouldNotLocateDefinition('No definition locators are registered');
     }
-    private function add(DefinitionLocator $provider) : void
+    private function add(\Phpactor\ReferenceFinder\DefinitionLocator $provider) : void
     {
         $this->providers[] = $provider;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\ChainDefinitionLocationProvider', 'Phpactor\\ReferenceFinder\\ChainDefinitionLocationProvider', \false);

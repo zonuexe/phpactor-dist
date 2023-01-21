@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Properties;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\TraitPrototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Methods;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Constants;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
-class TraitBuilder extends ClassLikeBuilder
+use Phpactor\CodeBuilder\Domain\Prototype\Properties;
+use Phpactor\CodeBuilder\Domain\Prototype\TraitPrototype;
+use Phpactor\CodeBuilder\Domain\Prototype\Methods;
+use Phpactor\CodeBuilder\Domain\Prototype\Constants;
+use Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
+class TraitBuilder extends \Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder
 {
     /**
      * @var PropertyBuilder[]
@@ -21,36 +21,35 @@ class TraitBuilder extends ClassLikeBuilder
     {
         return \array_merge(parent::childNames(), ['properties', 'constants']);
     }
-    public function add(Builder $builder) : void
+    public function add(\Phpactor\CodeBuilder\Domain\Builder\Builder $builder) : void
     {
-        if ($builder instanceof PropertyBuilder) {
+        if ($builder instanceof \Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder) {
             $this->properties[$builder->builderName()] = $builder;
             return;
         }
         parent::add($builder);
     }
-    public function property(string $name) : PropertyBuilder
+    public function property(string $name) : \Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder
     {
         if (isset($this->properties[$name])) {
             return $this->properties[$name];
         }
-        $this->properties[$name] = $builder = new PropertyBuilder($this, $name);
+        $this->properties[$name] = $builder = new \Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder($this, $name);
         return $builder;
     }
-    public function constant(string $name, $value) : ConstantBuilder
+    public function constant(string $name, $value) : \Phpactor\CodeBuilder\Domain\Builder\ConstantBuilder
     {
-        $this->constants[] = $builder = new ConstantBuilder($this, $name, $value);
+        $this->constants[] = $builder = new \Phpactor\CodeBuilder\Domain\Builder\ConstantBuilder($this, $name, $value);
         return $builder;
     }
     public function build() : TraitPrototype
     {
-        return new TraitPrototype($this->name, Properties::fromProperties(\array_map(function (PropertyBuilder $builder) {
+        return new TraitPrototype($this->name, Properties::fromProperties(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder $builder) {
             return $builder->build();
-        }, $this->properties)), Constants::fromConstants(\array_map(function (ConstantBuilder $builder) {
+        }, $this->properties)), Constants::fromConstants(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\ConstantBuilder $builder) {
             return $builder->build();
-        }, $this->constants)), Methods::fromMethods(\array_map(function (MethodBuilder $builder) {
+        }, $this->constants)), Methods::fromMethods(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $builder) {
             return $builder->build();
         }, $this->methods)), UpdatePolicy::fromModifiedState($this->isModified()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\TraitBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\TraitBuilder', \false);

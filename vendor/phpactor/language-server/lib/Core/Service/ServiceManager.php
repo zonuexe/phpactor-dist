@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Service;
+namespace Phpactor\LanguageServer\Core\Service;
 
 use Phpactor202301\Amp\CancellationTokenSource;
 use Phpactor202301\Amp\Promise;
@@ -22,7 +22,7 @@ class ServiceManager
      * @var LoggerInterface
      */
     private $logger;
-    public function __construct(ServiceProviders $serviceProviders, LoggerInterface $logger)
+    public function __construct(\Phpactor\LanguageServer\Core\Service\ServiceProviders $serviceProviders, LoggerInterface $logger)
     {
         $this->logger = $logger;
         $this->serviceProviders = $serviceProviders;
@@ -88,4 +88,3 @@ class ServiceManager
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Service\\ServiceManager', 'Phpactor\\LanguageServer\\Core\\Service\\ServiceManager', \false);

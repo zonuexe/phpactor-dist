@@ -1,30 +1,30 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FrameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FrameResolver;
+use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor202301\Microsoft\PhpParser\FunctionLike;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
 class FunctionLikeWalker implements Walker
 {
     public function nodeFqns() : array
@@ -138,4 +138,3 @@ class FunctionLikeWalker implements Walker
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Walker\\FunctionLikeWalker', 'Phpactor\\WorseReflection\\Core\\Inference\\Walker\\FunctionLikeWalker', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBridge\TextDocument;
+namespace Phpactor\Extension\LanguageServerBridge\TextDocument;
 
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Exception\UnknownDocument;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace as PhpactorWorkspace;
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
+use Phpactor\LanguageServer\Core\Workspace\Exception\UnknownDocument;
+use Phpactor\LanguageServer\Core\Workspace\Workspace as PhpactorWorkspace;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextDocumentUri;
 class WorkspaceTextDocumentLocator implements TextDocumentLocator
 {
     public function __construct(private PhpactorWorkspace $workspace)
@@ -23,4 +23,3 @@ class WorkspaceTextDocumentLocator implements TextDocumentLocator
         throw TextDocumentNotFound::fromUri($uri);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBridge\\TextDocument\\WorkspaceTextDocumentLocator', 'Phpactor\\Extension\\LanguageServerBridge\\TextDocument\\WorkspaceTextDocumentLocator', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Application;
+namespace Phpactor\Extension\Core\Application;
 
 use Phpactor202301\Symfony\Component\Filesystem\Filesystem;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
@@ -22,4 +22,3 @@ class CacheClear
         return $this->cachePath;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Application\\CacheClear', 'Phpactor\\Extension\\Core\\Application\\CacheClear', \false);

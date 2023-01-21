@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 interface SignatureHelper
 {
-    public function signatureHelp(TextDocument $textDocument, ByteOffset $offset) : SignatureHelp;
+    public function signatureHelp(TextDocument $textDocument, ByteOffset $offset) : \Phpactor\Completion\Core\SignatureHelp;
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\SignatureHelper', 'Phpactor\\Completion\\Core\\SignatureHelper', \false);

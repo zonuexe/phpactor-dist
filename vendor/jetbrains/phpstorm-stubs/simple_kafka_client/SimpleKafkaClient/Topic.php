@@ -1,28 +1,25 @@
 <?php
+declare(strict_types=1);
 
-declare (strict_types=1);
-namespace Phpactor202301\SimpleKafkaClient;
+namespace SimpleKafkaClient;
 
 abstract class Topic
 {
     /**
      * @return string
      */
-    public function getName() : string
-    {
-    }
+    public function getName(): string {}
 }
+
 class ConsumerTopic extends Topic
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 }
+
 class ProducerTopic extends Topic
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * @param int $partition
      * @param int $msgFlags
@@ -30,9 +27,8 @@ class ProducerTopic extends Topic
      * @param string|null $key
      * @throws Exception
      */
-    public function produce(int $partition, int $msgFlags, ?string $payload = null, ?string $key = null) : void
-    {
-    }
+    public function produce(int $partition, int $msgFlags, ?string $payload = null, ?string $key = null): void {}
+
     /**
      * @param int $partition
      * @param int $msgFlags
@@ -42,7 +38,5 @@ class ProducerTopic extends Topic
      * @param int|null $timestampMs
      * @throws Exception
      */
-    public function producev(int $partition, int $msgFlags, ?string $payload = null, ?string $key = null, ?array $headers = null, ?int $timestampMs = null) : void
-    {
-    }
+    public function producev(int $partition, int $msgFlags, ?string $payload = null, ?string $key = null, ?array $headers = null, ?int $timestampMs = null): void {}
 }

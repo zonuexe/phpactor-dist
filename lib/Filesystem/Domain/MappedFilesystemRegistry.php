@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\Exception\FilesystemNotFound;
-class MappedFilesystemRegistry implements FilesystemRegistry
+use Phpactor\Filesystem\Domain\Exception\FilesystemNotFound;
+class MappedFilesystemRegistry implements \Phpactor\Filesystem\Domain\FilesystemRegistry
 {
     private $filesystems = [];
     public function __construct(array $filesystemMap)
@@ -12,7 +12,7 @@ class MappedFilesystemRegistry implements FilesystemRegistry
             $this->add($name, $filesystem);
         }
     }
-    public function get(string $name) : Filesystem
+    public function get(string $name) : \Phpactor\Filesystem\Domain\Filesystem
     {
         if (!isset($this->filesystems[$name])) {
             throw new FilesystemNotFound(\sprintf('Unknown filesystem "%s", known filesystems "%s"', $name, \implode('", "', \array_keys($this->filesystems))));
@@ -27,9 +27,8 @@ class MappedFilesystemRegistry implements FilesystemRegistry
     {
         return \array_keys($this->filesystems);
     }
-    private function add(string $name, Filesystem $filesystem) : void
+    private function add(string $name, \Phpactor\Filesystem\Domain\Filesystem $filesystem) : void
     {
         $this->filesystems[$name] = $filesystem;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\MappedFilesystemRegistry', 'Phpactor\\Filesystem\\Domain\\MappedFilesystemRegistry', \false);

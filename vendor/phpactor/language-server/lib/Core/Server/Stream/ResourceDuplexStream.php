@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Stream;
+namespace Phpactor\LanguageServer\Core\Server\Stream;
 
 use Phpactor202301\Amp\ByteStream\InputStream;
 use Phpactor202301\Amp\ByteStream\OutputStream;
 use Phpactor202301\Amp\ByteStream\ResourceInputStream;
 use Phpactor202301\Amp\Promise;
-final class ResourceDuplexStream implements DuplexStream
+final class ResourceDuplexStream implements \Phpactor\LanguageServer\Core\Server\Stream\DuplexStream
 {
     /**
      * @var InputStream
@@ -49,4 +49,3 @@ final class ResourceDuplexStream implements DuplexStream
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Stream\\ResourceDuplexStream', 'Phpactor\\LanguageServer\\Core\\Server\\Stream\\ResourceDuplexStream', \false);

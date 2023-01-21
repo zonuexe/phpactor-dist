@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticSeverity;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\DiagnosticSeverity;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
 class MissingMethodProvider implements DiagnosticProvider
 {
     public function exit(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable
@@ -45,7 +45,7 @@ class MissingMethodProvider implements DiagnosticProvider
         try {
             $name = $containerType->members()->byMemberType(ReflectionMember::TYPE_METHOD)->get($methodName);
         } catch (NotFound) {
-            (yield new MissingMethodDiagnostic(ByteOffsetRange::fromInts($memberName->getStartPosition(), $memberName->getEndPosition()), \sprintf('Method "%s" does not exist on class "%s"', $methodName, $containerType->__toString()), DiagnosticSeverity::ERROR(), $containerType->name()->__toString(), $methodName));
+            (yield new \Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodDiagnostic(ByteOffsetRange::fromInts($memberName->getStartPosition(), $memberName->getEndPosition()), \sprintf('Method "%s" does not exist on class "%s"', $methodName, $containerType->__toString()), DiagnosticSeverity::ERROR(), $containerType->name()->__toString(), $methodName));
         }
     }
     public function enter(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable
@@ -53,4 +53,3 @@ class MissingMethodProvider implements DiagnosticProvider
         return [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\MissingMethodProvider', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\MissingMethodProvider', \false);

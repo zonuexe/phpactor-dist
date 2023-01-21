@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionExtra\Rpc;
+namespace Phpactor\Extension\WorseReflectionExtra\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Offset;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\InformationResponse;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\Extension\Rpc\Response\InformationResponse;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\TypeUtil;
 class OffsetInfoHandler implements Handler
 {
     const NAME = 'offset_info';
@@ -48,4 +48,3 @@ class OffsetInfoHandler implements Handler
         return $return;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionExtra\\Rpc\\OffsetInfoHandler', 'Phpactor\\Extension\\WorseReflectionExtra\\Rpc\\OffsetInfoHandler', \false);

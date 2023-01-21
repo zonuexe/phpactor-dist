@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Event;
+namespace Phpactor\LanguageServer\Event;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileEvent;
+use Phpactor\LanguageServerProtocol\FileEvent;
 use RuntimeException;
 final class FilesChanged
 {
@@ -33,4 +33,3 @@ final class FilesChanged
         return $first;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Event\\FilesChanged', 'Phpactor\\LanguageServer\\Event\\FilesChanged', \false);

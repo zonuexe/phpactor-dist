@@ -1,17 +1,16 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of SimpleXML v.0.1
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Represents an element in an XML document.
  * @link https://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Iterator, \Stringable, \RecursiveIterator
+class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, Stringable, RecursiveIterator
 {
     /**
      * Creates a new SimpleXMLElement object
@@ -26,18 +25,22 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @since 5.0.1
      */
     #[Pure]
-    public function __construct(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data, #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $dataIsURL = \false, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespaceOrPrefix = "", #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = \false)
-    {
-    }
+    public function __construct(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $data,
+        #[LanguageLevelTypeAware(['8.0' => 'int'], default: '')] $options = 0,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $dataIsURL = false,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespaceOrPrefix = "",
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
+    ) {}
+
     /**
      * Provides access to element's children
      * private Method not callable directly, stub exists for typehint only
      * @param string $name child name
      * @return static
      */
-    private function __get($name)
-    {
-    }
+    private function __get($name) {}
+
     /**
      * Return a well-formed XML string based on SimpleXML element
      * @link https://php.net/manual/en/simplexmlelement.asxml.php
@@ -52,9 +55,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @since 5.0.1
      */
     #[TentativeType]
-    public function asXML(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null) : string|bool
-    {
-    }
+    public function asXML(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null): string|bool {}
+
     /**
      * Alias of <b>SimpleXMLElement::asXML</b>
      * Return a well-formed XML string based on SimpleXML element
@@ -69,9 +71,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * successfully and false otherwise.
      */
     #[TentativeType]
-    public function saveXML(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null) : string|bool
-    {
-    }
+    public function saveXML(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $filename = null): string|bool {}
+
     /**
      * Runs XPath query on XML data
      * @link https://php.net/manual/en/simplexmlelement.xpath.php
@@ -82,9 +83,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * case of an error.
      */
     #[TentativeType]
-    public function xpath(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $expression) : array|false|null
-    {
-    }
+    public function xpath(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $expression): array|false|null {}
+
     /**
      * Creates a prefix/ns context for the next XPath query
      * @link https://php.net/manual/en/simplexmlelement.registerxpathnamespace.php
@@ -100,9 +100,11 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     #[TentativeType]
-    public function registerXPathNamespace(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $prefix, #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace) : bool
-    {
-    }
+    public function registerXPathNamespace(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $prefix,
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $namespace
+    ): bool {}
+
     /**
      * Identifies an element's attributes
      * @link https://php.net/manual/en/simplexmlelement.attributes.php
@@ -121,9 +123,11 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @since 5.0.1
      */
     #[TentativeType]
-    public function attributes(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = \false) : ?static
-    {
-    }
+    public function attributes(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
+    ): ?static {}
+
     /**
      * Finds children of given node
      * @link https://php.net/manual/en/simplexmlelement.children.php
@@ -142,9 +146,11 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function children(#[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = \false) : ?static
-    {
-    }
+    public function children(
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespaceOrPrefix = null,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $isPrefix = false
+    ): ?static {}
+
     /**
      * Returns namespaces used in document
      * @link https://php.net/manual/en/simplexmlelement.getnamespaces.php
@@ -158,9 +164,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function getNamespaces(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $recursive = \false) : array
-    {
-    }
+    public function getNamespaces(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $recursive = false): array {}
+
     /**
      * Returns namespaces declared in document
      * @link https://php.net/manual/en/simplexmlelement.getdocnamespaces.php
@@ -178,9 +183,11 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function getDocNamespaces(#[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $recursive = \false, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $fromRoot = \true) : array|false
-    {
-    }
+    public function getDocNamespaces(
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $recursive = false,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $fromRoot = true
+    ): array|false {}
+
     /**
      * Gets the name of the XML element
      * @link https://php.net/manual/en/simplexmlelement.getname.php
@@ -190,9 +197,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function getName() : string
-    {
-    }
+    public function getName(): string {}
+
     /**
      * Adds a child element to the XML node
      * @link https://php.net/manual/en/simplexmlelement.addchild.php
@@ -210,9 +216,12 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @since 5.1.3
      */
     #[TentativeType]
-    public function addChild(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null) : ?static
-    {
-    }
+    public function addChild(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $value = null,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
+    ): ?static {}
+
     /**
      * Adds an attribute to the SimpleXML element
      * @link https://php.net/manual/en/simplexmlelement.addattribute.php
@@ -229,9 +238,13 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @since 5.1.3
      */
     #[TentativeType]
-    public function addAttribute(#[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $value = null, #[PhpStormStubsElementAvailable(from: '8.0')] string $value, #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null) : void
-    {
-    }
+    public function addAttribute(
+        #[LanguageLevelTypeAware(['8.0' => 'string'], default: '')] $qualifiedName,
+        #[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $value = null,
+        #[PhpStormStubsElementAvailable(from: '8.0')] string $value,
+        #[LanguageLevelTypeAware(['8.0' => 'string|null'], default: '')] $namespace = null
+    ): void {}
+
     /**
      * Returns the string content
      * @link https://php.net/manual/en/simplexmlelement.tostring.php
@@ -239,9 +252,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @since 5.3
      */
     #[TentativeType]
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
+
     /**
      * Counts the children of an element
      * @link https://php.net/manual/en/simplexmlelement.count.php
@@ -249,9 +261,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function count() : int
-    {
-    }
+    public function count(): int {}
+
     /**
      * Class provides access to children by position, and attributes by name
      * private Method not callable directly, stub exists for typehint only
@@ -259,9 +270,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @return bool true on success or false on failure.
      */
     #[Pure]
-    public function offsetExists($offset)
-    {
-    }
+    public function offsetExists($offset) {}
+
     /**
      * Class provides access to children by position, and attributes by name
      * private Method not callable directly, stub exists for typehint only
@@ -269,9 +279,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @return static Either a named attribute or an element from a list of children
      */
     #[Pure]
-    public function offsetGet($offset)
-    {
-    }
+    public function offsetGet($offset) {}
+
     /**
      * Class provides access to children by position, and attributes by name
      * private Method not callable directly, stub exists for typehint only
@@ -279,27 +288,24 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      * @param mixed $value
      * @return void
      */
-    public function offsetSet($offset, $value)
-    {
-    }
+    public function offsetSet($offset, $value) {}
+
     /**
      * Class provides access to children by position, and attributes by name
      * private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return void
      */
-    public function offsetUnset($offset)
-    {
-    }
+    public function offsetUnset($offset) {}
+
     /**
      * Rewind to the first element
      * @link https://php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function rewind() : void
-    {
-    }
+    public function rewind(): void {}
+
     /**
      * Check whether the current element is valid
      * @link https://php.net/manual/en/simplexmliterator.valid.php
@@ -307,9 +313,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function valid() : bool
-    {
-    }
+    public function valid(): bool {}
+
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
@@ -317,9 +322,8 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[Pure]
     #[TentativeType]
-    public function current() : ?static
-    {
-    }
+    public function current(): ?static {}
+
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
@@ -327,98 +331,83 @@ class SimpleXMLElement implements \Traversable, \ArrayAccess, \Countable, \Itera
      */
     #[TentativeType]
     #[LanguageLevelTypeAware(['8.0' => 'string'], default: 'string|false')]
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * Move to next element
      * @link https://php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
     #[TentativeType]
-    public function next() : void
-    {
-    }
+    public function next(): void {}
+
     /**
      * @return bool
      * @since 8.0
      */
     #[Pure]
     #[TentativeType]
-    public function hasChildren() : bool
-    {
-    }
+    public function hasChildren(): bool {}
+
     /**
      * @since 8.0
      */
     #[Pure]
     #[TentativeType]
-    public function getChildren() : ?\SimpleXMLElement
-    {
-    }
+    public function getChildren(): ?SimpleXMLElement {}
 }
-/**
- * Represents an element in an XML document.
- * @link https://php.net/manual/en/class.simplexmlelement.php
- */
-\class_alias('Phpactor202301\\SimpleXMLElement', 'SimpleXMLElement', \false);
+
 /**
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
  * @link https://php.net/manual/en/class.simplexmliterator.php
  */
-class SimpleXMLIterator extends \SimpleXMLElement implements \RecursiveIterator, \Countable, \Stringable
+class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable, Stringable
 {
     /**
      * Rewind to the first element
      * @link https://php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind()
-    {
-    }
+    public function rewind() {}
+
     /**
      * Check whether the current element is valid
      * @link https://php.net/manual/en/simplexmliterator.valid.php
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
     #[Pure]
-    public function valid()
-    {
-    }
+    public function valid() {}
+
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
      * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
      */
     #[Pure]
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
      */
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * Move to next element
      * @link https://php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * Checks whether the current element has sub elements.
      * @link https://php.net/manual/en/simplexmliterator.haschildren.php
      * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
      */
     #[Pure]
-    public function hasChildren()
-    {
-    }
+    public function hasChildren() {}
+
     /**
      * Returns the sub-elements of the current element
      * @link https://php.net/manual/en/simplexmliterator.getchildren.php
@@ -426,33 +415,25 @@ class SimpleXMLIterator extends \SimpleXMLElement implements \RecursiveIterator,
      * the sub-elements of the current element.
      */
     #[Pure]
-    public function getChildren()
-    {
-    }
+    public function getChildren() {}
+
     /**
      * Returns the string content
      * @link https://php.net/manual/en/simplexmlelement.tostring.php
      * @return string the string content on success or an empty string on failure.
      * @since 5.3
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
+
     /**
      * Counts the children of an element
      * @link https://php.net/manual/en/simplexmlelement.count.php
      * @return int the number of elements of an element.
      */
     #[Pure]
-    public function count()
-    {
-    }
+    public function count() {}
 }
-/**
- * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
- * @link https://php.net/manual/en/class.simplexmliterator.php
- */
-\class_alias('Phpactor202301\\SimpleXMLIterator', 'SimpleXMLIterator', \false);
+
 /**
  * Interprets an XML file into an object
  * @link https://php.net/manual/en/function.simplexml-load-file.php
@@ -487,9 +468,8 @@ class SimpleXMLIterator extends \SimpleXMLElement implements \RecursiveIterator,
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = \false) : \SimpleXMLElement|false
-{
-}
+function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+
 /**
  * Interprets a string of XML into an object
  * @link https://php.net/manual/en/function.simplexml-load-string.php
@@ -516,9 +496,8 @@ function simplexml_load_file(string $filename, ?string $class_name = "SimpleXMLE
  * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = \false) : \SimpleXMLElement|false
-{
-}
+function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLElement", int $options = 0, string $namespace_or_prefix = "", bool $is_prefix = false): SimpleXMLElement|false {}
+
 /**
  * Get a SimpleXMLElement object from a DOM node.
  * @link https://php.net/manual/en/function.simplexml-import-dom.php
@@ -533,7 +512,6 @@ function simplexml_load_string(string $data, ?string $class_name = "SimpleXMLEle
  * </p>
  * @return SimpleXMLElement|null a SimpleXMLElement or <b>FALSE</b> on failure.
  */
-function simplexml_import_dom(\SimpleXMLElement|\DOMNode $node, ?string $class_name = "SimpleXMLElement") : ?\SimpleXMLElement
-{
-}
+function simplexml_import_dom(SimpleXMLElement|DOMNode $node, ?string $class_name = "SimpleXMLElement"): ?SimpleXMLElement {}
+
 // End of SimpleXML v.0.1

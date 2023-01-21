@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Adapter\Simple;
+namespace Phpactor\Filesystem\Adapter\Simple;
 
 use FilesystemIterator;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileListProvider;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\FileListProvider;
+use Phpactor\Filesystem\Domain\FileList;
+use Phpactor\Filesystem\Domain\FilePath;
 use Iterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -30,4 +30,3 @@ final class SimpleFileListProvider implements FileListProvider
         return $files;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Adapter\\Simple\\SimpleFileListProvider', 'Phpactor\\Filesystem\\Adapter\\Simple\\SimpleFileListProvider', \false);

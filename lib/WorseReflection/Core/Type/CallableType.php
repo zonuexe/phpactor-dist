@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
-class CallableType extends PrimitiveType implements InvokeableType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Types;
+class CallableType extends \Phpactor\WorseReflection\Core\Type\PrimitiveType implements \Phpactor\WorseReflection\Core\Type\InvokeableType
 {
     private Type $returnType;
     /**
@@ -14,11 +14,11 @@ class CallableType extends PrimitiveType implements InvokeableType
      */
     public function __construct(private array $args = [], ?Type $returnType = null)
     {
-        $this->returnType = $returnType ?? new MissingType();
+        $this->returnType = $returnType ?? new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function __toString() : string
     {
-        if ($this->returnType instanceof MissingType) {
+        if ($this->returnType instanceof \Phpactor\WorseReflection\Core\Type\MissingType) {
             return \sprintf('callable(%s)', \implode(',', \array_map(fn(Type $type) => $type->__toString(), $this->args)));
         }
         return \sprintf('callable(%s): %s', \implode(',', \array_map(fn(Type $type) => $type->__toString(), $this->args)), $this->returnType->__toString());
@@ -29,7 +29,7 @@ class CallableType extends PrimitiveType implements InvokeableType
     }
     public function accepts(Type $type) : Trinary
     {
-        return Trinary::fromBoolean($type instanceof CallableType);
+        return Trinary::fromBoolean($type instanceof \Phpactor\WorseReflection\Core\Type\CallableType);
     }
     public function map(Closure $mapper) : Type
     {
@@ -51,4 +51,3 @@ class CallableType extends PrimitiveType implements InvokeableType
         return new Types([...$this->args, $this->returnType]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\CallableType', 'Phpactor\\WorseReflection\\Core\\Type\\CallableType', \false);

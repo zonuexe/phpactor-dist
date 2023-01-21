@@ -1,23 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 class Location
 {
-    public function __construct(private TextDocumentUri $uri, private ByteOffset $offset)
+    public function __construct(private \Phpactor\TextDocument\TextDocumentUri $uri, private \Phpactor\TextDocument\ByteOffset $offset)
     {
     }
-    public static function fromPathAndOffset(string $string, int $int) : Location
+    public static function fromPathAndOffset(string $string, int $int) : \Phpactor\TextDocument\Location
     {
-        return new self(TextDocumentUri::fromString($string), ByteOffset::fromInt($int));
+        return new self(\Phpactor\TextDocument\TextDocumentUri::fromString($string), \Phpactor\TextDocument\ByteOffset::fromInt($int));
     }
-    public function uri() : TextDocumentUri
+    public function uri() : \Phpactor\TextDocument\TextDocumentUri
     {
         return $this->uri;
     }
-    public function offset() : ByteOffset
+    public function offset() : \Phpactor\TextDocument\ByteOffset
     {
         return $this->offset;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\Location', 'Phpactor\\TextDocument\\Location', \false);

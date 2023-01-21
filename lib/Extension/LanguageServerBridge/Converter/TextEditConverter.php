@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter;
+namespace Phpactor\Extension\LanguageServerBridge\Converter;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextEdit as LspTextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextEdit as LspTextEdit;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class TextEditConverter
 {
     /**
@@ -16,11 +16,10 @@ class TextEditConverter
     {
         $edits = [];
         foreach ($textEdits as $textEdit) {
-            $range = new Range(PositionConverter::byteOffsetToPosition($textEdit->start(), $text), PositionConverter::byteOffsetToPosition($textEdit->end(), $text));
+            $range = new Range(\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter::byteOffsetToPosition($textEdit->start(), $text), \Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter::byteOffsetToPosition($textEdit->end(), $text));
             // deduplicate text edits
             $edits[] = new LspTextEdit($range, $textEdit->replacement());
         }
         return \array_values($edits);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBridge\\Converter\\TextEditConverter', 'Phpactor\\Extension\\LanguageServerBridge\\Converter\\TextEditConverter', \false);

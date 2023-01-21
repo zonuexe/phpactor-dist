@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301\parallel;
+namespace parallel;
 
-class Error extends \Error
-{
-}
+class Error extends \Error {}

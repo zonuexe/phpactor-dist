@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\InotifyException;
+use Safe\Exceptions\InotifyException;
+
 /**
  * Initialize an inotify instance for use with
  * inotify_add_watch
@@ -13,13 +14,15 @@ use Phpactor202301\Safe\Exceptions\InotifyException;
  */
 function inotify_init()
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \inotify_init();
-    if ($result === \false) {
+    if ($result === false) {
         throw InotifyException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * inotify_rm_watch removes the watch
  * watch_descriptor from the inotify instance
@@ -31,11 +34,11 @@ function inotify_init()
  * @throws InotifyException
  *
  */
-function inotify_rm_watch($inotify_instance, int $watch_descriptor) : void
+function inotify_rm_watch($inotify_instance, int $watch_descriptor): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \inotify_rm_watch($inotify_instance, $watch_descriptor);
-    if ($result === \false) {
+    if ($result === false) {
         throw InotifyException::createFromPhpError();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
 use InvalidArgumentException;
 final class ClassName
@@ -36,4 +36,3 @@ final class ClassName
         return \substr($this->name, $pos + 1);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\ClassName', 'Phpactor\\CodeTransform\\Domain\\ClassName', \false);

@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\ItemNotFound;
+use Phpactor\WorseReflection\Core\Exception\ItemNotFound;
 use ArrayIterator;
 use Traversable;
 /**
  * @template T
  * @implements ReflectionCollection<T>
  */
-abstract class AbstractReflectionCollection implements ReflectionCollection
+abstract class AbstractReflectionCollection implements \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection
 {
     /**
      * @param array<array-key,T> $items
@@ -47,7 +47,7 @@ abstract class AbstractReflectionCollection implements ReflectionCollection
      * @return static
      * @param AbstractReflectionCollection<T> $collection
      */
-    public function merge(ReflectionCollection $collection) : self
+    public function merge(\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection $collection) : self
     {
         $items = $this->items;
         foreach ($collection as $key => $value) {
@@ -96,15 +96,10 @@ abstract class AbstractReflectionCollection implements ReflectionCollection
     /**
      * @return static
      */
-    public function byMemberClass(string $fqn) : ReflectionCollection
+    public function byMemberClass(string $fqn) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection
     {
         return new static(\array_filter($this->items, function (object $member) use($fqn) {
             return $member instanceof $fqn;
         }));
     }
 }
-/**
- * @template T
- * @implements ReflectionCollection<T>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\AbstractReflectionCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\AbstractReflectionCollection', \false);

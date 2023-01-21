@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
+namespace Phpactor\WorseReflection\Core\SourceCodeLocator;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\WorseReflection\Core\SourceCode;
 class StringSourceLocator implements SourceCodeLocator
 {
     public function __construct(private SourceCode $source)
@@ -15,4 +15,3 @@ class StringSourceLocator implements SourceCodeLocator
         return $this->source;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\SourceCodeLocator\\StringSourceLocator', 'Phpactor\\WorseReflection\\Core\\SourceCodeLocator\\StringSourceLocator', \false);

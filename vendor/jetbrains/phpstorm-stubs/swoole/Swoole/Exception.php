@@ -1,8 +1,7 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole;
+declare(strict_types=1);
 
-class Exception extends \Exception
-{
-}
+namespace Swoole;
+
+class Exception extends \Exception {}

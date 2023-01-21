@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
+namespace Phpactor\Indexer\Model\Query\Criteria;
 
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\ClassRecord;
 class IsClass extends Criteria
 {
     public function isSatisfiedBy(Record $record) : bool
@@ -12,4 +12,3 @@ class IsClass extends Criteria
         return $record instanceof ClassRecord;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Query\\Criteria\\IsClass', 'Phpactor\\Indexer\\Model\\Query\\Criteria\\IsClass', \false);

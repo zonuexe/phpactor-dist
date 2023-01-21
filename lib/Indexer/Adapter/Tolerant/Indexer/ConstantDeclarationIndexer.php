@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
@@ -10,12 +10,12 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ConstDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
-use Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ConstantRecord;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
+use Phpactor\Indexer\Model\Record\ConstantRecord;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\Indexer\Model\Index;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class ConstantDeclarationIndexer implements TolerantIndexer
 {
     public function canIndex(Node $node) : bool
@@ -87,4 +87,3 @@ class ConstantDeclarationIndexer implements TolerantIndexer
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\ConstantDeclarationIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\ConstantDeclarationIndexer', \false);

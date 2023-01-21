@@ -1,13 +1,11 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrResponse<br/>
@@ -18,28 +16,40 @@ abstract class SolrResponse
 {
     /** @var int Documents should be parsed as SolrObject instances */
     public const PARSE_SOLR_OBJ = 0;
+
     /** @var int Documents should be parsed as SolrDocument instances. */
     public const PARSE_SOLR_DOC = 1;
+
     /** @var int The http status of the response. */
     protected $http_status;
+
     /** @var int Whether to parse the solr documents as SolrObject or SolrDocument instances. */
     protected $parser_mode;
+
     /** @var bool Was there an error during the request */
     protected $success;
+
     /** @var string Detailed message on http status */
     protected $http_status_message;
+
     /** @var string The request URL */
     protected $http_request_url;
+
     /** @var string A string of raw headers sent during the request. */
     protected $http_raw_request_headers;
+
     /** @var string The raw request sent to the server */
     protected $http_raw_request;
+
     /** @var string Response headers from the Solr server. */
     protected $http_raw_response_headers;
+
     /** @var string The response message from the server. */
     protected $http_raw_response;
+
     /** @var string The response in PHP serialized format. */
     protected $http_digested_response;
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the XML response as serialized PHP data
@@ -48,9 +58,8 @@ abstract class SolrResponse
      * Returns the XML response as serialized PHP data
      * </p>
      */
-    public function getDigestedResponse()
-    {
-    }
+    public function getDigestedResponse() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the HTTP status of the response
@@ -59,9 +68,8 @@ abstract class SolrResponse
      * Returns the HTTP status of the response.
      * </p>
      */
-    public function getHttpStatus()
-    {
-    }
+    public function getHttpStatus() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns more details on the HTTP status
@@ -70,9 +78,8 @@ abstract class SolrResponse
      * Returns more details on the HTTP status
      * </p>
      */
-    public function getHttpStatusMessage()
-    {
-    }
+    public function getHttpStatusMessage() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the raw request sent to the Solr server
@@ -81,9 +88,8 @@ abstract class SolrResponse
      * Returns the raw request sent to the Solr server
      * </p>
      */
-    public function getRawRequest()
-    {
-    }
+    public function getRawRequest() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the raw request headers sent to the Solr server
@@ -92,9 +98,8 @@ abstract class SolrResponse
      * Returns the raw request headers sent to the Solr server
      * </p>
      */
-    public function getRawRequestHeaders()
-    {
-    }
+    public function getRawRequestHeaders() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the raw response from the server
@@ -103,9 +108,8 @@ abstract class SolrResponse
      * Returns the raw response from the server.
      * </p>
      */
-    public function getRawResponse()
-    {
-    }
+    public function getRawResponse() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the raw response headers from the server
@@ -114,9 +118,8 @@ abstract class SolrResponse
      * Returns the raw response headers from the server.
      * </p>
      */
-    public function getRawResponseHeaders()
-    {
-    }
+    public function getRawResponseHeaders() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns the full URL the request was sent to
@@ -125,9 +128,8 @@ abstract class SolrResponse
      * Returns the full URL the request was sent to
      * </p>
      */
-    public function getRequestUrl()
-    {
-    }
+    public function getRequestUrl() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Returns a SolrObject representing the XML response from the server
@@ -136,9 +138,8 @@ abstract class SolrResponse
      * Returns a SolrObject representing the XML response from the server
      * </p>
      */
-    public function getResponse()
-    {
-    }
+    public function getResponse() {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Sets the parse mode
@@ -151,9 +152,8 @@ abstract class SolrResponse
      * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * </p>
      */
-    public function setParseMode($parser_mode = 0)
-    {
-    }
+    public function setParseMode($parser_mode = 0) {}
+
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
      * Was the request a success
@@ -162,20 +162,5 @@ abstract class SolrResponse
      * Returns <b>TRUE</b> if it was successful and <b>FALSE</b> if it was not.
      * </p>
      */
-    public function success()
-    {
-    }
+    public function success() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrResponse<br/>
- * This class represents a response from the Solr server.
- * @link https://php.net/manual/en/class.solrresponse.php
- */
-\class_alias('Phpactor202301\\SolrResponse', 'SolrResponse', \false);

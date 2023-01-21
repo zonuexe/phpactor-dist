@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
-interface ReflectionClass extends ReflectionClassLike
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionInterfaceCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
+interface ReflectionClass extends \Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike
 {
     public function isAbstract() : bool;
     public function constants() : ReflectionConstantCollection;
-    public function parent() : ?ReflectionClass;
+    public function parent() : ?\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
     public function ancestors() : ReflectionClassCollection;
-    public function properties(ReflectionClassLike $contextClass = null) : ReflectionPropertyCollection;
+    public function properties(\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike $contextClass = null) : ReflectionPropertyCollection;
     /**
      * @return ReflectionInterfaceCollection<ReflectionInterface>
      */
@@ -23,4 +23,3 @@ interface ReflectionClass extends ReflectionClassLike
     public function memberListPosition() : Position;
     public function isFinal();
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionClass', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionClass', \false);

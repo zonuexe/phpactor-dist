@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of hash v.1.0
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a hash value (message digest)
@@ -26,9 +25,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash(string $algo, string $data, bool $binary = \false, #[PhpStormStubsElementAvailable('8.1')] array $options = []) : string
-{
-}
+function hash(string $algo, string $data, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string {}
+
 /**
  * Timing attack safe string comparison
  * @link https://php.net/manual/en/function.hash-equals.php
@@ -38,9 +36,8 @@ function hash(string $algo, string $data, bool $binary = \false, #[PhpStormStubs
  * @since 5.6
  */
 #[Pure]
-function hash_equals(string $known_string, string $user_string) : bool
-{
-}
+function hash_equals(string $known_string, string $user_string): bool {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a hash value using the contents of a given file
@@ -60,9 +57,8 @@ function hash_equals(string $known_string, string $user_string) : bool
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_file(string $algo, string $filename, bool $binary = \false, #[PhpStormStubsElementAvailable('8.1')] array $options = []) : string|false
-{
-}
+function hash_file(string $algo, string $filename, bool $binary = false, #[PhpStormStubsElementAvailable('8.1')] array $options = []): string|false {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a keyed hash value using the HMAC method
@@ -86,9 +82,8 @@ function hash_file(string $algo, string $filename, bool $binary = \false, #[PhpS
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_hmac(string $algo, string $data, string $key, bool $binary = \false) : string
-{
-}
+function hash_hmac(string $algo, string $data, string $key, bool $binary = false): string {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a keyed hash value using the HMAC method and the contents of a given file
@@ -112,9 +107,8 @@ function hash_hmac(string $algo, string $data, string $key, bool $binary = \fals
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_hmac_file(string $algo, string $filename, string $key, bool $binary = \false) : string|false
-{
-}
+function hash_hmac_file(string $algo, string $filename, string $key, bool $binary = false): string|false {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Initialize an incremental hashing context
@@ -139,9 +133,8 @@ function hash_hmac_file(string $algo, string $filename, string $key, bool $binar
  */
 #[Pure]
 #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
-function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStubsElementAvailable('8.1')] array $options = [])
-{
-}
+function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStubsElementAvailable('8.1')] array $options = []) {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context
@@ -154,9 +147,8 @@ function hash_init(string $algo, int $flags = 0, string $key = "", #[PhpStormStu
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data) : bool
-{
-}
+function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $data): bool {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context from an open stream
@@ -173,9 +165,8 @@ function hash_update(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default:
  * </p>
  * @return int Actual number of bytes added to the hashing context from <i>handle</i>.
  */
-function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, $stream, int $length = -1) : int
-{
-}
+function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, $stream, int $length = -1): int {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context from a file
@@ -191,9 +182,8 @@ function hash_update_stream(#[LanguageLevelTypeAware(["7.2" => "HashContext"], d
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $filename, $stream_context) : bool
-{
-}
+function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, string $filename, $stream_context): bool {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Finalize an incremental hash and return resulting digest
@@ -209,9 +199,8 @@ function hash_update_file(#[LanguageLevelTypeAware(["7.2" => "HashContext"], def
  * unless <i>raw_output</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
-function hash_final(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, bool $binary = \false) : string
-{
-}
+function hash_final(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context, bool $binary = false): string {}
+
 /**
  * Copy hashing context
  * @link https://php.net/manual/en/function.hash-copy.php
@@ -222,9 +211,8 @@ function hash_final(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: 
  */
 #[Pure]
 #[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")]
-function hash_copy(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context)
-{
-}
+function hash_copy(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "resource")] $context) {}
+
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Return a list of registered hashing algorithms
@@ -233,9 +221,8 @@ function hash_copy(#[LanguageLevelTypeAware(["7.2" => "HashContext"], default: "
  * hashing algorithms.
  */
 #[Pure]
-function hash_algos() : array
-{
-}
+function hash_algos(): array {}
+
 /**
  * Generate a hkdf key derivation of a supplied key input
  * @param string $algo Name of selected hashing algorithm (i.e. "sha256", "sha512", "haval160,4", etc..)
@@ -258,9 +245,8 @@ function hash_algos() : array
  */
 #[Pure]
 #[LanguageLevelTypeAware(["8.0" => "string"], default: "string|false")]
-function hash_hkdf(string $algo, string $key, int $length = 0, string $info = '', string $salt = '')
-{
-}
+function hash_hkdf(string $algo, string $key, int $length = 0, string $info = '', string $salt = '') {}
+
 /**
  * Return a list of registered hashing algorithms suitable for hash_hmac
  * @since 7.2
@@ -268,9 +254,8 @@ function hash_hkdf(string $algo, string $key, int $length = 0, string $info = ''
  * @return string[] Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
  */
 #[Pure]
-function hash_hmac_algos() : array
-{
-}
+function hash_hmac_algos(): array {}
+
 /**
  * Generate a PBKDF2 key derivation of a supplied password
  * @link https://php.net/manual/en/function.hash-pbkdf2.php
@@ -301,9 +286,8 @@ function hash_hmac_algos() : array
  * @since 5.5
  */
 #[Pure]
-function hash_pbkdf2(string $algo, string $password, string $salt, int $iterations, int $length = 0, bool $binary = \false) : string
-{
-}
+function hash_pbkdf2(string $algo, string $password, string $salt, int $iterations, int $length = 0, bool $binary = false): string {}
+
 /**
  * Generates a key
  * @link https://php.net/manual/en/function.mhash-keygen-s2k.php
@@ -329,9 +313,8 @@ function hash_pbkdf2(string $algo, string $password, string $salt, int $iteratio
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
-function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length) : string|false
-{
-}
+function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length): string|false {}
+
 /**
  * Gets the block size of the specified hash
  * @link https://php.net/manual/en/function.mhash-get-block-size.php
@@ -344,9 +327,8 @@ function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
-function mhash_get_block_size(int $algo) : int|false
-{
-}
+function mhash_get_block_size(int $algo): int|false {}
+
 /**
  * Gets the name of the specified hash
  * @link https://php.net/manual/en/function.mhash-get-hash-name.php
@@ -358,9 +340,8 @@ function mhash_get_block_size(int $algo) : int|false
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
-function mhash_get_hash_name(int $algo) : string|false
-{
-}
+function mhash_get_hash_name(int $algo): string|false {}
+
 /**
  * Gets the highest available hash ID
  * @link https://php.net/manual/en/function.mhash-count.php
@@ -370,9 +351,8 @@ function mhash_get_hash_name(int $algo) : string|false
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
-function mhash_count() : int
-{
-}
+function mhash_count(): int {}
+
 /**
  * Computes hash
  * @link https://php.net/manual/en/function.mhash.php
@@ -394,99 +374,91 @@ function mhash_count() : int
  */
 #[Pure]
 #[Deprecated(since: '8.1')]
-function mhash(int $algo, string $data, ?string $key) : string|false
-{
-}
+function mhash(int $algo, string $data, ?string $key): string|false {}
+
 /**
  * Optional flag for <b>hash_init</b>.
  * Indicates that the HMAC digest-keying algorithm should be
  * applied to the current hashing context.
  * @link https://php.net/manual/en/hash.constants.php
  */
-\define('HASH_HMAC', 1);
-\define('MHASH_CRC32', 0);
+define('HASH_HMAC', 1);
+define('MHASH_CRC32', 0);
 /**
  * @since 7.4
  */
-\define('MHASH_CRC32C', 34);
-\define('MHASH_MD5', 1);
-\define('MHASH_SHA1', 2);
-\define('MHASH_HAVAL256', 3);
-\define('MHASH_RIPEMD160', 5);
-\define('MHASH_TIGER', 7);
-\define('MHASH_GOST', 8);
-\define('MHASH_CRC32B', 9);
-\define('MHASH_HAVAL224', 10);
-\define('MHASH_HAVAL192', 11);
-\define('MHASH_HAVAL160', 12);
-\define('MHASH_HAVAL128', 13);
-\define('MHASH_TIGER128', 14);
-\define('MHASH_TIGER160', 15);
-\define('MHASH_MD4', 16);
-\define('MHASH_SHA256', 17);
-\define('MHASH_ADLER32', 18);
-\define('MHASH_SHA224', 19);
-\define('MHASH_SHA512', 20);
-\define('MHASH_SHA384', 21);
-\define('MHASH_WHIRLPOOL', 22);
-\define('MHASH_RIPEMD128', 23);
-\define('MHASH_RIPEMD256', 24);
-\define('MHASH_RIPEMD320', 25);
-\define('MHASH_SNEFRU256', 27);
-\define('MHASH_MD2', 28);
-\define('MHASH_FNV132', 29);
-\define('MHASH_FNV1A32', 30);
-\define('MHASH_FNV164', 31);
-\define('MHASH_FNV1A64', 32);
-\define('MHASH_JOAAT', 33);
+define('MHASH_CRC32C', 34);
+define('MHASH_MD5', 1);
+define('MHASH_SHA1', 2);
+define('MHASH_HAVAL256', 3);
+define('MHASH_RIPEMD160', 5);
+define('MHASH_TIGER', 7);
+define('MHASH_GOST', 8);
+define('MHASH_CRC32B', 9);
+define('MHASH_HAVAL224', 10);
+define('MHASH_HAVAL192', 11);
+define('MHASH_HAVAL160', 12);
+define('MHASH_HAVAL128', 13);
+define('MHASH_TIGER128', 14);
+define('MHASH_TIGER160', 15);
+define('MHASH_MD4', 16);
+define('MHASH_SHA256', 17);
+define('MHASH_ADLER32', 18);
+define('MHASH_SHA224', 19);
+define('MHASH_SHA512', 20);
+define('MHASH_SHA384', 21);
+define('MHASH_WHIRLPOOL', 22);
+define('MHASH_RIPEMD128', 23);
+define('MHASH_RIPEMD256', 24);
+define('MHASH_RIPEMD320', 25);
+define('MHASH_SNEFRU256', 27);
+define('MHASH_MD2', 28);
+define('MHASH_FNV132', 29);
+define('MHASH_FNV1A32', 30);
+define('MHASH_FNV164', 31);
+define('MHASH_FNV1A64', 32);
+define('MHASH_JOAAT', 33);
 /**
  * @since 8.1
  */
-\define('MHASH_MURMUR3A', 35);
+define('MHASH_MURMUR3A', 35);
 /**
  * @since 8.1
  */
-\define('MHASH_MURMUR3C', 36);
+define('MHASH_MURMUR3C', 36);
 /**
  * @since 8.1
  */
-\define('MHASH_MURMUR3F', 37);
+define('MHASH_MURMUR3F', 37);
 /**
  * @since 8.1
  */
-\define('MHASH_XXH32', 38);
+define('MHASH_XXH32', 38);
 /**
  * @since 8.1
  */
-\define('MHASH_XXH64', 39);
+define('MHASH_XXH64', 39);
 /**
  * @since 8.1
  */
-\define('MHASH_XXH3', 40);
+define('MHASH_XXH3', 40);
 /**
  * @since 8.1
  */
-\define('MHASH_XXH128', 41);
+define('MHASH_XXH128', 41);
+
 /**
  * @since 7.2
  */
 final class HashContext
 {
-    private function __construct()
-    {
-    }
-    public function __serialize() : array
-    {
-    }
+    private function __construct() {}
+
+    public function __serialize(): array {}
+
     /**
      * @param array $data
      */
-    public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data) : void
-    {
-    }
+    public function __unserialize(#[LanguageLevelTypeAware(['8.0' => 'array'], default: '')] $data): void {}
 }
-/**
- * @since 7.2
- */
-\class_alias('Phpactor202301\\HashContext', 'HashContext', \false);
 // End of hash v.1.0

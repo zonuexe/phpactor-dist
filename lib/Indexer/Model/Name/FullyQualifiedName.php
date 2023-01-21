@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Name;
+namespace Phpactor\Indexer\Model\Name;
 
 class FullyQualifiedName
 {
@@ -25,4 +25,3 @@ class FullyQualifiedName
         return new self($id);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Name\\FullyQualifiedName', 'Phpactor\\Indexer\\Model\\Name\\FullyQualifiedName', \false);

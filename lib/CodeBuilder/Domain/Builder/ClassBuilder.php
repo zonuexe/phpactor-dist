@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ClassPrototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ExtendsClass;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Properties;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Type;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Methods;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ImplementsInterfaces;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Constants;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
-class ClassBuilder extends ClassLikeBuilder
+use Phpactor\CodeBuilder\Domain\Prototype\ClassPrototype;
+use Phpactor\CodeBuilder\Domain\Prototype\ExtendsClass;
+use Phpactor\CodeBuilder\Domain\Prototype\Properties;
+use Phpactor\CodeBuilder\Domain\Prototype\Type;
+use Phpactor\CodeBuilder\Domain\Prototype\Methods;
+use Phpactor\CodeBuilder\Domain\Prototype\ImplementsInterfaces;
+use Phpactor\CodeBuilder\Domain\Prototype\Constants;
+use Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
+class ClassBuilder extends \Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder
 {
     /**
      * @var PropertyBuilder[]
@@ -29,46 +29,45 @@ class ClassBuilder extends ClassLikeBuilder
     {
         return \array_merge(parent::childNames(), ['properties', 'constants']);
     }
-    public function extends(string $class) : ClassBuilder
+    public function extends(string $class) : \Phpactor\CodeBuilder\Domain\Builder\ClassBuilder
     {
         $this->extends = ExtendsClass::fromString($class);
         return $this;
     }
-    public function add(Builder $builder) : void
+    public function add(\Phpactor\CodeBuilder\Domain\Builder\Builder $builder) : void
     {
-        if ($builder instanceof PropertyBuilder) {
+        if ($builder instanceof \Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder) {
             $this->properties[$builder->builderName()] = $builder;
             return;
         }
         parent::add($builder);
     }
-    public function implements(string $interface) : ClassBuilder
+    public function implements(string $interface) : \Phpactor\CodeBuilder\Domain\Builder\ClassBuilder
     {
         $this->interfaces[] = Type::fromString($interface);
         return $this;
     }
-    public function property(string $name) : PropertyBuilder
+    public function property(string $name) : \Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder
     {
         if (isset($this->properties[$name])) {
             return $this->properties[$name];
         }
-        $this->properties[$name] = $builder = new PropertyBuilder($this, $name);
+        $this->properties[$name] = $builder = new \Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder($this, $name);
         return $builder;
     }
-    public function constant(string $name, $value) : ConstantBuilder
+    public function constant(string $name, $value) : \Phpactor\CodeBuilder\Domain\Builder\ConstantBuilder
     {
-        $this->constants[] = $builder = new ConstantBuilder($this, $name, $value);
+        $this->constants[] = $builder = new \Phpactor\CodeBuilder\Domain\Builder\ConstantBuilder($this, $name, $value);
         return $builder;
     }
     public function build() : ClassPrototype
     {
-        return new ClassPrototype($this->name, Properties::fromProperties(\array_map(function (PropertyBuilder $builder) {
+        return new ClassPrototype($this->name, Properties::fromProperties(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\PropertyBuilder $builder) {
             return $builder->build();
-        }, $this->properties)), Constants::fromConstants(\array_map(function (ConstantBuilder $builder) {
+        }, $this->properties)), Constants::fromConstants(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\ConstantBuilder $builder) {
             return $builder->build();
-        }, $this->constants)), Methods::fromMethods(\array_map(function (MethodBuilder $builder) {
+        }, $this->constants)), Methods::fromMethods(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $builder) {
             return $builder->build();
         }, $this->methods)), $this->extends, ImplementsInterfaces::fromTypes($this->interfaces), UpdatePolicy::fromModifiedState($this->isModified()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\ClassBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\ClassBuilder', \false);

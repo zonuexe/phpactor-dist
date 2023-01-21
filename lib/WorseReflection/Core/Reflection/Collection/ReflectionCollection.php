@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use IteratorAggregate;
 use Countable;
@@ -19,7 +19,7 @@ interface ReflectionCollection extends IteratorAggregate, Countable
      * @return static
      * @param ReflectionCollection<T> $collection
      */
-    public function merge(ReflectionCollection $collection) : self;
+    public function merge(\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection $collection) : self;
     /**
      * @return T
      */
@@ -38,10 +38,5 @@ interface ReflectionCollection extends IteratorAggregate, Countable
      * @param class-string<M> $fqn
      * @return ReflectionCollection<M>
      */
-    public function byMemberClass(string $fqn) : ReflectionCollection;
+    public function byMemberClass(string $fqn) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionCollection;
 }
-/**
- * @template T
- * @extends IteratorAggregate<T>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionCollection', \false);

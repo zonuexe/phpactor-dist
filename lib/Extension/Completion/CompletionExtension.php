@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Completion;
+namespace Phpactor\Extension\Completion;
 
-use Phpactor202301\Phpactor\Completion\Core\ChainCompletor;
-use Phpactor202301\Phpactor\Completion\Core\ChainSignatureHelper;
-use Phpactor202301\Phpactor\Completion\Core\Completor\DedupeCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Completor\DocumentingCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Completor\LabelFormattingCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Completor\LimitingCompletor;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\Completion\Core\LabelFormatter;
-use Phpactor202301\Phpactor\Completion\Core\LabelFormatter\HelpfulLabelFormatter;
-use Phpactor202301\Phpactor\Completion\Core\SuggestionDocumentor;
-use Phpactor202301\Phpactor\Completion\Core\TypedCompletorRegistry;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\Container;
+use Phpactor\Completion\Core\ChainCompletor;
+use Phpactor\Completion\Core\ChainSignatureHelper;
+use Phpactor\Completion\Core\Completor\DedupeCompletor;
+use Phpactor\Completion\Core\Completor\DocumentingCompletor;
+use Phpactor\Completion\Core\Completor\LabelFormattingCompletor;
+use Phpactor\Completion\Core\Completor\LimitingCompletor;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\Completion\Core\LabelFormatter;
+use Phpactor\Completion\Core\LabelFormatter\HelpfulLabelFormatter;
+use Phpactor\Completion\Core\SuggestionDocumentor;
+use Phpactor\Completion\Core\TypedCompletorRegistry;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
 class CompletionExtension implements Extension
 {
     public const TAG_COMPLETOR = 'completion.completor';
@@ -110,4 +110,3 @@ class CompletionExtension implements Extension
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Completion\\CompletionExtension', 'Phpactor\\Extension\\Completion\\CompletionExtension', \false);

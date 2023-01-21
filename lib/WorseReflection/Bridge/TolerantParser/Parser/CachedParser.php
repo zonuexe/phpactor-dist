@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Parser;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Parser;
 
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache\TtlCache;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\Cache\TtlCache;
 class CachedParser extends Parser
 {
     private Cache $cache;
@@ -21,4 +21,3 @@ class CachedParser extends Parser
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Parser\\CachedParser', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Parser\\CachedParser', \false);

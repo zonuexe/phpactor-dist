@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty as PhpactorReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty as PhpactorReflectionProperty;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
 /**
  * @extends HomogeneousReflectionMemberCollection<PhpactorReflectionProperty>
  */
-final class ReflectionPropertyCollection extends HomogeneousReflectionMemberCollection
+final class ReflectionPropertyCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\HomogeneousReflectionMemberCollection
 {
     /**
      * @param PhpactorReflectionProperty[] $properties
@@ -21,7 +21,3 @@ final class ReflectionPropertyCollection extends HomogeneousReflectionMemberColl
         return new self($items);
     }
 }
-/**
- * @extends HomogeneousReflectionMemberCollection<PhpactorReflectionProperty>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionPropertyCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionPropertyCollection', \false);

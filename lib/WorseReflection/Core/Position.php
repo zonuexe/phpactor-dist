@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 final class Position
 {
@@ -36,4 +36,3 @@ final class Position
         return $this->end - $this->fullStart;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Position', 'Phpactor\\WorseReflection\\Core\\Position', \false);

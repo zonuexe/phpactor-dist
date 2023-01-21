@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use ArrayIterator;
 use Closure;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassLikeType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\ClassLikeType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
 use Traversable;
 /**
  * @template T of Type
@@ -22,7 +22,7 @@ final class Types implements IteratorAggregate
     }
     public function __toString() : string
     {
-        return \implode(', ', \array_map(fn(Type $t) => $t->__toString(), $this->types));
+        return \implode(', ', \array_map(fn(\Phpactor\WorseReflection\Core\Type $t) => $t->__toString(), $this->types));
     }
     public function getIterator() : Traversable
     {
@@ -31,7 +31,7 @@ final class Types implements IteratorAggregate
     /**
      * @return T|null
      */
-    public function firstOrNull() : ?Type
+    public function firstOrNull() : ?\Phpactor\WorseReflection\Core\Type
     {
         if (empty($this->types)) {
             return null;
@@ -42,7 +42,7 @@ final class Types implements IteratorAggregate
      * @return Types<T>
      * @param Closure(Type): bool $predicate
      */
-    public function filter(Closure $predicate) : Types
+    public function filter(Closure $predicate) : \Phpactor\WorseReflection\Core\Types
     {
         return new self(\array_filter($this->types, $predicate));
     }
@@ -50,7 +50,7 @@ final class Types implements IteratorAggregate
      * @param Types<Type> $types
      * @return Types<Type>
      */
-    public function merge(Types $types) : self
+    public function merge(\Phpactor\WorseReflection\Core\Types $types) : self
     {
         $merged = $this->types;
         foreach ($types as $type) {
@@ -62,12 +62,12 @@ final class Types implements IteratorAggregate
      * Retrurns all class-like types
      * @return Types<Type&ClassLikeType>
      */
-    public function classLike() : Types
+    public function classLike() : \Phpactor\WorseReflection\Core\Types
     {
         // @phpstan-ignore-next-line no support for conditional types https://github.com/phpstan/phpstan/issues/3853
-        return $this->filter(fn(Type $type) => $type instanceof ClassLikeType);
+        return $this->filter(fn(\Phpactor\WorseReflection\Core\Type $type) => $type instanceof ClassLikeType);
     }
-    public function at(int $index) : Type
+    public function at(int $index) : \Phpactor\WorseReflection\Core\Type
     {
         if (isset($this->types[$index])) {
             return $this->types[$index];
@@ -75,8 +75,3 @@ final class Types implements IteratorAggregate
         return new MissingType();
     }
 }
-/**
- * @template T of Type
- * @implements IteratorAggregate<T>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Types', 'Phpactor\\WorseReflection\\Core\\Types', \false);

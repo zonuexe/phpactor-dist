@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\SourceCode as PhpactorSourceCode;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Visibility;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentEdits;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionArgument;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Prototype\SourceCode as PhpactorSourceCode;
+use Phpactor\CodeBuilder\Domain\Prototype\Visibility;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
+use Phpactor\TextDocument\TextDocumentEdits;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionArgument;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
+use Phpactor\WorseReflection\Core\Inference\Variable;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
 class WorseGenerateMethod implements GenerateMethod
 {
     private int $methodSuffixIndex = 0;
@@ -107,4 +107,3 @@ class WorseGenerateMethod implements GenerateMethod
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseGenerateMethod', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseGenerateMethod', \false);

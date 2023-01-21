@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -55,7 +55,7 @@ class FileOperationOptions
      * @param FileOperationRegistrationOptions|null $didDelete
      * @param FileOperationRegistrationOptions|null $willDelete
      */
-    public function __construct(?FileOperationRegistrationOptions $didCreate = null, ?FileOperationRegistrationOptions $willCreate = null, ?FileOperationRegistrationOptions $didRename = null, ?FileOperationRegistrationOptions $willRename = null, ?FileOperationRegistrationOptions $didDelete = null, ?FileOperationRegistrationOptions $willDelete = null)
+    public function __construct(?\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions $didCreate = null, ?\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions $willCreate = null, ?\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions $didRename = null, ?\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions $willRename = null, ?\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions $didDelete = null, ?\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions $willDelete = null)
     {
         $this->didCreate = $didCreate;
         $this->willCreate = $willCreate;
@@ -70,7 +70,7 @@ class FileOperationOptions
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['didCreate' => ['names' => [FileOperationRegistrationOptions::class], 'iterable' => \false], 'willCreate' => ['names' => [FileOperationRegistrationOptions::class], 'iterable' => \false], 'didRename' => ['names' => [FileOperationRegistrationOptions::class], 'iterable' => \false], 'willRename' => ['names' => [FileOperationRegistrationOptions::class], 'iterable' => \false], 'didDelete' => ['names' => [FileOperationRegistrationOptions::class], 'iterable' => \false], 'willDelete' => ['names' => [FileOperationRegistrationOptions::class], 'iterable' => \false]];
+        $map = ['didCreate' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions::class], 'iterable' => \false], 'willCreate' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions::class], 'iterable' => \false], 'didRename' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions::class], 'iterable' => \false], 'willRename' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions::class], 'iterable' => \false], 'didDelete' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions::class], 'iterable' => \false], 'willDelete' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -120,7 +120,3 @@ class FileOperationOptions
         throw $lastException;
     }
 }
-/**
- * Options for notifications/requests for user operations on files.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileOperationOptions', 'Phpactor\\LanguageServerProtocol\\FileOperationOptions', \false);

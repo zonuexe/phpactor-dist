@@ -1,61 +1,61 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\AggregateType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayKeyType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayLiteral;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayShapeType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BinLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BooleanLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BooleanType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\CallableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassStringType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\EnumBackedCaseType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\EnumCaseType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\FalseType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\FloatLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\FloatType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GeneratorType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GenericClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\HexLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntNegative;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntPositive;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntRangeType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntersectionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MixedType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NeverType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NotType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NullType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NullableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NumericType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ObjectType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\OctalLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ParenthesizedType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\PseudoIterableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ResourceType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\SelfType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StaticType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ThisType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\VoidType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Type\AggregateType;
+use Phpactor\WorseReflection\Core\Type\ArrayKeyType;
+use Phpactor\WorseReflection\Core\Type\ArrayLiteral;
+use Phpactor\WorseReflection\Core\Type\ArrayShapeType;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Type\BinLiteralType;
+use Phpactor\WorseReflection\Core\Type\BooleanLiteralType;
+use Phpactor\WorseReflection\Core\Type\BooleanType;
+use Phpactor\WorseReflection\Core\Type\CallableType;
+use Phpactor\WorseReflection\Core\Type\ClassStringType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\EnumBackedCaseType;
+use Phpactor\WorseReflection\Core\Type\EnumCaseType;
+use Phpactor\WorseReflection\Core\Type\FalseType;
+use Phpactor\WorseReflection\Core\Type\FloatLiteralType;
+use Phpactor\WorseReflection\Core\Type\FloatType;
+use Phpactor\WorseReflection\Core\Type\GeneratorType;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
+use Phpactor\WorseReflection\Core\Type\HexLiteralType;
+use Phpactor\WorseReflection\Core\Type\IntLiteralType;
+use Phpactor\WorseReflection\Core\Type\IntNegative;
+use Phpactor\WorseReflection\Core\Type\IntPositive;
+use Phpactor\WorseReflection\Core\Type\IntRangeType;
+use Phpactor\WorseReflection\Core\Type\IntType;
+use Phpactor\WorseReflection\Core\Type\IntersectionType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\MixedType;
+use Phpactor\WorseReflection\Core\Type\NeverType;
+use Phpactor\WorseReflection\Core\Type\NotType;
+use Phpactor\WorseReflection\Core\Type\NullType;
+use Phpactor\WorseReflection\Core\Type\NullableType;
+use Phpactor\WorseReflection\Core\Type\NumericType;
+use Phpactor\WorseReflection\Core\Type\ObjectType;
+use Phpactor\WorseReflection\Core\Type\OctalLiteralType;
+use Phpactor\WorseReflection\Core\Type\ParenthesizedType;
+use Phpactor\WorseReflection\Core\Type\PseudoIterableType;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Core\Type\ResourceType;
+use Phpactor\WorseReflection\Core\Type\SelfType;
+use Phpactor\WorseReflection\Core\Type\StaticType;
+use Phpactor\WorseReflection\Core\Type\StringLiteralType;
+use Phpactor\WorseReflection\Core\Type\StringType;
+use Phpactor\WorseReflection\Core\Type\ThisType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\Type\VoidType;
+use Phpactor\WorseReflection\Reflector;
 class TypeFactory
 {
-    public static function fromStringWithReflector(string $type, Reflector $reflector) : Type
+    public static function fromStringWithReflector(string $type, Reflector $reflector) : \Phpactor\WorseReflection\Core\Type
     {
         return self::fromString($type, $reflector);
     }
-    public static function fromString(string $type, Reflector $reflector = null) : Type
+    public static function fromString(string $type, Reflector $reflector = null) : \Phpactor\WorseReflection\Core\Type
     {
         if (\str_starts_with($type, '?')) {
             return self::nullable(self::typeFromString(\substr($type, 1)));
@@ -65,7 +65,7 @@ class TypeFactory
     /**
      * @param mixed $value
      */
-    public static function fromValue($value) : Type
+    public static function fromValue($value) : \Phpactor\WorseReflection\Core\Type
     {
         if (\is_int($value)) {
             return self::intLiteral($value);
@@ -89,18 +89,18 @@ class TypeFactory
             return self::callable();
         }
         if (\is_object($value)) {
-            return self::class(ClassName::fromString(\get_class($value)));
+            return self::class(\Phpactor\WorseReflection\Core\ClassName::fromString(\get_class($value)));
         }
         if (\is_resource($value)) {
             return self::resource();
         }
         return self::unknown();
     }
-    public static function union(Type ...$types) : UnionType
+    public static function union(\Phpactor\WorseReflection\Core\Type ...$types) : UnionType
     {
         return new UnionType(...$types);
     }
-    public static function intersection(Type ...$types) : IntersectionType
+    public static function intersection(\Phpactor\WorseReflection\Core\Type ...$types) : IntersectionType
     {
         return new IntersectionType(...$types);
     }
@@ -124,7 +124,7 @@ class TypeFactory
     {
         return new FloatType();
     }
-    public static function array(?Type $iterableType = null) : ArrayType
+    public static function array(?\Phpactor\WorseReflection\Core\Type $iterableType = null) : ArrayType
     {
         return new ArrayType($iterableType ? $iterableType : new MissingType());
     }
@@ -157,7 +157,7 @@ class TypeFactory
      */
     public static function class($className, ClassReflector $reflector = null) : ClassType
     {
-        $name = ClassName::fromUnknown($className);
+        $name = \Phpactor\WorseReflection\Core\ClassName::fromUnknown($className);
         if ($reflector) {
             return new ReflectedClassType($reflector, $name);
         }
@@ -168,7 +168,7 @@ class TypeFactory
      */
     public static function reflectedClass(ClassReflector $reflector, $className) : ReflectedClassType
     {
-        return new ReflectedClassType($reflector, ClassName::fromUnknown($className));
+        return new ReflectedClassType($reflector, \Phpactor\WorseReflection\Core\ClassName::fromUnknown($className));
     }
     public static function undefined() : MissingType
     {
@@ -178,13 +178,13 @@ class TypeFactory
     {
         return new CallableType([], new MissingType());
     }
-    public static function nullable(Type $type) : NullableType
+    public static function nullable(\Phpactor\WorseReflection\Core\Type $type) : NullableType
     {
         return new NullableType($type);
     }
     public static function collection(ClassReflector $reflector, string $classType, string $iterableType) : GenericClassType
     {
-        return new GenericClassType($reflector, ClassName::fromString($classType), [self::fromString($iterableType)]);
+        return new GenericClassType($reflector, \Phpactor\WorseReflection\Core\ClassName::fromString($classType), [self::fromString($iterableType)]);
     }
     public static function intLiteral(int $value) : IntLiteralType
     {
@@ -216,7 +216,7 @@ class TypeFactory
             \str_replace('_', '', $value)
         );
     }
-    public static function not(Type $type) : NotType
+    public static function not(\Phpactor\WorseReflection\Core\Type $type) : NotType
     {
         return new NotType($type);
     }
@@ -232,25 +232,25 @@ class TypeFactory
     {
         return \array_map(fn($value) => self::fromValue($value), $values);
     }
-    public static function parenthesized(Type $type) : ParenthesizedType
+    public static function parenthesized(\Phpactor\WorseReflection\Core\Type $type) : ParenthesizedType
     {
         return new ParenthesizedType($type);
     }
-    public static function toAggregateOrUnion(Type $type) : AggregateType
+    public static function toAggregateOrUnion(\Phpactor\WorseReflection\Core\Type $type) : AggregateType
     {
         if ($type instanceof AggregateType) {
             return $type;
         }
         return UnionType::toUnion($type);
     }
-    public static function toAggregateOrIntersection(Type $type) : AggregateType
+    public static function toAggregateOrIntersection(\Phpactor\WorseReflection\Core\Type $type) : AggregateType
     {
         if ($type instanceof AggregateType) {
             return $type;
         }
         return IntersectionType::toIntersection($type);
     }
-    public static function generator(Reflector $reflector, Type $keyType, Type $valueType) : GenericClassType
+    public static function generator(Reflector $reflector, \Phpactor\WorseReflection\Core\Type $keyType, \Phpactor\WorseReflection\Core\Type $valueType) : GenericClassType
     {
         return new GeneratorType($reflector, $keyType, $valueType);
     }
@@ -265,7 +265,7 @@ class TypeFactory
     {
         return new ArrayShapeType($typeMap);
     }
-    public static function list(?Type $iterabletype = null) : ArrayType
+    public static function list(?\Phpactor\WorseReflection\Core\Type $iterabletype = null) : ArrayType
     {
         return new ArrayType(self::int(), $iterabletype ?: self::mixed());
     }
@@ -279,13 +279,13 @@ class TypeFactory
     }
     public static function classString(string $classFqn) : ClassStringType
     {
-        return new ClassStringType(ClassName::fromString($classFqn));
+        return new ClassStringType(\Phpactor\WorseReflection\Core\ClassName::fromString($classFqn));
     }
-    public static function static(?Type $type = null) : StaticType
+    public static function static(?\Phpactor\WorseReflection\Core\Type $type = null) : StaticType
     {
         return new StaticType($type);
     }
-    public static function this(?Type $type = null) : ThisType
+    public static function this(?\Phpactor\WorseReflection\Core\Type $type = null) : ThisType
     {
         return new ThisType($type);
     }
@@ -293,11 +293,11 @@ class TypeFactory
     {
         return new EnumCaseType($reflector, $enumType, $name);
     }
-    public static function enumBackedCaseType(ClassType $enumType, string $name, Type $value) : EnumBackedCaseType
+    public static function enumBackedCaseType(ClassType $enumType, string $name, \Phpactor\WorseReflection\Core\Type $value) : EnumBackedCaseType
     {
         return new EnumBackedCaseType($enumType, $name, $value);
     }
-    public static function intRange(Type $lower, Type $upper) : IntRangeType
+    public static function intRange(\Phpactor\WorseReflection\Core\Type $lower, \Phpactor\WorseReflection\Core\Type $upper) : IntRangeType
     {
         return new IntRangeType($lower, $upper);
     }
@@ -309,7 +309,7 @@ class TypeFactory
     {
         return new IntNegative();
     }
-    private static function typeFromString(string $type, Reflector $reflector = null) : Type
+    private static function typeFromString(string $type, Reflector $reflector = null) : \Phpactor\WorseReflection\Core\Type
     {
         if ('' === $type) {
             return self::unknown();
@@ -368,7 +368,7 @@ class TypeFactory
         if ($type === 'false') {
             return new FalseType();
         }
-        return self::class(ClassName::fromString($type), $reflector);
+        return self::class(\Phpactor\WorseReflection\Core\ClassName::fromString($type), $reflector);
     }
     private static function convertNumericStringToInternalType(string $value) : NumericType
     {
@@ -390,4 +390,3 @@ class TypeFactory
         return self::floatLiteral((float) $value);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\TypeFactory', 'Phpactor\\WorseReflection\\Core\\TypeFactory', \false);

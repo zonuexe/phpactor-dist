@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Listener;
+namespace Phpactor\Extension\LanguageServerIndexer\Listener;
 
 use Generator;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Event\IndexReset;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Handler\IndexerHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceManager;
-use Phpactor202301\Phpactor\LanguageServer\Event\WillShutdown;
+use Phpactor\Extension\LanguageServerIndexer\Event\IndexReset;
+use Phpactor\Extension\LanguageServerIndexer\Handler\IndexerHandler;
+use Phpactor\LanguageServer\Core\Service\ServiceManager;
+use Phpactor\LanguageServer\Event\WillShutdown;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 class IndexerListener implements ListenerProviderInterface
 {
@@ -33,4 +33,3 @@ class IndexerListener implements ListenerProviderInterface
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerIndexer\\Listener\\IndexerListener', 'Phpactor\\Extension\\LanguageServerIndexer\\Listener\\IndexerListener', \false);

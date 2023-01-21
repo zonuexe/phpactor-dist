@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Handler;
+namespace Phpactor\Extension\Rpc\Handler;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\Input;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\InputCallbackResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\Input\Input;
+use Phpactor\Extension\Rpc\Response\InputCallbackResponse;
+use Phpactor\Extension\Rpc\Request;
 use InvalidArgumentException;
 abstract class AbstractHandler implements Handler
 {
@@ -46,4 +46,3 @@ abstract class AbstractHandler implements Handler
         return \array_reverse($inputs);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Handler\\AbstractHandler', 'Phpactor\\Extension\\Rpc\\Handler\\AbstractHandler', \false);

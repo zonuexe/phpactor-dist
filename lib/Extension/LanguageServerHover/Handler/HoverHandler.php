@@ -1,30 +1,30 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerHover\Handler;
+namespace Phpactor\Extension\LanguageServerHover\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Hover;
-use Phpactor202301\Phpactor\LanguageServerProtocol\MarkupContent;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
-use Phpactor202301\Phpactor\Completion\Core\Exception\CouldNotFormat;
-use Phpactor202301\Phpactor\Extension\LanguageServerHover\Renderer\HoverInformation;
-use Phpactor202301\Phpactor\Extension\LanguageServerHover\Renderer\MemberDocblock;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\Hover;
+use Phpactor\LanguageServerProtocol\MarkupContent;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
+use Phpactor\Completion\Core\Exception\CouldNotFormat;
+use Phpactor\Extension\LanguageServerHover\Renderer\HoverInformation;
+use Phpactor\Extension\LanguageServerHover\Renderer\MemberDocblock;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Reflector;
 class HoverHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private Reflector $reflector, private ObjectRenderer $renderer)
@@ -152,4 +152,3 @@ class HoverHandler implements Handler, CanRegisterCapabilities
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerHover\\Handler\\HoverHandler', 'Phpactor\\Extension\\LanguageServerHover\\Handler\\HoverHandler', \false);

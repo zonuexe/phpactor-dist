@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\RequestHandler;
+namespace Phpactor\Extension\Rpc\RequestHandler;
 
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\RequestHandler;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Request;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\LogLevel;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ErrorResponse;
+use Phpactor\Extension\Rpc\Response\ErrorResponse;
 class LoggingHandler implements RequestHandler
 {
     public function __construct(private RequestHandler $requestHandler, private LoggerInterface $logger)
@@ -25,4 +25,3 @@ class LoggingHandler implements RequestHandler
         return $response;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RequestHandler\\LoggingHandler', 'Phpactor\\Extension\\Rpc\\RequestHandler\\LoggingHandler', \false);

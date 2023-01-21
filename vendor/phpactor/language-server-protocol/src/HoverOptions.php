@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class HoverOptions extends WorkDoneProgressOptions
+class HoverOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      *
@@ -81,9 +81,3 @@ class HoverOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Hover options.
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\HoverOptions', 'Phpactor\\LanguageServerProtocol\\HoverOptions', \false);

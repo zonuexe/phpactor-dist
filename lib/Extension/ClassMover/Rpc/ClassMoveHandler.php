@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Rpc;
+namespace Phpactor\Extension\ClassMover\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\TextInput;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Logger\NullLogger;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\ClassMover;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\CollectionResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\CloseFileResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\Extension\Rpc\Response\Input\TextInput;
+use Phpactor\Extension\ClassMover\Application\Logger\NullLogger;
+use Phpactor\Extension\ClassMover\Application\ClassMover;
+use Phpactor\Extension\Rpc\Response\CollectionResponse;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\Extension\Rpc\Response\CloseFileResponse;
+use Phpactor\Extension\Rpc\Response\Input\ConfirmInput;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
 class ClassMoveHandler extends AbstractHandler
 {
     const NAME = 'move_class';
@@ -50,4 +50,3 @@ class ClassMoveHandler extends AbstractHandler
         return CollectionResponse::fromActions([OpenFileResponse::fromPath($arguments[self::PARAM_DEST_PATH]), CloseFileResponse::fromPath($arguments[self::PARAM_SOURCE_PATH])]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Rpc\\ClassMoveHandler', 'Phpactor\\Extension\\ClassMover\\Rpc\\ClassMoveHandler', \false);

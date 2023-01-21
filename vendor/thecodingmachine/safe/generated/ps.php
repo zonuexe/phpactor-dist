@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\PsException;
+use Safe\Exceptions\PsException;
+
 /**
  * Places a hyperlink at the given position pointing to a file program
  * which is being started when clicked on. The hyperlink's source position
@@ -24,14 +25,16 @@ use Phpactor202301\Safe\Exceptions\PsException;
  * @throws PsException
  *
  */
-function ps_add_launchlink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename) : void
+function ps_add_launchlink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_add_launchlink($psdoc, $llx, $lly, $urx, $ury, $filename);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_add_launchlink($psdoc, $llx, $lly, $urx, $ury, $filename);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Places a hyperlink at the given position pointing to a page in the same
  * document. Clicking on the link will jump to the given page. The first page
@@ -60,14 +63,16 @@ function ps_add_launchlink($psdoc, float $llx, float $lly, float $urx, float $ur
  * @throws PsException
  *
  */
-function ps_add_locallink($psdoc, float $llx, float $lly, float $urx, float $ury, int $page, string $dest) : void
+function ps_add_locallink($psdoc, float $llx, float $lly, float $urx, float $ury, int $page, string $dest): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_add_locallink($psdoc, $llx, $lly, $urx, $ury, $page, $dest);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_add_locallink($psdoc, $llx, $lly, $urx, $ury, $page, $dest);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Adds a note at a certain position on the page. Notes are like little
  * rectangular sheets with text on it, which can be placed anywhere on
@@ -97,14 +102,16 @@ function ps_add_locallink($psdoc, float $llx, float $lly, float $urx, float $ury
  * @throws PsException
  *
  */
-function ps_add_note($psdoc, float $llx, float $lly, float $urx, float $ury, string $contents, string $title, string $icon, int $open) : void
+function ps_add_note($psdoc, float $llx, float $lly, float $urx, float $ury, string $contents, string $title, string $icon, int $open): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_add_note($psdoc, $llx, $lly, $urx, $ury, $contents, $title, $icon, $open);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_add_note($psdoc, $llx, $lly, $urx, $ury, $contents, $title, $icon, $open);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Places a hyperlink at the given position pointing to a second pdf document.
  * Clicking on the link will branch to the document at the given page. The
@@ -135,14 +142,16 @@ function ps_add_note($psdoc, float $llx, float $lly, float $urx, float $ury, str
  * @throws PsException
  *
  */
-function ps_add_pdflink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename, int $page, string $dest) : void
+function ps_add_pdflink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename, int $page, string $dest): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_add_pdflink($psdoc, $llx, $lly, $urx, $ury, $filename, $page, $dest);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_add_pdflink($psdoc, $llx, $lly, $urx, $ury, $filename, $page, $dest);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Places a hyperlink at the given position pointing to a web page. The
  * hyperlink's source position is a rectangle with its lower left corner at
@@ -166,14 +175,16 @@ function ps_add_pdflink($psdoc, float $llx, float $lly, float $urx, float $ury, 
  * @throws PsException
  *
  */
-function ps_add_weblink($psdoc, float $llx, float $lly, float $urx, float $ury, string $url) : void
+function ps_add_weblink($psdoc, float $llx, float $lly, float $urx, float $ury, string $url): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_add_weblink($psdoc, $llx, $lly, $urx, $ury, $url);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_add_weblink($psdoc, $llx, $lly, $urx, $ury, $url);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Draws a portion of a circle with at middle point at
  * (x, y). The arc starts at an
@@ -193,14 +204,16 @@ function ps_add_weblink($psdoc, float $llx, float $lly, float $urx, float $ury, 
  * @throws PsException
  *
  */
-function ps_arc($psdoc, float $x, float $y, float $radius, float $alpha, float $beta) : void
+function ps_arc($psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_arc($psdoc, $x, $y, $radius, $alpha, $beta);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_arc($psdoc, $x, $y, $radius, $alpha, $beta);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Draws a portion of a circle with at middle point at
  * (x, y). The arc starts at an
@@ -220,14 +233,16 @@ function ps_arc($psdoc, float $x, float $y, float $radius, float $alpha, float $
  * @throws PsException
  *
  */
-function ps_arcn($psdoc, float $x, float $y, float $radius, float $alpha, float $beta) : void
+function ps_arcn($psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_arcn($psdoc, $x, $y, $radius, $alpha, $beta);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_arcn($psdoc, $x, $y, $radius, $alpha, $beta);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Starts a new page. Although the parameters width
  * and height imply a different page size for each
@@ -269,14 +284,16 @@ function ps_arcn($psdoc, float $x, float $y, float $radius, float $alpha, float 
  * @throws PsException
  *
  */
-function ps_begin_page($psdoc, float $width, float $height) : void
+function ps_begin_page($psdoc, float $width, float $height): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_begin_page($psdoc, $width, $height);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_begin_page($psdoc, $width, $height);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Starts a new pattern. A pattern is like a page containing e.g. a drawing
  * which can be used for filling areas. It is used like a color by calling
@@ -296,15 +313,17 @@ function ps_begin_page($psdoc, float $width, float $height) : void
  * @throws PsException
  *
  */
-function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype) : int
+function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_begin_pattern($psdoc, $width, $height, $xstep, $ystep, $painttype);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_begin_pattern($psdoc, $width, $height, $xstep, $ystep, $painttype);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Starts a new template. A template is called a form in the postscript
  * language. It is created similar to a pattern but used like an image.
@@ -321,15 +340,17 @@ function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, flo
  * @throws PsException
  *
  */
-function ps_begin_template($psdoc, float $width, float $height) : int
+function ps_begin_template($psdoc, float $width, float $height): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_begin_template($psdoc, $width, $height);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_begin_template($psdoc, $width, $height);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Draws a circle with its middle point at (x,
  * y). The circle starts and ends at position
@@ -348,14 +369,16 @@ function ps_begin_template($psdoc, float $width, float $height) : int
  * @throws PsException
  *
  */
-function ps_circle($psdoc, float $x, float $y, float $radius) : void
+function ps_circle($psdoc, float $x, float $y, float $radius): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_circle($psdoc, $x, $y, $radius);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_circle($psdoc, $x, $y, $radius);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Takes the current path and uses it to define the border of a clipping area.
  * Everything drawn outside of that area will not be visible.
@@ -365,14 +388,16 @@ function ps_circle($psdoc, float $x, float $y, float $radius) : void
  * @throws PsException
  *
  */
-function ps_clip($psdoc) : void
+function ps_clip($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_clip($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_clip($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Closes an image and frees its resources. Once an image is closed
  * it cannot be used anymore.
@@ -385,14 +410,16 @@ function ps_clip($psdoc) : void
  * @throws PsException
  *
  */
-function ps_close_image($psdoc, int $imageid) : void
+function ps_close_image($psdoc, int $imageid): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_close_image($psdoc, $imageid);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_close_image($psdoc, $imageid);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Closes the PostScript document.
  *
@@ -408,14 +435,16 @@ function ps_close_image($psdoc, int $imageid) : void
  * @throws PsException
  *
  */
-function ps_close($psdoc) : void
+function ps_close($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_close($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_close($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Connects the last point with first point of a path and draws the resulting
  * closed line.
@@ -425,14 +454,16 @@ function ps_close($psdoc) : void
  * @throws PsException
  *
  */
-function ps_closepath_stroke($psdoc) : void
+function ps_closepath_stroke($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_closepath_stroke($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_closepath_stroke($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Connects the last point with the first point of a path. The resulting
  * path can be used for stroking, filling, clipping, etc..
@@ -442,14 +473,16 @@ function ps_closepath_stroke($psdoc) : void
  * @throws PsException
  *
  */
-function ps_closepath($psdoc) : void
+function ps_closepath($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_closepath($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_closepath($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Output a text one line below the last line. The line spacing is
  * taken from the value "leading" which must be set with
@@ -463,14 +496,16 @@ function ps_closepath($psdoc) : void
  * @throws PsException
  *
  */
-function ps_continue_text($psdoc, string $text) : void
+function ps_continue_text($psdoc, string $text): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_continue_text($psdoc, $text);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_continue_text($psdoc, $text);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Add a section of a cubic Bézier curve described by the three given control
  * points to the current path.
@@ -486,14 +521,16 @@ function ps_continue_text($psdoc, string $text) : void
  * @throws PsException
  *
  */
-function ps_curveto($psdoc, float $x1, float $y1, float $x2, float $y2, float $x3, float $y3) : void
+function ps_curveto($psdoc, float $x1, float $y1, float $x2, float $y2, float $x3, float $y3): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_curveto($psdoc, $x1, $y1, $x2, $y2, $x3, $y3);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_curveto($psdoc, $x1, $y1, $x2, $y2, $x3, $y3);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Mainly frees memory used by the document. Also closes a file, if it was not
  * closed before with ps_close. You should in any case
@@ -507,14 +544,16 @@ function ps_curveto($psdoc, float $x1, float $y1, float $x2, float $y2, float $x
  * @throws PsException
  *
  */
-function ps_delete($psdoc) : void
+function ps_delete($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_delete($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_delete($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Ends a page which was started with ps_begin_page.
  * Ending a page will leave the current drawing context, which e.g. requires
@@ -526,14 +565,16 @@ function ps_delete($psdoc) : void
  * @throws PsException
  *
  */
-function ps_end_page($psdoc) : void
+function ps_end_page($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_end_page($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_end_page($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Ends a pattern which was started with ps_begin_pattern.
  * Once a pattern has been ended, it can be used like a color to fill
@@ -544,14 +585,16 @@ function ps_end_page($psdoc) : void
  * @throws PsException
  *
  */
-function ps_end_pattern($psdoc) : void
+function ps_end_pattern($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_end_pattern($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_end_pattern($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Ends a template which was started with ps_begin_template.
  * Once a template has been ended, it can be used like an image.
@@ -561,14 +604,16 @@ function ps_end_pattern($psdoc) : void
  * @throws PsException
  *
  */
-function ps_end_template($psdoc) : void
+function ps_end_template($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_end_template($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_end_template($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Fills and draws the path constructed with previously called drawing
  * functions like ps_lineto.
@@ -578,14 +623,16 @@ function ps_end_template($psdoc) : void
  * @throws PsException
  *
  */
-function ps_fill_stroke($psdoc) : void
+function ps_fill_stroke($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_fill_stroke($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_fill_stroke($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Fills the path constructed with previously called drawing functions like
  * ps_lineto.
@@ -595,14 +642,16 @@ function ps_fill_stroke($psdoc) : void
  * @throws PsException
  *
  */
-function ps_fill($psdoc) : void
+function ps_fill($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_fill($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_fill($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Gets several parameters which were directly set by
  * ps_set_parameter or indirectly by one of the other
@@ -729,19 +778,21 @@ function ps_fill($psdoc) : void
  * @throws PsException
  *
  */
-function ps_get_parameter($psdoc, string $name, float $modifier = null) : string
+function ps_get_parameter($psdoc, string $name, float $modifier = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($modifier !== null) {
-        $result = \Phpactor202301\ps_get_parameter($psdoc, $name, $modifier);
+        $result = \ps_get_parameter($psdoc, $name, $modifier);
     } else {
-        $result = \Phpactor202301\ps_get_parameter($psdoc, $name);
+        $result = \ps_get_parameter($psdoc, $name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Hyphenates the passed word. ps_hyphenate evaluates the
  * value hyphenminchars (set by ps_set_value) and
@@ -763,15 +814,17 @@ function ps_get_parameter($psdoc, string $name, float $modifier = null) : string
  * @throws PsException
  *
  */
-function ps_hyphenate($psdoc, string $text) : array
+function ps_hyphenate($psdoc, string $text): array
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_hyphenate($psdoc, $text);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_hyphenate($psdoc, $text);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function is
  * currently not documented; only its argument list is available.
@@ -783,14 +836,16 @@ function ps_hyphenate($psdoc, string $text) : array
  * @throws PsException
  *
  */
-function ps_include_file($psdoc, string $file) : void
+function ps_include_file($psdoc, string $file): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_include_file($psdoc, $file);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_include_file($psdoc, $file);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Adds a straight line from the current point to the given coordinates to the
  * current path. Use ps_moveto to set the starting point
@@ -803,14 +858,16 @@ function ps_include_file($psdoc, string $file) : void
  * @throws PsException
  *
  */
-function ps_lineto($psdoc, float $x, float $y) : void
+function ps_lineto($psdoc, float $x, float $y): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_lineto($psdoc, $x, $y);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_lineto($psdoc, $x, $y);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the current point to new coordinates. If this is the first call of
  * ps_moveto after a previous path has been ended then it
@@ -824,14 +881,16 @@ function ps_lineto($psdoc, float $x, float $y) : void
  * @throws PsException
  *
  */
-function ps_moveto($psdoc, float $x, float $y) : void
+function ps_moveto($psdoc, float $x, float $y): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_moveto($psdoc, $x, $y);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_moveto($psdoc, $x, $y);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates a new document instance. It does not create the file on disk or in
  * memory, it just sets up everything. ps_new is usually
@@ -845,13 +904,15 @@ function ps_moveto($psdoc, float $x, float $y) : void
  */
 function ps_new()
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_new();
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_new();
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Creates a new file on disk and writes the PostScript document into it. The
  * file will be closed when ps_close is called.
@@ -864,18 +925,20 @@ function ps_new()
  * @throws PsException
  *
  */
-function ps_open_file($psdoc, string $filename = null) : void
+function ps_open_file($psdoc, string $filename = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($filename !== null) {
-        $result = \Phpactor202301\ps_open_file($psdoc, $filename);
+        $result = \ps_open_file($psdoc, $filename);
     } else {
-        $result = \Phpactor202301\ps_open_file($psdoc);
+        $result = \ps_open_file($psdoc);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Places a formerly loaded image on the page. The image can be scaled.
  * If the image shall be rotated as well, you will have to rotate the
@@ -894,14 +957,16 @@ function ps_open_file($psdoc, string $filename = null) : void
  * @throws PsException
  *
  */
-function ps_place_image($psdoc, int $imageid, float $x, float $y, float $scale) : void
+function ps_place_image($psdoc, int $imageid, float $x, float $y, float $scale): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_place_image($psdoc, $imageid, $x, $y, $scale);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_place_image($psdoc, $imageid, $x, $y, $scale);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Draws a rectangle with its lower left corner at (x,
  * y). The rectangle starts and ends in its lower left
@@ -919,14 +984,16 @@ function ps_place_image($psdoc, int $imageid, float $x, float $y, float $scale) 
  * @throws PsException
  *
  */
-function ps_rect($psdoc, float $x, float $y, float $width, float $height) : void
+function ps_rect($psdoc, float $x, float $y, float $width, float $height): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_rect($psdoc, $x, $y, $width, $height);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_rect($psdoc, $x, $y, $width, $height);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Restores a previously saved graphics context. Any call of
  * ps_save must be accompanied by a call to
@@ -939,14 +1006,16 @@ function ps_rect($psdoc, float $x, float $y, float $width, float $height) : void
  * @throws PsException
  *
  */
-function ps_restore($psdoc) : void
+function ps_restore($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_restore($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_restore($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the rotation of the coordinate system.
  *
@@ -956,14 +1025,16 @@ function ps_restore($psdoc) : void
  * @throws PsException
  *
  */
-function ps_rotate($psdoc, float $rot) : void
+function ps_rotate($psdoc, float $rot): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_rotate($psdoc, $rot);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_rotate($psdoc, $rot);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Saves the current graphics context, containing colors, translation and
  * rotation settings and some more. A saved context can be restored with
@@ -974,14 +1045,16 @@ function ps_rotate($psdoc, float $rot) : void
  * @throws PsException
  *
  */
-function ps_save($psdoc) : void
+function ps_save($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_save($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_save($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets horizontal and vertical scaling of the coordinate system.
  *
@@ -992,14 +1065,16 @@ function ps_save($psdoc) : void
  * @throws PsException
  *
  */
-function ps_scale($psdoc, float $x, float $y) : void
+function ps_scale($psdoc, float $x, float $y): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_scale($psdoc, $x, $y);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_scale($psdoc, $x, $y);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Links added with one of the functions ps_add_weblink,
  * ps_add_pdflink, etc. will be displayed with a
@@ -1016,14 +1091,16 @@ function ps_scale($psdoc, float $x, float $y) : void
  * @throws PsException
  *
  */
-function ps_set_border_color($psdoc, float $red, float $green, float $blue) : void
+function ps_set_border_color($psdoc, float $red, float $green, float $blue): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_border_color($psdoc, $red, $green, $blue);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_border_color($psdoc, $red, $green, $blue);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Links added with one of the functions ps_add_weblink,
  * ps_add_pdflink, etc. will be displayed with a
@@ -1040,14 +1117,16 @@ function ps_set_border_color($psdoc, float $red, float $green, float $blue) : vo
  * @throws PsException
  *
  */
-function ps_set_border_dash($psdoc, float $black, float $white) : void
+function ps_set_border_dash($psdoc, float $black, float $white): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_border_dash($psdoc, $black, $white);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_border_dash($psdoc, $black, $white);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Links added with one of the functions ps_add_weblink,
  * ps_add_pdflink, etc. will be displayed with a
@@ -1064,14 +1143,16 @@ function ps_set_border_dash($psdoc, float $black, float $white) : void
  * @throws PsException
  *
  */
-function ps_set_border_style($psdoc, string $style, float $width) : void
+function ps_set_border_style($psdoc, string $style, float $width): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_border_style($psdoc, $style, $width);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_border_style($psdoc, $style, $width);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets certain information fields of the document. This fields will be shown
  * as a comment in the header of the PostScript file. If the document is
@@ -1109,14 +1190,16 @@ function ps_set_border_style($psdoc, string $style, float $width) : void
  * @throws PsException
  *
  */
-function ps_set_info($p, string $key, string $val) : void
+function ps_set_info($p, string $key, string $val): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_info($p, $key, $val);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_info($p, $key, $val);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets several parameters which are used by many functions. Parameters are by
  * definition string values.
@@ -1128,14 +1211,16 @@ function ps_set_info($p, string $key, string $val) : void
  * @throws PsException
  *
  */
-function ps_set_parameter($psdoc, string $name, string $value) : void
+function ps_set_parameter($psdoc, string $name, string $value): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_parameter($psdoc, $name, $value);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_parameter($psdoc, $name, $value);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Set the position for the next text output. You may alternatively set the x
  * and y value separately by calling ps_set_value and
@@ -1153,14 +1238,16 @@ function ps_set_parameter($psdoc, string $name, string $value) : void
  * @throws PsException
  *
  */
-function ps_set_text_pos($psdoc, float $x, float $y) : void
+function ps_set_text_pos($psdoc, float $x, float $y): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_text_pos($psdoc, $x, $y);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_text_pos($psdoc, $x, $y);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets several values which are used by many functions. Parameters are by
  * definition float values.
@@ -1224,14 +1311,16 @@ function ps_set_text_pos($psdoc, float $x, float $y) : void
  * @throws PsException
  *
  */
-function ps_set_value($psdoc, string $name, float $value) : void
+function ps_set_value($psdoc, string $name, float $value): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_set_value($psdoc, $name, $value);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_set_value($psdoc, $name, $value);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the color for drawing, filling, or both.
  *
@@ -1257,14 +1346,16 @@ function ps_set_value($psdoc, string $name, float $value) : void
  * @throws PsException
  *
  */
-function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float $c2, float $c3, float $c4) : void
+function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float $c2, float $c3, float $c4): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setcolor($psdoc, $type, $colorspace, $c1, $c2, $c3, $c4);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setcolor($psdoc, $type, $colorspace, $c1, $c2, $c3, $c4);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the length of the black and white portions of a dashed line.
  *
@@ -1275,14 +1366,16 @@ function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float 
  * @throws PsException
  *
  */
-function ps_setdash($psdoc, float $on, float $off) : void
+function ps_setdash($psdoc, float $on, float $off): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setdash($psdoc, $on, $off);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setdash($psdoc, $on, $off);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * This function is
  * currently not documented; only its argument list is available.
@@ -1294,14 +1387,16 @@ function ps_setdash($psdoc, float $on, float $off) : void
  * @throws PsException
  *
  */
-function ps_setflat($psdoc, float $value) : void
+function ps_setflat($psdoc, float $value): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setflat($psdoc, $value);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setflat($psdoc, $value);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets a font, which has to be loaded before with
  * ps_findfont. Outputting text without setting a font
@@ -1314,14 +1409,16 @@ function ps_setflat($psdoc, float $value) : void
  * @throws PsException
  *
  */
-function ps_setfont($psdoc, int $fontid, float $size) : void
+function ps_setfont($psdoc, int $fontid, float $size): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setfont($psdoc, $fontid, $size);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setfont($psdoc, $fontid, $size);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the gray value for all following drawing operations.
  *
@@ -1331,14 +1428,16 @@ function ps_setfont($psdoc, int $fontid, float $size) : void
  * @throws PsException
  *
  */
-function ps_setgray($psdoc, float $gray) : void
+function ps_setgray($psdoc, float $gray): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setgray($psdoc, $gray);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setgray($psdoc, $gray);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets how line ends look like.
  *
@@ -1351,14 +1450,16 @@ function ps_setgray($psdoc, float $gray) : void
  * @throws PsException
  *
  */
-function ps_setlinecap($psdoc, int $type) : void
+function ps_setlinecap($psdoc, int $type): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setlinecap($psdoc, $type);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setlinecap($psdoc, $type);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets how lines are joined.
  *
@@ -1371,14 +1472,16 @@ function ps_setlinecap($psdoc, int $type) : void
  * @throws PsException
  *
  */
-function ps_setlinejoin($psdoc, int $type) : void
+function ps_setlinejoin($psdoc, int $type): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setlinejoin($psdoc, $type);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setlinejoin($psdoc, $type);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the line width for all following drawing operations.
  *
@@ -1388,14 +1491,16 @@ function ps_setlinejoin($psdoc, int $type) : void
  * @throws PsException
  *
  */
-function ps_setlinewidth($psdoc, float $width) : void
+function ps_setlinewidth($psdoc, float $width): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setlinewidth($psdoc, $width);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setlinewidth($psdoc, $width);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * If two lines join in a small angle and the line join is set to
  * PS_LINEJOIN_MITER, then
@@ -1410,14 +1515,16 @@ function ps_setlinewidth($psdoc, float $width) : void
  * @throws PsException
  *
  */
-function ps_setmiterlimit($psdoc, float $value) : void
+function ps_setmiterlimit($psdoc, float $value): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setmiterlimit($psdoc, $value);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setmiterlimit($psdoc, $value);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * This function is
  * currently not documented; only its argument list is available.
@@ -1429,14 +1536,16 @@ function ps_setmiterlimit($psdoc, float $value) : void
  * @throws PsException
  *
  */
-function ps_setoverprintmode($psdoc, int $mode) : void
+function ps_setoverprintmode($psdoc, int $mode): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setoverprintmode($psdoc, $mode);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setoverprintmode($psdoc, $mode);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the length of the black and white portions of a dashed line.
  * ps_setpolydash is used to set more complicated dash
@@ -1449,14 +1558,16 @@ function ps_setoverprintmode($psdoc, int $mode) : void
  * @throws PsException
  *
  */
-function ps_setpolydash($psdoc, float $arr) : void
+function ps_setpolydash($psdoc, float $arr): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_setpolydash($psdoc, $arr);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_setpolydash($psdoc, $arr);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates a pattern based on a shading, which has to be created before with
  * ps_shading. Shading patterns can be used like regular
@@ -1471,15 +1582,17 @@ function ps_setpolydash($psdoc, float $arr) : void
  * @throws PsException
  *
  */
-function ps_shading_pattern($psdoc, int $shadingid, string $optlist) : int
+function ps_shading_pattern($psdoc, int $shadingid, string $optlist): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_shading_pattern($psdoc, $shadingid, $optlist);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_shading_pattern($psdoc, $shadingid, $optlist);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Creates a shading, which can be used by ps_shfill or
  * ps_shading_pattern.
@@ -1514,15 +1627,17 @@ function ps_shading_pattern($psdoc, int $shadingid, string $optlist) : int
  * @throws PsException
  *
  */
-function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist) : int
+function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_shading($psdoc, $type, $x0, $y0, $x1, $y1, $c1, $c2, $c3, $c4, $optlist);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_shading($psdoc, $type, $x0, $y0, $x1, $y1, $c1, $c2, $c3, $c4, $optlist);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Fills an area with a shading, which has to be created before with
  * ps_shading. This is an alternative way to creating
@@ -1536,14 +1651,16 @@ function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float
  * @throws PsException
  *
  */
-function ps_shfill($psdoc, int $shadingid) : void
+function ps_shfill($psdoc, int $shadingid): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_shfill($psdoc, $shadingid);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_shfill($psdoc, $shadingid);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Output a text at the given text position.
  *
@@ -1555,14 +1672,16 @@ function ps_shfill($psdoc, int $shadingid) : void
  * @throws PsException
  *
  */
-function ps_show_xy($psdoc, string $text, float $x, float $y) : void
+function ps_show_xy($psdoc, string $text, float $x, float $y): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_show_xy($psdoc, $text, $x, $y);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_show_xy($psdoc, $text, $x, $y);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * This function is
  * currently not documented; only its argument list is available.
@@ -1576,14 +1695,16 @@ function ps_show_xy($psdoc, string $text, float $x, float $y) : void
  * @throws PsException
  *
  */
-function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor) : void
+function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_show_xy2($psdoc, $text, $len, $xcoor, $ycoor);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_show_xy2($psdoc, $text, $len, $xcoor, $ycoor);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Output a text at the current text position. The text position can be set
  * by storing the x and y coordinates into the values textx
@@ -1601,14 +1722,16 @@ function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor)
  * @throws PsException
  *
  */
-function ps_show($psdoc, string $text) : void
+function ps_show($psdoc, string $text): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_show($psdoc, $text);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_show($psdoc, $text);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Output text at the current position. Do not print more than len characters.
  *
@@ -1619,14 +1742,16 @@ function ps_show($psdoc, string $text) : void
  * @throws PsException
  *
  */
-function ps_show2($psdoc, string $text, int $len) : void
+function ps_show2($psdoc, string $text, int $len): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_show2($psdoc, $text, $len);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_show2($psdoc, $text, $len);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Draws the path constructed with previously called drawing functions like
  * ps_lineto.
@@ -1636,14 +1761,16 @@ function ps_show2($psdoc, string $text, int $len) : void
  * @throws PsException
  *
  */
-function ps_stroke($psdoc) : void
+function ps_stroke($psdoc): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_stroke($psdoc);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_stroke($psdoc);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Output the glyph at position ord in the font
  * encoding vector of the current font. The font encoding for a font can be
@@ -1655,14 +1782,16 @@ function ps_stroke($psdoc) : void
  * @throws PsException
  *
  */
-function ps_symbol($psdoc, int $ord) : void
+function ps_symbol($psdoc, int $ord): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_symbol($psdoc, $ord);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_symbol($psdoc, $ord);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets a new initial point of the coordinate system.
  *
@@ -1673,11 +1802,11 @@ function ps_symbol($psdoc, int $ord) : void
  * @throws PsException
  *
  */
-function ps_translate($psdoc, float $x, float $y) : void
+function ps_translate($psdoc, float $x, float $y): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ps_translate($psdoc, $x, $y);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ps_translate($psdoc, $x, $y);
+    if ($result === false) {
         throw PsException::createFromPhpError();
     }
 }

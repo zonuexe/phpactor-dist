@@ -1,41 +1,41 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra;
+namespace Phpactor\Extension\CodeTransformExtra;
 
-use Phpactor202301\Phpactor\CodeTransform\CodeTransform;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractExpression;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractConstant;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\OverrideMethod;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\RenameVariable;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\ImportMissingClassesHandler;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Phpactor\Extension\WorseReflection\WorseReflectionExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\ClassInflect;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\ClassNew;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\Transformer;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Command\ClassInflectCommand;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Command\ClassNewCommand;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Command\ClassTransformCommand;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\ChangeVisiblityHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\ExtractConstantHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\ExtractExpressionHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\ExtractMethodHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\PropertyAccessGeneratorHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\GenerateMethodHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\ImportClassHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\OverrideMethodHandler;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc\RenameVariableHandler;
+use Phpactor\CodeTransform\CodeTransform;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractExpression;
+use Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
+use Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractConstant;
+use Phpactor\CodeTransform\Domain\Refactor\OverrideMethod;
+use Phpactor\CodeTransform\Domain\Refactor\ImportName;
+use Phpactor\CodeTransform\Domain\Refactor\RenameVariable;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\CodeTransformExtra\Rpc\ImportMissingClassesHandler;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
+use Phpactor\Extension\WorseReflection\WorseReflectionExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\CodeTransformExtra\Application\ClassInflect;
+use Phpactor\Extension\CodeTransformExtra\Application\ClassNew;
+use Phpactor\Extension\CodeTransformExtra\Application\Transformer;
+use Phpactor\Extension\CodeTransformExtra\Command\ClassInflectCommand;
+use Phpactor\Extension\CodeTransformExtra\Command\ClassNewCommand;
+use Phpactor\Extension\CodeTransformExtra\Command\ClassTransformCommand;
+use Phpactor\Extension\CodeTransformExtra\Rpc\ChangeVisiblityHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\ExtractConstantHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\ExtractExpressionHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\ExtractMethodHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\PropertyAccessGeneratorHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\GenerateMethodHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\ImportClassHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\OverrideMethodHandler;
+use Phpactor\Extension\CodeTransformExtra\Rpc\RenameVariableHandler;
 class CodeTransformExtraExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -109,4 +109,3 @@ class CodeTransformExtraExtension implements Extension
         }, [RpcExtension::TAG_RPC_HANDLER => ['name' => ImportMissingClassesHandler::NAME]]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\CodeTransformExtraExtension', 'Phpactor\\Extension\\CodeTransformExtra\\CodeTransformExtraExtension', \false);

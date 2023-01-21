@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
+namespace Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\NameWithByteOffset;
+use Phpactor\CodeTransform\Domain\NameWithByteOffset;
 class NameCandidate
 {
     public function __construct(private NameWithByteOffset $unresolvedName, private string $candidateFqn)
@@ -17,4 +17,3 @@ class NameCandidate
         return $this->unresolvedName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\Model\\NameImport\\NameCandidate', 'Phpactor\\Extension\\LanguageServerCodeTransform\\Model\\NameImport\\NameCandidate', \false);

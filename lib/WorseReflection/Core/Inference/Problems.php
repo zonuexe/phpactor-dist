@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use IteratorAggregate;
 use Countable;
@@ -24,7 +24,7 @@ final class Problems implements IteratorAggregate, Countable
         }
         return \implode(\PHP_EOL, $lines);
     }
-    public static function create() : Problems
+    public static function create() : \Phpactor\WorseReflection\Core\Inference\Problems
     {
         return new self();
     }
@@ -35,7 +35,7 @@ final class Problems implements IteratorAggregate, Countable
     {
         return new ArrayIterator($this->problems);
     }
-    public function add(NodeContext $problem) : void
+    public function add(\Phpactor\WorseReflection\Core\Inference\NodeContext $problem) : void
     {
         $this->problems[] = $problem;
     }
@@ -54,12 +54,8 @@ final class Problems implements IteratorAggregate, Countable
     {
         return $this->problems;
     }
-    public function merge(Problems $problems) : self
+    public function merge(\Phpactor\WorseReflection\Core\Inference\Problems $problems) : self
     {
         return new self(\array_merge($this->problems, $problems->toArray()));
     }
 }
-/**
- * @implements IteratorAggregate<array-key,NodeContext>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Problems', 'Phpactor\\WorseReflection\\Core\\Inference\\Problems', \false);

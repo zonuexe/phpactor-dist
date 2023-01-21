@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Client;
+namespace Phpactor\LanguageServer\Core\Server\Client;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\DTL\Invoke\Invoke;
-use Phpactor202301\Phpactor\LanguageServerProtocol\MessageActionItem;
-use Phpactor202301\Phpactor\LanguageServerProtocol\MessageType;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServerProtocol\MessageActionItem;
+use Phpactor\LanguageServerProtocol\MessageType;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
 final class MessageRequestClient
 {
     /**
@@ -60,4 +60,3 @@ final class MessageRequestClient
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Client\\MessageRequestClient', 'Phpactor\\LanguageServer\\Core\\Server\\Client\\MessageRequestClient', \false);

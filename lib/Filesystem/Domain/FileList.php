@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Domain;
+namespace Phpactor\Filesystem\Domain;
 
 use CallbackFilterIterator;
 use Iterator;
@@ -45,7 +45,7 @@ class FileList implements Iterator
     {
         return $this->iterator;
     }
-    public function contains(FilePath $path) : bool
+    public function contains(\Phpactor\Filesystem\Domain\FilePath $path) : bool
     {
         foreach ($this as $filePath) {
             if ($path == $filePath) {
@@ -93,7 +93,7 @@ class FileList implements Iterator
             return \false;
         });
     }
-    public function within(FilePath $path) : self
+    public function within(\Phpactor\Filesystem\Domain\FilePath $path) : self
     {
         return new self(new RegexIterator($this->iterator, \sprintf('{^%s/.*}', (string) \preg_quote($path))));
     }
@@ -119,7 +119,7 @@ class FileList implements Iterator
     public function current()
     {
         $current = $this->iterator->current();
-        return FilePath::fromSplFileInfo($current);
+        return \Phpactor\Filesystem\Domain\FilePath::fromSplFileInfo($current);
     }
     #[ReturnTypeWillChange]
     public function key()
@@ -148,7 +148,3 @@ class FileList implements Iterator
         });
     }
 }
-/**
- * @implements Iterator<array-key,FilePath>
- */
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Domain\\FileList', 'Phpactor\\Filesystem\\Domain\\FileList', \false);

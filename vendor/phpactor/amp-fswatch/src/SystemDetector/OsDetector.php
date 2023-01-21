@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\SystemDetector;
+namespace Phpactor\AmpFsWatch\SystemDetector;
 
 class OsDetector
 {
@@ -25,4 +25,3 @@ class OsDetector
         return \strtolower(\substr($this->phpOs, 0, 3)) === 'win';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\SystemDetector\\OsDetector', 'Phpactor\\AmpFsWatch\\SystemDetector\\OsDetector', \false);

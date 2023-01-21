@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Symfony\Adapter\Symfony;
+namespace Phpactor\Extension\Symfony\Adapter\Symfony;
 
 use DOMDocument;
 use DOMElement;
 use DOMNode;
 use DOMXPath;
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerParameter;
-use Phpactor202301\Phpactor\Extension\Symfony\Model\SymfonyContainerService;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerParameter;
+use Phpactor\Extension\Symfony\Model\SymfonyContainerService;
+use Phpactor\WorseReflection\Core\TypeFactory;
 class XmlSymfonyContainerInspector implements SymfonyContainerInspector
 {
     private int $mtime;
@@ -113,4 +113,3 @@ class XmlSymfonyContainerInspector implements SymfonyContainerInspector
         return new SymfonyContainerService($id, TypeFactory::fromString($class));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Symfony\\Adapter\\Symfony\\XmlSymfonyContainerInspector', 'Phpactor\\Extension\\Symfony\\Adapter\\Symfony\\XmlSymfonyContainerInspector', \false);

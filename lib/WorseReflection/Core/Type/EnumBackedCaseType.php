@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class EnumBackedCaseType extends Type implements ClassLikeType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+class EnumBackedCaseType extends Type implements \Phpactor\WorseReflection\Core\Type\ClassLikeType
 {
-    public function __construct(public ClassType $enumType, public string $name, public Type $value)
+    public function __construct(public \Phpactor\WorseReflection\Core\Type\ClassType $enumType, public string $name, public Type $value)
     {
     }
     public function __toString() : string
@@ -32,4 +32,3 @@ class EnumBackedCaseType extends Type implements ClassLikeType
         return $this->enumType->members();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\EnumBackedCaseType', 'Phpactor\\WorseReflection\\Core\\Type\\EnumBackedCaseType', \false);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Model;
+namespace Phpactor\ClassMover\Domain\Model;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\MemberName;
+use Phpactor\ClassMover\Domain\Name\MemberName;
 use InvalidArgumentException;
 final class ClassMemberQuery
 {
@@ -11,7 +11,7 @@ final class ClassMemberQuery
     const TYPE_PROPERTY = 'property';
     private $validTypes = [self::TYPE_CONSTANT, self::TYPE_METHOD, self::TYPE_PROPERTY];
     private ?string $type;
-    private function __construct(private ?Class_ $class = null, private ?MemberName $memberName = null, string $type = null)
+    private function __construct(private ?\Phpactor\ClassMover\Domain\Model\Class_ $class = null, private ?MemberName $memberName = null, string $type = null)
     {
         if (null !== $type && \false === \in_array($type, $this->validTypes)) {
             throw new InvalidArgumentException(\sprintf('Invalid member type "%s", valid types: "%s"', $type, \implode('", "', $this->validTypes)));
@@ -22,7 +22,7 @@ final class ClassMemberQuery
     {
         return $this->class;
     }
-    public static function create() : ClassMemberQuery
+    public static function create() : \Phpactor\ClassMover\Domain\Model\ClassMemberQuery
     {
         return new self();
     }
@@ -43,26 +43,26 @@ final class ClassMemberQuery
      *
      * @param Class_|string|mixed $className
      */
-    public function withClass($className) : ClassMemberQuery
+    public function withClass($className) : \Phpactor\ClassMover\Domain\Model\ClassMemberQuery
     {
-        if (\false === \is_string($className) && \false === $className instanceof Class_) {
+        if (\false === \is_string($className) && \false === $className instanceof \Phpactor\ClassMover\Domain\Model\Class_) {
             throw new InvalidArgumentException(\sprintf('Class must be either a string or an instanceof Class_, got: "%s"', \gettype($className)));
         }
-        return new self(\is_string($className) ? Class_::fromString($className) : $className, $this->memberName, $this->type);
+        return new self(\is_string($className) ? \Phpactor\ClassMover\Domain\Model\Class_::fromString($className) : $className, $this->memberName, $this->type);
     }
     /**
      * If the argument is anything but a MemberName or a string this class will throw an error.
      *
      * @param MemberName|string|mixed $memberName
      */
-    public function withMember($memberName) : ClassMemberQuery
+    public function withMember($memberName) : \Phpactor\ClassMover\Domain\Model\ClassMemberQuery
     {
         if (\false === \is_string($memberName) && \false === $memberName instanceof MemberName) {
             throw new InvalidArgumentException(\sprintf('Member must be either a string or an instanceof MemberName, got: "%s"', \gettype($memberName)));
         }
         return new self($this->class, \is_string($memberName) ? MemberName::fromString($memberName) : $memberName, $this->type);
     }
-    public function withType(string $memberType) : ClassMemberQuery
+    public function withType(string $memberType) : \Phpactor\ClassMover\Domain\Model\ClassMemberQuery
     {
         return new self($this->class, $this->memberName, $memberType);
     }
@@ -84,7 +84,7 @@ final class ClassMemberQuery
         }
         return $className == (string) $this->class;
     }
-    public function class() : Class_
+    public function class() : \Phpactor\ClassMover\Domain\Model\Class_
     {
         return $this->class;
     }
@@ -105,4 +105,3 @@ final class ClassMemberQuery
         return null !== $this->memberName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Model\\ClassMemberQuery', 'Phpactor\\ClassMover\\Domain\\Model\\ClassMemberQuery', \false);

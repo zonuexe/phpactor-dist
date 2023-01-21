@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response\Input;
+namespace Phpactor\Extension\Rpc\Response\Input;
 
-class TextInput implements Input
+class TextInput implements \Phpactor\Extension\Rpc\Response\Input\Input
 {
     private function __construct(private string $name, private string $label, private ?string $default = null, private ?string $type = null)
     {
@@ -32,4 +32,3 @@ class TextInput implements Input
         return ['default' => $this->default, 'label' => $this->label, 'type' => $this->type];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\Input\\TextInput', 'Phpactor\\Extension\\Rpc\\Response\\Input\\TextInput', \false);

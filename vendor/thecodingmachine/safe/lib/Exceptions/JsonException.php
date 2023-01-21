@@ -1,10 +1,11 @@
 <?php
 
-namespace Phpactor202301\Safe\Exceptions;
+
+namespace Safe\Exceptions;
 
 class JsonException extends \Exception implements SafeExceptionInterface
 {
-    public static function createFromPhpError() : self
+    public static function createFromPhpError(): self
     {
         return new self(\json_last_error_msg(), \json_last_error());
     }

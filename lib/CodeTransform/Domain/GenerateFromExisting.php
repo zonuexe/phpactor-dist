@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
-interface GenerateFromExisting extends Generator
+interface GenerateFromExisting extends \Phpactor\CodeTransform\Domain\Generator
 {
     /**
      * - Test for existing class
      * - Trait from existing
      */
-    public function generateFromExisting(ClassName $existingClass, ClassName $targetName) : SourceCode;
+    public function generateFromExisting(\Phpactor\CodeTransform\Domain\ClassName $existingClass, \Phpactor\CodeTransform\Domain\ClassName $targetName) : \Phpactor\CodeTransform\Domain\SourceCode;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\GenerateFromExisting', 'Phpactor\\CodeTransform\\Domain\\GenerateFromExisting', \false);

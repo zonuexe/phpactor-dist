@@ -1,20 +1,18 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrClientException<br/>
  * An exception thrown when there is an error while making a request to the server from the client.
  * @link https://php.net/manual/en/class.solrclientexception.php
  */
-class SolrClientException extends \SolrException
+class SolrClientException extends SolrException
 {
     /**
      * (PECL solr &gt;= 0.9.2)<br/>
@@ -25,20 +23,5 @@ class SolrClientException extends \SolrException
      * developers.
      * </p>
      */
-    public function getInternalInfo()
-    {
-    }
+    public function getInternalInfo() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 0.9.2)<br/>
- * Class SolrClientException<br/>
- * An exception thrown when there is an error while making a request to the server from the client.
- * @link https://php.net/manual/en/class.solrclientexception.php
- */
-\class_alias('Phpactor202301\\SolrClientException', 'SolrClientException', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Parle;
+namespace Parle;
 
-use Phpactor202301\JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Immutable;
+
 class Stack
 {
     /* Properties */
@@ -10,16 +11,19 @@ class Stack
      * @var bool Whether the stack is empty, readonly.
      */
     #[Immutable]
-    public $empty = \true;
+    public $empty = true;
+
     /**
      * @var int Stack size, readonly.
      */
     #[Immutable]
     public $size = 0;
+
     /**
      * @var mixed Element on the top of the stack.
      */
     public $top;
+
     /* Methods */
     /**
      * Pop an item from the stack
@@ -27,9 +31,8 @@ class Stack
      * @link https://php.net/manual/en/parle-stack.pop.php
      * @return void
      */
-    public function pop() : void
-    {
-    }
+    public function pop(): void {}
+
     /**
      * Push an item into the stack
      *
@@ -37,7 +40,5 @@ class Stack
      * @param mixed $item Variable to be pushed.
      * @return void
      */
-    public function push($item)
-    {
-    }
+    public function push($item) {}
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Handler;
+namespace Phpactor\Extension\Rpc\Handler;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\EchoResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\EchoResponse;
 class EchoHandler implements Handler
 {
     public function name() : string
@@ -20,4 +20,3 @@ class EchoHandler implements Handler
         return EchoResponse::fromMessage($arguments['message']);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Handler\\EchoHandler', 'Phpactor\\Extension\\Rpc\\Handler\\EchoHandler', \false);

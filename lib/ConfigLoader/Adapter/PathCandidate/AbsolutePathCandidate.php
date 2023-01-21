@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Adapter\PathCandidate;
+namespace Phpactor\ConfigLoader\Adapter\PathCandidate;
 
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidate;
+use Phpactor\ConfigLoader\Core\PathCandidate;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class AbsolutePathCandidate implements PathCandidate
@@ -25,4 +25,3 @@ class AbsolutePathCandidate implements PathCandidate
         return $this->loader;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Adapter\\PathCandidate\\AbsolutePathCandidate', 'Phpactor\\ConfigLoader\\Adapter\\PathCandidate\\AbsolutePathCandidate', \false);

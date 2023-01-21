@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ComposerAutoloader;
+namespace Phpactor\Extension\ComposerAutoloader;
 
 use Phpactor202301\Composer\Autoload\ClassLoader;
 use Phpactor202301\Psr\Log\LoggerInterface;
@@ -38,4 +38,3 @@ class ClassLoaderFactory
         return $map;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ComposerAutoloader\\ClassLoaderFactory', 'Phpactor\\Extension\\ComposerAutoloader\\ClassLoaderFactory', \false);

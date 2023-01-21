@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 interface FileListProvider
 {
-    public function provideFileList(Index $index, ?string $subPath = null) : FileList;
+    public function provideFileList(\Phpactor\Indexer\Model\Index $index, ?string $subPath = null) : \Phpactor\Indexer\Model\FileList;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\FileListProvider', 'Phpactor\\Indexer\\Model\\FileListProvider', \false);

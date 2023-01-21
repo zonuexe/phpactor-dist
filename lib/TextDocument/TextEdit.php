@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 use OutOfRangeException;
 class TextEdit
 {
-    private ByteOffset $start;
+    private \Phpactor\TextDocument\ByteOffset $start;
     private int $length;
     private string $replacement;
-    private function __construct(ByteOffset $start, int $length, string $content)
+    private function __construct(\Phpactor\TextDocument\ByteOffset $start, int $length, string $content)
     {
         if ($length < 0) {
             throw new OutOfRangeException(\sprintf('Text edit length cannot be less than 0, got "%s" (start: %s, content: %s)', $length, $start->toInt(), $content));
@@ -22,13 +22,13 @@ class TextEdit
      */
     public static function create($start, int $length, string $replacement) : self
     {
-        return new self(ByteOffset::fromIntOrByteOffset($start), $length, $replacement);
+        return new self(\Phpactor\TextDocument\ByteOffset::fromIntOrByteOffset($start), $length, $replacement);
     }
-    public function end() : ByteOffset
+    public function end() : \Phpactor\TextDocument\ByteOffset
     {
         return $this->start->add($this->length);
     }
-    public function start() : ByteOffset
+    public function start() : \Phpactor\TextDocument\ByteOffset
     {
         return $this->start;
     }
@@ -41,4 +41,3 @@ class TextEdit
         return $this->replacement;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextEdit', 'Phpactor\\TextDocument\\TextEdit', \false);

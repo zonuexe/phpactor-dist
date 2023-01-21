@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Attribute;
@@ -15,16 +15,16 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\Name\FullyQualifiedName as PhpactorFullyQualifiedName;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\FunctionReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\Name\FullyQualifiedName as PhpactorFullyQualifiedName;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Reflector\FunctionReflector;
+use Phpactor\WorseReflection\Core\SourceCode;
 class UnresolvableNameProvider implements DiagnosticProvider
 {
     public function __construct(private bool $importGlobals)
@@ -97,7 +97,7 @@ class UnresolvableNameProvider implements DiagnosticProvider
                 } catch (NotFound) {
                 }
             }
-            (yield UnresolvableNameDiagnostic::forFunction(ByteOffsetRange::fromInts($name->getStartPosition(), $name->getEndPosition()), $fqn));
+            (yield \Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic::forFunction(ByteOffsetRange::fromInts($name->getStartPosition(), $name->getEndPosition()), $fqn));
         }
     }
     private function nameContainedInSource(string $declarationPattern, SourceCode $source, string $nameText) : bool
@@ -126,8 +126,7 @@ class UnresolvableNameProvider implements DiagnosticProvider
                 throw new NotFound();
             }
         } catch (NotFound) {
-            (yield UnresolvableNameDiagnostic::forClass(ByteOffsetRange::fromInts($name->getStartPosition(), $name->getEndPosition()), $fqn));
+            (yield \Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic::forClass(ByteOffsetRange::fromInts($name->getStartPosition(), $name->getEndPosition()), $fqn));
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\UnresolvableNameProvider', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Diagnostics\\UnresolvableNameProvider', \false);

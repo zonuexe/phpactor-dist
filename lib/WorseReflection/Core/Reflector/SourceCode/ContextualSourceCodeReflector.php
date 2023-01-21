@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCode;
+namespace Phpactor\WorseReflection\Core\Reflector\SourceCode;
 
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator\TemporarySourceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionNode;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall;
+use Phpactor\WorseReflection\Core\SourceCodeLocator\TemporarySourceLocator;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionClassLikeCollection;
 class ContextualSourceCodeReflector implements SourceCodeReflector
 {
     public function __construct(private SourceCodeReflector $innerReflector, private TemporarySourceLocator $locator)
@@ -65,4 +65,3 @@ class ContextualSourceCodeReflector implements SourceCodeReflector
         return $this->innerReflector->reflectConstantsIn($sourceCode);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\SourceCode\\ContextualSourceCodeReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\SourceCode\\ContextualSourceCodeReflector', \false);

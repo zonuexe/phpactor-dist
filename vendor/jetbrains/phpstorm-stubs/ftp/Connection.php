@@ -1,10 +1,8 @@
 <?php
 
-namespace Phpactor202301\FTP;
+namespace FTP;
 
 /**
  * @since 8.1
  */
-final class Connection
-{
-}
+final class Connection {}

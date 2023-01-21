@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\TextDocument;
+namespace Phpactor\LanguageServer\Handler\TextDocument;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidChangeTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidCloseTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidOpenTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidSaveTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentSyncKind;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WillSaveTextDocumentParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentClosed;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentOpened;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentSaved;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentUpdated;
+use Phpactor\LanguageServerProtocol\DidChangeTextDocumentParams;
+use Phpactor\LanguageServerProtocol\DidCloseTextDocumentParams;
+use Phpactor\LanguageServerProtocol\DidOpenTextDocumentParams;
+use Phpactor\LanguageServerProtocol\DidSaveTextDocumentParams;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\TextDocumentSyncKind;
+use Phpactor\LanguageServerProtocol\WillSaveTextDocumentParams;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Event\TextDocumentClosed;
+use Phpactor\LanguageServer\Event\TextDocumentOpened;
+use Phpactor\LanguageServer\Event\TextDocumentSaved;
+use Phpactor\LanguageServer\Event\TextDocumentUpdated;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 final class TextDocumentHandler implements Handler, CanRegisterCapabilities
 {
@@ -59,4 +59,3 @@ final class TextDocumentHandler implements Handler, CanRegisterCapabilities
         $capabilities->textDocumentSync = TextDocumentSyncKind::FULL;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\TextDocument\\TextDocumentHandler', 'Phpactor\\LanguageServer\\Handler\\TextDocument\\TextDocumentHandler', \false);

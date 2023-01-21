@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use LogicException;
@@ -14,13 +14,13 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection\Helper\VariableCompletionHelper;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Bridge\TolerantParser\WorseReflection\Helper\VariableCompletionHelper;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\WorseReflection\Reflector;
 abstract class AbstractParameterCompletor
 {
     protected VariableCompletionHelper $variableCompletionHelper;
@@ -125,4 +125,3 @@ abstract class AbstractParameterCompletor
         return $list;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\AbstractParameterCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\AbstractParameterCompletor', \false);

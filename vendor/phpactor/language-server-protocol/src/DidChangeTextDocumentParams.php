@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -39,7 +39,7 @@ class DidChangeTextDocumentParams
      * @param VersionedTextDocumentIdentifier $textDocument
      * @param array<array<mixed>|array<mixed>> $contentChanges
      */
-    public function __construct(VersionedTextDocumentIdentifier $textDocument, array $contentChanges)
+    public function __construct(\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier $textDocument, array $contentChanges)
     {
         $this->textDocument = $textDocument;
         $this->contentChanges = $contentChanges;
@@ -50,7 +50,7 @@ class DidChangeTextDocumentParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'contentChanges' => ['names' => [], 'iterable' => \true]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'contentChanges' => ['names' => [], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -100,7 +100,3 @@ class DidChangeTextDocumentParams
         throw $lastException;
     }
 }
-/**
- * The change text document notification's parameters.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DidChangeTextDocumentParams', 'Phpactor\\LanguageServerProtocol\\DidChangeTextDocumentParams', \false);

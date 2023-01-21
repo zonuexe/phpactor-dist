@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\DocBlockUpdater;
+namespace Phpactor\CodeTransform\Domain\DocBlockUpdater;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TagNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ReturnTag;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class ReturnTagPrototype implements TagPrototype
+use Phpactor\DocblockParser\Ast\TagNode;
+use Phpactor\DocblockParser\Ast\Tag\ReturnTag;
+use Phpactor\WorseReflection\Core\Type;
+class ReturnTagPrototype implements \Phpactor\CodeTransform\Domain\DocBlockUpdater\TagPrototype
 {
     public function __construct(public Type $type)
     {
@@ -20,4 +20,3 @@ class ReturnTagPrototype implements TagPrototype
         return $tag->type() ? $tag->type()->end() : $tag->end();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\DocBlockUpdater\\ReturnTagPrototype', 'Phpactor\\CodeTransform\\Domain\\DocBlockUpdater\\ReturnTagPrototype', \false);

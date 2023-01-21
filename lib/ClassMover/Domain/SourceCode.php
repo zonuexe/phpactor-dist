@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain;
+namespace Phpactor\ClassMover\Domain;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 use InvalidArgumentException;
 class SourceCode
 {
@@ -13,11 +13,11 @@ class SourceCode
     {
         return $this->source;
     }
-    public static function fromString(string $source) : SourceCode
+    public static function fromString(string $source) : \Phpactor\ClassMover\Domain\SourceCode
     {
         return new self($source);
     }
-    public function addNamespace(FullyQualifiedName $namespace) : SourceCode
+    public function addNamespace(FullyQualifiedName $namespace) : \Phpactor\ClassMover\Domain\SourceCode
     {
         [$phpDeclarationLineNb, $namespaceLineNb] = $this->significantLineNumbers();
         if (null !== $namespaceLineNb) {
@@ -28,7 +28,7 @@ class SourceCode
         }
         return new self($this->source);
     }
-    public function addUseStatement(FullyQualifiedName $classToUse) : SourceCode
+    public function addUseStatement(FullyQualifiedName $classToUse) : \Phpactor\ClassMover\Domain\SourceCode
     {
         $useStmt = 'use ' . $classToUse->__toString() . ';';
         $namespaceLineNb = null;
@@ -83,4 +83,3 @@ class SourceCode
         return [$phpDeclarationLineNb, $namespaceLineNb, $lastUseLineNb];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\SourceCode', 'Phpactor\\ClassMover\\Domain\\SourceCode', \false);

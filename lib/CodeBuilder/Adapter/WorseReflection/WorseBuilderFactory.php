@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection;
+namespace Phpactor\CodeBuilder\Adapter\WorseReflection;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\ClassBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\TraitBuilder;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Builder\ClassBuilder;
+use Phpactor\CodeBuilder\Domain\Builder\TraitBuilder;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\CodeBuilder\Domain\Builder\MethodBuilder;
+use Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder;
 class WorseBuilderFactory implements BuilderFactory
 {
     public function __construct(private Reflector $reflector)
@@ -130,4 +130,3 @@ class WorseBuilderFactory implements BuilderFactory
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\WorseBuilderFactory', 'Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\WorseBuilderFactory', \false);

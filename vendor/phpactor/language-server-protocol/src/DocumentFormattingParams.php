@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams
  */
-class DocumentFormattingParams extends WorkDoneProgressParams
+class DocumentFormattingParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The document to format.
@@ -36,7 +36,7 @@ class DocumentFormattingParams extends WorkDoneProgressParams
      * @param FormattingOptions $options
      * @param int|string|null $workDoneToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, FormattingOptions $options, $workDoneToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\FormattingOptions $options, $workDoneToken = null)
     {
         $this->textDocument = $textDocument;
         $this->options = $options;
@@ -48,7 +48,7 @@ class DocumentFormattingParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'options' => ['names' => [FormattingOptions::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'options' => ['names' => [\Phpactor\LanguageServerProtocol\FormattingOptions::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -98,9 +98,3 @@ class DocumentFormattingParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [DocumentFormattingRequest](#DocumentFormattingRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentFormattingParams', 'Phpactor\\LanguageServerProtocol\\DocumentFormattingParams', \false);

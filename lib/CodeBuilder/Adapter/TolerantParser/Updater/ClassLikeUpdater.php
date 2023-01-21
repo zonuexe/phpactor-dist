@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
@@ -9,17 +9,17 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Type;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
+use Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
+use Phpactor\CodeBuilder\Domain\Prototype\Type;
+use Phpactor\CodeBuilder\Domain\Renderer;
 use InvalidArgumentException;
 abstract class ClassLikeUpdater
 {
-    protected ClassMethodUpdater $methodUpdater;
+    protected \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassMethodUpdater $methodUpdater;
     public function __construct(protected Renderer $renderer)
     {
-        $this->methodUpdater = new ClassMethodUpdater($renderer);
+        $this->methodUpdater = new \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassMethodUpdater($renderer);
     }
     protected function resolvePropertyName(Node|Token $property) : ?string
     {
@@ -81,4 +81,3 @@ abstract class ClassLikeUpdater
         return $insert;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\ClassLikeUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\ClassLikeUpdater', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface TextDocumentSyncKind
 {
@@ -9,4 +9,3 @@ interface TextDocumentSyncKind
     public const FULL = 1;
     public const INCREMENTAL = 2;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\TextDocumentSyncKind', 'Phpactor\\LanguageServerProtocol\\TextDocumentSyncKind', \false);

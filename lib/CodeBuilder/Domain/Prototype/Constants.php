@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 /**
  * @extends Collection<Constant>
  */
-class Constants extends Collection
+class Constants extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
     public static function fromConstants(array $constants)
     {
@@ -19,7 +19,3 @@ class Constants extends Collection
         return 'constant';
     }
 }
-/**
- * @extends Collection<Constant>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Constants', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Constants', \false);

@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassToFile;
+namespace Phpactor\Extension\ClassToFile;
 
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Extension\ComposerAutoloader\ComposerAutoloaderExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
-use Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer\ComposerClassToFile;
-use Phpactor202301\Phpactor\ClassFileConverter\Adapter\Simple\SimpleClassToFile;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ChainClassToFile;
-use Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer\ComposerFileToClass;
-use Phpactor202301\Phpactor\ClassFileConverter\Adapter\Simple\SimpleFileToClass;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ChainFileToClass;
+use Phpactor\Container\Extension;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Extension\ComposerAutoloader\ComposerAutoloaderExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
+use Phpactor\ClassFileConverter\Adapter\Composer\ComposerClassToFile;
+use Phpactor\ClassFileConverter\Adapter\Simple\SimpleClassToFile;
+use Phpactor\ClassFileConverter\Domain\ChainClassToFile;
+use Phpactor\ClassFileConverter\Adapter\Composer\ComposerFileToClass;
+use Phpactor\ClassFileConverter\Adapter\Simple\SimpleFileToClass;
+use Phpactor\Container\Container;
+use Phpactor\ClassFileConverter\Domain\ChainFileToClass;
 class ClassToFileExtension implements Extension
 {
     const SERVICE_CONVERTER = 'class_to_file.converter';
@@ -54,4 +54,3 @@ class ClassToFileExtension implements Extension
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassToFile\\ClassToFileExtension', 'Phpactor\\Extension\\ClassToFile\\ClassToFileExtension', \false);

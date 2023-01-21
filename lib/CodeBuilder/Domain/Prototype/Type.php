@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class Type extends Prototype
+final class Type extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
 {
     private bool $none = \false;
     /**
@@ -23,11 +23,11 @@ final class Type extends Prototype
     {
         return $this->originalType;
     }
-    public static function fromString(string $type) : Type
+    public static function fromString(string $type) : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         return new self($type);
     }
-    public static function none() : Type
+    public static function none() : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         $new = new self();
         $new->none = \true;
@@ -52,4 +52,3 @@ final class Type extends Prototype
         return \false === $this->none;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Type', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Type', \false);

@@ -1,58 +1,57 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-abstract class NumericType extends ScalarType
+abstract class NumericType extends \Phpactor\WorseReflection\Core\Type\ScalarType
 {
-    public function identity() : NumericType
+    public function identity() : \Phpactor\WorseReflection\Core\Type\NumericType
     {
         return $this;
     }
-    public function negative() : NumericType
+    public function negative() : \Phpactor\WorseReflection\Core\Type\NumericType
     {
         return $this;
     }
-    public function plus(NumericType $right) : NumericType
+    public function plus(\Phpactor\WorseReflection\Core\Type\NumericType $right) : \Phpactor\WorseReflection\Core\Type\NumericType
     {
-        if ($this instanceof Literal && $right instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() + $right->value());
         }
         return $this;
     }
-    public function modulo(NumericType $right) : NumericType
+    public function modulo(\Phpactor\WorseReflection\Core\Type\NumericType $right) : \Phpactor\WorseReflection\Core\Type\NumericType
     {
-        if ($this instanceof Literal && $right instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() % $right->value());
         }
         return $this;
     }
-    public function divide(NumericType $right) : NumericType
+    public function divide(\Phpactor\WorseReflection\Core\Type\NumericType $right) : \Phpactor\WorseReflection\Core\Type\NumericType
     {
-        if ($this instanceof Literal && $right instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() / $right->value());
         }
         return $this;
     }
-    public function multiply(NumericType $right) : NumericType
+    public function multiply(\Phpactor\WorseReflection\Core\Type\NumericType $right) : \Phpactor\WorseReflection\Core\Type\NumericType
     {
-        if ($this instanceof Literal && $right instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() * $right->value());
         }
         return $this;
     }
-    public function minus(NumericType $right) : NumericType
+    public function minus(\Phpactor\WorseReflection\Core\Type\NumericType $right) : \Phpactor\WorseReflection\Core\Type\NumericType
     {
-        if ($this instanceof Literal && $right instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() - $right->value());
         }
         return $this;
     }
-    public function exp(NumericType $right) : NumericType
+    public function exp(\Phpactor\WorseReflection\Core\Type\NumericType $right) : \Phpactor\WorseReflection\Core\Type\NumericType
     {
-        if ($this instanceof Literal && $right instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() ** $right->value());
         }
         return $this;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\NumericType', 'Phpactor\\WorseReflection\\Core\\Type\\NumericType', \false);

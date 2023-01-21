@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\Formatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\Formatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
 class ParametersFormatter implements Formatter
 {
     public function canFormat(object $object) : bool
@@ -21,4 +21,3 @@ class ParametersFormatter implements Formatter
         return \implode(', ', $formatted);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\ParametersFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\Formatter\\ParametersFormatter', \false);

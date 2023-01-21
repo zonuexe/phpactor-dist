@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
@@ -9,11 +9,11 @@ use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InlineHtml;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Util\ImportedNames;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Util\NodeHelper;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\SourceCode;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\UseStatement;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Util\ImportedNames;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Util\NodeHelper;
+use Phpactor\CodeBuilder\Domain\Prototype\SourceCode;
+use Phpactor\CodeBuilder\Domain\Prototype\UseStatement;
 class UseStatementUpdater
 {
     public function updateUseStatements(Edits $edits, SourceCode $prototype, SourceFileNode $node) : void
@@ -159,4 +159,3 @@ class UseStatementUpdater
         return $editText;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\UseStatementUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Updater\\UseStatementUpdater', \false);

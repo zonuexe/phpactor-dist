@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301\RdKafka;
+namespace RdKafka;
 
-class Exception extends \Exception
-{
-}
+class Exception extends \Exception {}

@@ -1,44 +1,37 @@
 <?php
+declare(strict_types=1);
 
-declare (strict_types=1);
-namespace Phpactor202301\SimpleKafkaClient\Metadata;
+namespace SimpleKafkaClient\Metadata;
 
 class Collection
 {
     /**
      * @return int
      */
-    public function count() : int
-    {
-    }
+    public function count(): int {}
+
     /**
      * @return void
      */
-    public function rewind() : void
-    {
-    }
+    public function rewind(): void {}
+
     /**
      * @return mixed
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * @return int
      */
-    public function key() : int
-    {
-    }
+    public function key(): int {}
+
     /**
      * @return mixed
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * @return bool
      */
-    public function valid() : bool
-    {
-    }
+    public function valid(): bool {}
 }

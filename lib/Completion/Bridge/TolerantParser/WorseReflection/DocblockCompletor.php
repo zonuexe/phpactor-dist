@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
+namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
@@ -8,13 +8,13 @@ use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TypeSuggestionProvider;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\Util\LineAtOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Bridge\TolerantParser\TypeSuggestionProvider;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\Util\LineAtOffset;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class DocblockCompletor implements TolerantCompletor
 {
     const SUPPORTED_TAGS = ['@property', '@var', '@param', '@return', '@method', '@deprecated', '@extends', '@implements', '@template', '@template-extends'];
@@ -86,4 +86,3 @@ class DocblockCompletor implements TolerantCompletor
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\DocblockCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\WorseReflection\\DocblockCompletor', \false);

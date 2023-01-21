@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\PHPUnit\CodeTransform;
+namespace Phpactor\Extension\PHPUnit\CodeTransform;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\GenerateNew;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeTransform\Domain\GenerateNew;
+use Phpactor\CodeTransform\Domain\SourceCode;
 class TestGenerator implements GenerateNew
 {
     public function generateNew(ClassName $targetName) : SourceCode
@@ -25,4 +25,3 @@ EOT;
         return SourceCode::fromString($sourceCode);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\PHPUnit\\CodeTransform\\TestGenerator', 'Phpactor\\Extension\\PHPUnit\\CodeTransform\\TestGenerator', \false);

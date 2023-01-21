@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\MissingType;
 use RuntimeException;
 final class TypeAssertion
 {
@@ -35,13 +35,13 @@ final class TypeAssertion
     {
         return new self(self::VARIABLE_TYPE_PROPERTY, $name, $offset, $true, $false, $classType);
     }
-    public static function forContext(NodeContext $context, Closure $true, Closure $false) : self
+    public static function forContext(\Phpactor\WorseReflection\Core\Inference\NodeContext $context, Closure $true, Closure $false) : self
     {
-        if ($context->symbol()->symbolType() === Symbol::PROPERTY) {
-            return TypeAssertion::property($context->symbol()->name(), $context->symbol()->position()->start(), $true, $false, $context->containerType());
+        if ($context->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::PROPERTY) {
+            return \Phpactor\WorseReflection\Core\Inference\TypeAssertion::property($context->symbol()->name(), $context->symbol()->position()->start(), $true, $false, $context->containerType());
         }
-        if ($context->symbol()->symbolType() === Symbol::VARIABLE) {
-            return TypeAssertion::variable($context->symbol()->name(), $context->symbol()->position()->start(), $true, $false);
+        if ($context->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::VARIABLE) {
+            return \Phpactor\WorseReflection\Core\Inference\TypeAssertion::variable($context->symbol()->name(), $context->symbol()->position()->start(), $true, $false);
         }
         throw new RuntimeException(\sprintf('Do not know how to create type assertion for symbol type: "%s"', $context->type()->__toString()));
     }
@@ -66,7 +66,7 @@ final class TypeAssertion
     {
         return $this->classType ?: new MissingType();
     }
-    public function negate() : TypeAssertion
+    public function negate() : \Phpactor\WorseReflection\Core\Inference\TypeAssertion
     {
         $this->polarity = !$this->polarity;
         return $this;
@@ -80,4 +80,3 @@ final class TypeAssertion
         return $this->polarity;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\TypeAssertion', 'Phpactor\\WorseReflection\\Core\\Inference\\TypeAssertion', \false);

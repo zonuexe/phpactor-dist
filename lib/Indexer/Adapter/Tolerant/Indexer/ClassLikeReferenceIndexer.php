@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Tolerant\Indexer;
+namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
-use Phpactor202301\Phpactor\Indexer\Model\Index;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReference;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-class ClassLikeReferenceIndexer extends AbstractClassLikeIndexer
+use Phpactor\Indexer\Model\Index;
+use Phpactor\Indexer\Model\RecordReference;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
+use Phpactor\TextDocument\TextDocument;
+class ClassLikeReferenceIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Indexer\AbstractClassLikeIndexer
 {
     private const NOT_CLASS_NAMES = ['static', 'parent', 'self'];
     public function canIndex(Node $node) : bool
@@ -57,4 +57,3 @@ class ClassLikeReferenceIndexer extends AbstractClassLikeIndexer
         $index->write($fileRecord);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\ClassLikeReferenceIndexer', 'Phpactor\\Indexer\\Adapter\\Tolerant\\Indexer\\ClassLikeReferenceIndexer', \false);

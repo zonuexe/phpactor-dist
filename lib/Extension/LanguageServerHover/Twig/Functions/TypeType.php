@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerHover\Twig\Functions;
+namespace Phpactor\Extension\LanguageServerHover\Twig\Functions;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
 class TypeType
 {
     public function __invoke(Type $type) : ?string
@@ -38,4 +38,3 @@ class TypeType
         return '';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerHover\\Twig\\Functions\\TypeType', 'Phpactor\\Extension\\LanguageServerHover\\Twig\\Functions\\TypeType', \false);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util;
+namespace Phpactor\Extension\LanguageServerCompletion\Util;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\CompletionItemKind;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
+use Phpactor\LanguageServerProtocol\CompletionItemKind;
+use Phpactor\Completion\Core\Suggestion;
 class PhpactorToLspCompletionType
 {
     public static function fromPhpactorType(?string $suggestionType) : ?int
@@ -32,4 +32,3 @@ class PhpactorToLspCompletionType
         };
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCompletion\\Util\\PhpactorToLspCompletionType', 'Phpactor\\Extension\\LanguageServerCompletion\\Util\\PhpactorToLspCompletionType', \false);

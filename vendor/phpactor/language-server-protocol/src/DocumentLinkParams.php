@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
  */
-class DocumentLinkParams extends WorkDoneProgressParams
+class DocumentLinkParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The document to provide document links for.
@@ -37,7 +37,7 @@ class DocumentLinkParams extends WorkDoneProgressParams
      * @param int|string|null $workDoneToken
      * @param int|string|null $partialResultToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, $workDoneToken = null, $partialResultToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, $workDoneToken = null, $partialResultToken = null)
     {
         $this->textDocument = $textDocument;
         $this->workDoneToken = $workDoneToken;
@@ -49,7 +49,7 @@ class DocumentLinkParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -99,9 +99,3 @@ class DocumentLinkParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [DocumentLinkRequest](#DocumentLinkRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentLinkParams', 'Phpactor\\LanguageServerProtocol\\DocumentLinkParams', \false);

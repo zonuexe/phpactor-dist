@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -20,7 +20,7 @@ class DidOpenTextDocumentParams
     /**
      * @param TextDocumentItem $textDocument
      */
-    public function __construct(TextDocumentItem $textDocument)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentItem $textDocument)
     {
         $this->textDocument = $textDocument;
     }
@@ -30,7 +30,7 @@ class DidOpenTextDocumentParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentItem::class], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentItem::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -80,7 +80,3 @@ class DidOpenTextDocumentParams
         throw $lastException;
     }
 }
-/**
- * The parameters send in a open text document notification
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DidOpenTextDocumentParams', 'Phpactor\\LanguageServerProtocol\\DidOpenTextDocumentParams', \false);

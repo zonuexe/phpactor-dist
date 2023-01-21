@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response;
 final class InformationResponse implements Response
 {
     private function __construct(private $information)
     {
     }
-    public static function fromString(string $information) : InformationResponse
+    public static function fromString(string $information) : \Phpactor\Extension\Rpc\Response\InformationResponse
     {
         return new self($information);
     }
@@ -25,4 +25,3 @@ final class InformationResponse implements Response
         return ['information' => $this->information];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\InformationResponse', 'Phpactor\\Extension\\Rpc\\Response\\InformationResponse', \false);

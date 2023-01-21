@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\Tolerant;
+namespace Phpactor\Rename\Adapter\Tolerant;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\ByteOffsetRange;
 final class TokenUtil
 {
     /**
@@ -24,4 +24,3 @@ final class TokenUtil
         return ByteOffsetRange::fromInts($tokenOrNode->start, $tokenOrNode->getEndPosition());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\Tolerant\\TokenUtil', 'Phpactor\\Rename\\Adapter\\Tolerant\\TokenUtil', \false);

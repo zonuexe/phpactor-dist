@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\PosixException;
+use Safe\Exceptions\PosixException;
+
 /**
  * posix_access checks the user's permission of a file.
  *
@@ -19,14 +20,16 @@ use Phpactor202301\Safe\Exceptions\PosixException;
  * @throws PosixException
  *
  */
-function posix_access(string $file, int $mode = \POSIX_F_OK) : void
+function posix_access(string $file, int $mode = POSIX_F_OK): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_access($file, $mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Gets information about a group provided its name.
  *
@@ -80,15 +83,17 @@ function posix_access(string $file, int $mode = \POSIX_F_OK) : void
  * @throws PosixException
  *
  */
-function posix_getgrnam(string $name) : array
+function posix_getgrnam(string $name): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_getgrnam($name);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the process group identifier of the process
  * pid.
@@ -98,15 +103,17 @@ function posix_getgrnam(string $name) : array
  * @throws PosixException
  *
  */
-function posix_getpgid(int $pid) : int
+function posix_getpgid(int $pid): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_getpgid($pid);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Calculates the group access list for the user specified in name.
  *
@@ -115,14 +122,16 @@ function posix_getpgid(int $pid) : int
  * @throws PosixException
  *
  */
-function posix_initgroups(string $name, int $base_group_id) : void
+function posix_initgroups(string $name, int $base_group_id): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_initgroups($name, $base_group_id);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Send the signal sig to the process with
  * the process identifier pid.
@@ -132,14 +141,16 @@ function posix_initgroups(string $name, int $base_group_id) : void
  * @throws PosixException
  *
  */
-function posix_kill(int $pid, int $sig) : void
+function posix_kill(int $pid, int $sig): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_kill($pid, $sig);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * posix_mkfifo creates a special
  * FIFO file which exists in the file system and acts as
@@ -154,14 +165,16 @@ function posix_kill(int $pid, int $sig) : void
  * @throws PosixException
  *
  */
-function posix_mkfifo(string $pathname, int $mode) : void
+function posix_mkfifo(string $pathname, int $mode): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_mkfifo($pathname, $mode);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Creates a special or ordinary file.
  *
@@ -177,14 +190,16 @@ function posix_mkfifo(string $pathname, int $mode) : void
  * @throws PosixException
  *
  */
-function posix_mknod(string $pathname, int $mode, int $major = 0, int $minor = 0) : void
+function posix_mknod(string $pathname, int $mode, int $major = 0, int $minor = 0): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_mknod($pathname, $mode, $major, $minor);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Set the effective group ID of the current process. This is a
  * privileged function and needs appropriate privileges (usually
@@ -194,14 +209,16 @@ function posix_mknod(string $pathname, int $mode, int $major = 0, int $minor = 0
  * @throws PosixException
  *
  */
-function posix_setegid(int $gid) : void
+function posix_setegid(int $gid): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_setegid($gid);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Set the effective user ID of the current process. This is a privileged
  * function and needs appropriate privileges (usually root) on
@@ -211,14 +228,16 @@ function posix_setegid(int $gid) : void
  * @throws PosixException
  *
  */
-function posix_seteuid(int $uid) : void
+function posix_seteuid(int $uid): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_seteuid($uid);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Set the real group ID of the current process. This is a
  * privileged function and needs appropriate privileges (usually
@@ -231,14 +250,16 @@ function posix_seteuid(int $uid) : void
  * @throws PosixException
  *
  */
-function posix_setgid(int $gid) : void
+function posix_setgid(int $gid): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_setgid($gid);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Let the process pid join the process group
  * pgid.
@@ -248,14 +269,16 @@ function posix_setgid(int $gid) : void
  * @throws PosixException
  *
  */
-function posix_setpgid(int $pid, int $pgid) : void
+function posix_setpgid(int $pid, int $pgid): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_setpgid($pid, $pgid);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * posix_setrlimit sets the soft and hard limits for a
  * given system resource.
@@ -277,14 +300,16 @@ function posix_setpgid(int $pid, int $pgid) : void
  * @throws PosixException
  *
  */
-function posix_setrlimit(int $resource, int $softlimit, int $hardlimit) : void
+function posix_setrlimit(int $resource, int $softlimit, int $hardlimit): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_setrlimit($resource, $softlimit, $hardlimit);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }
+
+
 /**
  * Set the real user ID of the current process. This is a privileged
  * function that needs appropriate privileges (usually root) on
@@ -294,11 +319,11 @@ function posix_setrlimit(int $resource, int $softlimit, int $hardlimit) : void
  * @throws PosixException
  *
  */
-function posix_setuid(int $uid) : void
+function posix_setuid(int $uid): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \posix_setuid($uid);
-    if ($result === \false) {
+    if ($result === false) {
         throw PosixException::createFromPhpError();
     }
 }

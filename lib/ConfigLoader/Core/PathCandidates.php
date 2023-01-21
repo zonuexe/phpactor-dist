@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader\Core;
+namespace Phpactor\ConfigLoader\Core;
 
 use IteratorAggregate;
 use Traversable;
@@ -22,9 +22,8 @@ class PathCandidates implements IteratorAggregate
             (yield $candidate);
         }
     }
-    private function add(PathCandidate $candidate) : void
+    private function add(\Phpactor\ConfigLoader\Core\PathCandidate $candidate) : void
     {
         $this->candidates[] = $candidate;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\Core\\PathCandidates', 'Phpactor\\ConfigLoader\\Core\\PathCandidates', \false);

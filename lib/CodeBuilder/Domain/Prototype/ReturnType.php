@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class ReturnType extends Prototype
+final class ReturnType extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
 {
-    public function __construct(private Type $type)
+    public function __construct(private \Phpactor\CodeBuilder\Domain\Prototype\Type $type)
     {
         parent::__construct();
     }
@@ -14,19 +14,18 @@ final class ReturnType extends Prototype
     }
     public static function fromString($string)
     {
-        return new self(Type::fromString($string));
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Type::fromString($string));
     }
     public static function none()
     {
-        return new self(Type::none());
+        return new self(\Phpactor\CodeBuilder\Domain\Prototype\Type::none());
     }
     public function notNone() : bool
     {
         return $this->type->notNone();
     }
-    public function type() : Type
+    public function type() : \Phpactor\CodeBuilder\Domain\Prototype\Type
     {
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\ReturnType', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\ReturnType', \false);

@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
+namespace Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
 
 use Phpactor202301\Amp\Promise;
 use Generator;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanProcess;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use function Phpactor202301\Safe\tempnam;
-use function Phpactor202301\Safe\file_put_contents;
+use Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
+use Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanProcess;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\TextDocument\TextDocumentUri;
+use function Safe\tempnam;
+use function Safe\file_put_contents;
 class PhpstanLinter implements Linter
 {
     public function __construct(private PhpstanProcess $process)
@@ -37,4 +37,3 @@ class PhpstanLinter implements Linter
         return $diagnostics;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Model\\Linter\\PhpstanLinter', 'Phpactor\\Extension\\LanguageServerPhpstan\\Model\\Linter\\PhpstanLinter', \false);

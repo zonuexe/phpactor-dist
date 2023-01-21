@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Container;
+namespace Phpactor\Container;
 
 use Closure;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\MapResolver\Resolver;
 use RuntimeException;
-class PhpactorContainer implements Container, ContainerBuilder
+class PhpactorContainer implements \Phpactor\Container\Container, \Phpactor\Container\ContainerBuilder
 {
     const PARAM_EXTENSION_CLASSES = 'container.extension_classes';
     /**
@@ -35,7 +35,7 @@ class PhpactorContainer implements Container, ContainerBuilder
      * @param list<class-string<Extension>> $extensionClasses
      * @param array<string,mixed> $parameters
      */
-    public static function fromExtensions(array $extensionClasses, array $parameters = []) : Container
+    public static function fromExtensions(array $extensionClasses, array $parameters = []) : \Phpactor\Container\Container
     {
         $container = new self();
         $extensions = \array_map(function (string $class) {
@@ -91,7 +91,7 @@ class PhpactorContainer implements Container, ContainerBuilder
         }
         return $this->parameters[$name];
     }
-    public function build(array $parameters) : Container
+    public function build(array $parameters) : \Phpactor\Container\Container
     {
         $this->parameters = $parameters;
         return $this;
@@ -109,4 +109,3 @@ class PhpactorContainer implements Container, ContainerBuilder
         return $this->tags;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Container\\PhpactorContainer', 'Phpactor\\Container\\PhpactorContainer', \false);

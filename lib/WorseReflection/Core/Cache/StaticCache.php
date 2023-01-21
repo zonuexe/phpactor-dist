@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Cache;
+namespace Phpactor\WorseReflection\Core\Cache;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\Cache;
 class StaticCache implements Cache
 {
     /**
@@ -26,4 +26,3 @@ class StaticCache implements Cache
         $this->cache = [];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Cache\\StaticCache', 'Phpactor\\WorseReflection\\Core\\Cache\\StaticCache', \false);

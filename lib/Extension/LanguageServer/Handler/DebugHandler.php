@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Handler;
+namespace Phpactor\Extension\LanguageServer\Handler;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Status\StatusProvider;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ServerStats;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceManager;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\Extension\LanguageServer\Status\StatusProvider;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\Container\Container;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
+use Phpactor\LanguageServer\Core\Server\ServerStats;
+use Phpactor\LanguageServer\Core\Service\ServiceManager;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Handler\Handler;
 class DebugHandler implements Handler
 {
     const METHOD_DEBUG_CONFIG = 'phpactor/debug/config';
@@ -107,4 +107,3 @@ class DebugHandler implements Handler
         return new Success(\implode(\PHP_EOL, $info));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Handler\\DebugHandler', 'Phpactor\\Extension\\LanguageServer\\Handler\\DebugHandler', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerHover\Renderer;
+namespace Phpactor\Extension\LanguageServerHover\Renderer;
 
 class HoverInformation
 {
@@ -20,4 +20,3 @@ class HoverInformation
         return $this->object;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerHover\\Renderer\\HoverInformation', 'Phpactor\\Extension\\LanguageServerHover\\Renderer\\HoverInformation', \false);

@@ -1,13 +1,11 @@
 <?php
 
-namespace Phpactor202301\RdKafka;
+namespace RdKafka;
 
 abstract class Topic
 {
     /**
      * @return string
      */
-    public function getName()
-    {
-    }
+    public function getName() {}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Rpc;
+namespace Phpactor\LanguageServer\Core\Rpc;
 
 final class ErrorCodes
 {
@@ -17,4 +17,3 @@ final class ErrorCodes
     // defined by LSP
     const RequestCancelled = -32800;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Rpc\\ErrorCodes', 'Phpactor\\LanguageServer\\Core\\Rpc\\ErrorCodes', \false);

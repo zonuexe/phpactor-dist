@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model;
+namespace Phpactor\Extension\LanguageServerPhpstan\Model;
 
 final class PhpstanConfig
 {
@@ -16,4 +16,3 @@ final class PhpstanConfig
         return $this->phpstanBin;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Model\\PhpstanConfig', 'Phpactor\\Extension\\LanguageServerPhpstan\\Model\\PhpstanConfig', \false);

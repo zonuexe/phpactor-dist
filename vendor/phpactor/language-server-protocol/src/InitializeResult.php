@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -27,7 +27,7 @@ class InitializeResult
      * @param ServerCapabilities $capabilities
      * @param array<mixed>|null $serverInfo
      */
-    public function __construct(ServerCapabilities $capabilities, ?array $serverInfo = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\ServerCapabilities $capabilities, ?array $serverInfo = null)
     {
         $this->capabilities = $capabilities;
         $this->serverInfo = $serverInfo;
@@ -38,7 +38,7 @@ class InitializeResult
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['capabilities' => ['names' => [ServerCapabilities::class], 'iterable' => \false], 'serverInfo' => ['names' => [], 'iterable' => \false]];
+        $map = ['capabilities' => ['names' => [\Phpactor\LanguageServerProtocol\ServerCapabilities::class], 'iterable' => \false], 'serverInfo' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -88,7 +88,3 @@ class InitializeResult
         throw $lastException;
     }
 }
-/**
- * The result returned from an initialize request.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\InitializeResult', 'Phpactor\\LanguageServerProtocol\\InitializeResult', \false);

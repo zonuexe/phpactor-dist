@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Container;
+namespace Phpactor\Container;
 
 use Phpactor202301\Psr\Container\ContainerInterface;
 interface Container extends ContainerInterface
@@ -38,4 +38,3 @@ interface Container extends ContainerInterface
      */
     public function getServiceIds() : array;
 }
-\class_alias('Phpactor202301\\Phpactor\\Container\\Container', 'Phpactor\\Container\\Container', \false);

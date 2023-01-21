@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+namespace Phpactor\TextDocument\TextDocumentLocator;
 
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextDocumentLocator;
 final class InMemoryDocumentLocator implements TextDocumentLocator
 {
     /**
@@ -36,4 +36,3 @@ final class InMemoryDocumentLocator implements TextDocumentLocator
         return new self([]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocumentLocator\\InMemoryDocumentLocator', 'Phpactor\\TextDocument\\TextDocumentLocator\\InMemoryDocumentLocator', \false);

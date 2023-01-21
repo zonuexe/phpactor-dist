@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\OpcacheException;
+use Safe\Exceptions\OpcacheException;
+
 /**
  * This function compiles a PHP script and adds it to the opcode cache without
  * executing it. This can be used to prime the cache after a Web server
@@ -12,14 +13,16 @@ use Phpactor202301\Safe\Exceptions\OpcacheException;
  * @throws OpcacheException
  *
  */
-function opcache_compile_file(string $file) : void
+function opcache_compile_file(string $file): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \opcache_compile_file($file);
-    if ($result === \false) {
+    if ($result === false) {
         throw OpcacheException::createFromPhpError();
     }
 }
+
+
 /**
  * This function returns state information about the cache instance
  *
@@ -28,11 +31,11 @@ function opcache_compile_file(string $file) : void
  * @throws OpcacheException
  *
  */
-function opcache_get_status(bool $get_scripts = \true) : array
+function opcache_get_status(bool $get_scripts = true): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \opcache_get_status($get_scripts);
-    if ($result === \false) {
+    if ($result === false) {
         throw OpcacheException::createFromPhpError();
     }
     return $result;

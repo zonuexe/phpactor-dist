@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
 class GlobbedConstantUnionType extends Type
 {
     public function __construct(private Type $classType, private string $glob)
@@ -17,7 +17,7 @@ class GlobbedConstantUnionType extends Type
     }
     public function toPhpString() : string
     {
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function accepts(Type $type) : Trinary
     {
@@ -25,12 +25,12 @@ class GlobbedConstantUnionType extends Type
     }
     public function toUnion() : Type
     {
-        if (!$this->classType instanceof ReflectedClassType) {
-            return new MissingType();
+        if (!$this->classType instanceof \Phpactor\WorseReflection\Core\Type\ReflectedClassType) {
+            return new \Phpactor\WorseReflection\Core\Type\MissingType();
         }
         $reflection = $this->classType->reflectionOrNull();
         if (null === $reflection) {
-            return new MissingType();
+            return new \Phpactor\WorseReflection\Core\Type\MissingType();
         }
         $types = [];
         foreach ($reflection->members()->byMemberType(ReflectionMember::TYPE_CONSTANT) as $constant) {
@@ -40,11 +40,10 @@ class GlobbedConstantUnionType extends Type
                 $types[] = $constant->type();
             }
         }
-        return (new UnionType(...$types))->reduce();
+        return (new \Phpactor\WorseReflection\Core\Type\UnionType(...$types))->reduce();
     }
     public function map(Closure $mapper) : Type
     {
         return new self($mapper($this->classType), $this->glob);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\GlobbedConstantUnionType', 'Phpactor\\WorseReflection\\Core\\Type\\GlobbedConstantUnionType', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\RequestHandler;
+namespace Phpactor\Extension\Rpc\RequestHandler;
 
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\ErrorResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\RequestHandler;
+use Phpactor\Extension\Rpc\Response\ErrorResponse;
+use Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\Response;
 use Exception;
 class ExceptionCatchingHandler implements RequestHandler
 {
@@ -21,4 +21,3 @@ class ExceptionCatchingHandler implements RequestHandler
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RequestHandler\\ExceptionCatchingHandler', 'Phpactor\\Extension\\Rpc\\RequestHandler\\ExceptionCatchingHandler', \false);

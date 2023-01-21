@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
-final class Token implements Element
+final class Token implements \Phpactor\DocblockParser\Ast\Element
 {
     public const T_PHPDOC_OPEN = 'PHPDOC_OPEN';
     public const T_ASTERISK = 'PHPDOC_LEADING';
@@ -53,4 +53,3 @@ final class Token implements Element
         return $this->end() - $this->start();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Token', 'Phpactor\\DocblockParser\\Ast\\Token', \false);

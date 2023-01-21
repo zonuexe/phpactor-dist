@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver\Filter;
+namespace Phpactor\FilePathResolver\Filter;
 
-use Phpactor202301\Phpactor\FilePathResolver\Expanders;
-use Phpactor202301\Phpactor\FilePathResolver\Filter;
+use Phpactor\FilePathResolver\Expanders;
+use Phpactor\FilePathResolver\Filter;
 class TokenExpandingFilter implements Filter
 {
     public function __construct(private Expanders $expanders)
@@ -24,4 +24,3 @@ class TokenExpandingFilter implements Filter
         return $path;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\Filter\\TokenExpandingFilter', 'Phpactor\\FilePathResolver\\Filter\\TokenExpandingFilter', \false);

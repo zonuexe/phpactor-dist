@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\ReferenceFinder;
+namespace Phpactor\Indexer\Adapter\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record\HasPath;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
-use Phpactor202301\Phpactor\Indexer\Util\PhpNameMatcher;
-use Phpactor202301\Phpactor\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcher;
-use Phpactor202301\Phpactor\ReferenceFinder\NameSearcherType;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record\HasPath;
+use Phpactor\Indexer\Model\SearchClient;
+use Phpactor\Indexer\Util\PhpNameMatcher;
+use Phpactor\Name\FullyQualifiedName;
+use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\NameSearcherType;
+use Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor\TextDocument\TextDocumentUri;
 class IndexedNameSearcher implements NameSearcher
 {
     public function __construct(private SearchClient $client)
@@ -63,4 +63,3 @@ class IndexedNameSearcher implements NameSearcher
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\ReferenceFinder\\IndexedNameSearcher', 'Phpactor\\Indexer\\Adapter\\ReferenceFinder\\IndexedNameSearcher', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser;
+namespace Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\PlainDocblock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
+use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
+use Phpactor\WorseReflection\Core\DocBlock\PlainDocblock;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
 class CachedParserFactory implements DocBlockFactory
 {
     public function __construct(private DocBlockFactory $innerFactory, private Cache $cache)
@@ -22,4 +22,3 @@ class CachedParserFactory implements DocBlockFactory
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\Phpactor\\DocblockParser\\CachedParserFactory', 'Phpactor\\WorseReflection\\Bridge\\Phpactor\\DocblockParser\\CachedParserFactory', \false);

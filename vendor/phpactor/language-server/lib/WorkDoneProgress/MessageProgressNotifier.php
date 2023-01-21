@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\WorkDoneProgress;
+namespace Phpactor\LanguageServer\WorkDoneProgress;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Client\MessageClient;
-final class MessageProgressNotifier implements ProgressNotifier
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Server\Client\MessageClient;
+final class MessageProgressNotifier implements \Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier
 {
     /**
      * @var MessageClient
@@ -20,27 +20,26 @@ final class MessageProgressNotifier implements ProgressNotifier
     /**
      * {@inheritDoc}
      */
-    public function create(WorkDoneToken $token) : Promise
+    public function create(\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken $token) : Promise
     {
         return new Success(new ResponseMessage($token->__toString(), null));
     }
     /**
      * {@inheritDoc}
      */
-    public function begin(WorkDoneToken $token, string $title, ?string $message = null, ?int $percentage = null, ?bool $cancellable = null) : void
+    public function begin(\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken $token, string $title, ?string $message = null, ?int $percentage = null, ?bool $cancellable = null) : void
     {
         $this->api->info($message);
     }
     /**
      * {@inheritDoc}
      */
-    public function report(WorkDoneToken $token, ?string $message = null, ?int $percentage = null, ?bool $cancellable = null) : void
+    public function report(\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken $token, ?string $message = null, ?int $percentage = null, ?bool $cancellable = null) : void
     {
         $this->api->info(\sprintf('%s - %d%%', $message, $percentage));
     }
-    public function end(WorkDoneToken $token, ?string $message = null) : void
+    public function end(\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken $token, ?string $message = null) : void
     {
         $this->api->info($message);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\WorkDoneProgress\\MessageProgressNotifier', 'Phpactor\\LanguageServer\\WorkDoneProgress\\MessageProgressNotifier', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics;
+namespace Phpactor\LanguageServer\Core\Diagnostics;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use function Phpactor202301\Amp\call;
 use Throwable;
-class AggregateDiagnosticsProvider implements DiagnosticsProvider
+class AggregateDiagnosticsProvider implements \Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider
 {
     /**
      * @var array<DiagnosticsProvider>
@@ -18,7 +18,7 @@ class AggregateDiagnosticsProvider implements DiagnosticsProvider
      * @var LoggerInterface
      */
     private $logger;
-    public function __construct(LoggerInterface $logger, DiagnosticsProvider ...$providers)
+    public function __construct(LoggerInterface $logger, \Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider ...$providers)
     {
         $this->providers = $providers;
         $this->logger = $logger;
@@ -48,7 +48,6 @@ class AggregateDiagnosticsProvider implements DiagnosticsProvider
     }
     public function name() : string
     {
-        return \implode(', ', \array_map(fn(DiagnosticsProvider $provider) => $provider->name(), $this->providers));
+        return \implode(', ', \array_map(fn(\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider $provider) => $provider->name(), $this->providers));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Diagnostics\\AggregateDiagnosticsProvider', 'Phpactor\\LanguageServer\\Core\\Diagnostics\\AggregateDiagnosticsProvider', \false);

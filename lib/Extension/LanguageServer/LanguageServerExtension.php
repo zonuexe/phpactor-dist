@@ -1,65 +1,65 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer;
+namespace Phpactor\Extension\LanguageServer;
 
 use Phpactor202301\Composer\InstalledVersions;
 use Phpactor202301\Phly\EventDispatcher\EventDispatcher;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Dispatcher\PhpactorDispatcherFactory;
-use Phpactor202301\Phpactor\Extension\LanguageServer\EventDispatcher\LazyAggregateProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Handler\DebugHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Listener\InvalidConfigListener;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Listener\SelfDestructListener;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Logger\ClientLogger;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Middleware\ProfilerMiddleware;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Middleware\TraceMiddleware;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\LanguageServer\Command\StartCommand;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\AggregateCodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\CommandDispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\AggregateDiagnosticsProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsEngine;
-use Phpactor202301\Phpactor\LanguageServer\Diagnostics\CodeActionDiagnosticsProvider;
-use Phpactor202301\Phpactor\LanguageServer\Handler\System\StatsHandler;
-use Phpactor202301\Phpactor\LanguageServer\Handler\TextDocument\CodeActionHandler;
-use Phpactor202301\Phpactor\LanguageServer\Handler\TextDocument\FormattingHandler;
-use Phpactor202301\Phpactor\LanguageServer\Handler\TextDocument\TextDocumentHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\HandlerMethodRunner;
-use Phpactor202301\Phpactor\LanguageServer\Adapter\DTL\DTLArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\LanguageSeverProtocolParamsResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\ChainArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
-use Phpactor202301\Phpactor\LanguageServer\Handler\Workspace\DidChangeWatchedFilesHandler;
-use Phpactor202301\Phpactor\LanguageServer\Listener\DidChangeWatchedFilesListener;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\HandlerMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\ResponseHandlingMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\MethodAliasMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\MethodRunner;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\CancellationMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handlers;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\InitializeMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\ErrorHandlingMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher\MiddlewareDispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceProviders;
-use Phpactor202301\Phpactor\LanguageServer\Listener\ServiceListener;
-use Phpactor202301\Phpactor\LanguageServer\Handler\Workspace\CommandHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceManager;
-use Phpactor202301\Phpactor\LanguageServer\Handler\System\ServiceHandler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Listener\WorkspaceListener;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\LanguageServer\LanguageServerBuilder;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ServerStats;
-use Phpactor202301\Phpactor\LanguageServer\Middleware\ShutdownMiddleware;
-use Phpactor202301\Phpactor\LanguageServer\Service\DiagnosticsService;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\MapResolver\ResolverErrors;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServer\Dispatcher\PhpactorDispatcherFactory;
+use Phpactor\Extension\LanguageServer\EventDispatcher\LazyAggregateProvider;
+use Phpactor\Extension\LanguageServer\Handler\DebugHandler;
+use Phpactor\Extension\LanguageServer\Listener\InvalidConfigListener;
+use Phpactor\Extension\LanguageServer\Listener\SelfDestructListener;
+use Phpactor\Extension\LanguageServer\Logger\ClientLogger;
+use Phpactor\Extension\LanguageServer\Middleware\ProfilerMiddleware;
+use Phpactor\Extension\LanguageServer\Middleware\TraceMiddleware;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\LanguageServer\Command\StartCommand;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServer\Core\CodeAction\AggregateCodeActionProvider;
+use Phpactor\LanguageServer\Core\Command\CommandDispatcher;
+use Phpactor\LanguageServer\Core\Diagnostics\AggregateDiagnosticsProvider;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsEngine;
+use Phpactor\LanguageServer\Diagnostics\CodeActionDiagnosticsProvider;
+use Phpactor\LanguageServer\Handler\System\StatsHandler;
+use Phpactor\LanguageServer\Handler\TextDocument\CodeActionHandler;
+use Phpactor\LanguageServer\Handler\TextDocument\FormattingHandler;
+use Phpactor\LanguageServer\Handler\TextDocument\TextDocumentHandler;
+use Phpactor\LanguageServer\Core\Handler\HandlerMethodRunner;
+use Phpactor\LanguageServer\Adapter\DTL\DTLArgumentResolver;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\LanguageSeverProtocolParamsResolver;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\ChainArgumentResolver;
+use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
+use Phpactor\LanguageServer\Handler\Workspace\DidChangeWatchedFilesHandler;
+use Phpactor\LanguageServer\Listener\DidChangeWatchedFilesListener;
+use Phpactor\LanguageServer\Middleware\HandlerMiddleware;
+use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+use Phpactor\LanguageServer\Middleware\ResponseHandlingMiddleware;
+use Phpactor\LanguageServer\Middleware\MethodAliasMiddleware;
+use Phpactor\LanguageServer\Core\Handler\MethodRunner;
+use Phpactor\LanguageServer\Middleware\CancellationMiddleware;
+use Phpactor\LanguageServer\Core\Handler\Handlers;
+use Phpactor\LanguageServer\Middleware\InitializeMiddleware;
+use Phpactor\LanguageServer\Middleware\ErrorHandlingMiddleware;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher\MiddlewareDispatcher;
+use Phpactor\LanguageServer\Core\Service\ServiceProvider;
+use Phpactor\LanguageServer\Core\Service\ServiceProviders;
+use Phpactor\LanguageServer\Listener\ServiceListener;
+use Phpactor\LanguageServer\Handler\Workspace\CommandHandler;
+use Phpactor\LanguageServer\Core\Service\ServiceManager;
+use Phpactor\LanguageServer\Handler\System\ServiceHandler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Listener\WorkspaceListener;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServer\LanguageServerBuilder;
+use Phpactor\LanguageServer\Core\Server\ServerStats;
+use Phpactor\LanguageServer\Middleware\ShutdownMiddleware;
+use Phpactor\LanguageServer\Service\DiagnosticsService;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\MapResolver\ResolverErrors;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use RuntimeException;
@@ -256,7 +256,7 @@ EOT
         });
         $container->register(Handlers::class, function (Container $container) {
             $handlers = [];
-            foreach (\array_keys($container->getServiceIdsForTag(LanguageServerExtension::TAG_METHOD_HANDLER)) as $serviceId) {
+            foreach (\array_keys($container->getServiceIdsForTag(\Phpactor\Extension\LanguageServer\LanguageServerExtension::TAG_METHOD_HANDLER)) as $serviceId) {
                 $handler = $container->get($serviceId);
                 if (null === $handler) {
                     continue;
@@ -287,7 +287,7 @@ EOT
                 return null;
             }
             return new FormattingHandler($container->get(self::SERVICE_SESSION_WORKSPACE), $formatter);
-        }, [LanguageServerExtension::TAG_METHOD_HANDLER => []]);
+        }, [\Phpactor\Extension\LanguageServer\LanguageServerExtension::TAG_METHOD_HANDLER => []]);
     }
     private function registerServices(ContainerBuilder $container) : void
     {
@@ -360,4 +360,3 @@ EOT
         return ['name' => $package['name'], 'version' => $package['pretty_version'], 'reference' => $package['reference']];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\LanguageServerExtension', 'Phpactor\\Extension\\LanguageServer\\LanguageServerExtension', \false);

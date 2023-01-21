@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransform\Rpc;
+namespace Phpactor\Extension\CodeTransform\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\CodeTransform\CodeTransform;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\InputCallbackResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\CodeTransform\CodeTransform;
+use Phpactor\Extension\Rpc\Response\Input\ChoiceInput;
+use Phpactor\Extension\Rpc\Response\InputCallbackResponse;
+use Phpactor\Extension\Rpc\Request;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
 class TransformHandler implements Handler
 {
     const NAME = 'transform';
@@ -44,4 +44,3 @@ class TransformHandler implements Handler
         return InputCallbackResponse::fromCallbackAndInputs(Request::fromNameAndParameters($this->name(), [self::PARAM_NAME => null, self::PARAM_PATH => $path, self::PARAM_SOURCE => $source]), [ChoiceInput::fromNameLabelChoicesAndDefault(self::PARAM_NAME, 'Transform: ', (array) \array_combine($transformers, $transformers))]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransform\\Rpc\\TransformHandler', 'Phpactor\\Extension\\CodeTransform\\Rpc\\TransformHandler', \false);

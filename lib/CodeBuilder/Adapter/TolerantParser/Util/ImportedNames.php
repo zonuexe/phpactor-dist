@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Util;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Util;
 
 use ArrayIterator;
 use IteratorAggregate;
@@ -46,4 +46,3 @@ class ImportedNames implements IteratorAggregate
         $this->table = $node->getImportTablesForCurrentScope();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Util\\ImportedNames', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Util\\ImportedNames', \false);

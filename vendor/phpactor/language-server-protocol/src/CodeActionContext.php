@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -46,7 +46,7 @@ class CodeActionContext
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['diagnostics' => ['names' => [Diagnostic::class], 'iterable' => \true], 'only' => ['names' => [], 'iterable' => \true]];
+        $map = ['diagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\Diagnostic::class], 'iterable' => \true], 'only' => ['names' => [], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -96,8 +96,3 @@ class CodeActionContext
         throw $lastException;
     }
 }
-/**
- * Contains additional diagnostic information about the context in which
- * a [code action](#CodeActionProvider.provideCodeActions) is run.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeActionContext', 'Phpactor\\LanguageServerProtocol\\CodeActionContext', \false);

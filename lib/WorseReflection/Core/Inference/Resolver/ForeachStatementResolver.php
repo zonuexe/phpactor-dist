@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node\ArrayElement;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArrayElementList;
@@ -8,23 +8,23 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrayCreationExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\ForeachKey;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ForeachStatement;
 use Phpactor202301\Microsoft\PhpParser\Node\ForeachValue;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayLiteral;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IterableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MixedType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\UnionType;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
+use Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ArrayLiteral;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Type\IterableType;
+use Phpactor\WorseReflection\Core\Type\MixedType;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+use Phpactor\WorseReflection\Core\Type\UnionType;
 class ForeachStatementResolver implements Resolver
 {
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node) : NodeContext
@@ -162,4 +162,3 @@ class ForeachStatementResolver implements Resolver
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ForeachStatementResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ForeachStatementResolver', \false);

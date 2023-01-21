@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ReflectedClassType;
-interface ReflectionClassLike extends ReflectionNode
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+interface ReflectionClassLike extends \Phpactor\WorseReflection\Core\Reflection\ReflectionNode
 {
     public function position() : Position;
     public function name() : ClassName;
-    public function methods(ReflectionClassLike $contextClass = null) : ReflectionMethodCollection;
+    public function methods(\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike $contextClass = null) : ReflectionMethodCollection;
     /**
      * @return ReflectionMemberCollection<ReflectionMember>
      */
@@ -36,4 +36,3 @@ interface ReflectionClassLike extends ReflectionNode
     public function templateMap() : TemplateMap;
     public function type() : ReflectedClassType;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionClassLike', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionClassLike', \false);

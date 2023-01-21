@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
-use Phpactor202301\Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor202301\Psr\Log\LoggerInterface;
-class ChainSignatureHelper implements SignatureHelper
+class ChainSignatureHelper implements \Phpactor\Completion\Core\SignatureHelper
 {
     /**
      * @var SignatureHelper[]
@@ -18,7 +18,7 @@ class ChainSignatureHelper implements SignatureHelper
             $this->add($helper);
         }
     }
-    public function signatureHelp(TextDocument $document, ByteOffset $offset) : SignatureHelp
+    public function signatureHelp(TextDocument $document, ByteOffset $offset) : \Phpactor\Completion\Core\SignatureHelp
     {
         foreach ($this->helpers as $helper) {
             try {
@@ -29,9 +29,8 @@ class ChainSignatureHelper implements SignatureHelper
         }
         throw new CouldNotHelpWithSignature('Could not provide signature with chain helper');
     }
-    private function add(SignatureHelper $helper) : void
+    private function add(\Phpactor\Completion\Core\SignatureHelper $helper) : void
     {
         $this->helpers[] = $helper;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\ChainSignatureHelper', 'Phpactor\\Completion\\Core\\ChainSignatureHelper', \false);

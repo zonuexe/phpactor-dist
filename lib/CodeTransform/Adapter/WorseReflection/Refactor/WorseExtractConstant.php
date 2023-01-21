@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ExtractConstant;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentEdits;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\CodeTransform\Domain\Refactor\ExtractConstant;
+use Phpactor\TextDocument\TextDocumentEdits;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
 use Phpactor202301\Microsoft\PhpParser\Node\NumericLiteral;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\WorseReflection\TypeUtil;
 class WorseExtractConstant implements ExtractConstant
 {
     private Parser $parser;
@@ -88,4 +88,3 @@ class WorseExtractConstant implements ExtractConstant
         throw new TransformException(\sprintf('Do not know how to replace node of type "%s"', \get_class($node)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseExtractConstant', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Refactor\\WorseExtractConstant', \false);

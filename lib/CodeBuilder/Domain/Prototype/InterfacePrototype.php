@@ -1,18 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class InterfacePrototype extends ClassLikePrototype
+final class InterfacePrototype extends \Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype
 {
-    private ExtendsInterfaces $extendsInterfaces;
-    public function __construct(string $name, Methods $methods = null, ExtendsInterfaces $extendsInterfaces = null, UpdatePolicy $updatePolicy = null)
+    private \Phpactor\CodeBuilder\Domain\Prototype\ExtendsInterfaces $extendsInterfaces;
+    public function __construct(string $name, \Phpactor\CodeBuilder\Domain\Prototype\Methods $methods = null, \Phpactor\CodeBuilder\Domain\Prototype\ExtendsInterfaces $extendsInterfaces = null, \Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy $updatePolicy = null)
     {
         parent::__construct($name, $methods, null, null, $updatePolicy);
-        $this->extendsInterfaces = $extendsInterfaces ?: ExtendsInterfaces::empty();
+        $this->extendsInterfaces = $extendsInterfaces ?: \Phpactor\CodeBuilder\Domain\Prototype\ExtendsInterfaces::empty();
     }
-    public function extendsInterfaces() : ExtendsInterfaces
+    public function extendsInterfaces() : \Phpactor\CodeBuilder\Domain\Prototype\ExtendsInterfaces
     {
         return $this->extendsInterfaces;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\InterfacePrototype', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\InterfacePrototype', \false);

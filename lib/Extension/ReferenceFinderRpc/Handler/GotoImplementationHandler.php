@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ReferenceFinderRpc\Handler;
+namespace Phpactor\Extension\ReferenceFinderRpc\Handler;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\FileReferencesResponse;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Reference\FileReferences;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Reference\Reference;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\OpenFileResponse;
-use Phpactor202301\Phpactor\ReferenceFinder\ClassImplementationFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\Locations;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\TextDocument\Util\LineAtOffset;
-use Phpactor202301\Phpactor\TextDocument\Util\LineColFromOffset;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\Extension\Rpc\Response\FileReferencesResponse;
+use Phpactor\Extension\Rpc\Response\Reference\FileReferences;
+use Phpactor\Extension\Rpc\Response\Reference\Reference;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\OpenFileResponse;
+use Phpactor\ReferenceFinder\ClassImplementationFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\Locations;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\TextDocument\Util\LineAtOffset;
+use Phpactor\TextDocument\Util\LineColFromOffset;
 use RuntimeException;
 class GotoImplementationHandler extends AbstractHandler
 {
@@ -72,4 +72,3 @@ class GotoImplementationHandler extends AbstractHandler
         return \file_get_contents($location->uri()->path());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ReferenceFinderRpc\\Handler\\GotoImplementationHandler', 'Phpactor\\Extension\\ReferenceFinderRpc\\Handler\\GotoImplementationHandler', \false);

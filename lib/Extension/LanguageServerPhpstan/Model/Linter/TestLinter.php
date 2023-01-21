@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
+namespace Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
+use Phpactor\LanguageServerProtocol\Diagnostic;
 class TestLinter implements Linter
 {
     /**
@@ -22,4 +22,3 @@ class TestLinter implements Linter
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Model\\Linter\\TestLinter', 'Phpactor\\Extension\\LanguageServerPhpstan\\Model\\Linter\\TestLinter', \false);

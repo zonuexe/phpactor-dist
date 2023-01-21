@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Position;
 interface ReflectionArgument
 {
     public function guessName() : string;
@@ -11,4 +11,3 @@ interface ReflectionArgument
     public function value();
     public function position() : Position;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionArgument', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionArgument', \false);

@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionFunction as PhpactorReflectionFunction;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction as PhpactorReflectionFunction;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionFunction;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionFunction;
 /**
  * @extends AbstractReflectionCollection<PhpactorReflectionFunction>
  */
-class ReflectionFunctionCollection extends AbstractReflectionCollection
+class ReflectionFunctionCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection
 {
     public static function fromNode(ServiceLocator $serviceLocator, SourceCode $sourceCode, SourceFileNode $node) : self
     {
@@ -25,7 +25,3 @@ class ReflectionFunctionCollection extends AbstractReflectionCollection
         return new self($items);
     }
 }
-/**
- * @extends AbstractReflectionCollection<PhpactorReflectionFunction>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionFunctionCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionFunctionCollection', \false);

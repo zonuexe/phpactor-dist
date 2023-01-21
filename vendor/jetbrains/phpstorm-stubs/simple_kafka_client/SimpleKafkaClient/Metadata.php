@@ -1,7 +1,7 @@
 <?php
+declare(strict_types=1);
 
-declare (strict_types=1);
-namespace Phpactor202301\SimpleKafkaClient;
+namespace SimpleKafkaClient;
 
 class Metadata
 {
@@ -9,28 +9,23 @@ class Metadata
      * @return int
      * @throws Exception
      */
-    public function getOrigBrokerId() : int
-    {
-    }
+    public function getOrigBrokerId(): int {}
+
     /**
      * @return string
      * @throws Exception
      */
-    public function getOrigBrokerName() : string
-    {
-    }
+    public function getOrigBrokerName(): string {}
+
     /**
      * @return Metadata\Collection
      * @throws Exception
      */
-    public function getBrokers() : Metadata\Collection
-    {
-    }
+    public function getBrokers(): Metadata\Collection {}
+
     /**
      * @return Metadata\Collection
      * @throws Exception
      */
-    public function getTopics() : Metadata\Collection
-    {
-    }
+    public function getTopics(): Metadata\Collection {}
 }

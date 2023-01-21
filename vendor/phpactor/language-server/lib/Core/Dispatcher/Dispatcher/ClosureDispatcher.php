@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+namespace Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
 
 use Phpactor202301\Amp\Promise;
 use Closure;
-use Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 final class ClosureDispatcher implements Dispatcher
 {
     /**
@@ -24,4 +24,3 @@ final class ClosureDispatcher implements Dispatcher
         return $this->closure->__invoke($request);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\Dispatcher\\ClosureDispatcher', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\Dispatcher\\ClosureDispatcher', \false);

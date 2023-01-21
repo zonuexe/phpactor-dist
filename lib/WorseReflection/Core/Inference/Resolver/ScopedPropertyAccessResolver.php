@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
+namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeToTypeConverter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\NodeContextFromMemberAccess;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\NodeToTypeConverter;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Resolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
+use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\NodeContextFromMemberAccess;
+use Phpactor\WorseReflection\Core\Type\ClassType;
 class ScopedPropertyAccessResolver implements Resolver
 {
     public function __construct(private NodeToTypeConverter $nodeTypeConverter, private NodeContextFromMemberAccess $nodeContextFromMemberAccess)
@@ -35,4 +35,3 @@ class ScopedPropertyAccessResolver implements Resolver
         return $this->nodeContextFromMemberAccess->infoFromMemberAccess($resolver, $frame, $classType, $node);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ScopedPropertyAccessResolver', 'Phpactor\\WorseReflection\\Core\\Inference\\Resolver\\ScopedPropertyAccessResolver', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
+namespace Phpactor\WorseReflection\Core\SourceCodeLocator;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\SourceNotFound;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\WorseReflection\Core\Exception\SourceNotFound;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
@@ -82,4 +82,3 @@ final class BruteForceSourceLocator implements SourceCodeLocator
         return $map;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\SourceCodeLocator\\BruteForceSourceLocator', 'Phpactor\\WorseReflection\\Core\\SourceCodeLocator\\BruteForceSourceLocator', \false);

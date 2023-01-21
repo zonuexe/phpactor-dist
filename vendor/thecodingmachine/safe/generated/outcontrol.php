@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\OutcontrolException;
+use Safe\Exceptions\OutcontrolException;
+
 /**
  * This function discards the contents of the topmost output buffer and turns
  * off this output buffering. If you want to further process the buffer's
@@ -18,14 +19,16 @@ use Phpactor202301\Safe\Exceptions\OutcontrolException;
  * @throws OutcontrolException
  *
  */
-function ob_end_clean() : void
+function ob_end_clean(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ob_end_clean();
-    if ($result === \false) {
+    if ($result === false) {
         throw OutcontrolException::createFromPhpError();
     }
 }
+
+
 /**
  * This function will send the contents of the topmost output buffer (if
  * any) and turn this output buffer off.  If you want to further
@@ -42,14 +45,16 @@ function ob_end_clean() : void
  * @throws OutcontrolException
  *
  */
-function ob_end_flush() : void
+function ob_end_flush(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ob_end_flush();
-    if ($result === \false) {
+    if ($result === false) {
         throw OutcontrolException::createFromPhpError();
     }
 }
+
+
 /**
  * This function adds another name/value pair to the URL rewrite mechanism.
  * The name and value will be added to URLs (as GET parameter) and forms
@@ -67,14 +72,16 @@ function ob_end_flush() : void
  * @throws OutcontrolException
  *
  */
-function output_add_rewrite_var(string $name, string $value) : void
+function output_add_rewrite_var(string $name, string $value): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \output_add_rewrite_var($name, $value);
-    if ($result === \false) {
+    if ($result === false) {
         throw OutcontrolException::createFromPhpError();
     }
 }
+
+
 /**
  * This function resets the URL rewriter and removes all rewrite
  * variables previously set by the output_add_rewrite_var
@@ -83,11 +90,11 @@ function output_add_rewrite_var(string $name, string $value) : void
  * @throws OutcontrolException
  *
  */
-function output_reset_rewrite_vars() : void
+function output_reset_rewrite_vars(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \output_reset_rewrite_vars();
-    if ($result === \false) {
+    if ($result === false) {
         throw OutcontrolException::createFromPhpError();
     }
 }

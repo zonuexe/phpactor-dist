@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Type;
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ScalarType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\SelfType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StaticType;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\ScalarType;
+use Phpactor\WorseReflection\Core\Type\SelfType;
+use Phpactor\WorseReflection\Core\Type\StaticType;
+use Phpactor\WorseReflection\Reflector;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 /**
@@ -119,13 +119,3 @@ class NodeToTypeConverter
         return null;
     }
 }
-/**
- * This class is responsible for adjusting types according to their context
- * (e.g. expanding to FQNs).
- *
- * This should not be done here but rather ealier when the docblock types are
- * initially converted.
- *
- * https://github.com/phpactor/phpactor/issues/1781
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\NodeToTypeConverter', 'Phpactor\\WorseReflection\\Core\\Inference\\NodeToTypeConverter', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model\Renamer;
+namespace Phpactor\Rename\Model\Renamer;
 
 use Generator;
-use Phpactor202301\Phpactor\Rename\Model\Renamer;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Rename\Model\Renamer;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\TextDocument;
 class ChainRenamer implements Renamer
 {
     /** @param Renamer[] $renamers */
@@ -33,4 +33,3 @@ class ChainRenamer implements Renamer
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\Renamer\\ChainRenamer', 'Phpactor\\Rename\\Model\\Renamer\\ChainRenamer', \false);

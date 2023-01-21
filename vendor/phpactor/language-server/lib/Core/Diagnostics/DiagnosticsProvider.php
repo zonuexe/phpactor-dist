@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics;
+namespace Phpactor\LanguageServer\Core\Diagnostics;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
 interface DiagnosticsProvider
 {
     /**
@@ -14,4 +14,3 @@ interface DiagnosticsProvider
     public function provideDiagnostics(TextDocumentItem $textDocument, CancellationToken $cancel) : Promise;
     public function name() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Diagnostics\\DiagnosticsProvider', 'Phpactor\\LanguageServer\\Core\\Diagnostics\\DiagnosticsProvider', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 class Deprecation
 {
@@ -16,4 +16,3 @@ class Deprecation
         return $this->message ?? '';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Deprecation', 'Phpactor\\WorseReflection\\Core\\Deprecation', \false);

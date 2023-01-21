@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBlackfire;
+namespace Phpactor\Extension\LanguageServerBlackfire;
 
 use Phpactor202301\Blackfire\Client;
 use Phpactor202301\Blackfire\Probe;
@@ -60,4 +60,3 @@ class BlackfireProfiler
         return $this->probe;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBlackfire\\BlackfireProfiler', 'Phpactor\\Extension\\LanguageServerBlackfire\\BlackfireProfiler', \false);

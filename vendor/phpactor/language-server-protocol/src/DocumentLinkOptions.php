@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressOptions
  */
-class DocumentLinkOptions extends WorkDoneProgressOptions
+class DocumentLinkOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
      * Document links have a resolve provider as well.
@@ -89,9 +89,3 @@ class DocumentLinkOptions extends WorkDoneProgressOptions
         throw $lastException;
     }
 }
-/**
- * Provider options for a [DocumentLinkRequest](#DocumentLinkRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressOptions
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentLinkOptions', 'Phpactor\\LanguageServerProtocol\\DocumentLinkOptions', \false);

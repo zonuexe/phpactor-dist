@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Application\Finder;
+namespace Phpactor\Extension\ClassMover\Application\Finder;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\Filesystem\Domain\FileList;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Visibility;
 use RuntimeException;
 use SplFileInfo;
 class FileFinder
@@ -85,4 +85,3 @@ class FileFinder
         return $filePaths;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Application\\Finder\\FileFinder', 'Phpactor\\Extension\\ClassMover\\Application\\Finder\\FileFinder', \false);

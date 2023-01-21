@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -47,7 +47,7 @@ class ParameterInformation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['label' => ['names' => [], 'iterable' => \false], 'documentation' => ['names' => [MarkupContent::class], 'iterable' => \false]];
+        $map = ['label' => ['names' => [], 'iterable' => \false], 'documentation' => ['names' => [\Phpactor\LanguageServerProtocol\MarkupContent::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -97,8 +97,3 @@ class ParameterInformation
         throw $lastException;
     }
 }
-/**
- * Represents a parameter of a callable-signature. A parameter can
- * have a label and a doc-comment.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ParameterInformation', 'Phpactor\\LanguageServerProtocol\\ParameterInformation', \false);

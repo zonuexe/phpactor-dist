@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * sync PECL extension stubs v.0.1
  * @link https://php.net/manual/en/book.sync.php
@@ -25,9 +22,8 @@ class SyncMutex
      * @throws Exception if the mutex cannot be created or opened
      * @link https://php.net/manual/en/syncmutex.construct.php
      */
-    public function __construct($name)
-    {
-    }
+    public function __construct($name) {}
+
     /**
      * Waits for an exclusive lock
      *
@@ -38,9 +34,8 @@ class SyncMutex
      * @see SyncMutex::unlock()
      * @link https://php.net/manual/en/syncmutex.lock.php
      */
-    public function lock($wait = -1)
-    {
-    }
+    public function lock($wait = -1) {}
+
     /**
      * Unlocks the mutex
      *
@@ -51,23 +46,9 @@ class SyncMutex
      * @see SyncMutex::lock()
      * @link https://php.net/manual/en/syncmutex.unlock.php
      */
-    public function unlock($all = \false)
-    {
+    public function unlock($all = false) {}
     }
-}
-/**
- * sync PECL extension stubs v.0.1
- * @link https://php.net/manual/en/book.sync.php
- */
-/**
- * SyncMutex
- *
- * A cross-platform, native implementation of named and unnamed countable mutex objects.
- * A mutex is a mutual exclusion object that restricts access to a shared resource (e.g. a file) to a single instance. Countable mutexes acquire the mutex a single time and internally track the number of times the mutex is locked. The mutex is unlocked as soon as it goes out of scope or is unlocked the same number of times that it was locked.
- *
- * @link https://php.net/manual/en/class.syncmutex.php
- */
-\class_alias('Phpactor202301\\SyncMutex', 'SyncMutex', \false);
+
 /**
  * SyncSemaphore
  *
@@ -89,9 +70,8 @@ class SyncSemaphore
      * @throws Exception if the semaphore cannot be created or opened
      * @link https://php.net/manual/en/syncsemaphore.construct.php
      */
-    public function __construct($name, $initialval = 1, $autounlock = \true)
-    {
-    }
+    public function __construct($name, $initialval = 1, $autounlock = true) {}
+
     /**
      * Decreases the count of the semaphore or waits
      *
@@ -102,9 +82,8 @@ class SyncSemaphore
      * @see SyncSemaphore::unlock()
      * @link https://php.net/manual/en/syncsemaphore.lock.php
      */
-    public function lock($wait = -1)
-    {
-    }
+    public function lock($wait = -1) {}
+
     /**
      * Increases the count of the semaphore
      *
@@ -115,19 +94,9 @@ class SyncSemaphore
      * @see SyncSemaphore::lock()
      * @link https://php.net/manual/en/syncsemaphore.unlock.php
      */
-    public function unlock(&$prevcount = 0)
-    {
+    public function unlock(&$prevcount = 0) {}
     }
-}
-/**
- * SyncSemaphore
- *
- * A cross-platform, native implementation of named and unnamed semaphore objects.
- * A semaphore restricts access to a limited resource to a limited number of instances. Semaphores differ from mutexes in that they can allow more than one instance to access a resource at one time while a mutex only allows one instance at a time.
- *
- * @link https://php.net/manual/en/class.syncsemaphore.php
- */
-\class_alias('Phpactor202301\\SyncSemaphore', 'SyncSemaphore', \false);
+
 /**
  * SyncEvent
  *
@@ -149,9 +118,8 @@ class SyncEvent
      * @since 1.1.0 Added $prefire
      * @link https://php.net/manual/en/syncevent.construct.php
      */
-    public function __construct(string $name, bool $manual = \false, bool $prefire = \false)
-    {
-    }
+    public function __construct(string $name, bool $manual = false, bool $prefire = false) {}
+
     /**
      * Fires/sets the event
      *
@@ -161,9 +129,8 @@ class SyncEvent
      * @see SyncEvent::wait()
      * @link https://php.net/manual/en/syncevent.fire.php
      */
-    public function fire()
-    {
-    }
+    public function fire() {}
+
     /**
      * Resets a manual event
      *
@@ -172,9 +139,8 @@ class SyncEvent
      * @return bool TRUE if the object was successfully reset, FALSE otherwise.
      * @link https://php.net/manual/en/syncevent.reset.php
      */
-    public function reset()
-    {
-    }
+    public function reset() {}
+
     /**
      * Waits for the event to be fired/set
      *
@@ -185,19 +151,9 @@ class SyncEvent
      * @see SyncEvent::fire()
      * @link https://php.net/manual/en/syncevent.wait.php
      */
-    public function wait($wait = -1)
-    {
+    public function wait($wait = -1) {}
     }
-}
-/**
- * SyncEvent
- *
- * A cross-platform, native implementation of named and unnamed event objects. Both automatic and manual event objects are supported.
- * An event object waits, without polling, for the object to be fired/set. One instance waits on the event object while another instance fires/sets the event. Event objects are useful wherever a long-running process would otherwise poll a resource (e.g. checking to see if uploaded data needs to be processed).
- *
- * @link https://php.net/manual/en/class.syncevent.php
- */
-\class_alias('Phpactor202301\\SyncEvent', 'SyncEvent', \false);
+
 /**
  * SyncReaderWriter
  *
@@ -218,9 +174,8 @@ class SyncReaderWriter
      * @throws Exception if the reader-writer cannot be created or opened.
      * @link https://php.net/manual/en/syncreaderwriter.construct.php
      */
-    public function __construct($name, $autounlock = \true)
-    {
-    }
+    public function __construct($name, $autounlock = true) {}
+
     /**
      * Waits for a read lock
      *
@@ -231,9 +186,8 @@ class SyncReaderWriter
      * @see SyncReaderWriter::readunlock()
      * @link https://php.net/manual/en/syncreaderwriter.readlock.php
      */
-    public function readlock($wait = -1)
-    {
-    }
+    public function readlock($wait = -1) {}
+
     /**
      * Releases a read lock
      *
@@ -243,9 +197,8 @@ class SyncReaderWriter
      * @see SyncReaderWriter::readlock()
      * @link https://php.net/manual/en/syncreaderwriter.readunlock.php
      */
-    public function readunlock()
-    {
-    }
+    public function readunlock() {}
+
     /**
      * Waits for an exclusive write lock
      *
@@ -256,9 +209,8 @@ class SyncReaderWriter
      * @see SyncReaderWriter::writeunlock()
      * @link https://php.net/manual/en/syncreaderwriter.writelock.php
      */
-    public function writelock($wait = -1)
-    {
-    }
+    public function writelock($wait = -1) {}
+
     /**
      * Releases a write lock
      *
@@ -268,19 +220,9 @@ class SyncReaderWriter
      * @see SyncReaderWriter::writelock()
      * @link https://php.net/manual/en/syncreaderwriter.writeunlock.php
      */
-    public function writeunlock()
-    {
+    public function writeunlock() {}
     }
-}
-/**
- * SyncReaderWriter
- *
- * A cross-platform, native implementation of named and unnamed reader-writer objects.
- * A reader-writer object allows many readers or one writer to access a resource. This is an efficient solution for managing resources where access will primarily be read-only but exclusive write access is occasionally necessary.
- *
- * @link https://php.net/manual/en/class.syncreaderwriter.php
- */
-\class_alias('Phpactor202301\\SyncReaderWriter', 'SyncReaderWriter', \false);
+
 /**
  * SyncSharedMemory
  *
@@ -303,9 +245,8 @@ class SyncSharedMemory
      * @throws Exception if the shared memory object cannot be created or opened.
      * @link https://php.net/manual/en/syncsharedmemory.construct.php
      */
-    public function __construct($name, $size)
-    {
-    }
+    public function __construct($name, $size) {}
+
     /**
      * Check to see if the object is the first instance system-wide of named shared memory
      *
@@ -314,9 +255,8 @@ class SyncSharedMemory
      * @return bool TRUE if the object is the first instance system-wide, FALSE otherwise.
      * @link https://php.net/manual/en/syncsharedmemory.first.php
      */
-    public function first()
-    {
-    }
+    public function first() {}
+
     /**
      * Copy data from named shared memory
      *
@@ -328,9 +268,8 @@ class SyncSharedMemory
      * @see SyncSharedMemory::write()
      * @link https://php.net/manual/en/syncsharedmemory.read.php
      */
-    public function read($start = 0, $length)
-    {
-    }
+    public function read($start = 0, $length) {}
+
     /**
      * Returns the size of the named shared memory
      *
@@ -339,9 +278,8 @@ class SyncSharedMemory
      * @return int containing the size of the shared memory. This will be the same size that was passed to the constructor.
      * @link https://php.net/manual/en/syncsharedmemory.size.php
      */
-    public function size()
-    {
-    }
+    public function size() {}
+
     /**
      * Copy data to named shared memory
      *
@@ -352,18 +290,5 @@ class SyncSharedMemory
      * @return int containing the number of bytes written to shared memory.
      * @link https://php.net/manual/en/syncsharedmemory.write.php
      */
-    public function write($string, $start = 0)
-    {
+    public function write($string, $start = 0) {}
     }
-}
-/**
- * SyncSharedMemory
- *
- * A cross-platform, native, consistent implementation of named shared memory objects.
- * Shared memory lets two separate processes communicate without the need for complex pipes or sockets. There are several integer-based shared memory implementations for PHP. Named shared memory is an alternative.
- * Synchronization objects (e.g. SyncMutex) are still required to protect most uses of shared memory.
- *
- * @since 1.1.0
- * @link https://php.net/manual/en/class.syncsharedmemory.php
- */
-\class_alias('Phpactor202301\\SyncSharedMemory', 'SyncSharedMemory', \false);

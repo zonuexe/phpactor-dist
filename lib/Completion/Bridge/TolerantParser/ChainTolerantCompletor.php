@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\Completion\Core\Util\OffsetHelper;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\Completion\Core\Util\OffsetHelper;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class ChainTolerantCompletor implements Completor
 {
     private Parser $parser;
@@ -29,7 +29,7 @@ class ChainTolerantCompletor implements Completor
         $isComplete = \true;
         foreach ($this->tolerantCompletors as $tolerantCompletor) {
             $completionNode = $node;
-            if ($tolerantCompletor instanceof TolerantQualifiable) {
+            if ($tolerantCompletor instanceof \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable) {
                 $completionNode = $tolerantCompletor->qualifier()->couldComplete($node);
             }
             if (!$completionNode) {
@@ -57,12 +57,11 @@ class ChainTolerantCompletor implements Completor
     }
     private function filterNonQualifyingClasses(Node $node) : array
     {
-        return \array_filter($this->tolerantCompletors, function (TolerantCompletor $completor) use($node) {
-            if (!$completor instanceof TolerantQualifiable) {
+        return \array_filter($this->tolerantCompletors, function (\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor $completor) use($node) {
+            if (!$completor instanceof \Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable) {
                 return \true;
             }
             return null !== $completor->qualifier()->couldComplete($node);
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\ChainTolerantCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\ChainTolerantCompletor', \false);

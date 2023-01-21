@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\RequestHandler;
+namespace Phpactor\Extension\Rpc\RequestHandler;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\HandlerRegistry;
-use Phpactor202301\Phpactor\Extension\Rpc\RequestHandler as CoreRequestHandler;
-use Phpactor202301\Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\HandlerRegistry;
+use Phpactor\Extension\Rpc\RequestHandler as CoreRequestHandler;
+use Phpactor\Extension\Rpc\Request;
+use Phpactor\Extension\Rpc\Response;
 class RequestHandler implements CoreRequestHandler
 {
     public function __construct(private HandlerRegistry $registry)
@@ -23,4 +23,3 @@ class RequestHandler implements CoreRequestHandler
         return $handler->handle($arguments);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RequestHandler\\RequestHandler', 'Phpactor\\Extension\\Rpc\\RequestHandler\\RequestHandler', \false);

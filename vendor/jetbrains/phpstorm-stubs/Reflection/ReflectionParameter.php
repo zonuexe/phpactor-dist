@@ -1,20 +1,19 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Immutable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * The <b>ReflectionParameter</b> class retrieves
  * information about function's or method's parameters.
  *
  * @link https://php.net/manual/en/class.reflectionparameter.php
  */
-class ReflectionParameter implements \Reflector
+class ReflectionParameter implements Reflector
 {
     /**
      * @var string Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
@@ -22,6 +21,7 @@ class ReflectionParameter implements \Reflector
     #[Immutable]
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $name;
+
     /**
      * Construct
      *
@@ -31,9 +31,8 @@ class ReflectionParameter implements \Reflector
      * of the parameter (starting with zero), or a the parameter name as string.
      * @throws ReflectionException if the function or parameter does not exist.
      */
-    public function __construct($function, #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param)
-    {
-    }
+    public function __construct($function, #[LanguageLevelTypeAware(['8.0' => 'string|int'], default: '')] $param) {}
+
     /**
      * Exports
      *
@@ -47,9 +46,8 @@ class ReflectionParameter implements \Reflector
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]
-    public static function export($function, $parameter, $return = \false)
-    {
-    }
+    public static function export($function, $parameter, $return = false) {}
+
     /**
      * Returns the string representation of the ReflectionParameter object.
      *
@@ -57,9 +55,8 @@ class ReflectionParameter implements \Reflector
      * @return string
      */
     #[TentativeType]
-    public function __toString() : string
-    {
-    }
+    public function __toString(): string {}
+
     /**
      * Gets parameter name
      *
@@ -68,9 +65,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getName() : string
-    {
-    }
+    public function getName(): string {}
+
     /**
      * Checks if passed by reference
      *
@@ -79,9 +75,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isPassedByReference() : bool
-    {
-    }
+    public function isPassedByReference(): bool {}
+
     /**
      * Returns whether this parameter can be passed by value
      *
@@ -91,9 +86,8 @@ class ReflectionParameter implements \Reflector
      * @since 5.4
      */
     #[TentativeType]
-    public function canBePassedByValue() : bool
-    {
-    }
+    public function canBePassedByValue(): bool {}
+
     /**
      * Gets declaring function
      *
@@ -103,9 +97,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getDeclaringFunction() : \ReflectionFunctionAbstract
-    {
-    }
+    public function getDeclaringFunction(): ReflectionFunctionAbstract {}
+
     /**
      * Gets declaring class
      *
@@ -115,9 +108,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getDeclaringClass() : ?\ReflectionClass
-    {
-    }
+    public function getDeclaringClass(): ?ReflectionClass {}
+
     /**
      * Gets the class type hinted for the parameter as a ReflectionClass object.
      *
@@ -128,9 +120,8 @@ class ReflectionParameter implements \Reflector
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
     #[TentativeType]
-    public function getClass() : ?\ReflectionClass
-    {
-    }
+    public function getClass(): ?ReflectionClass {}
+
     /**
      * Checks if the parameter has a type associated with it.
      *
@@ -139,9 +130,8 @@ class ReflectionParameter implements \Reflector
      * @since 7.0
      */
     #[TentativeType]
-    public function hasType() : bool
-    {
-    }
+    public function hasType(): bool {}
+
     /**
      * Gets a parameter's type
      *
@@ -151,11 +141,17 @@ class ReflectionParameter implements \Reflector
      * @since 7.0
      */
     #[Pure]
-    #[LanguageLevelTypeAware(['7.1' => 'ReflectionNamedType|null', '8.0' => 'ReflectionNamedType|ReflectionUnionType|null', '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'], default: 'ReflectionType|null')]
+    #[LanguageLevelTypeAware(
+        [
+            '7.1' => 'ReflectionNamedType|null',
+            '8.0' => 'ReflectionNamedType|ReflectionUnionType|null',
+            '8.1' => 'ReflectionNamedType|ReflectionUnionType|ReflectionIntersectionType|null'
+        ],
+        default: 'ReflectionType|null'
+    )]
     #[TentativeType]
-    public function getType() : ?\ReflectionType
-    {
-    }
+    public function getType(): ?ReflectionType {}
+
     /**
      * Checks if parameter expects an array
      *
@@ -166,9 +162,8 @@ class ReflectionParameter implements \Reflector
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
     #[TentativeType]
-    public function isArray() : bool
-    {
-    }
+    public function isArray(): bool {}
+
     /**
      * Returns whether parameter MUST be callable
      *
@@ -181,9 +176,8 @@ class ReflectionParameter implements \Reflector
     #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
     #[TentativeType]
-    public function isCallable() : bool
-    {
-    }
+    public function isCallable(): bool {}
+
     /**
      * Checks if null is allowed
      *
@@ -192,9 +186,8 @@ class ReflectionParameter implements \Reflector
      * otherwise {@see false}
      */
     #[TentativeType]
-    public function allowsNull() : bool
-    {
-    }
+    public function allowsNull(): bool {}
+
     /**
      * Gets parameter position
      *
@@ -204,9 +197,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getPosition() : int
-    {
-    }
+    public function getPosition(): int {}
+
     /**
      * Checks if optional
      *
@@ -216,9 +208,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isOptional() : bool
-    {
-    }
+    public function isOptional(): bool {}
+
     /**
      * Checks if a default value is available
      *
@@ -228,9 +219,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isDefaultValueAvailable() : bool
-    {
-    }
+    public function isDefaultValueAvailable(): bool {}
+
     /**
      * Gets default parameter value
      *
@@ -241,9 +231,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getDefaultValue() : mixed
-    {
-    }
+    public function getDefaultValue(): mixed {}
+
     /**
      * Returns whether the default value of this parameter is constant
      *
@@ -253,9 +242,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isDefaultValueConstant() : bool
-    {
-    }
+    public function isDefaultValueConstant(): bool {}
+
     /**
      * Returns the default value's constant name if default value is constant or null
      *
@@ -266,9 +254,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function getDefaultValueConstantName() : ?string
-    {
-    }
+    public function getDefaultValueConstantName(): ?string {}
+
     /**
      * Returns whether this function is variadic
      *
@@ -278,9 +265,8 @@ class ReflectionParameter implements \Reflector
      */
     #[Pure]
     #[TentativeType]
-    public function isVariadic() : bool
-    {
-    }
+    public function isVariadic(): bool {}
+
     /**
      * Returns information about whether the parameter is a promoted.
      *
@@ -288,9 +274,8 @@ class ReflectionParameter implements \Reflector
      * @since 8.0
      */
     #[Pure]
-    public function isPromoted() : bool
-    {
-    }
+    public function isPromoted(): bool {}
+
     /**
      * @template T
      *
@@ -302,9 +287,8 @@ class ReflectionParameter implements \Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getAttributes(?string $name = null, int $flags = 0) : array
-    {
-    }
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
+
     /**
      * Clone
      *
@@ -312,9 +296,8 @@ class ReflectionParameter implements \Reflector
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "5.4", to: "8.0")]
-    private final function __clone() : void
-    {
-    }
+    final private function __clone(): void {}
+
     /**
      * Clone
      *
@@ -322,14 +305,5 @@ class ReflectionParameter implements \Reflector
      * @return void
      */
     #[PhpStormStubsElementAvailable(from: "8.1")]
-    private function __clone() : void
-    {
-    }
+    private function __clone(): void {}
 }
-/**
- * The <b>ReflectionParameter</b> class retrieves
- * information about function's or method's parameters.
- *
- * @link https://php.net/manual/en/class.reflectionparameter.php
- */
-\class_alias('Phpactor202301\\ReflectionParameter', 'ReflectionParameter', \false);

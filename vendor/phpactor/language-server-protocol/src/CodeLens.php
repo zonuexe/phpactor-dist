@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -40,7 +40,7 @@ class CodeLens
      * @param Command|null $command
      * @param mixed|null $data
      */
-    public function __construct(Range $range, ?Command $command = null, $data = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, ?\Phpactor\LanguageServerProtocol\Command $command = null, $data = null)
     {
         $this->range = $range;
         $this->command = $command;
@@ -52,7 +52,7 @@ class CodeLens
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'command' => ['names' => [Command::class], 'iterable' => \false], 'data' => ['names' => [], 'iterable' => \false]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'command' => ['names' => [\Phpactor\LanguageServerProtocol\Command::class], 'iterable' => \false], 'data' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -102,11 +102,3 @@ class CodeLens
         throw $lastException;
     }
 }
-/**
- * A code lens represents a [command](#Command) that should be shown along with
- * source text, like the number of references, a way to run tests, etc.
- * 
- * A code lens is _unresolved_ when no command is associated to it. For performance
- * reasons the creation of a code lens and resolving should be done to two stages.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeLens', 'Phpactor\\LanguageServerProtocol\\CodeLens', \false);

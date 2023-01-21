@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Test\ListenerProvider;
+namespace Phpactor\LanguageServer\Test\ListenerProvider;
 
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 use RuntimeException;
@@ -34,4 +34,3 @@ class RecordingListenerProvider implements ListenerProviderInterface
         return $next;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Test\\ListenerProvider\\RecordingListenerProvider', 'Phpactor\\LanguageServer\\Test\\ListenerProvider\\RecordingListenerProvider', \false);

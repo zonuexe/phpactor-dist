@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Type;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Methods;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\ExtendsInterfaces;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\InterfacePrototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
-class InterfaceBuilder extends ClassLikeBuilder
+use Phpactor\CodeBuilder\Domain\Prototype\Type;
+use Phpactor\CodeBuilder\Domain\Prototype\Methods;
+use Phpactor\CodeBuilder\Domain\Prototype\ExtendsInterfaces;
+use Phpactor\CodeBuilder\Domain\Prototype\InterfacePrototype;
+use Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
+class InterfaceBuilder extends \Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder
 {
     /**
      * @var Type[]
@@ -17,16 +17,15 @@ class InterfaceBuilder extends ClassLikeBuilder
     {
         return [];
     }
-    public function extends(string $class) : InterfaceBuilder
+    public function extends(string $class) : \Phpactor\CodeBuilder\Domain\Builder\InterfaceBuilder
     {
         $this->extends[] = Type::fromString($class);
         return $this;
     }
     public function build() : InterfacePrototype
     {
-        return new InterfacePrototype($this->name, Methods::fromMethods(\array_map(function (MethodBuilder $builder) {
+        return new InterfacePrototype($this->name, Methods::fromMethods(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $builder) {
             return $builder->build();
         }, $this->methods)), ExtendsInterfaces::fromTypes($this->extends), UpdatePolicy::fromModifiedState($this->isModified()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\InterfaceBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\InterfaceBuilder', \false);

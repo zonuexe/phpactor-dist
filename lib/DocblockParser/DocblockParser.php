@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser;
+namespace Phpactor\DocblockParser;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Docblock;
+use Phpactor\DocblockParser\Ast\Docblock;
 use RuntimeException;
 final class DocblockParser
 {
-    public function __construct(private Lexer $lexer, private Parser $parser)
+    public function __construct(private \Phpactor\DocblockParser\Lexer $lexer, private \Phpactor\DocblockParser\Parser $parser)
     {
     }
     public static function create() : self
     {
-        return new self(new Lexer(), new Parser());
+        return new self(new \Phpactor\DocblockParser\Lexer(), new \Phpactor\DocblockParser\Parser());
     }
     public function parse(string $docblock) : Docblock
     {
@@ -22,4 +22,3 @@ final class DocblockParser
         return $node;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\DocblockParser', 'Phpactor\\DocblockParser\\DocblockParser', \false);

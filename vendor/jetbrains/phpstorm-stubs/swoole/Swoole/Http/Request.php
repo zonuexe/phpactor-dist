@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Http;
+declare(strict_types=1);
+
+namespace Swoole\Http;
 
 class Request
 {
@@ -14,9 +15,9 @@ class Request
     public $files;
     public $post;
     public $tmpfiles;
-    public function __destruct()
-    {
-    }
+
+    public function __destruct() {}
+
     /**
      * Get the request content, kind of like function call fopen('php://input').
      *
@@ -26,9 +27,8 @@ class Request
      * @see \Swoole\Http\Request::rawContent()
      * @since 4.5.0
      */
-    public function getContent()
-    {
-    }
+    public function getContent() {}
+
     /**
      * Get the request content, kind of like function call fopen('php://input').
      *
@@ -37,39 +37,32 @@ class Request
      * @return string|false Return the request content back; return FALSE when error happens.
      * @see \Swoole\Http\Request::getContent()
      */
-    public function rawContent()
-    {
-    }
+    public function rawContent() {}
+
     /**
      * @return mixed
      */
-    public function getData()
-    {
-    }
+    public function getData() {}
+
     /**
      * @param mixed|null $options
      * @return mixed
      */
-    public static function create($options = null)
-    {
-    }
+    public static function create($options = null) {}
+
     /**
      * @param mixed $data
      * @return mixed
      */
-    public function parse($data)
-    {
-    }
+    public function parse($data) {}
+
     /**
      * @return mixed
      */
-    public function isCompleted()
-    {
-    }
+    public function isCompleted() {}
+
     /**
      * @return mixed
      */
-    public function getMethod()
-    {
-    }
+    public function getMethod() {}
 }

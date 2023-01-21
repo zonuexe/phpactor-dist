@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerDiagnostics\Model;
+namespace Phpactor\Extension\LanguageServerDiagnostics\Model;
 
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DiagnosticSeverity;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\Util\LineColRangeForLine;
+use Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\Util\LineColRangeForLine;
 use function Phpactor202301\Amp\ByteStream\buffer;
 use function Phpactor202301\Amp\call;
 final class PhpLinter
@@ -40,4 +40,3 @@ final class PhpLinter
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerDiagnostics\\Model\\PhpLinter', 'Phpactor\\Extension\\LanguageServerDiagnostics\\Model\\PhpLinter', \false);

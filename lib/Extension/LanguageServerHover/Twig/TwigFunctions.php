@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerHover\Twig;
+namespace Phpactor\Extension\LanguageServerHover\Twig;
 
-use Phpactor202301\Phpactor\Extension\LanguageServerHover\Twig\Functions\TypeShortName;
-use Phpactor202301\Phpactor\Extension\LanguageServerHover\Twig\Functions\TypeType;
-use Phpactor202301\Phpactor\Extension\ObjectRenderer\Extension\ObjectRendererTwigExtension;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\Extension\LanguageServerHover\Twig\Functions\TypeShortName;
+use Phpactor\Extension\LanguageServerHover\Twig\Functions\TypeType;
+use Phpactor\Extension\ObjectRenderer\Extension\ObjectRendererTwigExtension;
+use Phpactor\WorseReflection\Core\Type;
 use Phpactor202301\Twig\Environment;
 use Phpactor202301\Twig\TwigFunction;
 final class TwigFunctions implements ObjectRendererTwigExtension
@@ -22,4 +22,3 @@ final class TwigFunctions implements ObjectRendererTwigExtension
         $env->addFunction(new TwigFunction('typeType', new TypeType()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerHover\\Twig\\TwigFunctions', 'Phpactor\\Extension\\LanguageServerHover\\Twig\\TwigFunctions', \false);

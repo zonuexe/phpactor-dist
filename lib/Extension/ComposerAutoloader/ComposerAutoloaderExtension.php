@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ComposerAutoloader;
+namespace Phpactor\Extension\ComposerAutoloader;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
 use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Phpactor\Extension\ComposerAutoloader\ClassLoaderFactory as PhpactorClassLoader;
+use Phpactor\Extension\ComposerAutoloader\ClassLoaderFactory as PhpactorClassLoader;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use RuntimeException;
 class ComposerAutoloaderExtension implements Extension
@@ -83,4 +83,3 @@ class ComposerAutoloaderExtension implements Extension
         }, $autoloaderPaths);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ComposerAutoloader\\ComposerAutoloaderExtension', 'Phpactor\\Extension\\ComposerAutoloader\\ComposerAutoloaderExtension', \false);

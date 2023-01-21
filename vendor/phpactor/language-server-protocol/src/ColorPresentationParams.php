@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
  */
-class ColorPresentationParams extends WorkDoneProgressParams
+class ColorPresentationParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The text document.
@@ -51,7 +51,7 @@ class ColorPresentationParams extends WorkDoneProgressParams
      * @param int|string|null $workDoneToken
      * @param int|string|null $partialResultToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Color $color, Range $range, $workDoneToken = null, $partialResultToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Color $color, \Phpactor\LanguageServerProtocol\Range $range, $workDoneToken = null, $partialResultToken = null)
     {
         $this->textDocument = $textDocument;
         $this->color = $color;
@@ -65,7 +65,7 @@ class ColorPresentationParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'color' => ['names' => [Color::class], 'iterable' => \false], 'range' => ['names' => [Range::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'color' => ['names' => [\Phpactor\LanguageServerProtocol\Color::class], 'iterable' => \false], 'range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -115,9 +115,3 @@ class ColorPresentationParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * Parameters for a [ColorPresentationRequest](#ColorPresentationRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ColorPresentationParams', 'Phpactor\\LanguageServerProtocol\\ColorPresentationParams', \false);

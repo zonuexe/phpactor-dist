@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\SnippetFormatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\SnippetFormatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\Completion\Core\Util\Snippet\Placeholder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\Completion\Core\Util\Snippet\Placeholder;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
 class ParametersSnippetFormatter implements Formatter
 {
     public function canFormat(object $object) : bool
@@ -38,4 +38,3 @@ class ParametersSnippetFormatter implements Formatter
         );
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\SnippetFormatter\\ParametersSnippetFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\SnippetFormatter\\ParametersSnippetFormatter', \false);

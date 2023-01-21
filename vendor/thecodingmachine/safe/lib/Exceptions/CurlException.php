@@ -1,13 +1,14 @@
 <?php
 
-namespace Phpactor202301\Safe\Exceptions;
+
+namespace Safe\Exceptions;
 
 class CurlException extends \Exception implements SafeExceptionInterface
 {
     /**
      * @param resource $ch
      */
-    public static function createFromCurlResource($ch) : self
+    public static function createFromCurlResource($ch): self
     {
         return new self(\curl_error($ch), \curl_errno($ch));
     }

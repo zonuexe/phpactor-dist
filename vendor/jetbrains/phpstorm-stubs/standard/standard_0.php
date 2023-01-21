@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of standard v.5.3.2-0.dotdeb.1
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\ExpectedValues;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Internal\TentativeType;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Internal\TentativeType;
+use JetBrains\PhpStorm\Pure;
+
 class __PHP_Incomplete_Class
 {
     /**
@@ -17,14 +17,16 @@ class __PHP_Incomplete_Class
      */
     public $__PHP_Incomplete_Class_Name;
 }
-\class_alias('Phpactor202301\\__PHP_Incomplete_Class', '__PHP_Incomplete_Class', \false);
+
 class php_user_filter
 {
     #[LanguageLevelTypeAware(['8.1' => 'string'], default: '')]
     public $filtername;
+
     #[LanguageLevelTypeAware(['8.1' => 'mixed'], default: '')]
     public $params;
     public $stream;
+
     /**
      * @link https://php.net/manual/en/php-user-filter.filter.php
      * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
@@ -69,26 +71,27 @@ class php_user_filter
      * </tr>
      */
     #[TentativeType]
-    public function filter($in, $out, &$consumed, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing) : int
-    {
-    }
+    public function filter(
+        $in,
+        $out,
+        &$consumed,
+        #[LanguageLevelTypeAware(['8.0' => 'bool'], default: '')] $closing
+    ): int {}
+
     /**
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
      * @return bool
      */
     #[TentativeType]
-    public function onCreate() : bool
-    {
-    }
+    public function onCreate(): bool {}
+
     /**
      * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
     #[TentativeType]
-    public function onClose() : void
-    {
-    }
+    public function onClose(): void {}
 }
-\class_alias('Phpactor202301\\php_user_filter', 'php_user_filter', \false);
+
 /**
  * Instances of Directory are created by calling the dir() function, not by the new operator.
  */
@@ -99,21 +102,25 @@ class Directory
      */
     #[PhpStormStubsElementAvailable(to: '8.0')]
     public $path;
+
     /**
      * @var string The directory that was opened.
      */
     #[PhpStormStubsElementAvailable(from: '8.1')]
     public readonly string $path;
+
     /**
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
     #[PhpStormStubsElementAvailable(to: '8.0')]
     public $handle;
+
     /**
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
     #[PhpStormStubsElementAvailable(from: '8.1')]
     public readonly mixed $handle;
+
     /**
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
@@ -121,9 +128,8 @@ class Directory
      * @link https://secure.php.net/manual/en/directory.close.php
      */
     #[TentativeType]
-    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) : void
-    {
-    }
+    public function close(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
+
     /**
      * Rewind directory handle.
      * Same as rewinddir(), only dir_handle defaults to $this.
@@ -131,9 +137,8 @@ class Directory
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
     #[TentativeType]
-    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) : void
-    {
-    }
+    public function rewind(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): void {}
+
     /**
      * Read entry from directory handle.
      * Same as readdir(), only dir_handle defaults to $this.
@@ -142,14 +147,9 @@ class Directory
      * @link https://secure.php.net/manual/en/directory.read.php
      */
     #[TentativeType]
-    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null) : string|false
-    {
-    }
+    public function read(#[PhpStormStubsElementAvailable(from: '5.3', to: '7.4')] $dir_handle = null): string|false {}
 }
-/**
- * Instances of Directory are created by calling the dir() function, not by the new operator.
- */
-\class_alias('Phpactor202301\\Directory', 'Directory', \false);
+
 /**
  * Returns the value of a constant
  * @link https://php.net/manual/en/function.constant.php
@@ -159,10 +159,9 @@ class Directory
  * @return mixed the value of the constant, or null if the constant is not
  * defined.
  */
-#[Pure(\true)]
-function constant(string $name) : mixed
-{
-}
+#[Pure(true)]
+function constant(string $name): mixed {}
+
 /**
  * Convert binary data into hexadecimal representation
  * @link https://php.net/manual/en/function.bin2hex.php
@@ -172,9 +171,8 @@ function constant(string $name) : mixed
  * @return string the hexadecimal representation of the given string.
  */
 #[Pure]
-function bin2hex(string $string) : string
-{
-}
+function bin2hex(string $string): string {}
+
 /**
  * Delay execution
  * @link https://php.net/manual/en/function.sleep.php
@@ -186,9 +184,8 @@ function bin2hex(string $string) : string
  * to sleep.
  */
 #[LanguageLevelTypeAware(["8.0" => "int"], default: "int|false")]
-function sleep(int $seconds)
-{
-}
+function sleep(int $seconds) {}
+
 /**
  * Delay execution in microseconds
  * @link https://php.net/manual/en/function.usleep.php
@@ -198,9 +195,8 @@ function sleep(int $seconds)
  * </p>
  * @return void
  */
-function usleep(int $microseconds) : void
-{
-}
+function usleep(int $microseconds): void {}
+
 /**
  * Delay for a number of seconds and nanoseconds
  * @link https://php.net/manual/en/function.time-nanosleep.php
@@ -221,9 +217,8 @@ function usleep(int $microseconds) : void
  * </p>
  */
 #[ArrayShape(["seconds" => "int", "nanoseconds" => "int"])]
-function time_nanosleep(int $seconds, int $nanoseconds) : array|bool
-{
-}
+function time_nanosleep(int $seconds, int $nanoseconds): array|bool {}
+
 /**
  * Make the script sleep until the specified time
  * @link https://php.net/manual/en/function.time-sleep-until.php
@@ -232,9 +227,8 @@ function time_nanosleep(int $seconds, int $nanoseconds) : array|bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function time_sleep_until(float $timestamp) : bool
-{
-}
+function time_sleep_until(float $timestamp): bool {}
+
 /**
  * Parse a time/date generated with <function>strftime</function>
  * @link https://php.net/manual/en/function.strptime.php
@@ -298,20 +292,28 @@ function time_sleep_until(float $timestamp) : bool
  * </p>
  * @deprecated 8.1
  */
-#[Pure(\true)]
+#[Pure(true)]
 #[Deprecated(since: '8.1')]
-#[ArrayShape(['tm_sec' => 'int', 'tm_min' => 'int', 'tm_hour' => 'int', 'tm_mday' => 'int', 'tm_mon' => 'int', 'tm_year' => 'int', 'tm_wday' => 'int', 'tm_yday' => 'int', 'unparsed' => 'string'])]
-function strptime(string $timestamp, string $format) : array|false
-{
-}
+#[ArrayShape([
+    'tm_sec' => 'int',
+    'tm_min' => 'int',
+    'tm_hour' => 'int',
+    'tm_mday' => 'int',
+    'tm_mon' => 'int',
+    'tm_year' => 'int',
+    'tm_wday' => 'int',
+    'tm_yday' => 'int',
+    'unparsed' => 'string'
+])]
+function strptime(string $timestamp, string $format): array|false {}
+
 /**
  * Flush system output buffer
  * @link https://php.net/manual/en/function.flush.php
  * @return void
  */
-function flush() : void
-{
-}
+function flush(): void {}
+
 /**
  * Wraps a string to a given number of characters
  * @link https://php.net/manual/en/function.wordwrap.php
@@ -334,9 +336,8 @@ function flush() : void
  * @return string the given string wrapped at the specified length.
  */
 #[Pure]
-function wordwrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = \false) : string
-{
-}
+function wordwrap(string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false): string {}
+
 /**
  * Convert special characters to HTML entities
  * @link https://php.net/manual/en/function.htmlspecialchars.php
@@ -454,9 +455,8 @@ function wordwrap(string $string, int $width = 75, string $break = "\n", bool $c
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars(string $string, int $flags = \ENT_QUOTES | \ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = \true) : string
-{
-}
+function htmlspecialchars(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding = null, bool $double_encode = true): string {}
+
 /**
  * Convert all applicable characters to HTML entities
  * @link https://php.net/manual/en/function.htmlentities.php
@@ -501,9 +501,8 @@ function htmlspecialchars(string $string, int $flags = \ENT_QUOTES | \ENT_SUBSTI
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities(string $string, int $flags = \ENT_QUOTES | \ENT_SUBSTITUTE, ?string $encoding, bool $double_encode = \true) : string
-{
-}
+function htmlentities(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding, bool $double_encode = true): string {}
+
 /**
  * Convert HTML entities  to their corresponding characters
  * @link https://php.net/manual/en/function.html-entity-decode.php
@@ -543,9 +542,8 @@ function htmlentities(string $string, int $flags = \ENT_QUOTES | \ENT_SUBSTITUTE
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode(string $string, int $flags = \ENT_QUOTES | \ENT_SUBSTITUTE, ?string $encoding) : string
-{
-}
+function html_entity_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE, ?string $encoding): string {}
+
 /**
  * Convert special HTML entities back to characters
  * @link https://php.net/manual/en/function.htmlspecialchars-decode.php
@@ -578,9 +576,8 @@ function html_entity_decode(string $string, int $flags = \ENT_QUOTES | \ENT_SUBS
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode(string $string, int $flags = \ENT_QUOTES | \ENT_SUBSTITUTE) : string
-{
-}
+function htmlspecialchars_decode(string $string, int $flags = ENT_QUOTES|ENT_SUBSTITUTE): string {}
+
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
  * @link https://php.net/manual/en/function.get-html-translation-table.php
@@ -755,9 +752,12 @@ function htmlspecialchars_decode(string $string, int $flags = \ENT_QUOTES | \ENT
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table(int $table = 0, int $flags = \ENT_QUOTES | \ENT_SUBSTITUTE, #[PhpStormStubsElementAvailable(from: '7.0')] string $encoding = "UTF-8") : array
-{
-}
+function get_html_translation_table(
+    int $table = 0,
+    int $flags = ENT_QUOTES|ENT_SUBSTITUTE,
+    #[PhpStormStubsElementAvailable(from: '7.0')] string $encoding = "UTF-8"
+): array {}
+
 /**
  * Calculate the sha1 hash of a string
  * @link https://php.net/manual/en/function.sha1.php
@@ -773,9 +773,8 @@ function get_html_translation_table(int $table = 0, int $flags = \ENT_QUOTES | \
  * @return string the sha1 hash as a string.
  */
 #[Pure]
-function sha1(string $string, bool $binary = \false) : string
-{
-}
+function sha1(string $string, bool $binary = false): string {}
+
 /**
  * Calculate the sha1 hash of a file
  * @link https://php.net/manual/en/function.sha1-file.php
@@ -788,10 +787,9 @@ function sha1(string $string, bool $binary = \false) : string
  * </p>
  * @return string|false a string on success, false otherwise.
  */
-#[Pure(\true)]
-function sha1_file(string $filename, bool $binary = \false) : string|false
-{
-}
+#[Pure(true)]
+function sha1_file(string $filename, bool $binary = false): string|false {}
+
 /**
  * Calculate the md5 hash of a string
  * @link https://php.net/manual/en/function.md5.php
@@ -806,9 +804,8 @@ function sha1_file(string $filename, bool $binary = \false) : string|false
  * @return string the hash as a 32-character hexadecimal number.
  */
 #[Pure]
-function md5(string $string, bool $binary = \false) : string
-{
-}
+function md5(string $string, bool $binary = false): string {}
+
 /**
  * Calculates the md5 hash of a given file
  * @link https://php.net/manual/en/function.md5-file.php
@@ -821,10 +818,9 @@ function md5(string $string, bool $binary = \false) : string
  * </p>
  * @return string|false a string on success, false otherwise.
  */
-#[Pure(\true)]
-function md5_file(string $filename, bool $binary = \false) : string|false
-{
-}
+#[Pure(true)]
+function md5_file(string $filename, bool $binary = false): string|false {}
+
 /**
  * Calculates the crc32 polynomial of a string
  * @link https://php.net/manual/en/function.crc32.php
@@ -834,9 +830,8 @@ function md5_file(string $filename, bool $binary = \false) : string|false
  * @return int the crc32 checksum of str as an integer..1
  */
 #[Pure]
-function crc32(string $string) : int
-{
-}
+function crc32(string $string): int {}
+
 /**
  * Parse a binary IPTC block into single tags.
  * Note: This function does not require the GD image library.
@@ -848,9 +843,8 @@ function crc32(string $string) : int
  * value. It returns false on error or if no IPTC data was found.
  */
 #[Pure]
-function iptcparse(string $iptc_block) : array|false
-{
-}
+function iptcparse(string $iptc_block): array|false {}
+
 /**
  * Embeds binary IPTC data into a JPEG image.
  * Note: This function does not require the GD image library.
@@ -869,9 +863,8 @@ function iptcparse(string $iptc_block) : array|false
  * @return string|bool If spool is less than 2, the JPEG will be returned, or false on
  * failure. Otherwise returns true on success or false on failure.
  */
-function iptcembed(string $iptc_data, string $filename, int $spool = 0) : string|bool
-{
-}
+function iptcembed(string $iptc_data, string $filename, int $spool = 0): string|bool {}
+
 /**
  * Get the size of an image
  * @link https://php.net/manual/en/function.getimagesize.php
@@ -934,9 +927,8 @@ function iptcembed(string $iptc_data, string $filename, int $spool = 0) : string
  * </p>
  */
 #[ArrayShape([0 => "int", 1 => "int", 2 => "int", 3 => "string", "bits" => "int", "channels" => "int", "mime" => "string"])]
-function getimagesize(string $filename, &$image_info) : array|false
-{
-}
+function getimagesize(string $filename, &$image_info): array|false {}
+
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
@@ -1023,9 +1015,8 @@ function getimagesize(string $filename, &$image_info) : array|false
  * </table>
  */
 #[Pure]
-function image_type_to_mime_type(int $image_type) : string
-{
-}
+function image_type_to_mime_type(int $image_type): string {}
+
 /**
  * Get file extension for image type
  * @link https://php.net/manual/en/function.image-type-to-extension.php
@@ -1039,9 +1030,8 @@ function image_type_to_mime_type(int $image_type) : string
  * @return string|false A string with the extension corresponding to the given image type, or false on failure.
  */
 #[Pure]
-function image_type_to_extension(int $image_type, bool $include_dot = \true) : string|false
-{
-}
+function image_type_to_extension(int $image_type, bool $include_dot = true): string|false {}
+
 /**
  * Outputs information about PHP's configuration
  * @link https://php.net/manual/en/function.phpinfo.php
@@ -1127,9 +1117,8 @@ function image_type_to_extension(int $image_type, bool $include_dot = \true) : s
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function phpinfo(#[ExpectedValues(flags: [\INFO_GENERAL, \INFO_CREDITS, \INFO_CONFIGURATION, \INFO_MODULES, \INFO_ENVIRONMENT, \INFO_VARIABLES, \INFO_LICENSE, \INFO_ALL])] int $flags = \INFO_ALL) : bool
-{
-}
+function phpinfo(#[ExpectedValues(flags: [INFO_GENERAL, INFO_CREDITS, INFO_CONFIGURATION, INFO_MODULES, INFO_ENVIRONMENT, INFO_VARIABLES, INFO_LICENSE, INFO_ALL])] int $flags = INFO_ALL): bool {}
+
 /**
  * Gets the current PHP version
  * @link https://php.net/manual/en/function.phpversion.php
@@ -1142,9 +1131,8 @@ function phpinfo(#[ExpectedValues(flags: [\INFO_GENERAL, \INFO_CREDITS, \INFO_CO
  * the extension isn't enabled.
  */
 #[Pure]
-function phpversion(?string $extension) : string|false
-{
-}
+function phpversion(?string $extension): string|false {}
+
 /**
  * Prints out the credits for PHP
  * @link https://php.net/manual/en/function.phpcredits.php
@@ -1209,9 +1197,8 @@ function phpversion(?string $extension) : string|false
  * @return bool true on success or false on failure.
  */
 #[LanguageLevelTypeAware(['8.2' => 'true'], default: 'bool')]
-function phpcredits(int $flags = \CREDITS_ALL) : bool
-{
-}
+function phpcredits(int $flags = CREDITS_ALL): bool {}
+
 /**
  * Gets the logo guid
  * @removed 5.5
@@ -1219,30 +1206,26 @@ function phpcredits(int $flags = \CREDITS_ALL) : bool
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
 #[Pure]
-function php_logo_guid() : string
-{
-}
+function php_logo_guid(): string {}
+
 /**
  * @removed 5.5
  */
-function php_real_logo_guid()
-{
-}
+function php_real_logo_guid() {}
+
 /**
  * @removed 5.5
  */
-function php_egg_logo_guid()
-{
-}
+function php_egg_logo_guid() {}
+
 /**
  * Gets the Zend guid
  * @removed 5.5
  * @link https://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  */
-function zend_logo_guid() : string
-{
-}
+function zend_logo_guid(): string {}
+
 /**
  * Returns the type of interface between web server and PHP
  * @link https://php.net/manual/en/function.php-sapi-name.php
@@ -1262,9 +1245,8 @@ function zend_logo_guid() : string
  */
 #[Pure]
 #[ExpectedValues(['cli', 'phpdbg', 'embed', 'apache', 'apache2handler', 'cgi-fcgi', 'cli-server', 'fpm-fcgi', 'litespeed'])]
-function php_sapi_name() : string|false
-{
-}
+function php_sapi_name(): string|false {}
+
 /**
  * Returns information about the operating system PHP is running on
  * @link https://php.net/manual/en/function.php-uname.php
@@ -1275,10 +1257,9 @@ function php_sapi_name() : string|false
  * the sequence "s n r v m".</p>
  * @return string the description, as a string.
  */
-#[Pure(\true)]
-function php_uname(#[PhpStormStubsElementAvailable(from: '7.0')] string $mode = 'a') : string
-{
-}
+#[Pure(true)]
+function php_uname(#[PhpStormStubsElementAvailable(from: '7.0')] string $mode = 'a'): string {}
+
 /**
  * Return a list of .ini files parsed from the additional ini dir
  * @link https://php.net/manual/en/function.php-ini-scanned-files.php
@@ -1291,9 +1272,8 @@ function php_uname(#[PhpStormStubsElementAvailable(from: '7.0')] string $mode = 
  * php_ini_scanned_files.
  */
 #[Pure]
-function php_ini_scanned_files() : string|false
-{
-}
+function php_ini_scanned_files(): string|false {}
+
 /**
  * Retrieve a path to the loaded php.ini file
  * @link https://php.net/manual/en/function.php-ini-loaded-file.php
@@ -1301,9 +1281,8 @@ function php_ini_scanned_files() : string|false
  * @since 5.2.4
  */
 #[Pure]
-function php_ini_loaded_file() : string|false
-{
-}
+function php_ini_loaded_file(): string|false {}
+
 /**
  * String comparisons using a "natural order" algorithm
  * @link https://php.net/manual/en/function.strnatcmp.php
@@ -1319,9 +1298,8 @@ function php_ini_loaded_file() : string|false
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strnatcmp(string $string1, string $string2) : int
-{
-}
+function strnatcmp(string $string1, string $string2): int {}
+
 /**
  * Case insensitive string comparisons using a "natural order" algorithm
  * @link https://php.net/manual/en/function.strnatcasecmp.php
@@ -1337,9 +1315,8 @@ function strnatcmp(string $string1, string $string2) : int
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strnatcasecmp(string $string1, string $string2) : int
-{
-}
+function strnatcasecmp(string $string1, string $string2): int {}
+
 /**
  * Count the number of substring occurrences
  * @link https://php.net/manual/en/function.substr-count.php
@@ -1362,9 +1339,8 @@ function strnatcasecmp(string $string1, string $string2) : int
  * @return int<0,max> This functions returns an integer.
  */
 #[Pure]
-function substr_count(string $haystack, string $needle, int $offset = 0, ?int $length) : int
-{
-}
+function substr_count(string $haystack, string $needle, int $offset = 0, ?int $length): int {}
+
 /**
  * Finds the length of the initial segment of a string consisting
  * entirely of characters contained within a given mask.
@@ -1416,9 +1392,8 @@ function substr_count(string $haystack, string $needle, int $offset = 0, ?int $l
  * which consists entirely of characters in str2.
  */
 #[Pure]
-function strspn(string $string, string $characters, int $offset = 0, ?int $length) : int
-{
-}
+function strspn(string $string, string $characters, int $offset = 0, ?int $length): int {}
+
 /**
  * Find length of initial segment not matching mask
  * @link https://php.net/manual/en/function.strcspn.php
@@ -1437,9 +1412,8 @@ function strspn(string $string, string $characters, int $offset = 0, ?int $lengt
  * @return int the length of the segment as an integer.
  */
 #[Pure]
-function strcspn(string $string, string $characters, int $offset = 0, ?int $length) : int
-{
-}
+function strcspn(string $string, string $characters, int $offset = 0, ?int $length): int {}
+
 /**
  * Tokenize string
  * Note that only the first call to strtok uses the string argument.
@@ -1456,6 +1430,8 @@ function strcspn(string $string, string $characters, int $offset = 0, ?int $leng
  * </p>
  * @return string|false A string token.
  */
-function strtok(string $string, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $token, #[PhpStormStubsElementAvailable(from: '7.1')] ?string $token = null) : string|false
-{
-}
+function strtok(
+    string $string,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] $token,
+    #[PhpStormStubsElementAvailable(from: '7.1')] ?string $token = null
+): string|false {}

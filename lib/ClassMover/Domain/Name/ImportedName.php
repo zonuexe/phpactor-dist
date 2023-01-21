@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Name;
+namespace Phpactor\ClassMover\Domain\Name;
 
-final class ImportedName extends Namespace_
+final class ImportedName extends \Phpactor\ClassMover\Domain\Name\Namespace_
 {
     private $alias;
     public function __toString()
@@ -15,15 +15,15 @@ final class ImportedName extends Namespace_
         $lastPart = \end($this->parts);
         return $lastPart;
     }
-    public function qualifies(QualifiedName $name)
+    public function qualifies(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
     {
         $head = $this->alias ?: $this->head();
         $qualifies = $head === $name->base();
         return $qualifies;
     }
-    public function qualify(QualifiedName $name) : FullyQualifiedName
+    public function qualify(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : \Phpactor\ClassMover\Domain\Name\FullyQualifiedName
     {
-        return FullyQualifiedName::fromString($this->parentNamespace()->__toString() . '\\' . $name->__toString());
+        return \Phpactor\ClassMover\Domain\Name\FullyQualifiedName::fromString($this->parentNamespace()->__toString() . '\\' . $name->__toString());
     }
     public function withAlias(string $alias)
     {
@@ -42,4 +42,3 @@ final class ImportedName extends Namespace_
         return $new;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Name\\ImportedName', 'Phpactor\\ClassMover\\Domain\\Name\\ImportedName', \false);

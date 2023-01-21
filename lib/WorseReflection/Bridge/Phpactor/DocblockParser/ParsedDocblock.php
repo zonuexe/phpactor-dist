@@ -1,48 +1,48 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser;
+namespace Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Docblock as ParserDocblock;
-use Phpactor202301\Phpactor\DocblockParser\Ast\ParameterList;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\DeprecatedTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ExtendsTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ImplementsTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\MethodTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\MixinTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ParamTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ParameterTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\PropertyTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ReturnTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\TemplateTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\VarTag;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
-use Phpactor202301\Phpactor\WorseReflection\Core\DefaultValue;
-use Phpactor202301\Phpactor\WorseReflection\Core\Deprecation;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockParam;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockParams;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockVar;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\NodeText;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\TemplateMap;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\DocBlock\DocBlockVars;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\VirtualReflectionParameter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\VirtualReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\DocblockParser\Ast\Docblock as ParserDocblock;
+use Phpactor\DocblockParser\Ast\ParameterList;
+use Phpactor\DocblockParser\Ast\Tag\DeprecatedTag;
+use Phpactor\DocblockParser\Ast\Tag\ExtendsTag;
+use Phpactor\DocblockParser\Ast\Tag\ImplementsTag;
+use Phpactor\DocblockParser\Ast\Tag\MethodTag;
+use Phpactor\DocblockParser\Ast\Tag\MixinTag;
+use Phpactor\DocblockParser\Ast\Tag\ParamTag;
+use Phpactor\DocblockParser\Ast\Tag\ParameterTag;
+use Phpactor\DocblockParser\Ast\Tag\PropertyTag;
+use Phpactor\DocblockParser\Ast\Tag\ReturnTag;
+use Phpactor\DocblockParser\Ast\Tag\TemplateTag;
+use Phpactor\DocblockParser\Ast\Tag\VarTag;
+use Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\WorseReflection\Core\DefaultValue;
+use Phpactor\WorseReflection\Core\Deprecation;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockParam;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockParams;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockVar;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\NodeText;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection as CoreReflectionPropertyCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollection as CoreReflectionMethodCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\TemplateMap;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\DocBlock\DocBlockVars;
+use Phpactor\WorseReflection\Core\Types;
+use Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
+use Phpactor\WorseReflection\Core\Virtual\VirtualReflectionParameter;
+use Phpactor\WorseReflection\Core\Virtual\VirtualReflectionProperty;
+use Phpactor\WorseReflection\Core\Visibility;
 use function array_map;
 class ParsedDocblock implements DocBlock
 {
-    public function __construct(private ParserDocblock $node, private TypeConverter $typeConverter, private string $raw)
+    public function __construct(private ParserDocblock $node, private \Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\TypeConverter $typeConverter, private string $raw)
     {
     }
     public function rawNode() : ParserDocblock
@@ -234,4 +234,3 @@ class ParsedDocblock implements DocBlock
         return $this->typeConverter->convert($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\Phpactor\\DocblockParser\\ParsedDocblock', 'Phpactor\\WorseReflection\\Bridge\\Phpactor\\DocblockParser\\ParsedDocblock', \false);

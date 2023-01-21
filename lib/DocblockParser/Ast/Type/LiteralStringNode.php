@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast\Type;
+namespace Phpactor\DocblockParser\Ast\Type;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\Token;
-use Phpactor202301\Phpactor\DocblockParser\Ast\TypeNode;
+use Phpactor\DocblockParser\Ast\Token;
+use Phpactor\DocblockParser\Ast\TypeNode;
 class LiteralStringNode extends TypeNode
 {
     protected const CHILD_NAMES = ['token'];
@@ -11,4 +11,3 @@ class LiteralStringNode extends TypeNode
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Type\\LiteralStringNode', 'Phpactor\\DocblockParser\\Ast\\Type\\LiteralStringNode', \false);

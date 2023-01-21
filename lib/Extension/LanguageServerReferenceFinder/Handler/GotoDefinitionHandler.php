@@ -1,22 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler;
+namespace Phpactor\Extension\LanguageServerReferenceFinder\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Location;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\DefinitionParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\MessageActionItem;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\ReferenceFinder\DefinitionLocator;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
-use Phpactor202301\Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\LanguageServerProtocol\Location;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\DefinitionParams;
+use Phpactor\LanguageServerProtocol\MessageActionItem;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\ReferenceFinder\DefinitionLocator;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
+use Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
+use Phpactor\TextDocument\TextDocumentBuilder;
 class GotoDefinitionHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private DefinitionLocator $definitionLocator, private LocationConverter $locationConverter, private ClientApi $clientApi)
@@ -58,4 +58,3 @@ class GotoDefinitionHandler implements Handler, CanRegisterCapabilities
         $capabilities->definitionProvider = \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\Handler\\GotoDefinitionHandler', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\Handler\\GotoDefinitionHandler', \false);

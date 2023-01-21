@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\Inotify;
+namespace Phpactor\AmpFsWatch\Watcher\Inotify;
 
 use RuntimeException;
 class InotifyEvent
@@ -56,4 +56,3 @@ class InotifyEvent
         return $this->watchedFileName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\Inotify\\InotifyEvent', 'Phpactor\\AmpFsWatch\\Watcher\\Inotify\\InotifyEvent', \false);

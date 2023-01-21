@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type;
 class VarDocBuffer
 {
     /**
@@ -29,4 +29,3 @@ class VarDocBuffer
         return $this->version;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\VarDocBuffer', 'Phpactor\\WorseReflection\\Core\\Inference\\VarDocBuffer', \false);

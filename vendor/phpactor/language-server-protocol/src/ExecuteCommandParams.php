@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams
  */
-class ExecuteCommandParams extends WorkDoneProgressParams
+class ExecuteCommandParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The identifier of the actual command handler.
@@ -98,9 +98,3 @@ class ExecuteCommandParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [ExecuteCommandRequest](#ExecuteCommandRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ExecuteCommandParams', 'Phpactor\\LanguageServerProtocol\\ExecuteCommandParams', \false);

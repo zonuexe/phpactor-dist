@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\PatternMatching;
+namespace Phpactor\AmpFsWatch\Watcher\PatternMatching;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\Watcher;
 class PatternMatchingWatcher implements Watcher
 {
     /**
@@ -32,7 +32,7 @@ class PatternMatchingWatcher implements Watcher
     {
         return \Phpactor202301\Amp\call(function () {
             $process = (yield $this->innerWatcher->watch());
-            return new PatternWatcherProcess($process, $this->includePatterns, $this->excludePatterns);
+            return new \Phpactor\AmpFsWatch\Watcher\PatternMatching\PatternWatcherProcess($process, $this->includePatterns, $this->excludePatterns);
         });
     }
     public function isSupported() : Promise
@@ -47,4 +47,3 @@ class PatternMatchingWatcher implements Watcher
         return \sprintf('pattern matching %s', $this->innerWatcher->describe());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\PatternMatching\\PatternMatchingWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\PatternMatching\\PatternMatchingWatcher', \false);

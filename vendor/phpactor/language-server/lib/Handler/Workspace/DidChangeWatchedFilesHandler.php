@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\Workspace;
+namespace Phpactor\LanguageServer\Handler\Workspace;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Event\FilesChanged;
+use Phpactor\LanguageServerProtocol\DidChangeWatchedFilesParams;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Event\FilesChanged;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 class DidChangeWatchedFilesHandler implements Handler
 {
@@ -28,4 +28,3 @@ class DidChangeWatchedFilesHandler implements Handler
         $this->dispatcher->dispatch(new FilesChanged(...$params->changes));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\Workspace\\DidChangeWatchedFilesHandler', 'Phpactor\\LanguageServer\\Handler\\Workspace\\DidChangeWatchedFilesHandler', \false);

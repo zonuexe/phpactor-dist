@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Elastic\Apm;
+namespace Elastic\Apm;
 
 /**
  * Class ElasticApm is a facade (as in Facade design pattern) to the rest of Elastic APM public API.
@@ -8,9 +8,9 @@ namespace Phpactor202301\Elastic\Apm;
 final class ElasticApm
 {
     public const VERSION = '1.3.1';
-    private function __construct()
-    {
-    }
+
+    private function __construct() {}
+
     /**
      * Begins a new transaction and sets it as the current transaction.
      *
@@ -26,9 +26,13 @@ final class ElasticApm
      * @see TransactionInterface::setType() For the description.
      * @see TransactionInterface::getTimestamp() For the description.
      */
-    public static function beginCurrentTransaction(string $name, string $type, ?float $timestamp = null, ?string $serializedDistTracingData = null) : TransactionInterface
-    {
-    }
+    public static function beginCurrentTransaction(
+        string $name,
+        string $type,
+        ?float $timestamp = null,
+        ?string $serializedDistTracingData = null
+    ): TransactionInterface {}
+
     /**
      * Begins a new transaction, sets as the current transaction,
      * runs the provided callback as the new transaction and automatically ends the new transaction.
@@ -46,17 +50,21 @@ final class ElasticApm
      * @see             TransactionInterface::setType() For the description.
      * @see             TransactionInterface::getTimestamp() For the description.
      */
-    public static function captureCurrentTransaction(string $name, string $type, \Closure $callback, ?float $timestamp = null, ?string $serializedDistTracingData = null)
-    {
-    }
+    public static function captureCurrentTransaction(
+        string $name,
+        string $type,
+        \Closure $callback,
+        ?float $timestamp = null,
+        ?string $serializedDistTracingData = null
+    ) {}
+
     /**
      * Returns the current transaction.
      *
      * @return TransactionInterface The current transaction
      */
-    public static function getCurrentTransaction() : TransactionInterface
-    {
-    }
+    public static function getCurrentTransaction(): TransactionInterface {}
+
     /**
      * If there is the current span then it returns the current span.
      * Otherwise if there is the current transaction then it returns the current transaction.
@@ -64,9 +72,8 @@ final class ElasticApm
      *
      * @return ExecutionSegmentInterface The current execution segment
      */
-    public static function getCurrentExecutionSegment() : ExecutionSegmentInterface
-    {
-    }
+    public static function getCurrentExecutionSegment(): ExecutionSegmentInterface {}
+
     /**
      * Begins a new transaction.
      *
@@ -82,9 +89,13 @@ final class ElasticApm
      * @see TransactionInterface::setType() For the description.
      * @see TransactionInterface::getTimestamp() For the description.
      */
-    public static function beginTransaction(string $name, string $type, ?float $timestamp = null, ?string $serializedDistTracingData = null) : TransactionInterface
-    {
-    }
+    public static function beginTransaction(
+        string $name,
+        string $type,
+        ?float $timestamp = null,
+        ?string $serializedDistTracingData = null
+    ): TransactionInterface {}
+
     /**
      * Begins a new transaction,
      * runs the provided callback as the new transaction and automatically ends the new transaction.
@@ -102,9 +113,14 @@ final class ElasticApm
      * @see             TransactionInterface::setType() For the description.
      * @see             TransactionInterface::getTimestamp() For the description.
      */
-    public static function captureTransaction(string $name, string $type, \Closure $callback, ?float $timestamp = null, ?string $serializedDistTracingData = null)
-    {
-    }
+    public static function captureTransaction(
+        string $name,
+        string $type,
+        \Closure $callback,
+        ?float $timestamp = null,
+        ?string $serializedDistTracingData = null
+    ) {}
+
     /**
      * Advanced API to begin a new transaction
      *
@@ -116,9 +132,8 @@ final class ElasticApm
      * @see TransactionInterface::setName() For the description.
      * @see TransactionInterface::setType() For the description.
      */
-    public static function newTransaction(string $name, string $type) : TransactionBuilderInterface
-    {
-    }
+    public static function newTransaction(string $name, string $type): TransactionBuilderInterface {}
+
     /**
      * Creates an error based on the given Throwable instance
      * with the current execution segment (if there is one) as the parent.
@@ -130,9 +145,8 @@ final class ElasticApm
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json
      */
-    public static function createErrorFromThrowable(\Throwable $throwable) : ?string
-    {
-    }
+    public static function createErrorFromThrowable(\Throwable $throwable): ?string {}
+
     /**
      * Creates an error based on the given data
      * with the current execution segment (if there is one) as the parent.
@@ -144,31 +158,27 @@ final class ElasticApm
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json
      */
-    public static function createCustomError(CustomErrorData $customErrorData) : ?string
-    {
-    }
+    public static function createCustomError(CustomErrorData $customErrorData): ?string {}
+
     /**
      * Pauses recording
      */
-    public static function pauseRecording() : void
-    {
-    }
+    public static function pauseRecording(): void {}
+
     /**
      * Resumes recording
      */
-    public static function resumeRecording() : void
-    {
-    }
+    public static function resumeRecording(): void {}
+
     /**
      * @deprecated      Deprecated since version 1.3 - use injectDistributedTracingHeaders() instead
      * @see             injectDistributedTracingHeaders() Use it instead of this method
      *
      * Returns distributed tracing data for the current span/transaction
      */
-    public static function getSerializedCurrentDistributedTracingData() : string
-    {
-    }
+    public static function getSerializedCurrentDistributedTracingData(): string {}
 }
+
 /**
  * Class to gather optional parameters to start a new transaction
  *
@@ -182,7 +192,8 @@ interface TransactionBuilderInterface
      *
      * @return TransactionBuilderInterface
      */
-    public function asCurrent() : self;
+    public function asCurrent(): self;
+
     /**
      * Set start time of the new transaction
      *
@@ -190,19 +201,22 @@ interface TransactionBuilderInterface
      *
      * @return TransactionBuilderInterface
      */
-    public function timestamp(float $timestamp) : self;
+    public function timestamp(float $timestamp): self;
+
     /**
      * @param \Closure $headerExtractor
      *
      * @return TransactionBuilderInterface
      */
-    public function distributedTracingHeaderExtractor(\Closure $headerExtractor) : self;
+    public function distributedTracingHeaderExtractor(\Closure $headerExtractor): self;
+
     /**
      * Begins a new transaction.
      *
      * @return TransactionInterface New transaction
      */
-    public function begin() : TransactionInterface;
+    public function begin(): TransactionInterface;
+
     /**
      * Begins a new transaction,
      * runs the provided callback as the new transaction and automatically ends the new transaction.
@@ -213,6 +227,7 @@ interface TransactionBuilderInterface
      */
     public function capture(\Closure $callback);
 }
+
 interface TransactionInterface extends ExecutionSegmentInterface
 {
     /**
@@ -221,14 +236,16 @@ interface TransactionInterface extends ExecutionSegmentInterface
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/transactions/transaction.json#L72
      */
-    public function isSampled() : bool;
+    public function isSampled(): bool;
+
     /**
      * Hex encoded 64 random bits ID of the parent transaction or span.
      * Only a root transaction of a trace does not have a parent ID, otherwise it needs to be set.
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/transactions/transaction.json#L19
      */
-    public function getParentId() : ?string;
+    public function getParentId(): ?string;
+
     /**
      * Begins a new span with the current execution segment
      * as the new span's parent and sets as the new span as the current span for this transaction.
@@ -248,7 +265,14 @@ interface TransactionInterface extends ExecutionSegmentInterface
      *
      * @return SpanInterface New span
      */
-    public function beginCurrentSpan(string $name, string $type, ?string $subtype = null, ?string $action = null, ?float $timestamp = null) : SpanInterface;
+    public function beginCurrentSpan(
+        string $name,
+        string $type,
+        ?string $subtype = null,
+        ?string $action = null,
+        ?float $timestamp = null
+    ): SpanInterface;
+
     /**
      * Begins a new span with the current execution segment as the new span's parent and
      * sets the new span as the current span for this transaction.
@@ -269,17 +293,27 @@ interface TransactionInterface extends ExecutionSegmentInterface
      *
      * @return mixed The return value of $callback
      */
-    public function captureCurrentSpan(string $name, string $type, \Closure $callback, ?string $subtype = null, ?string $action = null, ?float $timestamp = null);
+    public function captureCurrentSpan(
+        string $name,
+        string $type,
+        \Closure $callback,
+        ?string $subtype = null,
+        ?string $action = null,
+        ?float $timestamp = null
+    );
+
     /**
      * Returns the current span.
      *
      * @return SpanInterface The current span
      */
-    public function getCurrentSpan() : SpanInterface;
+    public function getCurrentSpan(): SpanInterface;
+
     /**
      * Returns context (context allows to set labels, etc.)
      */
-    public function context() : TransactionContextInterface;
+    public function context(): TransactionContextInterface;
+
     /**
      * The result of the transaction.
      * For HTTP-related transactions, this should be the status code formatted like 'HTTP 2xx'.
@@ -290,11 +324,13 @@ interface TransactionInterface extends ExecutionSegmentInterface
      *
      * @return void
      */
-    public function setResult(?string $result) : void;
+    public function setResult(?string $result): void;
+
     /**
      * @see setResult() For the description
      */
-    public function getResult() : ?string;
+    public function getResult(): ?string;
+
     /**
      * If the transaction does not have a parent ID yet,
      * calling this method generates a new ID,
@@ -302,8 +338,9 @@ interface TransactionInterface extends ExecutionSegmentInterface
      *
      * @return string
      */
-    public function ensureParentId() : string;
+    public function ensureParentId(): string;
 }
+
 interface SpanInterface extends ExecutionSegmentInterface
 {
     /**
@@ -311,7 +348,8 @@ interface SpanInterface extends ExecutionSegmentInterface
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L14
      */
-    public function getTransactionId() : string;
+    public function getTransactionId(): string;
+
     /**
      * Hex encoded 64 random bits ID of the parent.
      * If this span is the root span of the correlated transaction the its parent is the correlated transaction
@@ -319,7 +357,8 @@ interface SpanInterface extends ExecutionSegmentInterface
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L24
      */
-    public function getParentId() : string;
+    public function getParentId(): string;
+
     /**
      * The specific kind of event within the sub-type represented by the span
      * e.g., 'query' for type/sub-type 'db'/'mysql', 'connect' for type/sub-type 'db'/'cassandra'
@@ -332,7 +371,8 @@ interface SpanInterface extends ExecutionSegmentInterface
      *
      * @return void
      */
-    public function setAction(?string $action) : void;
+    public function setAction(?string $action): void;
+
     /**
      * A further sub-division of the type
      * e.g., 'mysql', 'postgresql' or 'elasticsearch' for type 'db', 'http' for type 'external', etc.
@@ -343,11 +383,13 @@ interface SpanInterface extends ExecutionSegmentInterface
      *
      * @param string|null $subtype
      */
-    public function setSubtype(?string $subtype) : void;
+    public function setSubtype(?string $subtype): void;
+
     /**
      * Returns context (context allows to set labels, etc.)
      */
-    public function context() : SpanContextInterface;
+    public function context(): SpanContextInterface;
+
     /**
      * Extended version of ExecutionSegmentInterface::end()
      *
@@ -356,8 +398,9 @@ interface SpanInterface extends ExecutionSegmentInterface
      *
      * @see ExecutionSegmentInterface::end() For the description
      */
-    public function endSpanEx(int $numberOfStackFramesToSkip, ?float $duration = null) : void;
+    public function endSpanEx(int $numberOfStackFramesToSkip, ?float $duration = null): void;
 }
+
 interface SpanContextInterface extends ExecutionSegmentContextInterface
 {
     /**
@@ -365,20 +408,23 @@ interface SpanContextInterface extends ExecutionSegmentContextInterface
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L47
      */
-    public function db() : SpanContextDbInterface;
+    public function db(): SpanContextDbInterface;
+
     /**
      * Returns an object containing contextual data of the related http request
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L69
      */
-    public function http() : SpanContextHttpInterface;
+    public function http(): SpanContextHttpInterface;
+
     /**
      * Returns an object containing contextual data about the destination for spans
      *
      * @link https://github.com/elastic/apm-server/blob/7.6/docs/spec/spans/span.json#L44
      */
-    public function destination() : SpanContextDestinationInterface;
+    public function destination(): SpanContextDestinationInterface;
 }
+
 interface SpanContextDbInterface
 {
     /**
@@ -390,8 +436,9 @@ interface SpanContextDbInterface
      *
      * @return void
      */
-    public function setStatement(?string $statement) : void;
+    public function setStatement(?string $statement): void;
 }
+
 interface SpanContextHttpInterface
 {
     /**
@@ -403,7 +450,8 @@ interface SpanContextHttpInterface
      *
      * @return void
      */
-    public function setUrl(?string $url) : void;
+    public function setUrl(?string $url): void;
+
     /**
      * The status code of the http request
      *
@@ -413,7 +461,8 @@ interface SpanContextHttpInterface
      *
      * @return void
      */
-    public function setStatusCode(?int $statusCode) : void;
+    public function setStatusCode(?int $statusCode): void;
+
     /**
      * The method of the http request
      *
@@ -425,8 +474,9 @@ interface SpanContextHttpInterface
      *
      * @return void
      */
-    public function setMethod(?string $method) : void;
+    public function setMethod(?string $method): void;
 }
+
 /**
  * An object containing contextual data about the destination for spans
  *
@@ -443,8 +493,9 @@ interface SpanContextDestinationInterface
      * @param string $resource
      * @param string $type
      */
-    public function setService(string $name, string $resource, string $type) : void;
+    public function setService(string $name, string $resource, string $type): void;
 }
+
 /**
  * This interface has functionality shared between Transaction and Span.
  */
@@ -456,14 +507,16 @@ interface ExecutionSegmentInterface
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/transactions/transaction.json#L9
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L9
      */
-    public function getId() : string;
+    public function getId(): string;
+
     /**
      * Hex encoded 128 random bits (== 16 bytes == 32 hex digits) ID of the correlated trace.
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/transactions/transaction.json#L14
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L19
      */
-    public function getTraceId() : string;
+    public function getTraceId(): string;
+
     /**
      * Recorded time of the event.
      * For events that have non-zero duration this time corresponds to the start of the event.
@@ -473,7 +526,8 @@ interface ExecutionSegmentInterface
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L6
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/timestamp_epoch.json#L7
      */
-    public function getTimestamp() : float;
+    public function getTimestamp(): float;
+
     /**
      * Begins a new span with this execution segment as the new span's parent.
      *
@@ -491,7 +545,14 @@ interface ExecutionSegmentInterface
      *
      * @return SpanInterface New span
      */
-    public function beginChildSpan(string $name, string $type, ?string $subtype = null, ?string $action = null, ?float $timestamp = null) : SpanInterface;
+    public function beginChildSpan(
+        string $name,
+        string $type,
+        ?string $subtype = null,
+        ?string $action = null,
+        ?float $timestamp = null
+    ): SpanInterface;
+
     /**
      * Begins a new span with this execution segment as the new span's parent,
      * runs the provided callback as the new span and automatically ends the new span.
@@ -511,7 +572,15 @@ interface ExecutionSegmentInterface
      *
      * @return mixed The return value of $callback
      */
-    public function captureChildSpan(string $name, string $type, \Closure $callback, ?string $subtype = null, ?string $action = null, ?float $timestamp = null);
+    public function captureChildSpan(
+        string $name,
+        string $type,
+        \Closure $callback,
+        ?string $subtype = null,
+        ?string $action = null,
+        ?float $timestamp = null
+    );
+
     /**
      * - For transactions:
      *      The name of this transaction.
@@ -527,7 +596,8 @@ interface ExecutionSegmentInterface
      *
      * @param string $name
      */
-    public function setName(string $name) : void;
+    public function setName(string $name): void;
+
     /**
      * Type is a keyword of specific relevance in the service's domain
      * e.g.,
@@ -541,14 +611,16 @@ interface ExecutionSegmentInterface
      *
      * @param string $type
      */
-    public function setType(string $type) : void;
+    public function setType(string $type): void;
+
     /**
      * @deprecated      Deprecated since version 1.3 - use injectDistributedTracingHeaders() instead
      * @see             injectDistributedTracingHeaders() Use it instead of this method
      *
      * Returns distributed tracing data
      */
-    public function getDistributedTracingData() : ?DistributedTracingData;
+    public function getDistributedTracingData(): ?DistributedTracingData;
+
     /**
      * Returns distributed tracing data for the current span/transaction
      *
@@ -558,7 +630,8 @@ interface ExecutionSegmentInterface
      *
      * @param \Closure $headerInjector Callback that actually injects header(s) for the underlying transport
      */
-    public function injectDistributedTracingHeaders(\Closure $headerInjector) : void;
+    public function injectDistributedTracingHeaders(\Closure $headerInjector): void;
+
     /**
      * Sets the end timestamp and finalizes this object's state.
      *
@@ -568,11 +641,13 @@ interface ExecutionSegmentInterface
      *
      * @param float|null $duration In milliseconds with 3 decimal points.
      */
-    public function end(?float $duration = null) : void;
+    public function end(?float $duration = null): void;
+
     /**
      * Returns true if this execution segment has already ended.
      */
-    public function hasEnded() : bool;
+    public function hasEnded(): bool;
+
     /**
      * Creates an error based on the given Throwable instance with this execution segment as the parent.
      *
@@ -583,7 +658,8 @@ interface ExecutionSegmentInterface
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json
      */
-    public function createErrorFromThrowable(\Throwable $throwable) : ?string;
+    public function createErrorFromThrowable(\Throwable $throwable): ?string;
+
     /**
      * Creates an error based on the given Throwable instance with this execution segment as the parent.
      *
@@ -594,7 +670,8 @@ interface ExecutionSegmentInterface
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json
      */
-    public function createCustomError(CustomErrorData $customErrorData) : ?string;
+    public function createCustomError(CustomErrorData $customErrorData): ?string;
+
     /**
      * The outcome of the transaction/span: success, failure, or unknown.
      * Outcome may be one of a limited set of permitted values
@@ -609,37 +686,43 @@ interface ExecutionSegmentInterface
      *
      * @return void
      */
-    public function setOutcome(?string $outcome) : void;
+    public function setOutcome(?string $outcome): void;
+
     /**
      * @see setOutcome() For the description
      */
-    public function getOutcome() : ?string;
+    public function getOutcome(): ?string;
+
     /**
      * Returns true if this execution segment is a no-op (for example when recording is disabled).
      */
-    public function isNoop() : bool;
+    public function isNoop(): bool;
+
     /**
      * Discards this execution segment.
      */
-    public function discard() : void;
+    public function discard(): void;
 }
+
 final class DistributedTracingData
 {
     /** @var string */
     public $traceId;
+
     /** @var string */
     public $parentId;
+
     /** @var bool */
     public $isSampled;
+
     /**
      * @deprecated Deprecated since version 1.3 - use injectHeaders() instead
      * @see             injectHeaders() Use it instead of this method
      *
      * Returns distributed tracing data for the current span/transaction
      */
-    public function serializeToString() : string
-    {
-    }
+    public function serializeToString(): string {}
+
     /**
      * Gets distributed tracing data for the current span/transaction
      *
@@ -649,10 +732,9 @@ final class DistributedTracingData
      *
      * @param \Closure $headerInjector Callback that actually injects header(s) for the underlying transport
      */
-    public function injectHeaders(\Closure $headerInjector) : void
-    {
-    }
+    public function injectHeaders(\Closure $headerInjector): void {}
 }
+
 /**
  * Data to create custom error event
  *
@@ -674,6 +756,7 @@ class CustomErrorData
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json#L56
      */
     public $code = null;
+
     /**
      * @var string|null
      *
@@ -682,6 +765,7 @@ class CustomErrorData
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json#L61
      */
     public $message = null;
+
     /**
      * @var string|null
      *
@@ -692,6 +776,7 @@ class CustomErrorData
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/errors/error.json#L65
      */
     public $module = null;
+
     /**
      * @var string|null
      *
@@ -701,6 +786,7 @@ class CustomErrorData
      */
     public $type = null;
 }
+
 interface TransactionContextInterface extends ExecutionSegmentContextInterface
 {
     /**
@@ -709,8 +795,9 @@ interface TransactionContextInterface extends ExecutionSegmentContextInterface
      * @link https://github.com/elastic/apm-server/blob/v7.0.0/docs/spec/context.json#L43
      * @link https://github.com/elastic/apm-server/blob/v7.0.0/docs/spec/request.json
      */
-    public function request() : TransactionContextRequestInterface;
+    public function request(): TransactionContextRequestInterface;
 }
+
 /**
  * This interface has functionality shared between Transaction and Span contexts'.
  */
@@ -731,8 +818,9 @@ interface ExecutionSegmentContextInterface
      * @link    https://github.com/elastic/apm-server/blob/7.0/docs/spec/spans/span.json#L88
      * @link    https://github.com/elastic/apm-server/blob/7.0/docs/spec/tags.json
      */
-    public function setLabel(string $key, $value) : void;
+    public function setLabel(string $key, $value): void;
 }
+
 interface TransactionContextRequestInterface
 {
     /**
@@ -746,14 +834,16 @@ interface TransactionContextRequestInterface
      *
      * @return void
      */
-    public function setMethod(string $method) : void;
+    public function setMethod(string $method): void;
+
     /**
      * Returns an object that can be used to collect information about HTTP request's URL
      *
      * @link https://github.com/elastic/apm-server/blob/7.0/docs/spec/request.json#L50
      */
-    public function url() : TransactionContextRequestUrlInterface;
+    public function url(): TransactionContextRequestUrlInterface;
 }
+
 interface TransactionContextRequestUrlInterface
 {
     /**
@@ -767,7 +857,8 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setDomain(?string $domain) : void;
+    public function setDomain(?string $domain): void;
+
     /**
      * The full, possibly agent-assembled URL of the request
      *
@@ -779,7 +870,8 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setFull(?string $full) : void;
+    public function setFull(?string $full): void;
+
     /**
      * The raw, unparsed URL of the HTTP request line, e.g https://example.com:443/search?q=elasticsearch.
      * This URL may be absolute or relative.
@@ -793,7 +885,8 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setOriginal(?string $original) : void;
+    public function setOriginal(?string $original): void;
+
     /**
      * The path of the request, e.g. '/search'
      *
@@ -805,7 +898,8 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setPath(?string $path) : void;
+    public function setPath(?string $path): void;
+
     /**
      * The port of the request, e.g. 443
      *
@@ -815,7 +909,8 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setPort(?int $port) : void;
+    public function setPort(?int $port): void;
+
     /**
      * The protocol of the request, e.g. 'http'
      *
@@ -827,7 +922,8 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setProtocol(?string $protocol) : void;
+    public function setProtocol(?string $protocol): void;
+
     /**
      * Sets the query string information of the request.
      * It is expected to have values delimited by ampersands.
@@ -840,5 +936,5 @@ interface TransactionContextRequestUrlInterface
      *
      * @return void
      */
-    public function setQuery(?string $query) : void;
+    public function setQuery(?string $query): void;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
 
 use ArrayIterator;
 use Countable;
@@ -12,9 +12,9 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\TraitSelectOrAliasClause;
 use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
 use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\QualifiedNameListUtil;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
+use Phpactor\WorseReflection\Core\Util\QualifiedNameListUtil;
+use Phpactor\WorseReflection\Core\Visibility;
 use RuntimeException;
 use Traversable;
 /**
@@ -49,7 +49,7 @@ final class TraitImports implements Countable, IteratorAggregate
             }
             if (null === $memberDeclaration->traitSelectAndAliasClauses) {
                 foreach ($traitNames as $traitName) {
-                    $this->imports[$traitName] = new TraitImport($traitName);
+                    $this->imports[$traitName] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitImport($traitName);
                 }
                 continue;
             }
@@ -75,10 +75,10 @@ final class TraitImports implements Countable, IteratorAggregate
                         }
                         $memberName = (string) $clause->name;
                         $targetName = (string) $targetName;
-                        $aliases[$memberName] = new TraitAlias($memberName, $this->visiblity($clause), $targetName);
+                        $aliases[$memberName] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitAlias($memberName, $this->visiblity($clause), $targetName);
                     }
                 }
-                $this->imports[$traitName] = new TraitImport($traitName, $aliases);
+                $this->imports[$traitName] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitImport($traitName, $aliases);
             }
         }
     }
@@ -94,7 +94,7 @@ final class TraitImports implements Countable, IteratorAggregate
     {
         return isset($this->imports[$name]);
     }
-    public function get(string $name) : TraitImport
+    public function get(string $name) : \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitImport
     {
         if (!\array_key_exists($name, $this->imports)) {
             throw new RuntimeException(\sprintf('Trait import "%s" does not exist', $name));
@@ -125,7 +125,3 @@ final class TraitImports implements Countable, IteratorAggregate
         return null;
     }
 }
-/**
- * @implements IteratorAggregate<string,TraitImport>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitImports', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitImports', \false);

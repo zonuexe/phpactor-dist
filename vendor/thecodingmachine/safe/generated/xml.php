@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\XmlException;
+use Safe\Exceptions\XmlException;
+
 /**
  * xml_parser_create_ns creates a new XML parser
  * with XML namespace support and returns a resource handle referencing
@@ -23,7 +24,7 @@ use Phpactor202301\Safe\Exceptions\XmlException;
  */
 function xml_parser_create_ns(string $encoding = null, string $separator = ":")
 {
-    \error_clear_last();
+    error_clear_last();
     if ($separator !== ":") {
         $result = \xml_parser_create_ns($encoding, $separator);
     } elseif ($encoding !== null) {
@@ -31,11 +32,13 @@ function xml_parser_create_ns(string $encoding = null, string $separator = ":")
     } else {
         $result = \xml_parser_create_ns();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw XmlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * xml_parser_create creates a new XML parser
  * and returns a resource handle referencing it to be used by the
@@ -58,17 +61,19 @@ function xml_parser_create_ns(string $encoding = null, string $separator = ":")
  */
 function xml_parser_create(string $encoding = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($encoding !== null) {
         $result = \xml_parser_create($encoding);
     } else {
         $result = \xml_parser_create();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw XmlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function allows to use parser inside
  * object. All callback functions could be set with
@@ -80,11 +85,11 @@ function xml_parser_create(string $encoding = null)
  * @throws XmlException
  *
  */
-function xml_set_object($parser, object &$object) : void
+function xml_set_object($parser, object &$object): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \xml_set_object($parser, $object);
-    if ($result === \false) {
+    if ($result === false) {
         throw XmlException::createFromPhpError();
     }
 }

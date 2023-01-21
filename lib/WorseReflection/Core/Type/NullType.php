@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-final class NullType extends PrimitiveType implements HasEmptyType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+final class NullType extends \Phpactor\WorseReflection\Core\Type\PrimitiveType implements \Phpactor\WorseReflection\Core\Type\HasEmptyType
 {
     public function __toString() : string
     {
@@ -16,7 +16,7 @@ final class NullType extends PrimitiveType implements HasEmptyType
     }
     public function accepts(Type $type) : Trinary
     {
-        return Trinary::fromBoolean($type instanceof MixedType || $type instanceof NullType);
+        return Trinary::fromBoolean($type instanceof \Phpactor\WorseReflection\Core\Type\MixedType || $type instanceof \Phpactor\WorseReflection\Core\Type\NullType);
     }
     public function isNull() : bool
     {
@@ -27,4 +27,3 @@ final class NullType extends PrimitiveType implements HasEmptyType
         return $this;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\NullType', 'Phpactor\\WorseReflection\\Core\\Type\\NullType', \false);

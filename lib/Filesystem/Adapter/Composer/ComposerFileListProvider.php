@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Filesystem\Adapter\Composer;
+namespace Phpactor\Filesystem\Adapter\Composer;
 
-use Phpactor202301\Phpactor\Filesystem\Domain\FileList;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\Filesystem\Domain\FileList;
+use Phpactor\Filesystem\Domain\FilePath;
 use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Phpactor\Filesystem\Domain\FileListProvider;
+use Phpactor\Filesystem\Domain\FileListProvider;
 use AppendIterator;
 use SplFileInfo;
 use ArrayIterator;
@@ -66,4 +66,3 @@ class ComposerFileListProvider implements FileListProvider
         return $files;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Filesystem\\Adapter\\Composer\\ComposerFileListProvider', 'Phpactor\\Filesystem\\Adapter\\Composer\\ComposerFileListProvider', \false);

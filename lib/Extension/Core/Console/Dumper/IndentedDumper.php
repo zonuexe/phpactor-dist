@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Console\Dumper;
+namespace Phpactor\Extension\Core\Console\Dumper;
 
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-final class IndentedDumper implements Dumper
+final class IndentedDumper implements \Phpactor\Extension\Core\Console\Dumper\Dumper
 {
     const PADDING = '  ';
     public function dump(OutputInterface $output, array $data) : void
@@ -34,4 +34,3 @@ final class IndentedDumper implements Dumper
         return $value;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Console\\Dumper\\IndentedDumper', 'Phpactor\\Extension\\Core\\Console\\Dumper\\IndentedDumper', \false);

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\DiagnosticProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FrameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FrameResolver;
+use Phpactor\WorseReflection\Core\Inference\Walker;
 class DiagnosticsWalker implements Walker
 {
     /**
@@ -53,4 +53,3 @@ class DiagnosticsWalker implements Walker
         return $frame;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Walker\\DiagnosticsWalker', 'Phpactor\\WorseReflection\\Core\\Inference\\Walker\\DiagnosticsWalker', \false);

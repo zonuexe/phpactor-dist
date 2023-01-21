@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
-final class NamespaceName extends QualifiedName
+final class NamespaceName extends \Phpactor\CodeBuilder\Domain\Prototype\QualifiedName
 {
-    public static function root() : NamespaceName
+    public static function root() : \Phpactor\CodeBuilder\Domain\Prototype\NamespaceName
     {
         return new self('');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\NamespaceName', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\NamespaceName', \false);

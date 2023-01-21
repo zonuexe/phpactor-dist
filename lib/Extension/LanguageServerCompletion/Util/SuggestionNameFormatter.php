@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCompletion\Util;
+namespace Phpactor\Extension\LanguageServerCompletion\Util;
 
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
+use Phpactor\Completion\Core\Suggestion;
 class SuggestionNameFormatter
 {
     public function __construct(private bool $trimLeadingDollar = \false)
@@ -18,4 +18,3 @@ class SuggestionNameFormatter
         };
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCompletion\\Util\\SuggestionNameFormatter', 'Phpactor\\Extension\\LanguageServerCompletion\\Util\\SuggestionNameFormatter', \false);

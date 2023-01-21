@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\MysqlndQcException;
+use Safe\Exceptions\MysqlndQcException;
+
 /**
  * Flush all cache contents.
  *
@@ -18,14 +19,16 @@ use Phpactor202301\Safe\Exceptions\MysqlndQcException;
  * @throws MysqlndQcException
  *
  */
-function mysqlnd_qc_clear_cache() : void
+function mysqlnd_qc_clear_cache(): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_qc_clear_cache();
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_qc_clear_cache();
+    if ($result === false) {
         throw MysqlndQcException::createFromPhpError();
     }
 }
+
+
 /**
  * Installs a callback which decides whether a statement is cached.
  *
@@ -60,13 +63,15 @@ function mysqlnd_qc_clear_cache() : void
  */
 function mysqlnd_qc_set_is_select(string $callback)
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_qc_set_is_select($callback);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_qc_set_is_select($callback);
+    if ($result === false) {
         throw MysqlndQcException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets the storage handler used by the query cache. A list of available
  * storage handler can be obtained from
@@ -88,11 +93,11 @@ function mysqlnd_qc_set_is_select(string $callback)
  * @throws MysqlndQcException
  *
  */
-function mysqlnd_qc_set_storage_handler(string $handler) : void
+function mysqlnd_qc_set_storage_handler(string $handler): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\mysqlnd_qc_set_storage_handler($handler);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \mysqlnd_qc_set_storage_handler($handler);
+    if ($result === false) {
         throw MysqlndQcException::createFromPhpError();
     }
 }

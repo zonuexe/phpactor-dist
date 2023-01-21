@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection;
+namespace Phpactor\WorseReflection\Core\Reflection;
 
 interface ReflectionNode
 {
-    public function scope() : ReflectionScope;
+    public function scope() : \Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionNode', 'Phpactor\\WorseReflection\\Core\\Reflection\\ReflectionNode', \false);

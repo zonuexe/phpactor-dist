@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
-use Phpactor202301\Phpactor\Indexer\Model\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-final class ClassRecord implements Record, HasFileReferences, HasPath, HasFullyQualifiedName
+use Phpactor\Indexer\Model\Name\FullyQualifiedName;
+use Phpactor\Indexer\Model\Record;
+final class ClassRecord implements Record, \Phpactor\Indexer\Model\Record\HasFileReferences, \Phpactor\Indexer\Model\Record\HasPath, \Phpactor\Indexer\Model\Record\HasFullyQualifiedName
 {
-    use FullyQualifiedReferenceTrait;
-    use HasFileReferencesTrait;
-    use HasPathTrait;
+    use \Phpactor\Indexer\Model\Record\FullyQualifiedReferenceTrait;
+    use \Phpactor\Indexer\Model\Record\HasFileReferencesTrait;
+    use \Phpactor\Indexer\Model\Record\HasPathTrait;
     public const RECORD_TYPE = 'class';
     public const TYPE_CLASS = 'class';
     public const TYPE_INTERFACE = 'interface';
@@ -86,11 +86,10 @@ final class ClassRecord implements Record, HasFileReferences, HasPath, HasFullyQ
     {
         return self::RECORD_TYPE;
     }
-    public function withType(?string $type) : ClassRecord
+    public function withType(?string $type) : \Phpactor\Indexer\Model\Record\ClassRecord
     {
         $clone = clone $this;
         $clone->type = $type;
         return $clone;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record\\ClassRecord', 'Phpactor\\Indexer\\Model\\Record\\ClassRecord', \false);

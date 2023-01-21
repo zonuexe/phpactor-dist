@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
-use Phpactor202301\Phpactor\TextDocument\Exception\InvalidUriException;
+use Phpactor\TextDocument\Exception\InvalidUriException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class TextDocumentUri
 {
@@ -46,4 +46,3 @@ class TextDocumentUri
         return $this->scheme;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocumentUri', 'Phpactor\\TextDocument\\TextDocumentUri', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\MsqlException;
+use Safe\Exceptions\MsqlException;
+
 /**
  * Returns number of affected rows by the last SELECT, UPDATE or DELETE
  * query associated with result.
@@ -14,15 +15,17 @@ use Phpactor202301\Safe\Exceptions\MsqlException;
  * @throws MsqlException
  *
  */
-function msql_affected_rows($result) : int
+function msql_affected_rows($result): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_affected_rows($result);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_affected_rows($result);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_close closes the non-persistent connection to
  * the mSQL server that's associated with the specified link identifier.
@@ -38,18 +41,20 @@ function msql_affected_rows($result) : int
  * @throws MsqlException
  *
  */
-function msql_close($link_identifier = null) : void
+function msql_close($link_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
-        $result = \Phpactor202301\msql_close($link_identifier);
+        $result = \msql_close($link_identifier);
     } else {
-        $result = \Phpactor202301\msql_close();
+        $result = \msql_close();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }
+
+
 /**
  * msql_connect establishes a connection to a mSQL
  * server.
@@ -78,17 +83,19 @@ function msql_close($link_identifier = null) : void
  */
 function msql_connect(string $hostname = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($hostname !== null) {
-        $result = \Phpactor202301\msql_connect($hostname);
+        $result = \msql_connect($hostname);
     } else {
-        $result = \Phpactor202301\msql_connect();
+        $result = \msql_connect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_create_db attempts to create a new database on
  * the mSQL server.
@@ -101,18 +108,20 @@ function msql_connect(string $hostname = null)
  * @throws MsqlException
  *
  */
-function msql_create_db(string $database_name, $link_identifier = null) : void
+function msql_create_db(string $database_name, $link_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
-        $result = \Phpactor202301\msql_create_db($database_name, $link_identifier);
+        $result = \msql_create_db($database_name, $link_identifier);
     } else {
-        $result = \Phpactor202301\msql_create_db($database_name);
+        $result = \msql_create_db($database_name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }
+
+
 /**
  * msql_data_seek moves the internal row
  * pointer of the mSQL result associated with the specified query
@@ -127,14 +136,16 @@ function msql_create_db(string $database_name, $link_identifier = null) : void
  * @throws MsqlException
  *
  */
-function msql_data_seek($result, int $row_number) : void
+function msql_data_seek($result, int $row_number): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_data_seek($result, $row_number);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_data_seek($result, $row_number);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }
+
+
 /**
  * msql_db_query selects a database and executes a query
  * on it.
@@ -151,17 +162,19 @@ function msql_data_seek($result, int $row_number) : void
  */
 function msql_db_query(string $database, string $query, $link_identifier = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
-        $result = \Phpactor202301\msql_db_query($database, $query, $link_identifier);
+        $result = \msql_db_query($database, $query, $link_identifier);
     } else {
-        $result = \Phpactor202301\msql_db_query($database, $query);
+        $result = \msql_db_query($database, $query);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_drop_db attempts to drop (remove) a database
  * from the mSQL server.
@@ -174,18 +187,20 @@ function msql_db_query(string $database, string $query, $link_identifier = null)
  * @throws MsqlException
  *
  */
-function msql_drop_db(string $database_name, $link_identifier = null) : void
+function msql_drop_db(string $database_name, $link_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
-        $result = \Phpactor202301\msql_drop_db($database_name, $link_identifier);
+        $result = \msql_drop_db($database_name, $link_identifier);
     } else {
-        $result = \Phpactor202301\msql_drop_db($database_name);
+        $result = \msql_drop_db($database_name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }
+
+
 /**
  * msql_field_len returns the length of the specified
  * field.
@@ -199,15 +214,17 @@ function msql_drop_db(string $database_name, $link_identifier = null) : void
  * @throws MsqlException
  *
  */
-function msql_field_len($result, int $field_offset) : int
+function msql_field_len($result, int $field_offset): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_field_len($result, $field_offset);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_field_len($result, $field_offset);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_field_name gets the name of the specified field
  * index.
@@ -221,15 +238,17 @@ function msql_field_len($result, int $field_offset) : int
  * @throws MsqlException
  *
  */
-function msql_field_name($result, int $field_offset) : string
+function msql_field_name($result, int $field_offset): string
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_field_name($result, $field_offset);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_field_name($result, $field_offset);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Seeks to the specified field offset. If the next call to
  * msql_fetch_field won't include a field offset, this
@@ -243,14 +262,16 @@ function msql_field_name($result, int $field_offset) : string
  * @throws MsqlException
  *
  */
-function msql_field_seek($result, int $field_offset) : void
+function msql_field_seek($result, int $field_offset): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_field_seek($result, $field_offset);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_field_seek($result, $field_offset);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }
+
+
 /**
  * Returns the name of the table that the specified field is in.
  *
@@ -263,15 +284,17 @@ function msql_field_seek($result, int $field_offset) : void
  * @throws MsqlException
  *
  */
-function msql_field_table($result, int $field_offset) : int
+function msql_field_table($result, int $field_offset): int
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_field_table($result, $field_offset);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_field_table($result, $field_offset);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_field_type gets the type of the specified field
  * index.
@@ -288,15 +311,17 @@ function msql_field_table($result, int $field_offset) : int
  * @throws MsqlException
  *
  */
-function msql_field_type($result, int $field_offset) : string
+function msql_field_type($result, int $field_offset): string
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_field_type($result, $field_offset);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_field_type($result, $field_offset);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_free_result frees the memory associated
  * with query_identifier.  When PHP completes a
@@ -310,14 +335,16 @@ function msql_field_type($result, int $field_offset) : string
  * @throws MsqlException
  *
  */
-function msql_free_result($result) : void
+function msql_free_result($result): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\msql_free_result($result);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \msql_free_result($result);
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }
+
+
 /**
  * msql_pconnect acts very much like
  * msql_connect with two major differences.
@@ -344,17 +371,19 @@ function msql_free_result($result) : void
  */
 function msql_pconnect(string $hostname = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($hostname !== null) {
-        $result = \Phpactor202301\msql_pconnect($hostname);
+        $result = \msql_pconnect($hostname);
     } else {
-        $result = \Phpactor202301\msql_pconnect();
+        $result = \msql_pconnect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_query sends a query to the currently active
  * database on the server that's associated with the specified link
@@ -371,17 +400,19 @@ function msql_pconnect(string $hostname = null)
  */
 function msql_query(string $query, $link_identifier = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
-        $result = \Phpactor202301\msql_query($query, $link_identifier);
+        $result = \msql_query($query, $link_identifier);
     } else {
-        $result = \Phpactor202301\msql_query($query);
+        $result = \msql_query($query);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * msql_select_db sets the current active database on
  * the server that's associated with the specified
@@ -398,15 +429,15 @@ function msql_query(string $query, $link_identifier = null)
  * @throws MsqlException
  *
  */
-function msql_select_db(string $database_name, $link_identifier = null) : void
+function msql_select_db(string $database_name, $link_identifier = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($link_identifier !== null) {
-        $result = \Phpactor202301\msql_select_db($database_name, $link_identifier);
+        $result = \msql_select_db($database_name, $link_identifier);
     } else {
-        $result = \Phpactor202301\msql_select_db($database_name);
+        $result = \msql_select_db($database_name);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw MsqlException::createFromPhpError();
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+namespace Phpactor\LanguageServer\Core\Server\RpcClient;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
 use Phpactor202301\Ramsey\Uuid\Uuid;
 final class JsonRpcClient implements RpcClient
 {
@@ -40,4 +40,3 @@ final class JsonRpcClient implements RpcClient
         return $response;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\RpcClient\\JsonRpcClient', 'Phpactor\\LanguageServer\\Core\\Server\\RpcClient\\JsonRpcClient', \false);

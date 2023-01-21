@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Resolver\IterableTypeResolver;
-class ReflectedClassType extends ClassType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\Resolver\IterableTypeResolver;
+class ReflectedClassType extends \Phpactor\WorseReflection\Core\Type\ClassType
 {
     public function __construct(protected ClassReflector $reflector, public ClassName $name)
     {
@@ -56,7 +56,7 @@ class ReflectedClassType extends ClassType
         if ($type->equals($this)) {
             return Trinary::true();
         }
-        if (!$type instanceof ClassType) {
+        if (!$type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::false();
         }
         $reflectedThis = $this->reflectionOrNull();
@@ -96,13 +96,13 @@ class ReflectedClassType extends ClassType
     {
         $class = $this->reflectionOrNull();
         if (!$class instanceof ReflectionClassLike) {
-            return new MissingType();
+            return new \Phpactor\WorseReflection\Core\Type\MissingType();
         }
         $scope = $class->scope();
         \assert($class instanceof ReflectionClassLike);
         $genericTypes = \array_merge($class->docblock()->implements(), $class->docblock()->extends());
         foreach ($genericTypes as $genericType) {
-            if (!$genericType instanceof GenericClassType) {
+            if (!$genericType instanceof \Phpactor\WorseReflection\Core\Type\GenericClassType) {
                 continue;
             }
             $type = IterableTypeResolver::resolveIterable($this->reflector, $genericType, $genericType->arguments());
@@ -111,24 +111,24 @@ class ReflectedClassType extends ClassType
             }
             return $type;
         }
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function instanceof(Type $type) : Trinary
     {
-        if ($type instanceof MissingType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\MissingType) {
             return Trinary::maybe();
         }
-        if (!$type instanceof StringType && !$type instanceof ClassType) {
+        if (!$type instanceof \Phpactor\WorseReflection\Core\Type\StringType && !$type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::false();
         }
         $reflection = $this->reflectionOrNull();
         if (!$reflection) {
             return Trinary::maybe();
         }
-        if ($type instanceof StringLiteralType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\StringLiteralType) {
             return Trinary::fromBoolean($reflection->isInstanceOf(ClassName::fromString($type->value())));
         }
-        if ($type instanceof ClassType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::fromBoolean($reflection->isInstanceOf($type->name()));
         }
         return Trinary::maybe();
@@ -136,9 +136,9 @@ class ReflectedClassType extends ClassType
     /**
      * If the class type has a template, then upcast it
      */
-    public function upcastToGeneric() : ReflectedClassType
+    public function upcastToGeneric() : \Phpactor\WorseReflection\Core\Type\ReflectedClassType
     {
-        if ($this instanceof GenericClassType) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\GenericClassType) {
             return $this;
         }
         $reflection = $this->reflectionOrNull();
@@ -148,7 +148,7 @@ class ReflectedClassType extends ClassType
         if (0 === $reflection->templateMap()->count()) {
             return $this;
         }
-        return new GenericClassType($this->reflector, $this->name(), $reflection->templateMap()->toArray());
+        return new \Phpactor\WorseReflection\Core\Type\GenericClassType($this->reflector, $this->name(), $reflection->templateMap()->toArray());
     }
     public function isInterface() : Trinary
     {
@@ -171,4 +171,3 @@ class ReflectedClassType extends ClassType
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ReflectedClassType', 'Phpactor\\WorseReflection\\Core\\Type\\ReflectedClassType', \false);

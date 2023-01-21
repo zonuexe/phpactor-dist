@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
+namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor202301\PHPUnit\Framework\TestCase;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FrameResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Walker;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\StringLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FrameResolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Walker;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\IntLiteralType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\StringLiteralType;
+use Phpactor\WorseReflection\TypeUtil;
 use RuntimeException;
 class TestAssertWalker implements Walker
 {
@@ -167,4 +167,3 @@ class TestAssertWalker implements Walker
         $this->testCase->fail(\sprintf("%s: \n\n  %s\n\nis:\n\n  %s\n\non offset %s line %s char %s", $message ?: 'Failed asserting that:', $actualType->__toString(), \trim($expectedType->__toString(), '"'), $node->getStartPosition(), $position->line + 1, $position->character + 1));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Walker\\TestAssertWalker', 'Phpactor\\WorseReflection\\Core\\Inference\\Walker\\TestAssertWalker', \false);

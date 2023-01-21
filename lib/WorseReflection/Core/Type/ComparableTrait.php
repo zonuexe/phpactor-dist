@@ -1,50 +1,50 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
 use RuntimeException;
 trait ComparableTrait
 {
-    public function identical(Type $right) : BooleanType
+    public function identical(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '===');
     }
-    public function greaterThan(Type $right) : BooleanType
+    public function greaterThan(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '>');
     }
-    public function greaterThanEqual(Type $right) : BooleanType
+    public function greaterThanEqual(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '>=');
     }
-    public function lessThan(Type $right) : BooleanType
+    public function lessThan(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '<');
     }
-    public function notEqual(Type $right) : BooleanType
+    public function notEqual(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '!=');
     }
-    public function lessThanEqual(Type $right) : BooleanType
+    public function lessThanEqual(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '<=');
     }
-    public function equal(Type $right) : BooleanType
+    public function equal(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '==');
     }
-    public function notIdentical(Type $right) : BooleanType
+    public function notIdentical(Type $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
         return $this->compare($right, '!==');
     }
-    private function compare(Type $right, string $operator) : BooleanType
+    private function compare(Type $right, string $operator) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        if (!$this instanceof Literal) {
+        if (!$this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return TypeFactory::bool();
         }
-        if ($right instanceof ScalarType && $right instanceof Literal) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\ScalarType && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return TypeFactory::boolLiteral($this->doCompare($this->value(), $right->value(), $operator));
         }
         return TypeFactory::bool();

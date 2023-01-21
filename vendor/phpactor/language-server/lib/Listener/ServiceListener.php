@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Listener;
+namespace Phpactor\LanguageServer\Listener;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceManager;
-use Phpactor202301\Phpactor\LanguageServer\Event\Initialized;
-use Phpactor202301\Phpactor\LanguageServer\Event\WillShutdown;
+use Phpactor\LanguageServer\Core\Service\ServiceManager;
+use Phpactor\LanguageServer\Event\Initialized;
+use Phpactor\LanguageServer\Event\WillShutdown;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 class ServiceListener implements ListenerProviderInterface
 {
@@ -35,4 +35,3 @@ class ServiceListener implements ListenerProviderInterface
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Listener\\ServiceListener', 'Phpactor\\LanguageServer\\Listener\\ServiceListener', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Domain;
+namespace Phpactor\ClassFileConverter\Domain;
 
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 final class FilePath
@@ -19,14 +19,13 @@ final class FilePath
     {
         return Path::isAbsolute($this->path);
     }
-    public static function fromString($path) : FilePath
+    public static function fromString($path) : \Phpactor\ClassFileConverter\Domain\FilePath
     {
         return new self($path);
     }
-    public static function fromParts(array $parts) : FilePath
+    public static function fromParts(array $parts) : \Phpactor\ClassFileConverter\Domain\FilePath
     {
         $path = \implode('/', $parts);
         return new self($path);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Domain\\FilePath', 'Phpactor\\ClassFileConverter\\Domain\\FilePath', \false);

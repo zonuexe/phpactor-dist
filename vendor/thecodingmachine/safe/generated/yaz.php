@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\YazException;
+use Safe\Exceptions\YazException;
+
 /**
  * This function invokes a CCL parser. It converts a given CCL FIND query to
  * an RPN query which may be passed to the yaz_search
@@ -46,14 +47,16 @@ use Phpactor202301\Safe\Exceptions\YazException;
  * @throws YazException
  *
  */
-function yaz_ccl_parse($id, string $query, ?array &$result) : void
+function yaz_ccl_parse($id, string $query, ?array &$result): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_ccl_parse($id, $query, $result);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_ccl_parse($id, $query, $result);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
 }
+
+
 /**
  * Closes the connection given by parameter id.
  *
@@ -61,14 +64,16 @@ function yaz_ccl_parse($id, string $query, ?array &$result) : void
  * @throws YazException
  *
  */
-function yaz_close($id) : void
+function yaz_close($id): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_close($id);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_close($id);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
 }
+
+
 /**
  * This function returns a connection resource on success, zero on
  * failure.
@@ -262,17 +267,19 @@ function yaz_close($id) : void
  */
 function yaz_connect(string $zurl, $options = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($options !== null) {
-        $result = \Phpactor202301\yaz_connect($zurl, $options);
+        $result = \yaz_connect($zurl, $options);
     } else {
-        $result = \Phpactor202301\yaz_connect($zurl);
+        $result = \yaz_connect($zurl);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function allows you to change databases within a session by
  * specifying one or more databases to be used in search, retrieval, etc.
@@ -285,14 +292,16 @@ function yaz_connect(string $zurl, $options = null)
  * @throws YazException
  *
  */
-function yaz_database($id, string $databases) : void
+function yaz_database($id, string $databases): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_database($id, $databases);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_database($id, $databases);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
 }
+
+
 /**
  * This function sets the element set name for retrieval.
  *
@@ -306,14 +315,16 @@ function yaz_database($id, string $databases) : void
  * @throws YazException
  *
  */
-function yaz_element($id, string $elementset) : void
+function yaz_element($id, string $elementset): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_element($id, $elementset);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_element($id, $elementset);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
 }
+
+
 /**
  * This function prepares for retrieval of records after a successful search.
  *
@@ -324,14 +335,16 @@ function yaz_element($id, string $elementset) : void
  * @throws YazException
  *
  */
-function yaz_present($id) : void
+function yaz_present($id): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_present($id);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_present($id);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
 }
+
+
 /**
  * yaz_search prepares for a search on the given
  * connection.
@@ -362,14 +375,16 @@ function yaz_present($id) : void
  * @throws YazException
  *
  */
-function yaz_search($id, string $type, string $query) : void
+function yaz_search($id, string $type, string $query): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_search($id, $type, $query);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_search($id, $type, $query);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
 }
+
+
 /**
  * This function carries out networked (blocked) activity for outstanding
  * requests which have been prepared by the functions
@@ -414,9 +429,9 @@ function yaz_search($id, string $type, string $query) : void
  */
 function yaz_wait(array &$options = null)
 {
-    \error_clear_last();
-    $result = \Phpactor202301\yaz_wait($options);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \yaz_wait($options);
+    if ($result === false) {
         throw YazException::createFromPhpError();
     }
     return $result;

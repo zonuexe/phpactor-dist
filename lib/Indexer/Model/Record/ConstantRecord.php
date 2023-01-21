@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model\Record;
+namespace Phpactor\Indexer\Model\Record;
 
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-final class ConstantRecord implements HasPath, Record, HasFullyQualifiedName
+use Phpactor\Indexer\Model\Record;
+final class ConstantRecord implements \Phpactor\Indexer\Model\Record\HasPath, Record, \Phpactor\Indexer\Model\Record\HasFullyQualifiedName
 {
-    use FullyQualifiedReferenceTrait;
-    use HasPathTrait;
+    use \Phpactor\Indexer\Model\Record\FullyQualifiedReferenceTrait;
+    use \Phpactor\Indexer\Model\Record\HasPathTrait;
     public const RECORD_TYPE = 'constant';
     public static function fromName(string $name) : self
     {
@@ -17,4 +17,3 @@ final class ConstantRecord implements HasPath, Record, HasFullyQualifiedName
         return self::RECORD_TYPE;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Record\\ConstantRecord', 'Phpactor\\Indexer\\Model\\Record\\ConstantRecord', \false);

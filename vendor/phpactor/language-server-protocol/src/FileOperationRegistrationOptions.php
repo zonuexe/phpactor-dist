@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -30,7 +30,7 @@ class FileOperationRegistrationOptions
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['filters' => ['names' => [FileOperationFilter::class], 'iterable' => \true]];
+        $map = ['filters' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationFilter::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -80,7 +80,3 @@ class FileOperationRegistrationOptions
         throw $lastException;
     }
 }
-/**
- * The options to register for file operations.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileOperationRegistrationOptions', 'Phpactor\\LanguageServerProtocol\\FileOperationRegistrationOptions', \false);

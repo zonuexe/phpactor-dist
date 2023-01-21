@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of xhprof v.0.9.4
+
 /**
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Start xhprof profiler.
@@ -18,9 +17,8 @@ namespace Phpactor202301;
  *
  * @return null
  */
-function xhprof_enable($flags = 0, array $options = [])
-{
-}
+function xhprof_enable($flags = 0, array $options = []) {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Stops the profiler, and returns xhprof data from the run.
@@ -28,9 +26,8 @@ function xhprof_enable($flags = 0, array $options = [])
  * @link https://php.net/manual/en/function.xhprof-disable.php
  * @return array an array of xhprof data, from the run.
  */
-function xhprof_disable()
-{
-}
+function xhprof_disable() {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Starts profiling in sample mode, which is a lighter weight version of {@see xhprof_enable()}. The sampling interval
@@ -40,9 +37,8 @@ function xhprof_disable()
  * @link https://php.net/manual/en/function.xhprof-sample-enable.php
  * @return null
  */
-function xhprof_sample_enable()
-{
-}
+function xhprof_sample_enable() {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Stops the sample mode xhprof profiler, and returns xhprof data from the run.
@@ -50,10 +46,19 @@ function xhprof_sample_enable()
  * @link https://php.net/manual/en/function.xhprof-sample-disable.php
  * @return array an array of xhprof sample data, from the run.
  */
-function xhprof_sample_disable()
-{
-}
-\define('XHPROF_FLAGS_NO_BUILTINS', 1);
-\define('XHPROF_FLAGS_CPU', 2);
-\define('XHPROF_FLAGS_MEMORY', 4);
+function xhprof_sample_disable() {}
+
+/**
+ * @link https://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-no-builtins
+ */
+const XHPROF_FLAGS_NO_BUILTINS = 1;
+/**
+ * @link https://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-cpu
+ */
+const XHPROF_FLAGS_CPU = 2;
+/**
+ * @link https://php.net/manual/en/xhprof.constants.php##constant.xhprof-flags-memory
+ */
+const XHPROF_FLAGS_MEMORY = 4;
+
 // End of xhprof v.0.9.4

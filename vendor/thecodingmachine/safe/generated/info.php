@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\InfoException;
+use Safe\Exceptions\InfoException;
+
 /**
  * Sets the process title visible in tools such as top and
  * ps. This function is available only in
@@ -12,14 +13,16 @@ use Phpactor202301\Safe\Exceptions\InfoException;
  * @throws InfoException
  *
  */
-function cli_set_process_title(string $title) : void
+function cli_set_process_title(string $title): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \cli_set_process_title($title);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
 }
+
+
 /**
  * Loads the PHP extension given by the parameter
  * library.
@@ -74,14 +77,16 @@ function cli_set_process_title(string $title) : void
  * @throws InfoException
  *
  */
-function dl(string $library) : void
+function dl(string $library): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \dl($library);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
 }
+
+
 /**
  * Gets the time of the last modification of the main script of execution.
  *
@@ -94,15 +99,17 @@ function dl(string $library) : void
  * @throws InfoException
  *
  */
-function getlastmod() : int
+function getlastmod(): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getlastmod();
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -110,15 +117,17 @@ function getlastmod() : int
  * @throws InfoException
  *
  */
-function getmygid() : int
+function getmygid(): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getmygid();
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Gets the inode of the current script.
  *
@@ -126,15 +135,17 @@ function getmygid() : int
  * @throws InfoException
  *
  */
-function getmyinode() : int
+function getmyinode(): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getmyinode();
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Gets the current PHP process ID.
  *
@@ -142,15 +153,17 @@ function getmyinode() : int
  * @throws InfoException
  *
  */
-function getmypid() : int
+function getmypid(): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getmypid();
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -158,15 +171,17 @@ function getmypid() : int
  * @throws InfoException
  *
  */
-function getmyuid() : int
+function getmyuid(): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \getmyuid();
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Parses options passed to the script.
  *
@@ -177,9 +192,9 @@ function getmyuid() : int
  * @throws InfoException
  *
  */
-function getopt(string $options, array $longopts = null, ?int &$optind = null) : array
+function getopt(string $options, array $longopts = null, ?int &$optind = null): array
 {
-    \error_clear_last();
+    error_clear_last();
     if ($optind !== null) {
         $result = \getopt($options, $longopts, $optind);
     } elseif ($longopts !== null) {
@@ -187,11 +202,13 @@ function getopt(string $options, array $longopts = null, ?int &$optind = null) :
     } else {
         $result = \getopt($options);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the value of the configuration option on success.
  *
@@ -202,15 +219,17 @@ function getopt(string $options, array $longopts = null, ?int &$optind = null) :
  * @throws InfoException
  *
  */
-function ini_get(string $varname) : string
+function ini_get(string $varname): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ini_get($varname);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Sets the value of the given configuration option.  The configuration option
  * will keep this new value during the script's execution, and will be restored
@@ -224,15 +243,17 @@ function ini_get(string $varname) : string
  * @throws InfoException
  *
  */
-function ini_set(string $varname, $newvalue) : string
+function ini_set(string $varname, $newvalue): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \ini_set($varname, $newvalue);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function prints out the credits listing the PHP developers,
  * modules, etc. It generates the appropriate HTML codes to insert
@@ -302,14 +323,16 @@ function ini_set(string $varname, $newvalue) : string
  * @throws InfoException
  *
  */
-function phpcredits(int $flag = \CREDITS_ALL) : void
+function phpcredits(int $flag = CREDITS_ALL): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \phpcredits($flag);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
 }
+
+
 /**
  * Outputs a large amount of information about the current state of  PHP.
  * This includes information about PHP compilation options and extensions,
@@ -410,14 +433,16 @@ function phpcredits(int $flag = \CREDITS_ALL) : void
  * @throws InfoException
  *
  */
-function phpinfo(int $what = \INFO_ALL) : void
+function phpinfo(int $what = INFO_ALL): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \phpinfo($what);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
 }
+
+
 /**
  * Adds setting to the server environment.  The
  * environment variable will only exist for the duration of the current
@@ -428,14 +453,16 @@ function phpinfo(int $what = \INFO_ALL) : void
  * @throws InfoException
  *
  */
-function putenv(string $setting) : void
+function putenv(string $setting): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \putenv($setting);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
 }
+
+
 /**
  * Sets the include_path
  * configuration option for the duration of the script.
@@ -446,15 +473,17 @@ function putenv(string $setting) : void
  * @throws InfoException
  *
  */
-function set_include_path(string $new_include_path) : string
+function set_include_path(string $new_include_path): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \set_include_path($new_include_path);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Set the number of seconds a script is allowed to run. If this is reached,
  * the script returns a fatal error. The default limit is 30 seconds or, if
@@ -472,11 +501,11 @@ function set_include_path(string $new_include_path) : string
  * @throws InfoException
  *
  */
-function set_time_limit(int $seconds) : void
+function set_time_limit(int $seconds): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \set_time_limit($seconds);
-    if ($result === \false) {
+    if ($result === false) {
         throw InfoException::createFromPhpError();
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
  */
-class WorkspaceSymbolParams extends WorkDoneProgressParams
+class WorkspaceSymbolParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * A query string to filter symbols by. Clients may send an empty
@@ -100,9 +100,3 @@ class WorkspaceSymbolParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [WorkspaceSymbolRequest](#WorkspaceSymbolRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\WorkspaceSymbolParams', 'Phpactor\\LanguageServerProtocol\\WorkspaceSymbolParams', \false);

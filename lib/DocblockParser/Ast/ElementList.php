@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use ArrayIterator;
 use Iterator;
@@ -9,7 +9,7 @@ use IteratorAggregate;
  * @template T of Element
  * @implements IteratorAggregate<int,T>
  */
-class ElementList extends Node implements IteratorAggregate
+class ElementList extends \Phpactor\DocblockParser\Ast\Node implements IteratorAggregate
 {
     protected const CHILD_NAMES = ['elements'];
     /**
@@ -33,8 +33,3 @@ class ElementList extends Node implements IteratorAggregate
         return $this->elements;
     }
 }
-/**
- * @template T of Element
- * @implements IteratorAggregate<int,T>
- */
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\ElementList', 'Phpactor\\DocblockParser\\Ast\\ElementList', \false);

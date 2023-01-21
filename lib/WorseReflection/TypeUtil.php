@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection;
+namespace Phpactor\WorseReflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BooleanLiteralType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BooleanType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\IntType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\Literal;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MixedType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NullType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NumericType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ScalarType;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\BooleanLiteralType;
+use Phpactor\WorseReflection\Core\Type\BooleanType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\IntType;
+use Phpactor\WorseReflection\Core\Type\Literal;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Type\MixedType;
+use Phpactor\WorseReflection\Core\Type\NullType;
+use Phpactor\WorseReflection\Core\Type\NumericType;
+use Phpactor\WorseReflection\Core\Type\ScalarType;
 class TypeUtil
 {
     public static function firstDefined(Type ...$types) : Type
@@ -98,4 +98,3 @@ class TypeUtil
         return $valueType ?: new MissingType();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\TypeUtil', 'Phpactor\\WorseReflection\\TypeUtil', \false);

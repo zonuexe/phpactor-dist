@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\RrdException;
+use Safe\Exceptions\RrdException;
+
 /**
  * Creates the rdd database file.
  *
@@ -12,11 +13,11 @@ use Phpactor202301\Safe\Exceptions\RrdException;
  * @throws RrdException
  *
  */
-function rrd_create(string $filename, array $options) : void
+function rrd_create(string $filename, array $options): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \rrd_create($filename, $options);
-    if ($result === \false) {
+    if ($result === false) {
         throw RrdException::createFromPhpError();
     }
 }

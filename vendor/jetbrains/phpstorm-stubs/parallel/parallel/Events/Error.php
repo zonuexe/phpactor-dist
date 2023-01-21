@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301\parallel\Events;
+namespace parallel\Events;
 
-class Error extends \parallel\Error
-{
-}
+class Error extends \parallel\Error {}

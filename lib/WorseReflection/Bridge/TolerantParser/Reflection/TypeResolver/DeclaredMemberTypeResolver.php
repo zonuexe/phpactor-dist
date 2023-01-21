@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TypeResolver;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TypeResolver;
 
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\WorseReflection\Reflector;
 class DeclaredMemberTypeResolver
 {
     public function __construct(private Reflector $reflector)
@@ -51,4 +51,3 @@ class DeclaredMemberTypeResolver
         return NodeUtil::typeFromQualfiedNameLike($this->reflector, $tolerantNode, $tolerantType, $className);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TypeResolver\\DeclaredMemberTypeResolver', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TypeResolver\\DeclaredMemberTypeResolver', \false);

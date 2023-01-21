@@ -1,24 +1,24 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\SourceCodeFilesystem;
+namespace Phpactor\Completion\Bridge\TolerantParser\SourceCodeFilesystem;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\Qualifier\ClassQualifier;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable;
-use Phpactor202301\Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
-use Phpactor202301\Phpactor\Completion\Core\Range;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath as ScfFilePath;
-use Phpactor202301\Phpactor\Filesystem\Domain\Filesystem;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\Completion\Bridge\TolerantParser\Qualifier\ClassQualifier;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable;
+use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
+use Phpactor\Completion\Core\Range;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Filesystem\Domain\FilePath as ScfFilePath;
+use Phpactor\Filesystem\Domain\Filesystem;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 use SplFileInfo;
 class ScfClassCompletor implements TolerantCompletor, TolerantQualifiable
 {
@@ -89,4 +89,3 @@ class ScfClassCompletor implements TolerantCompletor, TolerantQualifiable
         return new Range($offset, $offset);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\SourceCodeFilesystem\\ScfClassCompletor', 'Phpactor\\Completion\\Bridge\\TolerantParser\\SourceCodeFilesystem\\ScfClassCompletor', \false);

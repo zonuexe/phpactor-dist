@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ConfigLoader;
+namespace Phpactor\ConfigLoader;
 
-use Phpactor202301\Phpactor\ConfigLoader\Adapter\Deserializer\JsonDeserializer;
-use Phpactor202301\Phpactor\ConfigLoader\Adapter\Deserializer\YamlDeserializer;
-use Phpactor202301\Phpactor\ConfigLoader\Adapter\PathCandidate\AbsolutePathCandidate;
-use Phpactor202301\Phpactor\ConfigLoader\Adapter\PathCandidate\XdgPathCandidate;
-use Phpactor202301\Phpactor\ConfigLoader\Core\ConfigLoader;
-use Phpactor202301\Phpactor\ConfigLoader\Core\Deserializer;
-use Phpactor202301\Phpactor\ConfigLoader\Core\Deserializers;
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidate;
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidates;
+use Phpactor\ConfigLoader\Adapter\Deserializer\JsonDeserializer;
+use Phpactor\ConfigLoader\Adapter\Deserializer\YamlDeserializer;
+use Phpactor\ConfigLoader\Adapter\PathCandidate\AbsolutePathCandidate;
+use Phpactor\ConfigLoader\Adapter\PathCandidate\XdgPathCandidate;
+use Phpactor\ConfigLoader\Core\ConfigLoader;
+use Phpactor\ConfigLoader\Core\Deserializer;
+use Phpactor\ConfigLoader\Core\Deserializers;
+use Phpactor\ConfigLoader\Core\PathCandidate;
+use Phpactor\ConfigLoader\Core\PathCandidates;
 use Phpactor202301\XdgBaseDir\Xdg;
 class ConfigLoaderBuilder
 {
@@ -51,4 +51,3 @@ class ConfigLoaderBuilder
         return new ConfigLoader(new Deserializers($this->serializers), new PathCandidates($this->candidates));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ConfigLoader\\ConfigLoaderBuilder', 'Phpactor\\ConfigLoader\\ConfigLoaderBuilder', \false);

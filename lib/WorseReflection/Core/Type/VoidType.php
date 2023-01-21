@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-final class VoidType extends PrimitiveType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+final class VoidType extends \Phpactor\WorseReflection\Core\Type\PrimitiveType
 {
     public function __toString() : string
     {
@@ -19,4 +19,3 @@ final class VoidType extends PrimitiveType
         return Trinary::false();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\VoidType', 'Phpactor\\WorseReflection\\Core\\Type\\VoidType', \false);

@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpCsFixer\Formatter;
+namespace Phpactor\Extension\LanguageServerPhpCsFixer\Formatter;
 
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Formatting\Formatter;
-use Phpactor202301\Phpactor\LanguageServer\Test\ProtocolFactory;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\TextEdit;
+use Phpactor\LanguageServer\Core\Formatting\Formatter;
+use Phpactor\LanguageServer\Test\ProtocolFactory;
+use Phpactor\TextDocument\ByteOffset;
 use RuntimeException;
 use function Phpactor202301\Amp\ByteStream\buffer;
 use function Phpactor202301\Amp\call;
@@ -64,4 +64,3 @@ class PhpCsFixerFormatter implements Formatter
         return $lspEdits;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpCsFixer\\Formatter\\PhpCsFixerFormatter', 'Phpactor\\Extension\\LanguageServerPhpCsFixer\\Formatter\\PhpCsFixerFormatter', \false);

@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionStub;
+namespace Phpactor\WorseReflection\Core\Inference\FunctionStub;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionStub;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayLiteral;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\FunctionStub;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ArrayLiteral;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\TypeUtil;
 class ArrayMergeStub implements FunctionStub
 {
     public function resolve(Frame $frame, NodeContext $context, FunctionArguments $args) : NodeContext
@@ -43,4 +43,3 @@ class ArrayMergeStub implements FunctionStub
         return $context->withType(TypeUtil::generalTypeFromTypes($types));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub\\ArrayMergeStub', 'Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub\\ArrayMergeStub', \false);

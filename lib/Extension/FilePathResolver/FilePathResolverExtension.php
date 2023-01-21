@@ -1,24 +1,24 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\FilePathResolver;
+namespace Phpactor\Extension\FilePathResolver;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\FilePathResolver\CachingPathResolver;
-use Phpactor202301\Phpactor\FilePathResolver\Expander\ValueExpander;
-use Phpactor202301\Phpactor\FilePathResolver\Expander\Xdg\SuffixExpanderDecorator;
-use Phpactor202301\Phpactor\FilePathResolver\Expander\Xdg\XdgCacheExpander;
-use Phpactor202301\Phpactor\FilePathResolver\Expander\Xdg\XdgConfigExpander;
-use Phpactor202301\Phpactor\FilePathResolver\Expander\Xdg\XdgDataExpander;
-use Phpactor202301\Phpactor\FilePathResolver\Expanders;
-use Phpactor202301\Phpactor\FilePathResolver\Filter\CanonicalizingPathFilter;
-use Phpactor202301\Phpactor\FilePathResolver\Filter\TokenExpandingFilter;
-use Phpactor202301\Phpactor\FilePathResolver\FilteringPathResolver;
-use Phpactor202301\Phpactor\FilePathResolver\LoggingPathResolver;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\FilePathResolver\CachingPathResolver;
+use Phpactor\FilePathResolver\Expander\ValueExpander;
+use Phpactor\FilePathResolver\Expander\Xdg\SuffixExpanderDecorator;
+use Phpactor\FilePathResolver\Expander\Xdg\XdgCacheExpander;
+use Phpactor\FilePathResolver\Expander\Xdg\XdgConfigExpander;
+use Phpactor\FilePathResolver\Expander\Xdg\XdgDataExpander;
+use Phpactor\FilePathResolver\Expanders;
+use Phpactor\FilePathResolver\Filter\CanonicalizingPathFilter;
+use Phpactor\FilePathResolver\Filter\TokenExpandingFilter;
+use Phpactor\FilePathResolver\FilteringPathResolver;
+use Phpactor\FilePathResolver\LoggingPathResolver;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor202301\Psr\Log\LogLevel;
 use RuntimeException;
 class FilePathResolverExtension implements Extension
@@ -87,4 +87,3 @@ class FilePathResolverExtension implements Extension
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\FilePathResolver\\FilePathResolverExtension', 'Phpactor\\Extension\\FilePathResolver\\FilePathResolverExtension', \false);

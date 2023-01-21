@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPhpstan\Model;
+namespace Phpactor\Extension\LanguageServerPhpstan\Model;
 
 class FileToLint
 {
@@ -20,4 +20,3 @@ class FileToLint
         return $this->uri;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPhpstan\\Model\\FileToLint', 'Phpactor\\Extension\\LanguageServerPhpstan\\Model\\FileToLint', \false);

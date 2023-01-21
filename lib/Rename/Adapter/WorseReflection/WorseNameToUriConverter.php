@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\WorseReflection;
+namespace Phpactor\Rename\Adapter\WorseReflection;
 
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotConvertClassToUri;
-use Phpactor202301\Phpactor\Rename\Model\NameToUriConverter;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Rename\Model\Exception\CouldNotConvertClassToUri;
+use Phpactor\Rename\Model\NameToUriConverter;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Reflector;
 class WorseNameToUriConverter implements NameToUriConverter
 {
     public function __construct(private Reflector $reflector)
@@ -25,4 +25,3 @@ class WorseNameToUriConverter implements NameToUriConverter
         return $uri;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\WorseReflection\\WorseNameToUriConverter', 'Phpactor\\Rename\\Adapter\\WorseReflection\\WorseNameToUriConverter', \false);

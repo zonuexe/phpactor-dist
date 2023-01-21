@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Model;
+namespace Phpactor\Extension\LanguageServerIndexer\Model;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
-use Phpactor202301\Phpactor\Indexer\Model\Record;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\ConstantRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Location;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SymbolInformation;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SymbolKind;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Record;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Record\ConstantRecord;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\Indexer\Model\SearchClient;
+use Phpactor\LanguageServerProtocol\Location;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\SymbolInformation;
+use Phpactor\LanguageServerProtocol\SymbolKind;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextDocumentUri;
 final class WorkspaceSymbolProvider
 {
     public function __construct(private SearchClient $client, private TextDocumentLocator $locator, private int $limit)
@@ -61,4 +61,3 @@ final class WorkspaceSymbolProvider
         return PositionConverter::byteOffsetToPosition($offset, $textDocument->__toString());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerIndexer\\Model\\WorkspaceSymbolProvider', 'Phpactor\\Extension\\LanguageServerIndexer\\Model\\WorkspaceSymbolProvider', \false);

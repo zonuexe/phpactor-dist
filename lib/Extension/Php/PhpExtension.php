@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Php;
+namespace Phpactor\Extension\Php;
 
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\Php\Model\ChainResolver;
-use Phpactor202301\Phpactor\Extension\Php\Model\ComposerPhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\Php\Model\ConstantPhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\Php\Model\PhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\Php\Model\RuntimePhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\Php\Model\ChainResolver;
+use Phpactor\Extension\Php\Model\ComposerPhpVersionResolver;
+use Phpactor\Extension\Php\Model\ConstantPhpVersionResolver;
+use Phpactor\Extension\Php\Model\PhpVersionResolver;
+use Phpactor\Extension\Php\Model\RuntimePhpVersionResolver;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\MapResolver\Resolver;
 class PhpExtension implements Extension
 {
     const PARAM_VERSION = 'php.version';
@@ -34,4 +34,3 @@ EOT
 ]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Php\\PhpExtension', 'Phpactor\\Extension\\Php\\PhpExtension', \false);

@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /*
  * Mongo extension stubs
  * Gathered from https://secure.php.net/manual/en/book.mongo.php
@@ -9,7 +6,9 @@ namespace Phpactor202301;
  *
  * MongoClient: https://github.com/djsipe/PHP-Stubs
  */
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
+
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * A connection between PHP and MongoDB. This class is used to create and manage connections
  * See MongoClient::__construct() and the section on connecting for more information about creating connections.
@@ -25,11 +24,13 @@ class MongoClient
     public const RP_SECONDARY = "secondary";
     public const RP_SECONDARY_PREFERRED = "secondaryPreferred";
     public const RP_NEAREST = "nearest";
+
     /* Properties */
-    public $connected = \false;
+    public $connected = false;
     public $status = null;
     protected $server = null;
     protected $persistent = null;
+
     /* Methods */
     /**
      * Creates a new database connection object
@@ -101,9 +102,8 @@ class MongoClient
      *         </ul>
      * @throws MongoConnectionException
      */
-    public function __construct($server = "mongodb://localhost:27017", array $options = ["connect" => \true], $driver_options)
-    {
-    }
+    public function __construct($server = "mongodb://localhost:27017", array $options = ["connect" => true], $driver_options) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Closes this database connection
@@ -117,9 +117,8 @@ class MongoClient
      * </p>
      * @return bool If the connection was successfully closed.
      */
-    public function close($connection)
-    {
-    }
+    public function close($connection) {}
+
     /**
      * Connects to a database server
      *
@@ -128,9 +127,8 @@ class MongoClient
      * @throws MongoConnectionException
      * @return bool If the connection was successful.
      */
-    public function connect()
-    {
-    }
+    public function connect() {}
+
     /**
      * Drops a database
      *
@@ -139,9 +137,8 @@ class MongoClient
      * @return array The database response.
      */
     #[Deprecated(replacement: "%class%->drop()")]
-    public function dropDB($db)
-    {
-    }
+    public function dropDB($db) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Gets a database
@@ -149,17 +146,15 @@ class MongoClient
      * @param string $dbname The database name.
      * @return MongoDB The database name.
      */
-    public function __get($dbname)
-    {
-    }
+    public function __get($dbname) {}
+
     /**
      * Get connections
      * Returns an array of all open connections, and information about each of the servers
      * @return array
      */
-    public static function getConnections()
-    {
-    }
+    public static function getConnections() {}
+
     /**
      * Get hosts
      * This method is only useful with a connection to a replica set. It returns the status of all of the hosts in the
@@ -167,17 +162,15 @@ class MongoClient
      * connected to.
      * @return array
      */
-    public function getHosts()
-    {
-    }
+    public function getHosts() {}
+
     /**
      * Get read preference
      * Get the read preference for this connection
      * @return array
      */
-    public function getReadPreference()
-    {
-    }
+    public function getReadPreference() {}
+
     /**
      * (PECL mongo &gt;= 1.5.0)<br/>
      * Get the write concern for this connection
@@ -185,9 +178,8 @@ class MongoClient
      * The array contains the values w for an integer acknowledgement level or string mode,
      * and wtimeout denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
      */
-    public function getWriteConcern()
-    {
-    }
+    public function getWriteConcern() {}
+
     /**
      * Kills a specific cursor on the server
      * @link https://secure.php.net/manual/en/mongoclient.killcursor.php
@@ -203,18 +195,16 @@ class MongoClient
      * bit platforms (and Windows).
      * </p>
      */
-    public function killCursor($server_hash, $id)
-    {
-    }
+    public function killCursor($server_hash, $id) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Lists all of the databases available
      * @link https://php.net/manual/en/mongoclient.listdbs.php
      * @return array Returns an associative array containing three fields. The first field is databases, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving the database's name, size, and if it's empty. The other two fields are totalSize (in bytes) and ok, which is 1 if this method ran successfully.
      */
-    public function listDBs()
-    {
-    }
+    public function listDBs() {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Gets a database collection
@@ -224,9 +214,8 @@ class MongoClient
      * @throws Exception Throws Exception if the database or collection name is invalid.
      * @return MongoCollection Returns a new collection object.
      */
-    public function selectCollection($db, $collection)
-    {
-    }
+    public function selectCollection($db, $collection) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Gets a database
@@ -235,9 +224,8 @@ class MongoClient
      * @throws InvalidArgumentException
      * @return MongoDB Returns a new db object.
      */
-    public function selectDB($name)
-    {
-    }
+    public function selectDB($name) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Set read preference
@@ -245,9 +233,8 @@ class MongoClient
      * @param array $tags
      * @return bool
      */
-    public function setReadPreference($readPreference, $tags = null)
-    {
-    }
+    public function setReadPreference($readPreference, $tags = null) {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Choose a new secondary for slaveOkay reads
@@ -256,24 +243,16 @@ class MongoClient
      * For example, if we had a three member replica set with a primary, secondary, and arbiter this method would always return the address of the secondary. If the secondary became unavailable, this method would always return the address of the primary. If the primary also became unavailable, this method would throw an exception, as an arbiter cannot handle reads.
      * @throws MongoException (error code 15) if it is called on a non-replica-set connection. It will also throw MongoExceptions if it cannot find anyone (primary or secondary) to read from (error code 16).
      */
-    public function switchSlave()
-    {
-    }
+    public function switchSlave() {}
+
     /**
      * String representation of this connection
      * @link https://secure.php.net/manual/en/mongoclient.tostring.php
      * @return string Returns hostname and port for this connection.
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-/**
- * A connection between PHP and MongoDB. This class is used to create and manage connections
- * See MongoClient::__construct() and the section on connecting for more information about creating connections.
- * @link https://secure.php.net/manual/en/class.mongoclient.php
- */
-\class_alias('Phpactor202301\\MongoClient', 'MongoClient', \false);
+
 /**
  * The connection point between MongoDB and PHP.
  * This class is used to initiate a connection and for database server commands.
@@ -282,7 +261,7 @@ class MongoClient
  * @see MongoClient
  */
 #[Deprecated("This class has been DEPRECATED as of version 1.3.0.")]
-class Mongo extends \MongoClient
+class Mongo extends MongoClient
 {
     /**
      * (PECL mongo &gt;= 1.2.0)<br/>
@@ -292,9 +271,8 @@ class Mongo extends \MongoClient
      * @see MongoPool::getSize()
      */
     #[Deprecated('This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::getSize() instead.')]
-    public function getPoolSize()
-    {
-    }
+    public function getPoolSize() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Returns the address being used by this for slaveOkay reads
@@ -306,18 +284,16 @@ class Mongo extends \MongoClient
      * initialized.
      * </p>
      */
-    public function getSlave()
-    {
-    }
+    public function getSlave() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Get slaveOkay setting for this connection
      * @link https://php.net/manual/en/mongo.getslaveokay.php
      * @return bool Returns the value of slaveOkay for this instance.
      */
-    public function getSlaveOkay()
-    {
-    }
+    public function getSlaveOkay() {}
+
     /**
      * Connects to paired database server
      * @link https://secure.php.net/manual/en/mongo.pairconnect.php
@@ -325,9 +301,8 @@ class Mongo extends \MongoClient
      * @return bool
      */
     #[Deprecated('Pass a string of the form "mongodb://server1,server2" to the constructor instead of using this method.')]
-    public function pairConnect()
-    {
-    }
+    public function pairConnect() {}
+
     /**
      * (PECL mongo &gt;= 1.2.0)<br/>
      * Returns information about all connection pools.
@@ -350,9 +325,8 @@ class Mongo extends \MongoClient
      * @see MongoPool::info()
      */
     #[Deprecated('@deprecated This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::info() instead.')]
-    public function poolDebug()
-    {
-    }
+    public function poolDebug() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Change slaveOkay setting for this connection
@@ -363,9 +337,8 @@ class Mongo extends \MongoClient
      * </p>
      * @return bool returns the former value of slaveOkay for this instance.
      */
-    public function setSlaveOkay($ok)
-    {
-    }
+    public function setSlaveOkay($ok) {}
+
     /**
      *(PECL mongo &gt;= 1.2.0)<br/>
      * Set the size for future connection pools.
@@ -375,9 +348,8 @@ class Mongo extends \MongoClient
      * @see MongoPool::setSize()
      */
     #[Deprecated('Relying on this feature is highly discouraged. Please use MongoPool::setSize() instead.')]
-    public function setPoolSize($size)
-    {
-    }
+    public function setPoolSize($size) {}
+
     /**
      * Creates a persistent connection with a database server
      * @link https://secure.php.net/manual/en/mongo.persistconnect.php
@@ -387,9 +359,8 @@ class Mongo extends \MongoClient
      * @return bool If the connection was successful.
      */
     #[Deprecated('Pass array("persist" => $id) to the constructor instead of using this method.')]
-    public function persistConnect($username = "", $password = "")
-    {
-    }
+    public function persistConnect($username = "", $password = "") {}
+
     /**
      * Creates a persistent connection with paired database servers
      * @link https://secure.php.net/manual/en/mongo.pairpersistconnect.php
@@ -399,9 +370,8 @@ class Mongo extends \MongoClient
      * @return bool If the connection was successful.
      */
     #[Deprecated('Pass "mongodb://server1,server2" and array("persist" => $id) to the constructor instead of using this method.')]
-    public function pairPersistConnect($username = "", $password = "")
-    {
-    }
+    public function pairPersistConnect($username = "", $password = "") {}
+
     /**
      * Connects with a database server
      *
@@ -409,29 +379,26 @@ class Mongo extends \MongoClient
      * @throws MongoConnectionException
      * @return bool If the connection was successful.
      */
-    protected function connectUtil()
-    {
-    }
-    /**
-     * Check if there was an error on the most recent db operation performed
-     * @link https://secure.php.net/manual/en/mongo.lasterror.php
-     * @return array|null Returns the error, if there was one, or NULL.
-     * @see MongoDB::lastError()
-     */
-    #[Deprecated('Use MongoDB::lastError() instead.')]
-    public function lastError()
-    {
-    }
-    /**
-     * Checks for the last error thrown during a database operation
-     * @link https://secure.php.net/manual/en/mongo.preverror.php
-     * @return array Returns the error and the number of operations ago it occurred.
-     * @see MongoDB::prevError()
-     */
-    #[Deprecated('Use MongoDB::prevError() instead.')]
-    public function prevError()
-    {
-    }
+    protected function connectUtil() {}
+
+   /**
+    * Check if there was an error on the most recent db operation performed
+    * @link https://secure.php.net/manual/en/mongo.lasterror.php
+    * @return array|null Returns the error, if there was one, or NULL.
+    * @see MongoDB::lastError()
+    */
+   #[Deprecated('Use MongoDB::lastError() instead.')]
+    public function lastError() {}
+
+   /**
+    * Checks for the last error thrown during a database operation
+    * @link https://secure.php.net/manual/en/mongo.preverror.php
+    * @return array Returns the error and the number of operations ago it occurred.
+    * @see MongoDB::prevError()
+    */
+   #[Deprecated('Use MongoDB::prevError() instead.')]
+    public function prevError() {}
+
     /**
      * Clears any flagged errors on the connection
      * @link https://secure.php.net/manual/en/mongo.reseterror.php
@@ -439,9 +406,8 @@ class Mongo extends \MongoClient
      * @see MongoDB::resetError()
      */
     #[Deprecated('Use MongoDB::resetError() instead.')]
-    public function resetError()
-    {
-    }
+    public function resetError() {}
+
     /**
      * Creates a database error on the database.
      * @link https://secure.php.net/manual/en/mongo.forceerror.php
@@ -449,18 +415,9 @@ class Mongo extends \MongoClient
      * @see MongoDB::forceError()
      */
     #[Deprecated('Use MongoDB::forceError() instead.')]
-    public function forceError()
-    {
-    }
+    public function forceError() {}
 }
-/**
- * The connection point between MongoDB and PHP.
- * This class is used to initiate a connection and for database server commands.
- * @link https://secure.php.net/manual/en/class.mongo.php
- * Relying on this feature is highly discouraged. Please use MongoClient instead.
- * @see MongoClient
- */
-\class_alias('Phpactor202301\\Mongo', 'Mongo', \false);
+
 /**
  * Instances of this class are used to interact with a database.
  * @link https://secure.php.net/manual/en/class.mongodb.php
@@ -472,16 +429,19 @@ class MongoDB
      * @link https://php.net/manual/en/class.mongodb.php#mongodb.constants.profiling-off
      */
     public const PROFILING_OFF = 0;
+
     /**
      * Profiling is on for slow operations (>100 ms).
      * @link https://php.net/manual/en/class.mongodb.php#mongodb.constants.profiling-slow
      */
     public const PROFILING_SLOW = 1;
+
     /**
      * Profiling is on for all operations.
      * @link https://php.net/manual/en/class.mongodb.php#mongodb.constants.profiling-on
      */
     public const PROFILING_ON = 2;
+
     /**
      * @var int
      * <p>
@@ -516,6 +476,7 @@ class MongoDB
      * </p>
      */
     public $w = 1;
+
     /**
      * @var int <p>
      * T he number of milliseconds to wait for <em>MongoDB::$w</em>
@@ -532,6 +493,7 @@ class MongoDB
      * </p>
      */
     public $wtimeout = 10000;
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Creates a new database
@@ -541,17 +503,15 @@ class MongoDB
      * @param string $name Database name.
      * @throws Exception
      */
-    public function __construct($conn, $name)
-    {
-    }
+    public function __construct($conn, $name) {}
+
     /**
      * The name of this database
      * @link https://secure.php.net/manual/en/mongodb.--tostring.php
      * @return string Returns this database's name.
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
+
     /**
      * (PECL mongo &gt;= 1.0.2)<br/>
      * Gets a collection
@@ -559,9 +519,8 @@ class MongoDB
      * @param string $name The name of the collection.
      * @return MongoCollection
      */
-    public function __get($name)
-    {
-    }
+    public function __get($name) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * @link https://secure.php.net/manual/en/mongodb.getcollectionnames.php
@@ -570,9 +529,8 @@ class MongoDB
      * @return array Returns the names of the all the collections in the database as an
      * {@link https://secure.php.net/manual/en/language.types.array.php array}.
      */
-    public function getCollectionNames($includeSystemCollections = \false)
-    {
-    }
+    public function getCollectionNames($includeSystemCollections = false) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Fetches toolkit for dealing with files stored in this database
@@ -580,27 +538,24 @@ class MongoDB
      * @param string $prefix [optional] The prefix for the files and chunks collections.
      * @return MongoGridFS Returns a new gridfs object for this database.
      */
-    public function getGridFS($prefix = "fs")
-    {
-    }
+    public function getGridFS($prefix = "fs") {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Gets this database's profiling level
      * @link https://secure.php.net/manual/en/mongodb.getprofilinglevel.php
      * @return int Returns the profiling level.
      */
-    public function getProfilingLevel()
-    {
-    }
+    public function getProfilingLevel() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Get slaveOkay setting for this database
      * @link https://secure.php.net/manual/en/mongodb.getslaveokay.php
      * @return bool Returns the value of slaveOkay for this instance.
      */
-    public function getSlaveOkay()
-    {
-    }
+    public function getSlaveOkay() {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Sets this database's profiling level
@@ -608,18 +563,16 @@ class MongoDB
      * @param int $level Profiling level.
      * @return int Returns the previous profiling level.
      */
-    public function setProfilingLevel($level)
-    {
-    }
+    public function setProfilingLevel($level) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Drops this database
      * @link https://secure.php.net/manual/en/mongodb.drop.php
      * @return array Returns the database response.
      */
-    public function drop()
-    {
-    }
+    public function drop() {}
+
     /**
      * Repairs and compacts this database
      * @link https://secure.php.net/manual/en/mongodb.repair.php
@@ -627,9 +580,8 @@ class MongoDB
      * @param bool $backup_original_files [optional] <p>If original files should be backed up.</p>
      * @return array <p>Returns db response.</p>
      */
-    public function repair($preserve_cloned_files = \false, $backup_original_files = \false)
-    {
-    }
+    public function repair($preserve_cloned_files = false, $backup_original_files = false) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Gets a collection
@@ -640,9 +592,8 @@ class MongoDB
      * Returns a new collection object.
      * </p>
      */
-    public function selectCollection($name)
-    {
-    }
+    public function selectCollection($name) {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Change slaveOkay setting for this database
@@ -653,9 +604,8 @@ class MongoDB
      * </p>
      * @return bool Returns the former value of slaveOkay for this instance.
      */
-    public function setSlaveOkay($ok = \true)
-    {
-    }
+    public function setSlaveOkay($ok = true) {}
+
     /**
      * Creates a collection
      * @link https://secure.php.net/manual/en/mongodb.createcollection.php
@@ -690,9 +640,8 @@ class MongoDB
      * </p>
      * @return MongoCollection <p>Returns a collection object representing the new collection.</p>
      */
-    public function createCollection($name, $options)
-    {
-    }
+    public function createCollection($name, $options) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Drops a collection
@@ -702,9 +651,8 @@ class MongoDB
      * @see MongoCollection::drop()
      */
     #[Deprecated('Use MongoCollection::drop() instead.')]
-    public function dropCollection($coll)
-    {
-    }
+    public function dropCollection($coll) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Get a list of collections in this database
@@ -712,9 +660,8 @@ class MongoDB
      * @param bool $includeSystemCollections [optional] <p>Include system collections.</p>
      * @return array Returns a list of MongoCollections.
      */
-    public function listCollections($includeSystemCollections = \false)
-    {
-    }
+    public function listCollections($includeSystemCollections = false) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Creates a database reference
@@ -731,9 +678,8 @@ class MongoDB
      * <em>document_or_id</em> parameter, <b>NULL</b> will be returned.
      * </p>
      */
-    public function createDBRef($collection, $document_or_id)
-    {
-    }
+    public function createDBRef($collection, $document_or_id) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Fetches the document pointed to by a database reference
@@ -741,9 +687,8 @@ class MongoDB
      * @param array $ref A database reference.
      * @return array Returns the document pointed to by the reference.
      */
-    public function getDBRef(array $ref)
-    {
-    }
+    public function getDBRef(array $ref) {}
+
     /**
      * (PECL mongo &gt;= 1.5.0)<br/>
      * Get the write concern for this database
@@ -752,9 +697,8 @@ class MongoDB
      * The array contains the values w for an integer acknowledgement level or string mode,
      * and wtimeout denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
      */
-    public function getWriteConcern()
-    {
-    }
+    public function getWriteConcern() {}
+
     /**
      * (PECL mongo &gt;= 0.9.3)<br/>
      * Runs JavaScript code on the database server.
@@ -763,9 +707,8 @@ class MongoDB
      * @param array $args [optional] Arguments to be passed to code.
      * @return array Returns the result of the evaluation.
      */
-    public function execute($code, array $args = [])
-    {
-    }
+    public function execute($code, array $args = []) {}
+
     /**
      * Execute a database command
      * @link https://secure.php.net/manual/en/mongodb.command.php
@@ -783,45 +726,40 @@ class MongoDB
      * The resulting document's structure depends on the command,
      * but most results will have the ok field to indicate success or failure and results containing an array of each of the resulting documents.
      */
-    public function command(array $data, $options)
-    {
-    }
+    public function command(array $data, $options) {}
+
     /**
      * (PECL mongo &gt;= 0.9.5)<br/>
      * Check if there was an error on the most recent db operation performed
      * @link https://secure.php.net/manual/en/mongodb.lasterror.php
      * @return array Returns the error, if there was one.
      */
-    public function lastError()
-    {
-    }
+    public function lastError() {}
+
     /**
      * (PECL mongo &gt;= 0.9.5)<br/>
      * Checks for the last error thrown during a database operation
      * @link https://secure.php.net/manual/en/mongodb.preverror.php
      * @return array Returns the error and the number of operations ago it occurred.
      */
-    public function prevError()
-    {
-    }
+    public function prevError() {}
+
     /**
      * (PECL mongo &gt;= 0.9.5)<br/>
      * Clears any flagged errors on the database
      * @link https://secure.php.net/manual/en/mongodb.reseterror.php
      * @return array Returns the database response.
      */
-    public function resetError()
-    {
-    }
+    public function resetError() {}
+
     /**
      * (PECL mongo &gt;= 0.9.5)<br/>
      * Creates a database error
      * @link https://secure.php.net/manual/en/mongodb.forceerror.php
      * @return bool Returns the database response.
      */
-    public function forceError()
-    {
-    }
+    public function forceError() {}
+
     /**
      * (PECL mongo &gt;= 1.0.1)<br/>
      * Log in to this database
@@ -858,18 +796,16 @@ class MongoDB
      * <p>("auth fails" could be another message, depending on database version and
      * what went wrong)</p>
      */
-    public function authenticate($username, $password)
-    {
-    }
+    public function authenticate($username, $password) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Get the read preference for this database
      * @link https://secure.php.net/manual/en/mongodb.getreadpreference.php
      * @return array This function returns an array describing the read preference. The array contains the values type for the string read preference mode (corresponding to the MongoClient constants), and tagsets containing a list of all tag set criteria. If no tag sets were specified, tagsets will not be present in the array.
      */
-    public function getReadPreference()
-    {
-    }
+    public function getReadPreference() {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * Set the read preference for this database
@@ -878,9 +814,8 @@ class MongoDB
      * @param array $tags [optional] <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.</p>
      * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
-    public function setReadPreference($read_preference, array $tags)
-    {
-    }
+    public function setReadPreference($read_preference, array $tags) {}
+
     /**
      * (PECL mongo &gt;= 1.5.0)<br/>
      * @link https://php.net/manual/en/mongodb.setwriteconcern.php
@@ -889,15 +824,9 @@ class MongoDB
      * @param int $wtimeout [optional] <p>The maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
      * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
-    public function setWriteConcern($w, $wtimeout)
-    {
-    }
+    public function setWriteConcern($w, $wtimeout) {}
 }
-/**
- * Instances of this class are used to interact with a database.
- * @link https://secure.php.net/manual/en/class.mongodb.php
- */
-\class_alias('Phpactor202301\\MongoDB', 'MongoDB', \false);
+
 /**
  * Represents a database collection.
  * @link https://secure.php.net/manual/en/class.mongocollection.php
@@ -908,14 +837,17 @@ class MongoCollection
      * @link https://php.net/manual/en/class.mongocollection.php#mongocollection.constants.ascending
      */
     public const ASCENDING = 1;
+
     /**
      * @link https://php.net/manual/en/class.mongocollection.php#mongocollection.constants.descending
      */
     public const DESCENDING = -1;
+
     /**
      * @var MongoDB
      */
     public $db = null;
+
     /**
      * @var int <p>
      * The number of servers to replicate a change to before returning success.
@@ -925,6 +857,7 @@ class MongoCollection
      * </p>
      */
     public $w;
+
     /**
      * @var int <p>
      * The number of milliseconds to wait for <em>$this-&gt;w</em>
@@ -934,6 +867,7 @@ class MongoCollection
      * </p>
      */
     public $wtimeout;
+
     /**
      * Creates a new collection
      * @link https://secure.php.net/manual/en/mongocollection.construct.php
@@ -941,26 +875,23 @@ class MongoCollection
      * @param string $name Name for this collection.
      * @throws Exception
      */
-    public function __construct(\MongoDB $db, $name)
-    {
-    }
+    public function __construct(MongoDB $db, $name) {}
+
     /**
      * String representation of this collection
      * @link https://secure.php.net/manual/en/mongocollection.--tostring.php
      * @return string Returns the full name of this collection.
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
+
     /**
      * Gets a collection
      * @link https://secure.php.net/manual/en/mongocollection.get.php
      * @param string $name The next string in the collection name.
      * @return MongoCollection
      */
-    public function __get($name)
-    {
-    }
+    public function __get($name) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * <p>
@@ -981,9 +912,8 @@ class MongoCollection
      * @param array $pipelineOperators [optional] <p> Additional pipeline operators. </p>
      * @return array The result of the aggregation as an array. The ok will be set to 1 on success, 0 on failure.
      */
-    public function aggregate(array $pipeline, array $op, array $pipelineOperators)
-    {
-    }
+    public function aggregate(array $pipeline, array $op, array $pipelineOperators) {}
+
     /**
      * (PECL mongo &gt;= 1.5.0)<br/>
      *
@@ -1004,17 +934,15 @@ class MongoCollection
      *
      * @return MongoCommandCursor Returns a {@link https://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object
      */
-    public function aggregateCursor(array $pipeline, array $options)
-    {
-    }
+    public function aggregateCursor(array $pipeline, array $options) {}
+
     /**
      * Returns this collection's name
      * @link https://secure.php.net/manual/en/mongocollection.getname.php
      * @return string
      */
-    public function getName()
-    {
-    }
+    public function getName() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * <p>
@@ -1024,9 +952,8 @@ class MongoCollection
      * @link https://secure.php.net/manual/en/mongocollection.getslaveokay.php
      * @return bool Returns the value of slaveOkay for this instance.
      */
-    public function getSlaveOkay()
-    {
-    }
+    public function getSlaveOkay() {}
+
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
      * <p>
@@ -1041,44 +968,39 @@ class MongoCollection
      * @return bool Returns the former value of slaveOkay for this instance.
      * </p>
      */
-    public function setSlaveOkay($ok = \true)
-    {
-    }
+    public function setSlaveOkay($ok = true) {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * @link https://secure.php.net/manual/en/mongocollection.getreadpreference.php
      * @return array This function returns an array describing the read preference. The array contains the values <em>type</em> for the string read preference mode
      * (corresponding to the {@link https://secure.php.net/manual/en/class.mongoclient.php MongoClient} constants), and <em>tagsets</em> containing a list of all tag set criteria. If no tag sets were specified, <em>tagsets</em> will not be present in the array.
      */
-    public function getReadPreference()
-    {
-    }
+    public function getReadPreference() {}
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * @param string $read_preference <p>The read preference mode: <b>MongoClient::RP_PRIMARY</b>, <b>MongoClient::RP_PRIMARY_PREFERRED</b>, <b>MongoClient::RP_SECONDARY</b>, <b>MongoClient::RP_SECONDARY_PREFERRED</b>, or <b>MongoClient::RP_NEAREST</b>.</p>
      * @param array $tags [optional] <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.<p>
      * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
-    public function setReadPreference($read_preference, array $tags)
-    {
-    }
+    public function setReadPreference($read_preference, array $tags) {}
+
     /**
      * Drops this collection
      * @link https://secure.php.net/manual/en/mongocollection.drop.php
      * @return array Returns the database response.
      */
-    public function drop()
-    {
-    }
+    public function drop() {}
+
     /**
      * Validates this collection
      * @link https://secure.php.net/manual/en/mongocollection.validate.php
      * @param bool $scan_data Only validate indices, not the base collection.
      * @return array Returns the database's evaluation of this object.
      */
-    public function validate($scan_data = \false)
-    {
-    }
+    public function validate($scan_data = false) {}
+
     /**
      * Inserts an array into the collection
      * @link https://secure.php.net/manual/en/mongocollection.insert.php
@@ -1125,9 +1047,8 @@ class MongoCollection
      * <dd>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).</dd>
      * </dl>
      */
-    public function insert($a, array $options = [])
-    {
-    }
+    public function insert($a, array $options = []) {}
+
     /**
      * Inserts multiple documents into this collection
      * @link https://secure.php.net/manual/en/mongocollection.batchinsert.php
@@ -1136,9 +1057,8 @@ class MongoCollection
      * @throws MongoCursorException
      * @return array|bool if "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
      */
-    public function batchInsert(array $a, array $options = [])
-    {
-    }
+    public function batchInsert(array $a, array $options = []) {}
+
     /**
      * Update records based on a given criteria
      * @link https://secure.php.net/manual/en/mongocollection.update.php
@@ -1168,9 +1088,8 @@ class MongoCollection
      * @throws MongoCursorException
      * @return bool
      */
-    public function update(array $criteria, array $newobj, array $options = [])
-    {
-    }
+    public function update(array $criteria, array $newobj, array $options = []) {}
+
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
      * Remove records from this collection
@@ -1212,9 +1131,8 @@ class MongoCollection
      * <b>MongoCollection::insert()</b>.
      * </p>
      */
-    public function remove(array $criteria = [], array $options = [])
-    {
-    }
+    public function remove(array $criteria = [], array $options = []) {}
+
     /**
      * Querys this collection
      * @link https://secure.php.net/manual/en/mongocollection.find.php
@@ -1222,9 +1140,8 @@ class MongoCollection
      * @param array $fields Fields of the results to return.
      * @return MongoCursor
      */
-    public function find(array $query = [], array $fields = [])
-    {
-    }
+    public function find(array $query = [], array $fields = []) {}
+
     /**
      * Retrieve a list of distinct values for the given key across a collection
      * @link https://secure.php.net/manual/en/mongocollection.distinct.php
@@ -1232,9 +1149,8 @@ class MongoCollection
      * @param array $query An optional query parameters
      * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
      */
-    public function distinct($key, array $query = null)
-    {
-    }
+    public function distinct($key, array $query = null) {}
+
     /**
      * Update a document and return it
      * @link https://secure.php.net/manual/en/mongocollection.findandmodify.php
@@ -1244,9 +1160,8 @@ class MongoCollection
      * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
      * @return array Returns the original document, or the modified document when new is set.
      */
-    public function findAndModify(array $query, array $update = null, array $fields = null, array $options = null)
-    {
-    }
+    public function findAndModify(array $query, array $update = null, array $fields = null, array $options = null) {}
+
     /**
      * Querys this collection, returning a single element
      * @link https://secure.php.net/manual/en/mongocollection.findone.php
@@ -1255,9 +1170,8 @@ class MongoCollection
      * @param array $options This parameter is an associative array of the form array("name" => `<value>`, ...).
      * @return array|null
      */
-    public function findOne(array $query = [], array $fields = [], array $options = [])
-    {
-    }
+    public function findOne(array $query = [], array $fields = [], array $options = []) {}
+
     /**
      * Creates an index on the given field(s), or does nothing if the index already exists
      * @link https://secure.php.net/manual/en/mongocollection.createindex.php
@@ -1265,9 +1179,8 @@ class MongoCollection
      * @param array $options [optional] This parameter is an associative array of the form array("optionname" => `<boolean>`, ...).
      * @return array Returns the database response.
      */
-    public function createIndex(array $keys, array $options = [])
-    {
-    }
+    public function createIndex(array $keys, array $options = []) {}
+
     /**
      * Creates an index on the given field(s), or does nothing if the index already exists
      * @link https://secure.php.net/manual/en/mongocollection.ensureindex.php
@@ -1277,43 +1190,38 @@ class MongoCollection
      * @see MongoCollection::createIndex()
      */
     #[Deprecated('Use MongoCollection::createIndex() instead.')]
-    public function ensureIndex(array $keys, array $options = [])
-    {
-    }
+    public function ensureIndex(array $keys, array $options = []) {}
+
     /**
      * Deletes an index from this collection
      * @link https://secure.php.net/manual/en/mongocollection.deleteindex.php
      * @param string|array $keys Field or fields from which to delete the index.
      * @return array Returns the database response.
      */
-    public function deleteIndex($keys)
-    {
-    }
+    public function deleteIndex($keys) {}
+
     /**
      * Delete all indexes for this collection
      * @link https://secure.php.net/manual/en/mongocollection.deleteindexes.php
      * @return array Returns the database response.
      */
-    public function deleteIndexes()
-    {
-    }
+    public function deleteIndexes() {}
+
     /**
      * Returns an array of index names for this collection
      * @link https://secure.php.net/manual/en/mongocollection.getindexinfo.php
      * @return array Returns a list of index names.
      */
-    public function getIndexInfo()
-    {
-    }
+    public function getIndexInfo() {}
+
     /**
      * Counts the number of documents in this collection
      * @link https://secure.php.net/manual/en/mongocollection.count.php
      * @param array|stdClass $query
      * @return int Returns the number of documents matching the query.
      */
-    public function count($query = [])
-    {
-    }
+    public function count($query = []) {}
+
     /**
      * Saves an object to this collection
      * @link https://secure.php.net/manual/en/mongocollection.save.php
@@ -1337,34 +1245,30 @@ class MongoCollection
      * @return array|bool If w was set, returns an array containing the status of the save.
      * Otherwise, returns a boolean representing if the array was not empty (an empty array will not be inserted).
      */
-    public function save($a, array $options = [])
-    {
-    }
+    public function save($a, array $options = []) {}
+
     /**
      * Creates a database reference
      * @link https://secure.php.net/manual/en/mongocollection.createdbref.php
      * @param array $a Object to which to create a reference.
      * @return array Returns a database reference array.
      */
-    public function createDBRef(array $a)
-    {
-    }
+    public function createDBRef(array $a) {}
+
     /**
      * Fetches the document pointed to by a database reference
      * @link https://secure.php.net/manual/en/mongocollection.getdbref.php
      * @param array $ref A database reference.
      * @return array Returns the database document pointed to by the reference.
      */
-    public function getDBRef(array $ref)
-    {
-    }
+    public function getDBRef(array $ref) {}
+
     /**
      * @param  mixed $keys
      * @return string
      */
-    protected static function toIndexString($keys)
-    {
-    }
+    protected static function toIndexString($keys) {}
+
     /**
      * Performs an operation similar to SQL's GROUP BY command
      * @link https://secure.php.net/manual/en/mongocollection.group.php
@@ -1374,26 +1278,21 @@ class MongoCollection
      * @param array $condition An condition that must be true for a row to be considered.
      * @return array
      */
-    public function group($keys, array $initial, \MongoCode $reduce, array $condition = [])
-    {
-    }
+    public function group($keys, array $initial, MongoCode $reduce, array $condition = []) {}
 }
-/**
- * Represents a database collection.
- * @link https://secure.php.net/manual/en/class.mongocollection.php
- */
-\class_alias('Phpactor202301\\MongoCollection', 'MongoCollection', \false);
+
 /**
  * Result object for database query.
  * @link https://secure.php.net/manual/en/class.mongocursor.php
  */
-class MongoCursor implements \Iterator
+class MongoCursor implements Iterator
 {
     /**
      * @link https://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
      * @var bool
      */
-    public static $slaveOkay = \false;
+    public static $slaveOkay = false;
+
     /**
      * @var int <p>
      * Set timeout in milliseconds for all database responses. Use
@@ -1405,6 +1304,7 @@ class MongoCursor implements \Iterator
      * </p>
      */
     public static $timeout = 30000;
+
     /**
      * Create a new cursor
      * @link https://secure.php.net/manual/en/mongocursor.construct.php
@@ -1413,18 +1313,16 @@ class MongoCursor implements \Iterator
      * @param array $query Database query.
      * @param array $fields Fields to return.
      */
-    public function __construct($connection, $ns, array $query = [], array $fields = [])
-    {
-    }
+    public function __construct($connection, $ns, array $query = [], array $fields = []) {}
+
     /**
      * (PECL mongo &gt;= 1.2.11)<br/>
      * Sets whether this cursor will wait for a while for a tailable cursor to return more data
      * @param bool $wait [optional] <p>If the cursor should wait for more data to become available.</p>
      * @return MongoCursor Returns this cursor.
      */
-    public function awaitData($wait = \true)
-    {
-    }
+    public function awaitData($wait = true) {}
+
     /**
      * Checks if there are any more elements in this cursor
      * @link https://secure.php.net/manual/en/mongocursor.hasnext.php
@@ -1432,9 +1330,8 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorTimeoutException
      * @return bool Returns true if there is another element
      */
-    public function hasNext()
-    {
-    }
+    public function hasNext() {}
+
     /**
      * Return the next object to which this cursor points, and advance the cursor
      * @link https://secure.php.net/manual/en/mongocursor.getnext.php
@@ -1442,18 +1339,16 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorTimeoutException
      * @return array Returns the next object
      */
-    public function getNext()
-    {
-    }
+    public function getNext() {}
+
     /**
      * (PECL mongo &gt;= 1.3.3)<br/>
      * @link https://secure.php.net/manual/en/mongocursor.getreadpreference.php
      * @return array This function returns an array describing the read preference. The array contains the values <em>type</em> for the string
      * read preference mode (corresponding to the {@link https://secure.php.net/manual/en/class.mongoclient.php MongoClient} constants), and <em>tagsets</em> containing a list of all tag set criteria. If no tag sets were specified, <em>tagsets</em> will not be present in the array.
      */
-    public function getReadPreference()
-    {
-    }
+    public function getReadPreference() {}
+
     /**
      * Limits the number of results returned
      * @link https://secure.php.net/manual/en/mongocursor.limit.php
@@ -1461,18 +1356,16 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function limit($num)
-    {
-    }
+    public function limit($num) {}
+
     /**
      * (PECL mongo &gt;= 1.2.0)<br/>
      * @link https://secure.php.net/manual/en/mongocursor.partial.php
      * @param bool $okay [optional] <p>If receiving partial results is okay.</p>
      * @return MongoCursor Returns this cursor.
      */
-    public function partial($okay = \true)
-    {
-    }
+    public function partial($okay = true) {}
+
     /**
      * (PECL mongo &gt;= 1.2.1)<br/>
      * @link https://secure.php.net/manual/en/mongocursor.setflag.php
@@ -1485,9 +1378,8 @@ class MongoCursor implements \Iterator
      * @param bool $set [optional] <p>Whether the flag should be set (<b>TRUE</b>) or unset (<b>FALSE</b>).</p>
      * @return MongoCursor
      */
-    public function setFlag($flag, $set = \true)
-    {
-    }
+    public function setFlag($flag, $set = true) {}
+
     /**
      * (PECL mongo &gt;= 1.3.3)<br/>
      * @link https://secure.php.net/manual/en/mongocursor.setreadpreference.php
@@ -1495,9 +1387,8 @@ class MongoCursor implements \Iterator
      * @param array $tags [optional] <p>The read preference mode: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED, or MongoClient::RP_NEAREST.</p>
      * @return MongoCursor Returns this cursor.
      */
-    public function setReadPreference($read_preference, array $tags)
-    {
-    }
+    public function setReadPreference($read_preference, array $tags) {}
+
     /**
      * Skips a number of results
      * @link https://secure.php.net/manual/en/mongocursor.skip.php
@@ -1505,9 +1396,8 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function skip($num)
-    {
-    }
+    public function skip($num) {}
+
     /**
      * Sets whether this query can be done on a slave
      * This method will override the static class variable slaveOkay.
@@ -1516,18 +1406,16 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function slaveOkay($okay = \true)
-    {
-    }
+    public function slaveOkay($okay = true) {}
+
     /**
      * Sets whether this cursor will be left open after fetching the last results
      * @link https://secure.php.net/manual/en/mongocursor.tailable.php
      * @param bool $tail If the cursor should be tailable.
      * @return MongoCursor Returns this cursor
      */
-    public function tailable($tail = \true)
-    {
-    }
+    public function tailable($tail = true) {}
+
     /**
      * Sets whether this cursor will timeout
      * @link https://secure.php.net/manual/en/mongocursor.immortal.php
@@ -1535,9 +1423,8 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function immortal($liveForever = \true)
-    {
-    }
+    public function immortal($liveForever = true) {}
+
     /**
      * Sets a client-side timeout for this query
      * @link https://secure.php.net/manual/en/mongocursor.timeout.php
@@ -1545,26 +1432,23 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorTimeoutException
      * @return MongoCursor Returns this cursor
      */
-    public function timeout($ms)
-    {
-    }
+    public function timeout($ms) {}
+
     /**
      * Checks if there are documents that have not been sent yet from the database for this cursor
      * @link https://secure.php.net/manual/en/mongocursor.dead.php
      * @return bool Returns if there are more results that have not been sent to the client, yet.
      */
-    public function dead()
-    {
-    }
+    public function dead() {}
+
     /**
      * Use snapshot mode for the query
      * @link https://secure.php.net/manual/en/mongocursor.snapshot.php
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function snapshot()
-    {
-    }
+    public function snapshot() {}
+
     /**
      * Sorts the results by given fields
      * @link https://secure.php.net/manual/en/mongocursor.sort.php
@@ -1572,9 +1456,8 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns the same cursor that this method was called on
      */
-    public function sort(array $fields)
-    {
-    }
+    public function sort(array $fields) {}
+
     /**
      * Gives the database a hint about the query
      * @link https://secure.php.net/manual/en/mongocursor.hint.php
@@ -1582,9 +1465,8 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function hint($key_pattern)
-    {
-    }
+    public function hint($key_pattern) {}
+
     /**
      * Adds a top-level key/value pair to a query
      * @link https://secure.php.net/manual/en/mongocursor.addoption.php
@@ -1593,34 +1475,30 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
      */
-    public function addOption($key, $value)
-    {
-    }
+    public function addOption($key, $value) {}
+
     /**
      * Execute the query
      * @link https://secure.php.net/manual/en/mongocursor.doquery.php
      * @throws MongoConnectionException if it cannot reach the database.
      * @return void
      */
-    protected function doQuery()
-    {
-    }
+    protected function doQuery() {}
+
     /**
      * Returns the current element
      * @link https://secure.php.net/manual/en/mongocursor.current.php
      * @return array
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * Returns the current result's _id
      * @link https://secure.php.net/manual/en/mongocursor.key.php
      * @return string The current result's _id as a string.
      */
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * Advances the cursor to the next result
      * @link https://secure.php.net/manual/en/mongocursor.next.php
@@ -1628,51 +1506,45 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorTimeoutException
      * @return void
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * Returns the cursor to the beginning of the result set
      * @throws MongoConnectionException
      * @throws MongoCursorTimeoutException
      * @return void
      */
-    public function rewind()
-    {
-    }
+    public function rewind() {}
+
     /**
      * Checks if the cursor is reading a valid result.
      * @link https://secure.php.net/manual/en/mongocursor.valid.php
      * @return bool If the current result is not null.
      */
-    public function valid()
-    {
-    }
+    public function valid() {}
+
     /**
      * Clears the cursor
      * @link https://secure.php.net/manual/en/mongocursor.reset.php
      * @return void
      */
-    public function reset()
-    {
-    }
+    public function reset() {}
+
     /**
      * Return an explanation of the query, often useful for optimization and debugging
      * @link https://secure.php.net/manual/en/mongocursor.explain.php
      * @return array Returns an explanation of the query.
      */
-    public function explain()
-    {
-    }
+    public function explain() {}
+
     /**
      * Counts the number of results for this query
      * @link https://secure.php.net/manual/en/mongocursor.count.php
      * @param bool $all Send cursor limit and skip information to the count function, if applicable.
      * @return int The number of documents returned by this cursor's query.
      */
-    public function count($all = \false)
-    {
-    }
+    public function count($all = false) {}
+
     /**
      * Sets the fields for a query
      * @link https://secure.php.net/manual/en/mongocursor.fields.php
@@ -1680,17 +1552,15 @@ class MongoCursor implements \Iterator
      * @throws MongoCursorException
      * @return MongoCursor
      */
-    public function fields(array $f)
-    {
-    }
+    public function fields(array $f) {}
+
     /**
      * Gets the query, fields, limit, and skip for this cursor
      * @link https://secure.php.net/manual/en/mongocursor.info.php
      * @return array The query, fields, limit, and skip for this cursor as an associative array.
      */
-    public function info()
-    {
-    }
+    public function info() {}
+
     /**
      * PECL mongo >= 1.0.11
      * Limits the number of elements returned in one batch.
@@ -1727,9 +1597,8 @@ class MongoCursor implements \Iterator
      * @return MongoCursor Returns this cursor.
      * @link https://secure.php.net/manual/en/mongocursor.batchsize.php
      */
-    public function batchSize($batchSize)
-    {
-    }
+    public function batchSize($batchSize) {}
+
     /**
      * (PECL mongo >= 1.5.0)
      * Sets a server-side timeout for this query
@@ -1740,16 +1609,10 @@ class MongoCursor implements \Iterator
      * </p>
      * @return MongoCursor This cursor.
      */
-    public function maxTimeMS($ms)
-    {
-    }
+    public function maxTimeMS($ms) {}
 }
-/**
- * Result object for database query.
- * @link https://secure.php.net/manual/en/class.mongocursor.php
- */
-\class_alias('Phpactor202301\\MongoCursor', 'MongoCursor', \false);
-class MongoCommandCursor implements \MongoCursorInterface
+
+class MongoCommandCursor implements MongoCursorInterface
 {
     /**
      * Return the current element
@@ -1757,27 +1620,24 @@ class MongoCommandCursor implements \MongoCursorInterface
      * @return mixed Can return any type.
      * @since 5.0.0
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * Move forward to next element
      * @link https://php.net/manual/en/iterator.next.php
      * @return void Any returned value is ignored.
      * @since 5.0.0
      */
-    public function next()
-    {
-    }
+    public function next() {}
+
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
      * @return mixed scalar on success, or null on failure.
      * @since 5.0.0
      */
-    public function key()
-    {
-    }
+    public function key() {}
+
     /**
      * Checks if current position is valid
      * @link https://php.net/manual/en/iterator.valid.php
@@ -1785,67 +1645,67 @@ class MongoCommandCursor implements \MongoCursorInterface
      * Returns true on success or false on failure.
      * @since 5.0.0
      */
-    public function valid()
-    {
-    }
+    public function valid() {}
+
     /**
      * Rewind the Iterator to the first element
      * @link https://php.net/manual/en/iterator.rewind.php
      * @return void Any returned value is ignored.
      * @since 5.0.0
      */
-    public function rewind()
-    {
-    }
-    public function batchSize(int $batchSize) : \MongoCursorInterface
-    {
-    }
-    public function dead() : bool
-    {
-    }
-    public function info() : array
-    {
-    }
-    public function getReadPreference() : array
-    {
-    }
-    public function setReadPreference(string $read_preference, array $tags = null) : \MongoCursorInterface
-    {
-    }
-    public function timeout(int $ms) : \MongoCursorInterface
-    {
-    }
+    public function rewind() {}
+
+    public function batchSize(int $batchSize): MongoCursorInterface {}
+
+    public function dead(): bool {}
+
+    public function info(): array {}
+
+    public function getReadPreference(): array {}
+
+    public function setReadPreference(string $read_preference, array $tags = null): MongoCursorInterface {}
+
+    public function timeout(int $ms): MongoCursorInterface {}
 }
-\class_alias('Phpactor202301\\MongoCommandCursor', 'MongoCommandCursor', \false);
-interface MongoCursorInterface extends \Iterator
+
+interface MongoCursorInterface extends Iterator
 {
-    public function batchSize(int $batchSize) : \MongoCursorInterface;
-    public function dead() : bool;
-    public function info() : array;
-    public function getReadPreference() : array;
-    public function setReadPreference(string $read_preference, array $tags = null) : \MongoCursorInterface;
-    public function timeout(int $ms) : \MongoCursorInterface;
+    public function batchSize(int $batchSize): MongoCursorInterface;
+
+    public function dead(): bool;
+
+    public function info(): array;
+
+    public function getReadPreference(): array;
+
+    public function setReadPreference(string $read_preference, array $tags = null): MongoCursorInterface;
+
+    public function timeout(int $ms): MongoCursorInterface;
 }
-\class_alias('Phpactor202301\\MongoCursorInterface', 'MongoCursorInterface', \false);
-class MongoGridFS extends \MongoCollection
+
+class MongoGridFS extends MongoCollection
 {
     public const ASCENDING = 1;
     public const DESCENDING = -1;
+
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.chunks
      * @var MongoCollection
      */
     public $chunks;
+
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.filesname
      * @var string
      */
     protected $filesName;
+
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.chunksname
      * @var string
      */
     protected $chunksName;
+
     /**
      * Files as stored across two collections, the first containing file meta
      * information, the second containing chunks of the actual file. By default,
@@ -1856,26 +1716,23 @@ class MongoGridFS extends \MongoCollection
      * @param string $prefix [optional] <p>Optional collection name prefix.</p>
      * @param mixed $chunks  [optional]
      */
-    public function __construct($db, $prefix = "fs", $chunks = "fs")
-    {
-    }
+    public function __construct($db, $prefix = "fs", $chunks = "fs") {}
+
     /**
      * Drops the files and chunks collections
      * @link https://php.net/manual/en/mongogridfs.drop.php
      * @return array The database response
      */
-    public function drop()
-    {
-    }
+    public function drop() {}
+
     /**
      * @link https://php.net/manual/en/mongogridfs.find.php
      * @param array $query The query
      * @param array $fields Fields to return
      * @return MongoGridFSCursor A MongoGridFSCursor
      */
-    public function find(array $query = [], array $fields = [])
-    {
-    }
+    public function find(array $query = [], array $fields = []) {}
+
     /**
      * Stores a file in the database
      * @link https://php.net/manual/en/mongogridfs.storefile.php
@@ -1884,9 +1741,8 @@ class MongoGridFS extends \MongoCollection
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed Returns the _id of the saved object
      */
-    public function storeFile($filename, $extra = [], $options = [])
-    {
-    }
+    public function storeFile($filename, $extra = [], $options = []) {}
+
     /**
      * Chunkifies and stores bytes in the database
      * @link https://php.net/manual/en/mongogridfs.storebytes.php
@@ -1895,9 +1751,8 @@ class MongoGridFS extends \MongoCollection
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed The _id of the object saved
      */
-    public function storeBytes($bytes, $extra = [], $options = [])
-    {
-    }
+    public function storeBytes($bytes, $extra = [], $options = []) {}
+
     /**
      * Returns a single file matching the criteria
      * @link https://secure.php.net/manual/en/mongogridfs.findone.php
@@ -1905,9 +1760,8 @@ class MongoGridFS extends \MongoCollection
      * @param array $fields Fields of the results to return.
      * @return MongoGridFSFile|null
      */
-    public function findOne(array $query = [], array $fields = [])
-    {
-    }
+    public function findOne(array $query = [], array $fields = []) {}
+
     /**
      * Removes files from the collections
      * @link https://secure.php.net/manual/en/mongogridfs.remove.php
@@ -1916,18 +1770,16 @@ class MongoGridFS extends \MongoCollection
      * @throws MongoCursorException
      * @return bool
      */
-    public function remove(array $criteria = [], array $options = [])
-    {
-    }
+    public function remove(array $criteria = [], array $options = []) {}
+
     /**
      * Delete a file from the database
      * @link https://php.net/manual/en/mongogridfs.delete.php
      * @param mixed $id _id of the file to remove
      * @return bool Returns true if the remove was successfully sent to the database.
      */
-    public function delete($id)
-    {
-    }
+    public function delete($id) {}
+
     /**
      * Saves an uploaded file directly from a POST to the database
      * @link https://secure.php.net/manual/en/mongogridfs.storeupload.php
@@ -1935,18 +1787,16 @@ class MongoGridFS extends \MongoCollection
      * @param array $metadata An array of extra fields for the uploaded file.
      * @return mixed Returns the _id of the uploaded file.
      */
-    public function storeUpload($name, array $metadata = [])
-    {
-    }
+    public function storeUpload($name, array $metadata = []) {}
+
     /**
      * Retrieve a file from the database
      * @link https://secure.php.net/manual/en/mongogridfs.get.php
      * @param mixed $id _id of the file to find.
      * @return MongoGridFSFile|null Returns the file, if found, or NULL.
      */
-    public function get($id)
-    {
-    }
+    public function get($id) {}
+
     /**
      * Stores a file in the database
      * @link https://php.net/manual/en/mongogridfs.put.php
@@ -1954,11 +1804,9 @@ class MongoGridFS extends \MongoCollection
      * @param array $extra Other metadata to add to the file saved
      * @return mixed Returns the _id of the saved object
      */
-    public function put($filename, array $extra = [])
-    {
-    }
+    public function put($filename, array $extra = []) {}
 }
-\class_alias('Phpactor202301\\MongoGridFS', 'MongoGridFS', \false);
+
 class MongoGridFSFile
 {
     /**
@@ -1966,52 +1814,49 @@ class MongoGridFSFile
      * @var array|null
      */
     public $file;
+
     /**
      * @link https://php.net/manual/en/class.mongogridfsfile.php#mongogridfsfile.props.gridfs
      * @var MongoGridFS|null
      */
     protected $gridfs;
+
     /**
      * @link https://php.net/manual/en/mongogridfsfile.construct.php
      * @param MongoGridFS $gridfs The parent MongoGridFS instance
      * @param array $file A file from the database
      */
-    public function __construct($gridfs, array $file)
-    {
-    }
+    public function __construct($gridfs, array $file) {}
+
     /**
      * Returns this file's filename
      * @link https://php.net/manual/en/mongogridfsfile.getfilename.php
      * @return string Returns the filename
      */
-    public function getFilename()
-    {
-    }
+    public function getFilename() {}
+
     /**
      * Returns this file's size
      * @link https://php.net/manual/en/mongogridfsfile.getsize.php
      * @return int Returns this file's size
      */
-    public function getSize()
-    {
-    }
+    public function getSize() {}
+
     /**
      * Writes this file to the filesystem
      * @link https://php.net/manual/en/mongogridfsfile.write.php
      * @param string $filename The location to which to write the file (path+filename+extension). If none is given, the stored filename will be used.
      * @return int Returns the number of bytes written
      */
-    public function write($filename = null)
-    {
-    }
+    public function write($filename = null) {}
+
     /**
      * This will load the file into memory. If the file is bigger than your memory, this will cause problems!
      * @link https://php.net/manual/en/mongogridfsfile.getbytes.php
      * @return string Returns a string of the bytes in the file
      */
-    public function getBytes()
-    {
-    }
+    public function getBytes() {}
+
     /**
      * This method returns a stream resource that can be used to read the stored file with all file functions in PHP.
      * The contents of the file are pulled out of MongoDB on the fly, so that the whole file does not have to be loaded into memory first.
@@ -2020,22 +1865,22 @@ class MongoGridFSFile
      * @link https://php.net/manual/en/mongogridfsfile.getresource.php
      * @return resource Returns a resource that can be used to read the file with
      */
-    public function getResource()
-    {
-    }
+    public function getResource() {}
 }
-\class_alias('Phpactor202301\\MongoGridFSFile', 'MongoGridFSFile', \false);
-class MongoGridFSCursor extends \MongoCursor implements \Traversable, \Iterator
+
+class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator
 {
     /**
      * @var bool
      */
     public static $slaveOkay;
+
     /**
      * @link https://php.net/manual/en/class.mongogridfscursor.php#mongogridfscursor.props.gridfs
      * @var MongoGridFS|null
      */
     protected $gridfs;
+
     /**
      * Create a new cursor
      * @link https://php.net/manual/en/mongogridfscursor.construct.php
@@ -2045,55 +1890,50 @@ class MongoGridFSCursor extends \MongoCursor implements \Traversable, \Iterator
      * @param array $query Database query
      * @param array $fields Fields to return
      */
-    public function __construct($gridfs, $connection, $ns, $query, $fields)
-    {
-    }
+    public function __construct($gridfs, $connection, $ns, $query, $fields) {}
+
     /**
      * Return the next file to which this cursor points, and advance the cursor
      * @link https://php.net/manual/en/mongogridfscursor.getnext.php
      * @return MongoGridFSFile Returns the next file
      */
-    public function getNext()
-    {
-    }
+    public function getNext() {}
+
     /**
      * Returns the current file
      * @link https://php.net/manual/en/mongogridfscursor.current.php
      * @return MongoGridFSFile The current file
      */
-    public function current()
-    {
-    }
+    public function current() {}
+
     /**
      * Returns the current result's filename
      * @link https://php.net/manual/en/mongogridfscursor.key.php
      * @return string The current results filename
      */
-    public function key()
-    {
-    }
+    public function key() {}
 }
-\class_alias('Phpactor202301\\MongoGridFSCursor', 'MongoGridFSCursor', \false);
+
 /**
  * A unique identifier created for database objects.
  * @link https://secure.php.net/manual/en/class.mongoid.php
  */
 class MongoId
 {
-    /**
-     * @var string <p> Note: The property name begins with a $ character. It may be accessed using
-     * {@link https://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
-     */
-    public $id = null;
+     /**
+      * @var string <p> Note: The property name begins with a $ character. It may be accessed using
+      * {@link https://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
+      */
+     public $id = null;
+
     /**
      * (PECL mongo &gt;= 0.8.0)
      * Creates a new id
      * @link https://secure.php.net/manual/en/mongoid.construct.php
      * @param MongoId|string $id [optional] A string to use as the id. Must be 24 hexadecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
      */
-    public function __construct($id = null)
-    {
-    }
+    public function __construct($id = null) {}
+
     /**
      * (PECL mongo &gt;= 0.8.0)
      * Check if a value is a valid ObjectId
@@ -2105,54 +1945,48 @@ class MongoId
      * hexadecimal characters; otherwise, <b>FALSE</b> is returned.
      * </p>
      */
-    public static function isValid($value)
-    {
-    }
+    public static function isValid($value) {}
+
     /**
      * (PECL mongo &gt;= 0.8.0)
      * Returns a hexadecimal representation of this id
      * @link https://secure.php.net/manual/en/mongoid.tostring.php
      * @return string This id.
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
+
     /**
      * (PECL mongo &gt;= 1.0.11)
      * Gets the incremented value to create this id
      * @link https://php.net/manual/en/mongoid.getinc.php
      * @return int Returns the incremented value used to create this MongoId.
      */
-    public function getInc()
-    {
-    }
+    public function getInc() {}
+
     /**
      * (PECL mongo &gt;= 1.0.11)
      * Gets the process ID
      * @link https://php.net/manual/en/mongoid.getpid.php
      * @return int Returns the PID of the MongoId.
      */
-    public function getPID()
-    {
-    }
+    public function getPID() {}
+
     /**
      * (PECL mongo &gt;= 1.0.1)
      * Gets the number of seconds since the epoch that this id was created
      * @link https://secure.php.net/manual/en/mongoid.gettimestamp.php
      * @return int
      */
-    public function getTimestamp()
-    {
-    }
+    public function getTimestamp() {}
+
     /**
      * (PECL mongo &gt;= 1.0.8)
      * Gets the hostname being used for this machine's ids
      * @link https://secure.php.net/manual/en/mongoid.gethostname.php
      * @return string Returns the hostname.
      */
-    public static function getHostname()
-    {
-    }
+    public static function getHostname() {}
+
     /**
      * (PECL mongo &gt;= 1.0.8)
      * Create a dummy MongoId
@@ -2160,25 +1994,21 @@ class MongoId
      * @param array $props <p>Theoretically, an array of properties used to create the new id. However, as MongoId instances have no properties, this is not used.</p>
      * @return MongoId A new id with the value "000000000000000000000000".
      */
-    public static function __set_state(array $props)
-    {
-    }
+    public static function __set_state(array $props) {}
 }
-/**
- * A unique identifier created for database objects.
- * @link https://secure.php.net/manual/en/class.mongoid.php
- */
-\class_alias('Phpactor202301\\MongoId', 'MongoId', \false);
+
 class MongoCode
 {
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var array
      */
     public $scope;
+
     /**
      * .
      *
@@ -2186,18 +2016,15 @@ class MongoCode
      * @param string $code A string of code
      * @param array $scope The scope to use for the code
      */
-    public function __construct($code, array $scope = [])
-    {
-    }
+    public function __construct($code, array $scope = []) {}
+
     /**
      * Returns this code as a string
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoCode', 'MongoCode', \false);
+
 class MongoRegex
 {
     /**
@@ -2205,29 +2032,28 @@ class MongoRegex
      * @var string
      */
     public $regex;
+
     /**
      * @link https://php.net/manual/en/class.mongoregex.php#mongoregex.props.flags
      * @var string
      */
     public $flags;
+
     /**
      * Creates a new regular expression.
      *
      * @link https://php.net/manual/en/mongoregex.construct.php
      * @param string $regex Regular expression string of the form /expr/flags
      */
-    public function __construct($regex)
-    {
-    }
+    public function __construct($regex) {}
+
     /**
      * Returns a string representation of this regular expression.
      * @return string This regular expression in the form "/expr/flags".
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoRegex', 'MongoRegex', \false);
+
 class MongoDate
 {
     /**
@@ -2235,11 +2061,13 @@ class MongoDate
      * @var int
      */
     public $sec;
+
     /**
      * @link https://php.net/manual/en/class.mongodate.php#mongodate.props.usec
      * @var int
      */
     public $usec;
+
     /**
      * Creates a new date. If no parameters are given, the current time is used.
      *
@@ -2247,26 +2075,22 @@ class MongoDate
      * @param int $sec Number of seconds since January 1st, 1970
      * @param int $usec Microseconds
      */
-    public function __construct($sec = 0, $usec = 0)
-    {
-    }
+    public function __construct($sec = 0, $usec = 0) {}
+
     /**
      * Returns a DateTime object representing this date
      * @link https://php.net/manual/en/mongodate.todatetime.php
      * @return DateTime
      */
-    public function toDateTime()
-    {
-    }
+    public function toDateTime() {}
+
     /**
      * Returns a string representation of this date
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoDate', 'MongoDate', \false);
+
 class MongoBinData
 {
     /**
@@ -2274,46 +2098,55 @@ class MongoBinData
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.custom
      */
     public const GENERIC = 0x0;
+
     /**
      * Function
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.func
      */
     public const FUNC = 0x1;
+
     /**
      * Generic binary data (deprecated in favor of MongoBinData::GENERIC)
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.byte-array
      */
     public const BYTE_ARRAY = 0x2;
+
     /**
      * Universally unique identifier (deprecated in favor of MongoBinData::UUID_RFC4122)
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.uuid
      */
     public const UUID = 0x3;
+
     /**
      * Universally unique identifier (according to » RFC 4122)
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.custom
      */
     public const UUID_RFC4122 = 0x4;
+
     /**
      * MD5
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.md5
      */
     public const MD5 = 0x5;
+
     /**
      * User-defined type
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.custom
      */
     public const CUSTOM = 0x80;
+
     /**
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.props.bin
      * @var string
      */
     public $bin;
+
     /**
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.props.type
      * @var int
      */
     public $type;
+
     /**
      * Creates a new binary data object.
      *
@@ -2321,28 +2154,27 @@ class MongoBinData
      * @param string $data Binary data
      * @param int $type Data type
      */
-    public function __construct($data, $type = 2)
-    {
-    }
+    public function __construct($data, $type = 2) {}
+
     /**
      * Returns the string representation of this binary data object.
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoBinData', 'MongoBinData', \false);
+
 class MongoDBRef
 {
     /**
      * @var string
      */
     protected static $refKey = '$ref';
+
     /**
      * @var string
      */
     protected static $idKey = '$id';
+
     /**
      * If no database is given, the current database is used.
      *
@@ -2352,9 +2184,8 @@ class MongoDBRef
      * @param string $database Database name
      * @return array Returns the reference
      */
-    public static function create($collection, $id, $database = null)
-    {
-    }
+    public static function create($collection, $id, $database = null) {}
+
     /**
      * This not actually follow the reference, so it does not determine if it is broken or not.
      * It merely checks that $ref is in valid database reference format (in that it is an object or array with $ref and $id fields).
@@ -2363,9 +2194,8 @@ class MongoDBRef
      * @param mixed $ref Array or object to check
      * @return bool Returns true if $ref is a reference
      */
-    public static function isRef($ref)
-    {
-    }
+    public static function isRef($ref) {}
+
     /**
      * Fetches the object pointed to by a reference
      * @link https://php.net/manual/en/mongodbref.get.php
@@ -2373,16 +2203,15 @@ class MongoDBRef
      * @param array $ref Reference to fetch
      * @return array|null Returns the document to which the reference refers or null if the document does not exist (the reference is broken)
      */
-    public static function get($db, $ref)
-    {
-    }
+    public static function get($db, $ref) {}
 }
-\class_alias('Phpactor202301\\MongoDBRef', 'MongoDBRef', \false);
+
 class MongoWriteBatch
 {
     public const COMMAND_INSERT = 1;
     public const COMMAND_UPDATE = 2;
     public const COMMAND_DELETE = 3;
+
     /**
      * <p>(PECL mongo &gt;= 1.5.0)</p>
      * MongoWriteBatch constructor.
@@ -2409,9 +2238,8 @@ class MongoWriteBatch
      * <tr><td>fsync (bool)</td><td>Wait for fsync on the primary. This value is discouraged, use WriteConcern instead</td></tr>
      * </tbody></table>
      */
-    protected function __construct($collection, $batch_type, $write_options)
-    {
-    }
+    protected function __construct($collection, $batch_type, $write_options) {}
+
     /**
      * <p>(PECL mongo &gt;= 1.5.0)</p>
      * Adds a write operation to a batch
@@ -2460,9 +2288,8 @@ class MongoWriteBatch
      * </table>
      * @return bool <b>Returns TRUE on success and throws an exception on failure.</b>
      */
-    public function add(array $item)
-    {
-    }
+    public function add(array $item) {}
+
     /**
      * <p>(PECL mongo &gt;= 1.5.0)</p>
      * Executes a batch of write operations
@@ -2472,12 +2299,10 @@ class MongoWriteBatch
      * If the batch had to be split into multiple batches, the return value will aggregate the values from individual batches and return only the totals.
      * If the batch was empty, an array containing only the 'ok' field is returned (as <b>TRUE</b>) although nothing will be shipped over the wire (NOOP).
      */
-    public final function execute(array $write_options)
-    {
-    }
+    final public function execute(array $write_options) {}
 }
-\class_alias('Phpactor202301\\MongoWriteBatch', 'MongoWriteBatch', \false);
-class MongoUpdateBatch extends \MongoWriteBatch
+
+class MongoUpdateBatch extends MongoWriteBatch
 {
     /**
      * <p>(PECL mongo &gt;= 1.5.0)</p>
@@ -2495,90 +2320,55 @@ class MongoUpdateBatch extends \MongoWriteBatch
      * <tr><td>fsync (bool)</td><td>Wait for fsync on the primary. This value is discouraged, use WriteConcern instead</td></tr>
      * </tbody></table>
      */
-    public function __construct(\MongoCollection $collection, array $write_options)
-    {
-    }
+    public function __construct(MongoCollection $collection, array $write_options) {}
 }
-\class_alias('Phpactor202301\\MongoUpdateBatch', 'MongoUpdateBatch', \false);
-class MongoException extends \Exception
-{
-}
-\class_alias('Phpactor202301\\MongoException', 'MongoException', \false);
-class MongoCursorException extends \MongoException
-{
-}
-\class_alias('Phpactor202301\\MongoCursorException', 'MongoCursorException', \false);
-class MongoCursorTimeoutException extends \MongoCursorException
-{
-}
-\class_alias('Phpactor202301\\MongoCursorTimeoutException', 'MongoCursorTimeoutException', \false);
-class MongoConnectionException extends \MongoException
-{
-}
-\class_alias('Phpactor202301\\MongoConnectionException', 'MongoConnectionException', \false);
-class MongoGridFSException extends \MongoException
-{
-}
-\class_alias('Phpactor202301\\MongoGridFSException', 'MongoGridFSException', \false);
+
+class MongoException extends Exception {}
+
+class MongoCursorException extends MongoException {}
+
+class MongoCursorTimeoutException extends MongoCursorException {}
+
+class MongoConnectionException extends MongoException {}
+
+class MongoGridFSException extends MongoException {}
+
 /**
  * <p>(PECL mongo &gt;= 1.5.0)</p>
  * @link https://php.net/manual/en/class.mongowriteconcernexception.php#class.mongowriteconcernexception
  */
-class MongoWriteConcernException extends \MongoCursorException
+class MongoWriteConcernException extends MongoCursorException
 {
     /**
      * Get the error document
      * @link https://php.net/manual/en/mongowriteconcernexception.getdocument.php
      * @return array <p>A MongoDB document, if available, as an array.</p>
      */
-    public function getDocument()
-    {
-    }
+    public function getDocument() {}
 }
-/**
- * <p>(PECL mongo &gt;= 1.5.0)</p>
- * @link https://php.net/manual/en/class.mongowriteconcernexception.php#class.mongowriteconcernexception
- */
-\class_alias('Phpactor202301\\MongoWriteConcernException', 'MongoWriteConcernException', \false);
+
 /**
  * <p>(PECL mongo &gt;= 1.5.0)</p>
  * @link https://php.net/manual/en/class.mongoexecutiontimeoutexception.php
  */
-class MongoExecutionTimeoutException extends \MongoException
-{
-}
-/**
- * <p>(PECL mongo &gt;= 1.5.0)</p>
- * @link https://php.net/manual/en/class.mongoexecutiontimeoutexception.php
- */
-\class_alias('Phpactor202301\\MongoExecutionTimeoutException', 'MongoExecutionTimeoutException', \false);
+class MongoExecutionTimeoutException extends MongoException {}
+
 /**
  * <p>(PECL mongo &gt;= 1.5.0)</p>
  */
-class MongoProtocolException extends \MongoException
-{
-}
-/**
- * <p>(PECL mongo &gt;= 1.5.0)</p>
- */
-\class_alias('Phpactor202301\\MongoProtocolException', 'MongoProtocolException', \false);
+class MongoProtocolException extends MongoException {}
+
 /**
  * <p>(PECL mongo &gt;= 1.5.0)</p>
  * @link https://php.net/manual/en/class.mongoduplicatekeyexception.php
  */
-class MongoDuplicateKeyException extends \MongoWriteConcernException
-{
-}
-/**
- * <p>(PECL mongo &gt;= 1.5.0)</p>
- * @link https://php.net/manual/en/class.mongoduplicatekeyexception.php
- */
-\class_alias('Phpactor202301\\MongoDuplicateKeyException', 'MongoDuplicateKeyException', \false);
+class MongoDuplicateKeyException extends MongoWriteConcernException {}
+
 /**
  * <p>(PECL mongo &gt;= 1.3.0)</p>
  * @link https://php.net/manual/en/class.mongoresultexception.php#mongoresultexception.props.document
  */
-class MongoResultException extends \MongoException
+class MongoResultException extends MongoException
 {
     /**
      * <p>(PECL mongo &gt;= 1.3.0)</p>
@@ -2586,16 +2376,10 @@ class MongoResultException extends \MongoException
      * https://secure.php.net/manual/en/mongoresultexception.getdocument.php
      * @return array <p>The full result document as an array, including partial data if available and additional keys.</p>
      */
-    public function getDocument()
-    {
-    }
+    public function getDocument() {}
     public $document;
 }
-/**
- * <p>(PECL mongo &gt;= 1.3.0)</p>
- * @link https://php.net/manual/en/class.mongoresultexception.php#mongoresultexception.props.document
- */
-\class_alias('Phpactor202301\\MongoResultException', 'MongoResultException', \false);
+
 class MongoTimestamp
 {
     /**
@@ -2603,11 +2387,13 @@ class MongoTimestamp
      * @var int
      */
     public $sec;
+
     /**
      * @link https://php.net/manual/en/class.mongotimestamp.php#mongotimestamp.props.inc
      * @var int
      */
     public $inc;
+
     /**
      * Creates a new timestamp. If no parameters are given, the current time is used
      * and the increment is automatically provided. The increment is set to 0 when the
@@ -2618,17 +2404,14 @@ class MongoTimestamp
      * @param int $sec [optional] Number of seconds since January 1st, 1970
      * @param int $inc [optional] Increment
      */
-    public function __construct($sec = 0, $inc)
-    {
-    }
+    public function __construct($sec = 0, $inc) {}
+
     /**
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoTimestamp', 'MongoTimestamp', \false);
+
 class MongoInt32
 {
     /**
@@ -2636,23 +2419,21 @@ class MongoInt32
      * @var string
      */
     public $value;
+
     /**
      * Creates a new 32-bit number with the given value.
      *
      * @link https://php.net/manual/en/mongoint32.construct.php
      * @param string $value A number
      */
-    public function __construct($value)
-    {
-    }
+    public function __construct($value) {}
+
     /**
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoInt32', 'MongoInt32', \false);
+
 class MongoInt64
 {
     /**
@@ -2660,66 +2441,74 @@ class MongoInt64
      * @var string
      */
     public $value;
+
     /**
      * Creates a new 64-bit number with the given value.
      *
      * @link https://php.net/manual/en/mongoint64.construct.php
      * @param string $value A number
      */
-    public function __construct($value)
-    {
-    }
+    public function __construct($value) {}
+
     /**
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-\class_alias('Phpactor202301\\MongoInt64', 'MongoInt64', \false);
+
 class MongoLog
 {
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.none
      */
     public const NONE = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.all
      */
     public const ALL = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.warning
      */
     public const WARNING = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.info
      */
     public const INFO = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.fine
      */
     public const FINE = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.rs
      */
     public const RS = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.pool
      */
     public const POOL = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.io
      */
     public const IO = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.server
      */
     public const SERVER = 0;
+
     /**
      * @link https://php.net/manual/en/class.mongolog.php#mongolog.constants.parse
      */
     public const PARSE = 0;
     public const CON = 2;
+
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * <p>
@@ -2753,9 +2542,8 @@ class MongoLog
      * <ul>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public static function setCallback(callable $log_function)
-    {
-    }
+    public static function setCallback(callable $log_function) {}
+
     /**
      * This function can be used to set how verbose logging should be and the types of
      * activities that should be logged. Use the constants described in the MongoLog
@@ -2765,9 +2553,8 @@ class MongoLog
      * @param int $level The levels you would like to log
      * @return void
      */
-    public static function setLevel($level)
-    {
-    }
+    public static function setLevel($level) {}
+
     /**
      * This can be used to see the log level. Use the constants described in the
      * MongoLog section with bitwise operators to check the level.
@@ -2775,9 +2562,8 @@ class MongoLog
      * @link https://php.net/manual/en/mongolog.getlevel.php
      * @return int Returns the current level
      */
-    public static function getLevel()
-    {
-    }
+    public static function getLevel() {}
+
     /**
      * This function can be used to set which parts of the driver's functionality
      * should be logged. Use the constants described in the MongoLog section with
@@ -2787,9 +2573,8 @@ class MongoLog
      * @param int $module The module(s) you would like to log
      * @return void
      */
-    public static function setModule($module)
-    {
-    }
+    public static function setModule($module) {}
+
     /**
      * This function can be used to see which parts of the driver's functionality are
      * being logged. Use the constants described in the MongoLog section with bitwise
@@ -2798,11 +2583,9 @@ class MongoLog
      * @link https://php.net/manual/en/mongolog.getmodule.php
      * @return int Returns the modules currently being logged
      */
-    public static function getModule()
-    {
-    }
+    public static function getModule() {}
 }
-\class_alias('Phpactor202301\\MongoLog', 'MongoLog', \false);
+
 class MongoPool
 {
     /**
@@ -2830,9 +2613,8 @@ class MongoPool
      *         keeps increasing, you may want to use MongoPool::setSize to add more connections
      *         to your pool
      */
-    public static function info()
-    {
-    }
+    public static function info() {}
+
     /**
      * Sets the max number of connections new pools will be able to create.
      *
@@ -2842,25 +2624,17 @@ class MongoPool
      *        connections
      * @return bool Returns the former value of pool size
      */
-    public static function setSize($size)
-    {
-    }
+    public static function setSize($size) {}
+
     /**
      * .
      *
      * @link https://php.net/manual/en/mongopool.getsize.php
      * @return int Returns the current pool size
      */
-    public static function getSize()
-    {
-    }
+    public static function getSize() {}
 }
-\class_alias('Phpactor202301\\MongoPool', 'MongoPool', \false);
-class MongoMaxKey
-{
-}
-\class_alias('Phpactor202301\\MongoMaxKey', 'MongoMaxKey', \false);
-class MongoMinKey
-{
-}
-\class_alias('Phpactor202301\\MongoMinKey', 'MongoMinKey', \false);
+
+class MongoMaxKey {}
+
+class MongoMinKey {}

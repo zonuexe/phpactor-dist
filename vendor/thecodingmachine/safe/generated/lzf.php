@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\LzfException;
+use Safe\Exceptions\LzfException;
+
 /**
  * lzf_compress compresses the given
  * data string using LZF encoding.
@@ -12,15 +13,17 @@ use Phpactor202301\Safe\Exceptions\LzfException;
  * @throws LzfException
  *
  */
-function lzf_compress(string $data) : string
+function lzf_compress(string $data): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \lzf_compress($data);
-    if ($result === \false) {
+    if ($result === false) {
         throw LzfException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * lzf_compress decompresses the given
  * data string containing lzf encoded data.
@@ -30,11 +33,11 @@ function lzf_compress(string $data) : string
  * @throws LzfException
  *
  */
-function lzf_decompress(string $data) : string
+function lzf_decompress(string $data): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \lzf_decompress($data);
-    if ($result === \false) {
+    if ($result === false) {
         throw LzfException::createFromPhpError();
     }
     return $result;

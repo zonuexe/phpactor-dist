@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Symfony\Model;
+namespace Phpactor\Extension\Symfony\Model;
 
-class InMemorySymfonyContainerInspector implements SymfonyContainerInspector
+class InMemorySymfonyContainerInspector implements \Phpactor\Extension\Symfony\Model\SymfonyContainerInspector
 {
     /**
      * @param SymfonyContainerService[] $services
@@ -19,7 +19,7 @@ class InMemorySymfonyContainerInspector implements SymfonyContainerInspector
     {
         return $this->parameters;
     }
-    public function service(string $id) : ?SymfonyContainerService
+    public function service(string $id) : ?\Phpactor\Extension\Symfony\Model\SymfonyContainerService
     {
         foreach ($this->services as $service) {
             if ($service->id === $id) {
@@ -29,4 +29,3 @@ class InMemorySymfonyContainerInspector implements SymfonyContainerInspector
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Symfony\\Model\\InMemorySymfonyContainerInspector', 'Phpactor\\Extension\\Symfony\\Model\\InMemorySymfonyContainerInspector', \false);

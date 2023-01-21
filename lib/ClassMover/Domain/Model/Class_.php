@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Model;
+namespace Phpactor\ClassMover\Domain\Model;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 class Class_
 {
     private function __construct(private FullyQualifiedName $name)
@@ -21,4 +21,3 @@ class Class_
         return self::fromFullyQualifiedName(FullyQualifiedName::fromString($name));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Model\\Class_', 'Phpactor\\ClassMover\\Domain\\Model\\Class_', \false);

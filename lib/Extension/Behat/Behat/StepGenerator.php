@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
 use Generator;
 use IteratorAggregate;
@@ -9,7 +9,7 @@ use IteratorAggregate;
  */
 class StepGenerator implements IteratorAggregate
 {
-    public function __construct(private BehatConfig $config, private StepFactory $factory, private StepParser $parser)
+    public function __construct(private \Phpactor\Extension\Behat\Behat\BehatConfig $config, private \Phpactor\Extension\Behat\Behat\StepFactory $factory, private \Phpactor\Extension\Behat\Behat\StepParser $parser)
     {
     }
     public function getIterator() : Generator
@@ -17,7 +17,3 @@ class StepGenerator implements IteratorAggregate
         yield from $this->factory->generate($this->parser, $this->config->contexts());
     }
 }
-/**
- * @implements IteratorAggregate<Step>
- */
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\StepGenerator', 'Phpactor\\Extension\\Behat\\Behat\\StepGenerator', \false);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
+namespace Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\FalseType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NullType;
-class WorseTypeRenderer82 extends WorseTypeRenderer81
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\FalseType;
+use Phpactor\WorseReflection\Core\Type\NullType;
+class WorseTypeRenderer82 extends \Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer81
 {
     public function render(Type $type) : ?string
     {
@@ -18,4 +18,3 @@ class WorseTypeRenderer82 extends WorseTypeRenderer81
         return parent::render($type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRenderer82', 'Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRenderer82', \false);

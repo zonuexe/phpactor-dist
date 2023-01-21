@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface DocumentHighlightKind
 {
@@ -9,4 +9,3 @@ interface DocumentHighlightKind
     public const READ = 2;
     public const WRITE = 3;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DocumentHighlightKind', 'Phpactor\\LanguageServerProtocol\\DocumentHighlightKind', \false);

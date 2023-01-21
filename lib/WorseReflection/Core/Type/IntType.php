@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class IntType extends NumericType implements BitwiseOperable, HasEmptyType
+use Phpactor\WorseReflection\Core\Type;
+class IntType extends \Phpactor\WorseReflection\Core\Type\NumericType implements \Phpactor\WorseReflection\Core\Type\BitwiseOperable, \Phpactor\WorseReflection\Core\Type\HasEmptyType
 {
     public function toPhpString() : string
     {
@@ -11,49 +11,48 @@ class IntType extends NumericType implements BitwiseOperable, HasEmptyType
     }
     public function shiftRight(Type $right) : Type
     {
-        if ($right instanceof IntType && $right instanceof Literal && $this instanceof Literal) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\IntType && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal && $this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() >> $right->value());
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function shiftLeft(Type $right) : Type
     {
-        if ($right instanceof IntType && $right instanceof Literal && $this instanceof Literal) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\IntType && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal && $this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() << $right->value());
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function bitwiseXor(Type $right) : Type
     {
-        if ($right instanceof IntType && $right instanceof Literal && $this instanceof Literal) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\IntType && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal && $this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() ^ $right->value());
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function bitwiseOr(Type $right) : Type
     {
-        if ($right instanceof IntType && $right instanceof Literal && $this instanceof Literal) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\IntType && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal && $this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() | $right->value());
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function bitwiseAnd(Type $right) : Type
     {
-        if ($right instanceof IntType && $right instanceof Literal && $this instanceof Literal) {
+        if ($right instanceof \Phpactor\WorseReflection\Core\Type\IntType && $right instanceof \Phpactor\WorseReflection\Core\Type\Literal && $this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue($this->value() & $right->value());
         }
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function bitwiseNot() : Type
     {
-        if ($this instanceof Literal) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\Literal) {
             return $this->withValue(~(int) $this->value());
         }
         return $this;
     }
     public function emptyType() : Type
     {
-        return new IntLiteralType(0);
+        return new \Phpactor\WorseReflection\Core\Type\IntLiteralType(0);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\IntType', 'Phpactor\\WorseReflection\\Core\\Type\\IntType', \false);

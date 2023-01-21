@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\BuilderFactory;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostic;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Diagnostics;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Transformer;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingReturnTypeDiagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeBuilder\Domain\BuilderFactory;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeTransform\Domain\Diagnostic;
+use Phpactor\CodeTransform\Domain\Diagnostics;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\Transformer;
+use Phpactor\TextDocument\TextEdits;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingReturnTypeDiagnostic;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Reflector;
 class UpdateReturnTypeTransformer implements Transformer
 {
     public function __construct(private Reflector $reflector, private Updater $updater, private BuilderFactory $builderFactory)
@@ -74,4 +74,3 @@ class UpdateReturnTypeTransformer implements Transformer
         return $returnType;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\UpdateReturnTypeTransformer', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\Transformer\\UpdateReturnTypeTransformer', \false);

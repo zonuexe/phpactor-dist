@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Dispatcher;
+namespace Phpactor\LanguageServer\Core\Dispatcher;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 interface Dispatcher
 {
     /**
@@ -12,4 +12,3 @@ interface Dispatcher
      */
     public function dispatch(Message $request) : Promise;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Dispatcher\\Dispatcher', 'Phpactor\\LanguageServer\\Core\\Dispatcher\\Dispatcher', \false);

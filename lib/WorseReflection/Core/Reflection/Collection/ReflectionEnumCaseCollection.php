@@ -1,15 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection;
+namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase;
 /**
  * @extends HomogeneousReflectionMemberCollection<ReflectionEnumCase>
  */
-final class ReflectionEnumCaseCollection extends HomogeneousReflectionMemberCollection
+final class ReflectionEnumCaseCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\HomogeneousReflectionMemberCollection
 {
 }
-/**
- * @extends HomogeneousReflectionMemberCollection<ReflectionEnumCase>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionEnumCaseCollection', 'Phpactor\\WorseReflection\\Core\\Reflection\\Collection\\ReflectionEnumCaseCollection', \false);

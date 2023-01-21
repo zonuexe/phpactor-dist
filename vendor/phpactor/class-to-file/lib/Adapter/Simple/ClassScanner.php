@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Simple;
+namespace Phpactor\ClassFileConverter\Adapter\Simple;
 
 /**
  * Return the class name from a file.
@@ -76,9 +76,3 @@ class ClassScanner
         return $token[0] === \T_ENUM;
     }
 }
-/**
- * Return the class name from a file.
- *
- * Based on http://stackoverflow.com/questions/7153000/get-class-name-from-file
- */
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Simple\\ClassScanner', 'Phpactor\\ClassFileConverter\\Adapter\\Simple\\ClassScanner', \false);

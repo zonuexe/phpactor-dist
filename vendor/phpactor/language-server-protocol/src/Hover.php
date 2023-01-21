@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -27,7 +27,7 @@ class Hover
      * @param MarkupContent|string|array<string> $contents
      * @param Range|null $range
      */
-    public function __construct($contents, ?Range $range = null)
+    public function __construct($contents, ?\Phpactor\LanguageServerProtocol\Range $range = null)
     {
         $this->contents = $contents;
         $this->range = $range;
@@ -38,7 +38,7 @@ class Hover
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['contents' => ['names' => [MarkupContent::class], 'iterable' => \false], 'range' => ['names' => [Range::class], 'iterable' => \false]];
+        $map = ['contents' => ['names' => [\Phpactor\LanguageServerProtocol\MarkupContent::class], 'iterable' => \false], 'range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -88,7 +88,3 @@ class Hover
         throw $lastException;
     }
 }
-/**
- * The result of a hover request.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\Hover', 'Phpactor\\LanguageServerProtocol\\Hover', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use ArrayIterator;
 use Countable;
@@ -8,7 +8,7 @@ use IteratorAggregate;
 /**
  * @implements IteratorAggregate<int,Token|Element>
  */
-class ArrayKeyValueList extends Node implements IteratorAggregate, Countable
+class ArrayKeyValueList extends \Phpactor\DocblockParser\Ast\Node implements IteratorAggregate, Countable
 {
     protected const CHILD_NAMES = ['list'];
     /**
@@ -33,12 +33,8 @@ class ArrayKeyValueList extends Node implements IteratorAggregate, Countable
      */
     public function arrayKeyValues() : array
     {
-        return \array_filter($this->list, function (Element $element) {
-            return $element instanceof ArrayKeyValueNode;
+        return \array_filter($this->list, function (\Phpactor\DocblockParser\Ast\Element $element) {
+            return $element instanceof \Phpactor\DocblockParser\Ast\ArrayKeyValueNode;
         });
     }
 }
-/**
- * @implements IteratorAggregate<int,Token|Element>
- */
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\ArrayKeyValueList', 'Phpactor\\DocblockParser\\Ast\\ArrayKeyValueList', \false);

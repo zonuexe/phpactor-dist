@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer;
+namespace Phpactor\ClassFileConverter\Adapter\Composer;
 
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFile;
+use Phpactor\ClassFileConverter\Domain\ClassToFile;
 use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePathCandidates;
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\FilePathCandidates;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 class ComposerClassToFile implements ClassToFile
@@ -36,14 +36,14 @@ class ComposerClassToFile implements ClassToFile
     }
     private function getStrategies() : array
     {
-        return [[$this->classLoader->getPrefixesPsr4(), new Psr4NameInflector(), Psr4NameInflector::NAMESPACE_SEPARATOR], [$this->classLoader->getPrefixes(), new Psr0NameInflector(), Psr0NameInflector::NAMESPACE_SEPARATOR], [$this->classLoader->getClassMap(), new ClassmapNameInflector(), Psr4NameInflector::NAMESPACE_SEPARATOR], [$this->classLoader->getFallbackDirs(), new Psr0NameInflector(), Psr0NameInflector::NAMESPACE_SEPARATOR], [
+        return [[$this->classLoader->getPrefixesPsr4(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr4NameInflector(), \Phpactor\ClassFileConverter\Adapter\Composer\Psr4NameInflector::NAMESPACE_SEPARATOR], [$this->classLoader->getPrefixes(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector(), \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector::NAMESPACE_SEPARATOR], [$this->classLoader->getClassMap(), new \Phpactor\ClassFileConverter\Adapter\Composer\ClassmapNameInflector(), \Phpactor\ClassFileConverter\Adapter\Composer\Psr4NameInflector::NAMESPACE_SEPARATOR], [$this->classLoader->getFallbackDirs(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector(), \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector::NAMESPACE_SEPARATOR], [
             $this->classLoader->getFallbackDirsPsr4(),
             // PSR0 name inflector works here as there is no prefix
-            new Psr0NameInflector(),
-            Psr0NameInflector::NAMESPACE_SEPARATOR,
+            new \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector(),
+            \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector::NAMESPACE_SEPARATOR,
         ]];
     }
-    private function resolveFile(&$candidates, array $prefixes, NameInflector $inflector, ClassName $className, string $separator) : void
+    private function resolveFile(&$candidates, array $prefixes, \Phpactor\ClassFileConverter\Adapter\Composer\NameInflector $inflector, ClassName $className, string $separator) : void
     {
         $fileCandidates = $this->getFileCandidates($className, $prefixes, $separator);
         foreach ($fileCandidates as $prefix => $files) {
@@ -83,4 +83,3 @@ class ComposerClassToFile implements ClassToFile
         return $candidates;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Composer\\ComposerClassToFile', 'Phpactor\\ClassFileConverter\\Adapter\\Composer\\ComposerClassToFile', \false);

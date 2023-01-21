@@ -1,30 +1,30 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class BooleanType extends ScalarType implements HasEmptyType
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+class BooleanType extends \Phpactor\WorseReflection\Core\Type\ScalarType implements \Phpactor\WorseReflection\Core\Type\HasEmptyType
 {
     public function toPhpString() : string
     {
         return 'bool';
     }
-    public function or(BooleanType $right) : BooleanType
+    public function or(\Phpactor\WorseReflection\Core\Type\BooleanType $right) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
-    public function and(BooleanType $booleanType) : BooleanType
+    public function and(\Phpactor\WorseReflection\Core\Type\BooleanType $booleanType) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
-    public function negate() : BooleanType
+    public function negate() : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
-    public function xor(BooleanType $booleanType) : BooleanType
+    public function xor(\Phpactor\WorseReflection\Core\Type\BooleanType $booleanType) : \Phpactor\WorseReflection\Core\Type\BooleanType
     {
-        return new BooleanType();
+        return new \Phpactor\WorseReflection\Core\Type\BooleanType();
     }
     public function toTrinary() : Trinary
     {
@@ -32,14 +32,13 @@ class BooleanType extends ScalarType implements HasEmptyType
     }
     public function isTrue() : bool
     {
-        if ($this instanceof BooleanLiteralType) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\BooleanLiteralType) {
             return $this->value() === \true;
         }
         return \false;
     }
     public function emptyType() : Type
     {
-        return new BooleanLiteralType(\false);
+        return new \Phpactor\WorseReflection\Core\Type\BooleanLiteralType(\false);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\BooleanType', 'Phpactor\\WorseReflection\\Core\\Type\\BooleanType', \false);

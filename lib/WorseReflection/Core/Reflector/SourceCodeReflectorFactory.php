@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\ServiceLocator;
 interface SourceCodeReflectorFactory
 {
-    public function create(ServiceLocator $serviceLocator) : SourceCodeReflector;
+    public function create(ServiceLocator $serviceLocator) : \Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\SourceCodeReflectorFactory', 'Phpactor\\WorseReflection\\Core\\Reflector\\SourceCodeReflectorFactory', \false);

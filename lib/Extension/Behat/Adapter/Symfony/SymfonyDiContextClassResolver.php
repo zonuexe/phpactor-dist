@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Adapter\Symfony;
+namespace Phpactor\Extension\Behat\Adapter\Symfony;
 
 use DOMDocument;
 use DOMXPath;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Exception\CouldNotResolverContextClass;
+use Phpactor\Extension\Behat\Behat\ContextClassResolver;
+use Phpactor\Extension\Behat\Behat\Exception\CouldNotResolverContextClass;
 use RuntimeException;
 class SymfonyDiContextClassResolver implements ContextClassResolver
 {
@@ -42,4 +42,3 @@ class SymfonyDiContextClassResolver implements ContextClassResolver
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Adapter\\Symfony\\SymfonyDiContextClassResolver', 'Phpactor\\Extension\\Behat\\Adapter\\Symfony\\SymfonyDiContextClassResolver', \false);

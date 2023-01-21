@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\SessionException;
+use Safe\Exceptions\SessionException;
+
 /**
  * session_abort finishes session without saving
  * data. Thus the original values in session data are kept.
@@ -10,14 +11,16 @@ use Phpactor202301\Safe\Exceptions\SessionException;
  * @throws SessionException
  *
  */
-function session_abort() : void
+function session_abort(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_abort();
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }
+
+
 /**
  * session_decode decodes the serialized session data provided in
  * $data, and populates the $_SESSION superglobal
@@ -30,14 +33,16 @@ function session_abort() : void
  * @throws SessionException
  *
  */
-function session_decode(string $data) : void
+function session_decode(string $data): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_decode($data);
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }
+
+
 /**
  * In order to kill the session altogether, the
  * session ID must also be unset. If a cookie is used to propagate the
@@ -54,14 +59,16 @@ function session_decode(string $data) : void
  * @throws SessionException
  *
  */
-function session_destroy() : void
+function session_destroy(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_destroy();
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }
+
+
 /**
  * session_regenerate_id will replace the current
  * session id with a new one, and keep the current session information.
@@ -77,14 +84,16 @@ function session_destroy() : void
  * @throws SessionException
  *
  */
-function session_regenerate_id(bool $delete_old_session = \false) : void
+function session_regenerate_id(bool $delete_old_session = false): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_regenerate_id($delete_old_session);
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }
+
+
 /**
  * session_reset reinitializes a session with
  * original values stored in session storage. This function requires an active session and
@@ -93,14 +102,16 @@ function session_regenerate_id(bool $delete_old_session = \false) : void
  * @throws SessionException
  *
  */
-function session_reset() : void
+function session_reset(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_reset();
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }
+
+
 /**
  * The session_unset function frees all session variables
  * currently registered.
@@ -108,14 +119,16 @@ function session_reset() : void
  * @throws SessionException
  *
  */
-function session_unset() : void
+function session_unset(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_unset();
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }
+
+
 /**
  * End the current session and store session data.
  *
@@ -130,11 +143,11 @@ function session_unset() : void
  * @throws SessionException
  *
  */
-function session_write_close() : void
+function session_write_close(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \session_write_close();
-    if ($result === \false) {
+    if ($result === false) {
         throw SessionException::createFromPhpError();
     }
 }

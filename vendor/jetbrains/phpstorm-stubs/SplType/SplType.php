@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * Abstract parent class for all SPL types.
  *
@@ -14,6 +12,7 @@ abstract class SplType
      * @link https://php.net/manual/en/class.spltype.php#spltype.constants.default
      */
     public const __default = null;
+
     /**
      * Creates a new value of some type
      *
@@ -21,60 +20,44 @@ abstract class SplType
      * @param bool $strict  If set to true then will throw UnexpectedValueException if value of other type will be assigned. True by default
      * @link https://php.net/manual/en/spltype.construct.php
      */
-    public function __construct($initial_value = self::__default, $strict = \true)
-    {
-    }
+    public function __construct($initial_value = self::__default, $strict = true) {}
 }
-/**
- * Abstract parent class for all SPL types.
- *
- * @link https://php.net/manual/en/class.spltype.php
- */
-\class_alias('Phpactor202301\\SplType', 'SplType', \false);
+
 /**
  * The SplInt class is used to enforce strong typing of the integer type.
  *
  * @link https://php.net/manual/en/class.splint.php
  */
-class SplInt extends \SplType
+class SplInt extends SplType
 {
     /**
      * @link https://php.net/manual/en/class.splint.php#splint.constants.default
      */
     public const __default = 0;
 }
-/**
- * The SplInt class is used to enforce strong typing of the integer type.
- *
- * @link https://php.net/manual/en/class.splint.php
- */
-\class_alias('Phpactor202301\\SplInt', 'SplInt', \false);
+
 /**
  * The SplFloat class is used to enforce strong typing of the float type.
  *
  * @link https://php.net/manual/en/class.splfloat.php
  */
-class SplFloat extends \SplType
+class SplFloat extends SplType
 {
     public const __default = 0;
 }
-/**
- * The SplFloat class is used to enforce strong typing of the float type.
- *
- * @link https://php.net/manual/en/class.splfloat.php
- */
-\class_alias('Phpactor202301\\SplFloat', 'SplFloat', \false);
+
 /**
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
  *
  * @link https://php.net/manual/en/class.splenum.php
  */
-class SplEnum extends \SplType
+class SplEnum extends SplType
 {
     /**
      * @link https://php.net/manual/en/class.splenum.php#splenum.constants.default
      */
     public const __default = null;
+
     /**
      * Returns all consts (possible values) as an array.
      *
@@ -82,57 +65,41 @@ class SplEnum extends \SplType
      * @return array
      * @link https://php.net/manual/en/splenum.getconstlist.php
      */
-    public function getConstList($include_default = \false)
-    {
-    }
+    public function getConstList($include_default = false) {}
 }
-/**
- * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
- *
- * @link https://php.net/manual/en/class.splenum.php
- */
-\class_alias('Phpactor202301\\SplEnum', 'SplEnum', \false);
+
 /**
  * The SplBool class is used to enforce strong typing of the bool type.
  *
  * @link https://php.net/manual/en/class.splbool.php
  */
-class SplBool extends \SplEnum
+class SplBool extends SplEnum
 {
     /**
      * @link https://php.net/manual/en/class.splbool.php#splbool.constants.default
      */
-    public const __default = \false;
+    public const __default = false;
+
     /**
      * @link https://php.net/manual/en/class.splbool.php#splbool.constants.false
      */
-    public const false = \false;
+    public const false = false;
+
     /**
      * @link https://php.net/manual/en/class.splbool.php#splbool.constants.true
      */
-    public const true = \true;
+    public const true = true;
 }
-/**
- * The SplBool class is used to enforce strong typing of the bool type.
- *
- * @link https://php.net/manual/en/class.splbool.php
- */
-\class_alias('Phpactor202301\\SplBool', 'SplBool', \false);
+
 /**
  * The SplString class is used to enforce strong typing of the string type.
  *
  * @link https://php.net/manual/en/class.splstring.php
  */
-class SplString extends \SplType
+class SplString extends SplType
 {
     /**
      * @link https://php.net/manual/en/class.splstring.php#splstring.constants.default
      */
     public const __default = 0;
 }
-/**
- * The SplString class is used to enforce strong typing of the string type.
- *
- * @link https://php.net/manual/en/class.splstring.php
- */
-\class_alias('Phpactor202301\\SplString', 'SplString', \false);

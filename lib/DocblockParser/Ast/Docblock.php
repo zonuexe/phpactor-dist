@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use Generator;
-class Docblock extends Node
+class Docblock extends \Phpactor\DocblockParser\Ast\Node
 {
     protected const CHILD_NAMES = ['children'];
     /**
      * @var ElementList<Element>
      */
-    public ElementList $children;
+    public \Phpactor\DocblockParser\Ast\ElementList $children;
     /**
      * @param Element[] $children
      */
     public function __construct(array $children)
     {
-        $this->children = new ElementList($children);
+        $this->children = new \Phpactor\DocblockParser\Ast\ElementList($children);
     }
     /**
      * @param class-string $tagFqn
@@ -36,7 +36,7 @@ class Docblock extends Node
     {
         $types = [];
         foreach ($this->tags() as $tag) {
-            if ($tag instanceof UnknownTag) {
+            if ($tag instanceof \Phpactor\DocblockParser\Ast\UnknownTag) {
                 continue;
             }
             $types[$tag::class] = \true;
@@ -55,16 +55,16 @@ class Docblock extends Node
                 (yield $child);
                 continue;
             }
-            if (!$tagFqn && $child instanceof TagNode) {
+            if (!$tagFqn && $child instanceof \Phpactor\DocblockParser\Ast\TagNode) {
                 (yield $child);
                 continue;
             }
         }
     }
-    public function phpDocOpen() : ?Token
+    public function phpDocOpen() : ?\Phpactor\DocblockParser\Ast\Token
     {
         foreach ($this->tokens() as $token) {
-            if ($token->type === Token::T_PHPDOC_OPEN) {
+            if ($token->type === \Phpactor\DocblockParser\Ast\Token::T_PHPDOC_OPEN) {
                 return $token;
             }
         }
@@ -74,31 +74,31 @@ class Docblock extends Node
     {
         $prose = [];
         foreach ($this->descendantElements() as $child) {
-            if ($child instanceof TagNode) {
+            if ($child instanceof \Phpactor\DocblockParser\Ast\TagNode) {
                 break;
             }
-            if (!$child instanceof Token) {
+            if (!$child instanceof \Phpactor\DocblockParser\Ast\Token) {
                 continue;
             }
-            if (\in_array($child->type, [Token::T_PHPDOC_OPEN, Token::T_PHPDOC_CLOSE, Token::T_ASTERISK])) {
+            if (\in_array($child->type, [\Phpactor\DocblockParser\Ast\Token::T_PHPDOC_OPEN, \Phpactor\DocblockParser\Ast\Token::T_PHPDOC_CLOSE, \Phpactor\DocblockParser\Ast\Token::T_ASTERISK])) {
                 continue;
             }
-            if ($child->type === Token::T_TAG) {
+            if ($child->type === \Phpactor\DocblockParser\Ast\Token::T_TAG) {
                 break;
             }
             $prose[] = $child->value;
         }
         return \implode("\n", \array_map('trim', \explode("\n", \implode('', $prose))));
     }
-    public function lastMultilineContentToken() : ?Token
+    public function lastMultilineContentToken() : ?\Phpactor\DocblockParser\Ast\Token
     {
         $hasLeading = \false;
         $lastToken = null;
         foreach ($this->tokens() as $child) {
-            if ($child->type === Token::T_ASTERISK) {
+            if ($child->type === \Phpactor\DocblockParser\Ast\Token::T_ASTERISK) {
                 $hasLeading = \true;
             }
-            if ($child->type === Token::T_PHPDOC_CLOSE && $hasLeading) {
+            if ($child->type === \Phpactor\DocblockParser\Ast\Token::T_PHPDOC_CLOSE && $hasLeading) {
                 return $lastToken;
             }
             $lastToken = $child;
@@ -109,13 +109,13 @@ class Docblock extends Node
     {
         $previous = null;
         foreach ($this->children->elements as $child) {
-            if (!$child instanceof Token) {
+            if (!$child instanceof \Phpactor\DocblockParser\Ast\Token) {
                 continue;
             }
-            if ($child->type === Token::T_ASTERISK) {
+            if ($child->type === \Phpactor\DocblockParser\Ast\Token::T_ASTERISK) {
                 return $previous->length();
             }
-            if ($child->type === Token::T_PHPDOC_CLOSE) {
+            if ($child->type === \Phpactor\DocblockParser\Ast\Token::T_PHPDOC_CLOSE) {
                 return $previous->length();
             }
             $previous = $child;
@@ -123,4 +123,3 @@ class Docblock extends Node
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Docblock', 'Phpactor\\DocblockParser\\Ast\\Docblock', \false);

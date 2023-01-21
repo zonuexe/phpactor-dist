@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
 use ArrayIterator;
 use Closure;
@@ -47,8 +47,3 @@ class NavigatorElementCollection implements IteratorAggregate
         return new ArrayIterator($this->elements);
     }
 }
-/**
- * @template T of object
- * @implements IteratorAggregate<array-key,T>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\NavigatorElementCollection', 'Phpactor\\WorseReflection\\Core\\NavigatorElementCollection', \false);

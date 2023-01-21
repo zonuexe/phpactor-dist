@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServer\Command;
+namespace Phpactor\Extension\LanguageServer\Command;
 
-use Phpactor202301\Phpactor\LanguageServer\LanguageServerBuilder;
+use Phpactor\LanguageServer\LanguageServerBuilder;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
@@ -66,4 +66,3 @@ class StartCommand extends Command
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServer\\Command\\StartCommand', 'Phpactor\\Extension\\LanguageServer\\Command\\StartCommand', \false);

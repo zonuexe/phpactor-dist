@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Container;
+namespace Phpactor\Container;
 
-interface OptionalExtension extends Extension
+interface OptionalExtension extends \Phpactor\Container\Extension
 {
     /**
      * Return a short name for the extension which can be used to reference
@@ -12,4 +12,3 @@ interface OptionalExtension extends Extension
      */
     public function name() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\Container\\OptionalExtension', 'Phpactor\\Container\\OptionalExtension', \false);

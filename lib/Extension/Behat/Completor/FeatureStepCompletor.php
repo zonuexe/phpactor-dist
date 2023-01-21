@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Completor;
+namespace Phpactor\Extension\Behat\Completor;
 
 use Generator;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\Completion\Core\Range;
-use Phpactor202301\Phpactor\Completion\Core\Suggestion;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Step;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepGenerator;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepParser;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\StepScorer;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\Completion\Core\Range;
+use Phpactor\Completion\Core\Suggestion;
+use Phpactor\Extension\Behat\Behat\Step;
+use Phpactor\Extension\Behat\Behat\StepGenerator;
+use Phpactor\Extension\Behat\Behat\StepParser;
+use Phpactor\Extension\Behat\Behat\StepScorer;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 class FeatureStepCompletor implements Completor
 {
     private StepScorer $stepSorter;
@@ -63,4 +63,3 @@ class FeatureStepCompletor implements Completor
         return '';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Completor\\FeatureStepCompletor', 'Phpactor\\Extension\\Behat\\Completor\\FeatureStepCompletor', \false);

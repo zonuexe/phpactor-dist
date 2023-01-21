@@ -1,19 +1,20 @@
 <?php
-
 /**
  * This file contains all the functions that could not be dealt with automatically using the code generator.
  * If you add a function in this list, do not forget to add it in the generator/config/specialCasesFunctions.php
  *
  */
-namespace Phpactor202301\Safe;
 
-use Phpactor202301\Safe\Exceptions\SocketsException;
+namespace Safe;
+
+use Safe\Exceptions\SocketsException;
 use const PREG_NO_ERROR;
-use Phpactor202301\Safe\Exceptions\ApcException;
-use Phpactor202301\Safe\Exceptions\ApcuException;
-use Phpactor202301\Safe\Exceptions\JsonException;
-use Phpactor202301\Safe\Exceptions\OpensslException;
-use Phpactor202301\Safe\Exceptions\PcreException;
+use Safe\Exceptions\ApcException;
+use Safe\Exceptions\ApcuException;
+use Safe\Exceptions\JsonException;
+use Safe\Exceptions\OpensslException;
+use Safe\Exceptions\PcreException;
+
 /**
  * Wrapper for json_decode that throws when an error occurs.
  *
@@ -27,14 +28,16 @@ use Phpactor202301\Safe\Exceptions\PcreException;
  * @throws JsonException if the JSON cannot be decoded.
  * @link http://www.php.net/manual/en/function.json-decode.php
  */
-function json_decode(string $json, bool $assoc = \false, int $depth = 512, int $options = 0)
+function json_decode(string $json, bool $assoc = false, int $depth = 512, int $options = 0)
 {
     $data = \json_decode($json, $assoc, $depth, $options);
-    if (\JSON_ERROR_NONE !== \json_last_error()) {
+    if (JSON_ERROR_NONE !== json_last_error()) {
         throw JsonException::createFromPhpError();
     }
     return $data;
 }
+
+
 /**
  * Fetchs a stored variable from the cache.
  *
@@ -47,13 +50,14 @@ function json_decode(string $json, bool $assoc = \false, int $depth = 512, int $
  */
 function apc_fetch($key)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_fetch($key, $success);
-    if ($success === \false) {
+    if ($success === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;
 }
+
 /**
  * Fetchs an entry from the cache.
  *
@@ -66,13 +70,14 @@ function apc_fetch($key)
  */
 function apcu_fetch($key)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apcu_fetch($key, $success);
-    if ($success === \false) {
+    if ($success === false) {
         throw ApcuException::createFromPhpError();
     }
     return $result;
 }
+
 /**
  * Searches subject for matches to
  * pattern and replaces them with
@@ -149,13 +154,14 @@ function apcu_fetch($key)
  */
 function preg_replace($pattern, $replacement, $subject, int $limit = -1, int &$count = null)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \preg_replace($pattern, $replacement, $subject, $limit, $count);
-    if (\preg_last_error() !== PREG_NO_ERROR || $result === null) {
+    if (preg_last_error() !== PREG_NO_ERROR || $result === null) {
         throw PcreException::createFromPhpError();
     }
     return $result;
 }
+
 /**
  * @param resource|null $dir_handle
  * @return string|false
@@ -171,6 +177,7 @@ function readdir($dir_handle = null)
     }
     return $result;
 }
+
 /**
  * Encrypts given data with given method and key, returns a raw
  * or base64 encoded string
@@ -189,20 +196,21 @@ function readdir($dir_handle = null)
  * @throws OpensslException
  *
  */
-function openssl_encrypt(string $data, string $method, string $key, int $options = 0, string $iv = "", string &$tag = "", string $aad = "", int $tag_length = 16) : string
+function openssl_encrypt(string $data, string $method, string $key, int $options = 0, string $iv = "", string &$tag = "", string $aad = "", int $tag_length = 16): string
 {
-    \error_clear_last();
+    error_clear_last();
     // The $tag parameter is handled in a weird way by openssl_encrypt. It cannot be provided unless encoding is AEAD
-    if (\func_num_args() <= 5) {
+    if (func_num_args() <= 5) {
         $result = \openssl_encrypt($data, $method, $key, $options, $iv);
     } else {
         $result = \openssl_encrypt($data, $method, $key, $options, $iv, $tag, $aad, $tag_length);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw OpensslException::createFromPhpError();
     }
     return $result;
 }
+
 /**
  * The function socket_write writes to the
  * socket from the given
@@ -222,11 +230,11 @@ function openssl_encrypt(string $data, string $method, string $key, int $options
  * @throws SocketsException
  *
  */
-function socket_write($socket, string $buffer, int $length = 0) : int
+function socket_write($socket, string $buffer, int $length = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = $length === 0 ? \socket_write($socket, $buffer) : \socket_write($socket, $buffer, $length);
-    if ($result === \false) {
+    if ($result === false) {
         throw SocketsException::createFromPhpError();
     }
     return $result;

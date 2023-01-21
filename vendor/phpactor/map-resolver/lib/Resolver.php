@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\MapResolver;
+namespace Phpactor\MapResolver;
 
 use Closure;
 class Resolver
@@ -99,15 +99,15 @@ class Resolver
     {
         $allowedKeys = $this->resolveAllowedKeys();
         if ($diff = \array_diff(\array_keys($config), $allowedKeys)) {
-            $this->throwOrLogError(new InvalidMap(\sprintf('Key(s) "%s" are not known, known keys: "%s"', \implode('", "', $diff), \implode('", "', $allowedKeys))));
+            $this->throwOrLogError(new \Phpactor\MapResolver\InvalidMap(\sprintf('Key(s) "%s" are not known, known keys: "%s"', \implode('", "', $diff), \implode('", "', $allowedKeys))));
             $config = $this->removeKeys($config, $diff);
         }
         if ($diff = \array_diff(\array_keys($this->descriptions), $allowedKeys)) {
-            throw new InvalidMap(\sprintf('Description(s) for key(s) "%s" are not known, known keys: "%s"', \implode('", "', $diff), \implode('", "', $allowedKeys)));
+            throw new \Phpactor\MapResolver\InvalidMap(\sprintf('Description(s) for key(s) "%s" are not known, known keys: "%s"', \implode('", "', $diff), \implode('", "', $allowedKeys)));
         }
         $config = \array_merge($this->defaults, $config);
         if ($diff = \array_diff($this->required, \array_keys($config))) {
-            throw new InvalidMap(\sprintf('Key(s) "%s" are required', \implode('", "', $diff)));
+            throw new \Phpactor\MapResolver\InvalidMap(\sprintf('Key(s) "%s" are required', \implode('", "', $diff)));
         }
         foreach ($config as $key => $value) {
             if (isset($this->types[$key])) {
@@ -122,7 +122,7 @@ class Resolver
                     $valid = $this->types[$key] === \gettype($value);
                 }
                 if (\false === $valid) {
-                    throw new InvalidMap(\sprintf('Type for "%s" expected to be "%s", got "%s"', $key, $this->types[$key], $type));
+                    throw new \Phpactor\MapResolver\InvalidMap(\sprintf('Type for "%s" expected to be "%s", got "%s"', $key, $this->types[$key], $type));
                 }
             }
         }
@@ -135,7 +135,7 @@ class Resolver
         }
         return $config;
     }
-    public function merge(Resolver $schema) : Resolver
+    public function merge(\Phpactor\MapResolver\Resolver $schema) : \Phpactor\MapResolver\Resolver
     {
         foreach ($schema->required as $required) {
             $this->required[] = $required;
@@ -151,17 +151,17 @@ class Resolver
         }
         return $this;
     }
-    public function definitions() : Definitions
+    public function definitions() : \Phpactor\MapResolver\Definitions
     {
         $definitions = [];
         foreach ($this->resolveAllowedKeys() as $key) {
-            $definitions[] = new Definition($key, $this->defaults[$key] ?? null, \in_array($key, $this->required), $this->descriptions[$key] ?? null, isset($this->types[$key]) ? [$this->types[$key]] : [], $this->enums[$key] ?? []);
+            $definitions[] = new \Phpactor\MapResolver\Definition($key, $this->defaults[$key] ?? null, \in_array($key, $this->required), $this->descriptions[$key] ?? null, isset($this->types[$key]) ? [$this->types[$key]] : [], $this->enums[$key] ?? []);
         }
-        return new Definitions($definitions);
+        return new \Phpactor\MapResolver\Definitions($definitions);
     }
-    public function errors() : ResolverErrors
+    public function errors() : \Phpactor\MapResolver\ResolverErrors
     {
-        return new ResolverErrors($this->errors);
+        return new \Phpactor\MapResolver\ResolverErrors($this->errors);
     }
     /**
      * @return array<string>
@@ -171,7 +171,7 @@ class Resolver
         $allowedKeys = \array_merge(\array_keys($this->defaults), $this->required);
         return $allowedKeys;
     }
-    private function throwOrLogError(InvalidMap $error) : void
+    private function throwOrLogError(\Phpactor\MapResolver\InvalidMap $error) : void
     {
         if (!$this->ignoreErrors) {
             throw $error;
@@ -191,4 +191,3 @@ class Resolver
         return $config;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\MapResolver\\Resolver', 'Phpactor\\MapResolver\\Resolver', \false);

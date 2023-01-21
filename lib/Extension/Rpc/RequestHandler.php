@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc;
+namespace Phpactor\Extension\Rpc;
 
 interface RequestHandler
 {
-    public function handle(Request $request) : Response;
+    public function handle(\Phpactor\Extension\Rpc\Request $request) : \Phpactor\Extension\Rpc\Response;
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\RequestHandler', 'Phpactor\\Extension\\Rpc\\RequestHandler', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use ArrayIterator;
 use Countable;
@@ -22,7 +22,7 @@ class IndexInfos implements IteratorAggregate, Countable
     {
         return new ArrayIterator($this->infos);
     }
-    public function get(string $name) : IndexInfo
+    public function get(string $name) : \Phpactor\Indexer\Model\IndexInfo
     {
         foreach ($this->infos as $info) {
             if ($info->name() === $name) {
@@ -40,7 +40,7 @@ class IndexInfos implements IteratorAggregate, Countable
      */
     public function names() : array
     {
-        return \array_map(function (IndexInfo $info) : string {
+        return \array_map(function (\Phpactor\Indexer\Model\IndexInfo $info) : string {
             return $info->name();
         }, $this->infos);
     }
@@ -51,7 +51,7 @@ class IndexInfos implements IteratorAggregate, Countable
     {
         return \range(1, \count($this->infos) + 1);
     }
-    public function getByOffset(int $int) : IndexInfo
+    public function getByOffset(int $int) : \Phpactor\Indexer\Model\IndexInfo
     {
         $offset = 1;
         foreach ($this->infos as $info) {
@@ -61,16 +61,12 @@ class IndexInfos implements IteratorAggregate, Countable
         }
         throw new RuntimeException(\sprintf('Index at offset "%s" not found. Available offsets are: %s', $int, \implode(', ', $this->offsets())));
     }
-    public function remove(IndexInfo $target) : self
+    public function remove(\Phpactor\Indexer\Model\IndexInfo $target) : self
     {
-        return new self(\array_filter($this->infos, fn(IndexInfo $info) => $info->name() !== $target->name()));
+        return new self(\array_filter($this->infos, fn(\Phpactor\Indexer\Model\IndexInfo $info) => $info->name() !== $target->name()));
     }
     public function totalSize() : int
     {
-        return \array_reduce($this->infos, fn(int $size, IndexInfo $current) => $size + $current->size(), 0);
+        return \array_reduce($this->infos, fn(int $size, \Phpactor\Indexer\Model\IndexInfo $current) => $size + $current->size(), 0);
     }
 }
-/**
- * @implements IteratorAggregate<IndexInfo>
- */
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\IndexInfos', 'Phpactor\\Indexer\\Model\\IndexInfos', \false);

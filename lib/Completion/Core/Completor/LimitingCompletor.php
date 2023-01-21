@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Completor;
+namespace Phpactor\Completion\Core\Completor;
 
 use Generator;
-use Phpactor202301\Phpactor\Completion\Core\Completor;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Completion\Core\Completor;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocument;
 use RuntimeException;
 class LimitingCompletor implements Completor
 {
@@ -28,4 +28,3 @@ class LimitingCompletor implements Completor
         return $suggestions->getReturn();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Completor\\LimitingCompletor', 'Phpactor\\Completion\\Core\\Completor\\LimitingCompletor', \false);

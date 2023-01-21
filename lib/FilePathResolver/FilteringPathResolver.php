@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver;
+namespace Phpactor\FilePathResolver;
 
-class FilteringPathResolver implements PathResolver
+class FilteringPathResolver implements \Phpactor\FilePathResolver\PathResolver
 {
     /**
      * @param \Phpactor\FilePathResolver\Filter[] $filters
@@ -18,4 +18,3 @@ class FilteringPathResolver implements PathResolver
         return $path;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\FilteringPathResolver', 'Phpactor\\FilePathResolver\\FilteringPathResolver', \false);

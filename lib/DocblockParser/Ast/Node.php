@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use Generator;
 use Traversable;
-abstract class Node implements Element
+abstract class Node implements \Phpactor\DocblockParser\Ast\Element
 {
     protected const CHILD_NAMES = [];
     public function toString() : string
@@ -71,7 +71,7 @@ abstract class Node implements Element
      * @param class-string<T> $elementFqn
      * @return T|null
      */
-    public function firstDescendant(string $elementFqn) : ?Element
+    public function firstDescendant(string $elementFqn) : ?\Phpactor\DocblockParser\Ast\Element
     {
         foreach ($this->descendantElements($elementFqn) as $element) {
             /** @phpstan-ignore-next-line */
@@ -141,11 +141,11 @@ abstract class Node implements Element
                 yield from $this->traverseNodes($child);
                 continue;
             }
-            if ($child instanceof Node) {
+            if ($child instanceof \Phpactor\DocblockParser\Ast\Node) {
                 yield from $child->selfAndDescendantElements();
                 continue;
             }
-            if ($child instanceof Token) {
+            if ($child instanceof \Phpactor\DocblockParser\Ast\Token) {
                 (yield $child);
                 continue;
             }
@@ -176,7 +176,7 @@ abstract class Node implements Element
     private function startOf(iterable $elements) : int
     {
         foreach ($elements as $element) {
-            if ($element instanceof Element) {
+            if ($element instanceof \Phpactor\DocblockParser\Ast\Element) {
                 return $element->start();
             }
             if (\is_iterable($element)) {
@@ -192,11 +192,11 @@ abstract class Node implements Element
     private function findTokens(iterable $nodes) : Generator
     {
         foreach ($nodes as $node) {
-            if ($node instanceof Token) {
+            if ($node instanceof \Phpactor\DocblockParser\Ast\Token) {
                 (yield $node);
                 continue;
             }
-            if ($node instanceof Node) {
+            if ($node instanceof \Phpactor\DocblockParser\Ast\Node) {
                 yield from $node->tokens();
             }
             if (\is_iterable($node)) {
@@ -205,4 +205,3 @@ abstract class Node implements Element
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Node', 'Phpactor\\DocblockParser\\Ast\\Node', \false);

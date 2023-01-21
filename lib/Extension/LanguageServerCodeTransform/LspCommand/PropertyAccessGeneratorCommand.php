@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
+namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Exception\TransformException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\PropertyAccessGenerator;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\CodeTransform\Domain\Exception\TransformException;
+use Phpactor\CodeTransform\Domain\Refactor\PropertyAccessGenerator;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
+use Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
+use Phpactor\LanguageServer\Core\Command\Command;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 class PropertyAccessGeneratorCommand implements Command
 {
     public function __construct(private string $name, private ClientApi $clientApi, private Workspace $workspace, private PropertyAccessGenerator $generateAccessor, string $editLabel)
@@ -35,4 +35,3 @@ class PropertyAccessGeneratorCommand implements Command
         return $this->clientApi->workspace()->applyEdit(new WorkspaceEdit([$uri => TextEditConverter::toLspTextEdits($textEdits, $textDocument->text)]), $this->editLabel);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\PropertyAccessGeneratorCommand', 'Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\PropertyAccessGeneratorCommand', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Util;
+namespace Phpactor\CodeBuilder\Util;
 
 final class TextUtil
 {
@@ -9,4 +9,3 @@ final class TextUtil
         return \preg_split("{(\r\n|\n|\r)}", $text);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Util\\TextUtil', 'Phpactor\\CodeBuilder\\Util\\TextUtil', \false);

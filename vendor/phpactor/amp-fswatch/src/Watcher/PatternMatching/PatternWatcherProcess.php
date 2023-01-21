@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\PatternMatching;
+namespace Phpactor\AmpFsWatch\Watcher\PatternMatching;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\WatcherProcess;
 class PatternWatcherProcess implements WatcherProcess
 {
     /**
@@ -26,10 +26,10 @@ class PatternWatcherProcess implements WatcherProcess
      * @param array<string> $includePatterns
      * @param array<string> $excludePatterns
      */
-    public function __construct(WatcherProcess $process, array $includePatterns, array $excludePatterns, ?PatternMatcher $matcher = null)
+    public function __construct(WatcherProcess $process, array $includePatterns, array $excludePatterns, ?\Phpactor\AmpFsWatch\Watcher\PatternMatching\PatternMatcher $matcher = null)
     {
         $this->process = $process;
-        $this->matcher = $matcher ?: new PatternMatcher();
+        $this->matcher = $matcher ?: new \Phpactor\AmpFsWatch\Watcher\PatternMatching\PatternMatcher();
         $this->includePatterns = $includePatterns;
         $this->excludePatterns = $excludePatterns;
     }
@@ -59,4 +59,3 @@ class PatternWatcherProcess implements WatcherProcess
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\PatternMatching\\PatternWatcherProcess', 'Phpactor\\AmpFsWatch\\Watcher\\PatternMatching\\PatternWatcherProcess', \false);

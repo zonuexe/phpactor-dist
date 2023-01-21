@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\RdKafka;
+namespace RdKafka;
 
 class ProducerTopic extends Topic
 {
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * @param int         $partition
      * @param int         $msgflags
@@ -16,9 +15,8 @@ class ProducerTopic extends Topic
      *
      * @return void
      */
-    public function produce($partition, $msgflags, $payload = null, $key = null, $msg_opaque = null)
-    {
-    }
+    public function produce($partition, $msgflags, $payload = null, $key = null, $msg_opaque = null) {}
+
     /**
      * @param int         $partition
      * @param int         $msgflags
@@ -30,7 +28,5 @@ class ProducerTopic extends Topic
      *
      * @return void
      */
-    public function producev($partition, $msgflags, $payload = null, $key = null, $headers = null, $timestamp_ms = 0, $msg_opaque = null)
-    {
-    }
+    public function producev($partition, $msgflags, $payload = null, $key = null, $headers = null, $timestamp_ms = 0, $msg_opaque = null) {}
 }

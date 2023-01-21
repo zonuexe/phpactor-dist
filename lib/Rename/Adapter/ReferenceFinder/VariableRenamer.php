@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\ReferenceFinder;
+namespace Phpactor\Rename\Adapter\ReferenceFinder;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\CatchClause;
@@ -8,8 +8,8 @@ use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
 use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\UseVariableName;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-class VariableRenamer extends AbstractReferenceRenamer
+use Phpactor\TextDocument\ByteOffsetRange;
+class VariableRenamer extends \Phpactor\Rename\Adapter\ReferenceFinder\AbstractReferenceRenamer
 {
     public function getRenameRangeForNode(Node $node) : ?ByteOffsetRange
     {
@@ -25,4 +25,3 @@ class VariableRenamer extends AbstractReferenceRenamer
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ReferenceFinder\\VariableRenamer', 'Phpactor\\Rename\\Adapter\\ReferenceFinder\\VariableRenamer', \false);

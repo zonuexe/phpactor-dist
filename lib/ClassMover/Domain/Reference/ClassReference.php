@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\QualifiedName;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\ClassMover\Domain\Name\QualifiedName;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 final class ClassReference
 {
     private $position;
@@ -17,7 +17,7 @@ final class ClassReference
     {
         return (string) $this->fullName;
     }
-    public static function fromNameAndPosition(QualifiedName $referencedName, FullyQualifiedName $fullName, Position $position, ImportedNameReference $importedNameRef, bool $isClassDeclaration = \false, bool $hasAlias = \false, bool $isImport = \false) : self
+    public static function fromNameAndPosition(QualifiedName $referencedName, FullyQualifiedName $fullName, \Phpactor\ClassMover\Domain\Reference\Position $position, \Phpactor\ClassMover\Domain\Reference\ImportedNameReference $importedNameRef, bool $isClassDeclaration = \false, bool $hasAlias = \false, bool $isImport = \false) : self
     {
         $new = new self();
         $new->position = $position;
@@ -29,7 +29,7 @@ final class ClassReference
         $new->isImport = $isImport;
         return $new;
     }
-    public function position() : Position
+    public function position() : \Phpactor\ClassMover\Domain\Reference\Position
     {
         return $this->position;
     }
@@ -41,7 +41,7 @@ final class ClassReference
     {
         return $this->fullName;
     }
-    public function importedNameRef() : ImportedNameReference
+    public function importedNameRef() : \Phpactor\ClassMover\Domain\Reference\ImportedNameReference
     {
         return $this->importedNameRef;
     }
@@ -58,4 +58,3 @@ final class ClassReference
         return $this->isImport;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\ClassReference', 'Phpactor\\ClassMover\\Domain\\Reference\\ClassReference', \false);

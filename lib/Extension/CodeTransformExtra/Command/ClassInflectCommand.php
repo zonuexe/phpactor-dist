@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Command;
+namespace Phpactor\Extension\CodeTransformExtra\Command;
 
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
@@ -8,11 +8,11 @@ use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
 use Phpactor202301\Symfony\Component\Console\Helper\QuestionHelper;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\Exception\FileAlreadyExists;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\CodeTransformExtra\Application\Exception\FileAlreadyExists;
 use Phpactor202301\Symfony\Component\Console\Question\ConfirmationQuestion;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\ClassInflect;
-use Phpactor202301\Phpactor\Extension\Core\Console\Handler\FormatHandler;
+use Phpactor\Extension\CodeTransformExtra\Application\ClassInflect;
+use Phpactor\Extension\Core\Console\Handler\FormatHandler;
 class ClassInflectCommand extends Command
 {
     public function __construct(private ClassInflect $classInflect, private DumperRegistry $dumperRegistry)
@@ -65,4 +65,3 @@ class ClassInflectCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Command\\ClassInflectCommand', 'Phpactor\\Extension\\CodeTransformExtra\\Command\\ClassInflectCommand', \false);

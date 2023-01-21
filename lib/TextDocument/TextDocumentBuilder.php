@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 final class TextDocumentBuilder
 {
-    private ?TextDocumentUri $uri = null;
-    private ?TextDocumentLanguage $language = null;
+    private ?\Phpactor\TextDocument\TextDocumentUri $uri = null;
+    private ?\Phpactor\TextDocument\TextDocumentLanguage $language = null;
     private function __construct(private string $text)
     {
     }
@@ -18,7 +18,7 @@ final class TextDocumentBuilder
     }
     public static function fromUri(string $uri, ?string $language = null) : self
     {
-        $uri = TextDocumentUri::fromString($uri);
+        $uri = \Phpactor\TextDocument\TextDocumentUri::fromString($uri);
         if (!\file_exists($uri)) {
             throw new TextDocumentNotFound(\sprintf('Text Document not found at URI "%s"', $uri));
         }
@@ -34,10 +34,10 @@ final class TextDocumentBuilder
         }
         $new = new self($contents);
         $new->uri = $uri;
-        $new->language = TextDocumentLanguage::fromString($language);
+        $new->language = \Phpactor\TextDocument\TextDocumentLanguage::fromString($language);
         return $new;
     }
-    public static function fromTextDocument(TextDocument $document) : self
+    public static function fromTextDocument(\Phpactor\TextDocument\TextDocument $document) : self
     {
         $new = new self($document->__toString());
         $new->uri = $document->uri();
@@ -46,12 +46,12 @@ final class TextDocumentBuilder
     }
     public function uri(string $uri) : self
     {
-        $this->uri = TextDocumentUri::fromString($uri);
+        $this->uri = \Phpactor\TextDocument\TextDocumentUri::fromString($uri);
         return $this;
     }
     public function language(string $language) : self
     {
-        $this->language = TextDocumentLanguage::fromString($language);
+        $this->language = \Phpactor\TextDocument\TextDocumentLanguage::fromString($language);
         return $this;
     }
     public function text(string $text) : self
@@ -59,9 +59,8 @@ final class TextDocumentBuilder
         $this->text = $text;
         return $this;
     }
-    public function build() : TextDocument
+    public function build() : \Phpactor\TextDocument\TextDocument
     {
-        return new StandardTextDocument($this->language ?? TextDocumentLanguage::undefined(), $this->text, $this->uri);
+        return new \Phpactor\TextDocument\StandardTextDocument($this->language ?? \Phpactor\TextDocument\TextDocumentLanguage::undefined(), $this->text, $this->uri);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextDocumentBuilder', 'Phpactor\\TextDocument\\TextDocumentBuilder', \false);

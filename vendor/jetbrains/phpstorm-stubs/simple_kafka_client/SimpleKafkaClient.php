@@ -1,12 +1,11 @@
 <?php
-
-declare (strict_types=1);
-namespace Phpactor202301;
+declare(strict_types=1);
 
 use SimpleKafkaClient\Exception;
 use SimpleKafkaClient\Metadata;
 use SimpleKafkaClient\Topic;
 use SimpleKafkaClient\TopicPartition;
+
 abstract class SimpleKafkaClient
 {
     /**
@@ -16,22 +15,19 @@ abstract class SimpleKafkaClient
      * @return Metadata
      * @throws Exception
      */
-    public function getMetadata(bool $allTopics, int $timeoutMs, Topic $topic) : Metadata
-    {
-    }
+    public function getMetadata(bool $allTopics, int $timeoutMs, Topic $topic): Metadata {}
+
     /**
      * @return int
      */
-    public function getOutQLen() : int
-    {
-    }
+    public function getOutQLen(): int {}
+
     /**
      * @param int $timeoutMs
      * @return int
      */
-    public function poll(int $timeoutMs) : int
-    {
-    }
+    public function poll(int $timeoutMs): int {}
+
     /**
      * @param string $topic
      * @param int $partition
@@ -40,32 +36,26 @@ abstract class SimpleKafkaClient
      * @param int $timeoutMs
      * @throws Exception
      */
-    public function queryWatermarkOffsets(string $topic, int $partition, int &$low, int &$high, int $timeoutMs) : void
-    {
-    }
+    public function queryWatermarkOffsets(string $topic, int $partition, int &$low, int &$high, int $timeoutMs): void {}
+
     /**
      * @param TopicPartition[] $topicPartitions
      * @param int $timeoutMs
      * @return TopicPartition[]
      * @throws Exception
      */
-    public function offsetsForTimes(array $topicPartitions, int $timeoutMs) : array
-    {
-    }
+    public function offsetsForTimes(array $topicPartitions, int $timeoutMs): array {}
+
     /**
      * @param string $errorString
      */
-    public function setOAuthBearerTokenFailure(string $errorString) : void
-    {
-    }
+    public function setOAuthBearerTokenFailure(string $errorString): void {}
+
     /**
      * @param string $token
      * @param int $lifetimeMs
      * @param string $principalName
      * @param string[]|null $extensions
      */
-    public function setOAuthBearerToken(string $token, int $lifetimeMs, string $principalName, ?array $extensions = null) : void
-    {
-    }
+    public function setOAuthBearerToken(string $token, int $lifetimeMs, string $principalName, ?array $extensions = null): void {}
 }
-\class_alias('Phpactor202301\\SimpleKafkaClient', 'SimpleKafkaClient', \false);

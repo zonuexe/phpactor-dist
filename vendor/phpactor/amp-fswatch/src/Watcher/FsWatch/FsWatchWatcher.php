@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\FsWatch;
+namespace Phpactor\AmpFsWatch\Watcher\FsWatch;
 
 use Phpactor202301\Amp\ByteStream\LineReader;
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileQueue;
-use Phpactor202301\Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileBuilder;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherConfig;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\ModifiedFileQueue;
+use Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
+use Phpactor\AmpFsWatch\ModifiedFileBuilder;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherConfig;
+use Phpactor\AmpFsWatch\WatcherProcess;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use RuntimeException;
@@ -126,4 +126,3 @@ class FsWatchWatcher implements Watcher, WatcherProcess
         return 'fs-watch';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\FsWatch\\FsWatchWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\FsWatch\\FsWatchWatcher', \false);

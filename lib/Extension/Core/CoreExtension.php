@@ -1,38 +1,38 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core;
+namespace Phpactor\Extension\Core;
 
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
-use Phpactor202301\Phpactor\Extension\Core\Command\ConfigInitCommand;
-use Phpactor202301\Phpactor\Extension\Core\Command\ConfigJsonSchemaCommand;
-use Phpactor202301\Phpactor\Extension\Core\Command\ConfigSetCommand;
-use Phpactor202301\Phpactor\Extension\Core\Command\DebugContainerCommand;
-use Phpactor202301\Phpactor\Extension\Core\Model\JsonSchemaBuilder;
-use Phpactor202301\Phpactor\Extension\Core\Rpc\CacheClearHandler;
-use Phpactor202301\Phpactor\Extension\Core\Rpc\ConfigHandler;
-use Phpactor202301\Phpactor\Extension\Core\Rpc\StatusHandler;
-use Phpactor202301\Phpactor\Extension\Core\Model\ConfigManipulator;
-use Phpactor202301\Phpactor\Extension\Php\Model\PhpVersionResolver;
-use Phpactor202301\Phpactor\Extension\Rpc\RpcExtension;
-use Phpactor202301\Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\IndentedDumper;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\JsonDumper;
-use Phpactor202301\Phpactor\Extension\Core\Console\Dumper\TableDumper;
-use Phpactor202301\Phpactor\Extension\Core\Console\Prompt\BashPrompt;
-use Phpactor202301\Phpactor\Extension\Core\Console\Prompt\ChainPrompt;
-use Phpactor202301\Phpactor\Extension\Core\Command\ConfigDumpCommand;
-use Phpactor202301\Phpactor\Extension\Core\Application\CacheClear;
-use Phpactor202301\Phpactor\Extension\Core\Command\CacheClearCommand;
-use Phpactor202301\Phpactor\Extension\Core\Application\Status;
-use Phpactor202301\Phpactor\Extension\Core\Command\StatusCommand;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\FilePathResolver\Expander\ValueExpander;
-use Phpactor202301\Phpactor\ConfigLoader\Core\PathCandidates;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
+use Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
+use Phpactor\Extension\Core\Command\ConfigInitCommand;
+use Phpactor\Extension\Core\Command\ConfigJsonSchemaCommand;
+use Phpactor\Extension\Core\Command\ConfigSetCommand;
+use Phpactor\Extension\Core\Command\DebugContainerCommand;
+use Phpactor\Extension\Core\Model\JsonSchemaBuilder;
+use Phpactor\Extension\Core\Rpc\CacheClearHandler;
+use Phpactor\Extension\Core\Rpc\ConfigHandler;
+use Phpactor\Extension\Core\Rpc\StatusHandler;
+use Phpactor\Extension\Core\Model\ConfigManipulator;
+use Phpactor\Extension\Php\Model\PhpVersionResolver;
+use Phpactor\Extension\Rpc\RpcExtension;
+use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
+use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
+use Phpactor\Extension\Core\Console\Dumper\IndentedDumper;
+use Phpactor\Extension\Core\Console\Dumper\JsonDumper;
+use Phpactor\Extension\Core\Console\Dumper\TableDumper;
+use Phpactor\Extension\Core\Console\Prompt\BashPrompt;
+use Phpactor\Extension\Core\Console\Prompt\ChainPrompt;
+use Phpactor\Extension\Core\Command\ConfigDumpCommand;
+use Phpactor\Extension\Core\Application\CacheClear;
+use Phpactor\Extension\Core\Command\CacheClearCommand;
+use Phpactor\Extension\Core\Application\Status;
+use Phpactor\Extension\Core\Command\StatusCommand;
+use Phpactor\Container\Container;
+use Phpactor\Container\Extension;
+use Phpactor\FilePathResolver\Expander\ValueExpander;
+use Phpactor\ConfigLoader\Core\PathCandidates;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\ContainerBuilder;
 class CoreExtension implements Extension
 {
     const APP_NAME = 'phpactor';
@@ -138,4 +138,3 @@ class CoreExtension implements Extension
         }, [FilePathResolverExtension::TAG_EXPANDER => []]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\CoreExtension', 'Phpactor\\Extension\\Core\\CoreExtension', \false);

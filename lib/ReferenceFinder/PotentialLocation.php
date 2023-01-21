@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ReferenceFinder;
+namespace Phpactor\ReferenceFinder;
 
-use Phpactor202301\Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\Location;
 final class PotentialLocation
 {
     private const CONFIDENCE_SURELY = 'surely';
@@ -40,4 +40,3 @@ final class PotentialLocation
         return $this->location;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ReferenceFinder\\PotentialLocation', 'Phpactor\\ReferenceFinder\\PotentialLocation', \false);

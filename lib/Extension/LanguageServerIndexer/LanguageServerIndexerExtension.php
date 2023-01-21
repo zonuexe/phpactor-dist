@@ -1,28 +1,28 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerIndexer;
+namespace Phpactor\Extension\LanguageServerIndexer;
 
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Handler\IndexerHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Handler\WorkspaceSymbolHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Listener\IndexerListener;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Model\WorkspaceSymbolProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Status\IndexerStatusProvider;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Watcher\LanguageServerWatcher;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Indexer\Extension\IndexerExtension;
-use Phpactor202301\Phpactor\Indexer\Model\Indexer;
-use Phpactor202301\Phpactor\Indexer\Model\SearchClient;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ClientCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceManager;
-use Phpactor202301\Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServerIndexer\Handler\IndexerHandler;
+use Phpactor\Extension\LanguageServerIndexer\Handler\WorkspaceSymbolHandler;
+use Phpactor\Extension\LanguageServerIndexer\Listener\IndexerListener;
+use Phpactor\Extension\LanguageServerIndexer\Model\WorkspaceSymbolProvider;
+use Phpactor\Extension\LanguageServerIndexer\Status\IndexerStatusProvider;
+use Phpactor\Extension\LanguageServerIndexer\Watcher\LanguageServerWatcher;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Indexer\Extension\IndexerExtension;
+use Phpactor\Indexer\Model\Indexer;
+use Phpactor\Indexer\Model\SearchClient;
+use Phpactor\LanguageServerProtocol\ClientCapabilities;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Service\ServiceManager;
+use Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\TextDocument\TextDocumentLocator;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 class LanguageServerIndexerExtension implements Extension
 {
@@ -54,4 +54,3 @@ class LanguageServerIndexerExtension implements Extension
         }, [LanguageServerExtension::TAG_LISTENER_PROVIDER => []]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerIndexer\\LanguageServerIndexerExtension', 'Phpactor\\Extension\\LanguageServerIndexer\\LanguageServerIndexerExtension', \false);

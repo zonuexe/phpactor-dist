@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Stream;
+namespace Phpactor\LanguageServer\Core\Server\Stream;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Socket\Socket;
-final class SocketDuplexStream implements DuplexStream
+final class SocketDuplexStream implements \Phpactor\LanguageServer\Core\Server\Stream\DuplexStream
 {
     /**
      * @var Socket
@@ -36,4 +36,3 @@ final class SocketDuplexStream implements DuplexStream
         return $this->socket->end($finalData);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Stream\\SocketDuplexStream', 'Phpactor\\LanguageServer\\Core\\Server\\Stream\\SocketDuplexStream', \false);

@@ -1,7 +1,4 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * @link https://www.php.net/manual/en/ref.dio.php
  * Direct IO Functions
@@ -18,6 +15,7 @@ namespace Phpactor202301;
  * dio_raw - Opens a raw direct IO stream.
  * dio_serial - Opens a serial direct IO stream.
  */
+
 /**
  * Closes the file descriptor given by fd.
  *
@@ -27,9 +25,8 @@ namespace Phpactor202301;
  * @param resource $fd The file descriptor returned by dio_open()
  * @return void
  */
-function dio_close($fd) : void
-{
-}
+function dio_close($fd): void {}
+
 /**
  * The dio_fcntl() function performs the operation specified by cmd on the file descriptor fd.
  *
@@ -48,9 +45,8 @@ function dio_close($fd) : void
  * </ul>
  * @return mixed Returns the result of the C call.
  */
-function dio_fcntl($fd, int $cmd, ...$args)
-{
-}
+function dio_fcntl($fd, int $cmd, ...$args) {}
+
 /**
  * Opens a file (creating it if necessary) at a lower level than theC library input/ouput stream functions allow
  *
@@ -73,9 +69,8 @@ function dio_fcntl($fd, int $cmd, ...$args)
  * @param int $mode If flags contains O_CREAT, mode will set the permissions of the file (creation permissions).
  * @return resource|false A file descriptor or FALSE on error.
  */
-function dio_open(string $filename, int $flags, int $mode = 0)
-{
-}
+function dio_open(string $filename, int $flags, int $mode = 0) {}
+
 /**
  * Reads bytes from a file descriptor.
  *
@@ -86,9 +81,8 @@ function dio_open(string $filename, int $flags, int $mode = 0)
  * @return string The bytes read from fd.
  * @link https://www.php.net/manual/en/function.dio-read.php
  */
-function dio_read($fd, int $len = 1024)
-{
-}
+function dio_read($fd, int $len = 1024) {}
+
 /**
  * Seeks to pos on fd from whence
  *
@@ -105,9 +99,8 @@ function dio_read($fd, int $len = 1024)
  * @return int
  * @link https://www.php.net/manual/en/function.dio-seek.php
  */
-function dio_seek($fd, int $pos, int $whence = \SEEK_SET)
-{
-}
+function dio_seek($fd, int $pos, int $whence = SEEK_SET) {}
+
 /**
  * Gets stat information about the file descriptor fd
  *
@@ -133,9 +126,8 @@ function dio_seek($fd, int $pos, int $whence = \SEEK_SET)
  * On error dio_stat() returns NULL.
  * @link https://www.php.net/manual/en/function.dio-stat.php
  */
-function dio_stat($fd)
-{
-}
+function dio_stat($fd) {}
+
 /**
  * Sets terminal attributes and baud rate for a serial port
  *
@@ -152,9 +144,8 @@ function dio_stat($fd)
  * @return void
  * @link https://www.php.net/manual/en/function.dio-tcsetattr.php
  */
-function dio_tcsetattr($fd, array $options)
-{
-}
+function dio_tcsetattr($fd, array $options) {}
+
 /**
  * Truncates a file to at most offset bytes in size.
  *
@@ -168,9 +159,8 @@ function dio_tcsetattr($fd, array $options)
  * @return bool Returns TRUE on success or FALSE on failure.
  * @link https://www.php.net/manual/en/function.dio-truncate.php
  */
-function dio_truncate($fd, int $offset)
-{
-}
+function dio_truncate($fd, int $offset) {}
+
 /**
  * Writes data to fd with optional truncation at length
  *
@@ -182,9 +172,8 @@ function dio_truncate($fd, int $offset)
  * @param int $len The length of data to write in bytes. If not specified, the function writes all the data to the specified file.
  * @return int Returns the number of bytes written to fd.
  */
-function dio_write($fd, string $data, int $len = 0)
-{
-}
+function dio_write($fd, string $data, int $len = 0) {}
+
 /**
  * Opens a raw direct IO stream.
  *
@@ -203,9 +192,8 @@ function dio_write($fd, string $data, int $len = 0)
  * </ul>
  * @return resource|null A stream resource or null on error.
  */
-function dio_raw(string $filename, string $mode, ?array $options)
-{
-}
+function dio_raw(string $filename, string $mode, ?array $options) {}
+
 /**
  * Opens a serial direct IO stream.
  *
@@ -224,6 +212,4 @@ function dio_raw(string $filename, string $mode, ?array $options)
  * </ul>
  * @return resource|null A stream resource or null on error.
  */
-function dio_serial(string $filename, string $mode, ?array $options)
-{
-}
+function dio_serial(string $filename, string $mode, ?array $options) {}

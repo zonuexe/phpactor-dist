@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -27,7 +27,7 @@ class TextDocumentWillSaveEvent
      * @param TextDocument $document
      * @param 1|2|3 $reason
      */
-    public function __construct(TextDocument $document, $reason)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocument $document, $reason)
     {
         $this->document = $document;
         $this->reason = $reason;
@@ -38,7 +38,7 @@ class TextDocumentWillSaveEvent
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['document' => ['names' => [TextDocument::class], 'iterable' => \false], 'reason' => ['names' => [], 'iterable' => \false]];
+        $map = ['document' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocument::class], 'iterable' => \false], 'reason' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -88,7 +88,3 @@ class TextDocumentWillSaveEvent
         throw $lastException;
     }
 }
-/**
- * Represents reasons why a text document is saved.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\TextDocumentWillSaveEvent', 'Phpactor\\LanguageServerProtocol\\TextDocumentWillSaveEvent', \false);

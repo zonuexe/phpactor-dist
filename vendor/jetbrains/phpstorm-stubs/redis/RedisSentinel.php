@@ -1,7 +1,5 @@
 <?php
 
-namespace Phpactor202301;
-
 /**
  * The MIT License (MIT)
  *
@@ -27,6 +25,7 @@ namespace Phpactor202301;
  *
  * <https://opensource.org/licenses/MIT>.
  */
+
 /**
  * Helper autocomplete for phpredis extension
  *
@@ -49,9 +48,15 @@ class RedisSentinel
      * // 1s timeout, 100ms delay between reconnection attempts.
      * $sentinel = new RedisSentinel('127.0.0.1', 26379, 1, null, 100);
      */
-    public function __construct(string $host, int $port, float $timeout = 0, ?string $persistent = null, int $retryInterval = 0, float $readTimeout = 0)
-    {
-    }
+    public function __construct(
+        string $host,
+        int $port,
+        float $timeout = 0,
+        ?string $persistent = null,
+        int $retryInterval = 0,
+        float $readTimeout = 0
+    ) {}
+
     /**
      * Check if the current Sentinel configuration is able to reach the quorum needed to failover a master, and the
      * majority needed to authorize the failover. This command should be used in monitoring systems to check if a
@@ -65,9 +70,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function ckquorum(string $master) : bool
-    {
-    }
+    public function ckquorum(string $master): bool {}
+
     /**
      * Force a failover as if the master was not reachable, and without asking for agreement to other Sentinels
      * (however a new version of the configuration will be published so that the other Sentinels will update
@@ -81,9 +85,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function failover(string $master) : bool
-    {
-    }
+    public function failover(string $master): bool {}
+
     /**
      * Force Sentinel to rewrite its configuration on disk, including the current Sentinel state.
      *
@@ -100,9 +103,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function flushconfig() : bool
-    {
-    }
+    public function flushconfig(): bool {}
+
     /**
      * Return the ip and port number of the master with that name. If a failover is in progress or terminated
      * successfully for this master it returns the address and port of the promoted replica.
@@ -115,9 +117,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function getMasterAddrByName(string $master)
-    {
-    }
+    public function getMasterAddrByName(string $master) {}
+
     /**
      * Return the state and info of the specified master
      *
@@ -129,9 +130,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function master(string $master)
-    {
-    }
+    public function master(string $master) {}
+
     /**
      * Return a list of monitored masters and their state
      *
@@ -141,9 +141,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function masters()
-    {
-    }
+    public function masters() {}
+
     /**
      * Ping the sentinel
      *
@@ -153,9 +152,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function ping() : bool
-    {
-    }
+    public function ping(): bool {}
+
     /**
      * Reset all the masters with matching name. The pattern argument is a glob-style pattern.
      * The reset process clears any previous state in a master (including a failover in progress), and removes every
@@ -169,9 +167,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function reset(string $pattern) : bool
-    {
-    }
+    public function reset(string $pattern): bool {}
+
     /**
      * Return a list of sentinel instances for this master, and their state
      *
@@ -183,9 +180,8 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function sentinels(string $master)
-    {
-    }
+    public function sentinels(string $master) {}
+
     /**
      * Return a list of sentinel instances for this master, and their state
      *
@@ -197,39 +193,5 @@ class RedisSentinel
      *
      * @since   >= 5.2.0
      */
-    public function slaves(string $master)
-    {
-    }
+    public function slaves(string $master) {}
 }
-/**
- * The MIT License (MIT)
- *
- * Copyright (c) Tawana Musewe
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * <https://opensource.org/licenses/MIT>.
- */
-/**
- * Helper autocomplete for phpredis extension
- *
- * @author  Tawana Musewe <tawana@aeonis.co.za>
- * @link    https://github.com/tbtmuse/phpredis-sentinel-phpdoc
- */
-\class_alias('Phpactor202301\\RedisSentinel', 'RedisSentinel', \false);

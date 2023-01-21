@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 interface FunctionStub
 {
-    public function resolve(Frame $frame, NodeContext $context, FunctionArguments $args) : NodeContext;
+    public function resolve(\Phpactor\WorseReflection\Core\Inference\Frame $frame, \Phpactor\WorseReflection\Core\Inference\NodeContext $context, \Phpactor\WorseReflection\Core\Inference\FunctionArguments $args) : \Phpactor\WorseReflection\Core\Inference\NodeContext;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub', 'Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub', \false);

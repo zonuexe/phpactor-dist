@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Console;
+namespace Phpactor\Extension\Console;
 
 use InvalidArgumentException;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\MapResolver\Resolver;
 use Phpactor202301\Symfony\Component\Console\Input\ArgvInput;
 use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutput;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
@@ -28,7 +28,7 @@ class ConsoleExtension implements Extension
                 }
                 $map[$attrs['name']] = $commandId;
             }
-            return new PhpactorCommandLoader($container, $map);
+            return new \Phpactor\Extension\Console\PhpactorCommandLoader($container, $map);
         });
         $container->register(self::SERVICE_OUTPUT, function (Container $container) {
             return new ConsoleOutput($container->getParameter(self::PARAM_VERBOSITY), $container->getParameter(self::PARAM_DECORATED));
@@ -44,4 +44,3 @@ class ConsoleExtension implements Extension
         $schema->setEnums([self::PARAM_VERBOSITY => [OutputInterface::VERBOSITY_QUIET, OutputInterface::VERBOSITY_NORMAL, OutputInterface::VERBOSITY_VERBOSE, OutputInterface::VERBOSITY_VERY_VERBOSE, OutputInterface::VERBOSITY_DEBUG], self::PARAM_DECORATED => [\true, \false, null]]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Console\\ConsoleExtension', 'Phpactor\\Extension\\Console\\ConsoleExtension', \false);

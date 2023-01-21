@@ -1,14 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\TextDocument\TextEdits;
 interface Transformer
 {
-    public function transform(SourceCode $code) : TextEdits;
+    public function transform(\Phpactor\CodeTransform\Domain\SourceCode $code) : TextEdits;
     /**
      * Return the issues that this transform will fix.
      */
-    public function diagnostics(SourceCode $code) : Diagnostics;
+    public function diagnostics(\Phpactor\CodeTransform\Domain\SourceCode $code) : \Phpactor\CodeTransform\Domain\Diagnostics;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Transformer', 'Phpactor\\CodeTransform\\Domain\\Transformer', \false);

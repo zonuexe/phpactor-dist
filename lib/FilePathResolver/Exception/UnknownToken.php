@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver\Exception;
+namespace Phpactor\FilePathResolver\Exception;
 
 use RuntimeException;
 class UnknownToken extends RuntimeException
@@ -10,4 +10,3 @@ class UnknownToken extends RuntimeException
         parent::__construct(\sprintf('Unknown token "%s", known tokens: "%s"', $tokenName, \implode('", "', $knownTokens)));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\Exception\\UnknownToken', 'Phpactor\\FilePathResolver\\Exception\\UnknownToken', \false);

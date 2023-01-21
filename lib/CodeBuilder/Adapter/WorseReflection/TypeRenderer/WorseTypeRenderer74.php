@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
+namespace Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\AggregateType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ArrayType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BooleanType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\InvokeableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\NullableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\PseudoIterableType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ScalarType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\SelfType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\VoidType;
-class WorseTypeRenderer74 implements WorseTypeRenderer
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\AggregateType;
+use Phpactor\WorseReflection\Core\Type\ArrayType;
+use Phpactor\WorseReflection\Core\Type\BooleanType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\InvokeableType;
+use Phpactor\WorseReflection\Core\Type\NullableType;
+use Phpactor\WorseReflection\Core\Type\PseudoIterableType;
+use Phpactor\WorseReflection\Core\Type\ScalarType;
+use Phpactor\WorseReflection\Core\Type\SelfType;
+use Phpactor\WorseReflection\Core\Type\VoidType;
+class WorseTypeRenderer74 implements \Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer
 {
     public function render(Type $type) : ?string
     {
@@ -50,4 +50,3 @@ class WorseTypeRenderer74 implements WorseTypeRenderer
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRenderer74', 'Phpactor\\CodeBuilder\\Adapter\\WorseReflection\\TypeRenderer\\WorseTypeRenderer74', \false);

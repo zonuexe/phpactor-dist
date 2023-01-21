@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Handler;
+namespace Phpactor\Extension\LanguageServerIndexer\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Model\WorkspaceSymbolProvider;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SymbolInformation;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceSymbolParams;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\Extension\LanguageServerIndexer\Model\WorkspaceSymbolProvider;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\SymbolInformation;
+use Phpactor\LanguageServerProtocol\WorkspaceSymbolParams;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
 class WorkspaceSymbolHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private WorkspaceSymbolProvider $provider)
@@ -32,4 +32,3 @@ class WorkspaceSymbolHandler implements Handler, CanRegisterCapabilities
         $capabilities->workspaceSymbolProvider = \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerIndexer\\Handler\\WorkspaceSymbolHandler', 'Phpactor\\Extension\\LanguageServerIndexer\\Handler\\WorkspaceSymbolHandler', \false);

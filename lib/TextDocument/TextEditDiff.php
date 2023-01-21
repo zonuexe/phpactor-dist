@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
 final class TextEditDiff
 {
@@ -8,7 +8,7 @@ final class TextEditDiff
     private const NOOP = 'o';
     private const ADD = '+';
     private const DEL = '-';
-    public function diff(string $one, string $two) : TextEdits
+    public function diff(string $one, string $two) : \Phpactor\TextDocument\TextEdits
     {
         $table = $this->lcsTable($one, $two);
         $ops = $this->resolveOps($table, \mb_str_split($one), \mb_str_split($two), \mb_strlen($one) - 1, \mb_strlen($two) - 1);
@@ -73,7 +73,7 @@ final class TextEditDiff
     /**
      * @param list<array{string,string,int}> $ops
      */
-    private function textEdits(array $ops) : TextEdits
+    private function textEdits(array $ops) : \Phpactor\TextDocument\TextEdits
     {
         $chunks = [];
         $currentOps = [];
@@ -99,16 +99,15 @@ final class TextEditDiff
         $edits = [];
         foreach ($chunks as $chunk) {
             if ($chunk[0][0] === self::ADD) {
-                $edits[] = TextEdit::create($chunk[0][2], 0, \implode('', \array_map(fn(array $op) => $op[1], $chunk)));
+                $edits[] = \Phpactor\TextDocument\TextEdit::create($chunk[0][2], 0, \implode('', \array_map(fn(array $op) => $op[1], $chunk)));
             }
             if ($chunk[0][0] === self::DEL) {
-                $edits[] = TextEdit::create($chunk[0][2], \count($chunk), '');
+                $edits[] = \Phpactor\TextDocument\TextEdit::create($chunk[0][2], \count($chunk), '');
             }
             if ($chunk[0][0] === self::REPLACE) {
-                $edits[] = TextEdit::create($chunk[0][2], \count($chunk), \implode('', \array_map(fn(array $ops) => $ops[1], $chunk)));
+                $edits[] = \Phpactor\TextDocument\TextEdit::create($chunk[0][2], \count($chunk), \implode('', \array_map(fn(array $ops) => $ops[1], $chunk)));
             }
         }
-        return TextEdits::fromTextEdits($edits);
+        return \Phpactor\TextDocument\TextEdits::fromTextEdits($edits);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\TextEditDiff', 'Phpactor\\TextDocument\\TextEditDiff', \false);

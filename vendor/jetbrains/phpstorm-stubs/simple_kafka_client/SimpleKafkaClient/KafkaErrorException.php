@@ -1,7 +1,7 @@
 <?php
+declare(strict_types=1);
 
-declare (strict_types=1);
-namespace Phpactor202301\SimpleKafkaClient;
+namespace SimpleKafkaClient;
 
 class KafkaErrorException extends Exception
 {
@@ -14,19 +14,20 @@ class KafkaErrorException extends Exception
      * @param bool $isRetriable
      * @param bool $transactionRequiresAbort
      */
-    public function __construct(string $message, int $code, string $error_string, bool $isFatal, bool $isRetriable, bool $transactionRequiresAbort)
-    {
-    }
-    public function getErrorString() : string
-    {
-    }
-    public function isFatal() : bool
-    {
-    }
-    public function isRetriable() : bool
-    {
-    }
-    public function transactionRequiresAbort() : bool
-    {
-    }
+    public function __construct(
+        string $message,
+        int $code,
+        string $error_string,
+        bool $isFatal,
+        bool $isRetriable,
+        bool $transactionRequiresAbort
+    ) {}
+
+    public function getErrorString(): string {}
+
+    public function isFatal(): bool {}
+
+    public function isRetriable(): bool {}
+
+    public function transactionRequiresAbort(): bool {}
 }

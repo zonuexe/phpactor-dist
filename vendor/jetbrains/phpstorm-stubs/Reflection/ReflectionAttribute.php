@@ -1,14 +1,13 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * @since 8.0
  *
  * @template T of object
  */
-class ReflectionAttribute implements \Reflector
+class ReflectionAttribute implements Reflector
 {
     /**
      * Indicates that the search for a suitable attribute should not be by
@@ -19,13 +18,13 @@ class ReflectionAttribute implements \Reflector
      * @since 8.0
      */
     public const IS_INSTANCEOF = 2;
+
     /**
      * ReflectionAttribute cannot be created explicitly.
      * @since 8.0
      */
-    private function __construct()
-    {
-    }
+    private function __construct() {}
+
     /**
      * Gets attribute name
      *
@@ -33,9 +32,8 @@ class ReflectionAttribute implements \Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getName() : string
-    {
-    }
+    public function getName(): string {}
+
     /**
      * Returns the target of the attribute as a bit mask format.
      *
@@ -43,9 +41,8 @@ class ReflectionAttribute implements \Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getTarget() : int
-    {
-    }
+    public function getTarget(): int {}
+
     /**
      * Returns {@see true} if the attribute is repeated.
      *
@@ -53,9 +50,8 @@ class ReflectionAttribute implements \Reflector
      * @since 8.0
      */
     #[Pure]
-    public function isRepeated() : bool
-    {
-    }
+    public function isRepeated(): bool {}
+
     /**
      * Gets list of passed attribute's arguments.
      *
@@ -63,37 +59,25 @@ class ReflectionAttribute implements \Reflector
      * @since 8.0
      */
     #[Pure]
-    public function getArguments() : array
-    {
-    }
+    public function getArguments(): array {}
+
     /**
      * Creates a new instance of the attribute with passed arguments
      *
      * @return T
      * @since 8.0
      */
-    public function newInstance() : object
-    {
-    }
+    public function newInstance(): object {}
+
     /**
      * ReflectionAttribute cannot be cloned
      *
      * @return void
      * @since 8.0
      */
-    private function __clone() : void
-    {
-    }
-    public function __toString() : string
-    {
-    }
-    public static function export()
-    {
-    }
+    private function __clone(): void {}
+
+    public function __toString(): string {}
+
+    public static function export() {}
 }
-/**
- * @since 8.0
- *
- * @template T of object
- */
-\class_alias('Phpactor202301\\ReflectionAttribute', 'ReflectionAttribute', \false);

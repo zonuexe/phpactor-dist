@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerSelectionRange\Handler;
+namespace Phpactor\Extension\LanguageServerSelectionRange\Handler;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerSelectionRange\Model\RangeProvider;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Position;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SelectionRange;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SelectionRangeParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\SelectionRangeRequest;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Extension\LanguageServerSelectionRange\Model\RangeProvider;
+use Phpactor\LanguageServerProtocol\Position;
+use Phpactor\LanguageServerProtocol\SelectionRange;
+use Phpactor\LanguageServerProtocol\SelectionRangeParams;
+use Phpactor\LanguageServerProtocol\SelectionRangeRequest;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
 class SelectionRangeHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private Workspace $workspace, private RangeProvider $provider)
@@ -39,4 +39,3 @@ class SelectionRangeHandler implements Handler, CanRegisterCapabilities
         $capabilities->selectionRangeProvider = \true;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerSelectionRange\\Handler\\SelectionRangeHandler', 'Phpactor\\Extension\\LanguageServerSelectionRange\\Handler\\SelectionRangeHandler', \false);

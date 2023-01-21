@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-class ClassType extends Type implements ClassLikeType, HasEmptyType
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Reflector;
+class ClassType extends Type implements \Phpactor\WorseReflection\Core\Type\ClassLikeType, \Phpactor\WorseReflection\Core\Type\HasEmptyType
 {
     /**
      * @var ReflectionMemberCollection<ReflectionMember>
@@ -49,10 +49,10 @@ class ClassType extends Type implements ClassLikeType, HasEmptyType
     }
     public function is(Type $type) : Trinary
     {
-        if ($type instanceof MissingType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\MissingType) {
             return Trinary::maybe();
         }
-        if (!$type instanceof ClassType) {
+        if (!$type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::false();
         }
         return Trinary::fromBoolean($type->name() == $this->name());
@@ -62,7 +62,7 @@ class ClassType extends Type implements ClassLikeType, HasEmptyType
         if ($this->is($type)->isTrue()) {
             return Trinary::true();
         }
-        if ($type instanceof ClassType) {
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::maybe();
         }
         return Trinary::false();
@@ -86,12 +86,11 @@ class ClassType extends Type implements ClassLikeType, HasEmptyType
     {
         return $this;
     }
-    public function asReflectedClasssType(Reflector $reflector) : ReflectedClassType
+    public function asReflectedClasssType(Reflector $reflector) : \Phpactor\WorseReflection\Core\Type\ReflectedClassType
     {
-        if ($this instanceof ReflectedClassType) {
+        if ($this instanceof \Phpactor\WorseReflection\Core\Type\ReflectedClassType) {
             return $this;
         }
-        return new ReflectedClassType($reflector, $this->name());
+        return new \Phpactor\WorseReflection\Core\Type\ReflectedClassType($reflector, $this->name());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ClassType', 'Phpactor\\WorseReflection\\Core\\Type\\ClassType', \false);

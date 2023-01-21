@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\BufferedWatcher;
+namespace Phpactor\AmpFsWatch\Watcher\BufferedWatcher;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFile;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\ModifiedFile;
+use Phpactor\AmpFsWatch\WatcherProcess;
 use Throwable;
 class BufferedWatcherProcess implements WatcherProcess
 {
@@ -71,4 +71,3 @@ class BufferedWatcherProcess implements WatcherProcess
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\BufferedWatcher\\BufferedWatcherProcess', 'Phpactor\\AmpFsWatch\\Watcher\\BufferedWatcher\\BufferedWatcherProcess', \false);

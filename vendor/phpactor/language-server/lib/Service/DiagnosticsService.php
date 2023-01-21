@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Service;
+namespace Phpactor\LanguageServer\Service;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsEngine;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceProvider;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentOpened;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentSaved;
-use Phpactor202301\Phpactor\LanguageServer\Event\TextDocumentUpdated;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsEngine;
+use Phpactor\LanguageServer\Core\Service\ServiceProvider;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServer\Event\TextDocumentOpened;
+use Phpactor\LanguageServer\Event\TextDocumentSaved;
+use Phpactor\LanguageServer\Event\TextDocumentUpdated;
 use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
 class DiagnosticsService implements ServiceProvider, ListenerProviderInterface
 {
@@ -94,4 +94,3 @@ class DiagnosticsService implements ServiceProvider, ListenerProviderInterface
         $this->engine->enqueue($item);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Service\\DiagnosticsService', 'Phpactor\\LanguageServer\\Service\\DiagnosticsService', \false);

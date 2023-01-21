@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\ClassMover\Command\Logger;
+namespace Phpactor\Extension\ClassMover\Command\Logger;
 
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassMover\FoundReferences;
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
-use Phpactor202301\Phpactor\Extension\ClassMover\Application\Logger\ClassCopyLogger;
+use Phpactor\Filesystem\Domain\FilePath;
+use Phpactor\ClassMover\FoundReferences;
+use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
+use Phpactor\Extension\ClassMover\Application\Logger\ClassCopyLogger;
 class SymfonyConsoleCopyLogger implements ClassCopyLogger
 {
     public function __construct(private OutputInterface $output)
@@ -27,4 +27,3 @@ class SymfonyConsoleCopyLogger implements ClassCopyLogger
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\ClassMover\\Command\\Logger\\SymfonyConsoleCopyLogger', 'Phpactor\\Extension\\ClassMover\\Command\\Logger\\SymfonyConsoleCopyLogger', \false);

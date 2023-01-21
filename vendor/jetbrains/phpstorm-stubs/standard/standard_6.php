@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Deprecated;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Runs the equivalent of the select() system call on the given
  * arrays of streams with a timeout specified by tv_sec and tv_usec
@@ -80,9 +79,14 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
  */
-function stream_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, #[LanguageLevelTypeAware(['8.1' => 'int|null'], default: 'int')] $microseconds) : int|false
-{
-}
+function stream_select(
+    ?array &$read,
+    ?array &$write,
+    ?array &$except,
+    ?int $seconds,
+    #[LanguageLevelTypeAware(['8.1' => 'int|null'], default: 'int')] $microseconds
+): int|false {}
+
 /**
  * Create a stream context
  * @link https://php.net/manual/en/function.stream-context-create.php
@@ -101,9 +105,8 @@ function stream_select(?array &$read, ?array &$write, ?array &$except, ?int $sec
  * </p>
  * @return resource A stream context resource.
  */
-function stream_context_create(?array $options, ?array $params)
-{
-}
+function stream_context_create(?array $options, ?array $params) {}
+
 /**
  * Set parameters for a stream/wrapper/context
  * @link https://php.net/manual/en/function.stream-context-set-params.php
@@ -119,9 +122,8 @@ function stream_context_create(?array $options, ?array $params)
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_context_set_params($context, array $params) : bool
-{
-}
+function stream_context_set_params($context, array $params): bool {}
+
 /**
  * Retrieves parameters from a context
  * @link https://php.net/manual/en/function.stream-context-get-params.php
@@ -132,9 +134,8 @@ function stream_context_set_params($context, array $params) : bool
  * @return array an associate array containing all context options and parameters.
  */
 #[ArrayShape(["notification" => "string", "options" => "array"])]
-function stream_context_get_params($context) : array
-{
-}
+function stream_context_get_params($context): array {}
+
 /**
  * Sets an option for a stream/wrapper/context
  * @link https://php.net/manual/en/function.stream-context-set-option.php
@@ -146,9 +147,8 @@ function stream_context_get_params($context) : array
  * @param mixed $value
  * @return bool true on success or false on failure.
  */
-function stream_context_set_option($context, string $wrapper_or_options, string $option_name, mixed $value) : bool
-{
-}
+function stream_context_set_option($context, string $wrapper_or_options, string $option_name, mixed $value): bool {}
+
 /**
  * Sets an option for a stream/wrapper/context
  * @link https://php.net/manual/en/function.stream-context-set-option.php
@@ -156,9 +156,8 @@ function stream_context_set_option($context, string $wrapper_or_options, string 
  * @param array $options The options to set for the default context.
  * @return bool true on success or false on failure.
  */
-function stream_context_set_option($stream_or_context, array $options) : bool
-{
-}
+function stream_context_set_option($stream_or_context, array $options): bool {}
+
 /**
  * Retrieve options for a stream/wrapper/context
  * @link https://php.net/manual/en/function.stream-context-get-options.php
@@ -167,9 +166,8 @@ function stream_context_set_option($stream_or_context, array $options) : bool
  * </p>
  * @return array an associative array with the options.
  */
-function stream_context_get_options($stream_or_context) : array
-{
-}
+function stream_context_get_options($stream_or_context): array {}
+
 /**
  * Retreive the default stream context
  * @link https://php.net/manual/en/function.stream-context-get-default.php
@@ -182,9 +180,8 @@ function stream_context_get_options($stream_or_context) : array
  * </p>
  * @return resource A stream context resource.
  */
-function stream_context_get_default(?array $options)
-{
-}
+function stream_context_get_default(?array $options) {}
+
 /**
  * Set the default stream context
  * @link https://php.net/manual/en/function.stream-context-set-default.php
@@ -198,9 +195,8 @@ function stream_context_get_default(?array $options)
  * </p>
  * @return resource the default stream context.
  */
-function stream_context_set_default(array $options)
-{
-}
+function stream_context_set_default(array $options) {}
+
 /**
  * Attach a filter to a stream
  * @link https://php.net/manual/en/function.stream-filter-prepend.php
@@ -234,9 +230,8 @@ function stream_context_set_default(array $options)
  * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  */
-function stream_filter_prepend($stream, string $filter_name, int $mode = 0, mixed $params)
-{
-}
+function stream_filter_prepend($stream, string $filter_name, int $mode = 0, mixed $params) {}
+
 /**
  * Attach a filter to a stream
  * @link https://php.net/manual/en/function.stream-filter-append.php
@@ -269,9 +264,8 @@ function stream_filter_prepend($stream, string $filter_name, int $mode = 0, mixe
  * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  */
-function stream_filter_append($stream, string $filter_name, int $mode = 0, mixed $params)
-{
-}
+function stream_filter_append($stream, string $filter_name, int $mode = 0, mixed $params) {}
+
 /**
  * Remove a filter from a stream
  * @link https://php.net/manual/en/function.stream-filter-remove.php
@@ -280,9 +274,8 @@ function stream_filter_append($stream, string $filter_name, int $mode = 0, mixed
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_filter_remove($stream_filter) : bool
-{
-}
+function stream_filter_remove($stream_filter): bool {}
+
 /**
  * Open Internet or Unix domain socket connection
  * @link https://php.net/manual/en/function.stream-socket-client.php
@@ -323,9 +316,8 @@ function stream_filter_remove($stream_filter) : bool
  * fwrite, fclose, and
  * feof), false on failure.
  */
-function stream_socket_client(string $address, &$error_code, &$error_message, ?float $timeout, int $flags = \STREAM_CLIENT_CONNECT, $context)
-{
-}
+function stream_socket_client(string $address, &$error_code, &$error_message, ?float $timeout, int $flags = STREAM_CLIENT_CONNECT, $context) {}
+
 /**
  * Create an Internet or Unix domain server socket
  * @link https://php.net/manual/en/function.stream-socket-server.php
@@ -374,9 +366,8 @@ function stream_socket_client(string $address, &$error_code, &$error_message, ?f
  * </p>
  * @return resource|false the created stream, or false on error.
  */
-function stream_socket_server(string $address, &$error_code, &$error_message, int $flags = \STREAM_SERVER_BIND | \STREAM_SERVER_LISTEN, $context)
-{
-}
+function stream_socket_server(string $address, &$error_code, &$error_message, int $flags = STREAM_SERVER_BIND|STREAM_SERVER_LISTEN, $context) {}
+
 /**
  * Accept a connection on a socket created by {@see stream_socket_server}
  * @link https://php.net/manual/en/function.stream-socket-accept.php
@@ -395,9 +386,8 @@ function stream_socket_server(string $address, &$error_code, &$error_message, in
  * </p>
  * @return resource|false Returns a stream to the accepted socket connection or FALSE on failure.
  */
-function stream_socket_accept($socket, ?float $timeout, &$peer_name)
-{
-}
+function stream_socket_accept($socket, ?float $timeout, &$peer_name) {}
+
 /**
  * Retrieve the name of the local or remote sockets
  * @link https://php.net/manual/en/function.stream-socket-get-name.php
@@ -410,9 +400,8 @@ function stream_socket_accept($socket, ?float $timeout, &$peer_name)
  * </p>
  * @return string|false The name of the socket or false on error.
  */
-function stream_socket_get_name($socket, bool $remote) : string|false
-{
-}
+function stream_socket_get_name($socket, bool $remote): string|false {}
+
 /**
  * Receives data from a socket, connected or not
  * @link https://php.net/manual/en/function.stream-socket-recvfrom.php
@@ -450,9 +439,8 @@ function stream_socket_get_name($socket, bool $remote) : string|false
  * </p>
  * @return string|false the read data, as a string, or false on error
  */
-function stream_socket_recvfrom($socket, int $length, int $flags = 0, &$address) : string|false
-{
-}
+function stream_socket_recvfrom($socket, int $length, int $flags = 0, &$address): string|false {}
+
 /**
  * Sends a message to a socket, whether it is connected or not
  * @link https://php.net/manual/en/function.stream-socket-sendto.php
@@ -484,9 +472,8 @@ function stream_socket_recvfrom($socket, int $length, int $flags = 0, &$address)
  * </p>
  * @return int|false a result code, as an integer.
  */
-function stream_socket_sendto($socket, string $data, int $flags = 0, string $address = '') : int|false
-{
-}
+function stream_socket_sendto($socket, string $data, int $flags = 0, string $address = ''): int|false {}
+
 /**
  * Turns encryption on/off on an already connected socket
  * @link https://php.net/manual/en/function.stream-socket-enable-crypto.php
@@ -507,9 +494,8 @@ function stream_socket_sendto($socket, string $data, int $flags = 0, string $add
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
  */
-function stream_socket_enable_crypto($stream, bool $enable, ?int $crypto_method, $session_stream) : int|bool
-{
-}
+function stream_socket_enable_crypto($stream, bool $enable, ?int $crypto_method, $session_stream): int|bool {}
+
 /**
  * Shutdown a full-duplex connection
  * @link https://php.net/manual/en/function.stream-socket-shutdown.php
@@ -527,9 +513,8 @@ function stream_socket_enable_crypto($stream, bool $enable, ?int $crypto_method,
  * @return bool true on success or false on failure.
  * @since 5.2.1
  */
-function stream_socket_shutdown($stream, int $mode) : bool
-{
-}
+function stream_socket_shutdown($stream, int $mode): bool {}
+
 /**
  * Creates a pair of connected, indistinguishable socket streams
  * @link https://php.net/manual/en/function.stream-socket-pair.php
@@ -556,9 +541,8 @@ function stream_socket_shutdown($stream, int $mode) : bool
  * @return array|false an array with the two socket resources on success, or
  * false on failure.
  */
-function stream_socket_pair(int $domain, int $type, int $protocol) : array|false
-{
-}
+function stream_socket_pair(int $domain, int $type, int $protocol): array|false {}
+
 /**
  * Copies data from one stream to another
  * @link https://php.net/manual/en/function.stream-copy-to-stream.php
@@ -576,9 +560,8 @@ function stream_socket_pair(int $domain, int $type, int $protocol) : array|false
  * </p>
  * @return int|false the total count of bytes copied, or false on failure.
  */
-function stream_copy_to_stream($from, $to, ?int $length, int $offset = 0) : int|false
-{
-}
+function stream_copy_to_stream($from, $to, ?int $length, int $offset = 0): int|false {}
+
 /**
  * Reads remainder of a stream into a string
  * @link https://php.net/manual/en/function.stream-get-contents.php
@@ -594,9 +577,8 @@ function stream_copy_to_stream($from, $to, ?int $length, int $offset = 0) : int|
  * </p>
  * @return string|false a string or false on failure.
  */
-function stream_get_contents($stream, ?int $length = null, int $offset = -1) : string|false
-{
-}
+function stream_get_contents($stream, ?int $length = null, int $offset = -1): string|false {}
+
 /**
  * Tells whether the stream supports locking.
  * @link https://php.net/manual/en/function.stream-supports-lock.php
@@ -605,9 +587,8 @@ function stream_get_contents($stream, ?int $length = null, int $offset = -1) : s
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_supports_lock($stream) : bool
-{
-}
+function stream_supports_lock($stream): bool {}
+
 /**
  * Gets line from file pointer and parse for CSV fields
  * @link https://php.net/manual/en/function.fgetcsv.php
@@ -645,9 +626,8 @@ function stream_supports_lock($stream) : bool
  * </p>
  */
 #[LanguageLevelTypeAware(['8.0' => 'array|false'], default: 'array|false|null')]
-function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = '\\')
-{
-}
+function fgetcsv($stream, ?int $length = null, string $separator = ',', string $enclosure = '"', string $escape = '\\') {}
+
 /**
  * Format line as CSV and write to file pointer
  * @link https://php.net/manual/en/function.fputcsv.php
@@ -668,9 +648,15 @@ function fgetcsv($stream, ?int $length = null, string $separator = ',', string $
  * </p>
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv($stream, array $fields, string $separator = ",", string $enclosure = '"', #[PhpStormStubsElementAvailable(from: '7.0')] string $escape = "\\", #[PhpStormStubsElementAvailable('8.1')] string $eol = \PHP_EOL) : int|false
-{
-}
+function fputcsv(
+    $stream,
+    array $fields,
+    string $separator = ",",
+    string $enclosure = '"',
+    #[PhpStormStubsElementAvailable(from: '7.0')] string $escape = "\\",
+    #[PhpStormStubsElementAvailable('8.1')] string $eol = PHP_EOL
+): int|false {}
+
 /**
  * Portable advisory file locking
  * @link https://php.net/manual/en/function.flock.php
@@ -686,9 +672,8 @@ function fputcsv($stream, array $fields, string $separator = ",", string $enclos
  * </p>
  * @return bool true on success or false on failure.
  */
-function flock($stream, int $operation, &$would_block) : bool
-{
-}
+function flock($stream, int $operation, &$would_block): bool {}
+
 /**
  * Extracts all meta tag content attributes from a file and returns an array
  * @link https://php.net/manual/en/function.get-meta-tags.php
@@ -726,10 +711,9 @@ function flock($stream, int $operation, &$would_block) : bool
  * name, only the last one is returned.
  * </p>
  */
-#[Pure(\true)]
-function get_meta_tags(string $filename, bool $use_include_path = \false) : array|false
-{
-}
+#[Pure(true)]
+function get_meta_tags(string $filename, bool $use_include_path = false): array|false {}
+
 /**
  * Sets write file buffering on the given stream
  * @link https://php.net/manual/en/function.stream-set-write-buffer.php
@@ -745,9 +729,8 @@ function get_meta_tags(string $filename, bool $use_include_path = \false) : arra
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_read_buffer()
  */
-function stream_set_write_buffer($stream, int $size) : int
-{
-}
+function stream_set_write_buffer($stream, int $size): int {}
+
 /**
  * Sets read file buffering on the given stream
  * @link https://php.net/manual/en/function.stream-set-read-buffer.php
@@ -763,9 +746,8 @@ function stream_set_write_buffer($stream, int $size) : int
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_write_buffer()
  */
-function stream_set_read_buffer($stream, int $size) : int
-{
-}
+function stream_set_read_buffer($stream, int $size): int {}
+
 /**
  * Alias:
  * {@see stream_set_write_buffer}
@@ -780,9 +762,8 @@ function stream_set_read_buffer($stream, int $size) : int
  * This ensures that all writes with fwrite() are completed before other processes are allowed to write to that output stream.
  * @return int
  */
-function set_file_buffer($stream, int $size) : int
-{
-}
+function set_file_buffer($stream, int $size): int {}
+
 /**
  * Alias:
  * {@see stream_set_blocking}
@@ -799,9 +780,8 @@ function set_file_buffer($stream, int $size) : int
  * @see stream_set_blocking()
  */
 #[Deprecated(replacement: "stream_set_blocking(%parametersList%)", since: 5.3)]
-function set_socket_blocking($socket, bool $mode) : bool
-{
-}
+function set_socket_blocking($socket, bool $mode): bool {}
+
 /**
  * Set blocking/non-blocking mode on a stream
  * @link https://php.net/manual/en/function.stream-set-blocking.php
@@ -820,9 +800,8 @@ function set_socket_blocking($socket, bool $mode) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_blocking($stream, bool $enable) : bool
-{
-}
+function stream_set_blocking($stream, bool $enable): bool {}
+
 /**
  * Alias:
  * {@see stream_set_blocking}
@@ -842,9 +821,8 @@ function stream_set_blocking($stream, bool $enable) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_blocking($stream, bool $enable) : bool
-{
-}
+function socket_set_blocking($stream, bool $enable): bool {}
+
 /**
  * Retrieves header/meta data from streams/file pointers
  * @link https://php.net/manual/en/function.stream-get-meta-data.php
@@ -908,9 +886,8 @@ function socket_set_blocking($stream, bool $enable) : bool
  * </p>
  */
 #[ArrayShape(["timed_out" => "bool", "blocked" => "bool", "eof" => "bool", "unread_bytes" => "int", "stream_type" => "string", "wrapper_type" => "string", "wrapper_data" => "mixed", "mode" => "string", "seekable" => "bool", "uri" => "string", "crypto" => "array", "mediatype" => "string"])]
-function stream_get_meta_data($stream) : array
-{
-}
+function stream_get_meta_data($stream): array {}
+
 /**
  * Gets line from stream resource up to a given delimiter
  * @link https://php.net/manual/en/function.stream-get-line.php
@@ -929,9 +906,8 @@ function stream_get_meta_data($stream) : array
  * If an error occurs, returns false.
  * </p>
  */
-function stream_get_line($stream, int $length, string $ending = '') : string|false
-{
-}
+function stream_get_line($stream, int $length, string $ending = ''): string|false {}
+
 /**
  * Register a URL wrapper implemented as a PHP class
  * @link https://php.net/manual/en/function.stream-wrapper-register.php
@@ -952,9 +928,8 @@ function stream_get_line($stream, int $length, string $ending = '') : string|fal
  * protocol already has a handler.
  * </p>
  */
-function stream_wrapper_register(string $protocol, string $class, int $flags = 0) : bool
-{
-}
+function stream_wrapper_register(string $protocol, string $class, int $flags = 0): bool {}
+
 /**
  * Alias:
  * {@see stream_wrapper_register}
@@ -977,9 +952,8 @@ function stream_wrapper_register(string $protocol, string $class, int $flags = 0
  * protocol already has a handler.
  * </p>
  */
-function stream_register_wrapper(string $protocol, string $class, int $flags = 0) : bool
-{
-}
+function stream_register_wrapper(string $protocol, string $class, int $flags = 0): bool {}
+
 /**
  * Resolve filename against the include path according to the same rules as fopen()/include().
  * @link https://php.net/manual/en/function.stream-resolve-include-path.php
@@ -987,9 +961,8 @@ function stream_register_wrapper(string $protocol, string $class, int $flags = 0
  * @return string|false containing the resolved absolute filename, or FALSE on failure.
  * @since 5.3.2
  */
-function stream_resolve_include_path(string $filename) : string|false
-{
-}
+function stream_resolve_include_path(string $filename): string|false {}
+
 /**
  * Unregister a URL wrapper
  * @link https://php.net/manual/en/function.stream-wrapper-unregister.php
@@ -997,9 +970,8 @@ function stream_resolve_include_path(string $filename) : string|false
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_wrapper_unregister(string $protocol) : bool
-{
-}
+function stream_wrapper_unregister(string $protocol): bool {}
+
 /**
  * Restores a previously unregistered built-in wrapper
  * @link https://php.net/manual/en/function.stream-wrapper-restore.php
@@ -1007,28 +979,25 @@ function stream_wrapper_unregister(string $protocol) : bool
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_wrapper_restore(string $protocol) : bool
-{
-}
+function stream_wrapper_restore(string $protocol): bool {}
+
 /**
  * Retrieve list of registered streams
  * @link https://php.net/manual/en/function.stream-get-wrappers.php
  * @return list<string> an indexed array containing the name of all stream wrappers
  * available on the running system.
  */
-#[Pure(\true)]
-function stream_get_wrappers() : array
-{
-}
+#[Pure(true)]
+function stream_get_wrappers(): array {}
+
 /**
  * Retrieve list of registered socket transports
  * @link https://php.net/manual/en/function.stream-get-transports.php
  * @return list<string> an indexed array of socket transports names.
  */
-#[Pure(\true)]
-function stream_get_transports() : array
-{
-}
+#[Pure(true)]
+function stream_get_transports(): array {}
+
 /**
  * Checks if a stream is a local stream
  * @link https://php.net/manual/en/function.stream-is-local.php
@@ -1039,9 +1008,8 @@ function stream_get_transports() : array
  * @since 5.2.4
  */
 #[Pure]
-function stream_is_local($stream) : bool
-{
-}
+function stream_is_local($stream): bool {}
+
 /**
  * Fetches all the headers sent by the server in response to an HTTP request
  * @link https://php.net/manual/en/function.get-headers.php
@@ -1057,10 +1025,13 @@ function stream_is_local($stream) : bool
  * @return array|false an indexed or associative array with the headers, or false on
  * failure.
  */
-#[Pure(\true)]
-function get_headers(string $url, #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $associative = \false, #[PhpStormStubsElementAvailable(from: '7.1')] $context = null) : array|false
-{
-}
+#[Pure(true)]
+function get_headers(
+    string $url,
+    #[LanguageLevelTypeAware(['8.0' => 'bool'], default: 'int')] $associative = false,
+    #[PhpStormStubsElementAvailable(from: '7.1')] $context = null
+): array|false {}
+
 /**
  * Set timeout period on a stream
  * @link https://php.net/manual/en/function.stream-set-timeout.php
@@ -1075,9 +1046,13 @@ function get_headers(string $url, #[LanguageLevelTypeAware(['8.0' => 'bool'], de
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_timeout($stream, int $seconds, #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds, #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0) : bool
-{
-}
+function stream_set_timeout(
+    $stream,
+    int $seconds,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds,
+    #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0
+): bool {}
+
 /**
  * Alias:
  * {@see stream_set_timeout}
@@ -1094,9 +1069,13 @@ function stream_set_timeout($stream, int $seconds, #[PhpStormStubsElementAvailab
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_timeout($stream, int $seconds, #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds, #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0) : bool
-{
-}
+function socket_set_timeout(
+    $stream,
+    int $seconds,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '5.6')] int $microseconds,
+    #[PhpStormStubsElementAvailable(from: '7.0')] int $microseconds = 0
+): bool {}
+
 /**
  * Alias:
  * {@see stream_get_meta_data}
@@ -1161,9 +1140,8 @@ function socket_set_timeout($stream, int $seconds, #[PhpStormStubsElementAvailab
  * stream.
  * </p>
  */
-function socket_get_status($stream) : array
-{
-}
+function socket_get_status($stream): array {}
+
 /**
  * Returns canonicalized absolute pathname
  * @link https://php.net/manual/en/function.realpath.php
@@ -1177,10 +1155,9 @@ function socket_get_status($stream) : array
  * the file does not exist.
  * </p>
  */
-#[Pure(\true)]
-function realpath(string $path) : string|false
-{
-}
+#[Pure(true)]
+function realpath(string $path): string|false {}
+
 /**
  * Match filename against a pattern
  * @link https://php.net/manual/en/function.fnmatch.php
@@ -1237,7 +1214,5 @@ function realpath(string $path) : string|false
  * </p>
  * @return bool true if there is a match, false otherwise.
  */
-#[Pure(\true)]
-function fnmatch(string $pattern, string $filename, int $flags = 0) : bool
-{
-}
+#[Pure(true)]
+function fnmatch(string $pattern, string $filename, int $flags = 0): bool {}

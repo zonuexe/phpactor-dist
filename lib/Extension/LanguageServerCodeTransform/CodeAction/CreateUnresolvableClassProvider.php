@@ -1,23 +1,23 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
+namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassName;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassToFile;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Generators;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand\CreateClassCommand;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CodeAction;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Command;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
-use Phpactor202301\Phpactor\LanguageServer\Test\ProtocolFactory;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\ClassFileConverter\Domain\ClassName;
+use Phpactor\ClassFileConverter\Domain\ClassToFile;
+use Phpactor\CodeTransform\Domain\Generators;
+use Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
+use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\CreateClassCommand;
+use Phpactor\LanguageServerProtocol\CodeAction;
+use Phpactor\LanguageServerProtocol\Command;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
+use Phpactor\LanguageServer\Test\ProtocolFactory;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use function Phpactor202301\Amp\call;
 class CreateUnresolvableClassProvider implements CodeActionProvider
 {
@@ -50,4 +50,3 @@ class CreateUnresolvableClassProvider implements CodeActionProvider
         return [self::KIND];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\CreateUnresolvableClassProvider', 'Phpactor\\Extension\\LanguageServerCodeTransform\\CodeAction\\CreateUnresolvableClassProvider', \false);

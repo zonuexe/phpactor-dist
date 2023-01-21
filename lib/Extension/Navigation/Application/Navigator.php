@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Navigation\Application;
+namespace Phpactor\Extension\Navigation\Application;
 
-use Phpactor202301\Phpactor\Extension\Navigation\Navigator\Navigator as NavigatorInterface;
+use Phpactor\Extension\Navigation\Navigator\Navigator as NavigatorInterface;
 use RuntimeException;
-use Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application\ClassNew;
+use Phpactor\Extension\CodeTransformExtra\Application\ClassNew;
 class Navigator
 {
     public function __construct(private NavigatorInterface $navigator, private ClassNew $classNew, private array $autoCreateConfig)
@@ -44,4 +44,3 @@ class Navigator
         return $this->autoCreateConfig[$destinationName];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Navigation\\Application\\Navigator', 'Phpactor\\Extension\\Navigation\\Application\\Navigator', \false);

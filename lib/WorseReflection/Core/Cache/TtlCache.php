@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Cache;
+namespace Phpactor\WorseReflection\Core\Cache;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\Cache;
 class TtlCache implements Cache
 {
     /**
@@ -55,4 +55,3 @@ class TtlCache implements Cache
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Cache\\TtlCache', 'Phpactor\\WorseReflection\\Core\\Cache\\TtlCache', \false);

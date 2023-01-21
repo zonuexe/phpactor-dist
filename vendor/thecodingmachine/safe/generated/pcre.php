@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\PcreException;
+use Safe\Exceptions\PcreException;
+
 /**
  * Searches subject for all matches to the regular
  * expression given in pattern and puts them in
@@ -346,15 +347,17 @@ use Phpactor202301\Safe\Exceptions\PcreException;
  * @throws PcreException
  *
  */
-function preg_match_all(string $pattern, string $subject, array &$matches = null, int $flags = \PREG_PATTERN_ORDER, int $offset = 0) : int
+function preg_match_all(string $pattern, string $subject, array &$matches = null, int $flags = PREG_PATTERN_ORDER, int $offset = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \preg_match_all($pattern, $subject, $matches, $flags, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw PcreException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Searches subject for a match to the regular
  * expression given in pattern.
@@ -581,15 +584,17 @@ function preg_match_all(string $pattern, string $subject, array &$matches = null
  * @throws PcreException
  *
  */
-function preg_match(string $pattern, string $subject, array &$matches = null, int $flags = 0, int $offset = 0) : int
+function preg_match(string $pattern, string $subject, array &$matches = null, int $flags = 0, int $offset = 0): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \preg_match($pattern, $subject, $matches, $flags, $offset);
-    if ($result === \false) {
+    if ($result === false) {
         throw PcreException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Split the given string by a regular expression.
  *
@@ -643,11 +648,11 @@ function preg_match(string $pattern, string $subject, array &$matches = null, in
  * @throws PcreException
  *
  */
-function preg_split(string $pattern, string $subject, ?int $limit = -1, int $flags = 0) : array
+function preg_split(string $pattern, string $subject, ?int $limit = -1, int $flags = 0): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \preg_split($pattern, $subject, $limit, $flags);
-    if ($result === \false) {
+    if ($result === false) {
         throw PcreException::createFromPhpError();
     }
     return $result;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc;
+namespace Phpactor\Extension\Rpc;
 
 use InvalidArgumentException;
 class Request
@@ -14,7 +14,7 @@ class Request
     {
         return new self($name, $parameters);
     }
-    public static function fromArray(array $actionConfig) : Request
+    public static function fromArray(array $actionConfig) : \Phpactor\Extension\Rpc\Request
     {
         if (!isset($actionConfig[self::KEY_ACTION])) {
             throw new InvalidArgumentException('Missing "action" key');
@@ -41,4 +41,3 @@ class Request
         return $this->parameters;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Request', 'Phpactor\\Extension\\Rpc\\Request', \false);

@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
 /**
  * @extends AbstractCollection<Transformer>
  */
-final class Transformers extends AbstractCollection
+final class Transformers extends \Phpactor\CodeTransform\Domain\AbstractCollection
 {
-    public function applyTo(SourceCode $code) : SourceCode
+    public function applyTo(\Phpactor\CodeTransform\Domain\SourceCode $code) : \Phpactor\CodeTransform\Domain\SourceCode
     {
         foreach ($this as $transformer) {
-            \assert($transformer instanceof Transformer);
-            $code = SourceCode::fromStringAndPath($transformer->transform($code)->apply($code), $code->uri()->__toString());
+            \assert($transformer instanceof \Phpactor\CodeTransform\Domain\Transformer);
+            $code = \Phpactor\CodeTransform\Domain\SourceCode::fromStringAndPath($transformer->transform($code)->apply($code), $code->uri()->__toString());
         }
         return $code;
     }
@@ -25,10 +25,6 @@ final class Transformers extends AbstractCollection
     }
     protected function type() : string
     {
-        return Transformer::class;
+        return \Phpactor\CodeTransform\Domain\Transformer::class;
     }
 }
-/**
- * @extends AbstractCollection<Transformer>
- */
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Transformers', 'Phpactor\\CodeTransform\\Domain\\Transformers', \false);

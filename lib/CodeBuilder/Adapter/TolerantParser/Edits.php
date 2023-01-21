@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\CodeBuilder\Util\TextFormat;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeBuilder\Util\TextFormat;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class Edits
 {
     /**
@@ -60,4 +60,3 @@ class Edits
         return $this->format->indent($string, $level);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Edits', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\Edits', \false);

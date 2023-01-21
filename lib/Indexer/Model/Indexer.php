@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\Model\DirtyDocumentTracker\NullDirtyDocumentTracker;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\Indexer\Model\DirtyDocumentTracker\NullDirtyDocumentTracker;
+use Phpactor\TextDocument\TextDocument;
 class Indexer
 {
-    private DirtyDocumentTracker $dirtyDocumentTracker;
-    public function __construct(private IndexBuilder $builder, private Index $index, private FileListProvider $provider, ?DirtyDocumentTracker $dirtyDocumentTracker = null)
+    private \Phpactor\Indexer\Model\DirtyDocumentTracker $dirtyDocumentTracker;
+    public function __construct(private \Phpactor\Indexer\Model\IndexBuilder $builder, private \Phpactor\Indexer\Model\Index $index, private \Phpactor\Indexer\Model\FileListProvider $provider, ?\Phpactor\Indexer\Model\DirtyDocumentTracker $dirtyDocumentTracker = null)
     {
         $this->dirtyDocumentTracker = $dirtyDocumentTracker ?: new NullDirtyDocumentTracker();
     }
-    public function getJob(?string $subPath = null) : IndexJob
+    public function getJob(?string $subPath = null) : \Phpactor\Indexer\Model\IndexJob
     {
-        return new IndexJob($this->builder, $this->provider->provideFileList($this->index, $subPath));
+        return new \Phpactor\Indexer\Model\IndexJob($this->builder, $this->provider->provideFileList($this->index, $subPath));
     }
     public function index(TextDocument $textDocument) : void
     {
@@ -32,4 +32,3 @@ class Indexer
         $this->index->reset();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\Indexer', 'Phpactor\\Indexer\\Model\\Indexer', \false);

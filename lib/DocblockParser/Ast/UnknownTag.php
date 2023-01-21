@@ -1,12 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
-class UnknownTag extends TagNode
+class UnknownTag extends \Phpactor\DocblockParser\Ast\TagNode
 {
     protected const CHILD_NAMES = ['name'];
-    public function __construct(public Token $name)
+    public function __construct(public \Phpactor\DocblockParser\Ast\Token $name)
     {
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\UnknownTag', 'Phpactor\\DocblockParser\\Ast\\UnknownTag', \false);

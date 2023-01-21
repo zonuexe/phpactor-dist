@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use ArrayIterator;
 use Iterator;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\FileRecord;
 /**
  * @implements IteratorAggregate<RecordReference>
  */
@@ -27,9 +27,9 @@ class RecordReferences implements IteratorAggregate
     /**
      * @return RecordReferences<RecordReference>
      */
-    public function to(Record $record) : RecordReferences
+    public function to(\Phpactor\Indexer\Model\Record $record) : \Phpactor\Indexer\Model\RecordReferences
     {
-        return new self($this->file, \array_filter($this->references, function (RecordReference $reference) use($record) {
+        return new self($this->file, \array_filter($this->references, function (\Phpactor\Indexer\Model\RecordReference $reference) use($record) {
             return $reference->type() === $record->recordType() && $reference->identifier() === $record->identifier();
         }));
     }
@@ -49,7 +49,7 @@ class RecordReferences implements IteratorAggregate
     }
     public function forContainerType(string $fullyQualifiedName) : self
     {
-        return new self($this->file, \array_filter($this->references, function (RecordReference $reference) use($fullyQualifiedName) {
+        return new self($this->file, \array_filter($this->references, function (\Phpactor\Indexer\Model\RecordReference $reference) use($fullyQualifiedName) {
             return $fullyQualifiedName === $reference->contaninerType();
         }));
     }
@@ -57,12 +57,8 @@ class RecordReferences implements IteratorAggregate
     {
         return $this->file;
     }
-    private function add(RecordReference $reference) : void
+    private function add(\Phpactor\Indexer\Model\RecordReference $reference) : void
     {
         $this->references[] = $reference;
     }
 }
-/**
- * @implements IteratorAggregate<RecordReference>
- */
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\RecordReferences', 'Phpactor\\Indexer\\Model\\RecordReferences', \false);

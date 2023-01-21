@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\TestWatcher;
+namespace Phpactor\AmpFsWatch\Watcher\TestWatcher;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
 use Exception;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileQueue;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\ModifiedFileQueue;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherProcess;
 class TestWatcher implements Watcher, WatcherProcess
 {
     /**
@@ -66,4 +66,3 @@ class TestWatcher implements Watcher, WatcherProcess
         return 'test';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\TestWatcher\\TestWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\TestWatcher\\TestWatcher', \false);

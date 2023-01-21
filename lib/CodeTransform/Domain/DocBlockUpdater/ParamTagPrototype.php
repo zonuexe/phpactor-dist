@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\DocBlockUpdater;
+namespace Phpactor\CodeTransform\Domain\DocBlockUpdater;
 
-use Phpactor202301\Phpactor\DocblockParser\Ast\TagNode;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ParamTag;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class ParamTagPrototype implements TagPrototype
+use Phpactor\DocblockParser\Ast\TagNode;
+use Phpactor\DocblockParser\Ast\Tag\ParamTag;
+use Phpactor\WorseReflection\Core\Type;
+class ParamTagPrototype implements \Phpactor\CodeTransform\Domain\DocBlockUpdater\TagPrototype
 {
     public function __construct(public string $name, public Type $type)
     {
@@ -20,4 +20,3 @@ class ParamTagPrototype implements TagPrototype
         return $tag->variable ? $tag->variable->end() : $tag->end();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\DocBlockUpdater\\ParamTagPrototype', 'Phpactor\\CodeTransform\\Domain\\DocBlockUpdater\\ParamTagPrototype', \false);

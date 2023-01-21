@@ -1,7 +1,7 @@
 <?php
+declare(strict_types=1);
 
-declare (strict_types=1);
-namespace Phpactor202301\SimpleKafkaClient;
+namespace SimpleKafkaClient;
 
 class Message
 {
@@ -13,14 +13,14 @@ class Message
     public int $len;
     public string $key;
     public int $offset;
+
     /**
      * @var array<string, mixed>
      */
     public array $headers;
+
     /**
      * @return string
      */
-    public function getErrorString() : string
-    {
-    }
+    public function getErrorString(): string {}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core;
+namespace Phpactor\Completion\Core;
 
 class SignatureHelp
 {
@@ -26,4 +26,3 @@ class SignatureHelp
         return $this->signatures;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\SignatureHelp', 'Phpactor\\Completion\\Core\\SignatureHelp', \false);

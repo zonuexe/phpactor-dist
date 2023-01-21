@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\IngresiiException;
+use Safe\Exceptions\IngresiiException;
+
 /**
  * ingres_autocommit is called before opening a
  * transaction (before the first call to
@@ -26,14 +27,16 @@ use Phpactor202301\Safe\Exceptions\IngresiiException;
  * @throws IngresiiException
  *
  */
-function ingres_autocommit($link) : void
+function ingres_autocommit($link): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_autocommit($link);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_autocommit($link);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * ingres_close closes the connection to
  * the Ingres server that is associated with the specified link.
@@ -46,14 +49,16 @@ function ingres_autocommit($link) : void
  * @throws IngresiiException
  *
  */
-function ingres_close($link) : void
+function ingres_close($link): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_close($link);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_close($link);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * ingres_commit commits the currently open
  * transaction, making all changes made to the database permanent.
@@ -73,14 +78,16 @@ function ingres_close($link) : void
  * @throws IngresiiException
  *
  */
-function ingres_commit($link) : void
+function ingres_commit($link): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_commit($link);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_commit($link);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * ingres_connect opens a connection with the
  * given Ingres database.
@@ -327,23 +334,25 @@ function ingres_commit($link) : void
  */
 function ingres_connect(string $database = null, string $username = null, string $password = null, array $options = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($options !== null) {
-        $result = \Phpactor202301\ingres_connect($database, $username, $password, $options);
+        $result = \ingres_connect($database, $username, $password, $options);
     } elseif ($password !== null) {
-        $result = \Phpactor202301\ingres_connect($database, $username, $password);
+        $result = \ingres_connect($database, $username, $password);
     } elseif ($username !== null) {
-        $result = \Phpactor202301\ingres_connect($database, $username);
+        $result = \ingres_connect($database, $username);
     } elseif ($database !== null) {
-        $result = \Phpactor202301\ingres_connect($database);
+        $result = \ingres_connect($database);
     } else {
-        $result = \Phpactor202301\ingres_connect();
+        $result = \ingres_connect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Execute a query prepared using ingres_prepare.
  *
@@ -355,20 +364,22 @@ function ingres_connect(string $database = null, string $username = null, string
  * @throws IngresiiException
  *
  */
-function ingres_execute($result, array $params = null, string $types = null) : void
+function ingres_execute($result, array $params = null, string $types = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($types !== null) {
-        $result = \Phpactor202301\ingres_execute($result, $params, $types);
+        $result = \ingres_execute($result, $params, $types);
     } elseif ($params !== null) {
-        $result = \Phpactor202301\ingres_execute($result, $params);
+        $result = \ingres_execute($result, $params);
     } else {
-        $result = \Phpactor202301\ingres_execute($result);
+        $result = \ingres_execute($result);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * ingres_field_name returns the name of a field
  * in a query result.
@@ -394,15 +405,17 @@ function ingres_execute($result, array $params = null, string $types = null) : v
  * @throws IngresiiException
  *
  */
-function ingres_field_name($result, int $index) : string
+function ingres_field_name($result, int $index): string
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_field_name($result, $index);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_field_name($result, $index);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Get the type of a field in a query result.
  *
@@ -436,15 +449,17 @@ function ingres_field_name($result, int $index) : string
  * @throws IngresiiException
  *
  */
-function ingres_field_type($result, int $index) : string
+function ingres_field_type($result, int $index): string
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_field_type($result, $index);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_field_type($result, $index);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -452,14 +467,16 @@ function ingres_field_type($result, int $index) : string
  * @throws IngresiiException
  *
  */
-function ingres_free_result($result) : void
+function ingres_free_result($result): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_free_result($result);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_free_result($result);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * Open a persistent connection to an Ingres database.
  *
@@ -488,23 +505,25 @@ function ingres_free_result($result) : void
  */
 function ingres_pconnect(string $database = null, string $username = null, string $password = null, array $options = null)
 {
-    \error_clear_last();
+    error_clear_last();
     if ($options !== null) {
-        $result = \Phpactor202301\ingres_pconnect($database, $username, $password, $options);
+        $result = \ingres_pconnect($database, $username, $password, $options);
     } elseif ($password !== null) {
-        $result = \Phpactor202301\ingres_pconnect($database, $username, $password);
+        $result = \ingres_pconnect($database, $username, $password);
     } elseif ($username !== null) {
-        $result = \Phpactor202301\ingres_pconnect($database, $username);
+        $result = \ingres_pconnect($database, $username);
     } elseif ($database !== null) {
-        $result = \Phpactor202301\ingres_pconnect($database);
+        $result = \ingres_pconnect($database);
     } else {
-        $result = \Phpactor202301\ingres_pconnect();
+        $result = \ingres_pconnect();
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * This function is used to position the cursor associated with the result
  * resource before issuing a fetch.  If ingres.array_index_start
@@ -520,14 +539,16 @@ function ingres_pconnect(string $database = null, string $username = null, strin
  * @throws IngresiiException
  *
  */
-function ingres_result_seek($result, int $position) : void
+function ingres_result_seek($result, int $position): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_result_seek($result, $position);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_result_seek($result, $position);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * ingres_rollback rolls back the currently
  * open transaction, actually cancelling all changes made to the
@@ -540,14 +561,16 @@ function ingres_result_seek($result, int $position) : void
  * @throws IngresiiException
  *
  */
-function ingres_rollback($link) : void
+function ingres_rollback($link): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_rollback($link);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_rollback($link);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }
+
+
 /**
  * ingres_set_environment is called to set environmental
  * options that affect the output of certain values from Ingres, such as the
@@ -687,11 +710,11 @@ function ingres_rollback($link) : void
  * @throws IngresiiException
  *
  */
-function ingres_set_environment($link, array $options) : void
+function ingres_set_environment($link, array $options): void
 {
-    \error_clear_last();
-    $result = \Phpactor202301\ingres_set_environment($link, $options);
-    if ($result === \false) {
+    error_clear_last();
+    $result = \ingres_set_environment($link, $options);
+    if ($result === false) {
         throw IngresiiException::createFromPhpError();
     }
 }

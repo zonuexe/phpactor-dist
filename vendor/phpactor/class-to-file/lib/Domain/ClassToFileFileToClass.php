@@ -1,23 +1,22 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Domain;
+namespace Phpactor\ClassFileConverter\Domain;
 
-final class ClassToFileFileToClass implements ClassToFile, FileToClass
+final class ClassToFileFileToClass implements \Phpactor\ClassFileConverter\Domain\ClassToFile, \Phpactor\ClassFileConverter\Domain\FileToClass
 {
     private $classToFile;
     private $fileToClass;
-    public function __construct(ClassToFile $classToFile, FileToClass $fileToClass)
+    public function __construct(\Phpactor\ClassFileConverter\Domain\ClassToFile $classToFile, \Phpactor\ClassFileConverter\Domain\FileToClass $fileToClass)
     {
         $this->classToFile = $classToFile;
         $this->fileToClass = $fileToClass;
     }
-    public function fileToClassCandidates(FilePath $filePath) : ClassNameCandidates
+    public function fileToClassCandidates(\Phpactor\ClassFileConverter\Domain\FilePath $filePath) : \Phpactor\ClassFileConverter\Domain\ClassNameCandidates
     {
         return $this->fileToClass->fileToClassCandidates($filePath);
     }
-    public function classToFileCandidates(ClassName $className) : FilePathCandidates
+    public function classToFileCandidates(\Phpactor\ClassFileConverter\Domain\ClassName $className) : \Phpactor\ClassFileConverter\Domain\FilePathCandidates
     {
         return $this->classToFile->classToFileCandidates($className);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Domain\\ClassToFileFileToClass', 'Phpactor\\ClassFileConverter\\Domain\\ClassToFileFileToClass', \false);

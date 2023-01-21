@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\ReferenceFinder;
+namespace Phpactor\Rename\Adapter\ReferenceFinder;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotRename;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEdit;
-use Phpactor202301\Phpactor\Rename\Model\Renamer;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Phpactor\TextDocument\TextEdit as PhpactorTextEdit;
+use Phpactor\Rename\Model\Exception\CouldNotRename;
+use Phpactor\Rename\Model\LocatedTextEdit;
+use Phpactor\Rename\Model\Renamer;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextEdit as PhpactorTextEdit;
 abstract class AbstractReferenceRenamer implements Renamer
 {
     public function __construct(private ReferenceFinder $referenceFinder, private TextDocumentLocator $locator, private Parser $parser)
@@ -79,4 +79,3 @@ abstract class AbstractReferenceRenamer implements Renamer
         return \substr($textDocument->__toString(), $range->start()->toInt(), $range->end()->toInt() - $range->start()->toInt());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ReferenceFinder\\AbstractReferenceRenamer', 'Phpactor\\Rename\\Adapter\\ReferenceFinder\\AbstractReferenceRenamer', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use ArrayIterator;
 use IteratorAggregate;
@@ -49,7 +49,7 @@ final class Tokens implements IteratorAggregate
     /**
      * Return the current token and move the position ahead.
      */
-    public function chomp(?string $type = null) : ?Token
+    public function chomp(?string $type = null) : ?\Phpactor\DocblockParser\Ast\Token
     {
         if (!isset($this->tokens[$this->position])) {
             return null;
@@ -57,7 +57,7 @@ final class Tokens implements IteratorAggregate
         $token = $this->tokens[$this->position++];
         $this->current = @$this->tokens[$this->position];
         if (null !== $type && $token->type !== $type) {
-            throw new RuntimeException(\sprintf('Expected type "%s" at position "%s": "%s" got "%s"', $type, $this->position, \implode('', \array_map(function (Token $token) {
+            throw new RuntimeException(\sprintf('Expected type "%s" at position "%s": "%s" got "%s"', $type, $this->position, \implode('', \array_map(function (\Phpactor\DocblockParser\Ast\Token $token) {
                 return $token->value;
             }, $this->tokens)), $token->type));
         }
@@ -65,13 +65,13 @@ final class Tokens implements IteratorAggregate
     }
     public function chompWhitespace() : void
     {
-        while ($token = $this->chompIf(Token::T_WHITESPACE, Token::T_ASTERISK)) {
+        while ($token = $this->chompIf(\Phpactor\DocblockParser\Ast\Token::T_WHITESPACE, \Phpactor\DocblockParser\Ast\Token::T_ASTERISK)) {
         }
     }
     /**
      * Chomp only if the current node is the given type
      */
-    public function chompIf(string ...$types) : ?Token
+    public function chompIf(string ...$types) : ?\Phpactor\DocblockParser\Ast\Token
     {
         if ($this->current === null) {
             return null;
@@ -106,7 +106,7 @@ final class Tokens implements IteratorAggregate
         }
         $offset = 0;
         while ($peek = $this->peek($offset)) {
-            if ($peek->type === Token::T_WHITESPACE || $peek->type === Token::T_ASTERISK) {
+            if ($peek->type === \Phpactor\DocblockParser\Ast\Token::T_WHITESPACE || $peek->type === \Phpactor\DocblockParser\Ast\Token::T_ASTERISK) {
                 $offset++;
                 continue;
             }
@@ -119,7 +119,7 @@ final class Tokens implements IteratorAggregate
         }
         return \false;
     }
-    public function next() : ?Token
+    public function next() : ?\Phpactor\DocblockParser\Ast\Token
     {
         if (!isset($this->tokens[$this->position + 1])) {
             return null;
@@ -134,7 +134,7 @@ final class Tokens implements IteratorAggregate
         }
         return \false;
     }
-    public function peek(int $offset) : ?Token
+    public function peek(int $offset) : ?\Phpactor\DocblockParser\Ast\Token
     {
         if (!isset($this->tokens[$this->position + $offset])) {
             return null;
@@ -142,7 +142,3 @@ final class Tokens implements IteratorAggregate
         return $this->tokens[$this->position + $offset];
     }
 }
-/**
- * @implements IteratorAggregate<int, Token>
- */
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\Tokens', 'Phpactor\\DocblockParser\\Ast\\Tokens', \false);

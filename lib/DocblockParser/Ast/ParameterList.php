@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use ArrayIterator;
 use Countable;
 use Generator;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\DocblockParser\Ast\Tag\ParameterTag;
+use Phpactor\DocblockParser\Ast\Tag\ParameterTag;
 /**
  * @implements IteratorAggregate<ParameterTag|Token>
  */
-class ParameterList extends Node implements IteratorAggregate, Countable
+class ParameterList extends \Phpactor\DocblockParser\Ast\Node implements IteratorAggregate, Countable
 {
     protected const CHILD_NAMES = ['list'];
     /**
@@ -42,7 +42,3 @@ class ParameterList extends Node implements IteratorAggregate, Countable
         return \count($this->list);
     }
 }
-/**
- * @implements IteratorAggregate<ParameterTag|Token>
- */
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\ParameterList', 'Phpactor\\DocblockParser\\Ast\\ParameterList', \false);

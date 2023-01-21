@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of ibm_db2 v.1.6.0
+
 /**
  * Returns a connection to a database
  * @link https://php.net/manual/en/function.db2-connect.php
@@ -50,9 +49,8 @@ namespace Phpactor202301;
  * successful. If the connection attempt fails, db2_connect
  * returns false.
  */
-function db2_connect($database, $username, $password, array $options = null)
-{
-}
+function db2_connect($database, $username, $password, array $options = null) {}
+
 /**
  * Commits a transaction
  * @link https://php.net/manual/en/function.db2-commit.php
@@ -62,9 +60,8 @@ function db2_connect($database, $username, $password, array $options = null)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_commit($connection)
-{
-}
+function db2_commit($connection) {}
+
 /**
  * Returns a persistent connection to a database
  * @link https://php.net/manual/en/function.db2-pconnect.php
@@ -97,9 +94,8 @@ function db2_commit($connection)
  * password parameters. If the connection attempt fails,
  * db2_pconnect returns false.
  */
-function db2_pconnect($database, $username, $password, array $options = null)
-{
-}
+function db2_pconnect($database, $username, $password, array $options = null) {}
+
 /**
  * Returns or sets the AUTOCOMMIT state for a database connection
  * @link https://php.net/manual/en/function.db2-autocommit.php
@@ -130,9 +126,8 @@ function db2_pconnect($database, $username, $password, array $options = null)
  * AUTOCOMMIT state of the requested connection to the corresponding state.
  * true on success or false on failure.</p>
  */
-function db2_autocommit($connection, $value = null)
-{
-}
+function db2_autocommit($connection, $value = null) {}
+
 /**
  * Binds a PHP variable to an SQL statement parameter
  * @link https://php.net/manual/en/function.db2-bind-param.php
@@ -157,9 +152,8 @@ function db2_autocommit($connection, $value = null)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_bind_param($stmt, $parameter_number, $variable_name, $parameter_type = null, $data_type = null, $precision = null, $scale = null)
-{
-}
+function db2_bind_param($stmt, $parameter_number, $variable_name, $parameter_type = null, $data_type = null, $precision = null, $scale = null) {}
+
 /**
  * Closes a database connection
  * @link https://php.net/manual/en/function.db2-close.php
@@ -168,9 +162,8 @@ function db2_bind_param($stmt, $parameter_number, $variable_name, $parameter_typ
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_close($connection)
-{
-}
+function db2_close($connection) {}
+
 /**
  * Returns a result set listing the columns and associated privileges for a table
  * @link https://php.net/manual/en/function.db2-column-privileges.php
@@ -230,12 +223,10 @@ function db2_close($connection)
  * other users.</td>
  * </tr>
  */
-function db2_column_privileges($connection, $qualifier = null, $schema = null, $table_name = null, $column_name = null)
-{
-}
-function db2_columnprivileges()
-{
-}
+function db2_column_privileges($connection, $qualifier = null, $schema = null, $table_name = null, $column_name = null) {}
+
+function db2_columnprivileges() {}
+
 /**
  * Returns a result set listing the columns and associated metadata for a table
  * @link https://php.net/manual/en/function.db2-columns.php
@@ -353,9 +344,8 @@ function db2_columnprivileges()
  * </td>
  * </tr>
  */
-function db2_columns($connection, $qualifier = null, $schema = null, $table_name = null, $column_name = null)
-{
-}
+function db2_columns($connection, $qualifier = null, $schema = null, $table_name = null, $column_name = null) {}
+
 /**
  * Returns a result set listing the foreign keys for a table
  * @link https://php.net/manual/en/function.db2-foreign-keys.php
@@ -456,12 +446,10 @@ function db2_columns($connection, $qualifier = null, $schema = null, $table_name
  * </td>
  * </tr>
  */
-function db2_foreign_keys($connection, $qualifier, $schema, $table_name)
-{
-}
-function db2_foreignkeys()
-{
-}
+function db2_foreign_keys($connection, $qualifier, $schema, $table_name) {}
+
+function db2_foreignkeys() {}
+
 /**
  * Returns a result set listing primary keys for a table
  * @link https://php.net/manual/en/function.db2-primary-keys.php
@@ -515,12 +503,10 @@ function db2_foreignkeys()
  * <td>The name of the primary key.</td>
  * </tr>
  */
-function db2_primary_keys($connection, $qualifier, $schema, $table_name)
-{
-}
-function db2_primarykeys()
-{
-}
+function db2_primary_keys($connection, $qualifier, $schema, $table_name) {}
+
+function db2_primarykeys() {}
+
 /**
  * Returns a result set listing stored procedure parameters
  * @link https://php.net/manual/en/function.db2-procedure-columns.php
@@ -675,12 +661,10 @@ function db2_primarykeys()
  * </td>
  * </tr>
  */
-function db2_procedure_columns($connection, $qualifier, $schema, $procedure, $parameter)
-{
-}
-function db2_procedurecolumns()
-{
-}
+function db2_procedure_columns($connection, $qualifier, $schema, $procedure, $parameter) {}
+
+function db2_procedurecolumns() {}
+
 /**
  * Returns a result set listing the stored procedures registered in a database
  * @link https://php.net/manual/en/function.db2-procedures.php
@@ -743,9 +727,8 @@ function db2_procedurecolumns()
  * procedure does not return a return value.</td>
  * </tr>
  */
-function db2_procedures($connection, $qualifier, $schema, $procedure)
-{
-}
+function db2_procedures($connection, $qualifier, $schema, $procedure) {}
+
 /**
  * Returns a result set listing the unique row identifier columns for a table
  * @link https://php.net/manual/en/function.db2-special-columns.php
@@ -870,12 +853,10 @@ function db2_procedures($connection, $qualifier, $schema, $procedure)
  * <td>Always returns 1.</td>
  * </tr>
  */
-function db2_special_columns($connection, $qualifier, $schema, $table_name, $scope)
-{
-}
-function db2_specialcolumns()
-{
-}
+function db2_special_columns($connection, $qualifier, $schema, $table_name, $scope) {}
+
+function db2_specialcolumns() {}
+
 /**
  * Returns a result set listing the index and statistics for a table
  * @link https://php.net/manual/en/function.db2-statistics.php
@@ -1043,9 +1024,8 @@ function db2_specialcolumns()
  * </tr>
  * </table>
  */
-function db2_statistics($connection, $qualifier, $schema, $table_name, $unique)
-{
-}
+function db2_statistics($connection, $qualifier, $schema, $table_name, $unique) {}
+
 /**
  * Returns a result set listing the tables and associated privileges in a database
  * @link https://php.net/manual/en/function.db2-table-privileges.php
@@ -1109,12 +1089,10 @@ function db2_statistics($connection, $qualifier, $schema, $table_name, $unique)
  * </td>
  * </tr>
  */
-function db2_table_privileges($connection, $qualifier = null, $schema = null, $table_name = null)
-{
-}
-function db2_tableprivileges()
-{
-}
+function db2_table_privileges($connection, $qualifier = null, $schema = null, $table_name = null) {}
+
+function db2_tableprivileges() {}
+
 /**
  * Returns a result set listing the tables and associated metadata in a database
  * @link https://php.net/manual/en/function.db2-tables.php
@@ -1161,9 +1139,8 @@ function db2_tableprivileges()
  * <td>Description of the table.</td>
  * </tr>
  */
-function db2_tables($connection, $qualifier = null, $schema = null, $table_name = null, $table_type = null)
-{
-}
+function db2_tables($connection, $qualifier = null, $schema = null, $table_name = null, $table_type = null) {}
+
 /**
  * Executes an SQL statement directly
  * @link https://php.net/manual/en/function.db2-exec.php
@@ -1196,9 +1173,8 @@ function db2_tables($connection, $qualifier = null, $schema = null, $table_name 
  * @return resource|false A statement resource if the SQL statement was issued successfully,
  * or false if the database failed to execute the SQL statement.
  */
-function db2_exec($connection, $statement, array $options = null)
-{
-}
+function db2_exec($connection, $statement, array $options = null) {}
+
 /**
  * Prepares an SQL statement to be executed
  * @link https://php.net/manual/en/function.db2-prepare.php
@@ -1233,9 +1209,8 @@ function db2_exec($connection, $statement, array $options = null)
  * returned an error. You can determine which error was returned by calling
  * db2_stmt_error or db2_stmt_errormsg.
  */
-function db2_prepare($connection, $statement, array $options = null)
-{
-}
+function db2_prepare($connection, $statement, array $options = null) {}
+
 /**
  * Executes a prepared SQL statement
  * @link https://php.net/manual/en/function.db2-execute.php
@@ -1248,9 +1223,8 @@ function db2_prepare($connection, $statement, array $options = null)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_execute($stmt, array $parameters = null)
-{
-}
+function db2_execute($stmt, array $parameters = null) {}
+
 /**
  * Returns a string containing the last SQL statement error message
  * @link https://php.net/manual/en/function.db2-stmt-errormsg.php
@@ -1260,9 +1234,8 @@ function db2_execute($stmt, array $parameters = null)
  * @return string a string containing the error message and SQLCODE value for the
  * last error that occurred issuing an SQL statement.
  */
-function db2_stmt_errormsg($stmt = null)
-{
-}
+function db2_stmt_errormsg($stmt = null) {}
+
 /**
  * Returns the last connection error message and SQLCODE value
  * @link https://php.net/manual/en/function.db2-conn-errormsg.php
@@ -1275,9 +1248,8 @@ function db2_stmt_errormsg($stmt = null)
  * connection attempt, db2_conn_errormsg returns an empty
  * string.
  */
-function db2_conn_errormsg($connection = null)
-{
-}
+function db2_conn_errormsg($connection = null) {}
+
 /**
  * Returns a string containing the SQLSTATE returned by the last connection attempt
  * @link https://php.net/manual/en/function.db2-conn-error.php
@@ -1289,9 +1261,8 @@ function db2_conn_errormsg($connection = null)
  * Returns an empty string if there is no error associated with the last
  * connection attempt.
  */
-function db2_conn_error($connection = null)
-{
-}
+function db2_conn_error($connection = null) {}
+
 /**
  * Returns a string containing the SQLSTATE returned by an SQL statement
  * @link https://php.net/manual/en/function.db2-stmt-error.php
@@ -1300,9 +1271,8 @@ function db2_conn_error($connection = null)
  * </p>
  * @return string a string containing an SQLSTATE value.
  */
-function db2_stmt_error($stmt = null)
-{
-}
+function db2_stmt_error($stmt = null) {}
+
 /**
  * Requests the next result set from a stored procedure
  * @link https://php.net/manual/en/function.db2-next-result.php
@@ -1314,9 +1284,8 @@ function db2_stmt_error($stmt = null)
  * stored procedure returned another result set. Returns false if the stored
  * procedure did not return another result set.
  */
-function db2_next_result($stmt)
-{
-}
+function db2_next_result($stmt) {}
+
 /**
  * Returns the number of fields contained in a result set
  * @link https://php.net/manual/en/function.db2-num-fields.php
@@ -1327,9 +1296,8 @@ function db2_next_result($stmt)
  * set associated with the specified statement resource. Returns false if
  * the statement resource is not a valid input value.
  */
-function db2_num_fields($stmt)
-{
-}
+function db2_num_fields($stmt) {}
+
 /**
  * Returns the number of rows affected by an SQL statement
  * @link https://php.net/manual/en/function.db2-num-rows.php
@@ -1339,9 +1307,8 @@ function db2_num_fields($stmt)
  * @return int the number of rows affected by the last SQL statement issued by
  * the specified statement handle.
  */
-function db2_num_rows($stmt)
-{
-}
+function db2_num_rows($stmt) {}
+
 /**
  * Returns the name of the column in the result set
  * @link https://php.net/manual/en/function.db2-field-name.php
@@ -1357,9 +1324,8 @@ function db2_num_rows($stmt)
  * specified column does not exist in the result
  * set, db2_field_name returns false.
  */
-function db2_field_name($stmt, $column)
-{
-}
+function db2_field_name($stmt, $column) {}
+
 /**
  * Returns the maximum number of bytes required to display a column
  * @link https://php.net/manual/en/function.db2-field-display-size.php
@@ -1375,9 +1341,8 @@ function db2_field_name($stmt, $column)
  * display the specified column. If the column does not exist in the result
  * set, db2_field_display_size returns false.
  */
-function db2_field_display_size($stmt, $column)
-{
-}
+function db2_field_display_size($stmt, $column) {}
+
 /**
  * Returns the position of the named column in a result set
  * @link https://php.net/manual/en/function.db2-field-num.php
@@ -1393,9 +1358,8 @@ function db2_field_display_size($stmt, $column)
  * the result set. If the specified column does not exist in the result set,
  * db2_field_num returns false.
  */
-function db2_field_num($stmt, $column)
-{
-}
+function db2_field_num($stmt, $column) {}
+
 /**
  * Returns the precision of the indicated column in a result set
  * @link https://php.net/manual/en/function.db2-field-precision.php
@@ -1411,9 +1375,8 @@ function db2_field_num($stmt, $column)
  * specified column does not exist in the result set,
  * db2_field_precision returns false.
  */
-function db2_field_precision($stmt, $column)
-{
-}
+function db2_field_precision($stmt, $column) {}
+
 /**
  * Returns the scale of the indicated column in a result set
  * @link https://php.net/manual/en/function.db2-field-scale.php
@@ -1429,9 +1392,8 @@ function db2_field_precision($stmt, $column)
  * specified column does not exist in the result set,
  * db2_field_scale returns false.
  */
-function db2_field_scale($stmt, $column)
-{
-}
+function db2_field_scale($stmt, $column) {}
+
 /**
  * Returns the data type of the indicated column in a result set
  * @link https://php.net/manual/en/function.db2-field-type.php
@@ -1447,9 +1409,8 @@ function db2_field_scale($stmt, $column)
  * If the specified column does not exist in the result set,
  * db2_field_type returns false.
  */
-function db2_field_type($stmt, $column)
-{
-}
+function db2_field_type($stmt, $column) {}
+
 /**
  * Returns the width of the current value of the indicated column in a result set
  * @link https://php.net/manual/en/function.db2-field-width.php
@@ -1466,9 +1427,8 @@ function db2_field_type($stmt, $column)
  * exist in the result set, db2_field_width returns
  * false.
  */
-function db2_field_width($stmt, $column)
-{
-}
+function db2_field_width($stmt, $column) {}
+
 /**
  * Returns the cursor type used by a statement resource
  * @link https://php.net/manual/en/function.db2-cursor-type.php
@@ -1479,9 +1439,8 @@ function db2_field_width($stmt, $column)
  * resource uses a forward-only cursor or DB2_SCROLLABLE if
  * the statement resource uses a scrollable cursor.
  */
-function db2_cursor_type($stmt)
-{
-}
+function db2_cursor_type($stmt) {}
+
 /**
  * Rolls back a transaction
  * @link https://php.net/manual/en/function.db2-rollback.php
@@ -1491,9 +1450,8 @@ function db2_cursor_type($stmt)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_rollback($connection)
-{
-}
+function db2_rollback($connection) {}
+
 /**
  * Frees resources associated with the indicated statement resource
  * @link https://php.net/manual/en/function.db2-free-stmt.php
@@ -1502,9 +1460,8 @@ function db2_rollback($connection)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_free_stmt($stmt)
-{
-}
+function db2_free_stmt($stmt) {}
+
 /**
  * Returns a single column from a row in the result set
  * @link https://php.net/manual/en/function.db2-result.php
@@ -1518,9 +1475,8 @@ function db2_free_stmt($stmt)
  * @return mixed the value of the requested field if the field exists in the result
  * set. Returns NULL if the field does not exist, and issues a warning.
  */
-function db2_result($stmt, $column)
-{
-}
+function db2_result($stmt, $column) {}
+
 /**
  * Sets the result set pointer to the next row or requested row
  * @link https://php.net/manual/en/function.db2-fetch-row.php
@@ -1534,9 +1490,8 @@ function db2_result($stmt, $column)
  * @return bool true if the requested row exists in the result set. Returns
  * false if the requested row does not exist in the result set.
  */
-function db2_fetch_row($stmt, $row_number = null)
-{
-}
+function db2_fetch_row($stmt, $row_number = null) {}
+
 /**
  * Returns an array, indexed by column name, representing a row in a result set
  * @link https://php.net/manual/en/function.db2-fetch-assoc.php
@@ -1553,9 +1508,8 @@ function db2_fetch_row($stmt, $row_number = null)
  * there are no rows left in the result set, or if the row requested by
  * row_number does not exist in the result set.
  */
-function db2_fetch_assoc($stmt, $row_number = null)
-{
-}
+function db2_fetch_assoc($stmt, $row_number = null) {}
+
 /**
  * Returns an array, indexed by column position, representing a row in a result set
  * @link https://php.net/manual/en/function.db2-fetch-array.php
@@ -1572,9 +1526,8 @@ function db2_fetch_assoc($stmt, $row_number = null)
  * there are no rows left in the result set, or if the row requested by
  * row_number does not exist in the result set.
  */
-function db2_fetch_array($stmt, $row_number = null)
-{
-}
+function db2_fetch_array($stmt, $row_number = null) {}
+
 /**
  * Returns an array, indexed by both column name and position, representing a row in a result set
  * @link https://php.net/manual/en/function.db2-fetch-both.php
@@ -1592,9 +1545,8 @@ function db2_fetch_array($stmt, $row_number = null)
  * in the result set, or if the row requested by
  * row_number does not exist in the result set.
  */
-function db2_fetch_both($stmt, $row_number = null)
-{
-}
+function db2_fetch_both($stmt, $row_number = null) {}
+
 /**
  * Frees resources associated with a result set
  * @link https://php.net/manual/en/function.db2-free-result.php
@@ -1603,9 +1555,8 @@ function db2_fetch_both($stmt, $row_number = null)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_free_result($stmt)
-{
-}
+function db2_free_result($stmt) {}
+
 /**
  * Set options for connection or statement resources
  * @link https://php.net/manual/en/function.db2-set-option.php
@@ -1645,12 +1596,10 @@ function db2_free_result($stmt)
  * </p>
  * @return bool true on success or false on failure.
  */
-function db2_set_option($resource, array $options, $type)
-{
-}
-function db2_setoption()
-{
-}
+function db2_set_option($resource, array $options, $type) {}
+
+function db2_setoption() {}
+
 /**
  * Returns an object with properties representing columns in the fetched row
  * @link https://php.net/manual/en/function.db2-fetch-object.php
@@ -1679,9 +1628,8 @@ function db2_setoption()
  * <p>
  * Returns false if no row was retrieved.
  */
-function db2_fetch_object($stmt, $row_number = null)
-{
-}
+function db2_fetch_object($stmt, $row_number = null) {}
+
 /**
  * Returns an object with properties that describe the DB2 database server
  * @link https://php.net/manual/en/function.db2-server-info.php
@@ -1690,9 +1638,8 @@ function db2_fetch_object($stmt, $row_number = null)
  * </p>
  * @return object|false An object on a successful call. Returns false on failure.
  */
-function db2_server_info($connection)
-{
-}
+function db2_server_info($connection) {}
+
 /**
  * Returns an object with properties that describe the DB2 database client
  * @link https://php.net/manual/en/function.db2-client-info.php
@@ -1701,9 +1648,8 @@ function db2_server_info($connection)
  * </p>
  * @return object|false An object on a successful call. Returns false on failure.
  */
-function db2_client_info($connection)
-{
-}
+function db2_client_info($connection) {}
+
 /**
  * Used to escape certain characters
  * @link https://php.net/manual/en/function.db2-escape-string.php
@@ -1716,9 +1662,8 @@ function db2_client_info($connection)
  * @return string string_literal with the special characters
  * noted above prepended with backslashes.
  */
-function db2_escape_string($string_literal)
-{
-}
+function db2_escape_string($string_literal) {}
+
 /**
  * Gets a user defined size of LOB files with each invocation
  * @link https://php.net/manual/en/function.db2-lob-read.php
@@ -1734,9 +1679,8 @@ function db2_escape_string($string_literal)
  * @return string|false The amount of data the user specifies. Returns
  * false if the data cannot be retrieved.
  */
-function db2_lob_read($stmt, $colnum, $length)
-{
-}
+function db2_lob_read($stmt, $colnum, $length) {}
+
 /**
  * Retrieves an option value for a statement resource or a connection resource
  * @link https://php.net/manual/en/function.db2-get-option.php
@@ -1776,9 +1720,8 @@ function db2_lob_read($stmt, $colnum, $length)
  * @return string|false The current setting of the connection attribute provided on success
  * or false on failure.
  */
-function db2_get_option($resource, $option)
-{
-}
+function db2_get_option($resource, $option) {}
+
 /**
  * Returns the auto generated ID of the last insert query that successfully executed on this connection.
  * @link https://php.net/manual/en/function.db2-last-insert-id.php
@@ -1793,113 +1736,131 @@ function db2_get_option($resource, $option)
  * @return string|null Returns the auto generated ID of last insert query that successfully executed on this connection
  *                     or NULL if no ID was found.
  */
-function db2_last_insert_id($resource)
-{
-}
+function db2_last_insert_id($resource) {}
+
 /**
  * Specifies that binary data shall be returned as is. This is the default
  * mode.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_BINARY', 1);
+define('DB2_BINARY', 1);
+
 /**
  * Specifies that binary data shall be converted to a hexadecimal encoding
  * and returned as an ASCII string.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_CONVERT', 2);
+define('DB2_CONVERT', 2);
+
 /**
  * Specifies that binary data shall be converted to a null value.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_PASSTHRU', 3);
+define('DB2_PASSTHRU', 3);
+
 /**
  * Specifies a scrollable cursor for a statement resource. This mode enables
  * random access to rows in a result set, but currently is supported only by
  * IBM DB2 Universal Database.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_SCROLLABLE', 1);
+define('DB2_SCROLLABLE', 1);
+
 /**
  * Specifies a forward-only cursor for a statement resource. This is the
  * default cursor type and is supported on all database servers.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_FORWARD_ONLY', 0);
+define('DB2_FORWARD_ONLY', 0);
+
 /**
  * Specifies the PHP variable should be bound as an IN parameter for a
  * stored procedure.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_PARAM_IN', 1);
+define('DB2_PARAM_IN', 1);
+
 /**
  * Specifies the PHP variable should be bound as an OUT parameter for a
  * stored procedure.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_PARAM_OUT', 4);
+define('DB2_PARAM_OUT', 4);
+
 /**
  * Specifies the PHP variable should be bound as an INOUT parameter for a
  * stored procedure.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_PARAM_INOUT', 2);
+define('DB2_PARAM_INOUT', 2);
+
 /**
  * Specifies that the column should be bound directly to a file for input.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_PARAM_FILE', 11);
+define('DB2_PARAM_FILE', 11);
+
 /**
  * Specifies that autocommit should be turned on.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_AUTOCOMMIT_ON', 1);
+define('DB2_AUTOCOMMIT_ON', 1);
+
 /**
  * Specifies that autocommit should be turned off.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_AUTOCOMMIT_OFF', 0);
+define('DB2_AUTOCOMMIT_OFF', 0);
+
 /**
  * Specifies that deferred prepare should be turned on for the specified statement resource.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_DEFERRED_PREPARE_ON', 1);
+define('DB2_DEFERRED_PREPARE_ON', 1);
+
 /**
  * Specifies that deferred prepare should be turned off for the specified statement resource.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_DEFERRED_PREPARE_OFF', 0);
+define('DB2_DEFERRED_PREPARE_OFF', 0);
+
 /**
  * Specifies that the variable should be bound as a DOUBLE, FLOAT, or REAL
  * data type.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_DOUBLE', 8);
+define('DB2_DOUBLE', 8);
+
 /**
  * Specifies that the variable should be bound as a SMALLINT, INTEGER, or
  * BIGINT data type.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_LONG', 4);
+define('DB2_LONG', 4);
+
 /**
  * Specifies that the variable should be bound as a CHAR or VARCHAR data type.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_CHAR', 1);
-\define('DB2_XML', -370);
+define('DB2_CHAR', 1);
+define('DB2_XML', -370);
+
 /**
  * Specifies that column names will be returned in their natural case.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_CASE_NATURAL', 0);
+define('DB2_CASE_NATURAL', 0);
+
 /**
  * Specifies that column names will be returned in lower case.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_CASE_LOWER', 1);
+define('DB2_CASE_LOWER', 1);
+
 /**
  * Specifies that column names will be returned in upper case.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
-\define('DB2_CASE_UPPER', 2);
+define('DB2_CASE_UPPER', 2);
+
 // End of ibm_db2 v.1.6.0

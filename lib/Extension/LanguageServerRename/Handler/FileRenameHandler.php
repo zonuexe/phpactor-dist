@@ -1,21 +1,21 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerRename\Handler;
+namespace Phpactor\Extension\LanguageServerRename\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\Rename\Model\FileRenamer;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEditsMap;
-use Phpactor202301\Phpactor\Extension\LanguageServerRename\Util\LocatedTextEditConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileOperationFilter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileOperationPattern;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\FileRename;
-use Phpactor202301\Phpactor\LanguageServerProtocol\RenameFilesParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\Rename\Model\FileRenamer;
+use Phpactor\Rename\Model\LocatedTextEditsMap;
+use Phpactor\Extension\LanguageServerRename\Util\LocatedTextEditConverter;
+use Phpactor\LanguageServerProtocol\FileOperationFilter;
+use Phpactor\LanguageServerProtocol\FileOperationPattern;
+use Phpactor\LanguageServerProtocol\FileOperationRegistrationOptions;
+use Phpactor\LanguageServerProtocol\FileRename;
+use Phpactor\LanguageServerProtocol\RenameFilesParams;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\TextDocument\TextDocumentUri;
 use function Phpactor202301\Amp\call;
 class FileRenameHandler implements Handler, CanRegisterCapabilities
 {
@@ -45,4 +45,3 @@ class FileRenameHandler implements Handler, CanRegisterCapabilities
         $capabilities->workspace['fileOperations']['willRename'] = new FileOperationRegistrationOptions([new FileOperationFilter(new FileOperationPattern('**/*.php'))]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerRename\\Handler\\FileRenameHandler', 'Phpactor\\Extension\\LanguageServerRename\\Handler\\FileRenameHandler', \false);

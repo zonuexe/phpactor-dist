@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Extension;
+namespace Phpactor\ClassMover\Extension;
 
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\ClassMover\Adapter\TolerantParser\TolerantClassFinder;
-use Phpactor202301\Phpactor\ClassMover\Adapter\TolerantParser\TolerantClassReplacer;
-use Phpactor202301\Phpactor\ClassMover\ClassMover;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Container\Container;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\ClassMover\Adapter\TolerantParser\TolerantClassFinder;
+use Phpactor\ClassMover\Adapter\TolerantParser\TolerantClassReplacer;
+use Phpactor\ClassMover\ClassMover;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Container;
 class ClassMoverExtension implements Extension
 {
     public function configure(Resolver $schema) : void
@@ -32,4 +32,3 @@ class ClassMoverExtension implements Extension
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Extension\\ClassMoverExtension', 'Phpactor\\ClassMover\\Extension\\ClassMoverExtension', \false);

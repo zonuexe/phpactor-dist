@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter;
+namespace Phpactor\LanguageServer\Core\Server\Transmitter;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use RuntimeException;
-final class LspMessageSerializer implements MessageSerializer
+final class LspMessageSerializer implements \Phpactor\LanguageServer\Core\Server\Transmitter\MessageSerializer
 {
     public function serialize(Message $message) : string
     {
@@ -51,4 +51,3 @@ final class LspMessageSerializer implements MessageSerializer
         return $data;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\LspMessageSerializer', 'Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\LspMessageSerializer', \false);

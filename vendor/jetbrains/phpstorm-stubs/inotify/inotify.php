@@ -1,8 +1,7 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of inotify v.0.1.6
+
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
  * Add a watch to an initialized inotify instance
@@ -15,9 +14,8 @@ namespace Phpactor202301;
  *
  * @return int a unique (<i>inotify</i> instance-wide) watch descriptor.
  */
-function inotify_add_watch($inotify_instance, $pathname, $mask)
-{
-}
+function inotify_add_watch($inotify_instance, $pathname, $mask) {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
  * Initialize an inotify instance for use with {@see inotify_add_watch}
@@ -25,9 +23,8 @@ function inotify_add_watch($inotify_instance, $pathname, $mask)
  * @link https://php.net/manual/en/function.inotify-init.php
  * @return resource|false a stream resource or <b>FALSE</b> on error.
  */
-function inotify_init()
-{
-}
+function inotify_init() {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
  * This function allows to know if {@see inotify_read} will block or not.
@@ -40,9 +37,8 @@ function inotify_init()
  *
  * @return int a number greater than zero if events are pending, otherwise zero.
  */
-function inotify_queue_len($inotify_instance)
-{
-}
+function inotify_queue_len($inotify_instance) {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
  * Read inotify events from an inotify instance.
@@ -62,9 +58,8 @@ function inotify_queue_len($inotify_instance)
  *  <li><b>name</b> is the name of a file (e.g. if a file was modified in a watched directory)</li>
  * </ul>
  */
-function inotify_read($inotify_instance)
-{
-}
+function inotify_read($inotify_instance) {}
+
 /**
  * (PHP &gt;= 5.2.0, PECL inotify &gt;= 0.1.2)<br/>
  * Removes the watch <i>$watch_descriptor</i> from the inotify instance <i>$inotify_instance</i>.
@@ -76,30 +71,99 @@ function inotify_read($inotify_instance)
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function inotify_rm_watch($inotify_instance, $mask)
-{
-}
-\define('IN_ACCESS', 1);
-\define('IN_MODIFY', 2);
-\define('IN_ATTRIB', 4);
-\define('IN_CLOSE_WRITE', 8);
-\define('IN_CLOSE_NOWRITE', 16);
-\define('IN_OPEN', 32);
-\define('IN_MOVED_FROM', 64);
-\define('IN_MOVED_TO', 128);
-\define('IN_CREATE', 256);
-\define('IN_DELETE', 512);
-\define('IN_DELETE_SELF', 1024);
-\define('IN_MOVE_SELF', 2048);
-\define('IN_UNMOUNT', 8192);
-\define('IN_Q_OVERFLOW', 16384);
-\define('IN_IGNORED', 32768);
-\define('IN_CLOSE', 24);
-\define('IN_MOVE', 192);
-\define('IN_ALL_EVENTS', 4095);
-\define('IN_ONLYDIR', 16777216);
-\define('IN_DONT_FOLLOW', 33554432);
-\define('IN_MASK_ADD', 536870912);
-\define('IN_ISDIR', 1073741824);
-\define('IN_ONESHOT', 2147483648);
+function inotify_rm_watch($inotify_instance, $mask) {}
+
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_ACCESS = 1;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_MODIFY = 2;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_ATTRIB = 4;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_CLOSE_WRITE = 8;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_CLOSE_NOWRITE = 16;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_OPEN = 32;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_MOVED_FROM = 64;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_MOVED_TO = 128;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_CREATE = 256;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_DELETE = 512;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_DELETE_SELF = 1024;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_MOVE_SELF = 2048;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_UNMOUNT = 8192;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_Q_OVERFLOW = 16384;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_IGNORED = 32768;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_CLOSE = 24;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_MOVE = 192;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_ALL_EVENTS = 4095;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_ONLYDIR = 16777216;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_DONT_FOLLOW = 33554432;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_MASK_ADD = 536870912;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_ISDIR = 1073741824;
+/**
+ * @link https://php.net/manual/en/inotify.constants.php
+ */
+const IN_ONESHOT = 2147483648;
+
 // End of inotify v.0.1.6

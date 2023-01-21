@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerPsalm\Model;
+namespace Phpactor\Extension\LanguageServerPsalm\Model;
 
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Diagnostic;
+use Phpactor\LanguageServerProtocol\Diagnostic;
 use function Phpactor202301\Amp\ByteStream\buffer;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class PsalmProcess
 {
-    private DiagnosticsParser $parser;
-    public function __construct(private string $cwd, private PsalmConfig $config, private LoggerInterface $logger, DiagnosticsParser $parser = null)
+    private \Phpactor\Extension\LanguageServerPsalm\Model\DiagnosticsParser $parser;
+    public function __construct(private string $cwd, private \Phpactor\Extension\LanguageServerPsalm\Model\PsalmConfig $config, private LoggerInterface $logger, \Phpactor\Extension\LanguageServerPsalm\Model\DiagnosticsParser $parser = null)
     {
-        $this->parser = $parser ?: new DiagnosticsParser();
+        $this->parser = $parser ?: new \Phpactor\Extension\LanguageServerPsalm\Model\DiagnosticsParser();
     }
     /**
      * @return Promise<array<Diagnostic>>
@@ -35,4 +35,3 @@ class PsalmProcess
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerPsalm\\Model\\PsalmProcess', 'Phpactor\\Extension\\LanguageServerPsalm\\Model\\PsalmProcess', \false);

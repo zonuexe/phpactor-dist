@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Debug\Model;
+namespace Phpactor\Extension\Debug\Model;
 
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Container\OptionalExtension;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
+use Phpactor\Container\Extension;
+use Phpactor\Container\OptionalExtension;
+use Phpactor\MapResolver\Resolver;
 use RuntimeException;
-class ExtensionDocumentor implements Documentor
+class ExtensionDocumentor implements \Phpactor\Extension\Debug\Model\Documentor
 {
     /**
      * @param array<string> $extensionFqns
      */
-    public function __construct(private array $extensionFqns, private DefinitionDocumentor $definitionDocumentor)
+    public function __construct(private array $extensionFqns, private \Phpactor\Extension\Debug\Model\DefinitionDocumentor $definitionDocumentor)
     {
     }
     public function document(string $commandName = '') : string
@@ -59,4 +59,3 @@ class ExtensionDocumentor implements Documentor
         return \implode("\n", $help);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Debug\\Model\\ExtensionDocumentor', 'Phpactor\\Extension\\Debug\\Model\\ExtensionDocumentor', \false);

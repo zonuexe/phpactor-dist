@@ -1,37 +1,31 @@
 <?php
 
-namespace Phpactor202301\RdKafka\Metadata;
+namespace RdKafka\Metadata;
 
 class Partition
 {
     /**
      * @return int
      */
-    public function getId()
-    {
-    }
+    public function getId() {}
+
     /**
      * @return mixed
      */
-    public function getErr()
-    {
-    }
+    public function getErr() {}
+
     /**
      * @return mixed
      */
-    public function getLeader()
-    {
-    }
+    public function getLeader() {}
+
     /**
      * @return mixed
      */
-    public function getReplicas()
-    {
-    }
+    public function getReplicas() {}
+
     /**
      * @return mixed
      */
-    public function getIsrs()
-    {
-    }
+    public function getIsrs() {}
 }

@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Adapter\ClassMover;
+namespace Phpactor\Rename\Adapter\ClassMover;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\ClassMover\ClassMover;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotConvertUriToClass;
-use Phpactor202301\Phpactor\Rename\Model\Exception\CouldNotRename;
-use Phpactor202301\Phpactor\Rename\Model\FileRenamer as PhpactorFileRenamer;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEdit;
-use Phpactor202301\Phpactor\Rename\Model\LocatedTextEditsMap;
-use Phpactor202301\Phpactor\Rename\Model\UriToNameConverter;
-use Phpactor202301\Phpactor\Indexer\Model\QueryClient;
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\ClassMover\ClassMover;
+use Phpactor\Rename\Model\Exception\CouldNotConvertUriToClass;
+use Phpactor\Rename\Model\Exception\CouldNotRename;
+use Phpactor\Rename\Model\FileRenamer as PhpactorFileRenamer;
+use Phpactor\Rename\Model\LocatedTextEdit;
+use Phpactor\Rename\Model\LocatedTextEditsMap;
+use Phpactor\Rename\Model\UriToNameConverter;
+use Phpactor\Indexer\Model\QueryClient;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextEdits;
 use function Phpactor202301\Amp\call;
 class FileRenamer implements PhpactorFileRenamer
 {
@@ -68,4 +68,3 @@ class FileRenamer implements PhpactorFileRenamer
         return $locatedEdits;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Adapter\\ClassMover\\FileRenamer', 'Phpactor\\Rename\\Adapter\\ClassMover\\FileRenamer', \false);

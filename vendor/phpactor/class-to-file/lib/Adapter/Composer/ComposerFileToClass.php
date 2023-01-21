@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassFileConverter\Adapter\Composer;
+namespace Phpactor\ClassFileConverter\Adapter\Composer;
 
 use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\ClassNameCandidates;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\ClassFileConverter\Domain\ClassNameCandidates;
 use InvalidArgumentException;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 final class ComposerFileToClass implements FileToClass
@@ -36,7 +36,7 @@ final class ComposerFileToClass implements FileToClass
     }
     private function getStrategies() : array
     {
-        return [[$this->classLoader->getClassMap(), new ClassmapNameInflector()], [$this->classLoader->getPrefixesPsr4(), new Psr4NameInflector()], [$this->classLoader->getPrefixes(), new Psr0NameInflector()], [$this->classLoader->getFallbackDirs(), new Psr0NameInflector()], [$this->classLoader->getFallbackDirsPsr4(), new Psr4NameInflector()]];
+        return [[$this->classLoader->getClassMap(), new \Phpactor\ClassFileConverter\Adapter\Composer\ClassmapNameInflector()], [$this->classLoader->getPrefixesPsr4(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr4NameInflector()], [$this->classLoader->getPrefixes(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector()], [$this->classLoader->getFallbackDirs(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr0NameInflector()], [$this->classLoader->getFallbackDirsPsr4(), new \Phpactor\ClassFileConverter\Adapter\Composer\Psr4NameInflector()]];
     }
     private function populateCandidates(FilePath $filePath, array $prefixes)
     {
@@ -67,4 +67,3 @@ final class ComposerFileToClass implements FileToClass
         return $candidates;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassFileConverter\\Adapter\\Composer\\ComposerFileToClass', 'Phpactor\\ClassFileConverter\\Adapter\\Composer\\ComposerFileToClass', \false);

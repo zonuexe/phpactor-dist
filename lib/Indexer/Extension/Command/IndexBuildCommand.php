@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Extension\Command;
+namespace Phpactor\Indexer\Extension\Command;
 
 use Phpactor202301\Amp\Loop;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\Indexer\Model\Indexer;
-use Phpactor202301\Phpactor\Indexer\Model\MemoryUsage;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\Indexer\Model\Indexer;
+use Phpactor\Indexer\Model\MemoryUsage;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Phpactor\Indexer\Util\Cast;
+use Phpactor\Indexer\Util\Cast;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class IndexBuildCommand extends Command
 {
@@ -97,4 +97,3 @@ class IndexBuildCommand extends Command
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Extension\\Command\\IndexBuildCommand', 'Phpactor\\Indexer\\Extension\\Command\\IndexBuildCommand', \false);

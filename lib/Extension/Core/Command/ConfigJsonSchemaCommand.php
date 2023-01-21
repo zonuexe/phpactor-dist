@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Command;
+namespace Phpactor\Extension\Core\Command;
 
-use Phpactor202301\Phpactor\Extension\Core\Model\JsonSchemaBuilder;
+use Phpactor\Extension\Core\Model\JsonSchemaBuilder;
 use RuntimeException;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
@@ -28,4 +28,3 @@ class ConfigJsonSchemaCommand extends Command
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Command\\ConfigJsonSchemaCommand', 'Phpactor\\Extension\\Core\\Command\\ConfigJsonSchemaCommand', \false);

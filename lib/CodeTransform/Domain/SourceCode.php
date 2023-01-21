@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain;
+namespace Phpactor\CodeTransform\Domain;
 
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLanguage;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentLanguage;
+use Phpactor\TextDocument\TextDocumentUri;
 use RuntimeException;
 final class SourceCode implements TextDocument
 {
@@ -15,19 +15,19 @@ final class SourceCode implements TextDocument
     {
         return $this->code;
     }
-    public static function fromString(string $code) : SourceCode
+    public static function fromString(string $code) : \Phpactor\CodeTransform\Domain\SourceCode
     {
         return new self($code, TextDocumentUri::fromString('untitled:Untitled'));
     }
-    public static function fromStringAndPath(string $code, string $path = null) : SourceCode
+    public static function fromStringAndPath(string $code, string $path = null) : \Phpactor\CodeTransform\Domain\SourceCode
     {
         return new self($code, TextDocumentUri::fromString($path));
     }
-    public function withSource(string $code) : SourceCode
+    public function withSource(string $code) : \Phpactor\CodeTransform\Domain\SourceCode
     {
         return new self($code, $this->path);
     }
-    public function withPath(string $path) : SourceCode
+    public function withPath(string $path) : \Phpactor\CodeTransform\Domain\SourceCode
     {
         return new self($this->code, TextDocumentUri::fromString($path));
     }
@@ -39,7 +39,7 @@ final class SourceCode implements TextDocument
     {
         return \substr($this->code, $offsetStart, $offsetEnd - $offsetStart);
     }
-    public function replaceSelection(string $replacement, int $offsetStart, int $offsetEnd) : SourceCode
+    public function replaceSelection(string $replacement, int $offsetStart, int $offsetEnd) : \Phpactor\CodeTransform\Domain\SourceCode
     {
         $start = \substr($this->code, 0, $offsetStart);
         $end = \substr($this->code, $offsetEnd);
@@ -48,9 +48,9 @@ final class SourceCode implements TextDocument
     /**
      * @param mixed $code
      */
-    public static function fromUnknown($code) : SourceCode
+    public static function fromUnknown($code) : \Phpactor\CodeTransform\Domain\SourceCode
     {
-        if ($code instanceof SourceCode) {
+        if ($code instanceof \Phpactor\CodeTransform\Domain\SourceCode) {
             return $code;
         }
         if (\is_string($code)) {
@@ -76,4 +76,3 @@ final class SourceCode implements TextDocument
         return new self($textDocument->__toString(), $textDocument->uri());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\SourceCode', 'Phpactor\\CodeTransform\\Domain\\SourceCode', \false);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch;
+namespace Phpactor\AmpFsWatch;
 
 class ModifiedFileBuilder
 {
@@ -11,7 +11,7 @@ class ModifiedFileBuilder
     /**
      * @var string
      */
-    private $type = ModifiedFile::TYPE_FILE;
+    private $type = \Phpactor\AmpFsWatch\ModifiedFile::TYPE_FILE;
     public function __construct(string $path)
     {
         $this->path = $path;
@@ -26,17 +26,16 @@ class ModifiedFileBuilder
     }
     public function asFile() : self
     {
-        $this->type = ModifiedFile::TYPE_FILE;
+        $this->type = \Phpactor\AmpFsWatch\ModifiedFile::TYPE_FILE;
         return $this;
     }
     public function asFolder() : self
     {
-        $this->type = ModifiedFile::TYPE_FOLDER;
+        $this->type = \Phpactor\AmpFsWatch\ModifiedFile::TYPE_FOLDER;
         return $this;
     }
-    public function build() : ModifiedFile
+    public function build() : \Phpactor\AmpFsWatch\ModifiedFile
     {
-        return new ModifiedFile($this->path, $this->type);
+        return new \Phpactor\AmpFsWatch\ModifiedFile($this->path, $this->type);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\ModifiedFileBuilder', 'Phpactor\\AmpFsWatch\\ModifiedFileBuilder', \false);

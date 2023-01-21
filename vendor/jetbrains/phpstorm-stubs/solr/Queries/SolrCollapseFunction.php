@@ -1,13 +1,11 @@
 <?php
-
-namespace Phpactor202301;
-
 /**
  * Helper autocomplete for php solr extension.
  *
  * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
  * @link   https://github.com/pjmazenot/phpsolr-phpdoc
  */
+
 /**
  * (PECL solr &gt;= 2.2.0)<br/>
  * Class SolrCollapseFunction
@@ -17,10 +15,13 @@ class SolrCollapseFunction
 {
     /** @var string */
     public const NULLPOLICY_IGNORE = 'ignore';
+
     /** @var string */
     public const NULLPOLICY_EXPAND = 'expand';
+
     /** @var string */
     public const NULLPOLICY_COLLAPSE = 'collapse';
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * SolrCollapseFunction constructor.
@@ -30,63 +31,56 @@ class SolrCollapseFunction
      * In order to collapse a result. The field type must be a single valued String, Int or Float.
      * </p>
      */
-    public function __construct($field)
-    {
-    }
+    public function __construct($field) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns the field that is being collapsed on.
      * @link https://php.net/manual/en/solrcollapsefunction.getfield.php
      * @return string
      */
-    public function getField()
-    {
-    }
+    public function getField() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns collapse hint
      * @link https://php.net/manual/en/solrcollapsefunction.gethint.php
      * @return string
      */
-    public function getHint()
-    {
-    }
+    public function getHint() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns max parameter
      * @link https://php.net/manual/en/solrcollapsefunction.getmax.php
      * @return string
      */
-    public function getMax()
-    {
-    }
+    public function getMax() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns min parameter
      * @link https://php.net/manual/en/solrcollapsefunction.getmin.php
      * @return string
      */
-    public function getMin()
-    {
-    }
+    public function getMin() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns null policy
      * @link https://php.net/manual/en/solrcollapsefunction.getnullpolicy.php
      * @return string
      */
-    public function getNullPolicy()
-    {
-    }
+    public function getNullPolicy() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns size parameter
      * @link https://php.net/manual/en/solrcollapsefunction.getsize.php
      * @return int
      */
-    public function getSize()
-    {
-    }
+    public function getSize() {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the field to collapse on
@@ -97,9 +91,8 @@ class SolrCollapseFunction
      * </p>
      * @return SolrCollapseFunction
      */
-    public function setField($fieldName)
-    {
-    }
+    public function setField($fieldName) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets collapse hint
@@ -109,9 +102,8 @@ class SolrCollapseFunction
      * </p>
      * @return SolrCollapseFunction
      */
-    public function setHint($hint)
-    {
-    }
+    public function setHint($hint) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Selects the group heads by the max value of a numeric field or function query.
@@ -119,9 +111,8 @@ class SolrCollapseFunction
      * @param string $max
      * @return SolrCollapseFunction
      */
-    public function setMax($max)
-    {
-    }
+    public function setMax($max) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the initial size of the collapse data structures when collapsing on a numeric field only
@@ -129,9 +120,8 @@ class SolrCollapseFunction
      * @param string $min
      * @return SolrCollapseFunction
      */
-    public function setMin($min)
-    {
-    }
+    public function setMin($min) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the NULL Policy
@@ -139,9 +129,8 @@ class SolrCollapseFunction
      * @param string $nullPolicy
      * @return SolrCollapseFunction
      */
-    public function setNullPolicy($nullPolicy)
-    {
-    }
+    public function setNullPolicy($nullPolicy) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Sets the initial size of the collapse data structures when collapsing on a numeric field only.
@@ -149,28 +138,13 @@ class SolrCollapseFunction
      * @param int $size
      * @return SolrCollapseFunction
      */
-    public function setSize($size)
-    {
-    }
+    public function setSize($size) {}
+
     /**
      * (PECL solr &gt;= 2.2.0)<br/>
      * Returns a string representing the constructed collapse function
      * @link https://php.net/manual/en/solrcollapsefunction.tostring.php
      * @return string
      */
-    public function __toString()
-    {
-    }
+    public function __toString() {}
 }
-/**
- * Helper autocomplete for php solr extension.
- *
- * @author Pierre-Julien Mazenot <pj.mazenot@gmail.com>
- * @link   https://github.com/pjmazenot/phpsolr-phpdoc
- */
-/**
- * (PECL solr &gt;= 2.2.0)<br/>
- * Class SolrCollapseFunction
- * @link https://php.net/manual/en/class.solrcollapsefunction.php
- */
-\class_alias('Phpactor202301\\SolrCollapseFunction', 'SolrCollapseFunction', \false);

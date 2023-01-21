@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\Workspace;
+namespace Phpactor\LanguageServer\Handler\Workspace;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ExecuteCommandOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ExecuteCommandParams;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ServerCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\CommandDispatcher;
+use Phpactor\LanguageServerProtocol\ExecuteCommandOptions;
+use Phpactor\LanguageServerProtocol\ExecuteCommandParams;
+use Phpactor\LanguageServerProtocol\ServerCapabilities;
+use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Command\CommandDispatcher;
 class CommandHandler implements Handler, CanRegisterCapabilities
 {
     /**
@@ -38,4 +38,3 @@ class CommandHandler implements Handler, CanRegisterCapabilities
         $capabilities->executeCommandProvider = new ExecuteCommandOptions($this->dispatcher->registeredCommands());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\Workspace\\CommandHandler', 'Phpactor\\LanguageServer\\Handler\\Workspace\\CommandHandler', \false);

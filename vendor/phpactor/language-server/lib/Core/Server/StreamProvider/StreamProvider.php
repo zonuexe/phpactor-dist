@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider;
+namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
 use Phpactor202301\Amp\Promise;
 interface StreamProvider
@@ -11,4 +11,3 @@ interface StreamProvider
     public function accept() : Promise;
     public function close() : void;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\StreamProvider', 'Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\StreamProvider', \false);

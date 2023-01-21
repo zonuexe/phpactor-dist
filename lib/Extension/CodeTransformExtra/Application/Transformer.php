@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Application;
+namespace Phpactor\Extension\CodeTransformExtra\Application;
 
-use Phpactor202301\Phpactor\CodeTransform\CodeTransform;
-use Phpactor202301\Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\CodeTransform;
+use Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
+use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor202301\Symfony\Component\Filesystem\Path;
 class Transformer
 {
@@ -29,4 +29,3 @@ class Transformer
         return $transformedCode;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Application\\Transformer', 'Phpactor\\Extension\\CodeTransformExtra\\Application\\Transformer', \false);

@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionStub;
+namespace Phpactor\WorseReflection\Core\Inference\FunctionStub;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionStub;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\TypeAssertion;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\TypeCombinator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\BooleanLiteralType;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\FunctionStub;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\TypeAssertion;
+use Phpactor\WorseReflection\Core\Inference\TypeCombinator;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\BooleanLiteralType;
 class IsSomethingStub implements FunctionStub
 {
     public function __construct(private Type $isType)
@@ -31,4 +31,3 @@ class IsSomethingStub implements FunctionStub
         return $context->withType(new BooleanLiteralType($argType instanceof $type));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub\\IsSomethingStub', 'Phpactor\\WorseReflection\\Core\\Inference\\FunctionStub\\IsSomethingStub', \false);

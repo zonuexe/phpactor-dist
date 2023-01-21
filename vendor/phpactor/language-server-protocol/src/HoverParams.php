@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): TextDocumentPositionParams, WorkDoneProgressParams
  */
-class HoverParams extends TextDocumentPositionParams
+class HoverParams extends \Phpactor\LanguageServerProtocol\TextDocumentPositionParams
 {
     /**
      * The text document.
@@ -36,7 +36,7 @@ class HoverParams extends TextDocumentPositionParams
      * @param Position $position
      * @param int|string|null $workDoneToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Position $position, $workDoneToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Position $position, $workDoneToken = null)
     {
         $this->textDocument = $textDocument;
         $this->position = $position;
@@ -48,7 +48,7 @@ class HoverParams extends TextDocumentPositionParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [Position::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'position' => ['names' => [\Phpactor\LanguageServerProtocol\Position::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -98,9 +98,3 @@ class HoverParams extends TextDocumentPositionParams
         throw $lastException;
     }
 }
-/**
- * Parameters for a [HoverRequest](#HoverRequest).
- *
- * Mixins (implemented TS interfaces): TextDocumentPositionParams, WorkDoneProgressParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\HoverParams', 'Phpactor\\LanguageServerProtocol\\HoverParams', \false);

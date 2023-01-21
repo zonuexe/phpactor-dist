@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\ImportClass;
+namespace Phpactor\CodeTransform\Domain\Refactor\ImportClass;
 
-use Phpactor202301\Phpactor\Name\FullyQualifiedName;
+use Phpactor\Name\FullyQualifiedName;
 class NameImport
 {
     private const TYPE_CLASS = 'class';
@@ -39,4 +39,3 @@ class NameImport
         return $this->type;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Domain\\Refactor\\ImportClass\\NameImport', 'Phpactor\\CodeTransform\\Domain\\Refactor\\ImportClass\\NameImport', \false);

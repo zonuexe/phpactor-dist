@@ -1,9 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Builder;
+namespace Phpactor\CodeBuilder\Domain\Builder;
 
-interface NamedBuilder extends Builder
+interface NamedBuilder extends \Phpactor\CodeBuilder\Domain\Builder\Builder
 {
     public function builderName() : string;
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Builder\\NamedBuilder', 'Phpactor\\CodeBuilder\\Domain\\Builder\\NamedBuilder', \false);

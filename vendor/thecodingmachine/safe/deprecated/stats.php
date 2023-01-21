@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\StatsException;
+use Safe\Exceptions\StatsException;
+
 /**
  * Returns the covariance of a and b.
  *
@@ -12,15 +13,17 @@ use Phpactor202301\Safe\Exceptions\StatsException;
  * @throws StatsException
  *
  */
-function stats_covariance(array $a, array $b) : float
+function stats_covariance(array $a, array $b): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stats_covariance($a, $b);
-    if ($result === \false) {
+    if ($result === false) {
         throw StatsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the standard deviation of the values in a.
  *
@@ -32,15 +35,17 @@ function stats_covariance(array $a, array $b) : float
  * @throws StatsException
  *
  */
-function stats_standard_deviation(array $a, bool $sample = \false) : float
+function stats_standard_deviation(array $a, bool $sample = false): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stats_standard_deviation($a, $sample);
-    if ($result === \false) {
+    if ($result === false) {
         throw StatsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the Pearson correlation coefficient between arr1 and arr2.
  *
@@ -50,15 +55,17 @@ function stats_standard_deviation(array $a, bool $sample = \false) : float
  * @throws StatsException
  *
  */
-function stats_stat_correlation(array $arr1, array $arr2) : float
+function stats_stat_correlation(array $arr1, array $arr2): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stats_stat_correlation($arr1, $arr2);
-    if ($result === \false) {
+    if ($result === false) {
         throw StatsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the inner product of arr1 and arr2.
  *
@@ -68,15 +75,17 @@ function stats_stat_correlation(array $arr1, array $arr2) : float
  * @throws StatsException
  *
  */
-function stats_stat_innerproduct(array $arr1, array $arr2) : float
+function stats_stat_innerproduct(array $arr1, array $arr2): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stats_stat_innerproduct($arr1, $arr2);
-    if ($result === \false) {
+    if ($result === false) {
         throw StatsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the variance of the values in a.
  *
@@ -88,11 +97,11 @@ function stats_stat_innerproduct(array $arr1, array $arr2) : float
  * @throws StatsException
  *
  */
-function stats_variance(array $a, bool $sample = \false) : float
+function stats_variance(array $a, bool $sample = false): float
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \stats_variance($a, $sample);
-    if ($result === \false) {
+    if ($result === false) {
         throw StatsException::createFromPhpError();
     }
     return $result;

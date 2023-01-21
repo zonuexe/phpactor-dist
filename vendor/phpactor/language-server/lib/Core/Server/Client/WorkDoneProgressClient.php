@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Client;
+namespace Phpactor\LanguageServer\Core\Server\Client;
 
 use Phpactor202301\Amp\Promise;
 use InvalidArgumentException;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
-use Phpactor202301\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
 final class WorkDoneProgressClient
 {
     /**
@@ -52,4 +52,3 @@ final class WorkDoneProgressClient
         $this->client->notification('$/progress', ['token' => (string) $token, 'value' => $value]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Client\\WorkDoneProgressClient', 'Phpactor\\LanguageServer\\Core\\Server\\Client\\WorkDoneProgressClient', \false);

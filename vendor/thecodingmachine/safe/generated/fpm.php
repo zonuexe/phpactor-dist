@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\FpmException;
+use Safe\Exceptions\FpmException;
+
 /**
  * This function flushes all response data to the client and finishes the
  * request. This allows for time consuming tasks to be performed without
@@ -11,11 +12,11 @@ use Phpactor202301\Safe\Exceptions\FpmException;
  * @throws FpmException
  *
  */
-function fastcgi_finish_request() : void
+function fastcgi_finish_request(): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \fastcgi_finish_request();
-    if ($result === \false) {
+    if ($result === false) {
         throw FpmException::createFromPhpError();
     }
 }

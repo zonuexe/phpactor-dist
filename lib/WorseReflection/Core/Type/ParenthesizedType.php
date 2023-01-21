@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Trinary;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Types;
+use Phpactor\WorseReflection\Core\Trinary;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Types;
 class ParenthesizedType extends Type
 {
     public function __construct(public Type $type)
@@ -43,4 +43,3 @@ class ParenthesizedType extends Type
         return new self($this->type->map($mapper));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ParenthesizedType', 'Phpactor\\WorseReflection\\Core\\Type\\ParenthesizedType', \false);

@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
-use Phpactor202301\Phpactor\WorseReflection\Core\Position;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Position;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionArgument as CoreReflectionArgument;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\AggregateType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionArgument as CoreReflectionArgument;
+use Phpactor\WorseReflection\Core\Type\AggregateType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\TypeUtil;
 use RuntimeException;
 use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
 class ReflectionArgument implements CoreReflectionArgument
@@ -76,4 +76,3 @@ class ReflectionArgument implements CoreReflectionArgument
         throw new RuntimeException('Could not find myself in the list of my parents children');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionArgument', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionArgument', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider;
+namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Stream\ResourceDuplexStream;
+use Phpactor\LanguageServer\Core\Server\Stream\ResourceDuplexStream;
 use Phpactor202301\Psr\Log\LoggerInterface;
-final class ResourceStreamProvider implements StreamProvider
+final class ResourceStreamProvider implements \Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider
 {
     /**
      * @var ResourceDuplexStream
@@ -37,11 +37,10 @@ final class ResourceStreamProvider implements StreamProvider
         }
         $this->provided = \true;
         $this->logger->info('Listening on STDIO');
-        return new Success(new Connection('stdio', $this->duplexStream));
+        return new Success(new \Phpactor\LanguageServer\Core\Server\StreamProvider\Connection('stdio', $this->duplexStream));
     }
     public function close() : void
     {
         $this->duplexStream->close();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\ResourceStreamProvider', 'Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\ResourceStreamProvider', \false);

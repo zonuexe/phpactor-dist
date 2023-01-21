@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\BufferedWatcher;
+namespace Phpactor\AmpFsWatch\Watcher\BufferedWatcher;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\Watcher;
 class BufferedWatcher implements Watcher
 {
     /**
@@ -22,7 +22,7 @@ class BufferedWatcher implements Watcher
     public function watch() : Promise
     {
         return \Phpactor202301\Amp\call(function () {
-            return new BufferedWatcherProcess((yield $this->innerWatcher->watch()), $this->interval);
+            return new \Phpactor\AmpFsWatch\Watcher\BufferedWatcher\BufferedWatcherProcess((yield $this->innerWatcher->watch()), $this->interval);
         });
     }
     /**
@@ -40,4 +40,3 @@ class BufferedWatcher implements Watcher
         return \sprintf('buffered %s', $this->innerWatcher->describe());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\BufferedWatcher\\BufferedWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\BufferedWatcher\\BufferedWatcher', \false);

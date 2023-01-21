@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\Inotify;
+namespace Phpactor\AmpFsWatch\Watcher\Inotify;
 
 use Phpactor202301\Amp\ByteStream\LineReader;
 use Phpactor202301\Amp\Process\Process;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\AmpFsWatch\Exception\WatcherDied;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFile;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileQueue;
-use Phpactor202301\Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
-use Phpactor202301\Phpactor\AmpFsWatch\SystemDetector\OsDetector;
-use Phpactor202301\Phpactor\AmpFsWatch\ModifiedFileBuilder;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherConfig;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\AmpFsWatch\Exception\WatcherDied;
+use Phpactor\AmpFsWatch\ModifiedFile;
+use Phpactor\AmpFsWatch\ModifiedFileQueue;
+use Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
+use Phpactor\AmpFsWatch\SystemDetector\OsDetector;
+use Phpactor\AmpFsWatch\ModifiedFileBuilder;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherConfig;
+use Phpactor\AmpFsWatch\WatcherProcess;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use RuntimeException;
@@ -90,7 +90,7 @@ class InotifyWatcher implements Watcher, WatcherProcess
                 }
                 return null;
             }
-            $event = InotifyEvent::createFromCsv($line);
+            $event = \Phpactor\AmpFsWatch\Watcher\Inotify\InotifyEvent::createFromCsv($line);
             $builder = ModifiedFileBuilder::fromPathSegments($event->watchedFileName(), $event->eventFilename());
             if ($event->hasEventName('ISDIR')) {
                 $builder = $builder->asFolder();
@@ -163,4 +163,3 @@ class InotifyWatcher implements Watcher, WatcherProcess
         return 'inotify';
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\Inotify\\InotifyWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\Inotify\\InotifyWatcher', \false);

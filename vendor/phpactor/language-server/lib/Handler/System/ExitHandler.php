@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Handler\System;
+namespace Phpactor\LanguageServer\Handler\System;
 
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Adapter\Psr\NullEventDispatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
-use Phpactor202301\Phpactor\LanguageServer\Event\WillShutdown;
+use Phpactor\LanguageServer\Adapter\Psr\NullEventDispatcher;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
+use Phpactor\LanguageServer\Event\WillShutdown;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 use function Phpactor202301\Amp\call;
 class ExitHandler implements Handler
@@ -38,4 +38,3 @@ class ExitHandler implements Handler
         throw new ExitSession('Exit method invoked by client');
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Handler\\System\\ExitHandler', 'Phpactor\\LanguageServer\\Handler\\System\\ExitHandler', \false);

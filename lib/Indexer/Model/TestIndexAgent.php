@@ -1,10 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
-use Phpactor202301\Phpactor\Indexer\IndexAgent;
+use Phpactor\Indexer\IndexAgent;
 interface TestIndexAgent extends IndexAgent
 {
-    public function index() : Index;
+    public function index() : \Phpactor\Indexer\Model\Index;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\TestIndexAgent', 'Phpactor\\Indexer\\Model\\TestIndexAgent', \false);

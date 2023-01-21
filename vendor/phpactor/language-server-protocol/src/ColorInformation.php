@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -27,7 +27,7 @@ class ColorInformation
      * @param Range $range
      * @param Color $color
      */
-    public function __construct(Range $range, Color $color)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, \Phpactor\LanguageServerProtocol\Color $color)
     {
         $this->range = $range;
         $this->color = $color;
@@ -38,7 +38,7 @@ class ColorInformation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'color' => ['names' => [Color::class], 'iterable' => \false]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'color' => ['names' => [\Phpactor\LanguageServerProtocol\Color::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -88,7 +88,3 @@ class ColorInformation
         throw $lastException;
     }
 }
-/**
- * Represents a color range from a document.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\ColorInformation', 'Phpactor\\LanguageServerProtocol\\ColorInformation', \false);

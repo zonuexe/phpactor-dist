@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Handler;
+namespace Phpactor\LanguageServer\Core\Handler;
 
 /**
  * Language Server Handler
@@ -43,9 +43,3 @@ interface Handler
      */
     public function methods() : array;
 }
-/**
- * Language Server Handler
- *
- * See documentation for the `methods` method for more details.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Handler\\Handler', 'Phpactor\\LanguageServer\\Core\\Handler\\Handler', \false);

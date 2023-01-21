@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\FilePathResolver;
+namespace Phpactor\FilePathResolver;
 
 use ArrayIterator;
 use IteratorAggregate;
-use Phpactor202301\Phpactor\FilePathResolver\Exception\UnknownToken;
+use Phpactor\FilePathResolver\Exception\UnknownToken;
 use Traversable;
 class Expanders implements IteratorAggregate
 {
@@ -37,9 +37,8 @@ class Expanders implements IteratorAggregate
     {
         return new ArrayIterator($this->expanders);
     }
-    private function add(Expander $expander) : void
+    private function add(\Phpactor\FilePathResolver\Expander $expander) : void
     {
         $this->expanders[$expander->tokenName()] = $expander;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\FilePathResolver\\Expanders', 'Phpactor\\FilePathResolver\\Expanders', \false);

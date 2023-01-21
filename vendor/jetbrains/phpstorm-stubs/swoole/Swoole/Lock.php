@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole;
+declare(strict_types=1);
+
+namespace Swoole;
 
 class Lock
 {
@@ -11,46 +12,38 @@ class Lock
     public const RWLOCK = 1;
     public const SPINLOCK = 5;
     public $errCode = 0;
-    public function __construct(int $type = self::MUTEX, string $filename = '')
-    {
-    }
+
+    public function __construct(int $type = self::MUTEX, string $filename = '') {}
+
     /**
      * @return bool
      */
-    public function lock()
-    {
-    }
+    public function lock() {}
+
     /**
      * @return bool
      */
-    public function lockwait(float $timeout = 1.0)
-    {
-    }
+    public function lockwait(float $timeout = 1.0) {}
+
     /**
      * @return bool
      */
-    public function trylock()
-    {
-    }
+    public function trylock() {}
+
     /**
      * @return bool
      */
-    public function lock_read()
-    {
-    }
+    public function lock_read() {}
+
     /**
      * @return bool
      */
-    public function trylock_read()
-    {
-    }
+    public function trylock_read() {}
+
     /**
      * @return bool
      */
-    public function unlock()
-    {
-    }
-    public function destroy()
-    {
-    }
+    public function unlock() {}
+
+    public function destroy() {}
 }

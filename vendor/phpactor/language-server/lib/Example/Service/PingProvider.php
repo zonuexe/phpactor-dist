@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Example\Service;
+namespace Phpactor\LanguageServer\Example\Service;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\CancelledException;
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceProvider;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Service\ServiceProvider;
 /**
  * Example service which shows a "ping" message every second.
  */
@@ -46,7 +46,3 @@ class PingProvider implements ServiceProvider
         });
     }
 }
-/**
- * Example service which shows a "ping" message every second.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Example\\Service\\PingProvider', 'Phpactor\\LanguageServer\\Example\\Service\\PingProvider', \false);

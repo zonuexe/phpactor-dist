@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Rename\Model;
+namespace Phpactor\Rename\Model;
 
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextDocumentUri;
 class RenameResult
 {
     public function __construct(private TextDocumentUri $oldUri, private TextDocumentUri $newUri)
@@ -17,4 +17,3 @@ class RenameResult
         return $this->newUri;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Rename\\Model\\RenameResult', 'Phpactor\\Rename\\Model\\RenameResult', \false);

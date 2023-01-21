@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder;
+namespace Phpactor\Extension\LanguageServerReferenceFinder;
 
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\Container\Container;
-use Phpactor202301\Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Phpactor\Container\Extension;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler\GotoDefinitionHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler\GotoImplementationHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler\HighlightHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler\ReferencesHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Handler\TypeDefinitionHandler;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlighter;
-use Phpactor202301\Phpactor\Extension\LanguageServerReferenceFinder\Adapter\Indexer\WorkspaceUpdateReferenceFinder;
-use Phpactor202301\Phpactor\Extension\LanguageServer\LanguageServerExtension;
-use Phpactor202301\Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
-use Phpactor202301\Phpactor\Indexer\Model\Indexer;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\Container\Container;
+use Phpactor\Container\ContainerBuilder;
+use Phpactor\Container\Extension;
+use Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
+use Phpactor\Extension\LanguageServerReferenceFinder\Handler\GotoDefinitionHandler;
+use Phpactor\Extension\LanguageServerReferenceFinder\Handler\GotoImplementationHandler;
+use Phpactor\Extension\LanguageServerReferenceFinder\Handler\HighlightHandler;
+use Phpactor\Extension\LanguageServerReferenceFinder\Handler\ReferencesHandler;
+use Phpactor\Extension\LanguageServerReferenceFinder\Handler\TypeDefinitionHandler;
+use Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlighter;
+use Phpactor\Extension\LanguageServerReferenceFinder\Adapter\Indexer\WorkspaceUpdateReferenceFinder;
+use Phpactor\Extension\LanguageServer\LanguageServerExtension;
+use Phpactor\Extension\ReferenceFinder\ReferenceFinderExtension;
+use Phpactor\Indexer\Model\Indexer;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\ReferenceFinder\ReferenceFinder;
 class LanguageServerReferenceFinderExtension implements Extension
 {
     const PARAM_REFERENCE_TIMEOUT = 'language_server_reference_reference_finder.reference_timeout';
@@ -50,4 +50,3 @@ class LanguageServerReferenceFinderExtension implements Extension
         $schema->setDescriptions([self::PARAM_REFERENCE_TIMEOUT => 'Stop searching for references after this time (in seconds) has expired']);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerReferenceFinder\\LanguageServerReferenceFinderExtension', 'Phpactor\\Extension\\LanguageServerReferenceFinder\\LanguageServerReferenceFinderExtension', \false);

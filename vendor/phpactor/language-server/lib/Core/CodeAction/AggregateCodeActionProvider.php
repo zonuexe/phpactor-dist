@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\CodeAction;
+namespace Phpactor\LanguageServer\Core\CodeAction;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServerProtocol\Range;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\Range;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use function Phpactor202301\Amp\call;
 use function Phpactor202301\Amp\delay;
-class AggregateCodeActionProvider implements CodeActionProvider
+class AggregateCodeActionProvider implements \Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider
 {
     /**
      * @var CodeActionProvider[]
      */
     private array $providers;
-    public function __construct(CodeActionProvider ...$providers)
+    public function __construct(\Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider ...$providers)
     {
         $this->providers = $providers;
     }
@@ -38,9 +38,8 @@ class AggregateCodeActionProvider implements CodeActionProvider
      */
     public function kinds() : array
     {
-        return \array_values(\array_reduce($this->providers, function (array $kinds, CodeActionProvider $provider) {
+        return \array_values(\array_reduce($this->providers, function (array $kinds, \Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider $provider) {
             return \array_merge($kinds, (array) \array_combine($provider->kinds(), $provider->kinds()));
         }, []));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\CodeAction\\AggregateCodeActionProvider', 'Phpactor\\LanguageServer\\Core\\CodeAction\\AggregateCodeActionProvider', \false);

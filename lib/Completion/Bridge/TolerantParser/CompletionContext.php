@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\TolerantParser;
+namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
 use Phpactor202301\Microsoft\PhpParser\MissingToken;
@@ -29,8 +29,8 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\WorseReflection\Core\Util\NodeUtil;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class CompletionContext
 {
     public static function expression(?Node $node) : bool
@@ -262,4 +262,3 @@ class CompletionContext
         return $node instanceof InterfaceBaseClause || $node instanceof ClassInterfaceClause || $node instanceof TraitUseClause || $node instanceof ClassBaseClause;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\TolerantParser\\CompletionContext', 'Phpactor\\Completion\\Bridge\\TolerantParser\\CompletionContext', \false);

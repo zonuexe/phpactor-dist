@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Handler;
+namespace Phpactor\LanguageServer\Core\Handler;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 interface MethodRunner
 {
     /**
@@ -16,4 +16,3 @@ interface MethodRunner
      */
     public function cancelRequest($id) : void;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Handler\\MethodRunner', 'Phpactor\\LanguageServer\\Core\\Handler\\MethodRunner', \false);

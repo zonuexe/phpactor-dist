@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response;
 use RuntimeException;
 class OpenFileResponse implements Response
 {
@@ -14,7 +14,7 @@ class OpenFileResponse implements Response
     private function __construct(private string $path, private int $offset = 0, private bool $forceReload = \false, private string $target = self::TARGET_FOCUSED_WINDOW)
     {
     }
-    public static function fromPath(string $path) : OpenFileResponse
+    public static function fromPath(string $path) : \Phpactor\Extension\Rpc\Response\OpenFileResponse
     {
         return new self($path);
     }
@@ -38,13 +38,13 @@ class OpenFileResponse implements Response
     {
         return $this->target;
     }
-    public function withForcedReload(bool $bool) : OpenFileResponse
+    public function withForcedReload(bool $bool) : \Phpactor\Extension\Rpc\Response\OpenFileResponse
     {
         $new = clone $this;
         $new->forceReload = $bool;
         return $new;
     }
-    public function withTarget(string $target) : OpenFileResponse
+    public function withTarget(string $target) : \Phpactor\Extension\Rpc\Response\OpenFileResponse
     {
         if (!\in_array($target, self::VALID_TARGETS)) {
             throw new RuntimeException(\sprintf('Unknown target "%s", known targets "%s"', $target, \implode('", "', self::VALID_TARGETS)));
@@ -54,4 +54,3 @@ class OpenFileResponse implements Response
         return $new;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\OpenFileResponse', 'Phpactor\\Extension\\Rpc\\Response\\OpenFileResponse', \false);

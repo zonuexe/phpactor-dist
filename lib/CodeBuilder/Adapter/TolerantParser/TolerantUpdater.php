@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser;
+namespace Phpactor\CodeBuilder\Adapter\TolerantParser;
 
 use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
@@ -8,19 +8,19 @@ use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InlineHtml;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
 use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\UseStatementUpdater;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\NamespaceName;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\Prototype;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype\SourceCode;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Updater;
-use Phpactor202301\Phpactor\CodeBuilder\Util\TextFormat;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassUpdater;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\UseStatementUpdater;
+use Phpactor\CodeBuilder\Domain\Code;
+use Phpactor\CodeBuilder\Domain\Prototype\NamespaceName;
+use Phpactor\CodeBuilder\Domain\Prototype\Prototype;
+use Phpactor\CodeBuilder\Domain\Prototype\SourceCode;
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\CodeBuilder\Domain\Updater;
+use Phpactor\CodeBuilder\Util\TextFormat;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassUpdater;
 use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\InterfaceUpdater;
-use Phpactor202301\Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\TraitUpdater;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\InterfaceUpdater;
+use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\TraitUpdater;
+use Phpactor\TextDocument\TextEdits;
 class TolerantUpdater implements Updater
 {
     private Parser $parser;
@@ -44,14 +44,14 @@ class TolerantUpdater implements Updater
     }
     public function textEditsFor(Prototype $prototype, Code $code) : TextEdits
     {
-        $edits = new Edits($this->textFormat);
+        $edits = new \Phpactor\CodeBuilder\Adapter\TolerantParser\Edits($this->textFormat);
         $node = $this->parser->parseSourceFile((string) $code);
         $this->updateNamespace($edits, $prototype, $node);
         $this->useStatementUpdater->updateUseStatements($edits, $prototype, $node);
         $this->updateClasses($edits, $prototype, $node);
         return $edits->textEdits();
     }
-    private function updateNamespace(Edits $edits, SourceCode $prototype, SourceFileNode $node) : void
+    private function updateNamespace(\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits $edits, SourceCode $prototype, SourceFileNode $node) : void
     {
         $namespaceNode = $node->getFirstChildNode(NamespaceDefinition::class);
         if (null !== $namespaceNode && NamespaceName::root() == $prototype->namespace()) {
@@ -71,7 +71,7 @@ class TolerantUpdater implements Updater
         $startTag = $node->getFirstChildNode(InlineHtml::class);
         $edits->after($startTag, 'namespace ' . (string) $prototype->namespace() . ';' . \PHP_EOL . \PHP_EOL);
     }
-    private function updateClasses(Edits $edits, SourceCode $prototype, SourceFileNode $node) : void
+    private function updateClasses(\Phpactor\CodeBuilder\Adapter\TolerantParser\Edits $edits, SourceCode $prototype, SourceFileNode $node) : void
     {
         $classNodes = [];
         $traitNodes = [];
@@ -115,4 +115,3 @@ class TolerantUpdater implements Updater
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\TolerantUpdater', 'Phpactor\\CodeBuilder\\Adapter\\TolerantParser\\TolerantUpdater', \false);

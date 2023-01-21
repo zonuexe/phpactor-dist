@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -46,7 +46,7 @@ class PublishDiagnosticsParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['uri' => ['names' => [], 'iterable' => \false], 'version' => ['names' => [], 'iterable' => \false], 'diagnostics' => ['names' => [Diagnostic::class], 'iterable' => \true]];
+        $map = ['uri' => ['names' => [], 'iterable' => \false], 'version' => ['names' => [], 'iterable' => \false], 'diagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\Diagnostic::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -96,7 +96,3 @@ class PublishDiagnosticsParams
         throw $lastException;
     }
 }
-/**
- * The publish diagnostic notification's parameters.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\PublishDiagnosticsParams', 'Phpactor\\LanguageServerProtocol\\PublishDiagnosticsParams', \false);

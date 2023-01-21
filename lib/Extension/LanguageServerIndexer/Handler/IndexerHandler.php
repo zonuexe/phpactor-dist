@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Handler;
+namespace Phpactor\Extension\LanguageServerIndexer\Handler;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\CancelledException;
 use Phpactor202301\Amp\Delayed;
 use Phpactor202301\Amp\Promise;
 use Generator;
-use Phpactor202301\Phpactor\AmpFsWatch\Exception\WatcherDied;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Phpactor\Extension\LanguageServerIndexer\Event\IndexReset;
-use Phpactor202301\Phpactor\Indexer\Model\MemoryUsage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Handler\Handler;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\Indexer\Model\Indexer;
-use Phpactor202301\Phpactor\LanguageServer\Core\Service\ServiceProvider;
-use Phpactor202301\Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
-use Phpactor202301\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\AmpFsWatch\Exception\WatcherDied;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\WatcherProcess;
+use Phpactor\Extension\LanguageServerIndexer\Event\IndexReset;
+use Phpactor\Indexer\Model\MemoryUsage;
+use Phpactor\LanguageServer\Core\Handler\Handler;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\Indexer\Model\Indexer;
+use Phpactor\LanguageServer\Core\Service\ServiceProvider;
+use Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
+use Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use function Phpactor202301\Amp\asyncCall;
@@ -132,4 +132,3 @@ class IndexerHandler implements Handler, ServiceProvider
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerIndexer\\Handler\\IndexerHandler', 'Phpactor\\Extension\\LanguageServerIndexer\\Handler\\IndexerHandler', \false);

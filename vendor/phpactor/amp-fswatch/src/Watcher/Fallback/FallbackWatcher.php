@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\AmpFsWatch\Watcher\Fallback;
+namespace Phpactor\AmpFsWatch\Watcher\Fallback;
 
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Success;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher;
-use Phpactor202301\Phpactor\AmpFsWatch\Watcher\Null\NullWatcher;
+use Phpactor\AmpFsWatch\Watcher;
+use Phpactor\AmpFsWatch\Watcher\Null\NullWatcher;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use function Phpactor202301\Amp\call;
@@ -78,4 +78,3 @@ class FallbackWatcher implements Watcher
         });
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\AmpFsWatch\\Watcher\\Fallback\\FallbackWatcher', 'Phpactor\\AmpFsWatch\\Watcher\\Fallback\\FallbackWatcher', \false);

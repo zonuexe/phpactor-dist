@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -43,7 +43,7 @@ class FileOperationPattern
      * @param FileOperationPatternKind::*|null $matches
      * @param FileOperationPatternOptions|null $options
      */
-    public function __construct(string $glob, $matches = null, ?FileOperationPatternOptions $options = null)
+    public function __construct(string $glob, $matches = null, ?\Phpactor\LanguageServerProtocol\FileOperationPatternOptions $options = null)
     {
         $this->glob = $glob;
         $this->matches = $matches;
@@ -55,7 +55,7 @@ class FileOperationPattern
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['glob' => ['names' => [], 'iterable' => \false], 'matches' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [FileOperationPatternOptions::class], 'iterable' => \false]];
+        $map = ['glob' => ['names' => [], 'iterable' => \false], 'matches' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationPatternOptions::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -105,8 +105,3 @@ class FileOperationPattern
         throw $lastException;
     }
 }
-/**
- * A pattern to describe in which file operation requests or notifications
- * the server is interested in.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\FileOperationPattern', 'Phpactor\\LanguageServerProtocol\\FileOperationPattern', \false);

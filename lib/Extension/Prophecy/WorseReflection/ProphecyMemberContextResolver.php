@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Prophecy\WorseReflection;
+namespace Phpactor\Extension\Prophecy\WorseReflection;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\FunctionArguments;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassStringType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\GenericClassType;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
+use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\ClassStringType;
+use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
+use Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
+use Phpactor\WorseReflection\Reflector;
 class ProphecyMemberContextResolver implements MemberContextResolver
 {
     const PROPHECY_CLASS = 'Phpactor202301\\Prophecy\\Prophecy\\ProphecyInterface';
@@ -59,4 +59,3 @@ class ProphecyMemberContextResolver implements MemberContextResolver
         }));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Prophecy\\WorseReflection\\ProphecyMemberContextResolver', 'Phpactor\\Extension\\Prophecy\\WorseReflection\\ProphecyMemberContextResolver', \false);

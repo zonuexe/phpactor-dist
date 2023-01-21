@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core;
+namespace Phpactor\WorseReflection\Core;
 
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\ByteOffset;
 use InvalidArgumentException;
 final class Offset
 {
@@ -22,7 +22,7 @@ final class Offset
         if ($value instanceof ByteOffset) {
             return self::fromInt($value->toInt());
         }
-        if ($value instanceof Offset) {
+        if ($value instanceof \Phpactor\WorseReflection\Core\Offset) {
             return $value;
         }
         if (\is_int($value)) {
@@ -31,7 +31,7 @@ final class Offset
         /** @phpstan-ignore-next-line */
         throw new InvalidArgumentException(\sprintf('Do not know how to create offset from type "%s"', \is_object($value) ? \get_class($value) : \gettype($value)));
     }
-    public static function fromInt(int $offset) : Offset
+    public static function fromInt(int $offset) : \Phpactor\WorseReflection\Core\Offset
     {
         return new self($offset);
     }
@@ -40,4 +40,3 @@ final class Offset
         return $this->offset;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Offset', 'Phpactor\\WorseReflection\\Core\\Offset', \false);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerBridge\TextDocument;
+namespace Phpactor\Extension\LanguageServerBridge\TextDocument;
 
-use Phpactor202301\Phpactor\TextDocument\Exception\TextDocumentNotFound;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\Exception\TextDocumentNotFound;
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentBuilder;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextDocumentUri;
 class FilesystemWorkspaceLocator implements TextDocumentLocator
 {
     public function get(TextDocumentUri $uri) : TextDocument
@@ -17,4 +17,3 @@ class FilesystemWorkspaceLocator implements TextDocumentLocator
         return TextDocumentBuilder::fromUri($uri->__toString())->build();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerBridge\\TextDocument\\FilesystemWorkspaceLocator', 'Phpactor\\Extension\\LanguageServerBridge\\TextDocument\\FilesystemWorkspaceLocator', \false);

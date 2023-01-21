@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Command;
+namespace Phpactor\LanguageServer\Core\Command;
 
 use Closure;
-class ClosureCommand implements Command
+class ClosureCommand implements \Phpactor\LanguageServer\Core\Command\Command
 {
     /**
      * @var Closure
@@ -23,4 +23,3 @@ class ClosureCommand implements Command
         return $closure(...$args);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Command\\ClosureCommand', 'Phpactor\\LanguageServer\\Core\\Command\\ClosureCommand', \false);

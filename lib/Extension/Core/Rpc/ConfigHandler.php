@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Rpc;
+namespace Phpactor\Extension\Core\Rpc;
 
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\InformationResponse;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Handler;
+use Phpactor\Extension\Rpc\Response\InformationResponse;
 class ConfigHandler implements Handler
 {
     const CONFIG = 'config';
@@ -23,4 +23,3 @@ class ConfigHandler implements Handler
         return InformationResponse::fromString(\json_encode($this->config, \JSON_PRETTY_PRINT));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Rpc\\ConfigHandler', 'Phpactor\\Extension\\Core\\Rpc\\ConfigHandler', \false);

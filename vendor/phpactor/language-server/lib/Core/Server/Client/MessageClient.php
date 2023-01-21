@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Client;
+namespace Phpactor\LanguageServer\Core\Server\Client;
 
-use Phpactor202301\Phpactor\LanguageServerProtocol\MessageType;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServerProtocol\MessageType;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
 final class MessageClient
 {
     /**
@@ -40,4 +40,3 @@ final class MessageClient
         $this->client->notification($this->method, ['type' => $messageType, 'message' => $message]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Client\\MessageClient', 'Phpactor\\LanguageServer\\Core\\Server\\Client\\MessageClient', \false);

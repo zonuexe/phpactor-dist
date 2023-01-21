@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -28,7 +28,7 @@ class DidSaveTextDocumentParams
      * @param VersionedTextDocumentIdentifier $textDocument
      * @param string|null $text
      */
-    public function __construct(VersionedTextDocumentIdentifier $textDocument, ?string $text = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier $textDocument, ?string $text = null)
     {
         $this->textDocument = $textDocument;
         $this->text = $text;
@@ -39,7 +39,7 @@ class DidSaveTextDocumentParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'text' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'text' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -89,7 +89,3 @@ class DidSaveTextDocumentParams
         throw $lastException;
     }
 }
-/**
- * The parameters send in a save text document notification
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\DidSaveTextDocumentParams', 'Phpactor\\LanguageServerProtocol\\DidSaveTextDocumentParams', \false);

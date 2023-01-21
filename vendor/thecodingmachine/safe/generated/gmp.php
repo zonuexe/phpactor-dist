@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\GmpException;
+use Safe\Exceptions\GmpException;
+
 /**
  * Calculates the binomial coefficient C(n, k).
  *
@@ -12,15 +13,17 @@ use Phpactor202301\Safe\Exceptions\GmpException;
  * @throws GmpException
  *
  */
-function gmp_binomial($n, int $k) : \GMP
+function gmp_binomial($n, int $k): \GMP
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \gmp_binomial($n, $k);
-    if ($result === \false) {
+    if ($result === false) {
         throw GmpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Export a GMP number to a binary string
  *
@@ -31,15 +34,17 @@ function gmp_binomial($n, int $k) : \GMP
  * @throws GmpException
  *
  */
-function gmp_export($gmpnumber, int $word_size = 1, int $options = \GMP_MSW_FIRST | \GMP_NATIVE_ENDIAN) : string
+function gmp_export($gmpnumber, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \gmp_export($gmpnumber, $word_size, $options);
-    if ($result === \false) {
+    if ($result === false) {
         throw GmpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Import a GMP number from a binary string
  *
@@ -50,15 +55,17 @@ function gmp_export($gmpnumber, int $word_size = 1, int $options = \GMP_MSW_FIRS
  * @throws GmpException
  *
  */
-function gmp_import(string $data, int $word_size = 1, int $options = \GMP_MSW_FIRST | \GMP_NATIVE_ENDIAN) : \GMP
+function gmp_import(string $data, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): \GMP
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \gmp_import($data, $word_size, $options);
-    if ($result === \false) {
+    if ($result === false) {
         throw GmpException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -70,11 +77,11 @@ function gmp_import(string $data, int $word_size = 1, int $options = \GMP_MSW_FI
  * @throws GmpException
  *
  */
-function gmp_random_seed($seed) : void
+function gmp_random_seed($seed): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \gmp_random_seed($seed);
-    if ($result === \false) {
+    if ($result === false) {
         throw GmpException::createFromPhpError();
     }
 }

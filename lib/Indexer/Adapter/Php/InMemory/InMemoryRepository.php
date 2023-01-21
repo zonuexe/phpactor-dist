@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Php\InMemory;
+namespace Phpactor\Indexer\Adapter\Php\InMemory;
 
-use Phpactor202301\Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FunctionRecord;
+use Phpactor\Indexer\Model\Record\ClassRecord;
+use Phpactor\Indexer\Model\Record\FunctionRecord;
 class InMemoryRepository
 {
     public int $lastUpdate = 0;
@@ -43,4 +43,3 @@ class InMemoryRepository
         return $this->functions[$fqn];
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Php\\InMemory\\InMemoryRepository', 'Phpactor\\Indexer\\Adapter\\Php\\InMemory\\InMemoryRepository', \false);

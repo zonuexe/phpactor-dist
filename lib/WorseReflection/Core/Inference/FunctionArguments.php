@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference;
+namespace Phpactor\WorseReflection\Core\Inference;
 
 use Countable;
 use IteratorAggregate;
@@ -15,26 +15,26 @@ class FunctionArguments implements IteratorAggregate, Countable
     /**
      * @param ArgumentExpression[] $arguments
      */
-    public function __construct(private NodeContextResolver $resolver, private Frame $frame, private array $arguments)
+    public function __construct(private \Phpactor\WorseReflection\Core\Inference\NodeContextResolver $resolver, private \Phpactor\WorseReflection\Core\Inference\Frame $frame, private array $arguments)
     {
     }
     public function __toString() : string
     {
-        return \implode(', ', \array_map(function (NodeContext $type) {
+        return \implode(', ', \array_map(function (\Phpactor\WorseReflection\Core\Inference\NodeContext $type) {
             return $type->type()->__toString();
         }, \iterator_to_array($this->getIterator())));
     }
-    public static function fromList(NodeContextResolver $resolver, Frame $frame, ?ArgumentExpressionList $list) : self
+    public static function fromList(\Phpactor\WorseReflection\Core\Inference\NodeContextResolver $resolver, \Phpactor\WorseReflection\Core\Inference\Frame $frame, ?ArgumentExpressionList $list) : self
     {
         if ($list === null) {
             return new self($resolver, $frame, []);
         }
         return new self($resolver, $frame, \array_values(\array_filter($list->children, fn($nodeOrToken) => $nodeOrToken instanceof ArgumentExpression)));
     }
-    public function at(int $index) : NodeContext
+    public function at(int $index) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         if (!isset($this->arguments[$index])) {
-            return NodeContext::none();
+            return \Phpactor\WorseReflection\Core\Inference\NodeContext::none();
         }
         return $this->resolver->resolveNode($this->frame, $this->arguments[$index]);
     }
@@ -60,7 +60,3 @@ class FunctionArguments implements IteratorAggregate, Countable
         return new self($this->resolver, $this->frame, $newArgs);
     }
 }
-/**
- * @implements IteratorAggregate<NodeContext>
- */
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\FunctionArguments', 'Phpactor\\WorseReflection\\Core\\Inference\\FunctionArguments', \false);

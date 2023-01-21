@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\StringsException;
+use Safe\Exceptions\StringsException;
+
 /**
  * convert_uudecode decodes a uuencoded string.
  *
@@ -11,15 +12,17 @@ use Phpactor202301\Safe\Exceptions\StringsException;
  * @throws StringsException
  *
  */
-function convert_uudecode(string $data) : string
+function convert_uudecode(string $data): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \convert_uudecode($data);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * convert_uuencode encodes a string using the uuencode
  * algorithm.
@@ -33,15 +36,17 @@ function convert_uudecode(string $data) : string
  * @throws StringsException
  *
  */
-function convert_uuencode(string $data) : string
+function convert_uuencode(string $data): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \convert_uuencode($data);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Decodes a hexadecimally encoded binary string.
  *
@@ -50,15 +55,17 @@ function convert_uuencode(string $data) : string
  * @throws StringsException
  *
  */
-function hex2bin(string $data) : string
+function hex2bin(string $data): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \hex2bin($data);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Calculates the MD5 hash of the file specified by the
  * filename parameter using the
@@ -73,15 +80,17 @@ function hex2bin(string $data) : string
  * @throws StringsException
  *
  */
-function md5_file(string $filename, bool $raw_output = \false) : string
+function md5_file(string $filename, bool $raw_output = false): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \md5_file($filename, $raw_output);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Calculates the metaphone key of str.
  *
@@ -103,15 +112,17 @@ function md5_file(string $filename, bool $raw_output = \false) : string
  * @throws StringsException
  *
  */
-function metaphone(string $str, int $phonemes = 0) : string
+function metaphone(string $str, int $phonemes = 0): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \metaphone($str, $phonemes);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  *
  *
@@ -122,15 +133,17 @@ function metaphone(string $str, int $phonemes = 0) : string
  * @throws StringsException
  *
  */
-function sha1_file(string $filename, bool $raw_output = \false) : string
+function sha1_file(string $filename, bool $raw_output = false): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \sha1_file($filename, $raw_output);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Calculates the soundex key of str.
  *
@@ -149,15 +162,17 @@ function sha1_file(string $filename, bool $raw_output = \false) : string
  * @throws StringsException
  *
  */
-function soundex(string $str) : string
+function soundex(string $str): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \soundex($str);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns a string produced according to the formatting string
  * format.
@@ -449,19 +464,21 @@ function soundex(string $str) : string
  * @throws StringsException
  *
  */
-function sprintf(string $format, ...$params) : string
+function sprintf(string $format, ...$params): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($params !== []) {
         $result = \sprintf($format, ...$params);
     } else {
         $result = \sprintf($format);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Returns the portion of string specified by the
  * start and length parameters.
@@ -512,19 +529,21 @@ function sprintf(string $format, ...$params) : string
  * @throws StringsException
  *
  */
-function substr(string $string, int $start, int $length = null) : string
+function substr(string $string, int $start, int $length = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     if ($length !== null) {
         $result = \substr($string, $start, $length);
     } else {
         $result = \substr($string, $start);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Operates as sprintf but accepts an array of
  * arguments, rather than a variable number of arguments.
@@ -816,11 +835,11 @@ function substr(string $string, int $start, int $length = null) : string
  * @throws StringsException
  *
  */
-function vsprintf(string $format, array $args) : string
+function vsprintf(string $format, array $args): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \vsprintf($format, $args);
-    if ($result === \false) {
+    if ($result === false) {
         throw StringsException::createFromPhpError();
     }
     return $result;

@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform;
+namespace Phpactor\CodeTransform;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Transformers;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\CodeTransform\Domain\Transformers;
 class CodeTransform
 {
     private function __construct(private Transformers $transformers)
     {
     }
-    public static function fromTransformers(Transformers $transformers) : CodeTransform
+    public static function fromTransformers(Transformers $transformers) : \Phpactor\CodeTransform\CodeTransform
     {
         return new self($transformers);
     }
@@ -27,4 +27,3 @@ class CodeTransform
         return $transformers->applyTo($code);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\CodeTransform', 'Phpactor\\CodeTransform\\CodeTransform', \false);

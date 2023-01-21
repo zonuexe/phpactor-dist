@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Core\Console\Dumper;
+namespace Phpactor\Extension\Core\Console\Dumper;
 
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Helper\Table;
-final class TableDumper implements Dumper
+final class TableDumper implements \Phpactor\Extension\Core\Console\Dumper\Dumper
 {
     const PADDING = '  ';
     public function dump(OutputInterface $output, array $data) : void
@@ -33,4 +33,3 @@ final class TableDumper implements Dumper
         return \implode("\n", $output);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Core\\Console\\Dumper\\TableDumper', 'Phpactor\\Extension\\Core\\Console\\Dumper\\TableDumper', \false);

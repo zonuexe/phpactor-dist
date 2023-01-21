@@ -1,13 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-class ListType extends ArrayType
+use Phpactor\WorseReflection\Core\Type;
+class ListType extends \Phpactor\WorseReflection\Core\Type\ArrayType
 {
     public function __construct(?Type $valueType = null)
     {
-        parent::__construct(new IntType(), $valueType ?: new MixedType());
+        parent::__construct(new \Phpactor\WorseReflection\Core\Type\IntType(), $valueType ?: new \Phpactor\WorseReflection\Core\Type\MixedType());
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ListType', 'Phpactor\\WorseReflection\\Core\\Type\\ListType', \false);

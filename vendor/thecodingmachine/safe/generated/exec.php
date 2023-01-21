@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ExecException;
+use Safe\Exceptions\ExecException;
+
 /**
  * proc_get_status fetches data about a
  * process opened using proc_open.
@@ -85,15 +86,17 @@ use Phpactor202301\Safe\Exceptions\ExecException;
  * @throws ExecException
  *
  */
-function proc_get_status($process) : array
+function proc_get_status($process): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \proc_get_status($process);
-    if ($result === \false) {
+    if ($result === false) {
         throw ExecException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * proc_nice changes the priority of the current
  * process by the amount specified in increment. A
@@ -114,14 +117,16 @@ function proc_get_status($process) : array
  * @throws ExecException
  *
  */
-function proc_nice(int $increment) : void
+function proc_nice(int $increment): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \proc_nice($increment);
-    if ($result === \false) {
+    if ($result === false) {
         throw ExecException::createFromPhpError();
     }
 }
+
+
 /**
  * system is just like the C version of the
  * function in that it executes the given
@@ -143,11 +148,11 @@ function proc_nice(int $increment) : void
  * @throws ExecException
  *
  */
-function system(string $command, int &$return_var = null) : string
+function system(string $command, int &$return_var = null): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \system($command, $return_var);
-    if ($result === \false) {
+    if ($result === false) {
         throw ExecException::createFromPhpError();
     }
     return $result;

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -38,7 +38,7 @@ class WorkspaceFoldersChangeEvent
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['added' => ['names' => [WorkspaceFolder::class], 'iterable' => \true], 'removed' => ['names' => [WorkspaceFolder::class], 'iterable' => \true]];
+        $map = ['added' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceFolder::class], 'iterable' => \true], 'removed' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceFolder::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -88,7 +88,3 @@ class WorkspaceFoldersChangeEvent
         throw $lastException;
     }
 }
-/**
- * The workspace folder change event.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\WorkspaceFoldersChangeEvent', 'Phpactor\\LanguageServerProtocol\\WorkspaceFoldersChangeEvent', \false);

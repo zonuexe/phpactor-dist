@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Adapter\Worse;
+namespace Phpactor\Indexer\Adapter\Worse;
 
-use Phpactor202301\Phpactor\Indexer\Model\RecordReference;
-use Phpactor202301\Phpactor\Indexer\Model\RecordReferenceEnhancer;
-use Phpactor202301\Phpactor\Indexer\Model\Record\FileRecord;
-use Phpactor202301\Phpactor\Indexer\Model\Record\MemberRecord;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\Indexer\Model\RecordReference;
+use Phpactor\Indexer\Model\RecordReferenceEnhancer;
+use Phpactor\Indexer\Model\Record\FileRecord;
+use Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use Phpactor\WorseReflection\Core\Type\ClassType;
 use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Safe\Exceptions\FilesystemException;
-use function Phpactor202301\Safe\file_get_contents;
+use Safe\Exceptions\FilesystemException;
+use function Safe\file_get_contents;
 class WorseRecordReferenceEnhancer implements RecordReferenceEnhancer
 {
     public function __construct(private SourceCodeReflector $reflector, private LoggerInterface $logger)
@@ -49,4 +49,3 @@ class WorseRecordReferenceEnhancer implements RecordReferenceEnhancer
         return $reference->withContainerType($containerType);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Adapter\\Worse\\WorseRecordReferenceEnhancer', 'Phpactor\\Indexer\\Adapter\\Worse\\WorseRecordReferenceEnhancer', \false);

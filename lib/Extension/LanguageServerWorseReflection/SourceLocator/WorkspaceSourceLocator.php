@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerWorseReflection\SourceLocator;
+namespace Phpactor\Extension\LanguageServerWorseReflection\SourceLocator;
 
-use Phpactor202301\Phpactor\Extension\LanguageServerWorseReflection\Workspace\WorkspaceIndex;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\SourceNotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCodeLocator;
+use Phpactor\Extension\LanguageServerWorseReflection\Workspace\WorkspaceIndex;
+use Phpactor\WorseReflection\Core\Exception\SourceNotFound;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\SourceCodeLocator;
 class WorkspaceSourceLocator implements SourceCodeLocator
 {
     public function __construct(private WorkspaceIndex $index)
@@ -20,4 +20,3 @@ class WorkspaceSourceLocator implements SourceCodeLocator
         return SourceCode::fromUnknown($document);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerWorseReflection\\SourceLocator\\WorkspaceSourceLocator', 'Phpactor\\Extension\\LanguageServerWorseReflection\\SourceLocator\\WorkspaceSourceLocator', \false);

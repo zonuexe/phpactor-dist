@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Behat;
+namespace Phpactor\Extension\Behat\Behat;
 
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Pattern\InvalidPatternException;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Pattern\RegexPatternPolicy;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Pattern\TurnipPatternPolicy;
+use Phpactor\Extension\Behat\Behat\Pattern\InvalidPatternException;
+use Phpactor\Extension\Behat\Behat\Pattern\RegexPatternPolicy;
+use Phpactor\Extension\Behat\Behat\Pattern\TurnipPatternPolicy;
 class Step
 {
-    public function __construct(private Context $context, private string $method, private string $pattern, private string $path, private int $startByteOffset)
+    public function __construct(private \Phpactor\Extension\Behat\Behat\Context $context, private string $method, private string $pattern, private string $path, private int $startByteOffset)
     {
     }
-    public function context() : Context
+    public function context() : \Phpactor\Extension\Behat\Behat\Context
     {
         return $this->context;
     }
@@ -46,4 +46,3 @@ class Step
         return $this->startByteOffset;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Behat\\Step', 'Phpactor\\Extension\\Behat\\Behat\\Step', \false);

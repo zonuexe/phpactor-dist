@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+namespace Phpactor\LanguageServer\Test\LanguageServerTester;
 
-use Phpactor202301\Phpactor\LanguageServer\Test\LanguageServerTester;
+use Phpactor\LanguageServer\Test\LanguageServerTester;
 class ServicesTester
 {
     /**
@@ -36,4 +36,3 @@ class ServicesTester
         $this->tester->notifyAndWait('phpactor/service/start', ['name' => $name]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Test\\LanguageServerTester\\ServicesTester', 'Phpactor\\LanguageServer\\Test\\LanguageServerTester\\ServicesTester', \false);

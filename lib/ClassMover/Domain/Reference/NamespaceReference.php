@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ClassMover\Domain\Reference;
+namespace Phpactor\ClassMover\Domain\Reference;
 
-use Phpactor202301\Phpactor\ClassMover\Domain\Name\Namespace_;
+use Phpactor\ClassMover\Domain\Name\Namespace_;
 final class NamespaceReference
 {
     private $position;
@@ -11,20 +11,20 @@ final class NamespaceReference
     {
         return (string) $this->namespace;
     }
-    public static function fromNameAndPosition(Namespace_ $namespace, Position $position)
+    public static function fromNameAndPosition(Namespace_ $namespace, \Phpactor\ClassMover\Domain\Reference\Position $position)
     {
         $new = new self();
         $new->position = $position;
         $new->namespace = $namespace;
         return $new;
     }
-    public static function forRoot() : NamespaceReference
+    public static function forRoot() : \Phpactor\ClassMover\Domain\Reference\NamespaceReference
     {
         $new = new self();
         $new->namespace = Namespace_::root();
         return $new;
     }
-    public function position() : Position
+    public function position() : \Phpactor\ClassMover\Domain\Reference\Position
     {
         return $this->position;
     }
@@ -33,4 +33,3 @@ final class NamespaceReference
         return $this->namespace;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\ClassMover\\Domain\\Reference\\NamespaceReference', 'Phpactor\\ClassMover\\Domain\\Reference\\NamespaceReference', \false);

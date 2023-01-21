@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor;
+namespace Phpactor;
 
-use Phpactor202301\Phpactor\Extension\Logger\Formatter\PrettyFormatter;
+use Phpactor\Extension\Logger\Formatter\PrettyFormatter;
 use Phpactor202301\Symfony\Component\Console\Application as SymfonyApplication;
 use Phpactor202301\Symfony\Component\Console\Input\InputDefinition;
 use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Phpactor202301\Phpactor\Container\Container;
+use Phpactor\Container\Container;
 use Phpactor202301\Monolog\Handler\StreamHandler;
 use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Phpactor202301\Symfony\Component\Console\Input\InputOption;
 use Phpactor202301\PackageVersions\Versions;
-use Phpactor202301\Phpactor\Extension\Logger\LoggingExtension;
-use Phpactor202301\Phpactor\Extension\Console\ConsoleExtension;
+use Phpactor\Extension\Logger\LoggingExtension;
+use Phpactor\Extension\Console\ConsoleExtension;
 use Exception;
 class Application extends SymfonyApplication
 {
@@ -73,8 +73,7 @@ class Application extends SymfonyApplication
     }
     private function initialize(InputInterface $input, OutputInterface $output) : void
     {
-        $this->container = Phpactor::boot($input, $output, $this->vendorDir);
+        $this->container = \Phpactor\Phpactor::boot($input, $output, $this->vendorDir);
         $this->setCommandLoader($this->container->get(ConsoleExtension::SERVICE_COMMAND_LOADER));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Application', 'Phpactor\\Application', \false);

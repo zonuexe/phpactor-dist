@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
  */
-class CodeActionParams extends WorkDoneProgressParams
+class CodeActionParams extends \Phpactor\LanguageServerProtocol\WorkDoneProgressParams
 {
     /**
      * The document in which the command was invoked.
@@ -51,7 +51,7 @@ class CodeActionParams extends WorkDoneProgressParams
      * @param int|string|null $workDoneToken
      * @param int|string|null $partialResultToken
      */
-    public function __construct(TextDocumentIdentifier $textDocument, Range $range, CodeActionContext $context, $workDoneToken = null, $partialResultToken = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, \Phpactor\LanguageServerProtocol\Range $range, \Phpactor\LanguageServerProtocol\CodeActionContext $context, $workDoneToken = null, $partialResultToken = null)
     {
         $this->textDocument = $textDocument;
         $this->range = $range;
@@ -65,7 +65,7 @@ class CodeActionParams extends WorkDoneProgressParams
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [TextDocumentIdentifier::class], 'iterable' => \false], 'range' => ['names' => [Range::class], 'iterable' => \false], 'context' => ['names' => [CodeActionContext::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'context' => ['names' => [\Phpactor\LanguageServerProtocol\CodeActionContext::class], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'partialResultToken' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -115,9 +115,3 @@ class CodeActionParams extends WorkDoneProgressParams
         throw $lastException;
     }
 }
-/**
- * The parameters of a [CodeActionRequest](#CodeActionRequest).
- *
- * Mixins (implemented TS interfaces): WorkDoneProgressParams, PartialResultParams
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CodeActionParams', 'Phpactor\\LanguageServerProtocol\\CodeActionParams', \false);

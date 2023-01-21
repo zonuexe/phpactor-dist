@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\CodeTransformExtra\Rpc;
+namespace Phpactor\Extension\CodeTransformExtra\Rpc;
 
 use InvalidArgumentException;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Refactor\PropertyAccessGenerator;
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Input\ListInput;
-use Phpactor202301\Phpactor\MapResolver\Resolver;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\Extension\Rpc\Handler\AbstractHandler;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\CodeTransform\Domain\Refactor\PropertyAccessGenerator;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response\Input\ListInput;
+use Phpactor\MapResolver\Resolver;
+use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
+use Phpactor\WorseReflection\Reflector;
 class PropertyAccessGeneratorHandler extends AbstractHandler
 {
     const PARAM_NAMES = 'names';
@@ -88,4 +88,3 @@ class PropertyAccessGeneratorHandler extends AbstractHandler
         return UpdateFileSourceResponse::fromPathOldAndNewSource($arguments[self::PARAM_PATH], $arguments[self::PARAM_SOURCE], (string) $newSource);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\CodeTransformExtra\\Rpc\\PropertyAccessGeneratorHandler', 'Phpactor\\Extension\\CodeTransformExtra\\Rpc\\PropertyAccessGeneratorHandler', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -67,7 +67,7 @@ class Diagnostic
      * @param array<DiagnosticTag::*>|null $tags
      * @param array<DiagnosticRelatedInformation>|null $relatedInformation
      */
-    public function __construct(Range $range, string $message, $severity = null, $code = null, ?string $source = null, ?array $tags = null, ?array $relatedInformation = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\Range $range, string $message, $severity = null, $code = null, ?string $source = null, ?array $tags = null, ?array $relatedInformation = null)
     {
         $this->range = $range;
         $this->severity = $severity;
@@ -83,7 +83,7 @@ class Diagnostic
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['range' => ['names' => [Range::class], 'iterable' => \false], 'severity' => ['names' => [], 'iterable' => \false], 'code' => ['names' => [], 'iterable' => \false], 'source' => ['names' => [], 'iterable' => \false], 'message' => ['names' => [], 'iterable' => \false], 'tags' => ['names' => [], 'iterable' => \true], 'relatedInformation' => ['names' => [DiagnosticRelatedInformation::class], 'iterable' => \true]];
+        $map = ['range' => ['names' => [\Phpactor\LanguageServerProtocol\Range::class], 'iterable' => \false], 'severity' => ['names' => [], 'iterable' => \false], 'code' => ['names' => [], 'iterable' => \false], 'source' => ['names' => [], 'iterable' => \false], 'message' => ['names' => [], 'iterable' => \false], 'tags' => ['names' => [], 'iterable' => \true], 'relatedInformation' => ['names' => [\Phpactor\LanguageServerProtocol\DiagnosticRelatedInformation::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -133,8 +133,3 @@ class Diagnostic
         throw $lastException;
     }
 }
-/**
- * Represents a diagnostic, such as a compiler error or warning. Diagnostic objects
- * are only valid in the scope of a resource.
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\Diagnostic', 'Phpactor\\LanguageServerProtocol\\Diagnostic', \false);

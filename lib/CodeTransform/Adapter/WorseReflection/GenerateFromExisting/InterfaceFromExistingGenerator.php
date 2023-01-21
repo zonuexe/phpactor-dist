@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeTransform\Adapter\WorseReflection\GenerateFromExisting;
+namespace Phpactor\CodeTransform\Adapter\WorseReflection\GenerateFromExisting;
 
-use Phpactor202301\Phpactor\CodeTransform\Domain\GenerateFromExisting;
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Phpactor\WorseReflection\Core\ClassName as ReflectionClassName;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Renderer;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
-use Phpactor202301\Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\CodeTransform\Domain\GenerateFromExisting;
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeTransform\Domain\SourceCode;
+use Phpactor\WorseReflection\Reflector;
+use Phpactor\WorseReflection\Core\ClassName as ReflectionClassName;
+use Phpactor\CodeBuilder\Domain\Renderer;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
+use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
+use Phpactor\WorseReflection\Core\Visibility;
 final class InterfaceFromExistingGenerator implements GenerateFromExisting
 {
     public function __construct(private Reflector $reflector, private Renderer $renderer)
@@ -62,4 +62,3 @@ final class InterfaceFromExistingGenerator implements GenerateFromExisting
         return SourceCode::fromString($this->renderer->render($sourceBuilder->build()));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeTransform\\Adapter\\WorseReflection\\GenerateFromExisting\\InterfaceFromExistingGenerator', 'Phpactor\\CodeTransform\\Adapter\\WorseReflection\\GenerateFromExisting\\InterfaceFromExistingGenerator', \false);

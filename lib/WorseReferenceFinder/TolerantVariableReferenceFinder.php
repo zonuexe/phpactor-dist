@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReferenceFinder;
+namespace Phpactor\WorseReferenceFinder;
 
 use Generator;
 use Phpactor202301\Microsoft\PhpParser\ClassLike;
@@ -18,11 +18,11 @@ use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor202301\Microsoft\PhpParser\Node\UseVariableName;
 use Phpactor202301\Microsoft\PhpParser\Parser;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\ReferenceFinder\PotentialLocation;
-use Phpactor202301\Phpactor\ReferenceFinder\ReferenceFinder;
-use Phpactor202301\Phpactor\TextDocument\ByteOffset;
-use Phpactor202301\Phpactor\TextDocument\Location;
-use Phpactor202301\Phpactor\TextDocument\TextDocument;
+use Phpactor\ReferenceFinder\PotentialLocation;
+use Phpactor\ReferenceFinder\ReferenceFinder;
+use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\Location;
+use Phpactor\TextDocument\TextDocument;
 use function assert;
 use Exception;
 class TolerantVariableReferenceFinder implements ReferenceFinder
@@ -139,4 +139,3 @@ class TolerantVariableReferenceFinder implements ReferenceFinder
         return null;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReferenceFinder\\TolerantVariableReferenceFinder', 'Phpactor\\WorseReferenceFinder\\TolerantVariableReferenceFinder', \false);

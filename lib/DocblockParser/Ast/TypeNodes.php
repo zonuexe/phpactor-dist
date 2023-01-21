@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\DocblockParser\Ast;
+namespace Phpactor\DocblockParser\Ast;
 
 use ArrayIterator;
 use IteratorAggregate;
@@ -15,7 +15,7 @@ class TypeNodes implements IteratorAggregate
      * @var TypeNode[]
      */
     private array $types;
-    public function __construct(TypeNode ...$types)
+    public function __construct(\Phpactor\DocblockParser\Ast\TypeNode ...$types)
     {
         $this->types = $types;
     }
@@ -23,7 +23,7 @@ class TypeNodes implements IteratorAggregate
     {
         return new ArrayIterator($this->types);
     }
-    public function first() : TypeNode
+    public function first() : \Phpactor\DocblockParser\Ast\TypeNode
     {
         foreach ($this->types as $type) {
             return $type;
@@ -31,7 +31,3 @@ class TypeNodes implements IteratorAggregate
         throw new RuntimeException(\sprintf('List has no first element'));
     }
 }
-/**
- * @implements IteratorAggregate<TypeNode>
- */
-\class_alias('Phpactor202301\\Phpactor\\DocblockParser\\Ast\\TypeNodes', 'Phpactor\\DocblockParser\\Ast\\TypeNodes', \false);

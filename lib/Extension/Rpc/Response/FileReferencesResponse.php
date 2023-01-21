@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Rpc\Response;
+namespace Phpactor\Extension\Rpc\Response;
 
-use Phpactor202301\Phpactor\Extension\Rpc\Response;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Reference\FileReferences;
-use Phpactor202301\Phpactor\Extension\Rpc\Response\Reference\Reference;
+use Phpactor\Extension\Rpc\Response;
+use Phpactor\Extension\Rpc\Response\Reference\FileReferences;
+use Phpactor\Extension\Rpc\Response\Reference\Reference;
 class FileReferencesResponse implements Response
 {
     public function __construct(private array $references)
@@ -35,4 +35,3 @@ class FileReferencesResponse implements Response
         return $this->references;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Rpc\\Response\\FileReferencesResponse', 'Phpactor\\Extension\\Rpc\\Response\\FileReferencesResponse', \false);

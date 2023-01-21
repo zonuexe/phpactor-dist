@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ApcException;
+use Safe\Exceptions\ApcException;
+
 /**
  * Retrieves cached information and meta-data from APC's data store.
  *
@@ -23,15 +24,17 @@ use Phpactor202301\Safe\Exceptions\ApcException;
  * @throws ApcException
  *
  */
-function apc_cache_info(string $cache_type = '', bool $limited = \false) : array
+function apc_cache_info(string $cache_type = '', bool $limited = false): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_cache_info($cache_type, $limited);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * apc_cas updates an already existing integer value if the
  * old parameter matches the currently stored value
@@ -43,14 +46,16 @@ function apc_cache_info(string $cache_type = '', bool $limited = \false) : array
  * @throws ApcException
  *
  */
-function apc_cas(string $key, int $old, int $new) : void
+function apc_cas(string $key, int $old, int $new): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_cas($key, $old, $new);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
 }
+
+
 /**
  * Stores a file in the bytecode cache, bypassing all filters.
  *
@@ -61,15 +66,17 @@ function apc_cas(string $key, int $old, int $new) : void
  * @throws ApcException
  *
  */
-function apc_compile_file(string $filename, bool $atomic = \true)
+function apc_compile_file(string $filename, bool $atomic = true)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_compile_file($filename, $atomic);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Decreases a stored integer value.
  *
@@ -81,15 +88,17 @@ function apc_compile_file(string $filename, bool $atomic = \true)
  * @throws ApcException
  *
  */
-function apc_dec(string $key, int $step = 1, ?bool &$success = null) : int
+function apc_dec(string $key, int $step = 1, ?bool &$success = null): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_dec($key, $step, $success);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * define is notoriously slow. Since the main benefit of
  * APC is to increase the performance of scripts/applications, this mechanism
@@ -113,14 +122,16 @@ function apc_dec(string $key, int $step = 1, ?bool &$success = null) : int
  * @throws ApcException
  *
  */
-function apc_define_constants(string $key, array $constants, bool $case_sensitive = \true) : void
+function apc_define_constants(string $key, array $constants, bool $case_sensitive = true): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_define_constants($key, $constants, $case_sensitive);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
 }
+
+
 /**
  * Deletes the given files from the opcode cache.
  *
@@ -136,13 +147,15 @@ function apc_define_constants(string $key, array $constants, bool $case_sensitiv
  */
 function apc_delete_file($keys)
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_delete_file($keys);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Removes a stored variable from the cache.
  *
@@ -151,14 +164,16 @@ function apc_delete_file($keys)
  * @throws ApcException
  *
  */
-function apc_delete($key) : void
+function apc_delete($key): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_delete($key);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
 }
+
+
 /**
  * Increases a stored number.
  *
@@ -170,15 +185,17 @@ function apc_delete($key) : void
  * @throws ApcException
  *
  */
-function apc_inc(string $key, int $step = 1, ?bool &$success = null) : int
+function apc_inc(string $key, int $step = 1, ?bool &$success = null): int
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_inc($key, $step, $success);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;
 }
+
+
 /**
  * Loads a set of constants from the cache.
  *
@@ -191,14 +208,16 @@ function apc_inc(string $key, int $step = 1, ?bool &$success = null) : int
  * @throws ApcException
  *
  */
-function apc_load_constants(string $key, bool $case_sensitive = \true) : void
+function apc_load_constants(string $key, bool $case_sensitive = true): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_load_constants($key, $case_sensitive);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
 }
+
+
 /**
  * Retrieves APC's Shared Memory Allocation information.
  *
@@ -208,11 +227,11 @@ function apc_load_constants(string $key, bool $case_sensitive = \true) : void
  * @throws ApcException
  *
  */
-function apc_sma_info(bool $limited = \false) : array
+function apc_sma_info(bool $limited = false): array
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \apc_sma_info($limited);
-    if ($result === \false) {
+    if ($result === false) {
         throw ApcException::createFromPhpError();
     }
     return $result;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Diagnostics;
+namespace Phpactor\LanguageServer\Core\Diagnostics;
 
 use Phpactor202301\Amp\CancellationToken;
 use Phpactor202301\Amp\Promise;
 use Closure;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-class ClosureDiagnosticsProvider implements DiagnosticsProvider
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+class ClosureDiagnosticsProvider implements \Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider
 {
     /**
      * @var Closure
@@ -28,4 +28,3 @@ class ClosureDiagnosticsProvider implements DiagnosticsProvider
         return $this->name;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Diagnostics\\ClosureDiagnosticsProvider', 'Phpactor\\LanguageServer\\Core\\Diagnostics\\ClosureDiagnosticsProvider', \false);

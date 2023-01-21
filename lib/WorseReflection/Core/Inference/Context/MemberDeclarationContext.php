@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Inference\Context;
+namespace Phpactor\WorseReflection\Core\Inference\Context;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Symbol;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Inference\NodeContext;
+use Phpactor\WorseReflection\Core\Inference\Symbol;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\Type\ClassType;
 use RuntimeException;
 class MemberDeclarationContext extends NodeContext
 {
@@ -25,4 +25,3 @@ class MemberDeclarationContext extends NodeContext
         return $this->symbol->name();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Inference\\Context\\MemberDeclarationContext', 'Phpactor\\WorseReflection\\Core\\Inference\\Context\\MemberDeclarationContext', \false);

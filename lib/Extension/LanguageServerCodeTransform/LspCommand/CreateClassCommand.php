@@ -1,25 +1,25 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
+namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FilePath;
-use Phpactor202301\Phpactor\ClassFileConverter\Domain\FileToClass;
-use Phpactor202301\Phpactor\CodeTransform\Domain\ClassName;
-use Phpactor202301\Phpactor\CodeTransform\Domain\GenerateNew;
-use Phpactor202301\Phpactor\CodeTransform\Domain\Generators;
-use Phpactor202301\Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
-use Phpactor202301\Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CreateFile;
-use Phpactor202301\Phpactor\LanguageServerProtocol\CreateFileOptions;
-use Phpactor202301\Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Phpactor\LanguageServerProtocol\WorkspaceEdit;
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\Command;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Phpactor\LanguageServer\Core\Workspace\Workspace;
-use Phpactor202301\Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Phpactor\TextDocument\TextEdit;
-use Phpactor202301\Phpactor\TextDocument\TextEdits;
+use Phpactor\ClassFileConverter\Domain\FilePath;
+use Phpactor\ClassFileConverter\Domain\FileToClass;
+use Phpactor\CodeTransform\Domain\ClassName;
+use Phpactor\CodeTransform\Domain\GenerateNew;
+use Phpactor\CodeTransform\Domain\Generators;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
+use Phpactor\LanguageServerProtocol\ApplyWorkspaceEditResponse;
+use Phpactor\LanguageServerProtocol\CreateFile;
+use Phpactor\LanguageServerProtocol\CreateFileOptions;
+use Phpactor\LanguageServerProtocol\TextDocumentItem;
+use Phpactor\LanguageServerProtocol\WorkspaceEdit;
+use Phpactor\LanguageServer\Core\Command\Command;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\TextDocument\TextDocumentUri;
+use Phpactor\TextDocument\TextEdit;
+use Phpactor\TextDocument\TextEdits;
 class CreateClassCommand implements Command
 {
     public const NAME = 'create_class';
@@ -50,4 +50,3 @@ class CreateClassCommand implements Command
         return $this->clientApi->workspace()->applyEdit(new WorkspaceEdit([$uri => TextEditConverter::toLspTextEdits($textEdits, $textDocument->text)]), $message);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\CreateClassCommand', 'Phpactor\\Extension\\LanguageServerCodeTransform\\LspCommand\\CreateClassCommand', \false);

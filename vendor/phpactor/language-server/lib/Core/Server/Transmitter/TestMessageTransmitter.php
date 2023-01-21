@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter;
+namespace Phpactor\LanguageServer\Core\Server\Transmitter;
 
 use Countable;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\RequestMessage;
+use Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
+use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use RuntimeException;
-final class TestMessageTransmitter implements MessageTransmitter, TestMessageTransmitterStack, Countable
+final class TestMessageTransmitter implements \Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter, \Phpactor\LanguageServer\Core\Server\Transmitter\TestMessageTransmitterStack, Countable
 {
     /**
      * @var Message[]
@@ -68,4 +68,3 @@ final class TestMessageTransmitter implements MessageTransmitter, TestMessageTra
         return \count($this->buffer);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\TestMessageTransmitter', 'Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\TestMessageTransmitter', \false);

@@ -1,8 +1,9 @@
 <?php
 
-namespace Phpactor202301\Safe;
+namespace Safe;
 
-use Phpactor202301\Safe\Exceptions\ZipException;
+use Safe\Exceptions\ZipException;
+
 /**
  * Closes the specified directory entry.
  *
@@ -10,14 +11,16 @@ use Phpactor202301\Safe\Exceptions\ZipException;
  * @throws ZipException
  *
  */
-function zip_entry_close($zip_entry) : void
+function zip_entry_close($zip_entry): void
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \zip_entry_close($zip_entry);
-    if ($result === \false) {
+    if ($result === false) {
         throw ZipException::createFromPhpError();
     }
 }
+
+
 /**
  * Opens a directory entry in a zip file for reading.
  *
@@ -32,18 +35,20 @@ function zip_entry_close($zip_entry) : void
  * @throws ZipException
  *
  */
-function zip_entry_open($zip, $zip_entry, string $mode = null) : void
+function zip_entry_open($zip, $zip_entry, string $mode = null): void
 {
-    \error_clear_last();
+    error_clear_last();
     if ($mode !== null) {
         $result = \zip_entry_open($zip, $zip_entry, $mode);
     } else {
         $result = \zip_entry_open($zip, $zip_entry);
     }
-    if ($result === \false) {
+    if ($result === false) {
         throw ZipException::createFromPhpError();
     }
 }
+
+
 /**
  * Reads from an open directory entry.
  *
@@ -55,11 +60,11 @@ function zip_entry_open($zip, $zip_entry, string $mode = null) : void
  * @throws ZipException
  *
  */
-function zip_entry_read($zip_entry, int $length = 1024) : string
+function zip_entry_read($zip_entry, int $length = 1024): string
 {
-    \error_clear_last();
+    error_clear_last();
     $result = \zip_entry_read($zip_entry, $length);
-    if ($result === \false) {
+    if ($result === false) {
         throw ZipException::createFromPhpError();
     }
     return $result;

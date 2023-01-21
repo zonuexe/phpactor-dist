@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Handler;
+namespace Phpactor\LanguageServer\Core\Handler;
 
 use ArrayIterator;
 use Countable;
@@ -14,20 +14,20 @@ final class Handlers implements Countable, IteratorAggregate
      * @var array
      */
     private $methods = [];
-    public function __construct(Handler ...$handlers)
+    public function __construct(\Phpactor\LanguageServer\Core\Handler\Handler ...$handlers)
     {
         foreach ($handlers as $handler) {
             $this->add($handler);
         }
     }
-    public function get(string $handler) : Handler
+    public function get(string $handler) : \Phpactor\LanguageServer\Core\Handler\Handler
     {
         if (!isset($this->methods[$handler])) {
-            throw new HandlerNotFound(\sprintf('Handler "%s" not found, available handlers: "%s"', $handler, \implode('", "', \array_keys($this->methods))));
+            throw new \Phpactor\LanguageServer\Core\Handler\HandlerNotFound(\sprintf('Handler "%s" not found, available handlers: "%s"', $handler, \implode('", "', \array_keys($this->methods))));
         }
         return $this->methods[$handler];
     }
-    public function add(Handler $handler) : void
+    public function add(\Phpactor\LanguageServer\Core\Handler\Handler $handler) : void
     {
         foreach (\array_keys($handler->methods()) as $languageServerMethod) {
             $this->methods[$languageServerMethod] = $handler;
@@ -40,7 +40,7 @@ final class Handlers implements Countable, IteratorAggregate
     {
         return new ArrayIterator($this->methods);
     }
-    public function merge(Handlers $handlers) : void
+    public function merge(\Phpactor\LanguageServer\Core\Handler\Handlers $handlers) : void
     {
         foreach ($handlers->methods as $handler) {
             $this->add($handler);
@@ -58,7 +58,3 @@ final class Handlers implements Countable, IteratorAggregate
         return \count($this->methods);
     }
 }
-/**
- * @implements IteratorAggregate<Handler>
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Handler\\Handlers', 'Phpactor\\LanguageServer\\Core\\Handler\\Handlers', \false);

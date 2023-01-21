@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -50,7 +50,7 @@ class TextDocumentSyncOptions
      * @param bool|null $willSaveWaitUntil
      * @param SaveOptions|null $save
      */
-    public function __construct(?bool $openClose = null, $change = null, ?bool $willSave = null, ?bool $willSaveWaitUntil = null, ?SaveOptions $save = null)
+    public function __construct(?bool $openClose = null, $change = null, ?bool $willSave = null, ?bool $willSaveWaitUntil = null, ?\Phpactor\LanguageServerProtocol\SaveOptions $save = null)
     {
         $this->openClose = $openClose;
         $this->change = $change;
@@ -64,7 +64,7 @@ class TextDocumentSyncOptions
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['openClose' => ['names' => [], 'iterable' => \false], 'change' => ['names' => [], 'iterable' => \false], 'willSave' => ['names' => [], 'iterable' => \false], 'willSaveWaitUntil' => ['names' => [], 'iterable' => \false], 'save' => ['names' => [SaveOptions::class], 'iterable' => \false]];
+        $map = ['openClose' => ['names' => [], 'iterable' => \false], 'change' => ['names' => [], 'iterable' => \false], 'willSave' => ['names' => [], 'iterable' => \false], 'willSaveWaitUntil' => ['names' => [], 'iterable' => \false], 'save' => ['names' => [\Phpactor\LanguageServerProtocol\SaveOptions::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -114,4 +114,3 @@ class TextDocumentSyncOptions
         throw $lastException;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\TextDocumentSyncOptions', 'Phpactor\\LanguageServerProtocol\\TextDocumentSyncOptions', \false);

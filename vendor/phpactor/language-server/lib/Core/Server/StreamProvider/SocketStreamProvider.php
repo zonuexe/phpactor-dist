@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\StreamProvider;
+namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
 use Phpactor202301\Amp\Deferred;
 use Phpactor202301\Amp\Promise;
 use Phpactor202301\Amp\Socket\Server;
 use Phpactor202301\Amp\Socket\Socket;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Stream\SocketDuplexStream;
+use Phpactor\LanguageServer\Core\Server\Stream\SocketDuplexStream;
 use Phpactor202301\Psr\Log\LoggerInterface;
-final class SocketStreamProvider implements StreamProvider
+final class SocketStreamProvider implements \Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider
 {
     /**
      * @var Server
@@ -32,7 +32,7 @@ final class SocketStreamProvider implements StreamProvider
                 return;
             }
             $this->logger->info(\sprintf('Accepted connection from "%s"', $socket->getRemoteAddress()));
-            $deferred->resolve(new Connection($socket->getRemoteAddress(), new SocketDuplexStream($socket)));
+            $deferred->resolve(new \Phpactor\LanguageServer\Core\Server\StreamProvider\Connection($socket->getRemoteAddress(), new SocketDuplexStream($socket)));
         });
         return $deferred->promise();
     }
@@ -45,4 +45,3 @@ final class SocketStreamProvider implements StreamProvider
         $this->server->close();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\SocketStreamProvider', 'Phpactor\\LanguageServer\\Core\\Server\\StreamProvider\\SocketStreamProvider', \false);

@@ -1,24 +1,24 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor202301\Microsoft\PhpParser\Node;
 use Phpactor202301\Microsoft\PhpParser\Node\EnumCaseDeclaration;
 use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Phpactor\TextDocument\ByteOffsetRange;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase as CoreReflectionEnumCase;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Inference\Frame;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnumCase as CoreReflectionEnumCase;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\Core\Type\MissingType;
 use RuntimeException;
-class ReflectionEnumCase extends AbstractReflectionClassMember implements CoreReflectionEnumCase
+class ReflectionEnumCase extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClassMember implements CoreReflectionEnumCase
 {
-    public function __construct(private ServiceLocator $serviceLocator, private ReflectionEnum $enum, private EnumCaseDeclaration $node)
+    public function __construct(private ServiceLocator $serviceLocator, private \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum $enum, private EnumCaseDeclaration $node)
     {
     }
     public function name() : string
@@ -76,7 +76,7 @@ class ReflectionEnumCase extends AbstractReflectionClassMember implements CoreRe
     }
     public function withClass(ReflectionClassLike $class) : ReflectionMember
     {
-        if (!$class instanceof ReflectionEnum) {
+        if (!$class instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum) {
             throw new RuntimeException('Cannot make case member part of a non-enum reflection');
         }
         return new self($this->serviceLocator, $class, $this->node);
@@ -94,4 +94,3 @@ class ReflectionEnumCase extends AbstractReflectionClassMember implements CoreRe
         return $this->serviceLocator;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionEnumCase', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\ReflectionEnumCase', \false);

@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\Phpactor\MemberProvider;
+namespace Phpactor\WorseReflection\Bridge\Phpactor\MemberProvider;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ChainReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
-use Phpactor202301\Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ChainReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
+use Phpactor\WorseReflection\Core\ServiceLocator;
+use Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 class DocblockMemberProvider implements ReflectionMemberProvider
 {
     /**
@@ -18,4 +18,3 @@ class DocblockMemberProvider implements ReflectionMemberProvider
         return ChainReflectionMemberCollection::fromCollections([$class->docblock()->methods($class), $class->docblock()->properties($class)]);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\Phpactor\\MemberProvider\\DocblockMemberProvider', 'Phpactor\\WorseReflection\\Bridge\\Phpactor\\MemberProvider\\DocblockMemberProvider', \false);

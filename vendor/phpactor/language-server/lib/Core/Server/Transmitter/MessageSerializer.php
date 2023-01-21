@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter;
+namespace Phpactor\LanguageServer\Core\Server\Transmitter;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Rpc\Message;
+use Phpactor\LanguageServer\Core\Rpc\Message;
 interface MessageSerializer
 {
     public function serialize(Message $message) : string;
@@ -16,4 +16,3 @@ interface MessageSerializer
      */
     public function normalize($message);
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\MessageSerializer', 'Phpactor\\LanguageServer\\Core\\Server\\Transmitter\\MessageSerializer', \false);

@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 interface WatchKind
 {
@@ -9,4 +9,3 @@ interface WatchKind
     public const CHANGE = 2;
     public const DELETE = 4;
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\WatchKind', 'Phpactor\\LanguageServerProtocol\\WatchKind', \false);

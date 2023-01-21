@@ -1,17 +1,16 @@
 <?php
 
-namespace Phpactor202301\Phpactor\CodeBuilder\Domain\Prototype;
+namespace Phpactor\CodeBuilder\Domain\Prototype;
 
 class Prototype
 {
     protected $updatePolicy;
-    public function __construct(UpdatePolicy $updatePolicy = null)
+    public function __construct(\Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy $updatePolicy = null)
     {
-        $this->updatePolicy = $updatePolicy ?: UpdatePolicy::update();
+        $this->updatePolicy = $updatePolicy ?: \Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy::update();
     }
     public function applyUpdate() : bool
     {
         return $this->updatePolicy->applyUpdate();
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\CodeBuilder\\Domain\\Prototype\\Prototype', 'Phpactor\\CodeBuilder\\Domain\\Prototype\\Prototype', \false);

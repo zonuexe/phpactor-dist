@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
+namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Visibility;
+use Phpactor\WorseReflection\Core\Visibility;
 class TraitAlias
 {
     public function __construct(private string $originalName, private ?Visibility $visiblity, private string $newName)
@@ -21,4 +21,3 @@ class TraitAlias
         return $this->newName;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitAlias', 'Phpactor\\WorseReflection\\Bridge\\TolerantParser\\Reflection\\TraitImport\\TraitAlias', \false);

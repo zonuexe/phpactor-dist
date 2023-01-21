@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Example\Command;
+namespace Phpactor\LanguageServer\Example\Command;
 
-use Phpactor202301\Phpactor\LanguageServer\Core\Command\Command;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ClientApi;
+use Phpactor\LanguageServer\Core\Command\Command;
+use Phpactor\LanguageServer\Core\Server\ClientApi;
 class SayHelloCommand implements Command
 {
     /**
@@ -19,4 +19,3 @@ class SayHelloCommand implements Command
         $this->api->window()->showMessage()->info(\sprintf('Hello %s!', $name));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Example\\Command\\SayHelloCommand', 'Phpactor\\LanguageServer\\Example\\Command\\SayHelloCommand', \false);

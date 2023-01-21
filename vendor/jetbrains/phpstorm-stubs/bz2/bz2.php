@@ -1,11 +1,10 @@
 <?php
 
-namespace Phpactor202301;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+use JetBrains\PhpStorm\Pure;
 
-use Phpactor202301\JetBrains\PhpStorm\ArrayShape;
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-use Phpactor202301\JetBrains\PhpStorm\Pure;
 /**
  * Opens a bzip2 compressed file
  * @link https://php.net/manual/en/function.bzopen.php
@@ -21,9 +20,8 @@ use Phpactor202301\JetBrains\PhpStorm\Pure;
  * it returns a pointer to the newly opened file.
  */
 #[Pure]
-function bzopen($file, string $mode)
-{
-}
+function bzopen($file, string $mode) {}
+
 /**
  * Binary safe bzip2 file read
  * @link https://php.net/manual/en/function.bzread.php
@@ -38,9 +36,8 @@ function bzopen($file, string $mode)
  * </p>
  * @return string|false the uncompressed data, or <b>FALSE</b> on error.
  */
-function bzread($bz, int $length = 1024) : string|false
-{
-}
+function bzread($bz, int $length = 1024): string|false {}
+
 /**
  * Binary safe bzip2 file write
  * @link https://php.net/manual/en/function.bzwrite.php
@@ -58,9 +55,8 @@ function bzread($bz, int $length = 1024) : string|false
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
-function bzwrite($bz, string $data, ?int $length) : int|false
-{
-}
+function bzwrite($bz, string $data, ?int $length): int|false {}
+
 /**
  * Force a write of all buffered data
  * @link https://php.net/manual/en/function.bzflush.php
@@ -70,9 +66,8 @@ function bzwrite($bz, string $data, ?int $length) : int|false
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function bzflush($bz) : bool
-{
-}
+function bzflush($bz): bool {}
+
 /**
  * Close a bzip2 file
  * @link https://php.net/manual/en/function.bzclose.php
@@ -82,9 +77,8 @@ function bzflush($bz) : bool
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function bzclose($bz) : bool
-{
-}
+function bzclose($bz): bool {}
+
 /**
  * Returns a bzip2 error number
  * @link https://php.net/manual/en/function.bzerrno.php
@@ -96,9 +90,8 @@ function bzclose($bz) : bool
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.1' => 'int', '8.0' => 'int|false'], default: 'int')]
-function bzerrno($bz)
-{
-}
+function bzerrno($bz) {}
+
 /**
  * Returns a bzip2 error string
  * @link https://php.net/manual/en/function.bzerrstr.php
@@ -110,9 +103,8 @@ function bzerrno($bz)
  */
 #[Pure]
 #[LanguageLevelTypeAware(['8.1' => 'string', '8.0' => 'string|false'], default: 'string')]
-function bzerrstr($bz)
-{
-}
+function bzerrstr($bz) {}
+
 /**
  * Returns the bzip2 error number and error string in an array
  * @link https://php.net/manual/en/function.bzerror.php
@@ -127,9 +119,8 @@ function bzerrstr($bz)
 #[Pure]
 #[LanguageLevelTypeAware(['8.1' => 'array', '8.0' => 'array|false'], default: 'array')]
 #[ArrayShape(["errno" => "int", "errstr" => "string"])]
-function bzerror($bz)
-{
-}
+function bzerror($bz) {}
+
 /**
  * Compress a string into bzip2 encoded data
  * @link https://php.net/manual/en/function.bzcompress.php
@@ -153,9 +144,13 @@ function bzerror($bz)
  * @return string|int The compressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzcompress(string $data, #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $blocksize, #[PhpStormStubsElementAvailable(from: '7.1')] int $block_size = 4, int $work_factor = 0) : string|int
-{
-}
+function bzcompress(
+    string $data,
+    #[PhpStormStubsElementAvailable(from: '5.3', to: '7.0')] int $blocksize,
+    #[PhpStormStubsElementAvailable(from: '7.1')] int $block_size = 4,
+    int $work_factor = 0
+): string|int {}
+
 /**
  * Decompresses bzip2 encoded data
  * @link https://php.net/manual/en/function.bzdecompress.php
@@ -174,6 +169,4 @@ function bzcompress(string $data, #[PhpStormStubsElementAvailable(from: '5.3', t
  * @return string|int|false The decompressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzdecompress(string $data, bool $use_less_memory = \false) : string|int|false
-{
-}
+function bzdecompress(string $data, bool $use_less_memory = false): string|int|false {}

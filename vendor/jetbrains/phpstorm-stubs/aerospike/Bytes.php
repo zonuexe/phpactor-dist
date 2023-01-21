@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright 2013-2016 Aerospike, Inc.
  *
@@ -22,7 +21,8 @@
  * @link       https://github.com/aerospike/aerospike-client-php/blob/master/doc/README.md#handling-unsupported-types
  * @filesource
  */
-namespace Phpactor202301\Aerospike;
+
+namespace Aerospike;
 
 /**
  * \Aerospike\Bytes is a utility for wrapping PHP strings containing
@@ -44,52 +44,52 @@ class Bytes implements \Serializable
      * @var string
      */
     public $s;
+
     /**
      * Constructor for \Aerospike\Bytes class.
      *
      * @param string $bin_str a PHP binary-string such as gzdeflate() produces.
      */
-    public function __construct($bin_str)
-    {
+    public function __construct($bin_str) {
         $this->s = $bin_str;
     }
+
     /**
      * Returns a serialized representation of the binary-string.
      * Called by serialize()
      *
      * @return string
      */
-    public function serialize()
-    {
+    public function serialize() {
         return $this->s;
     }
+
     /**
      * Re-wraps the binary-string when called by unserialize().
      *
      * @param string $bin_str a PHP binary-string. Called by unserialize().
      * @return string
      */
-    public function unserialize($bin_str)
-    {
+    public function unserialize($bin_str) {
         return $this->s = $bin_str;
     }
+
     /**
      * Returns the binary-string held in the \Aerospike\Bytes object.
      *
      * @return string
      */
-    public function __toString()
-    {
+    public function __toString() {
         return $this->s;
     }
+
     /**
      * Unwraps an \Aerospike\Bytes object, returning the binary-string inside.
      *
      * @param \Aerospike\Bytes $bytes_wrap
      * @return string
      */
-    public static function unwrap(Bytes $bytes_wrap)
-    {
+    public static function unwrap(Bytes $bytes_wrap) {
         return $bytes_wrap->s;
     }
 }

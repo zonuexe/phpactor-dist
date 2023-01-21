@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Type;
+namespace Phpactor\WorseReflection\Core\Type;
 
 use Closure;
-use Phpactor202301\Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Phpactor\WorseReflection\TypeUtil;
-class ArrayShapeType extends ArrayType implements Generalizable, ArrayAccessType
+use Phpactor\WorseReflection\Core\Type;
+use Phpactor\WorseReflection\Core\TypeFactory;
+use Phpactor\WorseReflection\TypeUtil;
+class ArrayShapeType extends \Phpactor\WorseReflection\Core\Type\ArrayType implements \Phpactor\WorseReflection\Core\Type\Generalizable, \Phpactor\WorseReflection\Core\Type\ArrayAccessType
 {
     /**
      * @param array<array-key,Type> $typeMap
@@ -39,7 +39,7 @@ class ArrayShapeType extends ArrayType implements Generalizable, ArrayAccessType
         if (isset($this->typeMap[$offset])) {
             return $this->typeMap[$offset];
         }
-        return new MissingType();
+        return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
     public function map(Closure $mapper) : Type
     {
@@ -49,4 +49,3 @@ class ArrayShapeType extends ArrayType implements Generalizable, ArrayAccessType
         }, $this->typeMap));
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Type\\ArrayShapeType', 'Phpactor\\WorseReflection\\Core\\Type\\ArrayShapeType', \false);

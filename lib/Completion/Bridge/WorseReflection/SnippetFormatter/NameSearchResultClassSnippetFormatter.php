@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Bridge\WorseReflection\SnippetFormatter;
+namespace Phpactor\Completion\Bridge\WorseReflection\SnippetFormatter;
 
-use Phpactor202301\Phpactor\Completion\Core\Formatter\Formatter;
-use Phpactor202301\Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Phpactor\ReferenceFinder\Search\NameSearchResult;
-use Phpactor202301\Phpactor\WorseReflection\Reflector;
+use Phpactor\Completion\Core\Formatter\Formatter;
+use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\ReferenceFinder\Search\NameSearchResult;
+use Phpactor\WorseReflection\Reflector;
 class NameSearchResultClassSnippetFormatter implements Formatter
 {
     public function __construct(private Reflector $reflector)
@@ -32,4 +32,3 @@ class NameSearchResultClassSnippetFormatter implements Formatter
         return $shortName . $formatter->format($parameters);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Bridge\\WorseReflection\\SnippetFormatter\\NameSearchResultClassSnippetFormatter', 'Phpactor\\Completion\\Bridge\\WorseReflection\\SnippetFormatter\\NameSearchResultClassSnippetFormatter', \false);

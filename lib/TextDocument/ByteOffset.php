@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\TextDocument;
+namespace Phpactor\TextDocument;
 
-use Phpactor202301\Phpactor\TextDocument\Exception\InvalidByteOffset;
+use Phpactor\TextDocument\Exception\InvalidByteOffset;
 class ByteOffset
 {
     private int $offset;
@@ -22,7 +22,7 @@ class ByteOffset
      */
     public static function fromIntOrByteOffset($offset) : self
     {
-        if ($offset instanceof ByteOffset) {
+        if ($offset instanceof \Phpactor\TextDocument\ByteOffset) {
             return $offset;
         }
         return self::fromInt($offset);
@@ -36,4 +36,3 @@ class ByteOffset
         return new self($this->offset + $amount);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\TextDocument\\ByteOffset', 'Phpactor\\TextDocument\\ByteOffset', \false);

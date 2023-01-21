@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Phpactor\ObjectRenderer;
+namespace Phpactor\ObjectRenderer;
 
-use Phpactor202301\Phpactor\ObjectRenderer\Adapter\Twig\TwigObjectRenderer;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\ObjectRenderer\TolerantObjectRenderer;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider\AncestoralClassTemplateProvider;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider\ClassNameTemplateProvider;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider\InterfaceTemplateProvider;
-use Phpactor202301\Phpactor\ObjectRenderer\Model\TemplateProvider\SuffixAppendingTemplateProvider;
+use Phpactor\ObjectRenderer\Adapter\Twig\TwigObjectRenderer;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer;
+use Phpactor\ObjectRenderer\Model\ObjectRenderer\TolerantObjectRenderer;
+use Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateProvider\AncestoralClassTemplateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateProvider\ClassNameTemplateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateProvider\InterfaceTemplateProvider;
+use Phpactor\ObjectRenderer\Model\TemplateProvider\SuffixAppendingTemplateProvider;
 use Phpactor202301\Psr\Log\LoggerInterface;
 use Phpactor202301\Psr\Log\NullLogger;
 use Phpactor202301\Twig\Environment;
@@ -168,9 +168,3 @@ final class ObjectRendererBuilder
         return $provider;
     }
 }
-/**
- * Object Renderer builder.
- *
- * A new instance of the builder is returned for each modification.
- */
-\class_alias('Phpactor202301\\Phpactor\\ObjectRenderer\\ObjectRendererBuilder', 'Phpactor\\ObjectRenderer\\ObjectRendererBuilder', \false);

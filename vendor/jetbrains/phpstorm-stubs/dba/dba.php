@@ -1,12 +1,15 @@
 <?php
 
-namespace Phpactor202301;
-
 // Start of dba v.
-use Phpactor202301\JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
-use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
-\define('DBA_LMDB_USE_SUB_DIR', 0);
-\define('DBA_LMDB_NO_SUB_DIR', 0);
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
+
+/** @since 8.2 */
+const DBA_LMDB_USE_SUB_DIR = 0;
+
+/** @since 8.2 */
+const DBA_LMDB_NO_SUB_DIR = 0;
+
 /**
  * Open database
  * @link https://php.net/manual/en/function.dba-open.php
@@ -125,13 +128,11 @@ use Phpactor202301\JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
 #[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
-function dba_open($path, $mode, $handler, ...$handler_params)
-{
-}
+function dba_open($path, $mode, $handler, ...$handler_params) {}
+
 #[PhpStormStubsElementAvailable(from: '8.2')]
-function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0644, int $map_size = 0, ?int $flags = null)
-{
-}
+function dba_open(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
+
 /**
  * Open database persistently
  * @link https://php.net/manual/en/function.dba-popen.php
@@ -154,13 +155,11 @@ function dba_open(string $path, string $mode, ?string $handler = null, int $perm
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
 #[PhpStormStubsElementAvailable(from: '5.3', to: '8.1')]
-function dba_popen($path, $mode, $handler, ...$handler_params)
-{
-}
+function dba_popen($path, $mode, $handler, ...$handler_params) {}
+
 #[PhpStormStubsElementAvailable(from: '8.2')]
-function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0644, int $map_size = 0, ?int $flags = null)
-{
-}
+function dba_popen(string $path, string $mode, ?string $handler = null, int $permission = 0o644, int $map_size = 0, ?int $flags = null) {}
+
 /**
  * Close a DBA database
  * @link https://php.net/manual/en/function.dba-close.php
@@ -170,9 +169,8 @@ function dba_popen(string $path, string $mode, ?string $handler = null, int $per
  * </p>
  * @return void No value is returned.
  */
-function dba_close($dba) : void
-{
-}
+function dba_close($dba): void {}
+
 /**
  * Delete DBA entry specified by key
  * @link https://php.net/manual/en/function.dba-delete.php
@@ -185,9 +183,8 @@ function dba_close($dba) : void
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_delete(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, $dba) : bool
-{
-}
+function dba_delete(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, $dba): bool {}
+
 /**
  * Check whether key exists
  * @link https://php.net/manual/en/function.dba-exists.php
@@ -200,9 +197,8 @@ function dba_delete(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default:
  * </p>
  * @return bool <b>TRUE</b> if the key exists, <b>FALSE</b> otherwise.
  */
-function dba_exists(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, $dba) : bool
-{
-}
+function dba_exists(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, $dba): bool {}
+
 /**
  * Fetch data specified by key
  * @link https://php.net/manual/en/function.dba-fetch.php
@@ -221,9 +217,8 @@ function dba_exists(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default:
  * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  */
-function dba_fetch($key, $handle) : string|false
-{
-}
+function dba_fetch($key, $handle): string|false {}
+
 /**
  * Fetch data specified by key
  * @link https://php.net/manual/en/function.dba-fetch.php
@@ -243,9 +238,8 @@ function dba_fetch($key, $handle) : string|false
  * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  */
-function dba_fetch($key, $skip, $dba) : string|false
-{
-}
+function dba_fetch($key, $skip, $dba): string|false {}
+
 /**
  * Insert entry
  * @link https://php.net/manual/en/function.dba-insert.php
@@ -263,9 +257,8 @@ function dba_fetch($key, $skip, $dba) : string|false
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba) : bool
-{
-}
+function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba): bool {}
+
 /**
  * Replace or insert entry
  * @link https://php.net/manual/en/function.dba-replace.php
@@ -281,9 +274,8 @@ function dba_insert(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default:
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba) : bool
-{
-}
+function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default: '')] $key, string $value, $dba): bool {}
+
 /**
  * Fetch first key
  * @link https://php.net/manual/en/function.dba-firstkey.php
@@ -293,9 +285,8 @@ function dba_replace(#[LanguageLevelTypeAware(['8.2' => 'array|string'], default
  * </p>
  * @return string|false the key on success or <b>FALSE</b> on failure.
  */
-function dba_firstkey($dba) : string|false
-{
-}
+function dba_firstkey($dba): string|false {}
+
 /**
  * Fetch next key
  * @link https://php.net/manual/en/function.dba-nextkey.php
@@ -305,9 +296,8 @@ function dba_firstkey($dba) : string|false
  * </p>
  * @return string|false the key on success or <b>FALSE</b> on failure.
  */
-function dba_nextkey($dba) : string|false
-{
-}
+function dba_nextkey($dba): string|false {}
+
 /**
  * Optimize database
  * @link https://php.net/manual/en/function.dba-optimize.php
@@ -317,9 +307,8 @@ function dba_nextkey($dba) : string|false
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_optimize($dba) : bool
-{
-}
+function dba_optimize($dba): bool {}
+
 /**
  * Synchronize database
  * @link https://php.net/manual/en/function.dba-sync.php
@@ -329,9 +318,8 @@ function dba_optimize($dba) : bool
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_sync($dba) : bool
-{
-}
+function dba_sync($dba): bool {}
+
 /**
  * List all the handlers available
  * @link https://php.net/manual/en/function.dba-handlers.php
@@ -347,17 +335,15 @@ function dba_sync($dba) : bool
  * When the internal cdb library is used you will see
  * cdb and cdb_make.
  */
-function dba_handlers(bool $full_info = \false) : array
-{
-}
+function dba_handlers(bool $full_info = false): array {}
+
 /**
  * List all open database files
  * @link https://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
  */
-function dba_list() : array
-{
-}
+function dba_list(): array {}
+
 /**
  * Splits a key in string representation into array representation
  * @link https://php.net/manual/en/function.dba-key-split.php
@@ -368,7 +354,6 @@ function dba_list() : array
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  */
-function dba_key_split(string|false|null $key) : array|false
-{
-}
+function dba_key_split(string|false|null $key): array|false {}
+
 // End of dba v.

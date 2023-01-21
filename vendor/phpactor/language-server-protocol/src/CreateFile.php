@@ -1,7 +1,7 @@
 <?php
 
 // Auto-generated from vscode-languageserver-protocol (typescript)
-namespace Phpactor202301\Phpactor\LanguageServerProtocol;
+namespace Phpactor\LanguageServerProtocol;
 
 use Phpactor202301\DTL\Invoke\Invoke;
 use Exception;
@@ -11,7 +11,7 @@ use RuntimeException;
  *
  * Mixins (implemented TS interfaces): ResourceOperation
  */
-class CreateFile extends ResourceOperation
+class CreateFile extends \Phpactor\LanguageServerProtocol\ResourceOperation
 {
     /**
      *
@@ -35,7 +35,7 @@ class CreateFile extends ResourceOperation
      * @param string $uri
      * @param CreateFileOptions|null $options
      */
-    public function __construct(string $kind, string $uri, ?CreateFileOptions $options = null)
+    public function __construct(string $kind, string $uri, ?\Phpactor\LanguageServerProtocol\CreateFileOptions $options = null)
     {
         $this->kind = $kind;
         $this->uri = $uri;
@@ -47,7 +47,7 @@ class CreateFile extends ResourceOperation
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['kind' => ['names' => [], 'iterable' => \false], 'uri' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [CreateFileOptions::class], 'iterable' => \false]];
+        $map = ['kind' => ['names' => [], 'iterable' => \false], 'uri' => ['names' => [], 'iterable' => \false], 'options' => ['names' => [\Phpactor\LanguageServerProtocol\CreateFileOptions::class], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {
@@ -97,9 +97,3 @@ class CreateFile extends ResourceOperation
         throw $lastException;
     }
 }
-/**
- * Create file operation.
- *
- * Mixins (implemented TS interfaces): ResourceOperation
- */
-\class_alias('Phpactor202301\\Phpactor\\LanguageServerProtocol\\CreateFile', 'Phpactor\\LanguageServerProtocol\\CreateFile', \false);

@@ -1,7 +1,8 @@
 <?php
 
-declare (strict_types=1);
-namespace Phpactor202301\Swoole\Redis;
+declare(strict_types=1);
+
+namespace Swoole\Redis;
 
 class Server extends \Swoole\Server
 {
@@ -11,6 +12,7 @@ class Server extends \Swoole\Server
      * @see \Swoole\Redis\Server::format()
      */
     public const ERROR = 0;
+
     /**
      * To return a NULL reply from the Redis server.
      *
@@ -20,12 +22,14 @@ class Server extends \Swoole\Server
      * @see \Swoole\Redis\Server::format()
      */
     public const NIL = 1;
+
     /**
      * To return a Status reply from the Redis server.
      *
      * @see \Swoole\Redis\Server::format()
      */
     public const STATUS = 2;
+
     /**
      * To return an Integer reply from the Redis server.
      *
@@ -35,6 +39,7 @@ class Server extends \Swoole\Server
      * @see \Swoole\Redis\Server::format()
      */
     public const INT = 3;
+
     /**
      * To return a String reply from the Redis server.
      *
@@ -44,6 +49,7 @@ class Server extends \Swoole\Server
      * @see \Swoole\Redis\Server::format()
      */
     public const STRING = 4;
+
     /**
      * To return a Set reply from the Redis server.
      *
@@ -53,6 +59,7 @@ class Server extends \Swoole\Server
      * @see \Swoole\Redis\Server::format()
      */
     public const SET = 5;
+
     /**
      * To return a Map reply from the Redis server.
      *
@@ -62,28 +69,25 @@ class Server extends \Swoole\Server
      * @see \Swoole\Redis\Server::format()
      */
     public const MAP = 6;
+
     /**
      * Set a handler (a callback function) to process a given Redis command.
      *
      * @return bool TRUE on success, or FALSE on failure.
      */
-    public function setHandler(string $command, callable $callback)
-    {
-    }
+    public function setHandler(string $command, callable $callback) {}
+
     /**
      * @param string $command
      * @return callable|null Returns the callback function if defined, otherwise NULL.
      */
-    public function getHandler($command)
-    {
-    }
+    public function getHandler($command) {}
+
     /**
      * Format a reply.
      *
      * @param mixed|null $value
      * @return string|false
      */
-    public static function format(int $type, $value = null)
-    {
-    }
+    public static function format(int $type, $value = null) {}
 }

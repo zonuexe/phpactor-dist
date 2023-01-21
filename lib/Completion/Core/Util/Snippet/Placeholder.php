@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Completion\Core\Util\Snippet;
+namespace Phpactor\Completion\Core\Util\Snippet;
 
 final class Placeholder
 {
@@ -21,4 +21,3 @@ final class Placeholder
         return \str_replace(['\\', '$', '}'], ['\\\\', '\\$', '\\}'], $text);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Completion\\Core\\Util\\Snippet\\Placeholder', 'Phpactor\\Completion\\Core\\Util\\Snippet\\Placeholder', \false);

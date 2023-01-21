@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Logger\Formatter;
+namespace Phpactor\Extension\Logger\Formatter;
 
 use Phpactor202301\Monolog\Formatter\FormatterInterface;
 use Phpactor202301\Psr\Log\LogLevel;
@@ -34,4 +34,3 @@ class PrettyFormatter implements FormatterInterface
         return "\x1b[0;0m";
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Logger\\Formatter\\PrettyFormatter', 'Phpactor\\Extension\\Logger\\Formatter\\PrettyFormatter', \false);

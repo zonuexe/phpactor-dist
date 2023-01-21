@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Behat\Adapter\Worse;
+namespace Phpactor\Extension\Behat\Adapter\Worse;
 
-use Phpactor202301\Phpactor\Extension\Behat\Behat\ContextClassResolver;
-use Phpactor202301\Phpactor\Extension\Behat\Behat\Exception\CouldNotResolverContextClass;
-use Phpactor202301\Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflector\ClassReflector;
+use Phpactor\Extension\Behat\Behat\ContextClassResolver;
+use Phpactor\Extension\Behat\Behat\Exception\CouldNotResolverContextClass;
+use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
 final class WorseContextClassResolver implements ContextClassResolver
 {
     public function __construct(private ClassReflector $reflector)
@@ -21,4 +21,3 @@ final class WorseContextClassResolver implements ContextClassResolver
         return $className;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Behat\\Adapter\\Worse\\WorseContextClassResolver', 'Phpactor\\Extension\\Behat\\Adapter\\Worse\\WorseContextClassResolver', \false);

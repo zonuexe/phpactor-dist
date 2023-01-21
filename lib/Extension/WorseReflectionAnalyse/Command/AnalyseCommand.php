@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\WorseReflectionAnalyse\Command;
+namespace Phpactor\Extension\WorseReflectionAnalyse\Command;
 
-use Phpactor202301\Phpactor\Extension\WorseReflectionAnalyse\Model\Analyser;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostic;
-use Phpactor202301\Phpactor\WorseReflection\Core\Diagnostics;
+use Phpactor\Extension\WorseReflectionAnalyse\Model\Analyser;
+use Phpactor\WorseReflection\Core\Diagnostic;
+use Phpactor\WorseReflection\Core\Diagnostics;
 use Phpactor202301\Symfony\Component\Console\Command\Command;
 use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
 use Phpactor202301\Symfony\Component\Console\Helper\Table;
@@ -96,4 +96,3 @@ class AnalyseCommand extends Command
         }
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\WorseReflectionAnalyse\\Command\\AnalyseCommand', 'Phpactor\\Extension\\WorseReflectionAnalyse\\Command\\AnalyseCommand', \false);

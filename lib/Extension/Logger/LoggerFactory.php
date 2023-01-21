@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Extension\Logger;
+namespace Phpactor\Extension\Logger;
 
-use Phpactor202301\Phpactor\Extension\Logger\Logger\ChannelLogger;
+use Phpactor\Extension\Logger\Logger\ChannelLogger;
 use Phpactor202301\Psr\Log\LoggerInterface;
 class LoggerFactory
 {
@@ -14,4 +14,3 @@ class LoggerFactory
         return new ChannelLogger($name, $this->mainLogger);
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\Extension\\Logger\\LoggerFactory', 'Phpactor\\Extension\\Logger\\LoggerFactory', \false);

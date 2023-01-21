@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Phpactor\WorseReflection\Core\Reflector;
+namespace Phpactor\WorseReflection\Core\Reflector;
 
-use Phpactor202301\Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
-use Phpactor202301\Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
+use Phpactor\WorseReflection\Core\Name;
+use Phpactor\WorseReflection\Core\SourceCode;
 interface ConstantReflector
 {
     /**
@@ -16,4 +16,3 @@ interface ConstantReflector
      */
     public function sourceCodeForConstant($name) : SourceCode;
 }
-\class_alias('Phpactor202301\\Phpactor\\WorseReflection\\Core\\Reflector\\ConstantReflector', 'Phpactor\\WorseReflection\\Core\\Reflector\\ConstantReflector', \false);

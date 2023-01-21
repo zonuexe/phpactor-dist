@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
+namespace Phpactor\LanguageServer\Core\Server\RpcClient;
 
 use Phpactor202301\Amp\Promise;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\ResponseWatcher\TestResponseWatcher;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\RpcClient;
-use Phpactor202301\Phpactor\LanguageServer\Core\Server\Transmitter\TestMessageTransmitter;
+use Phpactor\LanguageServer\Core\Server\ResponseWatcher\TestResponseWatcher;
+use Phpactor\LanguageServer\Core\Server\RpcClient;
+use Phpactor\LanguageServer\Core\Server\Transmitter\TestMessageTransmitter;
 final class TestRpcClient implements RpcClient
 {
     /**
@@ -24,9 +24,9 @@ final class TestRpcClient implements RpcClient
     {
         $this->transmitter = $transmitter;
         $this->responseWatcher = $responseWatcher;
-        $this->client = new JsonRpcClient($transmitter, $responseWatcher);
+        $this->client = new \Phpactor\LanguageServer\Core\Server\RpcClient\JsonRpcClient($transmitter, $responseWatcher);
     }
-    public static function create() : TestRpcClient
+    public static function create() : \Phpactor\LanguageServer\Core\Server\RpcClient\TestRpcClient
     {
         return new self(new TestMessageTransmitter(), new TestResponseWatcher());
     }
@@ -50,4 +50,3 @@ final class TestRpcClient implements RpcClient
         return $this->transmitter;
     }
 }
-\class_alias('Phpactor202301\\Phpactor\\LanguageServer\\Core\\Server\\RpcClient\\TestRpcClient', 'Phpactor\\LanguageServer\\Core\\Server\\RpcClient\\TestRpcClient', \false);

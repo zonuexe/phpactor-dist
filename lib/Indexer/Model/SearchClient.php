@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Phpactor\Indexer\Model;
+namespace Phpactor\Indexer\Model;
 
 use Generator;
-use Phpactor202301\Phpactor\Indexer\Model\Query\Criteria;
+use Phpactor\Indexer\Model\Query\Criteria;
 interface SearchClient
 {
     /**
@@ -11,4 +11,3 @@ interface SearchClient
      */
     public function search(Criteria $criteria) : Generator;
 }
-\class_alias('Phpactor202301\\Phpactor\\Indexer\\Model\\SearchClient', 'Phpactor\\Indexer\\Model\\SearchClient', \false);
