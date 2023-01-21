@@ -16,7 +16,14 @@ use Isolated\Symfony\Component\Finder\Finder;
 $excludedFiles = array_map(
     static fn (SplFileInfo $fileInfo) => $fileInfo->getPathName(),
     [
-        // ...iterator_to_array(Finder::create()->files()->in(__DIR__ . '/lib'), false),
+        ...iterator_to_array(
+            Finder::create()->files()
+                ->notName('/.*\\.md|.*\\.dist|.*\\.neon|.*\\.sh|.*Test\\.php|Makefile|composer\\.json|composer\\.lock/')
+                ->in([
+                    __DIR__ . '/lib/WorseReflection/Core/SourceCodeLocator/InternalStubs',
+                    __DIR__ . '/vendor/jetbrains/phpstorm-stubs',
+                    __DIR__ . '/vendor/thecodingmachine/safe',
+                ]), false),
     ]
 );
 
@@ -47,7 +54,7 @@ return [
         Finder::create()
             ->files()
             ->ignoreVCS(true)
-            ->notName('/LICENSE|.*\\.md|.*\\.dist|.*\\.neon|.*\\.sh|Makefile|composer\\.json|composer\\.lock/')
+            ->notName('/.*\\.md|.*\\.dist|.*\\.neon|.*\\.sh|Makefile|composer\\.json|composer\\.lock/')
             ->exclude([
                 'build',
                 'build-dist',
@@ -100,11 +107,14 @@ return [
         // '~^PHPUnit\\\\Framework$~',    // The whole namespace PHPUnit\Framework (but not sub-namespaces)
         // '~^$~',                        // The root namespace only
         // '',                            // Any namespace
+        'Phpactor',
+        'Safe',
     ],
     'exclude-classes' => [
         // 'ReflectionClassConstant',
     ],
     'exclude-functions' => [
+        'assert',
         // 'mb_str_split',
     ],
     'exclude-constants' => [
@@ -116,9 +126,8 @@ return [
     // For more information see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#exposed-symbols
     'expose-global-constants' => true,
     'expose-global-classes' => true,
-    'expose-global-functions' => true,
+    'expose-global-functions' => false,
     'expose-namespaces' => [
-        'Phpactor\\',
         // 'Acme\Foo'                     // The Acme\Foo namespace (and sub-namespaces)
         // '~^PHPUnit\\\\Framework$~',    // The whole namespace PHPUnit\Framework (but not sub-namespaces)
         // '~^$~',                        // The root namespace only
