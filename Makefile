@@ -5,6 +5,9 @@ PHP ?= php
 import: build remove-files copy-files
 	$(GIT) status
 
+pull-master:
+	(cd source; $(GIT) fetch --tags && git checkout master && git reset --hard && git pull)
+
 build: clean scoper source
 	cp build-dist/scoper.inc.php source/
 	$(COMPOSER) -d source config autoloader-suffix Phpactor
@@ -44,4 +47,4 @@ source: source/composer.json
 source/composer.json:
 	$(GIT) submodule update --init
 
-.PHONY: build clean clobber commit copy-files import remove-files scoper
+.PHONY: build clean clobber commit copy-files import pull-master remove-files scoper
