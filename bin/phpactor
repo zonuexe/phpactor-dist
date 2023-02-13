@@ -4,7 +4,7 @@ namespace PhpactorDist;
 
 use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutput;
 use Phpactor\Application;
-foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+foreach ([__DIR__ . '/../vendor/autoload.php'] as $file) {
     if (\file_exists($file)) {
         $autoloadFile = $file;
         break;
@@ -24,6 +24,7 @@ if (\version_compare(\PHP_VERSION, $minVersion) < 0) {
     exit(255);
 }
 require_once $autoloadFile;
+require_once __DIR__ . '/../vendor/scoper-autoload.php';
 $application = new Application(\realpath(\dirname($autoloadFile)));
 $output = new ConsoleOutput();
 try {
