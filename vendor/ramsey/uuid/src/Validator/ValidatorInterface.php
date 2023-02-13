@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Validator;
+namespace PhpactorDist\Ramsey\Uuid\Validator;
 
 /**
  * A validator validates a string as a proper UUID

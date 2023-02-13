@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\Logger\Logger;
 
-use Phpactor202301\Psr\Log\AbstractLogger;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\AbstractLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class ChannelLogger extends AbstractLogger
 {
     public function __construct(private string $name, private LoggerInterface $innerLogger)

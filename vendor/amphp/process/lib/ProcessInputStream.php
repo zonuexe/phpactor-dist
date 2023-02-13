@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Amp\Process;
+namespace PhpactorDist\Amp\Process;
 
-use Phpactor202301\Amp\ByteStream\InputStream;
-use Phpactor202301\Amp\ByteStream\PendingReadError;
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\ByteStream\StreamException;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\ByteStream\InputStream;
+use PhpactorDist\Amp\ByteStream\PendingReadError;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\ByteStream\StreamException;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 final class ProcessInputStream implements InputStream
 {
     /** @var Deferred */

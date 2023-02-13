@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\NodeVisitor\NodeVisitorInterface;
-use Phpactor202301\Twig\TokenParser\TokenParserInterface;
-use Phpactor202301\Twig\TwigFilter;
-use Phpactor202301\Twig\TwigFunction;
-use Phpactor202301\Twig\TwigTest;
+use PhpactorDist\Twig\NodeVisitor\NodeVisitorInterface;
+use PhpactorDist\Twig\TokenParser\TokenParserInterface;
+use PhpactorDist\Twig\TwigFilter;
+use PhpactorDist\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigTest;
 /**
  * Interface implemented by extension classes.
  *
@@ -59,6 +59,6 @@ interface ExtensionInterface
      */
     public function getOperators();
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\ExtensionInterface', 'Phpactor202301\\Twig_ExtensionInterface');
+\class_alias('PhpactorDist\\Twig\\Extension\\ExtensionInterface', 'PhpactorDist\\Twig_ExtensionInterface');
 // Ensure that the aliased name is loaded to keep BC for classes implementing the typehint with the old aliased name.
-\class_exists('Phpactor202301\\Twig\\Environment');
+\class_exists('PhpactorDist\\Twig\\Environment');

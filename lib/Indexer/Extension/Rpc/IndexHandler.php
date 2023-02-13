@@ -2,8 +2,8 @@
 
 namespace Phpactor\Indexer\Extension\Rpc;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Loop;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Loop;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\Extension\Rpc\Handler;

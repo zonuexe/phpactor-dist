@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerReferenceFinder\Handler;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\Location;
 use Phpactor\LanguageServerProtocol\MessageActionItem;
@@ -34,7 +34,7 @@ class TypeDefinitionHandler implements Handler, CanRegisterCapabilities
      */
     public function type(TextDocumentIdentifier $textDocument, Position $position) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($textDocument, $position) {
+        return \PhpactorDist\Amp\call(function () use($textDocument, $position) {
             $textDocument = $this->workspace->get($textDocument->uri);
             $offset = PositionConverter::positionToByteOffset($position, $textDocument->text);
             try {

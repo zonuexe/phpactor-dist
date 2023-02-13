@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\NodeVisitor\EscaperNodeVisitor;
-\class_exists('Phpactor202301\\Twig\\NodeVisitor\\EscaperNodeVisitor');
+use PhpactorDist\Twig\NodeVisitor\EscaperNodeVisitor;
+\class_exists('PhpactorDist\\Twig\\NodeVisitor\\EscaperNodeVisitor');
 @\trigger_error('Using the "Twig_NodeVisitor_Escaper" class is deprecated since Twig version 2.7, use "Twig\\NodeVisitor\\EscaperNodeVisitor" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\NodeVisitor\EscaperNodeVisitor" instead */

@@ -2,12 +2,12 @@
 
 namespace Phpactor\Rename\Adapter\ReferenceFinder;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\CatchClause;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\UseVariableName;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\CatchClause;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\Parameter;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\UseVariableName;
 use Phpactor\TextDocument\ByteOffsetRange;
 class VariableRenamer extends \Phpactor\Rename\Adapter\ReferenceFinder\AbstractReferenceRenamer
 {

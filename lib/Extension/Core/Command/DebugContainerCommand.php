@@ -4,11 +4,11 @@ namespace Phpactor\Extension\Core\Command;
 
 use Phpactor\Container\Container;
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Helper\Table;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Helper\Table;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 class DebugContainerCommand extends Command
 {
     public function __construct(private Container $container)

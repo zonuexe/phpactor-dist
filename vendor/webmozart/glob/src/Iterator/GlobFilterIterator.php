@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Webmozart\Glob\Iterator;
+namespace PhpactorDist\Webmozart\Glob\Iterator;
 
 use Iterator;
-use Phpactor202301\Webmozart\Glob\Glob;
+use PhpactorDist\Webmozart\Glob\Glob;
 /**
  * Filters an iterator by a glob.
  *

@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Logger;
+namespace PhpactorDist\Symfony\Component\Console\Logger;
 
-use Phpactor202301\Psr\Log\AbstractLogger;
-use Phpactor202301\Psr\Log\InvalidArgumentException;
-use Phpactor202301\Psr\Log\LogLevel;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Psr\Log\AbstractLogger;
+use PhpactorDist\Psr\Log\InvalidArgumentException;
+use PhpactorDist\Psr\Log\LogLevel;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 /**
  * PSR-3 compliant console logger.
  *

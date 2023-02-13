@@ -2,8 +2,8 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Parser;
 
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\WorseReflection\Core\Cache;
 use Phpactor\WorseReflection\Core\Cache\TtlCache;
 class CachedParser extends Parser

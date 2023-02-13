@@ -6,8 +6,8 @@ use Phpactor\WorseReflection\Core\Name;
 use Phpactor\WorseReflection\Core\SourceCodeLocator;
 use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor\WorseReflection\Core\Exception\SourceNotFound;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 class ChainSourceLocator implements SourceCodeLocator
 {
     /**

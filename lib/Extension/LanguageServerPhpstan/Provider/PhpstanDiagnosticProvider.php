@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerPhpstan\Provider;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerPhpstan\Model\Linter;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;

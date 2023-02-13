@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Filesystem;
+namespace PhpactorDist\Symfony\Component\Filesystem;
 
-use Phpactor202301\Symfony\Component\Filesystem\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Filesystem\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Filesystem\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Filesystem\Exception\RuntimeException;
 /**
  * Contains utility methods for handling path strings.
  *

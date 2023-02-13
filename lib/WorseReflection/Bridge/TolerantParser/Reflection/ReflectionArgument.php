@@ -2,20 +2,22 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Position;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionArgument as CoreReflectionArgument;
 use Phpactor\WorseReflection\Core\Type\AggregateType;
 use Phpactor\WorseReflection\Core\Type\ClassType;
 use Phpactor\WorseReflection\Core\Type\MissingType;
+use Phpactor\WorseReflection\Core\Util\NodeUtil;
 use Phpactor\WorseReflection\TypeUtil;
 use RuntimeException;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
 class ReflectionArgument implements CoreReflectionArgument
 {
     public function __construct(private ServiceLocator $services, private Frame $frame, private ArgumentExpression $node)
@@ -23,12 +25,15 @@ class ReflectionArgument implements CoreReflectionArgument
     }
     public function guessName() : string
     {
+        if ($this->node->name instanceof Token) {
+            return NodeUtil::nameFromTokenOrQualifiedName($this->node, $this->node->name);
+        }
         if ($this->node->expression instanceof Variable) {
             $name = $this->node->expression->name->getText($this->node->getFileContents());
             if (\is_string($name) && \substr($name, 0, 1) == '$') {
                 return \substr($name, 1);
             }
-            return $name;
+            return (string) $name;
         }
         $type = $this->type();
         if (!$type instanceof MissingType) {
@@ -50,7 +55,7 @@ class ReflectionArgument implements CoreReflectionArgument
     {
         return $this->info()->type();
     }
-    public function value()
+    public function value() : mixed
     {
         return TypeUtil::valueOrNull($this->info()->type());
     }

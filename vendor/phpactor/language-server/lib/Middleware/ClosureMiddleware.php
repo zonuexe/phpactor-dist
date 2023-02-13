@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Closure;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
@@ -22,6 +22,7 @@ class ClosureMiddleware implements Middleware
      */
     public function process(Message $request, RequestHandler $handler) : Promise
     {
+        /** @phpstan-ignore-next-line */
         return $this->closure->__invoke($request, $handler);
     }
 }

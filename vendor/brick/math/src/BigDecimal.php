@@ -1,12 +1,12 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math;
+namespace PhpactorDist\Brick\Math;
 
-use Phpactor202301\Brick\Math\Exception\DivisionByZeroException;
-use Phpactor202301\Brick\Math\Exception\MathException;
-use Phpactor202301\Brick\Math\Exception\NegativeNumberException;
-use Phpactor202301\Brick\Math\Internal\Calculator;
+use PhpactorDist\Brick\Math\Exception\DivisionByZeroException;
+use PhpactorDist\Brick\Math\Exception\MathException;
+use PhpactorDist\Brick\Math\Exception\NegativeNumberException;
+use PhpactorDist\Brick\Math\Internal\Calculator;
 /**
  * Immutable, arbitrary-precision signed decimal numbers.
  *

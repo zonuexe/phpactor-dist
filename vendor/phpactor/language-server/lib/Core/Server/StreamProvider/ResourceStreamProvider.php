@@ -2,10 +2,10 @@
 
 namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Server\Stream\ResourceDuplexStream;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 final class ResourceStreamProvider implements \Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider
 {
     /**

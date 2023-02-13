@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Validator;
+namespace PhpactorDist\Ramsey\Uuid\Validator;
 
-use Phpactor202301\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Uuid;
 use function preg_match;
 use function str_replace;
 /**

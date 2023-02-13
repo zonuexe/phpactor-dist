@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\DTL\ArgumentResolver\Exception;
+namespace PhpactorDist\DTL\ArgumentResolver\Exception;
 
 interface ArgumentResolverException
 {

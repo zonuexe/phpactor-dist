@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Error;
+namespace PhpactorDist\Twig\Error;
 
-use Phpactor202301\Twig\Source;
-use Phpactor202301\Twig\Template;
+use PhpactorDist\Twig\Source;
+use PhpactorDist\Twig\Template;
 /**
  * Twig base exception.
  *
@@ -57,7 +57,7 @@ class Error extends \Exception
         parent::__construct('', 0, $previous);
         if (null === $source) {
             $name = null;
-        } elseif (!$source instanceof Source && !$source instanceof \Phpactor202301\Twig_Source) {
+        } elseif (!$source instanceof Source && !$source instanceof \PhpactorDist\Twig_Source) {
             @\trigger_error(\sprintf('Passing a string as a source to %s is deprecated since Twig 2.6.1; pass a Twig\\Source instance instead.', __CLASS__), \E_USER_DEPRECATED);
             $name = $source;
         } else {
@@ -219,4 +219,4 @@ class Error extends \Exception
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Error\\Error', 'Phpactor202301\\Twig_Error');
+\class_alias('PhpactorDist\\Twig\\Error\\Error', 'PhpactorDist\\Twig_Error');

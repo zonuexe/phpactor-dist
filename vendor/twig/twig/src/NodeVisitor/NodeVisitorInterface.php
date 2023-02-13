@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Interface for node visitor classes.
  *
@@ -40,6 +40,6 @@ interface NodeVisitorInterface
      */
     public function getPriority();
 }
-\class_alias('Phpactor202301\\Twig\\NodeVisitor\\NodeVisitorInterface', 'Phpactor202301\\Twig_NodeVisitorInterface');
+\class_alias('PhpactorDist\\Twig\\NodeVisitor\\NodeVisitorInterface', 'PhpactorDist\\Twig_NodeVisitorInterface');
 // Ensure that the aliased name is loaded to keep BC for classes implementing the typehint with the old aliased name.
-\class_exists('Phpactor202301\\Twig\\Environment');
+\class_exists('PhpactorDist\\Twig\\Environment');

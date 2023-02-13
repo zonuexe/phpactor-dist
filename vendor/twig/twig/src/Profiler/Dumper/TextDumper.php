@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler\Dumper;
+namespace PhpactorDist\Twig\Profiler\Dumper;
 
-use Phpactor202301\Twig\Profiler\Profile;
+use PhpactorDist\Twig\Profiler\Profile;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -29,4 +29,4 @@ final class TextDumper extends BaseDumper
         return \sprintf('%.2fms/%.0f%%', $profile->getDuration() * 1000, $percent);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\Dumper\\TextDumper', 'Phpactor202301\\Twig_Profiler_Dumper_Text');
+\class_alias('PhpactorDist\\Twig\\Profiler\\Dumper\\TextDumper', 'PhpactorDist\\Twig_Profiler_Dumper_Text');

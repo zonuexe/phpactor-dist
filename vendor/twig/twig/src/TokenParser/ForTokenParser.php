@@ -9,17 +9,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\Expression\AssignNameExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\ForNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Token;
-use Phpactor202301\Twig\TokenStream;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\Expression\AssignNameExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\ForNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Token;
+use PhpactorDist\Twig\TokenStream;
 /**
  * Loops over each item of a sequence.
  *
@@ -132,4 +132,4 @@ final class ForTokenParser extends AbstractTokenParser
         return 'for';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\ForTokenParser', 'Phpactor202301\\Twig_TokenParser_For');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\ForTokenParser', 'PhpactorDist\\Twig_TokenParser_For');

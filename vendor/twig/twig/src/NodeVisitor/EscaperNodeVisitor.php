@@ -8,23 +8,23 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Extension\EscaperExtension;
-use Phpactor202301\Twig\Node\AutoEscapeNode;
-use Phpactor202301\Twig\Node\BlockNode;
-use Phpactor202301\Twig\Node\BlockReferenceNode;
-use Phpactor202301\Twig\Node\DoNode;
-use Phpactor202301\Twig\Node\Expression\ConditionalExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\FilterExpression;
-use Phpactor202301\Twig\Node\Expression\InlinePrint;
-use Phpactor202301\Twig\Node\ImportNode;
-use Phpactor202301\Twig\Node\ModuleNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Node\PrintNode;
-use Phpactor202301\Twig\NodeTraverser;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Extension\EscaperExtension;
+use PhpactorDist\Twig\Node\AutoEscapeNode;
+use PhpactorDist\Twig\Node\BlockNode;
+use PhpactorDist\Twig\Node\BlockReferenceNode;
+use PhpactorDist\Twig\Node\DoNode;
+use PhpactorDist\Twig\Node\Expression\ConditionalExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\FilterExpression;
+use PhpactorDist\Twig\Node\Expression\InlinePrint;
+use PhpactorDist\Twig\Node\ImportNode;
+use PhpactorDist\Twig\Node\ModuleNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Node\PrintNode;
+use PhpactorDist\Twig\NodeTraverser;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -168,4 +168,4 @@ final class EscaperNodeVisitor extends AbstractNodeVisitor
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Twig\\NodeVisitor\\EscaperNodeVisitor', 'Phpactor202301\\Twig_NodeVisitor_Escaper');
+\class_alias('PhpactorDist\\Twig\\NodeVisitor\\EscaperNodeVisitor', 'PhpactorDist\\Twig_NodeVisitor_Escaper');

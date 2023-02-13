@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
-use Phpactor202301\Amp\Loop\Driver;
-use Phpactor202301\Amp\Loop\DriverFactory;
-use Phpactor202301\Amp\Loop\InvalidWatcherError;
-use Phpactor202301\Amp\Loop\UnsupportedFeatureException;
-use Phpactor202301\Amp\Loop\Watcher;
+use PhpactorDist\Amp\Loop\Driver;
+use PhpactorDist\Amp\Loop\DriverFactory;
+use PhpactorDist\Amp\Loop\InvalidWatcherError;
+use PhpactorDist\Amp\Loop\UnsupportedFeatureException;
+use PhpactorDist\Amp\Loop\Watcher;
 /**
  * Accessor to allow global access to the event loop.
  *

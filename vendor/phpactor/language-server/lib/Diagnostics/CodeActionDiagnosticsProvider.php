@@ -2,14 +2,14 @@
 
 namespace Phpactor\LanguageServer\Diagnostics;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Position;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class CodeActionDiagnosticsProvider implements DiagnosticsProvider
 {
     /**

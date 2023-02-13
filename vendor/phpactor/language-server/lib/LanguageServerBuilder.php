@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer;
 
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\ByteStream\ResourceOutputStream;
 use Phpactor\LanguageServerProtocol\ClientCapabilities;
 use Phpactor\LanguageServerProtocol\InitializeParams;
 use Phpactor\LanguageServer\Core\Dispatcher\DispatcherFactory;
@@ -14,8 +14,8 @@ use Phpactor\LanguageServer\Core\Server\StreamProvider\SocketStreamProvider;
 use Phpactor\LanguageServer\Core\Server\Stream\ResourceDuplexStream;
 use Phpactor\LanguageServer\Core\Server\LanguageServer;
 use Phpactor\LanguageServer\Test\LanguageServerTester;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 final class LanguageServerBuilder
 {
     /**
@@ -86,7 +86,7 @@ final class LanguageServerBuilder
     public function build() : LanguageServer
     {
         if ($this->tcpAddress) {
-            $provider = new SocketStreamProvider(\Phpactor202301\Amp\Socket\listen($this->tcpAddress), $this->logger);
+            $provider = new SocketStreamProvider(\PhpactorDist\Amp\Socket\listen($this->tcpAddress), $this->logger);
         } else {
             $provider = new ResourceStreamProvider(new ResourceDuplexStream(new ResourceInputStream(\STDIN), new ResourceOutputStream(\STDOUT)), $this->logger);
         }

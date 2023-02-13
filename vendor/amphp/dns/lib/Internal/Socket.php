@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns\Internal;
+namespace PhpactorDist\Amp\Dns\Internal;
 
-use Phpactor202301\Amp;
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
-use Phpactor202301\Amp\ByteStream\StreamException;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Dns\DnsException;
-use Phpactor202301\Amp\Dns\TimeoutException;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\LibDNS\Messages\Message;
-use Phpactor202301\LibDNS\Messages\MessageFactory;
-use Phpactor202301\LibDNS\Messages\MessageTypes;
-use Phpactor202301\LibDNS\Records\Question;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\ByteStream\ResourceOutputStream;
+use PhpactorDist\Amp\ByteStream\StreamException;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Dns\DnsException;
+use PhpactorDist\Amp\Dns\TimeoutException;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\LibDNS\Messages\Message;
+use PhpactorDist\LibDNS\Messages\MessageFactory;
+use PhpactorDist\LibDNS\Messages\MessageTypes;
+use PhpactorDist\LibDNS\Records\Question;
+use function PhpactorDist\Amp\call;
 /** @internal */
 abstract class Socket
 {

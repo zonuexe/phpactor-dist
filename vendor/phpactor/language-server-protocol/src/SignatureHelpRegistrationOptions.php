@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -17,11 +17,11 @@ class SignatureHelpRegistrationOptions extends \Phpactor\LanguageServerProtocol\
      * A document selector to identify the scope of the registration. If set to null
      * the document selector provided on the client side will be used.
      *
-     * @var array<(string|array<mixed>|array<mixed>|array<mixed>)>|null
+     * @var array<(string|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{notebook:string|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string},language:string})>|null
      */
     public $documentSelector;
     /**
-     * List of characters that trigger signature help.
+     * List of characters that trigger signature help automatically.
      *
      * @var array<string>|null
      */
@@ -41,7 +41,7 @@ class SignatureHelpRegistrationOptions extends \Phpactor\LanguageServerProtocol\
      */
     public $workDoneProgress;
     /**
-     * @param array<(string|array<mixed>|array<mixed>|array<mixed>)>|null $documentSelector
+     * @param array<(string|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{notebook:string|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string},language:string})>|null $documentSelector
      * @param array<string>|null $triggerCharacters
      * @param array<string>|null $retriggerCharacters
      * @param bool|null $workDoneProgress
@@ -55,7 +55,7 @@ class SignatureHelpRegistrationOptions extends \Phpactor\LanguageServerProtocol\
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

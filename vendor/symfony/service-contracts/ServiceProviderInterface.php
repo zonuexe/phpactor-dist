@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Contracts\Service;
+namespace PhpactorDist\Symfony\Contracts\Service;
 
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 /**
  * A ServiceProviderInterface exposes the identifiers and the types of services provided by a container.
  *

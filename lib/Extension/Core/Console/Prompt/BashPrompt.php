@@ -3,7 +3,7 @@
 namespace Phpactor\Extension\Core\Console\Prompt;
 
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Process\ExecutableFinder;
+use PhpactorDist\Symfony\Component\Process\ExecutableFinder;
 class BashPrompt implements \Phpactor\Extension\Core\Console\Prompt\Prompt
 {
     public function prompt(string $prompt, string $prefill) : string

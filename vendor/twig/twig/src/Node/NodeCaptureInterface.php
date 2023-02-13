@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
 /**
  * Represents a node that captures any nested displayable nodes.
@@ -18,4 +18,4 @@ namespace Phpactor202301\Twig\Node;
 interface NodeCaptureInterface
 {
 }
-\class_alias('Phpactor202301\\Twig\\Node\\NodeCaptureInterface', 'Phpactor202301\\Twig_NodeCaptureInterface');
+\class_alias('PhpactorDist\\Twig\\Node\\NodeCaptureInterface', 'PhpactorDist\\Twig_NodeCaptureInterface');

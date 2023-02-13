@@ -13,28 +13,28 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Decoder;
+namespace PhpactorDist\LibDNS\Decoder;
 
-use Phpactor202301\LibDNS\Messages\Message;
-use Phpactor202301\LibDNS\Messages\MessageFactory;
-use Phpactor202301\LibDNS\Packets\Packet;
-use Phpactor202301\LibDNS\Packets\PacketFactory;
-use Phpactor202301\LibDNS\Records\Question;
-use Phpactor202301\LibDNS\Records\QuestionFactory;
-use Phpactor202301\LibDNS\Records\Resource;
-use Phpactor202301\LibDNS\Records\ResourceBuilder;
-use Phpactor202301\LibDNS\Records\Types\Anything;
-use Phpactor202301\LibDNS\Records\Types\BitMap;
-use Phpactor202301\LibDNS\Records\Types\Char;
-use Phpactor202301\LibDNS\Records\Types\CharacterString;
-use Phpactor202301\LibDNS\Records\Types\DomainName;
-use Phpactor202301\LibDNS\Records\Types\IPv4Address;
-use Phpactor202301\LibDNS\Records\Types\IPv6Address;
-use Phpactor202301\LibDNS\Records\Types\Long;
-use Phpactor202301\LibDNS\Records\Types\Short;
-use Phpactor202301\LibDNS\Records\Types\Type;
-use Phpactor202301\LibDNS\Records\Types\TypeBuilder;
-use Phpactor202301\LibDNS\Records\Types\Types;
+use PhpactorDist\LibDNS\Messages\Message;
+use PhpactorDist\LibDNS\Messages\MessageFactory;
+use PhpactorDist\LibDNS\Packets\Packet;
+use PhpactorDist\LibDNS\Packets\PacketFactory;
+use PhpactorDist\LibDNS\Records\Question;
+use PhpactorDist\LibDNS\Records\QuestionFactory;
+use PhpactorDist\LibDNS\Records\Resource;
+use PhpactorDist\LibDNS\Records\ResourceBuilder;
+use PhpactorDist\LibDNS\Records\Types\Anything;
+use PhpactorDist\LibDNS\Records\Types\BitMap;
+use PhpactorDist\LibDNS\Records\Types\Char;
+use PhpactorDist\LibDNS\Records\Types\CharacterString;
+use PhpactorDist\LibDNS\Records\Types\DomainName;
+use PhpactorDist\LibDNS\Records\Types\IPv4Address;
+use PhpactorDist\LibDNS\Records\Types\IPv6Address;
+use PhpactorDist\LibDNS\Records\Types\Long;
+use PhpactorDist\LibDNS\Records\Types\Short;
+use PhpactorDist\LibDNS\Records\Types\Type;
+use PhpactorDist\LibDNS\Records\Types\TypeBuilder;
+use PhpactorDist\LibDNS\Records\Types\Types;
 /**
  * Decodes raw network data to Message objects
  *

@@ -6,8 +6,8 @@ use Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
 use Phpactor\ReferenceFinder\Exception\UnsupportedDocument;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 final class ChainTypeLocator implements \Phpactor\ReferenceFinder\TypeLocator
 {
     /**

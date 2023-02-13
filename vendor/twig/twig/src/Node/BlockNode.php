@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents a block node.
  *
@@ -29,4 +29,4 @@ class BlockNode extends Node
         $compiler->subcompile($this->getNode('body'))->outdent()->write("}\n\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\BlockNode', 'Phpactor202301\\Twig_Node_Block');
+\class_alias('PhpactorDist\\Twig\\Node\\BlockNode', 'PhpactorDist\\Twig_Node_Block');

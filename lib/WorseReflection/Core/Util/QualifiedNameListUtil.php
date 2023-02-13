@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Core\Util;
 
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use RuntimeException;
 class QualifiedNameListUtil
 {

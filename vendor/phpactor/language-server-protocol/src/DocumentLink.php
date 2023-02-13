@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -19,7 +19,7 @@ class DocumentLink
      */
     public $range;
     /**
-     * The uri this link points to.
+     * The uri this link points to. If missing a resolve request is sent later.
      *
      * @var string|null
      */
@@ -56,7 +56,7 @@ class DocumentLink
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

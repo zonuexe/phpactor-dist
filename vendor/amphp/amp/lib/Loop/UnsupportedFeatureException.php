@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
 /**
  * MUST be thrown if a feature is not supported by the system.

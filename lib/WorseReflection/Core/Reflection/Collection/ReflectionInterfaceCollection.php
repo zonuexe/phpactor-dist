@@ -2,15 +2,15 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\ClassInterfaceClause;
-use Phpactor202301\Microsoft\PhpParser\Node\InterfaceBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassInterfaceClause;
+use PhpactorDist\Microsoft\PhpParser\Node\InterfaceBaseClause;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 /**
  * @extends AbstractReflectionCollection<ReflectionInterface>
  */

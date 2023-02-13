@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 /**
  * Cancellation tokens are simple objects that allow registering handlers to subscribe to cancellation requests.

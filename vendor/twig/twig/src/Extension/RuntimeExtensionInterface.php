@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
 /**
  * @author Grégoire Pineau <lyrixx@lyrixx.info>

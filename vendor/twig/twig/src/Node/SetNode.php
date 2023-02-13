@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
 /**
  * Represents a set node.
  *
@@ -84,4 +84,4 @@ class SetNode extends Node implements NodeCaptureInterface
         $compiler->raw(";\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\SetNode', 'Phpactor202301\\Twig_Node_Set');
+\class_alias('PhpactorDist\\Twig\\Node\\SetNode', 'PhpactorDist\\Twig_Node_Set');

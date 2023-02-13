@@ -10,15 +10,15 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Builder;
+namespace PhpactorDist\Ramsey\Uuid\Builder;
 
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\Time\DegradedTimeConverter;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\DegradedUuid;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\Fields as Rfc4122Fields;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\Time\DegradedTimeConverter;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\DegradedUuid;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\Fields as Rfc4122Fields;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 /**
  * @deprecated DegradedUuid instances are no longer necessary to support 32-bit
  *     systems. Transition to {@see DefaultUuidBuilder}.

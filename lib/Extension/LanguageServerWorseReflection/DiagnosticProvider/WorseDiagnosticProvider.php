@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerWorseReflection\DiagnosticProvider;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\DiagnosticSeverity as LanguageServerProtocolDiagnosticSeverity;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\Range;
@@ -12,7 +12,7 @@ use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use Phpactor\LanguageServer\Test\ProtocolFactory;
 use Phpactor\WorseReflection\Core\DiagnosticSeverity;
 use Phpactor\WorseReflection\Reflector;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class WorseDiagnosticProvider implements DiagnosticsProvider
 {
     public function __construct(private Reflector $reflector)

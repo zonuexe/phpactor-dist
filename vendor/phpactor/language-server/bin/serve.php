@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 use Phpactor\LanguageServerProtocol\InitializeParams;
 use Phpactor\LanguageServer\Adapter\Psr\AggregateEventDispatcher;
@@ -43,7 +43,7 @@ use Phpactor\LanguageServer\Middleware\InitializeMiddleware;
 use Phpactor\LanguageServer\Core\Command\CommandDispatcher;
 use Phpactor\LanguageServer\Middleware\ResponseHandlingMiddleware;
 use Phpactor\LanguageServer\Service\DiagnosticsService;
-use Phpactor202301\Psr\Log\AbstractLogger;
+use PhpactorDist\Psr\Log\AbstractLogger;
 use function Safe\fopen;
 require __DIR__ . '/../vendor/autoload.php';
 if ($argc === 1) {
@@ -97,7 +97,7 @@ $builder = LanguageServerBuilder::create(new ClosureDispatcherFactory(function (
     $eventDispatcher = new AggregateEventDispatcher(new ServiceListener($serviceManager), new WorkspaceListener($workspace), new DidChangeWatchedFilesListener($clientApi, ['**/*.php'], $params->capabilities), $diagnosticsService);
     $handlers = new Handlers(new TextDocumentHandler($eventDispatcher), new StatsHandler($clientApi, $stats), new ServiceHandler($serviceManager, $clientApi), new CommandHandler(new CommandDispatcher(['phpactor.say_hello' => new SayHelloCommand($clientApi)])), new DidChangeWatchedFilesHandler($eventDispatcher), new CodeActionHandler(new AggregateCodeActionProvider(new SayHelloCodeActionProvider()), $workspace), new ExitHandler());
     $runner = new HandlerMethodRunner($handlers, new ChainArgumentResolver(new LanguageSeverProtocolParamsResolver(), new PassThroughArgumentResolver()));
-    return new MiddlewareDispatcher(new ErrorHandlingMiddleware($logger), new InitializeMiddleware($handlers, $eventDispatcher, ['version' => 1]), new CancellationMiddleware($runner), new ResponseHandlingMiddleware($responseWatcher), new HandlerMiddleware($runner));
+    return new MiddlewareDispatcher(new ErrorHandlingMiddleware($logger), new InitializeMiddleware($handlers, $eventDispatcher, ['name' => 'phpactor', 'version' => '1']), new CancellationMiddleware($runner), new ResponseHandlingMiddleware($responseWatcher), new HandlerMiddleware($runner));
 }), $logger);
 if ($type === 'tcp') {
     /** @phpstan-ignore-next-line */

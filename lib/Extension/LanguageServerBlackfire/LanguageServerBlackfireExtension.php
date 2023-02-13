@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerBlackfire;
 
-use Phpactor202301\Blackfire\Client;
+use PhpactorDist\Blackfire\Client;
 use Phpactor\Container\Container;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\OptionalExtension;

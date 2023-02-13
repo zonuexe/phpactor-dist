@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal;
+namespace PhpactorDist\Amp\Process\Internal;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Process\ProcessInputStream;
-use Phpactor202301\Amp\Process\ProcessOutputStream;
-use Phpactor202301\Amp\Struct;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Process\ProcessInputStream;
+use PhpactorDist\Amp\Process\ProcessOutputStream;
+use PhpactorDist\Amp\Struct;
 abstract class ProcessHandle
 {
     use Struct;

@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 /**
  * A time generator generates strings of binary data based on a node ID,
  * clock sequence, and the current time

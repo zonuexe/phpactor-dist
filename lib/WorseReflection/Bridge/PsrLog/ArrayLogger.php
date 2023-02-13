@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Bridge\PsrLog;
 
-use Phpactor202301\Psr\Log\AbstractLogger;
+use PhpactorDist\Psr\Log\AbstractLogger;
 class ArrayLogger extends AbstractLogger
 {
     private $messages = [];

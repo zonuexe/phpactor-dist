@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Windows;
+namespace PhpactorDist\Amp\Process\Internal\Windows;
 
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Process\Internal\ProcessStatus;
-use Phpactor202301\Amp\Process\ProcessException;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\ByteStream\ResourceOutputStream;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Process\Internal\ProcessStatus;
+use PhpactorDist\Amp\Process\ProcessException;
 /**
  * @internal
  * @codeCoverageIgnore Windows only.

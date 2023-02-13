@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class ConditionalExpression extends AbstractExpression
 {
     public function __construct(AbstractExpression $expr1, AbstractExpression $expr2, AbstractExpression $expr3, int $lineno)
@@ -23,4 +23,4 @@ class ConditionalExpression extends AbstractExpression
         $compiler->raw('((')->subcompile($this->getNode('expr1'))->raw(') ? (')->subcompile($this->getNode('expr2'))->raw(') : (')->subcompile($this->getNode('expr3'))->raw('))');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\ConditionalExpression', 'Phpactor202301\\Twig_Node_Expression_Conditional');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\ConditionalExpression', 'PhpactorDist\\Twig_Node_Expression_Conditional');

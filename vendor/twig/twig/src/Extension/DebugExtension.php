@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigFunction;
 final class DebugExtension extends AbstractExtension
 {
     public function getFunctions()
@@ -20,12 +20,12 @@ final class DebugExtension extends AbstractExtension
         return [new TwigFunction('dump', 'twig_var_dump', ['is_safe' => $isDumpOutputHtmlSafe ? ['html'] : [], 'needs_context' => \true, 'needs_environment' => \true, 'is_variadic' => \true])];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\DebugExtension', 'Phpactor202301\\Twig_Extension_Debug');
-namespace Phpactor202301;
+\class_alias('PhpactorDist\\Twig\\Extension\\DebugExtension', 'PhpactorDist\\Twig_Extension_Debug');
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Template;
-use Phpactor202301\Twig\TemplateWrapper;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Template;
+use PhpactorDist\Twig\TemplateWrapper;
 function twig_var_dump(Environment $env, $context, ...$vars)
 {
     if (!$env->isDebug()) {

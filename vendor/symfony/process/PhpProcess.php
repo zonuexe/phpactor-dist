@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Process;
+namespace PhpactorDist\Symfony\Component\Process;
 
-use Phpactor202301\Symfony\Component\Process\Exception\LogicException;
-use Phpactor202301\Symfony\Component\Process\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Process\Exception\LogicException;
+use PhpactorDist\Symfony\Component\Process\Exception\RuntimeException;
 /**
  * PhpProcess runs a PHP script in an independent process.
  *

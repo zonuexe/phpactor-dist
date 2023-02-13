@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection\Map;
+namespace PhpactorDist\Ramsey\Collection\Map;
 
-use Phpactor202301\Ramsey\Collection\ArrayInterface;
+use PhpactorDist\Ramsey\Collection\ArrayInterface;
 /**
  * An object that maps keys to values.
  *

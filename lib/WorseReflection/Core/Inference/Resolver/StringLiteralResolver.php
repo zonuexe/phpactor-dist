@@ -2,9 +2,9 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\StringLiteral;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;

@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 /**
  * Frame walkers can manipulate a frame.
  *

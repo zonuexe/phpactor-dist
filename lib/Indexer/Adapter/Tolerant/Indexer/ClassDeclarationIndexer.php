@@ -2,11 +2,11 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Indexer\Model\Name\FullyQualifiedName;
 use Phpactor\Indexer\Model\Record\ClassRecord;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\Indexer\Model\Index;
 class ClassDeclarationIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Indexer\AbstractClassLikeIndexer

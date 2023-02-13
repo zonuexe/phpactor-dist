@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Command;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use RuntimeException;
 /**
  * Commands can be registered using this class.

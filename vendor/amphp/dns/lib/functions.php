@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Promise;
 const LOOP_STATE_IDENTIFIER = Resolver::class;
 /**
  * Retrieve the application-wide dns resolver instance.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 /**
  * Defines an asynchronous iterator over a set of values that is designed to be used within a coroutine.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 class Normalizer extends Symfony\Polyfill\Intl\Normalizer\Normalizer
 {
@@ -17,4 +17,4 @@ class Normalizer extends Symfony\Polyfill\Intl\Normalizer\Normalizer
     public const NFC = 16;
     public const NFKC = 32;
 }
-\class_alias('Phpactor202301\\Normalizer', 'Normalizer', \false);
+\class_alias('PhpactorDist\\Normalizer', 'Normalizer', \false);

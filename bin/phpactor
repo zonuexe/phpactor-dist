@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutput;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutput;
 use Phpactor\Application;
 foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
     if (\file_exists($file)) {

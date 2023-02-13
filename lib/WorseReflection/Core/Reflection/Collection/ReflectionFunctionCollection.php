@@ -4,9 +4,9 @@ namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction as PhpactorReflectionFunction;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionFunction;
 /**
  * @extends AbstractReflectionCollection<PhpactorReflectionFunction>

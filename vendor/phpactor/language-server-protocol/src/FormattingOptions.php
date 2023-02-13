@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -24,7 +24,7 @@ class FormattingOptions
      */
     public $insertSpaces;
     /**
-     * Trim trailing whitespaces on a line.
+     * Trim trailing whitespace on a line.
      *
      * @var bool|null
      */
@@ -58,7 +58,7 @@ class FormattingOptions
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

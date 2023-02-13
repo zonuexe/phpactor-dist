@@ -2,10 +2,10 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\Generators;
 use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\CreateClassCommand;
 use Phpactor\LanguageServerProtocol\CodeAction;
@@ -17,7 +17,7 @@ use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
 {
     public const KIND = 'quickfix.create_class';
@@ -59,7 +59,7 @@ class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
         if ('' !== \trim($textDocument->text)) {
             return [];
         }
-        return [new Diagnostic(new Range(new Position(1, 1), new Position(1, 1)), \sprintf('Empty file (use create-class code action to create a new class)'), DiagnosticSeverity::INFORMATION, null, 'phpactor')];
+        return [new Diagnostic(range: new Range(new Position(1, 1), new Position(1, 1)), message: \sprintf('Empty file (use create-class code action to create a new class)'), severity: DiagnosticSeverity::INFORMATION, source: 'phpactor')];
     }
     private function kind() : string
     {

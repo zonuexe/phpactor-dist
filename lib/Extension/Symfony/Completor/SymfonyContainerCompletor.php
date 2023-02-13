@@ -3,11 +3,11 @@
 namespace Phpactor\Extension\Symfony\Completor;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\StringLiteral;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Core\Suggestion;
 use Phpactor\Extension\Symfony\Model\SymfonyContainerInspector;
@@ -19,7 +19,7 @@ use Phpactor\WorseReflection\Core\Util\NodeUtil;
 use Phpactor\WorseReflection\Reflector;
 class SymfonyContainerCompletor implements TolerantCompletor
 {
-    const CONTAINER_CLASS = 'Phpactor202301\\Symfony\\Component\\DependencyInjection\\ContainerInterface';
+    const CONTAINER_CLASS = 'PhpactorDist\\Symfony\\Component\\DependencyInjection\\ContainerInterface';
     public function __construct(private Reflector $reflector, private SymfonyContainerInspector $inspector)
     {
     }

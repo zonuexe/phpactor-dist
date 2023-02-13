@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\BlockNode;
-use Phpactor202301\Twig\Node\Expression\BlockReferenceExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\PrintNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\BlockNode;
+use PhpactorDist\Twig\Node\Expression\BlockReferenceExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\PrintNode;
+use PhpactorDist\Twig\Token;
 /**
  * Filters a section of a template by applying filters.
  *
@@ -56,4 +56,4 @@ final class FilterTokenParser extends AbstractTokenParser
         return 'filter';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\FilterTokenParser', 'Phpactor202301\\Twig_TokenParser_Filter');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\FilterTokenParser', 'PhpactorDist\\Twig_TokenParser_Filter');

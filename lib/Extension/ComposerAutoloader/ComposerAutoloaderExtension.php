@@ -8,9 +8,9 @@ use Phpactor\Container\Extension;
 use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
 use Phpactor\MapResolver\Resolver;
-use Phpactor202301\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\Extension\ComposerAutoloader\ClassLoaderFactory as PhpactorClassLoader;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use RuntimeException;
 class ComposerAutoloaderExtension implements Extension
 {

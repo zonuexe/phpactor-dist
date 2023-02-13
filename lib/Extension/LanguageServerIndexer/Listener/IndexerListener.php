@@ -7,7 +7,7 @@ use Phpactor\Extension\LanguageServerIndexer\Event\IndexReset;
 use Phpactor\Extension\LanguageServerIndexer\Handler\IndexerHandler;
 use Phpactor\LanguageServer\Core\Service\ServiceManager;
 use Phpactor\LanguageServer\Event\WillShutdown;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class IndexerListener implements ListenerProviderInterface
 {
     public function __construct(private ServiceManager $manager)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\AcmeLs;
+namespace PhpactorDist\AcmeLs;
 
 use Phpactor\LanguageServer\Adapter\Psr\AggregateEventDispatcher;
 use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\PassThroughArgumentResolver;
@@ -33,7 +33,7 @@ use Phpactor\LanguageServer\Core\Server\ResponseWatcher\DeferredResponseWatcher;
 use Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
 use Phpactor\LanguageServer\Middleware\HandlerMiddleware;
 use Phpactor\LanguageServer\Middleware\ShutdownMiddleware;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class AcmeLsDispatcherFactory implements DispatcherFactory
 {
     /**
@@ -54,6 +54,6 @@ class AcmeLsDispatcherFactory implements DispatcherFactory
         $eventDispatcher = new AggregateEventDispatcher(new ServiceListener($serviceManager), new WorkspaceListener($workspace));
         $handlers = new Handlers(new TextDocumentHandler($eventDispatcher), new ServiceHandler($serviceManager, $clientApi), new CommandHandler(new CommandDispatcher([])));
         $runner = new HandlerMethodRunner($handlers, new ChainArgumentResolver(new LanguageSeverProtocolParamsResolver(), new PassThroughArgumentResolver()));
-        return new MiddlewareDispatcher(new ErrorHandlingMiddleware($this->logger), new InitializeMiddleware($handlers, $eventDispatcher, ['version' => 1]), new ShutdownMiddleware($eventDispatcher), new ResponseHandlingMiddleware($responseWatcher), new CancellationMiddleware($runner), new HandlerMiddleware($runner));
+        return new MiddlewareDispatcher(new ErrorHandlingMiddleware($this->logger), new InitializeMiddleware($handlers, $eventDispatcher, ['name' => 'acme', 'version' => '1']), new ShutdownMiddleware($eventDispatcher), new ResponseHandlingMiddleware($responseWatcher), new CancellationMiddleware($runner), new HandlerMiddleware($runner));
     }
 }

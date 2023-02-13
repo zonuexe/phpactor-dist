@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\Core\Console\Dumper;
 
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Helper\Table;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Helper\Table;
 final class TableDumper implements \Phpactor\Extension\Core\Console\Dumper\Dumper
 {
     const PADDING = '  ';

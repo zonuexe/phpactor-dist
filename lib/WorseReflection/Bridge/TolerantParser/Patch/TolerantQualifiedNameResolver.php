@@ -2,14 +2,14 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Patch;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\TraitSelectOrAliasClause;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\TraitSelectOrAliasClause;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 /**
  * This is a hack to allow resolving trait use clauses, which are for some reason
  * not supported in tolerant parser.

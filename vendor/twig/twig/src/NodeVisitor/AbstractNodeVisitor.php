@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Used to make node visitors compatible with Twig 1.x and 2.x.
  *
@@ -42,4 +42,4 @@ abstract class AbstractNodeVisitor implements NodeVisitorInterface
      */
     protected abstract function doLeaveNode(Node $node, Environment $env);
 }
-\class_alias('Phpactor202301\\Twig\\NodeVisitor\\AbstractNodeVisitor', 'Phpactor202301\\Twig_BaseNodeVisitor');
+\class_alias('PhpactorDist\\Twig\\NodeVisitor\\AbstractNodeVisitor', 'PhpactorDist\\Twig_BaseNodeVisitor');

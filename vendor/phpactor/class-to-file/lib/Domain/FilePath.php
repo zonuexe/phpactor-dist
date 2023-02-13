@@ -2,7 +2,7 @@
 
 namespace Phpactor\ClassFileConverter\Domain;
 
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 final class FilePath
 {
     private $path;

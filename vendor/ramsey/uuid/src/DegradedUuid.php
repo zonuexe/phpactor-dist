@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid;
+namespace PhpactorDist\Ramsey\Uuid;
 
 /**
  * @deprecated DegradedUuid is no longer necessary to represent UUIDs on 32-bit

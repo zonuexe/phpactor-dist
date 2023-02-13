@@ -2,12 +2,12 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionParameterCollection as PhpactorReflectionParameterCollection;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter as PhpactorReflectionParameter;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionParameter;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
 /**
@@ -33,7 +33,7 @@ final class ReflectionParameterCollection extends \Phpactor\WorseReflection\Core
         if ($method->parameters) {
             $index = 0;
             foreach ($method->parameters->getElements() as $parameter) {
-                $items[$parameter->getName()] = new ReflectionParameter($serviceLocator, $reflectionMethod, $parameter, $index);
+                $items[$parameter->getName()] = new ReflectionParameter($serviceLocator, $reflectionMethod, $parameter, $index++);
             }
         }
         return new static($items);

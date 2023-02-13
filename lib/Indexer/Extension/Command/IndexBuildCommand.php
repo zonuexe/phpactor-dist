@@ -2,18 +2,18 @@
 
 namespace Phpactor\Indexer\Extension\Command;
 
-use Phpactor202301\Amp\Loop;
+use PhpactorDist\Amp\Loop;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\Indexer\Model\Indexer;
 use Phpactor\Indexer\Model\MemoryUsage;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Helper\ProgressBar;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor\Indexer\Util\Cast;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class IndexBuildCommand extends Command
 {
     const ARG_SUB_PATH = 'sub-path';

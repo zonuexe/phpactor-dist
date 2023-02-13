@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\NodeVisitor\NodeVisitorInterface;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\NodeVisitor\NodeVisitorInterface;
 /**
  * A node traverser.
  *
@@ -71,4 +71,4 @@ final class NodeTraverser
         return $visitor->leaveNode($node, $this->env);
     }
 }
-\class_alias('Phpactor202301\\Twig\\NodeTraverser', 'Phpactor202301\\Twig_NodeTraverser');
+\class_alias('PhpactorDist\\Twig\\NodeTraverser', 'PhpactorDist\\Twig_NodeTraverser');

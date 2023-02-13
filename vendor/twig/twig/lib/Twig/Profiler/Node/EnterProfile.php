@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Profiler\Node\EnterProfileNode;
-\class_exists('Phpactor202301\\Twig\\Profiler\\Node\\EnterProfileNode');
+use PhpactorDist\Twig\Profiler\Node\EnterProfileNode;
+\class_exists('PhpactorDist\\Twig\\Profiler\\Node\\EnterProfileNode');
 @\trigger_error('Using the "Twig_Profiler_Node_EnterProfile" class is deprecated since Twig version 2.7, use "Twig\\Profiler\\Node\\EnterProfileNode" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Profiler\Node\EnterProfileNode" instead */

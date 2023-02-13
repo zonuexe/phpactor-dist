@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream\Base64;
+namespace PhpactorDist\Amp\ByteStream\Base64;
 
-use Phpactor202301\Amp\ByteStream\OutputStream;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\OutputStream;
+use PhpactorDist\Amp\Promise;
 final class Base64EncodingOutputStream implements OutputStream
 {
     /** @var OutputStream */

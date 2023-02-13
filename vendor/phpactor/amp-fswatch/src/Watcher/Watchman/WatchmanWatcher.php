@@ -2,9 +2,9 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\Watchman;
 
-use Phpactor202301\Amp\ByteStream\LineReader;
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\LineReader;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
 use Phpactor\AmpFsWatch\Exception\WatcherDied;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
@@ -12,12 +12,12 @@ use Phpactor\AmpFsWatch\ModifiedFileBuilder;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\WatcherConfig;
 use Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 use RuntimeException;
-use function Phpactor202301\Amp\ByteStream\buffer;
-use function Phpactor202301\Amp\Promise\first;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\ByteStream\buffer;
+use function PhpactorDist\Amp\Promise\first;
+use function PhpactorDist\Amp\call;
 class WatchmanWatcher implements Watcher, WatcherProcess
 {
     const WATCHMAN_CMD = 'watchman';

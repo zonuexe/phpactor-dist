@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\WithNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\WithNode;
+use PhpactorDist\Twig\Token;
 /**
  * Creates a nested scope.
  *
@@ -55,4 +55,4 @@ final class WithTokenParser extends AbstractTokenParser
         return 'with';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\WithTokenParser', 'Phpactor202301\\Twig_TokenParser_With');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\WithTokenParser', 'PhpactorDist\\Twig_TokenParser_With');

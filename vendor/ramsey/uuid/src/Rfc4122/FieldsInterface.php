@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Rfc4122;
+namespace PhpactorDist\Ramsey\Uuid\Rfc4122;
 
-use Phpactor202301\Ramsey\Uuid\Fields\FieldsInterface as BaseFieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Fields\FieldsInterface as BaseFieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 /**
  * RFC 4122 defines fields for a specific variant of UUID
  *

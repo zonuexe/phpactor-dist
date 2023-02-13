@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
-use Phpactor202301\Monolog\Formatter\ElasticaFormatter;
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Elastica\Client;
-use Phpactor202301\Elastica\Exception\ExceptionInterface;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Monolog\Formatter\ElasticaFormatter;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Elastica\Client;
+use PhpactorDist\Elastica\Exception\ExceptionInterface;
 /**
  * Elastic Search handler
  *

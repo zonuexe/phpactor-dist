@@ -1,18 +1,18 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Posix;
+namespace PhpactorDist\Amp\Process\Internal\Posix;
 
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Process\Internal\ProcessHandle;
-use Phpactor202301\Amp\Process\Internal\ProcessRunner;
-use Phpactor202301\Amp\Process\Internal\ProcessStatus;
-use Phpactor202301\Amp\Process\ProcessException;
-use Phpactor202301\Amp\Process\ProcessInputStream;
-use Phpactor202301\Amp\Process\ProcessOutputStream;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\ByteStream\ResourceOutputStream;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Process\Internal\ProcessHandle;
+use PhpactorDist\Amp\Process\Internal\ProcessRunner;
+use PhpactorDist\Amp\Process\Internal\ProcessStatus;
+use PhpactorDist\Amp\Process\ProcessException;
+use PhpactorDist\Amp\Process\ProcessInputStream;
+use PhpactorDist\Amp\Process\ProcessOutputStream;
+use PhpactorDist\Amp\Promise;
 /** @internal */
 final class Runner implements ProcessRunner
 {

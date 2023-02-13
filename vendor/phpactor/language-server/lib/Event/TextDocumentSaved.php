@@ -2,23 +2,20 @@
 
 namespace Phpactor\LanguageServer\Event;
 
-use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
+use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
 class TextDocumentSaved
 {
-    /**
-     * @var VersionedTextDocumentIdentifier
-     */
-    private $identifier;
+    private TextDocumentIdentifier $identifier;
     /**
      * @var string|null
      */
     private $text;
-    public function __construct(VersionedTextDocumentIdentifier $identifier, ?string $text = null)
+    public function __construct(TextDocumentIdentifier $identifier, ?string $text = null)
     {
         $this->identifier = $identifier;
         $this->text = $text;
     }
-    public function identifier() : VersionedTextDocumentIdentifier
+    public function identifier() : TextDocumentIdentifier
     {
         return $this->identifier;
     }

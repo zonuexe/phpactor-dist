@@ -11,7 +11,7 @@ class ProphecyStubLocator implements SourceCodeLocator
     private InternalLocator $locator;
     public function __construct()
     {
-        $this->locator = new InternalLocator(['Phpactor202301\\Prophecy\\Prophecy\\ObjectProphecy' => __DIR__ . '/../stubs/Prophecy.stub', 'Phpactor202301\\Prophecy\\Prophecy\\MethodProphecy' => __DIR__ . '/../stubs/Prophecy.stub']);
+        $this->locator = new InternalLocator(['PhpactorDist\\Prophecy\\Prophecy\\ObjectProphecy' => __DIR__ . '/../stubs/Prophecy.stub', 'PhpactorDist\\Prophecy\\Prophecy\\MethodProphecy' => __DIR__ . '/../stubs/Prophecy.stub']);
     }
     public function locate(Name $name) : SourceCode
     {

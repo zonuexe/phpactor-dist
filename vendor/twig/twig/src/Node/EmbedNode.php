@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
 /**
  * Represents an embed node.
  *
@@ -32,4 +32,4 @@ class EmbedNode extends IncludeNode
         $compiler->write('$this->loadTemplate(')->string($this->getAttribute('name'))->raw(', ')->repr($this->getTemplateName())->raw(', ')->repr($this->getTemplateLine())->raw(', ')->string($this->getAttribute('index'))->raw(')');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\EmbedNode', 'Phpactor202301\\Twig_Node_Embed');
+\class_alias('PhpactorDist\\Twig\\Node\\EmbedNode', 'PhpactorDist\\Twig_Node_Embed');

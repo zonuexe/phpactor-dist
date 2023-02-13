@@ -8,17 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Command;
+namespace PhpactorDist\Symfony\Component\Console\Command;
 
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionInput;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionSuggestions;
-use Phpactor202301\Symfony\Component\Console\Completion\Output\BashCompletionOutput;
-use Phpactor202301\Symfony\Component\Console\Completion\Output\CompletionOutputInterface;
-use Phpactor202301\Symfony\Component\Console\Exception\CommandNotFoundException;
-use Phpactor202301\Symfony\Component\Console\Exception\ExceptionInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionInput;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionSuggestions;
+use PhpactorDist\Symfony\Component\Console\Completion\Output\BashCompletionOutput;
+use PhpactorDist\Symfony\Component\Console\Completion\Output\CompletionOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Exception\CommandNotFoundException;
+use PhpactorDist\Symfony\Component\Console\Exception\ExceptionInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 /**
  * Responsible for providing the values to the shell completion.
  *

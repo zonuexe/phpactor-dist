@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -28,7 +28,7 @@ class SignatureHelpContext
     /**
      * `true` if signature help was already showing when it was triggered.
      * 
-     * Retriggers occur when the signature help is already active and can be caused by actions such as
+     * Retriggers occurs when the signature help is already active and can be caused by actions such as
      * typing a trigger character, a cursor move, or document content changes.
      *
      * @var bool
@@ -58,7 +58,7 @@ class SignatureHelpContext
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

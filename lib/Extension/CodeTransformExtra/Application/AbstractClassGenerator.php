@@ -5,8 +5,8 @@ namespace Phpactor\Extension\CodeTransformExtra\Application;
 use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
 use Phpactor\CodeTransform\Domain\Generators;
 use Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 class AbstractClassGenerator
 {
     private LoggerInterface $logger;

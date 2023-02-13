@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -18,131 +18,180 @@ class TextDocumentClientCapabilities
      */
     public $synchronization;
     /**
-     * Capabilities specific to the `textDocument/completion`
+     * Capabilities specific to the `textDocument/completion` request.
      *
      * @var CompletionClientCapabilities|null
      */
     public $completion;
     /**
-     * Capabilities specific to the `textDocument/hover`
+     * Capabilities specific to the `textDocument/hover` request.
      *
      * @var HoverClientCapabilities|null
      */
     public $hover;
     /**
-     * Capabilities specific to the `textDocument/signatureHelp`
+     * Capabilities specific to the `textDocument/signatureHelp` request.
      *
      * @var SignatureHelpClientCapabilities|null
      */
     public $signatureHelp;
     /**
-     * Capabilities specific to the `textDocument/declaration`
+     * Capabilities specific to the `textDocument/declaration` request.
      *
      * @var DeclarationClientCapabilities|null
      */
     public $declaration;
     /**
-     * Capabilities specific to the `textDocument/definition`
+     * Capabilities specific to the `textDocument/definition` request.
      *
      * @var DefinitionClientCapabilities|null
      */
     public $definition;
     /**
-     * Capabilities specific to the `textDocument/typeDefinition`
+     * Capabilities specific to the `textDocument/typeDefinition` request.
      *
      * @var TypeDefinitionClientCapabilities|null
      */
     public $typeDefinition;
     /**
-     * Capabilities specific to the `textDocument/implementation`
+     * Capabilities specific to the `textDocument/implementation` request.
      *
      * @var ImplementationClientCapabilities|null
      */
     public $implementation;
     /**
-     * Capabilities specific to the `textDocument/references`
+     * Capabilities specific to the `textDocument/references` request.
      *
      * @var ReferenceClientCapabilities|null
      */
     public $references;
     /**
-     * Capabilities specific to the `textDocument/documentHighlight`
+     * Capabilities specific to the `textDocument/documentHighlight` request.
      *
      * @var DocumentHighlightClientCapabilities|null
      */
     public $documentHighlight;
     /**
-     * Capabilities specific to the `textDocument/documentSymbol`
+     * Capabilities specific to the `textDocument/documentSymbol` request.
      *
      * @var DocumentSymbolClientCapabilities|null
      */
     public $documentSymbol;
     /**
-     * Capabilities specific to the `textDocument/codeAction`
+     * Capabilities specific to the `textDocument/codeAction` request.
      *
      * @var CodeActionClientCapabilities|null
      */
     public $codeAction;
     /**
-     * Capabilities specific to the `textDocument/codeLens`
+     * Capabilities specific to the `textDocument/codeLens` request.
      *
      * @var CodeLensClientCapabilities|null
      */
     public $codeLens;
     /**
-     * Capabilities specific to the `textDocument/documentLink`
+     * Capabilities specific to the `textDocument/documentLink` request.
      *
      * @var DocumentLinkClientCapabilities|null
      */
     public $documentLink;
     /**
-     * Capabilities specific to the `textDocument/documentColor`
+     * Capabilities specific to the `textDocument/documentColor` and the
+     * `textDocument/colorPresentation` request.
      *
      * @var DocumentColorClientCapabilities|null
      */
     public $colorProvider;
     /**
-     * Capabilities specific to the `textDocument/formatting`
+     * Capabilities specific to the `textDocument/formatting` request.
      *
      * @var DocumentFormattingClientCapabilities|null
      */
     public $formatting;
     /**
-     * Capabilities specific to the `textDocument/rangeFormatting`
+     * Capabilities specific to the `textDocument/rangeFormatting` request.
      *
      * @var DocumentRangeFormattingClientCapabilities|null
      */
     public $rangeFormatting;
     /**
-     * Capabilities specific to the `textDocument/onTypeFormatting`
+     * Capabilities specific to the `textDocument/onTypeFormatting` request.
      *
      * @var DocumentOnTypeFormattingClientCapabilities|null
      */
     public $onTypeFormatting;
     /**
-     * Capabilities specific to the `textDocument/rename`
+     * Capabilities specific to the `textDocument/rename` request.
      *
      * @var RenameClientCapabilities|null
      */
     public $rename;
     /**
-     * Capabilities specific to `textDocument/foldingRange` requests.
+     * Capabilities specific to the `textDocument/foldingRange` request.
      *
      * @var FoldingRangeClientCapabilities|null
      */
     public $foldingRange;
     /**
-     * Capabilities specific to `textDocument/selectionRange` requests
+     * Capabilities specific to the `textDocument/selectionRange` request.
      *
      * @var SelectionRangeClientCapabilities|null
      */
     public $selectionRange;
     /**
-     * Capabilities specific to `textDocument/publishDiagnostics`.
+     * Capabilities specific to the `textDocument/publishDiagnostics` notification.
      *
      * @var PublishDiagnosticsClientCapabilities|null
      */
     public $publishDiagnostics;
+    /**
+     * Capabilities specific to the various call hierarchy requests.
+     *
+     * @var mixed|null
+     */
+    public $callHierarchy;
+    /**
+     * Capabilities specific to the various semantic token request.
+     *
+     * @var mixed|null
+     */
+    public $semanticTokens;
+    /**
+     * Capabilities specific to the `textDocument/linkedEditingRange` request.
+     *
+     * @var mixed|null
+     */
+    public $linkedEditingRange;
+    /**
+     * Client capabilities specific to the `textDocument/moniker` request.
+     *
+     * @var mixed|null
+     */
+    public $moniker;
+    /**
+     * Capabilities specific to the various type hierarchy requests.
+     *
+     * @var mixed|null
+     */
+    public $typeHierarchy;
+    /**
+     * Capabilities specific to the `textDocument/inlineValue` request.
+     *
+     * @var mixed|null
+     */
+    public $inlineValue;
+    /**
+     * Capabilities specific to the `textDocument/inlayHint` request.
+     *
+     * @var mixed|null
+     */
+    public $inlayHint;
+    /**
+     * Capabilities specific to the diagnostic pull model.
+     *
+     * @var mixed|null
+     */
+    public $diagnostic;
     /**
      * @param TextDocumentSyncClientCapabilities|null $synchronization
      * @param CompletionClientCapabilities|null $completion
@@ -166,8 +215,16 @@ class TextDocumentClientCapabilities
      * @param FoldingRangeClientCapabilities|null $foldingRange
      * @param SelectionRangeClientCapabilities|null $selectionRange
      * @param PublishDiagnosticsClientCapabilities|null $publishDiagnostics
+     * @param mixed|null $callHierarchy
+     * @param mixed|null $semanticTokens
+     * @param mixed|null $linkedEditingRange
+     * @param mixed|null $moniker
+     * @param mixed|null $typeHierarchy
+     * @param mixed|null $inlineValue
+     * @param mixed|null $inlayHint
+     * @param mixed|null $diagnostic
      */
-    public function __construct(?\Phpactor\LanguageServerProtocol\TextDocumentSyncClientCapabilities $synchronization = null, ?\Phpactor\LanguageServerProtocol\CompletionClientCapabilities $completion = null, ?\Phpactor\LanguageServerProtocol\HoverClientCapabilities $hover = null, ?\Phpactor\LanguageServerProtocol\SignatureHelpClientCapabilities $signatureHelp = null, ?\Phpactor\LanguageServerProtocol\DeclarationClientCapabilities $declaration = null, ?\Phpactor\LanguageServerProtocol\DefinitionClientCapabilities $definition = null, ?\Phpactor\LanguageServerProtocol\TypeDefinitionClientCapabilities $typeDefinition = null, ?\Phpactor\LanguageServerProtocol\ImplementationClientCapabilities $implementation = null, ?\Phpactor\LanguageServerProtocol\ReferenceClientCapabilities $references = null, ?\Phpactor\LanguageServerProtocol\DocumentHighlightClientCapabilities $documentHighlight = null, ?\Phpactor\LanguageServerProtocol\DocumentSymbolClientCapabilities $documentSymbol = null, ?\Phpactor\LanguageServerProtocol\CodeActionClientCapabilities $codeAction = null, ?\Phpactor\LanguageServerProtocol\CodeLensClientCapabilities $codeLens = null, ?\Phpactor\LanguageServerProtocol\DocumentLinkClientCapabilities $documentLink = null, ?\Phpactor\LanguageServerProtocol\DocumentColorClientCapabilities $colorProvider = null, ?\Phpactor\LanguageServerProtocol\DocumentFormattingClientCapabilities $formatting = null, ?\Phpactor\LanguageServerProtocol\DocumentRangeFormattingClientCapabilities $rangeFormatting = null, ?\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingClientCapabilities $onTypeFormatting = null, ?\Phpactor\LanguageServerProtocol\RenameClientCapabilities $rename = null, ?\Phpactor\LanguageServerProtocol\FoldingRangeClientCapabilities $foldingRange = null, ?\Phpactor\LanguageServerProtocol\SelectionRangeClientCapabilities $selectionRange = null, ?\Phpactor\LanguageServerProtocol\PublishDiagnosticsClientCapabilities $publishDiagnostics = null)
+    public function __construct(?\Phpactor\LanguageServerProtocol\TextDocumentSyncClientCapabilities $synchronization = null, ?\Phpactor\LanguageServerProtocol\CompletionClientCapabilities $completion = null, ?\Phpactor\LanguageServerProtocol\HoverClientCapabilities $hover = null, ?\Phpactor\LanguageServerProtocol\SignatureHelpClientCapabilities $signatureHelp = null, ?\Phpactor\LanguageServerProtocol\DeclarationClientCapabilities $declaration = null, ?\Phpactor\LanguageServerProtocol\DefinitionClientCapabilities $definition = null, ?\Phpactor\LanguageServerProtocol\TypeDefinitionClientCapabilities $typeDefinition = null, ?\Phpactor\LanguageServerProtocol\ImplementationClientCapabilities $implementation = null, ?\Phpactor\LanguageServerProtocol\ReferenceClientCapabilities $references = null, ?\Phpactor\LanguageServerProtocol\DocumentHighlightClientCapabilities $documentHighlight = null, ?\Phpactor\LanguageServerProtocol\DocumentSymbolClientCapabilities $documentSymbol = null, ?\Phpactor\LanguageServerProtocol\CodeActionClientCapabilities $codeAction = null, ?\Phpactor\LanguageServerProtocol\CodeLensClientCapabilities $codeLens = null, ?\Phpactor\LanguageServerProtocol\DocumentLinkClientCapabilities $documentLink = null, ?\Phpactor\LanguageServerProtocol\DocumentColorClientCapabilities $colorProvider = null, ?\Phpactor\LanguageServerProtocol\DocumentFormattingClientCapabilities $formatting = null, ?\Phpactor\LanguageServerProtocol\DocumentRangeFormattingClientCapabilities $rangeFormatting = null, ?\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingClientCapabilities $onTypeFormatting = null, ?\Phpactor\LanguageServerProtocol\RenameClientCapabilities $rename = null, ?\Phpactor\LanguageServerProtocol\FoldingRangeClientCapabilities $foldingRange = null, ?\Phpactor\LanguageServerProtocol\SelectionRangeClientCapabilities $selectionRange = null, ?\Phpactor\LanguageServerProtocol\PublishDiagnosticsClientCapabilities $publishDiagnostics = null, $callHierarchy = null, $semanticTokens = null, $linkedEditingRange = null, $moniker = null, $typeHierarchy = null, $inlineValue = null, $inlayHint = null, $diagnostic = null)
     {
         $this->synchronization = $synchronization;
         $this->completion = $completion;
@@ -191,14 +248,22 @@ class TextDocumentClientCapabilities
         $this->foldingRange = $foldingRange;
         $this->selectionRange = $selectionRange;
         $this->publishDiagnostics = $publishDiagnostics;
+        $this->callHierarchy = $callHierarchy;
+        $this->semanticTokens = $semanticTokens;
+        $this->linkedEditingRange = $linkedEditingRange;
+        $this->moniker = $moniker;
+        $this->typeHierarchy = $typeHierarchy;
+        $this->inlineValue = $inlineValue;
+        $this->inlayHint = $inlayHint;
+        $this->diagnostic = $diagnostic;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['synchronization' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentSyncClientCapabilities::class], 'iterable' => \false], 'completion' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionClientCapabilities::class], 'iterable' => \false], 'hover' => ['names' => [\Phpactor\LanguageServerProtocol\HoverClientCapabilities::class], 'iterable' => \false], 'signatureHelp' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureHelpClientCapabilities::class], 'iterable' => \false], 'declaration' => ['names' => [\Phpactor\LanguageServerProtocol\DeclarationClientCapabilities::class], 'iterable' => \false], 'definition' => ['names' => [\Phpactor\LanguageServerProtocol\DefinitionClientCapabilities::class], 'iterable' => \false], 'typeDefinition' => ['names' => [\Phpactor\LanguageServerProtocol\TypeDefinitionClientCapabilities::class], 'iterable' => \false], 'implementation' => ['names' => [\Phpactor\LanguageServerProtocol\ImplementationClientCapabilities::class], 'iterable' => \false], 'references' => ['names' => [\Phpactor\LanguageServerProtocol\ReferenceClientCapabilities::class], 'iterable' => \false], 'documentHighlight' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentHighlightClientCapabilities::class], 'iterable' => \false], 'documentSymbol' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentSymbolClientCapabilities::class], 'iterable' => \false], 'codeAction' => ['names' => [\Phpactor\LanguageServerProtocol\CodeActionClientCapabilities::class], 'iterable' => \false], 'codeLens' => ['names' => [\Phpactor\LanguageServerProtocol\CodeLensClientCapabilities::class], 'iterable' => \false], 'documentLink' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentLinkClientCapabilities::class], 'iterable' => \false], 'colorProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentColorClientCapabilities::class], 'iterable' => \false], 'formatting' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentFormattingClientCapabilities::class], 'iterable' => \false], 'rangeFormatting' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentRangeFormattingClientCapabilities::class], 'iterable' => \false], 'onTypeFormatting' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingClientCapabilities::class], 'iterable' => \false], 'rename' => ['names' => [\Phpactor\LanguageServerProtocol\RenameClientCapabilities::class], 'iterable' => \false], 'foldingRange' => ['names' => [\Phpactor\LanguageServerProtocol\FoldingRangeClientCapabilities::class], 'iterable' => \false], 'selectionRange' => ['names' => [\Phpactor\LanguageServerProtocol\SelectionRangeClientCapabilities::class], 'iterable' => \false], 'publishDiagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\PublishDiagnosticsClientCapabilities::class], 'iterable' => \false]];
+        $map = ['synchronization' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentSyncClientCapabilities::class], 'iterable' => \false], 'completion' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionClientCapabilities::class], 'iterable' => \false], 'hover' => ['names' => [\Phpactor\LanguageServerProtocol\HoverClientCapabilities::class], 'iterable' => \false], 'signatureHelp' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureHelpClientCapabilities::class], 'iterable' => \false], 'declaration' => ['names' => [\Phpactor\LanguageServerProtocol\DeclarationClientCapabilities::class], 'iterable' => \false], 'definition' => ['names' => [\Phpactor\LanguageServerProtocol\DefinitionClientCapabilities::class], 'iterable' => \false], 'typeDefinition' => ['names' => [\Phpactor\LanguageServerProtocol\TypeDefinitionClientCapabilities::class], 'iterable' => \false], 'implementation' => ['names' => [\Phpactor\LanguageServerProtocol\ImplementationClientCapabilities::class], 'iterable' => \false], 'references' => ['names' => [\Phpactor\LanguageServerProtocol\ReferenceClientCapabilities::class], 'iterable' => \false], 'documentHighlight' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentHighlightClientCapabilities::class], 'iterable' => \false], 'documentSymbol' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentSymbolClientCapabilities::class], 'iterable' => \false], 'codeAction' => ['names' => [\Phpactor\LanguageServerProtocol\CodeActionClientCapabilities::class], 'iterable' => \false], 'codeLens' => ['names' => [\Phpactor\LanguageServerProtocol\CodeLensClientCapabilities::class], 'iterable' => \false], 'documentLink' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentLinkClientCapabilities::class], 'iterable' => \false], 'colorProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentColorClientCapabilities::class], 'iterable' => \false], 'formatting' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentFormattingClientCapabilities::class], 'iterable' => \false], 'rangeFormatting' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentRangeFormattingClientCapabilities::class], 'iterable' => \false], 'onTypeFormatting' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingClientCapabilities::class], 'iterable' => \false], 'rename' => ['names' => [\Phpactor\LanguageServerProtocol\RenameClientCapabilities::class], 'iterable' => \false], 'foldingRange' => ['names' => [\Phpactor\LanguageServerProtocol\FoldingRangeClientCapabilities::class], 'iterable' => \false], 'selectionRange' => ['names' => [\Phpactor\LanguageServerProtocol\SelectionRangeClientCapabilities::class], 'iterable' => \false], 'publishDiagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\PublishDiagnosticsClientCapabilities::class], 'iterable' => \false], 'callHierarchy' => ['names' => [], 'iterable' => \false], 'semanticTokens' => ['names' => [], 'iterable' => \false], 'linkedEditingRange' => ['names' => [], 'iterable' => \false], 'moniker' => ['names' => [], 'iterable' => \false], 'typeHierarchy' => ['names' => [], 'iterable' => \false], 'inlineValue' => ['names' => [], 'iterable' => \false], 'inlayHint' => ['names' => [], 'iterable' => \false], 'diagnostic' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

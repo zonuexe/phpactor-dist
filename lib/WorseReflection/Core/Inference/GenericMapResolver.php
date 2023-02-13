@@ -87,7 +87,7 @@ class GenericMapResolver
             $arguments = [$arguments->at($parameter->index())];
         }
         $types = [];
-        foreach ($arguments as $argument) {
+        foreach ($arguments as $index => $argument) {
             $argumentType = $argument->type();
             if ($argumentType instanceof ClassStringType) {
                 $className = $argumentType->className();

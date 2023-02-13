@@ -44,7 +44,7 @@ class LanguageServerSessionExtension implements Extension
         });
         $container->register(ProgressNotifier::class, function (Container $container) {
             $capabilities = $container->get(ClientCapabilities::class);
-            if ($capabilities->window['workDoneProgress'] ?? \false) {
+            if ($capabilities?->window?->workDoneProgress ?? \false) {
                 return new WorkDoneProgressNotifier($container->get(ClientApi::class));
             }
             return new MessageProgressNotifier($container->get(ClientApi::class));

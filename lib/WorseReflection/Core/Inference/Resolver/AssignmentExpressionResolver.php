@@ -2,26 +2,26 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArrayElementList;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ListExpressionList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrayCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ArrayElementList;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ListExpressionList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArrayCreationExpression;
 use Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ListIntrinsicExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ListIntrinsicExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 use Phpactor\WorseReflection\Core\Inference\Resolver;
 use Phpactor\WorseReflection\Core\Inference\Symbol;
 use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
 use Phpactor\WorseReflection\Core\Inference\Variable as WorseVariable;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\Node\ArrayElement;
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\ArrayElement;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\TypeFactory;
 use Phpactor\WorseReflection\Core\Type\AggregateType;
@@ -114,7 +114,7 @@ class AssignmentExpressionResolver implements Resolver
     private function walkSubscriptExpression(NodeContextResolver $resolver, Frame $frame, SubscriptExpression $leftOperand, NodeContext $rightContext) : void
     {
         if ($leftOperand->postfixExpression instanceof Variable) {
-            foreach ($frame->locals()->byName($leftOperand->postfixExpression->getName()) as $variable) {
+            foreach ($frame->locals()->byName((string) $leftOperand->postfixExpression->getName()) as $variable) {
                 $type = $variable->type();
                 if (!$type instanceof ArrayLiteral) {
                     return;

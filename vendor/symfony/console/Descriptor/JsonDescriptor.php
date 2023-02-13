@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Descriptor;
+namespace PhpactorDist\Symfony\Component\Console\Descriptor;
 
-use Phpactor202301\Symfony\Component\Console\Application;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputDefinition;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Application;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputDefinition;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
 /**
  * JSON descriptor.
  *

@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\Core\Application\Helper;
 
-use Phpactor202301\Symfony\Component\Filesystem\Path;
-use Phpactor202301\Webmozart\Glob\Glob;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Webmozart\Glob\Glob;
 use InvalidArgumentException;
 use Generator;
 final class FilesystemHelper

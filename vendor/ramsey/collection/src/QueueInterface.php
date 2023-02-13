@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection;
+namespace PhpactorDist\Ramsey\Collection;
 
-use Phpactor202301\Ramsey\Collection\Exception\NoSuchElementException;
+use PhpactorDist\Ramsey\Collection\Exception\NoSuchElementException;
 use RuntimeException;
 /**
  * A queue is a collection in which the entities in the collection are kept in

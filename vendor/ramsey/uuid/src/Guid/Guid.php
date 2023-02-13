@@ -10,12 +10,12 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Guid;
+namespace PhpactorDist\Ramsey\Uuid\Guid;
 
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Uuid;
 /**
  * Guid represents a UUID with "native" (little-endian) byte order
  *

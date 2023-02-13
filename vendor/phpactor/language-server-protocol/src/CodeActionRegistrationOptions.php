@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -17,7 +17,7 @@ class CodeActionRegistrationOptions extends \Phpactor\LanguageServerProtocol\Tex
      * A document selector to identify the scope of the registration. If set to null
      * the document selector provided on the client side will be used.
      *
-     * @var array<(string|array<mixed>|array<mixed>|array<mixed>)>|null
+     * @var array<(string|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{notebook:string|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string},language:string})>|null
      */
     public $documentSelector;
     /**
@@ -30,28 +30,37 @@ class CodeActionRegistrationOptions extends \Phpactor\LanguageServerProtocol\Tex
      */
     public $codeActionKinds;
     /**
+     * The server provides support to resolve additional
+     * information for a code action.
+     *
+     * @var bool|null
+     */
+    public $resolveProvider;
+    /**
      *
      * @var bool|null
      */
     public $workDoneProgress;
     /**
-     * @param array<(string|array<mixed>|array<mixed>|array<mixed>)>|null $documentSelector
+     * @param array<(string|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{language:string,scheme:string,pattern:string}|array{notebook:string|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string}|array{notebookType:string,scheme:string,pattern:string},language:string})>|null $documentSelector
      * @param array<string>|null $codeActionKinds
+     * @param bool|null $resolveProvider
      * @param bool|null $workDoneProgress
      */
-    public function __construct($documentSelector = null, ?array $codeActionKinds = null, ?bool $workDoneProgress = null)
+    public function __construct($documentSelector = null, ?array $codeActionKinds = null, ?bool $resolveProvider = null, ?bool $workDoneProgress = null)
     {
         $this->documentSelector = $documentSelector;
         $this->codeActionKinds = $codeActionKinds;
+        $this->resolveProvider = $resolveProvider;
         $this->workDoneProgress = $workDoneProgress;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['documentSelector' => ['names' => [], 'iterable' => \false], 'codeActionKinds' => ['names' => [], 'iterable' => \true], 'workDoneProgress' => ['names' => [], 'iterable' => \false]];
+        $map = ['documentSelector' => ['names' => [], 'iterable' => \false], 'codeActionKinds' => ['names' => [], 'iterable' => \true], 'resolveProvider' => ['names' => [], 'iterable' => \false], 'workDoneProgress' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

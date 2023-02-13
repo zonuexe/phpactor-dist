@@ -2,7 +2,7 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 interface TolerantQualifier
 {
     /**

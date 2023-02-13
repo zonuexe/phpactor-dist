@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Amp\Process;
+namespace PhpactorDist\Amp\Process;
 
-use Phpactor202301\Amp\ByteStream\ClosedException;
-use Phpactor202301\Amp\ByteStream\OutputStream;
-use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
-use Phpactor202301\Amp\ByteStream\StreamException;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\ClosedException;
+use PhpactorDist\Amp\ByteStream\OutputStream;
+use PhpactorDist\Amp\ByteStream\ResourceOutputStream;
+use PhpactorDist\Amp\ByteStream\StreamException;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
 final class ProcessOutputStream implements OutputStream
 {
     /** @var \SplQueue */

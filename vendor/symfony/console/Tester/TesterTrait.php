@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Tester;
+namespace PhpactorDist\Symfony\Component\Console\Tester;
 
-use Phpactor202301\PHPUnit\Framework\Assert;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutput;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\StreamOutput;
-use Phpactor202301\Symfony\Component\Console\Tester\Constraint\CommandIsSuccessful;
+use PhpactorDist\PHPUnit\Framework\Assert;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutput;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\StreamOutput;
+use PhpactorDist\Symfony\Component\Console\Tester\Constraint\CommandIsSuccessful;
 /**
  * @author Amrouche Hamza <hamza.simperfit@gmail.com>
  */

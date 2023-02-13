@@ -2,11 +2,11 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;

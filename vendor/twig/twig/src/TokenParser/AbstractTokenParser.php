@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Parser;
+use PhpactorDist\Twig\Parser;
 /**
  * Base class for all token parsers.
  *
@@ -27,4 +27,4 @@ abstract class AbstractTokenParser implements TokenParserInterface
         $this->parser = $parser;
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\AbstractTokenParser', 'Phpactor202301\\Twig_TokenParser');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\AbstractTokenParser', 'PhpactorDist\\Twig_TokenParser');

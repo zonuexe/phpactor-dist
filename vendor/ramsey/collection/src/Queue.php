@@ -10,12 +10,12 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection;
+namespace PhpactorDist\Ramsey\Collection;
 
-use Phpactor202301\Ramsey\Collection\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Collection\Exception\NoSuchElementException;
-use Phpactor202301\Ramsey\Collection\Tool\TypeTrait;
-use Phpactor202301\Ramsey\Collection\Tool\ValueToStringTrait;
+use PhpactorDist\Ramsey\Collection\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Collection\Exception\NoSuchElementException;
+use PhpactorDist\Ramsey\Collection\Tool\TypeTrait;
+use PhpactorDist\Ramsey\Collection\Tool\ValueToStringTrait;
 /**
  * This class provides a basic implementation of `QueueInterface`, to minimize
  * the effort required to implement this interface.

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Formatter\LineFormatter;
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\LineFormatter;
+use PhpactorDist\Monolog\Logger;
 /**
  * Logs to a Redis key using rpush
  *
@@ -37,7 +37,7 @@ class RedisHandler extends AbstractProcessingHandler
      */
     public function __construct($redis, $key, $level = Logger::DEBUG, $bubble = \true, $capSize = \false)
     {
-        if (!($redis instanceof \Phpactor202301\Predis\Client || $redis instanceof \Redis)) {
+        if (!($redis instanceof \PhpactorDist\Predis\Client || $redis instanceof \Redis)) {
             throw new \InvalidArgumentException('Predis\\Client or Redis instance required');
         }
         $this->redisClient = $redis;

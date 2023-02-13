@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Error;
+namespace PhpactorDist\Twig\Error;
 
 /**
  * Exception thrown when an error occurs during template loading.
@@ -18,4 +18,4 @@ namespace Phpactor202301\Twig\Error;
 class LoaderError extends Error
 {
 }
-\class_alias('Phpactor202301\\Twig\\Error\\LoaderError', 'Phpactor202301\\Twig_Error_Loader');
+\class_alias('PhpactorDist\\Twig\\Error\\LoaderError', 'PhpactorDist\\Twig_Error_Loader');

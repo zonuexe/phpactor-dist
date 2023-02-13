@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\ContextMenu\Model;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use RuntimeException;
 class ContextMenu
 {

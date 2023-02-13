@@ -2,10 +2,10 @@
 
 namespace Phpactor\LanguageServer\Core\Server\Stream;
 
-use Phpactor202301\Amp\ByteStream\InputStream;
-use Phpactor202301\Amp\ByteStream\OutputStream;
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\InputStream;
+use PhpactorDist\Amp\ByteStream\OutputStream;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\Promise;
 final class ResourceDuplexStream implements \Phpactor\LanguageServer\Core\Server\Stream\DuplexStream
 {
     /**

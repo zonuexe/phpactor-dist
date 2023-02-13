@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents a spaceless node.
  *
@@ -37,4 +37,4 @@ class SpacelessNode extends Node implements NodeOutputInterface
         $compiler->subcompile($this->getNode('body'))->write("echo trim(preg_replace('/>\\s+</', '><', ob_get_clean()));\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\SpacelessNode', 'Phpactor202301\\Twig_Node_Spaceless');
+\class_alias('PhpactorDist\\Twig\\Node\\SpacelessNode', 'PhpactorDist\\Twig_Node_Spaceless');

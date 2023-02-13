@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Cache;
+namespace PhpactorDist\Twig\Cache;
 
 /**
  * Interface implemented by cache classes.
@@ -52,4 +52,4 @@ interface CacheInterface
      */
     public function getTimestamp($key);
 }
-\class_alias('Phpactor202301\\Twig\\Cache\\CacheInterface', 'Phpactor202301\\Twig_CacheInterface');
+\class_alias('PhpactorDist\\Twig\\Cache\\CacheInterface', 'PhpactorDist\\Twig_CacheInterface');

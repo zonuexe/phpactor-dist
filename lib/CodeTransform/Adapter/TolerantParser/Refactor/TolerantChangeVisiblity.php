@@ -2,13 +2,13 @@
 
 namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\CodeTransform\Domain\Refactor\ChangeVisiblity;
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\TextDocument\TextEdit;

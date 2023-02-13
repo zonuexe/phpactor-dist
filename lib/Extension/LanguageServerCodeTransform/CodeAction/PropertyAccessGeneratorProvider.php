@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\CodeAction;
 use Phpactor\LanguageServerProtocol\Command;
@@ -13,7 +13,7 @@ use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
 use Phpactor\WorseReflection\Reflector;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class PropertyAccessGeneratorProvider implements CodeActionProvider
 {
     public function __construct(private string $kind, private string $command, private string $generatorRole, private Reflector $reflector)

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
 /**
  * Checks if casting an expression to __toString() is allowed by the sandbox.
  *

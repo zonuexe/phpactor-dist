@@ -11,7 +11,7 @@ use Phpactor\ConfigLoader\Core\Deserializer;
 use Phpactor\ConfigLoader\Core\Deserializers;
 use Phpactor\ConfigLoader\Core\PathCandidate;
 use Phpactor\ConfigLoader\Core\PathCandidates;
-use Phpactor202301\XdgBaseDir\Xdg;
+use PhpactorDist\XdgBaseDir\Xdg;
 class ConfigLoaderBuilder
 {
     /**

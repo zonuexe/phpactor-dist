@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Sandbox;
+namespace PhpactorDist\Twig\Sandbox;
 
 /**
  * Exception thrown when a not allowed filter is used in a template.
@@ -39,4 +39,4 @@ class SecurityNotAllowedFilterError extends SecurityError
         return $this->filterName;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Sandbox\\SecurityNotAllowedFilterError', 'Phpactor202301\\Twig_Sandbox_SecurityNotAllowedFilterError');
+\class_alias('PhpactorDist\\Twig\\Sandbox\\SecurityNotAllowedFilterError', 'PhpactorDist\\Twig_Sandbox_SecurityNotAllowedFilterError');

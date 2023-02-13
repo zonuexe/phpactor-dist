@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents a sandbox node.
  *
@@ -27,4 +27,4 @@ class SandboxNode extends Node
         $compiler->addDebugInfo($this)->write("if (!\$alreadySandboxed = \$this->sandbox->isSandboxed()) {\n")->indent()->write("\$this->sandbox->enableSandbox();\n")->outdent()->write("}\n")->write("try {\n")->indent()->subcompile($this->getNode('body'))->outdent()->write("} finally {\n")->indent()->write("if (!\$alreadySandboxed) {\n")->indent()->write("\$this->sandbox->disableSandbox();\n")->outdent()->write("}\n")->outdent()->write("}\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\SandboxNode', 'Phpactor202301\\Twig_Node_Sandbox');
+\class_alias('PhpactorDist\\Twig\\Node\\SandboxNode', 'PhpactorDist\\Twig_Node_Sandbox');

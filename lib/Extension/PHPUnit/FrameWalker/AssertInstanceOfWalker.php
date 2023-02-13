@@ -2,12 +2,12 @@
 
 namespace Phpactor\Extension\PHPUnit\FrameWalker;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\FrameResolver;
 use Phpactor\WorseReflection\Core\Inference\FunctionArguments;

@@ -13,10 +13,10 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Decoder;
+namespace PhpactorDist\LibDNS\Decoder;
 
-use Phpactor202301\LibDNS\Packets\Packet;
-use Phpactor202301\LibDNS\Packets\LabelRegistry;
+use PhpactorDist\LibDNS\Packets\Packet;
+use PhpactorDist\LibDNS\Packets\LabelRegistry;
 /**
  * Holds data associated with a decode operation
  *

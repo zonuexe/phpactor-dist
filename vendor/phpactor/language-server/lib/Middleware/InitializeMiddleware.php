@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServerProtocol\InitializeResult;
 use Phpactor\LanguageServerProtocol\ServerCapabilities;
 use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
@@ -15,29 +15,20 @@ use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Event\Initialized;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
 use RuntimeException;
 class InitializeMiddleware implements Middleware
 {
     private const METHOD_INITIALIZED = 'initialized';
     private const METHOD_INITIALIZE = 'initialize';
     /**
-     * @var Handlers
-     */
-    private $handlers;
-    /**
      * @var bool
      */
     private $initialized = \false;
     /**
-     * @var EventDispatcherInterface
+     * @param array{name?:string,version?:string} $serverInfo
      */
-    private $dispatcher;
-    /**
-     * @var array
-     */
-    private $serverInfo;
-    public function __construct(Handlers $handlers, EventDispatcherInterface $dispatcher, array $serverInfo = [])
+    public function __construct(private Handlers $handlers, private EventDispatcherInterface $dispatcher, private array $serverInfo = [])
     {
         $this->handlers = $handlers;
         $this->dispatcher = $dispatcher;
@@ -68,6 +59,6 @@ class InitializeMiddleware implements Middleware
             }
         }
         $this->initialized = \true;
-        return new Success(new ResponseMessage($request->id, new InitializeResult($serverCapabilities, $this->serverInfo)));
+        return new Success(new ResponseMessage($request->id, new InitializeResult($serverCapabilities, \array_merge(['name' => 'unspecified', 'version' => 'unspecified'], $this->serverInfo))));
     }
 }

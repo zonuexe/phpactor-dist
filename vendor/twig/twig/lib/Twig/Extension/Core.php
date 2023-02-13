@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Extension\CoreExtension;
-\class_exists('Phpactor202301\\Twig\\Extension\\CoreExtension');
+use PhpactorDist\Twig\Extension\CoreExtension;
+\class_exists('PhpactorDist\\Twig\\Extension\\CoreExtension');
 @\trigger_error('Using the "Twig_Extension_Core" class is deprecated since Twig version 2.7, use "Twig\\Extension\\CoreExtension" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Extension\CoreExtension" instead */

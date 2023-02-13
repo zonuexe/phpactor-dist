@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -53,14 +53,14 @@ class RenameFile extends \Phpactor\LanguageServerProtocol\ResourceOperation
     public function __construct(string $kind, string $oldUri, string $newUri, ?\Phpactor\LanguageServerProtocol\RenameFileOptions $options = null, ?string $annotationId = null)
     {
         $this->kind = $kind;
-        $this->oldUri = $oldUri;
-        $this->newUri = $newUri;
+        $this->oldUri = \urldecode($oldUri);
+        $this->newUri = \urldecode($newUri);
         $this->options = $options;
         $this->annotationId = $annotationId;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

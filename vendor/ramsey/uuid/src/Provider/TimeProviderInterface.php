@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider;
+namespace PhpactorDist\Ramsey\Uuid\Provider;
 
-use Phpactor202301\Ramsey\Uuid\Type\Time;
+use PhpactorDist\Ramsey\Uuid\Type\Time;
 /**
  * A time provider retrieves the current time
  */

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
 /**
  * Creates a successful promise using the given value (which can be any value except an object implementing
  * `Amp\Promise` or `React\Promise\PromiseInterface`).

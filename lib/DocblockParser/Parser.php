@@ -263,7 +263,6 @@ final class Parser
             if (!$typeList) {
                 return null;
             }
-            /** @phpstan-ignore-next-line */
             return new GenericNode($open, $this->createTypeFromToken($type), $typeList, $this->tokens->chomp());
         }
         if ($this->tokens->current->type === Token::T_BRACKET_CURLY_OPEN) {

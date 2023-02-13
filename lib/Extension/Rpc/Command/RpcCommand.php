@@ -3,12 +3,12 @@
 namespace Phpactor\Extension\Rpc\Command;
 
 use Phpactor\Extension\Rpc\RpcVersion;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor\Extension\Rpc\RequestHandler;
 use Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
 use RuntimeException;
 use InvalidArgumentException;
 class RpcCommand extends Command

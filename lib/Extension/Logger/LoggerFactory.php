@@ -3,7 +3,7 @@
 namespace Phpactor\Extension\Logger;
 
 use Phpactor\Extension\Logger\Logger\ChannelLogger;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class LoggerFactory
 {
     public function __construct(private LoggerInterface $mainLogger)

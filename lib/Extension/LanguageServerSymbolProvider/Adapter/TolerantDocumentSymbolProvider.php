@@ -3,21 +3,21 @@
 namespace Phpactor\Extension\LanguageServerSymbolProvider\Adapter;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassMembersNode;
-use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ConstElementList;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ExpressionList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\InterfaceMembers;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassMembersNode;
+use PhpactorDist\Microsoft\PhpParser\Node\ConstElement;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ConstElementList;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ExpressionList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\InterfaceMembers;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
 use Phpactor\LanguageServerProtocol\DocumentSymbol;
@@ -49,28 +49,28 @@ class TolerantDocumentSymbolProvider implements DocumentSymbolProvider
     private function buildNode(Node $node, string $source) : ?DocumentSymbol
     {
         if ($node instanceof FunctionDeclaration) {
-            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::FUNCTION, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), null, null, $this->buildNodes($this->memberNodes($node), $source));
+            return new DocumentSymbol(name: (string) $node->name->getText($source), kind: SymbolKind::FUNCTION, range: new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), selectionRange: new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), children: $this->buildNodes($this->memberNodes($node), $source));
         }
         if ($node instanceof ClassDeclaration) {
-            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::CLASS_, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), null, null, $this->buildNodes($this->memberNodes($node), $source));
+            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::CLASS_, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), children: $this->buildNodes($this->memberNodes($node), $source));
         }
         if ($node instanceof InterfaceDeclaration) {
-            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::INTERFACE, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), null, null, $this->buildNodes($this->memberNodes($node), $source));
+            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::INTERFACE, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), children: $this->buildNodes($this->memberNodes($node), $source));
         }
         if ($node instanceof TraitDeclaration) {
-            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::CLASS_, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), null, null, $this->buildNodes($this->memberNodes($node), $source));
+            return new DocumentSymbol((string) $node->name->getText($source), SymbolKind::CLASS_, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), children: $this->buildNodes($this->memberNodes($node), $source));
         }
         if ($node instanceof MethodDeclaration) {
             $name = (string) $node->name->getText($source);
-            return new DocumentSymbol($name, $name === '__construct' ? SymbolKind::CONSTRUCTOR : SymbolKind::METHOD, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), null, null, []);
+            return new DocumentSymbol($name, $name === '__construct' ? SymbolKind::CONSTRUCTOR : SymbolKind::METHOD, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), children: []);
         }
         if ($node instanceof Variable) {
             if ($node->getFirstAncestor(PropertyDeclaration::class)) {
-                return new DocumentSymbol((string) $node->getName(), SymbolKind::PROPERTY, new Range(PositionConverter::intByteOffsetToPosition($node->parent->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->parent->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), null, null, []);
+                return new DocumentSymbol((string) $node->getName(), SymbolKind::PROPERTY, new Range(PositionConverter::intByteOffsetToPosition($node->parent->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->parent->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), children: []);
             }
         }
         if ($node instanceof ConstElement) {
-            return new DocumentSymbol((string) $node->getName(), SymbolKind::CONSTANT, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), null, null, []);
+            return new DocumentSymbol((string) $node->getName(), SymbolKind::CONSTANT, new Range(PositionConverter::intByteOffsetToPosition($node->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->getEndPosition(), $source)), new Range(PositionConverter::intByteOffsetToPosition($node->name->getStartPosition(), $source), PositionConverter::intByteOffsetToPosition($node->name->getEndPosition(), $source)), children: []);
         }
         return null;
     }

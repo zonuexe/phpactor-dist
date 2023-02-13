@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 /*
  * This file is part of the Symfony package.
@@ -10,7 +10,7 @@ namespace Phpactor202301;
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-use Phpactor202301\Symfony\Polyfill\Intl\Grapheme as p;
+use PhpactorDist\Symfony\Polyfill\Intl\Grapheme as p;
 if (!\defined('GRAPHEME_EXTR_COUNT')) {
     \define('GRAPHEME_EXTR_COUNT', 0);
 }

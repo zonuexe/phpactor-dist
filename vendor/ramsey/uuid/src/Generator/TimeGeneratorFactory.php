@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Provider\NodeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Provider\TimeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Provider\NodeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Provider\TimeProviderInterface;
 /**
  * TimeGeneratorFactory retrieves a default time generator, based on the
  * environment

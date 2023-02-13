@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Output;
+namespace PhpactorDist\Symfony\Component\Console\Output;
 
-use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatterInterface;
-use Phpactor202301\Symfony\Component\Console\Helper\Helper;
-use Phpactor202301\Symfony\Component\Console\Terminal;
+use PhpactorDist\Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use PhpactorDist\Symfony\Component\Console\Helper\Helper;
+use PhpactorDist\Symfony\Component\Console\Terminal;
 /**
  * @author Pierre du Plessis <pdples@gmail.com>
  * @author Gabriel Ostrolucký <gabriel.ostrolucky@gmail.com>

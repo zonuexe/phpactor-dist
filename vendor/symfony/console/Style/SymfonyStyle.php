@@ -8,25 +8,25 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Style;
+namespace PhpactorDist\Symfony\Component\Console\Style;
 
-use Phpactor202301\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Console\Exception\RuntimeException;
-use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatter;
-use Phpactor202301\Symfony\Component\Console\Helper\Helper;
-use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
-use Phpactor202301\Symfony\Component\Console\Helper\SymfonyQuestionHelper;
-use Phpactor202301\Symfony\Component\Console\Helper\Table;
-use Phpactor202301\Symfony\Component\Console\Helper\TableCell;
-use Phpactor202301\Symfony\Component\Console\Helper\TableSeparator;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\TrimmedBufferOutput;
-use Phpactor202301\Symfony\Component\Console\Question\ChoiceQuestion;
-use Phpactor202301\Symfony\Component\Console\Question\ConfirmationQuestion;
-use Phpactor202301\Symfony\Component\Console\Question\Question;
-use Phpactor202301\Symfony\Component\Console\Terminal;
+use PhpactorDist\Symfony\Component\Console\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Console\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Console\Formatter\OutputFormatter;
+use PhpactorDist\Symfony\Component\Console\Helper\Helper;
+use PhpactorDist\Symfony\Component\Console\Helper\ProgressBar;
+use PhpactorDist\Symfony\Component\Console\Helper\SymfonyQuestionHelper;
+use PhpactorDist\Symfony\Component\Console\Helper\Table;
+use PhpactorDist\Symfony\Component\Console\Helper\TableCell;
+use PhpactorDist\Symfony\Component\Console\Helper\TableSeparator;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\TrimmedBufferOutput;
+use PhpactorDist\Symfony\Component\Console\Question\ChoiceQuestion;
+use PhpactorDist\Symfony\Component\Console\Question\ConfirmationQuestion;
+use PhpactorDist\Symfony\Component\Console\Question\Question;
+use PhpactorDist\Symfony\Component\Console\Terminal;
 /**
  * Output decorator helpers for the Symfony Style Guide.
  *

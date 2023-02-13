@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Error\SyntaxError;
 /**
  * Represents a macro node.
  *
@@ -57,4 +57,4 @@ class MacroNode extends Node
         $compiler->write("try {\n")->indent()->subcompile($this->getNode('body'))->raw("\n")->write("return ('' === \$tmp = ob_get_contents()) ? '' : new Markup(\$tmp, \$this->env->getCharset());\n")->outdent()->write("} finally {\n")->indent()->write("ob_end_clean();\n")->outdent()->write("}\n")->outdent()->write("}\n\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\MacroNode', 'Phpactor202301\\Twig_Node_Macro');
+\class_alias('PhpactorDist\\Twig\\Node\\MacroNode', 'PhpactorDist\\Twig_Node_Macro');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
 /**
  * Thrown in case a second read operation is attempted while another receive operation is still pending.

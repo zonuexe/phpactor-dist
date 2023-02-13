@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 /**
  * Will be thrown in case an operation is cancelled.

@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Loader;
+namespace PhpactorDist\Twig\Loader;
 
 /**
  * Empty interface for Twig 1.x compatibility.
@@ -18,4 +18,4 @@ namespace Phpactor202301\Twig\Loader;
 interface ExistsLoaderInterface extends LoaderInterface
 {
 }
-\class_alias('Phpactor202301\\Twig\\Loader\\ExistsLoaderInterface', 'Phpactor202301\\Twig_ExistsLoaderInterface');
+\class_alias('PhpactorDist\\Twig\\Loader\\ExistsLoaderInterface', 'PhpactorDist\\Twig_ExistsLoaderInterface');

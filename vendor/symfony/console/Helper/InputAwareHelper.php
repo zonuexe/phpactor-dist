@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Helper;
+namespace PhpactorDist\Symfony\Component\Console\Helper;
 
-use Phpactor202301\Symfony\Component\Console\Input\InputAwareInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputAwareInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
 /**
  * An implementation of InputAwareInterface for Helpers.
  *

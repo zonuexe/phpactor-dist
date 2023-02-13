@@ -2,13 +2,13 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionScope as CoreReflectionScope;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\NameImports;
 use Phpactor\WorseReflection\Core\Name;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Inference\NodeToTypeConverter;

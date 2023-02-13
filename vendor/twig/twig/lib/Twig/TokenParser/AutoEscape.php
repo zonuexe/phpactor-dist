@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\TokenParser\AutoEscapeTokenParser;
-\class_exists('Phpactor202301\\Twig\\TokenParser\\AutoEscapeTokenParser');
+use PhpactorDist\Twig\TokenParser\AutoEscapeTokenParser;
+\class_exists('PhpactorDist\\Twig\\TokenParser\\AutoEscapeTokenParser');
 @\trigger_error('Using the "Twig_TokenParser_AutoEscape" class is deprecated since Twig version 2.7, use "Twig\\TokenParser\\AutoEscapeTokenParser" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\TokenParser\AutoEscapeTokenParser" instead */

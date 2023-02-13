@@ -10,32 +10,32 @@ use Phpactor\WorseReflection\Core\TypeFactory;
 use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
 use Phpactor\WorseReflection\Reflector;
 use Phpactor\WorseReflection\Core\SourceCode as WorseSourceCode;
-use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor\ClassMover\Domain\Reference\MemberReference;
 use Phpactor\ClassMover\Domain\Reference\Position;
 use Phpactor\WorseReflection\Core\Offset;
 use Phpactor\ClassMover\Domain\Model\Class_;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor\ClassMover\Domain\Name\MemberName;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor\WorseReflection\ReflectorBuilder;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\ConstElement;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
 class WorseTolerantMemberFinder implements MemberFinder
 {
@@ -164,7 +164,7 @@ class WorseTolerantMemberFinder implements MemberFinder
         }
         return $memberNodes;
     }
-    private function isMethodAccess(Node $node)
+    private function isMethodAccess(Node $node) : bool
     {
         if (\false === $node instanceof CallExpression) {
             return \false;
@@ -298,7 +298,7 @@ class WorseTolerantMemberFinder implements MemberFinder
         }
         return $reference->withClass(Class_::fromString((string) $type->name()->full()));
     }
-    private function memberStartPosition(Node $memberNode)
+    private function memberStartPosition(Node $memberNode) : int
     {
         \assert($memberNode instanceof MethodDeclaration || $memberNode instanceof ConstElement || $memberNode instanceof Variable);
         $start = $memberNode->name->start;

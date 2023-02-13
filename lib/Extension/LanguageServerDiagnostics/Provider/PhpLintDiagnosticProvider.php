@@ -2,14 +2,14 @@
 
 namespace Phpactor\Extension\LanguageServerDiagnostics\Provider;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerDiagnostics\Model\PhpLinter;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use Phpactor\TextDocument\TextDocumentLocator;
 use Phpactor\TextDocument\TextDocumentUri;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class PhpLintDiagnosticProvider implements DiagnosticsProvider
 {
     public function __construct(private PhpLinter $linter, private TextDocumentLocator $locator)

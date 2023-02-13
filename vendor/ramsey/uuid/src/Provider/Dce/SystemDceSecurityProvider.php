@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider\Dce;
+namespace PhpactorDist\Ramsey\Uuid\Provider\Dce;
 
-use Phpactor202301\Ramsey\Uuid\Exception\DceSecurityException;
-use Phpactor202301\Ramsey\Uuid\Provider\DceSecurityProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Exception\DceSecurityException;
+use PhpactorDist\Ramsey\Uuid\Provider\DceSecurityProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 use function escapeshellarg;
 use function preg_split;
 use function str_getcsv;

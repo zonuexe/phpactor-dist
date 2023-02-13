@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Node\Expression\FunctionExpression;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Node\Expression\FunctionExpression;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Represents a template function.
  *
@@ -104,7 +104,7 @@ class TwigFunction
     }
 }
 // For Twig 1.x compatibility
-\class_alias('Phpactor202301\\Twig\\TwigFunction', 'Phpactor202301\\Twig_SimpleFunction', \false);
-\class_alias('Phpactor202301\\Twig\\TwigFunction', 'Phpactor202301\\Twig_Function');
+\class_alias('PhpactorDist\\Twig\\TwigFunction', 'PhpactorDist\\Twig_SimpleFunction', \false);
+\class_alias('PhpactorDist\\Twig\\TwigFunction', 'PhpactorDist\\Twig_Function');
 // Ensure that the aliased name is loaded to keep BC for classes implementing the typehint with the old aliased name.
-\class_exists('Phpactor202301\\Twig\\Node\\Node');
+\class_exists('PhpactorDist\\Twig\\Node\\Node');

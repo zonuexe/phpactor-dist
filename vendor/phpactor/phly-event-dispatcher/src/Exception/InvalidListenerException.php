@@ -5,7 +5,7 @@
  * @copyright Copyright (c) 2018 Matthew Weier O'Phinney (https:/mwop.net)
  * @license   https://github.com/phly/phly-event-dispatcher/blob/master/LICENSE.md New BSD License
  */
-namespace Phpactor202301\Phly\EventDispatcher\Exception;
+namespace PhpactorDist\Phly\EventDispatcher\Exception;
 
 use RuntimeException;
 class InvalidListenerException extends RuntimeException implements ExceptionInterface

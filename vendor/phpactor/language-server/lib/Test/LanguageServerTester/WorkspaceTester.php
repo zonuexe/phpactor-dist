@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Test\LanguageServerTester;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\ExecuteCommandParams;
 use Phpactor\LanguageServer\Test\LanguageServerTester;
 class WorkspaceTester

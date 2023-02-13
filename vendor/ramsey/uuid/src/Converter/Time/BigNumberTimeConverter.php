@@ -10,12 +10,12 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Converter\Time;
+namespace PhpactorDist\Ramsey\Uuid\Converter\Time;
 
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Math\BrickMathCalculator;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Time;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Math\BrickMathCalculator;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Time;
 /**
  * Previously used to integrate moontoast/math as a bignum arithmetic library,
  * BigNumberTimeConverter is deprecated in favor of GenericTimeConverter

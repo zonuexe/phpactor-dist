@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -20,12 +20,12 @@ class InitializeResult
     /**
      * Information about the server.
      *
-     * @var array<mixed>|null
+     * @var array{name:string,version:string}|null
      */
     public $serverInfo;
     /**
      * @param ServerCapabilities $capabilities
-     * @param array<mixed>|null $serverInfo
+     * @param array{name:string,version:string}|null $serverInfo
      */
     public function __construct(\Phpactor\LanguageServerProtocol\ServerCapabilities $capabilities, ?array $serverInfo = null)
     {
@@ -34,7 +34,7 @@ class InitializeResult
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

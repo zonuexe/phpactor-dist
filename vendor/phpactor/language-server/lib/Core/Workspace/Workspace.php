@@ -9,8 +9,8 @@ use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
 use Phpactor\LanguageServer\Core\Workspace\Exception\UnknownDocument;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 /**
  * @implements IteratorAggregate<string,TextDocumentItem>
  */
@@ -24,10 +24,7 @@ class Workspace implements Countable, IteratorAggregate
      * @var array<string,int>
      */
     private $documentVersions = [];
-    /**
-     * @var LoggerInterface|null
-     */
-    private $logger;
+    private LoggerInterface $logger;
     public function __construct(?LoggerInterface $logger = null)
     {
         $this->logger = $logger ?: new NullLogger();

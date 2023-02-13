@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 /*
  * This file is part of the Symfony package.

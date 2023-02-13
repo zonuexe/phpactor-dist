@@ -2,33 +2,35 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser;
 
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ArrayElement;
-use Phpactor202301\Microsoft\PhpParser\Node\Attribute;
-use Phpactor202301\Microsoft\PhpParser\Node\AttributeGroup;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassInterfaceClause;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassMembersNode;
-use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\InterfaceBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName as MicrosoftQualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\StatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ArrayElement;
+use PhpactorDist\Microsoft\PhpParser\Node\Attribute;
+use PhpactorDist\Microsoft\PhpParser\Node\AttributeGroup;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassInterfaceClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassMembersNode;
+use PhpactorDist\Microsoft\PhpParser\Node\ConstElement;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\MatchArmConditionList;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\InterfaceBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\MatchArm;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\Parameter;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName as MicrosoftQualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\StatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\TraitUseClause;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class CompletionContext
@@ -45,7 +47,7 @@ class CompletionContext
         if (self::classMembersBody($node)) {
             return \false;
         }
-        return $parent instanceof Expression || $parent instanceof StatementNode || $parent instanceof ConstElement || $parent instanceof ArrayElement;
+        return $parent instanceof Expression || $parent instanceof StatementNode || $parent instanceof ConstElement || $parent instanceof MatchArmConditionList || $parent instanceof MatchArm || $parent instanceof ArrayElement;
     }
     public static function attribute(?Node $node) : bool
     {
@@ -253,6 +255,27 @@ class CompletionContext
             return \false;
         }
         return \true;
+    }
+    public static function promotedPropertyVisibility(Node $node) : bool
+    {
+        $methodDeclaration = $node->getFirstAncestor(MethodDeclaration::class);
+        if (!$methodDeclaration instanceof MethodDeclaration) {
+            return \false;
+        }
+        if ($methodDeclaration->getName() !== '__construct') {
+            return \false;
+        }
+        if ($node instanceof CompoundStatementNode) {
+            return \true;
+        }
+        $parameter = $node->getFirstAncestor(Parameter::class);
+        if (!$parameter instanceof Parameter) {
+            return \false;
+        }
+        if (NodeUtil::nullOrMissing($parameter->variableName)) {
+            return \true;
+        }
+        return \false;
     }
     private static function isClassClause(?Node $node) : bool
     {

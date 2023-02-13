@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 interface StreamProvider
 {
     /**

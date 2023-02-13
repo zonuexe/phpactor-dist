@@ -5,7 +5,7 @@ namespace Phpactor\LanguageServer\Listener;
 use Phpactor\LanguageServer\Core\Service\ServiceManager;
 use Phpactor\LanguageServer\Event\Initialized;
 use Phpactor\LanguageServer\Event\WillShutdown;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class ServiceListener implements ListenerProviderInterface
 {
     /**

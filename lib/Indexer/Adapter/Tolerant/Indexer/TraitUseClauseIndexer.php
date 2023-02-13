@@ -2,10 +2,10 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\TraitUseClause;
 use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
 use Phpactor\Indexer\Model\Index;
 use Phpactor\Indexer\Model\Name\FullyQualifiedName;

@@ -2,21 +2,22 @@
 
 namespace Phpactor\WorseReflection\Core\Util;
 
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\UnaryExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\UnaryExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\TypeFactory;
@@ -267,5 +268,26 @@ class NodeUtil
             $previous = $childNode;
         }
         return null;
+    }
+    public static function namespace(Node $node) : ?string
+    {
+        $namespace = $node->getNamespaceDefinition();
+        if (null === $namespace) {
+            return null;
+        }
+        if (!$namespace->name instanceof QualifiedName) {
+            return null;
+        }
+        return $namespace->name->__toString();
+    }
+    public static function nullOrMissing(mixed $subject) : bool
+    {
+        if (null === $subject) {
+            return \true;
+        }
+        if ($subject instanceof MissingToken) {
+            return \true;
+        }
+        return \false;
     }
 }

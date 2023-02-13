@@ -5,7 +5,7 @@ namespace Phpactor\Extension\CodeTransformExtra\Application;
 use Phpactor\CodeTransform\CodeTransform;
 use Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
 use Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class Transformer
 {
     private FilesystemHelper $filesystemHelper;

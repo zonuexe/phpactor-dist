@@ -2,16 +2,22 @@
 
 namespace Phpactor\Extension\LanguageServer\EventDispatcher;
 
-use Phpactor202301\Phly\EventDispatcher\ListenerProvider\ListenerProviderAggregate;
-use Phpactor202301\Psr\Container\ContainerInterface;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Phly\EventDispatcher\ListenerProvider\ListenerProviderAggregate;
+use PhpactorDist\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 use RuntimeException;
 class LazyAggregateProvider implements ListenerProviderInterface
 {
     private ?ListenerProviderAggregate $aggregateProvider = null;
+    /**
+     * @param list<string> $serviceIds
+     */
     public function __construct(private ContainerInterface $container, private array $serviceIds)
     {
     }
+    /**
+     * @return iterable<callable>
+     */
     public function getListenersForEvent(object $event) : iterable
     {
         if (null === $this->aggregateProvider) {

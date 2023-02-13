@@ -13,7 +13,7 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Records\Types;
+namespace PhpactorDist\LibDNS\Records\Types;
 
 /**
  * Represents a fully qualified domain name
@@ -83,7 +83,7 @@ class DomainName extends Type
         }
         $length = $count = 0;
         foreach ($labels as &$label) {
-            $label = \Phpactor202301\LibDNS\normalize_name($label);
+            $label = \PhpactorDist\LibDNS\normalize_name($label);
             $labelLength = \strlen($label);
             if ($labelLength > 63) {
                 throw new \InvalidArgumentException('Label list is not a valid domain name: Label ' . $label . ' length exceeds 63 byte limit');

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Node;
 class TestExpression extends CallExpression
 {
     public function __construct(Node $node, string $name, ?Node $arguments, int $lineno)
@@ -34,4 +34,4 @@ class TestExpression extends CallExpression
         $this->compileCallable($compiler);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\TestExpression', 'Phpactor202301\\Twig_Node_Expression_Test');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\TestExpression', 'PhpactorDist\\Twig_Node_Expression_Test');

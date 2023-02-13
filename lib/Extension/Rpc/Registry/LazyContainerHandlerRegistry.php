@@ -5,7 +5,7 @@ namespace Phpactor\Extension\Rpc\Registry;
 use Phpactor\Extension\Rpc\Exception\HandlerNotFound;
 use Phpactor\Extension\Rpc\Handler;
 use Phpactor\Extension\Rpc\HandlerRegistry;
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 class LazyContainerHandlerRegistry implements HandlerRegistry
 {
     public function __construct(private ContainerInterface $container, private array $serviceMap)

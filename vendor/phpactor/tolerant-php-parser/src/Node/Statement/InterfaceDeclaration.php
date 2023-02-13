@@ -4,16 +4,16 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node\Statement;
+namespace PhpactorDist\Microsoft\PhpParser\Node\Statement;
 
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameTrait;
-use Phpactor202301\Microsoft\PhpParser\Node\AttributeGroup;
-use Phpactor202301\Microsoft\PhpParser\Node\InterfaceBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\InterfaceMembers;
-use Phpactor202301\Microsoft\PhpParser\Node\StatementNode;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameTrait;
+use PhpactorDist\Microsoft\PhpParser\Node\AttributeGroup;
+use PhpactorDist\Microsoft\PhpParser\Node\InterfaceBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\InterfaceMembers;
+use PhpactorDist\Microsoft\PhpParser\Node\StatementNode;
+use PhpactorDist\Microsoft\PhpParser\Token;
 class InterfaceDeclaration extends StatementNode implements NamespacedNameInterface, ClassLike
 {
     use NamespacedNameTrait;

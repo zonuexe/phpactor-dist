@@ -2,13 +2,13 @@
 
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
 use Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
 use Phpactor\CodeBuilder\Domain\Prototype\Type;

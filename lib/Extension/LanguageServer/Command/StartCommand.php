@@ -3,12 +3,11 @@
 namespace Phpactor\Extension\LanguageServer\Command;
 
 use Phpactor\LanguageServer\LanguageServerBuilder;
-use RuntimeException;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutput;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutput;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 class StartCommand extends Command
 {
     public const NAME = 'language-server';
@@ -24,7 +23,7 @@ class StartCommand extends Command
         $this->addOption(self::OPT_ADDRESS, null, InputOption::VALUE_REQUIRED, 'Start a TCP server at this address (e.g. 127.0.0.1:0)');
         $this->addOption(self::OPT_NO_LOOP, null, InputOption::VALUE_NONE, 'Do not run the event loop (debug)');
     }
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output) : int
     {
         $address = $input->getOption(self::OPT_ADDRESS);
         $noLoop = (bool) $input->getOption(self::OPT_NO_LOOP);
@@ -45,19 +44,6 @@ class StartCommand extends Command
     {
         \assert(\is_string($address));
         $builder->tcpServer($address);
-    }
-    private function assertIsWritable(?string $filename = null) : string
-    {
-        if (null === $filename) {
-            $filename = 'language-server-request.log';
-        }
-        if (!\file_exists(\dirname($filename))) {
-            throw new RuntimeException(\sprintf('Directory "%s" does not exist', \dirname($filename)));
-        }
-        if (\file_exists($filename) && !\is_writable($filename)) {
-            throw new RuntimeException(\sprintf('File at "%s" is not writable', $filename));
-        }
-        return $filename;
     }
     private function logMessage(OutputInterface $output, string $message) : void
     {

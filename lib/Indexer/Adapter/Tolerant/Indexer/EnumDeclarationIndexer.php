@@ -2,8 +2,8 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
 use Phpactor\Indexer\Model\Record\ClassRecord;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\Indexer\Model\Index;

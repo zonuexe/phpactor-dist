@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog;
+namespace PhpactorDist\Monolog;
 
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\LogLevel;
-use Phpactor202301\Monolog\Handler\AbstractHandler;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LogLevel;
+use PhpactorDist\Monolog\Handler\AbstractHandler;
 /**
  * Monolog error handler
  *
@@ -53,7 +53,7 @@ class ErrorHandler
     public static function register(LoggerInterface $logger, $errorLevelMap = array(), $exceptionLevel = null, $fatalLevel = null)
     {
         //Forces the autoloader to run for LogLevel. Fixes an autoload issue at compile-time on PHP5.3. See https://github.com/Seldaek/monolog/pull/929
-        \class_exists('Phpactor202301\\Psr\\Log\\LogLevel', \true);
+        \class_exists('PhpactorDist\\Psr\\Log\\LogLevel', \true);
         /** @phpstan-ignore-next-line */
         $handler = new static($logger);
         if ($errorLevelMap !== \false) {

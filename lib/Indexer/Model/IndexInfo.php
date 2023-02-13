@@ -3,8 +3,8 @@
 namespace Phpactor\Indexer\Model;
 
 use Phpactor\Indexer\Util\Filesystem;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
-use Phpactor202301\Symfony\Component\Finder\SplFileInfo;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Finder\SplFileInfo;
 class IndexInfo
 {
     private const SECONDS_IN_DAY = 3600 * 24;

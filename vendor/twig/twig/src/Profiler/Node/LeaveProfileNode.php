@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler\Node;
+namespace PhpactorDist\Twig\Profiler\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Represents a profile leave node.
  *
@@ -28,4 +28,4 @@ class LeaveProfileNode extends Node
         $compiler->write("\n")->write(\sprintf("\$%s->leave(\$%s);\n\n", $this->getAttribute('var_name'), $this->getAttribute('var_name') . '_prof'));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\Node\\LeaveProfileNode', 'Phpactor202301\\Twig_Profiler_Node_LeaveProfile');
+\class_alias('PhpactorDist\\Twig\\Profiler\\Node\\LeaveProfileNode', 'PhpactorDist\\Twig_Profiler_Node_LeaveProfile');

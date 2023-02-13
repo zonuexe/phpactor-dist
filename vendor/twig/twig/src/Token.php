@@ -9,7 +9,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
 /**
  * Represents a Token.
@@ -193,4 +193,4 @@ final class Token
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Token', 'Phpactor202301\\Twig_Token');
+\class_alias('PhpactorDist\\Twig\\Token', 'PhpactorDist\\Twig_Token');

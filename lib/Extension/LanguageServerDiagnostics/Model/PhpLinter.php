@@ -2,16 +2,16 @@
 
 namespace Phpactor\Extension\LanguageServerDiagnostics\Model;
 
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Diagnostic;
 use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
 use Phpactor\LanguageServerProtocol\Position;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\TextDocument\Util\LineColRangeForLine;
-use function Phpactor202301\Amp\ByteStream\buffer;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\ByteStream\buffer;
+use function PhpactorDist\Amp\call;
 final class PhpLinter
 {
     public function __construct(private string $phpBin)
@@ -36,7 +36,7 @@ final class PhpLinter
             }
             $line = (int) $line[1] - 1;
             $range = (new LineColRangeForLine())->rangeFromLine($textDocument->__toString(), $line + 1);
-            return [new Diagnostic(new Range(new Position($line, $range->start()->col()), new Position($line, $range->end()->col())), $err, DiagnosticSeverity::ERROR)];
+            return [new Diagnostic(range: new Range(new Position($line, $range->start()->col()), new Position($line, $range->end()->col())), message: $err, severity: DiagnosticSeverity::ERROR)];
         });
     }
 }

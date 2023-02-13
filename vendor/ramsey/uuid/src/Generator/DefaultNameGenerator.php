@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Ramsey\Uuid\Exception\NameException;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\NameException;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use ValueError;
 use function hash;
 /**

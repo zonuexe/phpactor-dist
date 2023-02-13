@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Logger;
 /**
  * MandrillHandler uses cURL to send the emails to the Mandrill API
  *
@@ -29,10 +29,10 @@ class MandrillHandler extends MailHandler
     public function __construct($apiKey, $message, $level = Logger::ERROR, $bubble = \true)
     {
         parent::__construct($level, $bubble);
-        if (!$message instanceof \Phpactor202301\Swift_Message && \is_callable($message)) {
+        if (!$message instanceof \PhpactorDist\Swift_Message && \is_callable($message)) {
             $message = \call_user_func($message);
         }
-        if (!$message instanceof \Phpactor202301\Swift_Message) {
+        if (!$message instanceof \PhpactorDist\Swift_Message) {
             throw new \InvalidArgumentException('You must provide either a Swift_Message instance or a callable returning it');
         }
         $this->message = $message;
@@ -45,7 +45,7 @@ class MandrillHandler extends MailHandler
     {
         $message = clone $this->message;
         $message->setBody($content);
-        if (\version_compare(\Phpactor202301\Swift::VERSION, '6.0.0', '>=')) {
+        if (\version_compare(\PhpactorDist\Swift::VERSION, '6.0.0', '>=')) {
             $message->setDate(new \DateTimeImmutable());
         } else {
             $message->setDate(\time());

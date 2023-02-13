@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Rfc4122;
+namespace PhpactorDist\Ramsey\Uuid\Rfc4122;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\DateTimeException;
+use PhpactorDist\Ramsey\Uuid\Exception\DateTimeException;
 use Throwable;
 use function str_pad;
 use const STR_PAD_LEFT;

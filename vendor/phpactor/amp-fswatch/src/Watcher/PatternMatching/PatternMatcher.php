@@ -2,7 +2,7 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\PatternMatching;
 
-use Phpactor202301\Webmozart\Glob\Glob;
+use PhpactorDist\Webmozart\Glob\Glob;
 class PatternMatcher
 {
     private const WILDCARD_TOKEN = 'pah7peiD__WILDCARD__aevo7Aim';

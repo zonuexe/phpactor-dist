@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -14,7 +14,7 @@ class CodeActionContext
 {
     /**
      * An array of diagnostics known on the client side overlapping the range provided to the
-     * `textDocument/codeAction` request. They are provied so that the server knows which
+     * `textDocument/codeAction` request. They are provided so that the server knows which
      * errors are currently presented to the user for the given range. There is no guarantee
      * that these accurately reflect the error state of the resource. The primary parameter
      * to compute code actions is the provided range.
@@ -32,21 +32,29 @@ class CodeActionContext
      */
     public $only;
     /**
+     * The reason why code actions were requested.
+     *
+     * @var CodeActionTriggerKind::*|null
+     */
+    public $triggerKind;
+    /**
      * @param array<Diagnostic> $diagnostics
      * @param array<string>|null $only
+     * @param CodeActionTriggerKind::*|null $triggerKind
      */
-    public function __construct(array $diagnostics, ?array $only = null)
+    public function __construct(array $diagnostics, ?array $only = null, $triggerKind = null)
     {
         $this->diagnostics = $diagnostics;
         $this->only = $only;
+        $this->triggerKind = $triggerKind;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['diagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\Diagnostic::class], 'iterable' => \true], 'only' => ['names' => [], 'iterable' => \true]];
+        $map = ['diagnostics' => ['names' => [\Phpactor\LanguageServerProtocol\Diagnostic::class], 'iterable' => \true], 'only' => ['names' => [], 'iterable' => \true], 'triggerKind' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

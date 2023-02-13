@@ -2,8 +2,8 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\Indexer\Adapter\Tolerant\Indexer\ClassDeclarationIndexer;
 use Phpactor\Indexer\Adapter\Tolerant\Indexer\ClassLikeReferenceIndexer;
 use Phpactor\Indexer\Adapter\Tolerant\Indexer\ConstantDeclarationIndexer;
@@ -18,8 +18,8 @@ use Phpactor\Indexer\Model\Exception\CannotIndexNode;
 use Phpactor\Indexer\Model\Index;
 use Phpactor\Indexer\Model\IndexBuilder;
 use Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 final class TolerantIndexBuilder implements IndexBuilder
 {
     private Parser $parser;

@@ -3,16 +3,16 @@
 namespace Phpactor;
 
 use Phpactor\Extension\Logger\Formatter\PrettyFormatter;
-use Phpactor202301\Symfony\Component\Console\Application as SymfonyApplication;
-use Phpactor202301\Symfony\Component\Console\Input\InputDefinition;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Application as SymfonyApplication;
+use PhpactorDist\Symfony\Component\Console\Input\InputDefinition;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Phpactor\Container\Container;
-use Phpactor202301\Monolog\Handler\StreamHandler;
-use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatterStyle;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\PackageVersions\Versions;
+use PhpactorDist\Monolog\Handler\StreamHandler;
+use PhpactorDist\Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\PackageVersions\Versions;
 use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\Console\ConsoleExtension;
 use Exception;

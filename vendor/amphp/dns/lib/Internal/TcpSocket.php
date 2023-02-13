@@ -1,19 +1,19 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns\Internal;
+namespace PhpactorDist\Amp\Dns\Internal;
 
-use Phpactor202301\Amp;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Dns\DnsException;
-use Phpactor202301\Amp\Dns\TimeoutException;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Parser\Parser;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\LibDNS\Decoder\DecoderFactory;
-use Phpactor202301\LibDNS\Encoder\EncoderFactory;
-use Phpactor202301\LibDNS\Messages\Message;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Dns\DnsException;
+use PhpactorDist\Amp\Dns\TimeoutException;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Parser\Parser;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\LibDNS\Decoder\DecoderFactory;
+use PhpactorDist\LibDNS\Encoder\EncoderFactory;
+use PhpactorDist\LibDNS\Messages\Message;
+use function PhpactorDist\Amp\call;
 /** @internal */
 final class TcpSocket extends Socket
 {

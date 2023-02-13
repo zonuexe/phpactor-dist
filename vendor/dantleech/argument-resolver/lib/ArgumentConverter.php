@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\DTL\ArgumentResolver;
+namespace PhpactorDist\DTL\ArgumentResolver;
 
 use ReflectionParameter;
 interface ArgumentConverter

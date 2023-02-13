@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Windows;
+namespace PhpactorDist\Amp\Process\Internal\Windows;
 
 /**
  * @internal

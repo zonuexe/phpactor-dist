@@ -2,14 +2,14 @@
 
 namespace Phpactor\LanguageServer\Handler\System;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Adapter\Psr\NullEventDispatcher;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
 use Phpactor\LanguageServer\Event\WillShutdown;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
+use function PhpactorDist\Amp\call;
 class ExitHandler implements Handler
 {
     private EventDispatcherInterface $eventDispatcher;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 interface Resolver
 {
     /**

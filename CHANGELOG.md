@@ -3,6 +3,27 @@ Changelog
 
 ## master
 
+Features:
+
+  - Hierarchical namespace segment completion #2070
+  - Completion for promoted property visiblity #2087
+
+Bug fixes:
+
+  - `new class-string<Foo>` now resolves to `new Foo` #2065
+  - Fix extract method within trait #2076 @mamazu
+
+Improvements:
+
+  - Include (complex) docblock params when generating method
+  - Take into account named parameters when "guessing" parameter names #2090
+  - Show full FQN for classes in hover #2081
+  - Upgrade to 3.17 of the language server protocol #2082
+  - Facilitate changing visiblity on promoted properties @mamazu
+  - Allow generation of constructor for Attributes.
+
+## 2023.01.21
+
 Bug fixes:
 
   - Allow class completion within constant declaration in class #1985 @przepompownia
@@ -14,6 +35,9 @@ Bug fixes:
   - Fix priotity of "internal" stub locator - facilitating enum completion #2040
   - Require posix extension #2042 @dacianb
   - Fix evaluation of replacement assignments #1705
+  - Fix crash on missing token in Indexer #2049 @vlada-dudr
+  - Fix missing compact use name false positive #2052
+  - Fix `class-template<T>` when not in 1st arg position #2054
 
 Features:
 
@@ -23,6 +47,9 @@ Features:
 
 Improvements:
 
+  - Support the Psalm cache #2046 @gbprod
+  - Support completion inside match expression #2051 @przepompownia
+  - Fixed typos in documentation #2050 @d-danilov
   - Psalm Extension: allow `info` diagnostics to be hidden #2032 @gbprod
   - Better docblock parsing and formatting #2004
   - More liberal support for vendor tags #2011 @ging-dev

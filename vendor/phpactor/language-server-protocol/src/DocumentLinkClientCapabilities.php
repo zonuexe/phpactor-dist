@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -18,7 +18,7 @@ class DocumentLinkClientCapabilities
      */
     public $dynamicRegistration;
     /**
-     * Whether the client support the `tooltip` property on `DocumentLink`.
+     * Whether the client supports the `tooltip` property on `DocumentLink`.
      *
      * @var bool|null
      */
@@ -34,7 +34,7 @@ class DocumentLinkClientCapabilities
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

@@ -3,7 +3,7 @@
 namespace Phpactor\Filesystem\Adapter\Composer;
 
 use Phpactor\Filesystem\Adapter\Simple\SimpleFilesystem;
-use Phpactor202301\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\Filesystem\Domain\FilePath;
 class ComposerFilesystem extends SimpleFilesystem
 {

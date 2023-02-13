@@ -9,26 +9,26 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
-use Phpactor202301\Twig\Node\Expression\ArrayExpression;
-use Phpactor202301\Twig\Node\Expression\ArrowFunctionExpression;
-use Phpactor202301\Twig\Node\Expression\AssignNameExpression;
-use Phpactor202301\Twig\Node\Expression\Binary\ConcatBinary;
-use Phpactor202301\Twig\Node\Expression\BlockReferenceExpression;
-use Phpactor202301\Twig\Node\Expression\ConditionalExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\MethodCallExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\Expression\ParentExpression;
-use Phpactor202301\Twig\Node\Expression\TestExpression;
-use Phpactor202301\Twig\Node\Expression\Unary\NegUnary;
-use Phpactor202301\Twig\Node\Expression\Unary\NotUnary;
-use Phpactor202301\Twig\Node\Expression\Unary\PosUnary;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Node\Expression\ArrayExpression;
+use PhpactorDist\Twig\Node\Expression\ArrowFunctionExpression;
+use PhpactorDist\Twig\Node\Expression\AssignNameExpression;
+use PhpactorDist\Twig\Node\Expression\Binary\ConcatBinary;
+use PhpactorDist\Twig\Node\Expression\BlockReferenceExpression;
+use PhpactorDist\Twig\Node\Expression\ConditionalExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\MethodCallExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\Expression\ParentExpression;
+use PhpactorDist\Twig\Node\Expression\TestExpression;
+use PhpactorDist\Twig\Node\Expression\Unary\NegUnary;
+use PhpactorDist\Twig\Node\Expression\Unary\NotUnary;
+use PhpactorDist\Twig\Node\Expression\Unary\PosUnary;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Parses expressions.
  *
@@ -927,4 +927,4 @@ class ExpressionParser
         return \true;
     }
 }
-\class_alias('Phpactor202301\\Twig\\ExpressionParser', 'Phpactor202301\\Twig_ExpressionParser');
+\class_alias('PhpactorDist\\Twig\\ExpressionParser', 'PhpactorDist\\Twig_ExpressionParser');

@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
 use function uuid_create;
 use function uuid_parse;

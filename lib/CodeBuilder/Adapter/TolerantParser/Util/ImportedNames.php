@@ -4,7 +4,7 @@ namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Util;
 
 use ArrayIterator;
 use IteratorAggregate;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Traversable;
 class ImportedNames implements IteratorAggregate
 {

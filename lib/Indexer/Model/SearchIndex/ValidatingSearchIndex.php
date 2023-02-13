@@ -8,7 +8,7 @@ use Phpactor\Indexer\Model\Query\Criteria;
 use Phpactor\Indexer\Model\Record;
 use Phpactor\Indexer\Model\Record\HasPath;
 use Phpactor\Indexer\Model\SearchIndex;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class ValidatingSearchIndex implements SearchIndex
 {
     public function __construct(private SearchIndex $innerIndex, private IndexAccess $index, private LoggerInterface $logger)

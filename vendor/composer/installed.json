@@ -41,7 +41,7 @@
                     "lib\/Internal\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\": "lib"
+                    "PhpactorDist\\Amp\\": "lib"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -132,7 +132,7 @@
                     "lib\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\ByteStream\\": "lib"
+                    "PhpactorDist\\Amp\\ByteStream\\": "lib"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -208,7 +208,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Cache\\": "lib"
+                    "PhpactorDist\\Amp\\Cache\\": "lib"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -279,7 +279,7 @@
                     "lib\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Dns\\": "lib"
+                    "PhpactorDist\\Amp\\Dns\\": "lib"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -358,7 +358,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Parser\\": "src"
+                    "PhpactorDist\\Amp\\Parser\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -428,7 +428,7 @@
                     "lib\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Process\\": "lib"
+                    "PhpactorDist\\Amp\\Process\\": "lib"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -493,7 +493,7 @@
                     "src\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Serialization\\": "src"
+                    "PhpactorDist\\Amp\\Serialization\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -568,7 +568,7 @@
                     "src\/Internal\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Socket\\": "src"
+                    "PhpactorDist\\Amp\\Socket\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -645,7 +645,7 @@
                     "src\/ConcurrentIterator\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Amp\\Sync\\": "src"
+                    "PhpactorDist\\Amp\\Sync\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -711,7 +711,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Amp\\WindowsRegistry\\": "lib"
+                    "PhpactorDist\\Amp\\WindowsRegistry\\": "lib"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -766,7 +766,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Brick\\Math\\": "src\/"
+                    "PhpactorDist\\Brick\\Math\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -834,7 +834,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\PackageVersions\\": "src\/PackageVersions"
+                    "PhpactorDist\\PackageVersions\\": "src\/PackageVersions"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -905,7 +905,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Composer\\Pcre\\": "src"
+                    "PhpactorDist\\Composer\\Pcre\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -976,7 +976,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Composer\\XdebugHandler\\": "src"
+                    "PhpactorDist\\Composer\\XdebugHandler\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1045,7 +1045,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\DTL\\ArgumentResolver\\": "lib\/"
+                    "PhpactorDist\\DTL\\ArgumentResolver\\": "lib\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1098,7 +1098,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\DTL\\Invoke\\": "src\/"
+                    "PhpactorDist\\DTL\\Invoke\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1204,7 +1204,7 @@
                     "src\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\LibDNS\\": "src\/"
+                    "PhpactorDist\\LibDNS\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1247,7 +1247,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\XdgBaseDir\\": "src\/"
+                    "PhpactorDist\\XdgBaseDir\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1268,12 +1268,12 @@
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/JetBrains\/phpstorm-stubs.git",
-                "reference": "91c14303c23db2e3b0cac0bbb6d5db19c60ee38c"
+                "reference": "de53302780aee15d724360f2ee728946a4527659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/JetBrains\/phpstorm-stubs\/zipball\/91c14303c23db2e3b0cac0bbb6d5db19c60ee38c",
-                "reference": "91c14303c23db2e3b0cac0bbb6d5db19c60ee38c",
+                "url": "https:\/\/api.github.com\/repos\/JetBrains\/phpstorm-stubs\/zipball\/de53302780aee15d724360f2ee728946a4527659",
+                "reference": "de53302780aee15d724360f2ee728946a4527659",
                 "shasum": ""
             },
             "require-dev": {
@@ -1281,9 +1281,9 @@
                 "nikic\/php-parser": "@stable",
                 "php": "^8.0",
                 "phpdocumentor\/reflection-docblock": "@stable",
-                "phpunit\/phpunit": "@stable"
+                "phpunit\/phpunit": "^9.6"
             },
-            "time": "2023-01-05T10:15:35+00:00",
+            "time": "2023-02-11T17:45:35+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -1315,33 +1315,38 @@
         },
         {
             "name": "kelunik\/certificate",
-            "version": "v1.1.2",
-            "version_normalized": "1.1.2.0",
+            "version": "v1.1.3",
+            "version_normalized": "1.1.3.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/kelunik\/certificate.git",
-                "reference": "56542e62d51533d04d0a9713261fea546bff80f6"
+                "reference": "7e00d498c264d5eb4f78c69f41c8bd6719c0199e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/kelunik\/certificate\/zipball\/56542e62d51533d04d0a9713261fea546bff80f6",
-                "reference": "56542e62d51533d04d0a9713261fea546bff80f6",
+                "url": "https:\/\/api.github.com\/repos\/kelunik\/certificate\/zipball\/7e00d498c264d5eb4f78c69f41c8bd6719c0199e",
+                "reference": "7e00d498c264d5eb4f78c69f41c8bd6719c0199e",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
-                "php": ">=5.4"
+                "php": ">=7.0"
             },
             "require-dev": {
-                "fabpot\/php-cs-fixer": "^1.9",
-                "phpunit\/phpunit": "^4.8"
+                "amphp\/php-cs-fixer-config": "^2",
+                "phpunit\/phpunit": "^6 | 7 | ^8 | ^9"
             },
-            "time": "2019-05-29T19:02:31+00:00",
+            "time": "2023-02-03T21:26:53+00:00",
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Kelunik\\Certificate\\": "lib"
+                    "PhpactorDist\\Kelunik\\Certificate\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1365,7 +1370,7 @@
             ],
             "support": {
                 "issues": "https:\/\/github.com\/kelunik\/certificate\/issues",
-                "source": "https:\/\/github.com\/kelunik\/certificate\/tree\/v1.1.2"
+                "source": "https:\/\/github.com\/kelunik\/certificate\/tree\/v1.1.3"
             },
             "install-path": "..\/kelunik\/certificate"
         },
@@ -1411,7 +1416,7 @@
                     "src\/functions_include.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\League\\Uri\\": "src"
+                    "PhpactorDist\\League\\Uri\\": "src"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1494,7 +1499,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Monolog\\": "src\/Monolog"
+                    "PhpactorDist\\Monolog\\": "src\/Monolog"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1709,17 +1714,17 @@
         },
         {
             "name": "phpactor\/language-server",
-            "version": "3.5.3",
-            "version_normalized": "3.5.3.0",
+            "version": "4.0.2",
+            "version_normalized": "4.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/phpactor\/language-server.git",
-                "reference": "6c29ede39d90a7a56828c356e70bc58bae44b794"
+                "reference": "b68058e7b1561d88ddbaad729c861dfa3bb9c2c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server\/zipball\/6c29ede39d90a7a56828c356e70bc58bae44b794",
-                "reference": "6c29ede39d90a7a56828c356e70bc58bae44b794",
+                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server\/zipball\/b68058e7b1561d88ddbaad729c861dfa3bb9c2c1",
+                "reference": "b68058e7b1561d88ddbaad729c861dfa3bb9c2c1",
                 "shasum": ""
             },
             "require": {
@@ -1727,7 +1732,7 @@
                 "dantleech\/argument-resolver": "^1.1",
                 "dantleech\/invoke": "^2.0",
                 "php": "^8.0",
-                "phpactor\/language-server-protocol": "~0.1",
+                "phpactor\/language-server-protocol": "^3.17",
                 "psr\/event-dispatcher": "^1.0",
                 "psr\/log": "^1.0",
                 "ramsey\/uuid": "^4.0",
@@ -1746,7 +1751,7 @@
                 "phpunit\/phpunit": "^9.0",
                 "symfony\/var-dumper": "^5.1"
             },
-            "time": "2022-12-31T12:09:01+00:00",
+            "time": "2023-02-12T12:15:43+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1772,23 +1777,23 @@
             "description": "Generic Language Server Platform",
             "support": {
                 "issues": "https:\/\/github.com\/phpactor\/language-server\/issues",
-                "source": "https:\/\/github.com\/phpactor\/language-server\/tree\/3.5.3"
+                "source": "https:\/\/github.com\/phpactor\/language-server\/tree\/4.0.2"
             },
             "install-path": "..\/phpactor\/language-server"
         },
         {
             "name": "phpactor\/language-server-protocol",
-            "version": "0.3.1",
-            "version_normalized": "0.3.1.0",
+            "version": "3.17.1",
+            "version_normalized": "3.17.1.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/phpactor\/language-server-protocol.git",
-                "reference": "306dd561711833f2a05a63b8332dc717d7ea5001"
+                "reference": "15c42028812ac25b487ef405dbfba9bf7c715fa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server-protocol\/zipball\/306dd561711833f2a05a63b8332dc717d7ea5001",
-                "reference": "306dd561711833f2a05a63b8332dc717d7ea5001",
+                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server-protocol\/zipball\/15c42028812ac25b487ef405dbfba9bf7c715fa7",
+                "reference": "15c42028812ac25b487ef405dbfba9bf7c715fa7",
                 "shasum": ""
             },
             "require": {
@@ -1801,7 +1806,7 @@
                 "phpstan\/phpstan": "~0.12.0",
                 "phpunit\/phpunit": "^9.2"
             },
-            "time": "2022-02-10T19:12:34+00:00",
+            "time": "2023-02-12T12:13:19+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1827,7 +1832,7 @@
             "description": "Langauge Server Protocol for PHP (transpiled)",
             "support": {
                 "issues": "https:\/\/github.com\/phpactor\/language-server-protocol\/issues",
-                "source": "https:\/\/github.com\/phpactor\/language-server-protocol\/tree\/0.3.1"
+                "source": "https:\/\/github.com\/phpactor\/language-server-protocol\/tree\/3.17.1"
             },
             "install-path": "..\/phpactor\/language-server-protocol"
         },
@@ -1934,7 +1939,7 @@
                     "src\/functions\/lazy_listener.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Phly\\EventDispatcher\\": "src\/"
+                    "PhpactorDist\\Phly\\EventDispatcher\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -1982,7 +1987,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Microsoft\\PhpParser\\": [
+                    "PhpactorDist\\Microsoft\\PhpParser\\": [
                         "src\/"
                     ]
                 }
@@ -2026,7 +2031,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Psr\\Container\\": "src\/"
+                    "PhpactorDist\\Psr\\Container\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2082,7 +2087,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Psr\\EventDispatcher\\": "src\/"
+                    "PhpactorDist\\Psr\\EventDispatcher\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2135,7 +2140,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Psr\\Log\\": "Psr\/Log\/"
+                    "PhpactorDist\\Psr\\Log\\": "Psr\/Log\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2214,7 +2219,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Ramsey\\Collection\\": "src\/"
+                    "PhpactorDist\\Ramsey\\Collection\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2255,17 +2260,17 @@
         },
         {
             "name": "ramsey\/uuid",
-            "version": "4.7.1",
-            "version_normalized": "4.7.1.0",
+            "version": "4.7.3",
+            "version_normalized": "4.7.3.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/ramsey\/uuid.git",
-                "reference": "a1acf96007170234a8399586a6e2ab8feba109d1"
+                "reference": "433b2014e3979047db08a17a205f410ba3869cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/ramsey\/uuid\/zipball\/a1acf96007170234a8399586a6e2ab8feba109d1",
-                "reference": "a1acf96007170234a8399586a6e2ab8feba109d1",
+                "url": "https:\/\/api.github.com\/repos\/ramsey\/uuid\/zipball\/433b2014e3979047db08a17a205f410ba3869cf2",
+                "reference": "433b2014e3979047db08a17a205f410ba3869cf2",
                 "shasum": ""
             },
             "require": {
@@ -2306,7 +2311,7 @@
                 "paragonie\/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
                 "ramsey\/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
             },
-            "time": "2022-12-31T22:20:34+00:00",
+            "time": "2023-01-12T18:13:24+00:00",
             "type": "library",
             "extra": {
                 "captainhook": {
@@ -2319,7 +2324,7 @@
                     "src\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Ramsey\\Uuid\\": "src\/"
+                    "PhpactorDist\\Ramsey\\Uuid\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2334,7 +2339,7 @@
             ],
             "support": {
                 "issues": "https:\/\/github.com\/ramsey\/uuid\/issues",
-                "source": "https:\/\/github.com\/ramsey\/uuid\/tree\/4.7.1"
+                "source": "https:\/\/github.com\/ramsey\/uuid\/tree\/4.7.3"
             },
             "funding": [
                 {
@@ -2419,17 +2424,17 @@
         },
         {
             "name": "symfony\/console",
-            "version": "v5.4.17",
-            "version_normalized": "5.4.17.0",
+            "version": "v5.4.19",
+            "version_normalized": "5.4.19.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/console.git",
-                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f"
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/console\/zipball\/58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
-                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/console\/zipball\/dccb8d251a9017d5994c988b034d3e18aaabf740",
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740",
                 "shasum": ""
             },
             "require": {
@@ -2467,12 +2472,12 @@
                 "symfony\/lock": "",
                 "symfony\/process": ""
             },
-            "time": "2022-12-28T14:15:31+00:00",
+            "time": "2023-01-01T08:32:19+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Component\\Console\\": ""
+                    "PhpactorDist\\Symfony\\Component\\Console\\": ""
                 },
                 "exclude-from-classmap": [
                     "\/Tests\/"
@@ -2501,7 +2506,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https:\/\/github.com\/symfony\/console\/tree\/v5.4.17"
+                "source": "https:\/\/github.com\/symfony\/console\/tree\/v5.4.19"
             },
             "funding": [
                 {
@@ -2591,17 +2596,17 @@
         },
         {
             "name": "symfony\/filesystem",
-            "version": "v5.4.13",
-            "version_normalized": "5.4.13.0",
+            "version": "v5.4.19",
+            "version_normalized": "5.4.19.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/filesystem.git",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51"
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/filesystem\/zipball\/ac09569844a9109a5966b9438fc29113ce77cf51",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/filesystem\/zipball\/648bfaca6a494f3e22378123bcee2894045dc9d8",
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8",
                 "shasum": ""
             },
             "require": {
@@ -2610,12 +2615,12 @@
                 "symfony\/polyfill-mbstring": "~1.8",
                 "symfony\/polyfill-php80": "^1.16"
             },
-            "time": "2022-09-21T19:53:16+00:00",
+            "time": "2023-01-14T19:14:44+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Component\\Filesystem\\": ""
+                    "PhpactorDist\\Symfony\\Component\\Filesystem\\": ""
                 },
                 "exclude-from-classmap": [
                     "\/Tests\/"
@@ -2638,7 +2643,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https:\/\/symfony.com",
             "support": {
-                "source": "https:\/\/github.com\/symfony\/filesystem\/tree\/v5.4.13"
+                "source": "https:\/\/github.com\/symfony\/filesystem\/tree\/v5.4.19"
             },
             "funding": [
                 {
@@ -2697,7 +2702,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Ctype\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Ctype\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2779,7 +2784,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Intl\\Grapheme\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -2863,7 +2868,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Intl\\Normalizer\\": ""
                 },
                 "classmap": [
                     "Resources\/stubs"
@@ -2953,7 +2958,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Mbstring\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Mbstring\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -3033,7 +3038,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Php72\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Php72\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -3112,7 +3117,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Php73\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Php73\\": ""
                 },
                 "classmap": [
                     "Resources\/stubs"
@@ -3194,7 +3199,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Php80\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Php80\\": ""
                 },
                 "classmap": [
                     "Resources\/stubs"
@@ -3280,7 +3285,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Polyfill\\Php81\\": ""
+                    "PhpactorDist\\Symfony\\Polyfill\\Php81\\": ""
                 },
                 "classmap": [
                     "Resources\/stubs"
@@ -3329,29 +3334,29 @@
         },
         {
             "name": "symfony\/process",
-            "version": "v5.4.11",
-            "version_normalized": "5.4.11.0",
+            "version": "v5.4.19",
+            "version_normalized": "5.4.19.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/process.git",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1"
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/process\/zipball\/6e75fe6874cbc7e4773d049616ab450eff537bf1",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/process\/zipball\/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony\/polyfill-php80": "^1.16"
             },
-            "time": "2022-06-27T16:58:25+00:00",
+            "time": "2023-01-01T08:32:19+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Component\\Process\\": ""
+                    "PhpactorDist\\Symfony\\Component\\Process\\": ""
                 },
                 "exclude-from-classmap": [
                     "\/Tests\/"
@@ -3374,7 +3379,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https:\/\/symfony.com",
             "support": {
-                "source": "https:\/\/github.com\/symfony\/process\/tree\/v5.4.11"
+                "source": "https:\/\/github.com\/symfony\/process\/tree\/v5.4.19"
             },
             "funding": [
                 {
@@ -3432,7 +3437,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Contracts\\Service\\": ""
+                    "PhpactorDist\\Symfony\\Contracts\\Service\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -3480,17 +3485,17 @@
         },
         {
             "name": "symfony\/string",
-            "version": "v5.4.17",
-            "version_normalized": "5.4.17.0",
+            "version": "v5.4.19",
+            "version_normalized": "5.4.19.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/string.git",
-                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b"
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/string\/zipball\/55733a8664b8853b003e70251c58bc8cb2d82a6b",
-                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/string\/zipball\/0a01071610fd861cc160dfb7e2682ceec66064cb",
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb",
                 "shasum": ""
             },
             "require": {
@@ -3510,7 +3515,7 @@
                 "symfony\/translation-contracts": "^1.1|^2",
                 "symfony\/var-exporter": "^4.4|^5.0|^6.0"
             },
-            "time": "2022-12-12T15:54:21+00:00",
+            "time": "2023-01-01T08:32:19+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3518,7 +3523,7 @@
                     "Resources\/functions.php"
                 ],
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Component\\String\\": ""
+                    "PhpactorDist\\Symfony\\Component\\String\\": ""
                 },
                 "exclude-from-classmap": [
                     "\/Tests\/"
@@ -3549,7 +3554,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https:\/\/github.com\/symfony\/string\/tree\/v5.4.17"
+                "source": "https:\/\/github.com\/symfony\/string\/tree\/v5.4.19"
             },
             "funding": [
                 {
@@ -3569,17 +3574,17 @@
         },
         {
             "name": "symfony\/yaml",
-            "version": "v5.4.17",
-            "version_normalized": "5.4.17.0",
+            "version": "v5.4.19",
+            "version_normalized": "5.4.19.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/yaml.git",
-                "reference": "edcdc11498108f8967fe95118a7ec8624b94760e"
+                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/yaml\/zipball\/edcdc11498108f8967fe95118a7ec8624b94760e",
-                "reference": "edcdc11498108f8967fe95118a7ec8624b94760e",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/yaml\/zipball\/71c05db20cb9b54d381a28255f17580e2b7e36a5",
+                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5",
                 "shasum": ""
             },
             "require": {
@@ -3596,7 +3601,7 @@
             "suggest": {
                 "symfony\/console": "For validating YAML files using the lint command"
             },
-            "time": "2022-12-13T09:57:04+00:00",
+            "time": "2023-01-10T18:51:14+00:00",
             "bin": [
                 "Resources\/bin\/yaml-lint"
             ],
@@ -3604,7 +3609,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Symfony\\Component\\Yaml\\": ""
+                    "PhpactorDist\\Symfony\\Component\\Yaml\\": ""
                 },
                 "exclude-from-classmap": [
                     "\/Tests\/"
@@ -3627,7 +3632,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https:\/\/symfony.com",
             "support": {
-                "source": "https:\/\/github.com\/symfony\/yaml\/tree\/v5.4.17"
+                "source": "https:\/\/github.com\/symfony\/yaml\/tree\/v5.4.19"
             },
             "funding": [
                 {
@@ -3822,7 +3827,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Twig\\": "src\/"
+                    "PhpactorDist\\Twig\\": "src\/"
                 },
                 "classmap": [
                     "lib\/"
@@ -3906,7 +3911,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Webmozart\\Assert\\": "src\/"
+                    "PhpactorDist\\Webmozart\\Assert\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -3963,7 +3968,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Webmozart\\Glob\\": "src\/"
+                    "PhpactorDist\\Webmozart\\Glob\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -4016,7 +4021,7 @@
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Phpactor202301\\Webmozart\\PathUtil\\": "src\/"
+                    "PhpactorDist\\Webmozart\\PathUtil\\": "src\/"
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",

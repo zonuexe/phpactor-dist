@@ -2,20 +2,20 @@
 
 namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
 use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameImport;
 use Phpactor\CodeTransform\Domain\Refactor\ImportName;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\SourceCode;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor\CodeTransform\Domain\Refactor\ImportClass\NameAlreadyImportedException;
 use Phpactor\CodeTransform\Domain\ClassName;
 use Phpactor\CodeBuilder\Domain\Updater;
 use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor\CodeTransform\Domain\Refactor\ImportClass\AliasAlreadyUsedException;
 use Phpactor\CodeTransform\Domain\Refactor\ImportClass\ClassIsCurrentClassException;

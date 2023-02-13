@@ -2,8 +2,8 @@
 
 namespace Phpactor\AmpFsWatch\SystemDetector;
 
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
 class CommandDetector
 {
     /**
@@ -18,7 +18,7 @@ class CommandDetector
      */
     private function checkPosixCommand(string $command) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($command) {
+        return \PhpactorDist\Amp\call(function () use($command) {
             $process = new Process(['command', '-v', $command]);
             (yield $process->start());
             return 0 === (yield $process->join());

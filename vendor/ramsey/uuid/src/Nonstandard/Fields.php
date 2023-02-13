@@ -10,13 +10,13 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Nonstandard;
+namespace PhpactorDist\Ramsey\Uuid\Nonstandard;
 
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Fields\SerializableFieldsTrait;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\VariantTrait;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Fields\SerializableFieldsTrait;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\VariantTrait;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 use function bin2hex;
 use function dechex;
 use function hexdec;

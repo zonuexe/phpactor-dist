@@ -2,9 +2,9 @@
 
 namespace Phpactor\Rename\Model\FileRenamer;
 
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\Rename\Model\Exception\CouldNotRename;
 use Phpactor\Rename\Model\FileRenamer;
 use Phpactor\Rename\Model\LocatedTextEditsMap;

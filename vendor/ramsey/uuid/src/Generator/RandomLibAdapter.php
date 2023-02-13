@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\RandomLib\Factory;
-use Phpactor202301\RandomLib\Generator;
+use PhpactorDist\RandomLib\Factory;
+use PhpactorDist\RandomLib\Generator;
 /**
  * RandomLibAdapter generates strings of random binary data using the
  * paragonie/random-lib library

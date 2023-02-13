@@ -10,13 +10,13 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Codec;
+namespace PhpactorDist\Ramsey\Uuid\Codec;
 
-use Phpactor202301\Ramsey\Uuid\Builder\UuidBuilderInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidUuidStringException;
-use Phpactor202301\Ramsey\Uuid\Uuid;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Builder\UuidBuilderInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidUuidStringException;
+use PhpactorDist\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use function bin2hex;
 use function hex2bin;
 use function implode;

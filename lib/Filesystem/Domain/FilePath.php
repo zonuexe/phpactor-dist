@@ -5,7 +5,7 @@ namespace Phpactor\Filesystem\Domain;
 use RuntimeException;
 use SplFileInfo;
 use InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 final class FilePath
 {
     private function __construct(private string $path)

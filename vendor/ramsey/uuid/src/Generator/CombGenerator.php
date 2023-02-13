@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
 use function bin2hex;
 use function explode;
 use function hex2bin;

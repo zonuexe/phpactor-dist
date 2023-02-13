@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\String;
+namespace PhpactorDist\Symfony\Component\String;
 
-use Phpactor202301\Symfony\Component\String\Exception\ExceptionInterface;
-use Phpactor202301\Symfony\Component\String\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\String\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\String\Exception\ExceptionInterface;
+use PhpactorDist\Symfony\Component\String\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\String\Exception\RuntimeException;
 /**
  * Represents a binary-safe string of bytes.
  *
@@ -296,7 +296,7 @@ class ByteString extends AbstractString
     public function snake() : parent
     {
         $str = $this->camel();
-        $str->string = \strtolower(\preg_replace(['/([A-Z]+)([A-Z][a-z])/', '/([a-z\\d])([A-Z])/'], 'Phpactor202301\\1_\\2', $str->string));
+        $str->string = \strtolower(\preg_replace(['/([A-Z]+)([A-Z][a-z])/', '/([a-z\\d])([A-Z])/'], 'PhpactorDist\\1_\\2', $str->string));
         return $str;
     }
     public function splice(string $replacement, int $start = 0, int $length = null) : parent

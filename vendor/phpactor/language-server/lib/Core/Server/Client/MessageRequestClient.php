@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Server\Client;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Phpactor\LanguageServerProtocol\MessageActionItem;
 use Phpactor\LanguageServerProtocol\MessageType;
 use Phpactor\LanguageServer\Core\Server\RpcClient;
@@ -50,7 +50,7 @@ final class MessageRequestClient
      */
     private function requestMessage(int $messageType, string $message, MessageActionItem ...$actions) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($messageType, $message, $actions) {
+        return \PhpactorDist\Amp\call(function () use($messageType, $message, $actions) {
             $response = (yield $this->client->request('window/showMessageRequest', ['type' => $messageType, 'message' => $message, 'actions' => $actions]));
             $result = $response->result;
             if (null !== $result) {

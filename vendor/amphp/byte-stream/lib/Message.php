@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Coroutine;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Coroutine;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 /**
  * Creates a buffered message from an InputStream. The message can be consumed in chunks using the read() API or it may
  * be buffered and accessed in its entirety by waiting for the promise to resolve.

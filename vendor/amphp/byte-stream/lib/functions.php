@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Iterator;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Producer;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Iterator;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Producer;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 // @codeCoverageIgnoreStart
 if (\strlen('…') !== 3) {
     throw new \Error('The mbstring.func_overload ini setting is enabled. It must be disabled to use the stream package.');

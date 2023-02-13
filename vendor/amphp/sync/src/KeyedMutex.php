@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 /**
  * A non-blocking synchronization primitive that can be used for mutual exclusion across contexts based on keys.
  *

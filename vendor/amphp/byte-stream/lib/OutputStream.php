@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 /**
  * An `OutputStream` allows writing data in chunks. Writers can wait on the returned promises to feel the backpressure.
  */

@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Extension\ExtensionInterface;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Extension\ExtensionInterface;
+use PhpactorDist\Twig\Node\Node;
 abstract class CallExpression extends AbstractExpression
 {
     private $reflector;
@@ -265,4 +265,4 @@ abstract class CallExpression extends AbstractExpression
         return $this->reflector = [$r, $callable, $callableName];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\CallExpression', 'Phpactor202301\\Twig_Node_Expression_Call');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\CallExpression', 'PhpactorDist\\Twig_Node_Expression_Call');

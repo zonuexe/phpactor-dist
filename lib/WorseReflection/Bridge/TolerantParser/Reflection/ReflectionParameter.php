@@ -4,9 +4,9 @@ namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
+use PhpactorDist\Microsoft\PhpParser\Node\Parameter;
 use Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\DefaultValue;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter as CoreReflectionParameter;

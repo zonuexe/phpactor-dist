@@ -2,7 +2,7 @@
 
 namespace Phpactor\AmpFsWatch;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 interface Watcher
 {
     /**

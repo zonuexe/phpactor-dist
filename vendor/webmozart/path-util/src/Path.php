@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Webmozart\PathUtil;
+namespace PhpactorDist\Webmozart\PathUtil;
 
 use InvalidArgumentException;
 use RuntimeException;
-use Phpactor202301\Webmozart\Assert\Assert;
+use PhpactorDist\Webmozart\Assert\Assert;
 /**
  * Contains utility methods for handling path strings.
  *

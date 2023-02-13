@@ -4,7 +4,7 @@ namespace Phpactor\TextDocument;
 
 use Phpactor\TextDocument\Exception\TextDocumentNotFound;
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 final class TextDocumentBuilder
 {
     private ?\Phpactor\TextDocument\TextDocumentUri $uri = null;

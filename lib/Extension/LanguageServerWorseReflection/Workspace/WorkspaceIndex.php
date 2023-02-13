@@ -8,8 +8,8 @@ use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\WorseReflection\Core\Name;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use RuntimeException;
-use function Phpactor202301\Amp\asyncCall;
-use function Phpactor202301\Amp\delay;
+use function PhpactorDist\Amp\asyncCall;
+use function PhpactorDist\Amp\delay;
 class WorkspaceIndex
 {
     /**

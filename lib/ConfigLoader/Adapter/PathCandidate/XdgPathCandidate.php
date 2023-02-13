@@ -3,8 +3,8 @@
 namespace Phpactor\ConfigLoader\Adapter\PathCandidate;
 
 use Phpactor\ConfigLoader\Core\PathCandidate;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
-use Phpactor202301\XdgBaseDir\Xdg;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
+use PhpactorDist\XdgBaseDir\Xdg;
 class XdgPathCandidate implements PathCandidate
 {
     public function __construct(private string $appName, private string $filename, private string $loader, private Xdg $xdg)

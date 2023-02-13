@@ -2,13 +2,13 @@
 
 namespace Phpactor\Extension\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Rpc\Message;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\call;
 class TraceMiddleware implements Middleware
 {
     public function __construct(private LoggerInterface $logger)
@@ -18,6 +18,7 @@ class TraceMiddleware implements Middleware
     {
         return call(function () use($request, $handler) {
             $this->logger->info($this->format($request), (array) $request);
+            /** @phpstan-ignore-next-line */
             $response = (yield $handler->handle($request));
             if ($response !== null) {
                 $this->logger->info($this->format($response), (array) $response);

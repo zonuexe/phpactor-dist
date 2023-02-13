@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\EnumCaseDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\EnumCaseDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
@@ -23,15 +23,15 @@ class ReflectionEnumCase extends \Phpactor\WorseReflection\Bridge\TolerantParser
     }
     public function name() : string
     {
+        /** @var object $name */
         $name = $this->node->name;
         if ($name instanceof Token) {
             return (string) $name->getText($this->node->getFileContents());
         }
-        /** @phpstan-ignore-next-line just in case */
         if ($name instanceof QualifiedName) {
             return $name->__toString();
         }
-        throw new RuntimeException('This shoud not happen');
+        throw new RuntimeException('This should not happen');
     }
     public function nameRange() : ByteOffsetRange
     {

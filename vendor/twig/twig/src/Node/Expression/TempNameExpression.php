@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class TempNameExpression extends AbstractExpression
 {
     public function __construct(string $name, int $lineno)
@@ -22,4 +22,4 @@ class TempNameExpression extends AbstractExpression
         $compiler->raw('$_')->raw($this->getAttribute('name'))->raw('_');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\TempNameExpression', 'Phpactor202301\\Twig_Node_Expression_TempName');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\TempNameExpression', 'PhpactorDist\\Twig_Node_Expression_TempName');

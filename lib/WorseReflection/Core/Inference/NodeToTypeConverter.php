@@ -2,14 +2,14 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
 use Phpactor\WorseReflection\Core\Name;
 use Phpactor\WorseReflection\Core\TypeFactory;
 use Phpactor\WorseReflection\Core\Type\ClassType;
@@ -17,8 +17,8 @@ use Phpactor\WorseReflection\Core\Type\ScalarType;
 use Phpactor\WorseReflection\Core\Type\SelfType;
 use Phpactor\WorseReflection\Core\Type\StaticType;
 use Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 /**
  * This class is responsible for adjusting types according to their context
  * (e.g. expanding to FQNs).

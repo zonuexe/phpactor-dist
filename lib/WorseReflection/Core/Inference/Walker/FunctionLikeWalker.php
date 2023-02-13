@@ -2,24 +2,24 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\WorseReflection\Core\Inference\FrameResolver;
 use Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Microsoft\PhpParser\FunctionLike;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\FunctionLike;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\WorseReflection\Core\Inference\Symbol;
 use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
 use Phpactor\WorseReflection\Core\Inference\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Parameter;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Inference\Walker;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;

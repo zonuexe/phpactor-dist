@@ -2,7 +2,7 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser\Qualifier;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 class AlwaysQualfifier implements TolerantQualifier
 {

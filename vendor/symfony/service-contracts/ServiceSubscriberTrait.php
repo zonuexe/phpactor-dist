@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Contracts\Service;
+namespace PhpactorDist\Symfony\Contracts\Service;
 
-use Phpactor202301\Psr\Container\ContainerInterface;
-use Phpactor202301\Symfony\Contracts\Service\Attribute\SubscribedService;
+use PhpactorDist\Psr\Container\ContainerInterface;
+use PhpactorDist\Symfony\Contracts\Service\Attribute\SubscribedService;
 /**
  * Implementation of ServiceSubscriberInterface that determines subscribed services from
  * method return types. Service ids are available as "ClassName::methodName".

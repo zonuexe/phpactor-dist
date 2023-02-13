@@ -3,11 +3,11 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Parameter;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Core\Formatter\ObjectFormatter;
 use Phpactor\Completion\Core\Suggestion;

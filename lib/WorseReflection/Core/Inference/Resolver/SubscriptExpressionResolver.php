@@ -2,9 +2,9 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\StringLiteral;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Inference\Resolver;

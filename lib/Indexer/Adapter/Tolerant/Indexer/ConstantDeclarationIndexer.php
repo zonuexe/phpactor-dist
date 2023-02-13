@@ -2,14 +2,14 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ConstElementList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ConstDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\StringLiteral;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ConstElement;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ConstElementList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\StringLiteral;
 use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
 use Phpactor\Indexer\Model\Record\ConstantRecord;
 use Phpactor\TextDocument\ByteOffset;
@@ -26,11 +26,9 @@ class ConstantDeclarationIndexer implements TolerantIndexer
         if (!$node instanceof CallExpression) {
             return \false;
         }
-        /** @phpstan-ignore-next-line */
         if (!$node->callableExpression instanceof QualifiedName) {
             return \false;
         }
-        /** @phpstan-ignore-next-line */
         if ('define' === NodeUtil::shortName($node->callableExpression)) {
             return \true;
         }

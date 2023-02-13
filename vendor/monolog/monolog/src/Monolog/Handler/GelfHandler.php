@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Gelf\IMessagePublisher;
-use Phpactor202301\Gelf\PublisherInterface;
-use Phpactor202301\Gelf\Publisher;
+use PhpactorDist\Gelf\IMessagePublisher;
+use PhpactorDist\Gelf\PublisherInterface;
+use PhpactorDist\Gelf\Publisher;
 use InvalidArgumentException;
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Formatter\GelfMessageFormatter;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\GelfMessageFormatter;
 /**
  * Handler to send messages to a Graylog2 (http://www.graylog2.org) server
  *

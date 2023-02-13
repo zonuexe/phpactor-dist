@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 /*
  * This file is part of Twig.
@@ -10,7 +10,7 @@ namespace Phpactor202301;
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-use Phpactor202301\Twig\TwigFilter;
+use PhpactorDist\Twig\TwigFilter;
 /*
  * For Twig 1.x compatibility.
  */

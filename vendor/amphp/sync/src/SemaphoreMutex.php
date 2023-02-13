@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 class SemaphoreMutex implements Mutex
 {
     /** @var Semaphore */

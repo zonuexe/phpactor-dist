@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\DTL\Invoke\Internal;
+namespace PhpactorDist\DTL\Invoke\Internal;
 
 class ArgumentValue
 {

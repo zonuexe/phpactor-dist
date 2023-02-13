@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Loader;
+namespace PhpactorDist\Twig\Loader;
 
-use Phpactor202301\Twig\Error\LoaderError;
-use Phpactor202301\Twig\Source;
+use PhpactorDist\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Source;
 /**
  * Loads a template from an array.
  *
@@ -71,4 +71,4 @@ final class ArrayLoader implements LoaderInterface, ExistsLoaderInterface, Sourc
         return \true;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Loader\\ArrayLoader', 'Phpactor202301\\Twig_Loader_Array');
+\class_alias('PhpactorDist\\Twig\\Loader\\ArrayLoader', 'PhpactorDist\\Twig_Loader_Array');

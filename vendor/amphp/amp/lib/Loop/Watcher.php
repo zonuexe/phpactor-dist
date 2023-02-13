@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
-use Phpactor202301\Amp\Struct;
+use PhpactorDist\Amp\Struct;
 /**
  * @template TValue as (int|resource|null)
  *

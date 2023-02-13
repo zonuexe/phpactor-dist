@@ -23,7 +23,7 @@ use Phpactor\LanguageServer\Core\Service\ServiceManager;
 use Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
 use Phpactor\MapResolver\Resolver;
 use Phpactor\TextDocument\TextDocumentLocator;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
 class LanguageServerIndexerExtension implements Extension
 {
     public const WORKSPACE_SYMBOL_SEARCH_LIMIT = 'language_server_indexer.workspace_symbol_search_limit';

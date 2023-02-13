@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Cache;
+namespace PhpactorDist\Amp\Cache;
 
 /**
  * MUST be thrown in case a cache operation fails.

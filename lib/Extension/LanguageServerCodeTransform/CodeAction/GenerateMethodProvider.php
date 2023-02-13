@@ -2,9 +2,9 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
@@ -18,7 +18,7 @@ use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
 use Phpactor\TextDocument\TextDocumentBuilder;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class GenerateMethodProvider implements DiagnosticsProvider, CodeActionProvider
 {
     public const KIND = 'quickfix.generate_method';
@@ -31,7 +31,7 @@ class GenerateMethodProvider implements DiagnosticsProvider, CodeActionProvider
     }
     public function provideDiagnostics(TextDocumentItem $textDocument, CancellationToken $cancel) : Promise
     {
-        return new Success($this->getDiagnostics($textDocument, $cancel));
+        return new Success($this->getDiagnostics($textDocument));
     }
     public function provideActionsFor(TextDocumentItem $textDocument, Range $range, CancellationToken $cancel) : Promise
     {
@@ -54,7 +54,7 @@ class GenerateMethodProvider implements DiagnosticsProvider, CodeActionProvider
         $methods = $this->missingMethodFinder->find(TextDocumentBuilder::create($textDocument->text)->build());
         $diagnostics = [];
         foreach ($methods as $method) {
-            $diagnostics[] = Diagnostic::fromArray(['range' => RangeConverter::toLspRange($method->range(), $textDocument->text), 'message' => \sprintf('Method "%s" does not exist', $method->name()), 'severity' => DiagnosticSeverity::WARNING, 'source' => 'phpactor']);
+            $diagnostics[] = new Diagnostic(range: RangeConverter::toLspRange($method->range(), $textDocument->text), message: \sprintf('Method "%s" does not exist', $method->name()), severity: DiagnosticSeverity::WARNING, source: 'phpactor');
         }
         \usort($diagnostics, function (Diagnostic $a, Diagnostic $b) {
             if ($a->range->start->line > $b->range->start->line) {

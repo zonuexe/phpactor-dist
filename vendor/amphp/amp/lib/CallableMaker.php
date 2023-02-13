@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 // @codeCoverageIgnoreStart
 if (\PHP_VERSION_ID < 70100) {

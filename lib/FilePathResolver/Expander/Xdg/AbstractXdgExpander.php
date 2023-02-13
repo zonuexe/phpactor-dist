@@ -3,7 +3,7 @@
 namespace Phpactor\FilePathResolver\Expander\Xdg;
 
 use Phpactor\FilePathResolver\Expander;
-use Phpactor202301\XdgBaseDir\Xdg;
+use PhpactorDist\XdgBaseDir\Xdg;
 abstract class AbstractXdgExpander implements Expander
 {
     protected Xdg $xdg;

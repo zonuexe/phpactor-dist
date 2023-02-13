@@ -10,19 +10,19 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Rfc4122;
+namespace PhpactorDist\Ramsey\Uuid\Rfc4122;
 
-use Phpactor202301\Ramsey\Uuid\Builder\UuidBuilderInterface;
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\Time\UnixTimeConverter;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\UnableToBuildUuidException;
-use Phpactor202301\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Phpactor202301\Ramsey\Uuid\Math\BrickMathCalculator;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidInterface as Rfc4122UuidInterface;
-use Phpactor202301\Ramsey\Uuid\Uuid;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Builder\UuidBuilderInterface;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\Time\UnixTimeConverter;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\UnableToBuildUuidException;
+use PhpactorDist\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use PhpactorDist\Ramsey\Uuid\Math\BrickMathCalculator;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidInterface as Rfc4122UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use Throwable;
 /**
  * UuidBuilder builds instances of RFC 4122 UUIDs

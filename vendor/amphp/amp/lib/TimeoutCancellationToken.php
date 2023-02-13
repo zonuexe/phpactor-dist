@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
-use function Phpactor202301\Amp\Internal\formatStacktrace;
+use function PhpactorDist\Amp\Internal\formatStacktrace;
 /**
  * A TimeoutCancellationToken automatically requests cancellation after the timeout has elapsed.
  */

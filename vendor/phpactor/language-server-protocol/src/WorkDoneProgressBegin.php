@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 class WorkDoneProgressBegin
@@ -46,7 +46,7 @@ class WorkDoneProgressBegin
      * to ignore the `percentage` value in subsequent in report notifications.
      * 
      * The value should be steadily rising. Clients are free to ignore values
-     * that are not following this rule.
+     * that are not following this rule. The value range is [0, 100].
      *
      * @var int|null
      */
@@ -68,7 +68,7 @@ class WorkDoneProgressBegin
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

@@ -7,7 +7,7 @@ use Phpactor\LanguageServer\Event\TextDocumentOpened;
 use Phpactor\LanguageServer\Event\TextDocumentUpdated;
 use Phpactor\TextDocument\TextDocumentBuilder;
 use Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class WorkspaceIndexListener implements ListenerProviderInterface
 {
     public function __construct(private \Phpactor\Extension\LanguageServerWorseReflection\Workspace\WorkspaceIndex $index)

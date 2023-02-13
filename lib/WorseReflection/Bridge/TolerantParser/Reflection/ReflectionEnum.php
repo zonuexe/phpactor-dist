@@ -2,8 +2,8 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
 use Phpactor\WorseReflection\Core\ClassName;

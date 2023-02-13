@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Windows;
+namespace PhpactorDist\Amp\Process\Internal\Windows;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Process\Internal\ProcessHandle;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Process\Internal\ProcessHandle;
 /**
  * @internal
  * @codeCoverageIgnore Windows only.

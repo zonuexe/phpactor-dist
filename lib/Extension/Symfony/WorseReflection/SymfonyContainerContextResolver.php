@@ -15,7 +15,7 @@ use Phpactor\WorseReflection\Core\Type\StringLiteralType;
 use Phpactor\WorseReflection\Reflector;
 class SymfonyContainerContextResolver implements MemberContextResolver
 {
-    const CONTAINER_CLASS = 'Phpactor202301\\Symfony\\Component\\DependencyInjection\\ContainerInterface';
+    const CONTAINER_CLASS = 'PhpactorDist\\Symfony\\Component\\DependencyInjection\\ContainerInterface';
     public function __construct(private SymfonyContainerInspector $inspector)
     {
     }

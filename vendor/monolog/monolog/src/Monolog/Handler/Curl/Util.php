@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler\Curl;
+namespace PhpactorDist\Monolog\Handler\Curl;
 
 class Util
 {

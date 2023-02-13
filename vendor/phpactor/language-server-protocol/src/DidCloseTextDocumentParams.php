@@ -3,11 +3,11 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * The parameters send in a close text document notification
+ * The parameters sent in a close text document notification
  */
 class DidCloseTextDocumentParams
 {
@@ -26,7 +26,7 @@ class DidCloseTextDocumentParams
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

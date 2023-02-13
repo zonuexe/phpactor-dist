@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
-use Phpactor202301\Amp\Coroutine;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
-use function Phpactor202301\Amp\Promise\rethrow;
+use PhpactorDist\Amp\Coroutine;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
+use function PhpactorDist\Amp\Promise\rethrow;
 class UvDriver extends Driver
 {
     /** @var resource A uv_loop resource created with uv_loop_new() */
@@ -202,7 +202,7 @@ class UvDriver extends Driver
                         $event = $this->streams[$streamId] = $this->events[$id];
                     } else {
                         /** @psalm-suppress UndefinedFunction */
-                        $event = $this->streams[$streamId] = \Phpactor202301\uv_poll_init_socket($this->handle, $watcher->value);
+                        $event = $this->streams[$streamId] = \PhpactorDist\uv_poll_init_socket($this->handle, $watcher->value);
                     }
                     $eventId = (int) $event;
                     $this->events[$id] = $event;
@@ -230,11 +230,11 @@ class UvDriver extends Driver
                         $event = $this->events[$id];
                     } else {
                         /** @psalm-suppress UndefinedFunction */
-                        $event = $this->events[$id] = \Phpactor202301\uv_signal_init($this->handle);
+                        $event = $this->events[$id] = \PhpactorDist\uv_signal_init($this->handle);
                     }
                     $this->watchers[(int) $event] = [$watcher];
                     /** @psalm-suppress UndefinedFunction */
-                    \Phpactor202301\uv_signal_start($event, $this->signalCallback, $watcher->value);
+                    \PhpactorDist\uv_signal_start($event, $this->signalCallback, $watcher->value);
                     break;
                 default:
                     // @codeCoverageIgnoreStart

@@ -3,21 +3,15 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 class FileSystemWatcher
 {
     /**
-     * The  glob pattern to watch. Glob patterns can have the following syntax:
-     * - `*` to match one or more characters in a path segment
-     * - `?` to match on one character in a path segment
-     * - `**` to match any number of path segments, including none
-     * - `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)
-     * - `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
-     * - `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
+     * The glob pattern to watch. See {@link GlobPattern glob pattern} for more detail.
      *
-     * @var string
+     * @var string|RelativePattern
      */
     public $globPattern;
     /**
@@ -25,25 +19,25 @@ class FileSystemWatcher
      * to WatchKind.Create | WatchKind.Change | WatchKind.Delete
      * which is 7.
      *
-     * @var int|null
+     * @var WatchKind::*|null
      */
     public $kind;
     /**
-     * @param string $globPattern
-     * @param int|null $kind
+     * @param string|RelativePattern $globPattern
+     * @param WatchKind::*|null $kind
      */
-    public function __construct(string $globPattern, ?int $kind = null)
+    public function __construct($globPattern, $kind = null)
     {
         $this->globPattern = $globPattern;
         $this->kind = $kind;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['globPattern' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false]];
+        $map = ['globPattern' => ['names' => [\Phpactor\LanguageServerProtocol\RelativePattern::class], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

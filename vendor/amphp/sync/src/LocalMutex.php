@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\CallableMaker;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\CallableMaker;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 class LocalMutex implements Mutex
 {
     use CallableMaker;

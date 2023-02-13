@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler;
+namespace PhpactorDist\Twig\Profiler;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -155,4 +155,4 @@ class Profile implements \IteratorAggregate, \Serializable
         list($this->template, $this->name, $this->type, $this->starts, $this->ends, $this->profiles) = $data;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\Profile', 'Phpactor202301\\Twig_Profiler_Profile');
+\class_alias('PhpactorDist\\Twig\\Profiler\\Profile', 'PhpactorDist\\Twig_Profiler_Profile');

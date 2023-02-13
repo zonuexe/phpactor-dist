@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\NodeVisitor\NodeVisitorInterface;
-use Phpactor202301\Twig\TokenParser\TokenParserInterface;
-use Phpactor202301\Twig\TwigFilter;
-use Phpactor202301\Twig\TwigFunction;
-use Phpactor202301\Twig\TwigTest;
+use PhpactorDist\Twig\NodeVisitor\NodeVisitorInterface;
+use PhpactorDist\Twig\TokenParser\TokenParserInterface;
+use PhpactorDist\Twig\TwigFilter;
+use PhpactorDist\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigTest;
 /**
  * Used by \Twig\Environment as a staging area.
  *
@@ -82,4 +82,4 @@ final class StagingExtension extends AbstractExtension
         return $this->tests;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\StagingExtension', 'Phpactor202301\\Twig_Extension_Staging');
+\class_alias('PhpactorDist\\Twig\\Extension\\StagingExtension', 'PhpactorDist\\Twig_Extension_Staging');

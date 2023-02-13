@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Process;
+namespace PhpactorDist\Symfony\Component\Process;
 
-use Phpactor202301\Symfony\Component\Process\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Process\Exception\InvalidArgumentException;
 /**
  * ProcessUtils is a bunch of utility methods.
  *

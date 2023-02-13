@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\CI;
+namespace PhpactorDist\Symfony\Component\Console\CI;
 
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 /**
  * Utility class for Github actions.
  *

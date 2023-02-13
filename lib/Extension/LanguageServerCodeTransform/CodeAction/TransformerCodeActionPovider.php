@@ -2,9 +2,9 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\CodeTransform\Domain\Transformers;
 use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
@@ -17,7 +17,7 @@ use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class TransformerCodeActionPovider implements DiagnosticsProvider, CodeActionProvider
 {
     public function __construct(private Transformers $transformers, private string $name, private string $title)
@@ -29,7 +29,7 @@ class TransformerCodeActionPovider implements DiagnosticsProvider, CodeActionPro
     }
     public function provideDiagnostics(TextDocumentItem $textDocument, CancellationToken $cancel) : Promise
     {
-        return new Success($this->getDiagnostics($textDocument, $cancel));
+        return new Success($this->getDiagnostics($textDocument));
     }
     public function provideActionsFor(TextDocumentItem $textDocument, Range $range, CancellationToken $cancel) : Promise
     {

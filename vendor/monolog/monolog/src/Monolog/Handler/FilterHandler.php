@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
 /**
  * Simple handler wrapper that filters records based on a list of levels
  *
@@ -69,7 +69,7 @@ class FilterHandler extends AbstractHandler
     public function setAcceptedLevels($minLevelOrList = Logger::DEBUG, $maxLevel = Logger::EMERGENCY)
     {
         if (\is_array($minLevelOrList)) {
-            $acceptedLevels = \array_map('Phpactor202301\\Monolog\\Logger::toMonologLevel', $minLevelOrList);
+            $acceptedLevels = \array_map('PhpactorDist\\Monolog\\Logger::toMonologLevel', $minLevelOrList);
         } else {
             $minLevelOrList = Logger::toMonologLevel($minLevelOrList);
             $maxLevel = Logger::toMonologLevel($maxLevel);

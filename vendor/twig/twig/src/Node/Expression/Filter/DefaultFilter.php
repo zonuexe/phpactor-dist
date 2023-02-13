@@ -8,16 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Filter;
+namespace PhpactorDist\Twig\Node\Expression\Filter;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\ConditionalExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\FilterExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\Expression\Test\DefinedTest;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\ConditionalExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\FilterExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\Expression\Test\DefinedTest;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Returns the value or the default value when it is undefined or empty.
  *
@@ -44,4 +44,4 @@ class DefaultFilter extends FilterExpression
         $compiler->subcompile($this->getNode('node'));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Filter\\DefaultFilter', 'Phpactor202301\\Twig_Node_Expression_Filter_Default');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Filter\\DefaultFilter', 'PhpactorDist\\Twig_Node_Expression_Filter_Default');

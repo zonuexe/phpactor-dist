@@ -41,7 +41,7 @@ final class LanguageSeverProtocolParamsResolver implements ArgumentResolver
                 return [$message];
             }
             if (\preg_match('{^Phpactor\\\\LanguageServerProtocol\\\\.*Params$}', $classFqn)) {
-                return $this->doResolveArguments($classFqn, $parameter->getName(), $arguments);
+                return $this->doResolveArguments($classFqn, $parameter->getName(), $arguments ?: []);
             }
             throw new CouldNotResolveArguments(\sprintf('First argument of LSP class "%s" method "%s" must be the LSP param object, it is "%s"', \get_class($object), $method, $classFqn));
         }

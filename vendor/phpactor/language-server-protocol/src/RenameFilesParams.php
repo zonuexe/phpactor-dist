@@ -3,11 +3,12 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * The parameters sent in file rename requests/notifications.
+ * The parameters sent in notifications/requests for user-initiated renames of
+ * files.
  */
 class RenameFilesParams
 {
@@ -27,7 +28,7 @@ class RenameFilesParams
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

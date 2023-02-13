@@ -6,7 +6,7 @@ use Phpactor\WorseReflection\Bridge\TolerantParser\Parser\CachedParser;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 class TolerantFactory implements SourceCodeReflectorFactory
 {
     private Parser $parser;

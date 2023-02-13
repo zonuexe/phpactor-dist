@@ -13,7 +13,7 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS;
+namespace PhpactorDist\LibDNS;
 
 /**
  * Base class for enumerations to prevent instantiation

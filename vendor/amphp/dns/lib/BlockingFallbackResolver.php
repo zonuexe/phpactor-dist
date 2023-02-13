@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 class BlockingFallbackResolver implements Resolver
 {
     public function resolve(string $name, int $typeRestriction = null) : Promise

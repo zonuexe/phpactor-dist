@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerReferenceFinder\Handler;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\Location as LspLocation;
 use Phpactor\LanguageServerProtocol\Position;
@@ -33,7 +33,7 @@ class ReferencesHandler implements Handler, CanRegisterCapabilities
     }
     public function references(TextDocumentIdentifier $textDocument, Position $position, ReferenceContext $context) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($textDocument, $position, $context) {
+        return \PhpactorDist\Amp\call(function () use($textDocument, $position, $context) {
             $textDocument = $this->workspace->get($textDocument->uri);
             $phpactorDocument = TextDocumentBuilder::create($textDocument->text)->uri($textDocument->uri)->language($textDocument->languageId ?? 'php')->build();
             $offset = PositionConverter::positionToByteOffset($position, $textDocument->text);

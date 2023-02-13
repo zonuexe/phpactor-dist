@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
 /**
  * Thrown in case a second read operation is attempted while another read operation is still pending.

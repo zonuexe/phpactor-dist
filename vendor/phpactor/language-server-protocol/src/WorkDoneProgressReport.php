@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 class WorkDoneProgressReport
@@ -14,11 +14,10 @@ class WorkDoneProgressReport
      */
     public $kind;
     /**
-     * Controls enablement state of a cancel button. This property is only valid if a cancel
-     * button got requested in the `WorkDoneProgressStart` payload.
+     * Controls enablement state of a cancel button.
      * 
-     * Clients that don't support cancellation or don't support control the button's
-     * enablement state are allowed to ignore the setting.
+     * Clients that don't support cancellation or don't support controlling the button's
+     * enablement state are allowed to ignore the property.
      *
      * @var bool|null
      */
@@ -39,7 +38,7 @@ class WorkDoneProgressReport
      * to ignore the `percentage` value in subsequent in report notifications.
      * 
      * The value should be steadily rising. Clients are free to ignore values
-     * that are not following this rule.
+     * that are not following this rule. The value range is [0, 100]
      *
      * @var int|null
      */
@@ -59,7 +58,7 @@ class WorkDoneProgressReport
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

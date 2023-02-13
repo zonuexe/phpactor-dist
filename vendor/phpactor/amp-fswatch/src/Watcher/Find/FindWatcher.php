@@ -2,11 +2,11 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\Find;
 
-use Phpactor202301\Amp\ByteStream\LineReader;
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Process\ProcessInputStream;
+use PhpactorDist\Amp\ByteStream\LineReader;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Process\ProcessInputStream;
 use DateTimeImmutable;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\ModifiedFileQueue;
@@ -14,10 +14,10 @@ use Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\WatcherConfig;
 use Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 use RuntimeException;
-use function Phpactor202301\Amp\delay;
+use function PhpactorDist\Amp\delay;
 class FindWatcher implements Watcher, WatcherProcess
 {
     /**
@@ -58,18 +58,18 @@ class FindWatcher implements Watcher, WatcherProcess
     }
     public function watch() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $this->logger->info(\sprintf('Polling at interval of "%s" milliseconds for changes paths "%s"', $this->config->pollInterval(), \implode('", "', $this->config->paths())));
             $this->updateDateReference();
             $this->running = \true;
             (yield delay(10));
-            \Phpactor202301\Amp\asyncCall(function () {
+            \PhpactorDist\Amp\asyncCall(function () {
                 while ($this->running) {
                     $searches = [];
                     foreach ($this->config->paths() as $path) {
                         $searches[] = $this->search($path);
                     }
-                    (yield \Phpactor202301\Amp\Promise\all($searches));
+                    (yield \PhpactorDist\Amp\Promise\all($searches));
                     $this->updateDateReference();
                     (yield new Delayed($this->config->pollInterval()));
                 }
@@ -79,7 +79,7 @@ class FindWatcher implements Watcher, WatcherProcess
     }
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             while ($this->running) {
                 $this->queue = $this->queue->compress();
                 if ($next = $this->queue->dequeue()) {
@@ -102,7 +102,7 @@ class FindWatcher implements Watcher, WatcherProcess
      */
     private function search(string $path) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($path) {
+        return \PhpactorDist\Amp\call(function () use($path) {
             $start = \microtime(\true);
             $process = (yield $this->startProcess($path));
             $this->feedQueue($process->getStdout());
@@ -118,7 +118,7 @@ class FindWatcher implements Watcher, WatcherProcess
     }
     private function feedQueue(ProcessInputStream $stream) : void
     {
-        \Phpactor202301\Amp\asyncCall(function () use($stream) {
+        \PhpactorDist\Amp\asyncCall(function () use($stream) {
             $reader = new LineReader($stream);
             while (null !== ($line = (yield $reader->readLine()))) {
                 $this->logger->debug('find found: ' . $line);
@@ -131,7 +131,7 @@ class FindWatcher implements Watcher, WatcherProcess
      */
     private function startProcess(string $path) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($path) {
+        return \PhpactorDist\Amp\call(function () use($path) {
             // use ctime (inode status change time) rather than modification
             // time as vendor libraries (for example) preserve the modification
             // times.

@@ -10,14 +10,14 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Converter\Time;
+namespace PhpactorDist\Ramsey\Uuid\Converter\Time;
 
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Math\BrickMathCalculator;
-use Phpactor202301\Ramsey\Uuid\Math\CalculatorInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Phpactor202301\Ramsey\Uuid\Type\Time;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Math\BrickMathCalculator;
+use PhpactorDist\Ramsey\Uuid\Math\CalculatorInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Type\Time;
 use function count;
 use function dechex;
 use function explode;

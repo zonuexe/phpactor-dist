@@ -9,7 +9,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Error;
+namespace PhpactorDist\Twig\Error;
 
 /**
  * \Exception thrown when a syntax error occurs during lexing or parsing of a template.
@@ -40,4 +40,4 @@ class SyntaxError extends Error
         $this->appendMessage(\sprintf(' Did you mean "%s"?', \implode('", "', \array_keys($alternatives))));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Error\\SyntaxError', 'Phpactor202301\\Twig_Error_Syntax');
+\class_alias('PhpactorDist\\Twig\\Error\\SyntaxError', 'PhpactorDist\\Twig_Error_Syntax');

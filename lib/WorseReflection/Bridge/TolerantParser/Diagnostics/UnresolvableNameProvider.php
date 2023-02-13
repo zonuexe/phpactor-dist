@@ -2,19 +2,19 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Attribute;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\BinaryExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Attribute;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\BinaryExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\Name\FullyQualifiedName as PhpactorFullyQualifiedName;
 use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;

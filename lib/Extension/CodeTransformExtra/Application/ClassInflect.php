@@ -7,7 +7,7 @@ use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\Phpactor;
 use Phpactor\Extension\Core\Application\Helper\FilesystemHelper;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor202301\Webmozart\Glob\Glob;
+use PhpactorDist\Webmozart\Glob\Glob;
 use RuntimeException;
 class ClassInflect extends \Phpactor\Extension\CodeTransformExtra\Application\AbstractClassGenerator
 {

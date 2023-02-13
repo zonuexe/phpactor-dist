@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Amp\Process;
+namespace PhpactorDist\Amp\Process;
 
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Process\Internal\Posix\Runner as PosixProcessRunner;
-use Phpactor202301\Amp\Process\Internal\ProcessHandle;
-use Phpactor202301\Amp\Process\Internal\ProcessRunner;
-use Phpactor202301\Amp\Process\Internal\ProcessStatus;
-use Phpactor202301\Amp\Process\Internal\Windows\Runner as WindowsProcessRunner;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Process\Internal\Posix\Runner as PosixProcessRunner;
+use PhpactorDist\Amp\Process\Internal\ProcessHandle;
+use PhpactorDist\Amp\Process\Internal\ProcessRunner;
+use PhpactorDist\Amp\Process\Internal\ProcessStatus;
+use PhpactorDist\Amp\Process\Internal\Windows\Runner as WindowsProcessRunner;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 final class Process
 {
     /** @var ProcessRunner */

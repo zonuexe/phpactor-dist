@@ -4,7 +4,7 @@ declare (strict_types=1);
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Core\Suggestion;
@@ -14,6 +14,10 @@ class KeywordCompletor implements TolerantCompletor
 {
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
     {
+        if (CompletionContext::promotedPropertyVisibility($node)) {
+            yield from $this->keywords(['private ', 'public ', 'protected ']);
+            return \true;
+        }
         if (CompletionContext::classClause($node, $offset)) {
             yield from $this->keywords(['implements ', 'extends ']);
             return \true;
@@ -24,6 +28,9 @@ class KeywordCompletor implements TolerantCompletor
         }
         if (CompletionContext::methodName($node)) {
             yield from $this->keywords(['__construct(']);
+            return \true;
+        }
+        if (CompletionContext::attribute($node)) {
             return \true;
         }
         if (CompletionContext::classMembersBody($node->parent)) {

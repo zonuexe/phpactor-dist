@@ -2,12 +2,13 @@
 
 namespace Phpactor\LanguageServer\Core\Server\StreamProvider;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Socket\Server;
-use Phpactor202301\Amp\Socket\Socket;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Socket\Server;
+use PhpactorDist\Amp\Socket\Socket;
 use Phpactor\LanguageServer\Core\Server\Stream\SocketDuplexStream;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use Throwable;
 final class SocketStreamProvider implements \Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider
 {
     /**
@@ -27,8 +28,8 @@ final class SocketStreamProvider implements \Phpactor\LanguageServer\Core\Server
     {
         $promise = $this->server->accept();
         $deferred = new Deferred();
-        $promise->onResolve(function ($reason, ?Socket $socket) use($deferred) : void {
-            if (null === $socket) {
+        $promise->onResolve(function (?Throwable $reason, mixed $socket) use($deferred) : void {
+            if (!$socket instanceof Socket) {
                 return;
             }
             $this->logger->info(\sprintf('Accepted connection from "%s"', $socket->getRemoteAddress()));

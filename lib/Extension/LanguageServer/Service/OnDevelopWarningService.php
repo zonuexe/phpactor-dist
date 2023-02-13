@@ -2,11 +2,11 @@
 
 namespace Phpactor\Extension\LanguageServer\Service;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\Core\Application\Status;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Core\Service\ServiceProvider;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class OnDevelopWarningService implements ServiceProvider
 {
     public function __construct(private ClientApi $client, private Status $status, private bool $warnOnDevelop)
@@ -19,6 +19,9 @@ class OnDevelopWarningService implements ServiceProvider
         }
         return ['serviceAnnouncements'];
     }
+    /**
+     * @return Promise<void>
+     */
     public function serviceAnnouncements() : Promise
     {
         return call(function () : void {

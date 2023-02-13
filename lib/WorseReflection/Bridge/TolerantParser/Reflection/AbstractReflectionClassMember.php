@@ -6,17 +6,17 @@ use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor\WorseReflection\Core\Deprecation;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\WorseReflection\Core\Util\OriginalMethodResolver;
 use Phpactor\WorseReflection\Core\Visibility;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassConstDeclaration;
 use InvalidArgumentException;
 abstract class AbstractReflectionClassMember extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectedNode implements ReflectionMember
 {

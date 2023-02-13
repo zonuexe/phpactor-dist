@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Error\Error;
-\class_exists('Phpactor202301\\Twig\\Error\\Error');
+use PhpactorDist\Twig\Error\Error;
+\class_exists('PhpactorDist\\Twig\\Error\\Error');
 @\trigger_error('Using the "Twig_Error" class is deprecated since Twig version 2.7, use "Twig\\Error\\Error" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Error\Error" instead */

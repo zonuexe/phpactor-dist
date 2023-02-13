@@ -6,18 +6,21 @@ use Phpactor\ClassMover\Domain\Reference\ImportedNameReference;
 use RuntimeException;
 class NameImportTable
 {
-    private $importedNameRefs = [];
+    /** @var ImportedNameReference[] */
+    private array $importedNameRefs = [];
+    /** @param ImportedNameReference[] $importedNamespaceNames */
     private function __construct(private \Phpactor\ClassMover\Domain\Name\Namespace_ $namespace, array $importedNamespaceNames)
     {
         foreach ($importedNamespaceNames as $importedNamespaceName) {
             $this->addImportedName($importedNamespaceName);
         }
     }
+    /** @param ImportedNameReference[] $importedNameRefs */
     public static function fromImportedNameRefs(\Phpactor\ClassMover\Domain\Name\Namespace_ $namespace, array $importedNameRefs) : \Phpactor\ClassMover\Domain\Name\NameImportTable
     {
         return new self($namespace, $importedNameRefs);
     }
-    public function isNameImported(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
+    public function isNameImported(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : bool
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {
@@ -35,7 +38,7 @@ class NameImportTable
         }
         throw new RuntimeException(\sprintf('Could not find name in import table "%s"', (string) $name));
     }
-    public function resolveClassName(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
+    public function resolveClassName(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : \Phpactor\ClassMover\Domain\Name\FullyQualifiedName
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {
@@ -51,7 +54,7 @@ class NameImportTable
     {
         return $this->namespace;
     }
-    public function isAliased(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
+    public function isAliased(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : bool
     {
         foreach ($this->importedNameRefs as $importedNameRef) {
             if ($importedNameRef->importedName()->qualifies($name)) {

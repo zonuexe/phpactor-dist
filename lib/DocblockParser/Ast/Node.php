@@ -74,7 +74,6 @@ abstract class Node implements \Phpactor\DocblockParser\Ast\Element
     public function firstDescendant(string $elementFqn) : ?\Phpactor\DocblockParser\Ast\Element
     {
         foreach ($this->descendantElements($elementFqn) as $element) {
-            /** @phpstan-ignore-next-line */
             return $element;
         }
         return null;

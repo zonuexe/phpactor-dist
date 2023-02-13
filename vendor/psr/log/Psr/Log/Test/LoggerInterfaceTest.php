@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Psr\Log\Test;
+namespace PhpactorDist\Psr\Log\Test;
 
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\LogLevel;
-use Phpactor202301\PHPUnit\Framework\TestCase;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LogLevel;
+use PhpactorDist\PHPUnit\Framework\TestCase;
 /**
  * Provides a base test class for ensuring compliance with the LoggerInterface.
  *
@@ -29,7 +29,7 @@ abstract class LoggerInterfaceTest extends TestCase
     public abstract function getLogs();
     public function testImplements()
     {
-        $this->assertInstanceOf('Phpactor202301\\Psr\\Log\\LoggerInterface', $this->getLogger());
+        $this->assertInstanceOf('PhpactorDist\\Psr\\Log\\LoggerInterface', $this->getLogger());
     }
     /**
      * @dataProvider provideLevelsAndMessages
@@ -64,9 +64,9 @@ abstract class LoggerInterfaceTest extends TestCase
     public function testObjectCastToString()
     {
         if (\method_exists($this, 'createPartialMock')) {
-            $dummy = $this->createPartialMock('Phpactor202301\\Psr\\Log\\Test\\DummyTest', array('__toString'));
+            $dummy = $this->createPartialMock('PhpactorDist\\Psr\\Log\\Test\\DummyTest', array('__toString'));
         } else {
-            $dummy = $this->getMock('Phpactor202301\\Psr\\Log\\Test\\DummyTest', array('__toString'));
+            $dummy = $this->getMock('PhpactorDist\\Psr\\Log\\Test\\DummyTest', array('__toString'));
         }
         $dummy->expects($this->once())->method('__toString')->will($this->returnValue('DUMMY'));
         $this->getLogger()->warning($dummy);

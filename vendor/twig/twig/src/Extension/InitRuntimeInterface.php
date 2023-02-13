@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\Environment;
+use PhpactorDist\Twig\Environment;
 /**
  * Enables usage of the deprecated Twig\Extension\AbstractExtension::initRuntime() method.
  *
@@ -30,4 +30,4 @@ interface InitRuntimeInterface
      */
     public function initRuntime(Environment $environment);
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\InitRuntimeInterface', 'Phpactor202301\\Twig_Extension_InitRuntimeInterface');
+\class_alias('PhpactorDist\\Twig\\Extension\\InitRuntimeInterface', 'PhpactorDist\\Twig_Extension_InitRuntimeInterface');

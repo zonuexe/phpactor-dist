@@ -3,8 +3,8 @@
 namespace Phpactor\ObjectRenderer\Adapter\Twig\Extension;
 
 use Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Twig\Extension\AbstractExtension;
-use Phpactor202301\Twig\TwigFunction;
+use PhpactorDist\Twig\Extension\AbstractExtension;
+use PhpactorDist\Twig\TwigFunction;
 class ObjectRendererExtension extends AbstractExtension
 {
     /**

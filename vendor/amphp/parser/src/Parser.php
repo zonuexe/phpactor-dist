@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Amp\Parser;
+namespace PhpactorDist\Amp\Parser;
 
 class Parser
 {

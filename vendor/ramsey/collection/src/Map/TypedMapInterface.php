@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection\Map;
+namespace PhpactorDist\Ramsey\Collection\Map;
 
 /**
  * A `TypedMapInterface` represents a map of elements where key and value are

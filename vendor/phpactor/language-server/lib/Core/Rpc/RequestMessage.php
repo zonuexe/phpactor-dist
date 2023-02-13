@@ -13,7 +13,7 @@ final class RequestMessage extends \Phpactor\LanguageServer\Core\Rpc\Message
      */
     public $method;
     /**
-     * @var array
+     * @var array<string,mixed>|null
      */
     public $params;
     /**
@@ -25,6 +25,9 @@ final class RequestMessage extends \Phpactor\LanguageServer\Core\Rpc\Message
         $this->method = $method;
         $this->params = $params;
     }
+    /**
+     * @return array<string,mixed>
+     */
     public function toArray() : array
     {
         return ['id' => $this->id, 'method' => $this->method, 'params' => $this->params];

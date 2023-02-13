@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Promise;
 interface Connector
 {
     /**

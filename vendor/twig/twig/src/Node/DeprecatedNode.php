@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
 /**
  * Represents a deprecated node.
  *
@@ -37,4 +37,4 @@ class DeprecatedNode extends Node
         $compiler->raw('.')->string(\sprintf(' ("%s" at line %d).', $this->getTemplateName(), $this->getTemplateLine()))->raw(", E_USER_DEPRECATED);\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\DeprecatedNode', 'Phpactor202301\\Twig_Node_Deprecated');
+\class_alias('PhpactorDist\\Twig\\Node\\DeprecatedNode', 'PhpactorDist\\Twig_Node_Deprecated');

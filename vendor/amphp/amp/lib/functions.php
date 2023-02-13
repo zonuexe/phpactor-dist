@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
 /**
  * Returns a new function that wraps $callback in a promise/coroutine-aware function that automatically runs
  * Generators as coroutines. The returned function always returns a promise when invoked. Errors have to be handled
@@ -131,17 +131,17 @@ function getCurrentTime() : int
 {
     return Internal\getCurrentTime();
 }
-namespace Phpactor202301\Amp\Promise;
+namespace PhpactorDist\Amp\Promise;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\MultiReasonException;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\Amp\TimeoutException;
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
-use function Phpactor202301\Amp\call;
-use function Phpactor202301\Amp\Internal\createTypeError;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\MultiReasonException;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\Amp\TimeoutException;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
+use function PhpactorDist\Amp\call;
+use function PhpactorDist\Amp\Internal\createTypeError;
 /**
  * Registers a callback that will forward the failure reason to the event loop's error handler if the promise fails.
  *
@@ -516,16 +516,16 @@ function wrap($promise, callable $callback) : Promise
     });
     return $deferred->promise();
 }
-namespace Phpactor202301\Amp\Iterator;
+namespace PhpactorDist\Amp\Iterator;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Emitter;
-use Phpactor202301\Amp\Iterator;
-use Phpactor202301\Amp\Producer;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
-use function Phpactor202301\Amp\coroutine;
-use function Phpactor202301\Amp\Internal\createTypeError;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Emitter;
+use PhpactorDist\Amp\Iterator;
+use PhpactorDist\Amp\Producer;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
+use function PhpactorDist\Amp\coroutine;
+use function PhpactorDist\Amp\Internal\createTypeError;
 /**
  * Creates an iterator from the given iterable, emitting the each value. The iterable may contain promises. If any
  * promise fails, the iterator will fail with the same reason.

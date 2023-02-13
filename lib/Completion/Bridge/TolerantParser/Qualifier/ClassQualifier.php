@@ -2,12 +2,12 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser\Qualifier;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 /**
  * Return true if the node is a candidate for class name completion.

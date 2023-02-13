@@ -44,10 +44,10 @@ use Phpactor\Indexer\Model\QueryClient;
 use Phpactor\Indexer\Model\SearchClient;
 use Phpactor\Indexer\Model\Indexer;
 use Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Filesystem\Filesystem;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Filesystem;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class IndexerExtension implements Extension
 {
     public const PARAM_INDEX_PATH = 'indexer.index_path';

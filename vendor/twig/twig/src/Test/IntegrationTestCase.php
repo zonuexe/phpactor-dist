@@ -8,17 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Test;
+namespace PhpactorDist\Twig\Test;
 
-use Phpactor202301\PHPUnit\Framework\TestCase;
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Error\Error;
-use Phpactor202301\Twig\Extension\ExtensionInterface;
-use Phpactor202301\Twig\Loader\ArrayLoader;
-use Phpactor202301\Twig\RuntimeLoader\RuntimeLoaderInterface;
-use Phpactor202301\Twig\TwigFilter;
-use Phpactor202301\Twig\TwigFunction;
-use Phpactor202301\Twig\TwigTest;
+use PhpactorDist\PHPUnit\Framework\TestCase;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Error\Error;
+use PhpactorDist\Twig\Extension\ExtensionInterface;
+use PhpactorDist\Twig\Loader\ArrayLoader;
+use PhpactorDist\Twig\RuntimeLoader\RuntimeLoaderInterface;
+use PhpactorDist\Twig\TwigFilter;
+use PhpactorDist\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigTest;
 /**
  * Integration test helper.
  *
@@ -192,7 +192,7 @@ abstract class IntegrationTestCase extends TestCase
             }
             if (\false !== $exception) {
                 list($class) = \explode(':', $exception);
-                $constraintClass = \class_exists('Phpactor202301\\PHPUnit\\Framework\\Constraint\\Exception') ? 'PHPUnit\\Framework\\Constraint\\Exception' : 'PHPUnit_Framework_Constraint_Exception';
+                $constraintClass = \class_exists('PhpactorDist\\PHPUnit\\Framework\\Constraint\\Exception') ? 'PHPUnit\\Framework\\Constraint\\Exception' : 'PHPUnit_Framework_Constraint_Exception';
                 $this->assertThat(null, new $constraintClass($class));
             }
             $expected = \trim($match[3], "\n ");
@@ -216,4 +216,4 @@ abstract class IntegrationTestCase extends TestCase
         return $templates;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Test\\IntegrationTestCase', 'Phpactor202301\\Twig_Test_IntegrationTestCase');
+\class_alias('PhpactorDist\\Twig\\Test\\IntegrationTestCase', 'PhpactorDist\\Twig_Test_IntegrationTestCase');

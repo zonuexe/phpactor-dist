@@ -2,10 +2,10 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
 use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
 use Phpactor\Indexer\Model\Exception\CannotIndexNode;
 use Phpactor\Indexer\Model\Name\FullyQualifiedName;

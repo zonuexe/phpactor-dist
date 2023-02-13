@@ -3,14 +3,14 @@
 namespace Phpactor\Extension\ClassMover\Command;
 
 use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
 use Phpactor\Extension\ClassMover\Application\ClassReferences;
 use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Helper\Table;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Helper\Table;
 use Phpactor\Phpactor;
 use Phpactor\Extension\Core\Console\Formatter\Highlight;
 use Phpactor\Extension\Core\Console\Handler\FilesystemHandler;

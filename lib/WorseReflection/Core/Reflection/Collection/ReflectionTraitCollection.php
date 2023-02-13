@@ -2,13 +2,13 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionTrait;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\TraitUseClause;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
 /**
  * @extends AbstractReflectionCollection<ReflectionTrait>

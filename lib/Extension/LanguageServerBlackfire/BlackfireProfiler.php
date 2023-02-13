@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerBlackfire;
 
-use Phpactor202301\Blackfire\Client;
-use Phpactor202301\Blackfire\Probe;
+use PhpactorDist\Blackfire\Client;
+use PhpactorDist\Blackfire\Probe;
 class BlackfireProfiler
 {
     private ?Probe $probe = null;

@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents a flush node.
  *
@@ -27,4 +27,4 @@ class FlushNode extends Node
         $compiler->addDebugInfo($this)->write("flush();\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\FlushNode', 'Phpactor202301\\Twig_Node_Flush');
+\class_alias('PhpactorDist\\Twig\\Node\\FlushNode', 'PhpactorDist\\Twig_Node_Flush');

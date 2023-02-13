@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Process\Pipes;
+namespace PhpactorDist\Symfony\Component\Process\Pipes;
 
-use Phpactor202301\Symfony\Component\Process\Exception\RuntimeException;
-use Phpactor202301\Symfony\Component\Process\Process;
+use PhpactorDist\Symfony\Component\Process\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Process\Process;
 /**
  * WindowsPipes implementation uses temporary files as handles.
  *

@@ -4,7 +4,7 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser;
+namespace PhpactorDist\Microsoft\PhpParser;
 
 use ReturnTypeWillChange;
 use function substr;
@@ -93,7 +93,7 @@ class Token implements \JsonSerializable
     {
         static $mapToKindName;
         if ($mapToKindName === null) {
-            $constants = (new \ReflectionClass("Phpactor202301\\Microsoft\\PhpParser\\TokenKind"))->getConstants();
+            $constants = (new \ReflectionClass("PhpactorDist\\Microsoft\\PhpParser\\TokenKind"))->getConstants();
             $mapToKindName = \array_flip($constants);
         }
         return $mapToKindName;

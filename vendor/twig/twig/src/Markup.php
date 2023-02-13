@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
 /**
  * Marks a content as safe.
@@ -45,4 +45,4 @@ class Markup implements \Countable, \JsonSerializable
         return $this->content;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Markup', 'Phpactor202301\\Twig_Markup');
+\class_alias('PhpactorDist\\Twig\\Markup', 'PhpactorDist\\Twig_Markup');

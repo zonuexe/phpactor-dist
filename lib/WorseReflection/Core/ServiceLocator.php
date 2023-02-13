@@ -29,7 +29,7 @@ use Phpactor\WorseReflection\Core\SourceCodeLocator\ChainSourceLocator;
 use Phpactor\WorseReflection\Core\SourceCodeLocator\TemporarySourceLocator;
 use Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class ServiceLocator
 {
     private \Phpactor\WorseReflection\Core\SourceCodeLocator $sourceLocator;

@@ -2,10 +2,10 @@
 
 namespace Phpactor\Extension\LanguageServerCompletion\Handler;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Closure;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
@@ -31,7 +31,7 @@ use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor\LanguageServer\Core\Workspace\Workspace;
 use Phpactor\TextDocument\TextDocumentBuilder;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class CompletionHandler implements Handler, CanRegisterCapabilities
 {
     /**
@@ -98,7 +98,7 @@ class CompletionHandler implements Handler, CanRegisterCapabilities
     }
     public function registerCapabiltiies(ServerCapabilities $capabilities) : void
     {
-        $capabilities->completionProvider = new CompletionOptions([':', '>', '$', '@', '(', '\'', '"']);
+        $capabilities->completionProvider = new CompletionOptions([':', '>', '$', '@', '(', '\'', '"', '\\']);
         $capabilities->signatureHelpProvider = new SignatureHelpOptions(['(', ',']);
         $capabilities->completionProvider->resolveProvider = \true;
     }

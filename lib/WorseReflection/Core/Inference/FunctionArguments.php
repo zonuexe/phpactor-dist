@@ -4,8 +4,8 @@ namespace Phpactor\WorseReflection\Core\Inference;
 
 use Countable;
 use IteratorAggregate;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
 use Traversable;
 /**
  * @implements IteratorAggregate<NodeContext>

@@ -2,8 +2,8 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\Null;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\AmpFsWatch\WatcherProcess;
 use Phpactor\AmpFsWatch\Watcher;
 class NullWatcher implements Watcher, WatcherProcess
@@ -13,7 +13,7 @@ class NullWatcher implements Watcher, WatcherProcess
      */
     public function watch() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             return $this;
         });
     }
@@ -26,7 +26,7 @@ class NullWatcher implements Watcher, WatcherProcess
     }
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             return null;
         });
     }

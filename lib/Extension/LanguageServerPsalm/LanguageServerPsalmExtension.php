@@ -18,6 +18,7 @@ class LanguageServerPsalmExtension implements OptionalExtension
 {
     public const PARAM_PSALM_BIN = 'language_server_psalm.bin';
     public const PARAM_PSALM_SHOW_INFO = 'language_server_psalm.show_info';
+    public const PARAM_PSALM_USE_CACHE = 'language_server_psalm.use_cache';
     public function load(ContainerBuilder $container) : void
     {
         $container->register(PsalmDiagnosticProvider::class, function (Container $container) {
@@ -30,13 +31,14 @@ class LanguageServerPsalmExtension implements OptionalExtension
             $binPath = $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->getParameter(self::PARAM_PSALM_BIN));
             $root = $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve('%project_root%');
             $shouldShowInfo = $container->getParameter(self::PARAM_PSALM_SHOW_INFO);
-            return new PsalmProcess($root, new PsalmConfig($binPath, $shouldShowInfo), LoggingExtension::channelLogger($container, 'PSALM'));
+            $useCache = $container->getParameter(self::PARAM_PSALM_USE_CACHE);
+            return new PsalmProcess($root, new PsalmConfig($binPath, $shouldShowInfo, $useCache), LoggingExtension::channelLogger($container, 'PSALM'));
         });
     }
     public function configure(Resolver $schema) : void
     {
-        $schema->setDefaults([self::PARAM_PSALM_BIN => '%project_root%/vendor/bin/psalm', self::PARAM_PSALM_SHOW_INFO => \true]);
-        $schema->setDescriptions([self::PARAM_PSALM_BIN => 'Path to pslam if different from vendor/bin/psalm', self::PARAM_PSALM_SHOW_INFO => 'If infos from psalm should be displayed']);
+        $schema->setDefaults([self::PARAM_PSALM_BIN => '%project_root%/vendor/bin/psalm', self::PARAM_PSALM_SHOW_INFO => \true, self::PARAM_PSALM_USE_CACHE => \true]);
+        $schema->setDescriptions([self::PARAM_PSALM_BIN => 'Path to psalm if different from vendor/bin/psalm', self::PARAM_PSALM_SHOW_INFO => 'If infos from psalm should be displayed', self::PARAM_PSALM_USE_CACHE => 'If the Psalm cache should be used (see the `--no-cache` option)']);
     }
     public function name() : string
     {

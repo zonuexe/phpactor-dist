@@ -4,7 +4,7 @@ namespace Phpactor\Filesystem\Adapter\Composer;
 
 use Phpactor\Filesystem\Domain\FileList;
 use Phpactor\Filesystem\Domain\FilePath;
-use Phpactor202301\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\Filesystem\Domain\FileListProvider;
 use AppendIterator;
 use SplFileInfo;
@@ -12,7 +12,7 @@ use ArrayIterator;
 use Iterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class ComposerFileListProvider implements FileListProvider
 {
     public function __construct(private FilePath $path, private ClassLoader $classLoader)

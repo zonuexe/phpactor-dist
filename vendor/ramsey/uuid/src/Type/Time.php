@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Type;
+namespace PhpactorDist\Ramsey\Uuid\Type;
 
-use Phpactor202301\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 use ValueError;
 use function json_decode;
 use function json_encode;

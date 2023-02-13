@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider\Node;
+namespace PhpactorDist\Ramsey\Uuid\Provider\Node;
 
-use Phpactor202301\Ramsey\Uuid\Exception\NodeException;
-use Phpactor202301\Ramsey\Uuid\Provider\NodeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Exception\NodeException;
+use PhpactorDist\Ramsey\Uuid\Provider\NodeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 /**
  * FallbackNodeProvider retrieves the system node ID by stepping through a list
  * of providers until a node ID can be obtained

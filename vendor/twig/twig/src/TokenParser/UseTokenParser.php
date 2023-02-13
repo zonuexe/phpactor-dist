@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Token;
 /**
  * Imports blocks defined in another template into the current template.
  *
@@ -71,4 +71,4 @@ final class UseTokenParser extends AbstractTokenParser
         return 'use';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\UseTokenParser', 'Phpactor202301\\Twig_TokenParser_Use');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\UseTokenParser', 'PhpactorDist\\Twig_TokenParser_Use');

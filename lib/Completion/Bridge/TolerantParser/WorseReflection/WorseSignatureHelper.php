@@ -2,16 +2,16 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Attribute;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Attribute;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
 use Phpactor\Completion\Core\Formatter\ObjectFormatter;
 use Phpactor\Completion\Core\ParameterInformation;
@@ -75,7 +75,6 @@ class WorseSignatureHelper implements SignatureHelper
             throw new CouldNotHelpWithSignature(\sprintf('Could not resolve signature help for "%s"', \get_class($callNode)));
         }
         $callable = $callNode->callableExpression;
-        /** @phpstan-ignore-next-line */
         if ($callable instanceof QualifiedName) {
             return $this->signatureHelpForFunction($callable, $position);
         }

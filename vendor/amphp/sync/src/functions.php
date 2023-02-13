@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 /**
  * Invokes the given callback while maintaining a lock from the provided mutex. The lock is automatically released after
  * invoking the callback or once the promise returned by the callback is resolved. If the callback returns a Generator,

@@ -3,19 +3,15 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
-use Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
-use Phpactor\Completion\Core\Suggestion;
-use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\Completion\Core\Completor\NameSearcherCompletor;
+use Phpactor\Name\NameUtil;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;
-class UseNameCompletor implements TolerantCompletor
+class UseNameCompletor extends NameSearcherCompletor implements TolerantCompletor
 {
-    public function __construct(private NameSearcher $nameSearcher, private DocumentPrioritizer $prioritizer)
-    {
-    }
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
     {
         $parent = $node->parent;
@@ -23,12 +19,8 @@ class UseNameCompletor implements TolerantCompletor
             return \true;
         }
         $search = $node->getText();
-        foreach ($this->nameSearcher->search($search) as $result) {
-            if (!$result->type()->isClass()) {
-                continue;
-            }
-            (yield Suggestion::createWithOptions($result->name()->__toString(), ['type' => Suggestion::TYPE_CLASS, 'priority' => $this->prioritizer->priority($result->uri(), $source->uri())]));
-        }
+        $search = NameUtil::toFullyQualfiied($search);
+        yield from $this->completeName($search, $source->uri(), $node);
         return \true;
     }
 }

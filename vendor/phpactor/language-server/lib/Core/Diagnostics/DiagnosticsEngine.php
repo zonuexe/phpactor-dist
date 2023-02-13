@@ -2,13 +2,13 @@
 
 namespace Phpactor\LanguageServer\Core\Diagnostics;
 
-use Phpactor202301\Amp\CancelledException;
+use PhpactorDist\Amp\CancelledException;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Deferred;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
-use function Phpactor202301\Amp\delay;
+use function PhpactorDist\Amp\delay;
 class DiagnosticsEngine
 {
     /**
@@ -51,7 +51,7 @@ class DiagnosticsEngine
      */
     public function run(CancellationToken $token) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($token) {
+        return \PhpactorDist\Amp\call(function () use($token) {
             while (\true) {
                 try {
                     $token->throwIfRequested();

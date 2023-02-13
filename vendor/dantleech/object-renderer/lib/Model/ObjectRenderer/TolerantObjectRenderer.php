@@ -4,7 +4,7 @@ namespace Phpactor\ObjectRenderer\Model\ObjectRenderer;
 
 use Phpactor\ObjectRenderer\Model\Exception\CouldNotRenderObject;
 use Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class TolerantObjectRenderer implements ObjectRenderer
 {
     /**

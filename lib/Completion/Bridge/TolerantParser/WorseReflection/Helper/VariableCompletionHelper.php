@@ -2,9 +2,9 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection\Helper;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable as ParserVariable;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable as ParserVariable;
 use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;

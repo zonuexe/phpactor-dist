@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerHover\Handler;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\Hover;
 use Phpactor\LanguageServerProtocol\MarkupContent;
@@ -39,7 +39,7 @@ class HoverHandler implements Handler, CanRegisterCapabilities
      */
     public function hover(TextDocumentIdentifier $textDocument, Position $position) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($textDocument, $position) {
+        return \PhpactorDist\Amp\call(function () use($textDocument, $position) {
             $document = $this->workspace->get($textDocument->uri);
             $offset = PositionConverter::positionToByteOffset($position, $document->text);
             $document = TextDocumentBuilder::create($document->text)->uri($document->uri)->language('php')->build();
@@ -137,7 +137,7 @@ class HoverHandler implements Handler, CanRegisterCapabilities
     {
         try {
             $class = $this->reflector->reflectClassLike((string) $type);
-            return $this->renderer->render(new HoverInformation($type->short(), $class->docblock()->formatted(), $class));
+            return $this->renderer->render(new HoverInformation($type->__toString(), $class->docblock()->formatted(), $class));
         } catch (NotFound $e) {
             return $e->getMessage();
         }

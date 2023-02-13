@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -14,10 +14,29 @@ class CompletionList
 {
     /**
      * This list it not complete. Further typing results in recomputing this list.
+     * 
+     * Recomputed lists have all their items replaced (not appended) in the
+     * incomplete completion sessions.
      *
      * @var bool
      */
     public $isIncomplete;
+    /**
+     * In many cases the items of an actual completion result share the same
+     * value for properties like `commitCharacters` or the range of a text
+     * edit. A completion list can therefore define item defaults which will
+     * be used if a completion item itself doesn't specify the value.
+     * 
+     * If a completion list specifies a default value and a completion item
+     * also specifies a corresponding value the one from the item is used.
+     * 
+     * Servers are only allowed to return default values if the client
+     * signals support for this via the `completionList.itemDefaults`
+     * capability.
+     *
+     * @var array{commitCharacters:array<string>,editRange:Range|array{insert:Range,replace:Range},insertTextFormat:InsertTextFormat::*,insertTextMode:InsertTextMode::*,data:mixed}|null
+     */
+    public $itemDefaults;
     /**
      * The completion items.
      *
@@ -26,20 +45,22 @@ class CompletionList
     public $items;
     /**
      * @param bool $isIncomplete
+     * @param array{commitCharacters:array<string>,editRange:Range|array{insert:Range,replace:Range},insertTextFormat:InsertTextFormat::*,insertTextMode:InsertTextMode::*,data:mixed}|null $itemDefaults
      * @param array<CompletionItem> $items
      */
-    public function __construct(bool $isIncomplete, array $items)
+    public function __construct(bool $isIncomplete, array $items, ?array $itemDefaults = null)
     {
         $this->isIncomplete = $isIncomplete;
+        $this->itemDefaults = $itemDefaults;
         $this->items = $items;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['isIncomplete' => ['names' => [], 'iterable' => \false], 'items' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionItem::class], 'iterable' => \true]];
+        $map = ['isIncomplete' => ['names' => [], 'iterable' => \false], 'itemDefaults' => ['names' => [], 'iterable' => \false], 'items' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionItem::class], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

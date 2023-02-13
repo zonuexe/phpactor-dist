@@ -90,10 +90,10 @@ class LanguageServerCodeTransformExtension implements Extension
             return new ExtractConstantCommand($container->get(ClientApi::class), $container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE), $container->get(ExtractConstant::class));
         }, [LanguageServerExtension::TAG_COMMAND => ['name' => ExtractConstantCommand::NAME]]);
         $container->register('language_server_code_transform.generate_accessors_command', function (Container $container) {
-            return new PropertyAccessGeneratorCommand('generate_accessors', $container->get(ClientApi::class), $container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE), $container->get('code_transform.generate_accessor'), 'Generate accessors');
+            return new PropertyAccessGeneratorCommand($container->get(ClientApi::class), $container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE), $container->get('code_transform.generate_accessor'), 'Generate accessors');
         }, [LanguageServerExtension::TAG_COMMAND => ['name' => 'generate_accessors']]);
         $container->register('language_server_code_transform.generate_mutators_command', function (Container $container) {
-            return new PropertyAccessGeneratorCommand('generate_mutators', $container->get(ClientApi::class), $container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE), $container->get('code_transform.generate_mutator'), 'Generate mutators');
+            return new PropertyAccessGeneratorCommand($container->get(ClientApi::class), $container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE), $container->get('code_transform.generate_mutator'), 'Generate mutators');
         }, [LanguageServerExtension::TAG_COMMAND => ['name' => 'generate_mutators']]);
         $container->register(ImportAllUnresolvedNamesCommand::class, function (Container $container) {
             return new ImportAllUnresolvedNamesCommand($container->get(CandidateFinder::class), $container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE), $container->get(ImportNameCommand::class), $container->get(ClientApi::class));
@@ -108,7 +108,7 @@ class LanguageServerCodeTransformExtension implements Extension
     private function registerCodeActions(ContainerBuilder $container) : void
     {
         $container->register(CandidateFinder::class, function (Container $container) {
-            return new CandidateFinder($container->get(WorseReflectionExtension::SERVICE_REFLECTOR), $container->get(SearchClient::class), $container->getParameter(CodeTransformExtension::PARAM_IMPORT_GLOBALS));
+            return new CandidateFinder($container->get(WorseReflectionExtension::SERVICE_REFLECTOR), $container->get(SearchClient::class));
         });
         $container->register(ReplaceQualifierWithImportProvider::class, function (Container $container) {
             return new ReplaceQualifierWithImportProvider($container->get(ReplaceQualifierWithImport::class));

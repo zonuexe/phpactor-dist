@@ -6,9 +6,9 @@
  * @license   https://github.com/phly/phly-event-dispatcher/blob/master/LICENSE.md New BSD License
  */
 declare (strict_types=1);
-namespace Phpactor202301\Phly\EventDispatcher\ListenerProvider;
+namespace PhpactorDist\Phly\EventDispatcher\ListenerProvider;
 
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 interface PrioritizedListenerProviderInterface extends ListenerProviderInterface
 {
     public function listen(string $eventType, callable $listener, int $priority = 1) : void;

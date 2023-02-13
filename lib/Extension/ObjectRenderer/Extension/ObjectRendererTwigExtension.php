@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\ObjectRenderer\Extension;
 
-use Phpactor202301\Twig\Environment;
+use PhpactorDist\Twig\Environment;
 interface ObjectRendererTwigExtension
 {
     public function configure(Environment $env) : void;

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 final class DatagramSocket
 {
     public const DEFAULT_CHUNK_SIZE = 8192;

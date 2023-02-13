@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Server\Parser;
 
-use Phpactor202301\Amp\ByteStream\InputStream;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\InputStream;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Rpc\RawMessage;
 use function json_encode;
 use Phpactor\LanguageServer\Core\Server\Parser\Exception\CouldNotDecodeBody;
@@ -34,7 +34,7 @@ final class LspMessageReader implements \Phpactor\LanguageServer\Core\Server\Par
     }
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             if (null !== ($request = $this->processChunk($this->overflow))) {
                 return $request;
             }
@@ -97,6 +97,9 @@ final class LspMessageReader implements \Phpactor\LanguageServer\Core\Server\Par
         $array = \json_decode($string, \true);
         if (null === $array) {
             throw new CouldNotDecodeBody(\sprintf('Could not decode "%s": %s', $string, \json_last_error_msg()));
+        }
+        if (!\is_array($array)) {
+            throw new CouldNotDecodeBody(\sprintf('Expected an array got "%s"', \gettype($array)));
         }
         return $array;
     }

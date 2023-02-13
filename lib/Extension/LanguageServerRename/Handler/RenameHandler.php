@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerRename\Handler;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
 use Phpactor\Rename\Model\Exception\CouldNotRename;
@@ -24,7 +24,7 @@ use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\TextDocument\TextDocumentLocator;
 use Phpactor\TextDocument\TextDocumentUri;
-use function Phpactor202301\Amp\delay;
+use function PhpactorDist\Amp\delay;
 class RenameHandler implements Handler, CanRegisterCapabilities
 {
     public function __construct(private LocatedTextEditConverter $converter, private TextDocumentLocator $documentLocator, private Renamer $renamer, private ClientApi $clientApi)
@@ -42,7 +42,7 @@ class RenameHandler implements Handler, CanRegisterCapabilities
      */
     public function rename(RenameParams $params) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($params) {
+        return \PhpactorDist\Amp\call(function () use($params) {
             $locatedEdits = [];
             $document = $document = $this->documentLocator->get(TextDocumentUri::fromString($params->textDocument->uri));
             $count = 0;
@@ -67,7 +67,7 @@ class RenameHandler implements Handler, CanRegisterCapabilities
     public function prepareRename(PrepareRenameParams $params) : Promise
     {
         // https://microsoft.github.io/language-server-protocol/specification#textDocument_prepareRename
-        return \Phpactor202301\Amp\call(function () use($params) {
+        return \PhpactorDist\Amp\call(function () use($params) {
             $range = $this->renamer->getRenameRange($document = $this->documentLocator->get(TextDocumentUri::fromString($params->textDocument->uri)), PositionConverter::positionToByteOffset($params->position, (string) $document));
             if ($range == null) {
                 return null;

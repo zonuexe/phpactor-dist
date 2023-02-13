@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\NodeVisitor\OptimizerNodeVisitor;
+use PhpactorDist\Twig\NodeVisitor\OptimizerNodeVisitor;
 final class OptimizerExtension extends AbstractExtension
 {
     private $optimizers;
@@ -23,4 +23,4 @@ final class OptimizerExtension extends AbstractExtension
         return [new OptimizerNodeVisitor($this->optimizers)];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\OptimizerExtension', 'Phpactor202301\\Twig_Extension_Optimizer');
+\class_alias('PhpactorDist\\Twig\\Extension\\OptimizerExtension', 'PhpactorDist\\Twig_Extension_Optimizer');

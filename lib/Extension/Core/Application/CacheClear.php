@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\Core\Application;
 
-use Phpactor202301\Symfony\Component\Filesystem\Filesystem;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Filesystem;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class CacheClear
 {
     private string $cachePath;

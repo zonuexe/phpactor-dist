@@ -6,8 +6,8 @@ use Phpactor\ConfigLoader\Core\PathCandidates;
 use Phpactor\Extension\Php\Model\PhpVersionResolver;
 use Phpactor\Extension\SourceCodeFilesystem\SourceCodeFilesystemExtension;
 use Phpactor\Filesystem\Domain\FilesystemRegistry;
-use Phpactor202301\Symfony\Component\Process\ExecutableFinder;
-use Phpactor202301\Symfony\Component\Process\Process;
+use PhpactorDist\Symfony\Component\Process\ExecutableFinder;
+use PhpactorDist\Symfony\Component\Process\Process;
 class Status
 {
     private ExecutableFinder $executableFinder;

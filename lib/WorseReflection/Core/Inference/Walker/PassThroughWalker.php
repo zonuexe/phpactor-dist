@@ -2,18 +2,18 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\CatchClause;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\BinaryExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\YieldExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ForeachStatement;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\IfStatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\CatchClause;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\BinaryExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\YieldExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ForeachStatement;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\IfStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ReturnStatement;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\FrameResolver;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
 use Phpactor\WorseReflection\Core\Inference\Walker;
 /**
  * Temporary class to bridge to the node resolvers (originally all these

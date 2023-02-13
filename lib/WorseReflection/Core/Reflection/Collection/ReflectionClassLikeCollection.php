@@ -2,20 +2,20 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionEnum;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass as PhpactorReflectionClass;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionClass;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionTrait;
 use Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\Node;
 /**
  * @extends AbstractReflectionCollection<ReflectionClassLike>
  */

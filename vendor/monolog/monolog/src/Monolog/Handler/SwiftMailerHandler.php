@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
-use Phpactor202301\Monolog\Formatter\LineFormatter;
-use Phpactor202301\Swift;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Monolog\Formatter\LineFormatter;
+use PhpactorDist\Swift;
 /**
  * SwiftMailerHandler uses Swift_Mailer to send the emails
  *
@@ -29,7 +29,7 @@ class SwiftMailerHandler extends MailHandler
      * @param int                     $level   The minimum logging level at which this handler will be triggered
      * @param bool                    $bubble  Whether the messages that are handled can bubble up the stack or not
      */
-    public function __construct(\Phpactor202301\Swift_Mailer $mailer, $message, $level = Logger::ERROR, $bubble = \true)
+    public function __construct(\PhpactorDist\Swift_Mailer $mailer, $message, $level = Logger::ERROR, $bubble = \true)
     {
         parent::__construct($level, $bubble);
         $this->mailer = $mailer;
@@ -62,13 +62,13 @@ class SwiftMailerHandler extends MailHandler
     protected function buildMessage($content, array $records)
     {
         $message = null;
-        if ($this->messageTemplate instanceof \Phpactor202301\Swift_Message) {
+        if ($this->messageTemplate instanceof \PhpactorDist\Swift_Message) {
             $message = clone $this->messageTemplate;
             $message->generateId();
         } elseif (\is_callable($this->messageTemplate)) {
             $message = \call_user_func($this->messageTemplate, $content, $records);
         }
-        if (!$message instanceof \Phpactor202301\Swift_Message) {
+        if (!$message instanceof \PhpactorDist\Swift_Message) {
             throw new \InvalidArgumentException('Could not resolve message as instance of Swift_Message or a callable returning it');
         }
         if ($records) {

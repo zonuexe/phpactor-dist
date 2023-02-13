@@ -19,7 +19,7 @@ use Phpactor\FilePathResolver\FilteringPathResolver;
 use Phpactor\FilePathResolver\LoggingPathResolver;
 use Phpactor\MapResolver\Resolver;
 use Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Psr\Log\LogLevel;
+use PhpactorDist\Psr\Log\LogLevel;
 use RuntimeException;
 class FilePathResolverExtension implements Extension
 {

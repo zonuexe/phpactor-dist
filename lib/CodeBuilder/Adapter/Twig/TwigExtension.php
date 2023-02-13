@@ -5,10 +5,10 @@ namespace Phpactor\CodeBuilder\Adapter\Twig;
 use Phpactor\CodeBuilder\Adapter\WorseReflection\TypeRenderer\WorseTypeRenderer;
 use Phpactor\CodeBuilder\Domain\Prototype\Type;
 use Phpactor\WorseReflection\Core\Type as PhpactorType;
-use Phpactor202301\Twig\TwigFilter;
-use Phpactor202301\Twig\Extension\AbstractExtension;
+use PhpactorDist\Twig\TwigFilter;
+use PhpactorDist\Twig\Extension\AbstractExtension;
 use Phpactor\CodeBuilder\Util\TextFormat;
-use Phpactor202301\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigFunction;
 class TwigExtension extends AbstractExtension
 {
     public function __construct(private TextFormat $textFormat, private WorseTypeRenderer $typeRenderer)

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Sandbox;
+namespace PhpactorDist\Twig\Sandbox;
 
-use Phpactor202301\Twig\Markup;
-use Phpactor202301\Twig\Template;
+use PhpactorDist\Twig\Markup;
+use PhpactorDist\Twig\Template;
 /**
  * Represents a security policy which need to be enforced when sandbox mode is enabled.
  *
@@ -108,4 +108,4 @@ final class SecurityPolicy implements SecurityPolicyInterface
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Sandbox\\SecurityPolicy', 'Phpactor202301\\Twig_Sandbox_SecurityPolicy');
+\class_alias('PhpactorDist\\Twig\\Sandbox\\SecurityPolicy', 'PhpactorDist\\Twig_Sandbox_SecurityPolicy');

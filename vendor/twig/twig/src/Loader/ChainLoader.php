@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Loader;
+namespace PhpactorDist\Twig\Loader;
 
-use Phpactor202301\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Error\LoaderError;
 /**
  * Loads templates from other loaders.
  *
@@ -99,4 +99,4 @@ final class ChainLoader implements LoaderInterface, ExistsLoaderInterface, Sourc
         throw new LoaderError(\sprintf('Template "%s" is not defined%s.', $name, $exceptions ? ' (' . \implode(', ', $exceptions) . ')' : ''));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Loader\\ChainLoader', 'Phpactor202301\\Twig_Loader_Chain');
+\class_alias('PhpactorDist\\Twig\\Loader\\ChainLoader', 'PhpactorDist\\Twig_Loader_Chain');

@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Sandbox;
+namespace PhpactorDist\Twig\Sandbox;
 
 /**
  * Exception thrown when a not allowed class method is used in a template.
@@ -45,4 +45,4 @@ class SecurityNotAllowedMethodError extends SecurityError
         return $this->methodName;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Sandbox\\SecurityNotAllowedMethodError', 'Phpactor202301\\Twig_Sandbox_SecurityNotAllowedMethodError');
+\class_alias('PhpactorDist\\Twig\\Sandbox\\SecurityNotAllowedMethodError', 'PhpactorDist\\Twig_Sandbox_SecurityNotAllowedMethodError');

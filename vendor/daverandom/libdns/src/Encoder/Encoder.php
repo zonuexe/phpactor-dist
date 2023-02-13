@@ -13,22 +13,22 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Encoder;
+namespace PhpactorDist\LibDNS\Encoder;
 
-use Phpactor202301\LibDNS\Packets\PacketFactory;
-use Phpactor202301\LibDNS\Messages\Message;
-use Phpactor202301\LibDNS\Records\Question;
-use Phpactor202301\LibDNS\Records\Resource;
-use Phpactor202301\LibDNS\Records\Types\Type;
-use Phpactor202301\LibDNS\Records\Types\Anything;
-use Phpactor202301\LibDNS\Records\Types\BitMap;
-use Phpactor202301\LibDNS\Records\Types\Char;
-use Phpactor202301\LibDNS\Records\Types\CharacterString;
-use Phpactor202301\LibDNS\Records\Types\DomainName;
-use Phpactor202301\LibDNS\Records\Types\IPv4Address;
-use Phpactor202301\LibDNS\Records\Types\IPv6Address;
-use Phpactor202301\LibDNS\Records\Types\Long;
-use Phpactor202301\LibDNS\Records\Types\Short;
+use PhpactorDist\LibDNS\Packets\PacketFactory;
+use PhpactorDist\LibDNS\Messages\Message;
+use PhpactorDist\LibDNS\Records\Question;
+use PhpactorDist\LibDNS\Records\Resource;
+use PhpactorDist\LibDNS\Records\Types\Type;
+use PhpactorDist\LibDNS\Records\Types\Anything;
+use PhpactorDist\LibDNS\Records\Types\BitMap;
+use PhpactorDist\LibDNS\Records\Types\Char;
+use PhpactorDist\LibDNS\Records\Types\CharacterString;
+use PhpactorDist\LibDNS\Records\Types\DomainName;
+use PhpactorDist\LibDNS\Records\Types\IPv4Address;
+use PhpactorDist\LibDNS\Records\Types\IPv6Address;
+use PhpactorDist\LibDNS\Records\Types\Long;
+use PhpactorDist\LibDNS\Records\Types\Short;
 /**
  * Encodes Message objects to raw network data
  *

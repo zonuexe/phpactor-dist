@@ -1,14 +1,14 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\ByteStream\ClosedException;
-use Phpactor202301\Amp\ByteStream\ResourceInputStream;
-use Phpactor202301\Amp\ByteStream\ResourceOutputStream;
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\ByteStream\ClosedException;
+use PhpactorDist\Amp\ByteStream\ResourceInputStream;
+use PhpactorDist\Amp\ByteStream\ResourceOutputStream;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 final class ResourceSocket implements EncryptableSocket
 {
     public const DEFAULT_CHUNK_SIZE = ResourceInputStream::DEFAULT_CHUNK_SIZE;

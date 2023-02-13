@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
+use function PhpactorDist\Amp\call;
 class HostLoader
 {
     private $path;

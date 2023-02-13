@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Util;
+namespace PhpactorDist\Twig\Util;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -32,4 +32,4 @@ class TemplateDirIterator extends \IteratorIterator
         return (string) parent::key();
     }
 }
-\class_alias('Phpactor202301\\Twig\\Util\\TemplateDirIterator', 'Phpactor202301\\Twig_Util_TemplateDirIterator');
+\class_alias('PhpactorDist\\Twig\\Util\\TemplateDirIterator', 'PhpactorDist\\Twig_Util_TemplateDirIterator');

@@ -4,11 +4,11 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node;
+namespace PhpactorDist\Microsoft\PhpParser\Node;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 abstract class DelimitedList extends Node
 {
     /** @var Token[]|Node[] */

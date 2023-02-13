@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\GenerateDecoratorCommand;
 use Phpactor\LanguageServerProtocol\CodeAction;
 use Phpactor\LanguageServerProtocol\Command;
@@ -12,7 +12,7 @@ use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
 use Phpactor\WorseReflection\Reflector;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class GenerateDecoratorProvider implements CodeActionProvider
 {
     public const KIND = 'quickfix.generate_decorator';

@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -17,31 +17,31 @@ class TextDocumentEdit
     /**
      * The text document to change.
      *
-     * @var VersionedTextDocumentIdentifier
+     * @var OptionalVersionedTextDocumentIdentifier
      */
     public $textDocument;
     /**
      * The edits to be applied.
      *
-     * @var array<TextEdit>
+     * @var array<(TextEdit|AnnotatedTextEdit)>
      */
     public $edits;
     /**
-     * @param VersionedTextDocumentIdentifier $textDocument
-     * @param array<TextEdit> $edits
+     * @param OptionalVersionedTextDocumentIdentifier $textDocument
+     * @param array<(TextEdit|AnnotatedTextEdit)> $edits
      */
-    public function __construct(\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier $textDocument, array $edits)
+    public function __construct(\Phpactor\LanguageServerProtocol\OptionalVersionedTextDocumentIdentifier $textDocument, array $edits)
     {
         $this->textDocument = $textDocument;
         $this->edits = $edits;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'edits' => ['names' => [\Phpactor\LanguageServerProtocol\TextEdit::class], 'iterable' => \true]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\OptionalVersionedTextDocumentIdentifier::class], 'iterable' => \false], 'edits' => ['names' => [], 'iterable' => \true]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

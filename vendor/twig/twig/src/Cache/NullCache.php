@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Cache;
+namespace PhpactorDist\Twig\Cache;
 
 /**
  * Implements a no-cache strategy.
@@ -32,4 +32,4 @@ final class NullCache implements CacheInterface
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Cache\\NullCache', 'Phpactor202301\\Twig_Cache_Null');
+\class_alias('PhpactorDist\\Twig\\Cache\\NullCache', 'PhpactorDist\\Twig_Cache_Null');

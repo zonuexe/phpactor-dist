@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\NodeTraverser;
-\class_exists('Phpactor202301\\Twig\\NodeTraverser');
+use PhpactorDist\Twig\NodeTraverser;
+\class_exists('PhpactorDist\\Twig\\NodeTraverser');
 @\trigger_error('Using the "Twig_NodeTraverser" class is deprecated since Twig version 2.7, use "Twig\\NodeTraverser" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\NodeTraverser" instead */

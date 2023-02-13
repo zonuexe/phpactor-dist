@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Yaml;
+namespace PhpactorDist\Symfony\Component\Yaml;
 
-use Phpactor202301\Symfony\Component\Yaml\Exception\DumpException;
-use Phpactor202301\Symfony\Component\Yaml\Exception\ParseException;
-use Phpactor202301\Symfony\Component\Yaml\Tag\TaggedValue;
+use PhpactorDist\Symfony\Component\Yaml\Exception\DumpException;
+use PhpactorDist\Symfony\Component\Yaml\Exception\ParseException;
+use PhpactorDist\Symfony\Component\Yaml\Tag\TaggedValue;
 /**
  * Inline implements a YAML parser/dumper for the YAML inline syntax.
  *
@@ -44,7 +44,7 @@ class Inline
      * Converts a YAML string to a PHP value.
      *
      * @param string $value      A YAML string
-     * @param int    $flags      A bit field of PARSE_* constants to customize the YAML parser behavior
+     * @param int    $flags      A bit field of Yaml::PARSE_* constants to customize the YAML parser behavior
      * @param array  $references Mapping of variable names to values
      *
      * @return mixed

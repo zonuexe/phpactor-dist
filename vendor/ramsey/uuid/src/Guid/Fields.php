@@ -10,17 +10,17 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Guid;
+namespace PhpactorDist\Ramsey\Uuid\Guid;
 
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Fields\SerializableFieldsTrait;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\MaxTrait;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\NilTrait;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\VariantTrait;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\VersionTrait;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Fields\SerializableFieldsTrait;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\MaxTrait;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\NilTrait;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\VariantTrait;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\VersionTrait;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Uuid;
 use function bin2hex;
 use function dechex;
 use function hexdec;

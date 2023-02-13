@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ReturnStatement;
 use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
 use Phpactor\WorseReflection\Core\Exception\ItemNotFound;
@@ -15,8 +15,8 @@ use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall as CoreReflect
 use Phpactor\WorseReflection\Core\Position;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionArgumentCollection;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor\WorseReflection\Core\Type;

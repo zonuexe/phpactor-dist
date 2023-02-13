@@ -9,7 +9,7 @@ final class NotificationMessage extends \Phpactor\LanguageServer\Core\Rpc\Messag
      */
     public $method;
     /**
-     * @var array
+     * @var array<string,mixed>|null
      */
     public $params;
     public function __construct(string $method, ?array $params = null)

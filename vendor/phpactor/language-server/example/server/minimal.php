@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Rpc\Message;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessage;

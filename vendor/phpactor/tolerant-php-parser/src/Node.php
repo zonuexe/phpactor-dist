@@ -4,13 +4,13 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser;
+namespace PhpactorDist\Microsoft\PhpParser;
 
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
 use ReturnTypeWillChange;
 abstract class Node implements \JsonSerializable
 {

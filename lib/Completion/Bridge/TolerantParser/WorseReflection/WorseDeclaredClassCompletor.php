@@ -3,7 +3,7 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Completion\Bridge\TolerantParser\Qualifier\ClassQualifier;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifiable;

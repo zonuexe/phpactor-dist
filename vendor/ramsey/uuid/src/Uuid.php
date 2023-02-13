@@ -10,19 +10,19 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid;
+namespace PhpactorDist\Ramsey\Uuid;
 
 use BadMethodCallException;
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Phpactor202301\Ramsey\Uuid\Fields\FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Lazy\LazyUuidFromString;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use PhpactorDist\Ramsey\Uuid\Fields\FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Lazy\LazyUuidFromString;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 use ValueError;
 use function assert;
 use function bin2hex;
@@ -479,7 +479,7 @@ class Uuid implements UuidInterface
      * @psalm-pure note: changing the internal factory is an edge case not covered by purity invariants,
      *             but under constant factory setups, this method operates in functionally pure manners
      *
-     * @psalm-assert-if-true non-empty-string $uuid
+     * @psalm-assert-if-true =non-empty-string $uuid
      */
     public static function isValid(string $uuid) : bool
     {

@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid;
+namespace PhpactorDist\Ramsey\Uuid;
 
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
 /**
  * This interface encapsulates deprecated methods for ramsey/uuid
  *

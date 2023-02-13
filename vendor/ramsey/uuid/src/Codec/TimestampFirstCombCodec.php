@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Codec;
+namespace PhpactorDist\Ramsey\Uuid\Codec;
 
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidUuidStringException;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidUuidStringException;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use function bin2hex;
 use function sprintf;
 use function substr;

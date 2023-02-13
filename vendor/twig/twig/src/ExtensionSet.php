@@ -8,15 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Error\RuntimeError;
-use Phpactor202301\Twig\Extension\ExtensionInterface;
-use Phpactor202301\Twig\Extension\GlobalsInterface;
-use Phpactor202301\Twig\Extension\InitRuntimeInterface;
-use Phpactor202301\Twig\Extension\StagingExtension;
-use Phpactor202301\Twig\NodeVisitor\NodeVisitorInterface;
-use Phpactor202301\Twig\TokenParser\TokenParserInterface;
+use PhpactorDist\Twig\Error\RuntimeError;
+use PhpactorDist\Twig\Extension\ExtensionInterface;
+use PhpactorDist\Twig\Extension\GlobalsInterface;
+use PhpactorDist\Twig\Extension\InitRuntimeInterface;
+use PhpactorDist\Twig\Extension\StagingExtension;
+use PhpactorDist\Twig\NodeVisitor\NodeVisitorInterface;
+use PhpactorDist\Twig\TokenParser\TokenParserInterface;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -386,4 +386,4 @@ final class ExtensionSet
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\ExtensionSet', 'Phpactor202301\\Twig_ExtensionSet');
+\class_alias('PhpactorDist\\Twig\\ExtensionSet', 'PhpactorDist\\Twig_ExtensionSet');

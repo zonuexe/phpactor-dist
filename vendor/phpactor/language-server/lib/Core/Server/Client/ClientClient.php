@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Server\Client;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Registration;
 use Phpactor\LanguageServerProtocol\Unregistration;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;

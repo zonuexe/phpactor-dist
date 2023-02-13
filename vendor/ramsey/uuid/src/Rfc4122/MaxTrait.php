@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Rfc4122;
+namespace PhpactorDist\Ramsey\Uuid\Rfc4122;
 
 /**
  * Provides common functionality for max UUIDs

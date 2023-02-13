@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerSelectionRange\Model;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\SelectionRange;

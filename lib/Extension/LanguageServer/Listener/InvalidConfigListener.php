@@ -2,18 +2,21 @@
 
 namespace Phpactor\Extension\LanguageServer\Listener;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Event\Initialized;
 use Phpactor\MapResolver\InvalidMap;
 use Phpactor\MapResolver\ResolverErrors;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class InvalidConfigListener implements ListenerProviderInterface
 {
     public function __construct(private ClientApi $clientApi, private ResolverErrors $errors)
     {
     }
+    /**
+     * @return iterable<callable>
+     */
     public function getListenersForEvent(object $event) : iterable
     {
         if ($event instanceof Initialized) {

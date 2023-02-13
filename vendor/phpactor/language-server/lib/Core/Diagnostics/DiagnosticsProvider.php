@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Diagnostics;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Diagnostic;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 interface DiagnosticsProvider

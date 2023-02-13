@@ -2,7 +2,7 @@
 
 namespace Phpactor\CodeTransform\Adapter\WorseReflection\Helper;
 
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\Helper\InterestingOffsetFinder;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;

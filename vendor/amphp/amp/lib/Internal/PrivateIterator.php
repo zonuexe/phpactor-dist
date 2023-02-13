@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Internal;
+namespace PhpactorDist\Amp\Internal;
 
-use Phpactor202301\Amp\Iterator;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Iterator;
+use PhpactorDist\Amp\Promise;
 /**
  * Wraps an Iterator instance that has public methods to emit, complete, and fail into an object that only allows
  * access to the public API methods.

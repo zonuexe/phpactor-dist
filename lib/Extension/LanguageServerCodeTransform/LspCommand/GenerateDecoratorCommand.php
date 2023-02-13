@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\CodeTransform\Domain\Refactor\GenerateDecorator;
 use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
 use Phpactor\LanguageServerProtocol\WorkspaceEdit;
@@ -17,7 +17,7 @@ class GenerateDecoratorCommand implements Command
     {
     }
     /**
-     * @return Promise<ApplyWorkspaceEditResponse>
+     * @return Promise<ApplyWorkspaceEditResult>
      */
     public function __invoke(string $uri, string $interfaceFQN) : Promise
     {

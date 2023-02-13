@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\CodeTransform\Domain\NameWithByteOffset;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\ImportAllUnresolvedNamesCommand;
@@ -17,8 +17,8 @@ use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;
-use function Phpactor202301\Amp\call;
-use function Phpactor202301\Amp\delay;
+use function PhpactorDist\Amp\call;
+use function PhpactorDist\Amp\delay;
 class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
 {
     public function __construct(private CandidateFinder $finder, private bool $reportNonExistingClasses = \true)
@@ -73,9 +73,9 @@ class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
             if ($this->reportNonExistingClasses === \false) {
                 return [\false, null];
             }
-            return [\false, new Diagnostic($range, \sprintf('%s "%s" does not exist', \ucfirst($unresolvedName->type()), $unresolvedName->name()->head()->__toString()), DiagnosticSeverity::ERROR, null, 'phpactor')];
+            return [\false, new Diagnostic(range: $range, message: \sprintf('%s "%s" does not exist', \ucfirst($unresolvedName->type()), $unresolvedName->name()->head()->__toString()), severity: DiagnosticSeverity::ERROR, source: 'phpactor')];
         }
-        return [\true, new Diagnostic($range, \sprintf('%s "%s" has not been imported', \ucfirst($unresolvedName->type()), $unresolvedName->name()->head()->__toString()), DiagnosticSeverity::HINT, null, 'phpactor')];
+        return [\true, new Diagnostic(range: $range, message: \sprintf('%s "%s" has not been imported', \ucfirst($unresolvedName->type()), $unresolvedName->name()->head()->__toString()), severity: DiagnosticSeverity::HINT, source: 'phpactor')];
     }
     private function codeActionForFqn(NameWithByteOffset $unresolvedName, string $fqn, TextDocumentItem $item) : CodeAction
     {

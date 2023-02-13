@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Serialization;
+namespace PhpactorDist\Amp\Serialization;
 
 final class JsonSerializer implements Serializer
 {

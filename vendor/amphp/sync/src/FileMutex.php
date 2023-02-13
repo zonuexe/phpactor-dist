@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\Coroutine;
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Coroutine;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 /**
  * A cross-platform mutex that uses exclusive files as the lock mechanism.
  *

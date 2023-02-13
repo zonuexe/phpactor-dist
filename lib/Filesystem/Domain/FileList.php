@@ -8,7 +8,7 @@ use RegexIterator;
 use ReturnTypeWillChange;
 use SplFileInfo;
 use Traversable;
-use Phpactor202301\Webmozart\Glob\Glob;
+use PhpactorDist\Webmozart\Glob\Glob;
 use ArrayIterator;
 use Closure;
 /**

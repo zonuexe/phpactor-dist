@@ -2,15 +2,14 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
-use Generator;
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\SubscriptExpression;
 use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\DiagnosticProvider;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
@@ -23,7 +22,7 @@ use Phpactor\WorseReflection\Core\Type\ArrayType;
 use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class AssignmentToMissingPropertyProvider implements DiagnosticProvider
 {
-    public function exit(NodeContextResolver $resolver, Frame $frame, Node $node) : Generator
+    public function exit(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable
     {
         if (!$node instanceof AssignmentExpression) {
             return;

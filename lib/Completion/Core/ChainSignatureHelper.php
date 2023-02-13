@@ -5,7 +5,7 @@ namespace Phpactor\Completion\Core;
 use Phpactor\Completion\Core\Exception\CouldNotHelpWithSignature;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class ChainSignatureHelper implements \Phpactor\Completion\Core\SignatureHelper
 {
     /**

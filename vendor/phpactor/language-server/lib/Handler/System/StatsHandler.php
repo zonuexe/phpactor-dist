@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Handler\System;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Core\Server\ServerStatsReader;

@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\EmbedNode;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\EmbedNode;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Token;
 /**
  * Embeds a template.
  */
@@ -83,4 +83,4 @@ final class EmbedTokenParser extends IncludeTokenParser
         return 'embed';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\EmbedTokenParser', 'Phpactor202301\\Twig_TokenParser_Embed');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\EmbedTokenParser', 'PhpactorDist\\Twig_TokenParser_Embed');

@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Adapter\Psr;
 
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class AggregateEventDispatcher implements EventDispatcherInterface
 {
     /**

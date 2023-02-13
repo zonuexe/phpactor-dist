@@ -9,10 +9,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Source;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Source;
 /**
  * Represents a node in the AST.
  *
@@ -181,6 +181,6 @@ class Node implements \Countable, \IteratorAggregate
         return $this->sourceContext;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Node', 'Phpactor202301\\Twig_Node');
+\class_alias('PhpactorDist\\Twig\\Node\\Node', 'PhpactorDist\\Twig_Node');
 // Ensure that the aliased name is loaded to keep BC for classes implementing the typehint with the old aliased name.
-\class_exists('Phpactor202301\\Twig\\Compiler');
+\class_exists('PhpactorDist\\Twig\\Compiler');

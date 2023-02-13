@@ -9,7 +9,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Composer\Autoload;
+namespace PhpactorDist\Composer\Autoload;
 
 /**
  * ClassLoader implements a PSR-0, PSR-4 and classmap class loader.

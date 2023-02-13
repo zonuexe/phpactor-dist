@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\SetNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\SetNode;
+use PhpactorDist\Twig\Token;
 /**
  * Defines a variable.
  *
@@ -70,4 +70,4 @@ final class SetTokenParser extends AbstractTokenParser
         return 'set';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\SetTokenParser', 'Phpactor202301\\Twig_TokenParser_Set');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\SetTokenParser', 'PhpactorDist\\Twig_TokenParser_Set');

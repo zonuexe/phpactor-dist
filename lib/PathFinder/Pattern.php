@@ -4,7 +4,7 @@ namespace Phpactor\PathFinder;
 
 use Phpactor\PathFinder\Exception\NoPlaceHoldersException;
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class Pattern
 {
     const TOKEN_REGEX = '{<([a-z-]+?)>}';
@@ -41,7 +41,6 @@ class Pattern
         if (!\preg_match($this->regex, $filePath, $matches)) {
             throw new RuntimeException(\sprintf('Error occurred performing regex on filepath "%s" with regex "%s"', $filePath, $this->regex));
         }
-        /** @phpstan-ignore-next-line */
         return \array_intersect_key($matches, (array) \array_combine($this->tokenNames, $this->tokenNames));
     }
     /**

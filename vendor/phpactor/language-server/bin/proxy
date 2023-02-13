@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Phpactor\LanguageServerProtocol\ClientCapabilities;
 use Phpactor\LanguageServerProtocol\InitializeParams;
 use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
@@ -11,14 +11,14 @@ use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Core\Server\Transmitter\MessageFormatter;
 require __DIR__ . '/../vendor/autoload.php';
 if (!isset($argv[1])) {
-    \Phpactor202301\error('Must pass the requet type, one of "request", "notification" or "response"');
+    \PhpactorDist\error('Must pass the requet type, one of "request", "notification" or "response"');
     exit(1);
 }
 $type = $argv[1];
 $payload = \fgets(\STDIN);
 $payload = \json_decode($payload, \true);
 if (null === $payload) {
-    \Phpactor202301\error('Could not decode JSON');
+    \PhpactorDist\error('Could not decode JSON');
     exit(1);
 }
 try {
@@ -33,11 +33,11 @@ try {
             $message = Invoke::new(NotificationMessage::class, $payload);
             break;
         default:
-            \Phpactor202301\error(\sprintf('Unknown message type, must be "request", "response" or "notifiaction", got "%s"', $type));
+            \PhpactorDist\error(\sprintf('Unknown message type, must be "request", "response" or "notifiaction", got "%s"', $type));
             exit(1);
     }
 } catch (\Exception $e) {
-    \Phpactor202301\error($e->getMessage());
+    \PhpactorDist\error($e->getMessage());
     exit(1);
 }
 $formatter = new MessageFormatter();

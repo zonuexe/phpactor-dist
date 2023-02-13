@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\Profiler\NodeVisitor\ProfilerNodeVisitor;
-use Phpactor202301\Twig\Profiler\Profile;
+use PhpactorDist\Twig\Profiler\NodeVisitor\ProfilerNodeVisitor;
+use PhpactorDist\Twig\Profiler\Profile;
 class ProfilerExtension extends AbstractExtension
 {
     private $actives = [];
@@ -37,4 +37,4 @@ class ProfilerExtension extends AbstractExtension
         return [new ProfilerNodeVisitor(static::class)];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\ProfilerExtension', 'Phpactor202301\\Twig_Extension_Profiler');
+\class_alias('PhpactorDist\\Twig\\Extension\\ProfilerExtension', 'PhpactorDist\\Twig_Extension_Profiler');

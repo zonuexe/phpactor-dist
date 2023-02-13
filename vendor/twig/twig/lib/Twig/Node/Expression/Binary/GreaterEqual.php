@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Node\Expression\Binary\GreaterEqualBinary;
-\class_exists('Phpactor202301\\Twig\\Node\\Expression\\Binary\\GreaterEqualBinary');
+use PhpactorDist\Twig\Node\Expression\Binary\GreaterEqualBinary;
+\class_exists('PhpactorDist\\Twig\\Node\\Expression\\Binary\\GreaterEqualBinary');
 @\trigger_error('Using the "Twig_Node_Expression_Binary_GreaterEqual" class is deprecated since Twig version 2.7, use "Twig\\Node\\Expression\\Binary\\GreaterEqualBinary" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Node\Expression\Binary\GreaterEqualBinary" instead */

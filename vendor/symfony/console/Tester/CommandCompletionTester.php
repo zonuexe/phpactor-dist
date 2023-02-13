@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Tester;
+namespace PhpactorDist\Symfony\Component\Console\Tester;
 
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionInput;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionSuggestions;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionInput;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionSuggestions;
 /**
  * Eases the testing of command completion.
  *

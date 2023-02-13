@@ -2,8 +2,8 @@
 
 namespace Phpactor\FilePathResolver;
 
-use Phpactor202301\Psr\Log\LogLevel;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LogLevel;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class LoggingPathResolver implements \Phpactor\FilePathResolver\PathResolver
 {
     public function __construct(private \Phpactor\FilePathResolver\PathResolver $pathResolver, private LoggerInterface $logger, private string $level = LogLevel::DEBUG)

@@ -7,9 +7,9 @@ use Phpactor\Container\Container;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\Extension;
 use Phpactor\MapResolver\Resolver;
-use Phpactor202301\Symfony\Component\Console\Input\ArgvInput;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutput;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\ArgvInput;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutput;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 class ConsoleExtension implements Extension
 {
     public const TAG_COMMAND = 'console.command';

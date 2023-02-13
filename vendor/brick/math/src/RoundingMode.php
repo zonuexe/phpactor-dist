@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math;
+namespace PhpactorDist\Brick\Math;
 
 /**
  * Specifies a rounding behavior for numerical operations capable of discarding precision.

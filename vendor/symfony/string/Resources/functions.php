@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\String;
+namespace PhpactorDist\Symfony\Component\String;
 
 if (!\function_exists(u::class)) {
     function u(?string $string = '') : UnicodeString

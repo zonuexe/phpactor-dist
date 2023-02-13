@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\DeprecatedNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\DeprecatedNode;
+use PhpactorDist\Twig\Token;
 /**
  * Deprecates a section of a template.
  *
@@ -35,4 +35,4 @@ class DeprecatedTokenParser extends AbstractTokenParser
         return 'deprecated';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\DeprecatedTokenParser', 'Phpactor202301\\Twig_TokenParser_Deprecated');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\DeprecatedTokenParser', 'PhpactorDist\\Twig_TokenParser_Deprecated');

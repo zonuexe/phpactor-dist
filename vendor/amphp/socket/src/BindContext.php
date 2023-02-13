@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use function Phpactor202301\Amp\Socket\Internal\normalizeBindToOption;
+use function PhpactorDist\Amp\Socket\Internal\normalizeBindToOption;
 final class BindContext
 {
     /** @var string|null */

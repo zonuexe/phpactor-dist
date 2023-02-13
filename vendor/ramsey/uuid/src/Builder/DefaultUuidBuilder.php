@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Builder;
+namespace PhpactorDist\Ramsey\Uuid\Builder;
 
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidBuilder as Rfc4122UuidBuilder;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidBuilder as Rfc4122UuidBuilder;
 /**
  * @deprecated Transition to {@see Rfc4122UuidBuilder}.
  *

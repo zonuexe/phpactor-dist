@@ -2,10 +2,10 @@
 
 namespace Phpactor\LanguageServer\Example\Service;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Core\Service\ServiceProvider;
 /**
@@ -33,7 +33,7 @@ class PingProvider implements ServiceProvider
      */
     public function ping(CancellationToken $cancel) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($cancel) {
+        return \PhpactorDist\Amp\call(function () use($cancel) {
             while (\true) {
                 try {
                     $cancel->throwIfRequested();

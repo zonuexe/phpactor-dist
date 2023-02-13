@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\ClassFileConverter\Domain\ClassName;
 use Phpactor\ClassFileConverter\Domain\ClassToFile;
 use Phpactor\CodeTransform\Domain\Generators;
@@ -18,7 +18,7 @@ use Phpactor\LanguageServer\Test\ProtocolFactory;
 use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class CreateUnresolvableClassProvider implements CodeActionProvider
 {
     public const KIND = 'quickfix.create_unresolable_class';

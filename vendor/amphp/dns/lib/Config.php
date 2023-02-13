@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
 final class Config
 {

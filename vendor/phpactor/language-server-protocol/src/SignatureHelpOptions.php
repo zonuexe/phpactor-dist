@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -14,7 +14,7 @@ use RuntimeException;
 class SignatureHelpOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProgressOptions
 {
     /**
-     * List of characters that trigger signature help.
+     * List of characters that trigger signature help automatically.
      *
      * @var array<string>|null
      */
@@ -46,7 +46,7 @@ class SignatureHelpOptions extends \Phpactor\LanguageServerProtocol\WorkDoneProg
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

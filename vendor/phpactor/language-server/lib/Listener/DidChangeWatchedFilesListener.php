@@ -8,9 +8,9 @@ use Phpactor\LanguageServerProtocol\FileSystemWatcher;
 use Phpactor\LanguageServerProtocol\Registration;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Event\Initialized;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Uuid;
-use function Phpactor202301\Amp\asyncCall;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Uuid;
+use function PhpactorDist\Amp\asyncCall;
 class DidChangeWatchedFilesListener implements ListenerProviderInterface
 {
     /**
@@ -43,7 +43,7 @@ class DidChangeWatchedFilesListener implements ListenerProviderInterface
     }
     public function registerCapability(Initialized $initialized) : void
     {
-        if (!($this->clientCapabilities->workspace['didChangeWatchedFiles']['dynamicRegistration'] ?? \false)) {
+        if (!($this->clientCapabilities?->workspace?->didChangeWatchedFiles?->dynamicRegistration ?? \false)) {
             return;
         }
         asyncCall(function () {

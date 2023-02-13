@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
 /**
  * MUST be thrown if any operation (except disable() and cancel()) is attempted with an invalid watcher identifier.

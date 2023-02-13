@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream\Base64;
+namespace PhpactorDist\Amp\ByteStream\Base64;
 
-use Phpactor202301\Amp\ByteStream\InputStream;
-use Phpactor202301\Amp\ByteStream\StreamException;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\ByteStream\InputStream;
+use PhpactorDist\Amp\ByteStream\StreamException;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 final class Base64DecodingInputStream implements InputStream
 {
     /** @var InputStream|null */

@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\CodeAction;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
@@ -19,7 +19,7 @@ interface CodeActionProvider
      *
      * @see Phpactor\LanguageServerProtocol\CodeAction
      *
-     * @return array<string>
+     * @return string[]
      */
     public function kinds() : array;
 }

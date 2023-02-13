@@ -4,18 +4,18 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node;
+namespace PhpactorDist\Microsoft\PhpParser\Node;
 
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameInterface;
-use Phpactor202301\Microsoft\PhpParser\NamespacedNameTrait;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
+use PhpactorDist\Microsoft\PhpParser\NamespacedNameTrait;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 class QualifiedName extends Node implements NamespacedNameInterface
 {
     use NamespacedNameTrait;

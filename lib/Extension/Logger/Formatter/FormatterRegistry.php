@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\Logger\Formatter;
 
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 use RuntimeException;
 class FormatterRegistry
 {

@@ -9,22 +9,22 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\BlockNode;
-use Phpactor202301\Twig\Node\BlockReferenceNode;
-use Phpactor202301\Twig\Node\BodyNode;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
-use Phpactor202301\Twig\Node\MacroNode;
-use Phpactor202301\Twig\Node\ModuleNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Node\NodeCaptureInterface;
-use Phpactor202301\Twig\Node\NodeOutputInterface;
-use Phpactor202301\Twig\Node\PrintNode;
-use Phpactor202301\Twig\Node\SpacelessNode;
-use Phpactor202301\Twig\Node\TextNode;
-use Phpactor202301\Twig\TokenParser\TokenParserInterface;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\BlockNode;
+use PhpactorDist\Twig\Node\BlockReferenceNode;
+use PhpactorDist\Twig\Node\BodyNode;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Node\MacroNode;
+use PhpactorDist\Twig\Node\ModuleNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Node\NodeCaptureInterface;
+use PhpactorDist\Twig\Node\NodeOutputInterface;
+use PhpactorDist\Twig\Node\PrintNode;
+use PhpactorDist\Twig\Node\SpacelessNode;
+use PhpactorDist\Twig\Node\TextNode;
+use PhpactorDist\Twig\TokenParser\TokenParserInterface;
 /**
  * Default parser implementation.
  *
@@ -299,7 +299,7 @@ class Parser
         // "block" tags that are not captured (see above) are only used for defining
         // the content of the block. In such a case, nesting it does not work as
         // expected as the definition is not part of the default template code flow.
-        if ($nested && ($node instanceof BlockReferenceNode || $node instanceof \Phpactor202301\Twig_Node_BlockReference)) {
+        if ($nested && ($node instanceof BlockReferenceNode || $node instanceof \PhpactorDist\Twig_Node_BlockReference)) {
             //throw new SyntaxError('A block definition cannot be nested under non-capturing nodes.', $node->getTemplateLine(), $this->stream->getSourceContext());
             @\trigger_error(\sprintf('Nesting a block definition under a non-capturing node in "%s" at line %d is deprecated since Twig 2.5.0 and will become a syntax error in 3.0.', $this->stream->getSourceContext()->getName(), $node->getTemplateLine()), \E_USER_DEPRECATED);
             return;
@@ -319,4 +319,4 @@ class Parser
         return $node;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Parser', 'Phpactor202301\\Twig_Parser');
+\class_alias('PhpactorDist\\Twig\\Parser', 'PhpactorDist\\Twig_Parser');

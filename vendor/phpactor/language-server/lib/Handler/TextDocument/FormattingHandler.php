@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Handler\TextDocument;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\FormattingOptions;
 use Phpactor\LanguageServerProtocol\ServerCapabilities;
 use Phpactor\LanguageServerProtocol\TextDocumentIdentifier;
@@ -11,7 +11,7 @@ use Phpactor\LanguageServer\Core\Formatting\Formatter;
 use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Workspace\Workspace;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class FormattingHandler implements Handler, CanRegisterCapabilities
 {
     private Workspace $workspace;

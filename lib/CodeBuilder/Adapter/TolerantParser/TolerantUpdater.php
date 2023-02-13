@@ -2,12 +2,12 @@
 
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser;
 
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InlineHtml;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InlineHtml;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\UseStatementUpdater;
 use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor\CodeBuilder\Domain\Prototype\NamespaceName;
@@ -17,7 +17,7 @@ use Phpactor\CodeBuilder\Domain\Renderer;
 use Phpactor\CodeBuilder\Domain\Updater;
 use Phpactor\CodeBuilder\Util\TextFormat;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassUpdater;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\InterfaceUpdater;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\TraitUpdater;
 use Phpactor\TextDocument\TextEdits;

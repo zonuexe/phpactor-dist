@@ -2,8 +2,8 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\ConstElement;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ConstElement;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\Type;
@@ -12,7 +12,7 @@ use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionConstant as CoreReflectionConstant;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\TypeFactory;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassConstDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassConstDeclaration;
 use Phpactor\WorseReflection\TypeUtil;
 class ReflectionConstant extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClassMember implements CoreReflectionConstant
 {

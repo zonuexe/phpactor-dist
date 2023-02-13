@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\WorkDoneProgress;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Core\Server\Client\MessageClient;
@@ -29,7 +29,7 @@ final class MessageProgressNotifier implements \Phpactor\LanguageServer\WorkDone
      */
     public function begin(\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken $token, string $title, ?string $message = null, ?int $percentage = null, ?bool $cancellable = null) : void
     {
-        $this->api->info($message);
+        $this->api->info($message ?? '');
     }
     /**
      * {@inheritDoc}
@@ -40,6 +40,6 @@ final class MessageProgressNotifier implements \Phpactor\LanguageServer\WorkDone
     }
     public function end(\Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken $token, ?string $message = null) : void
     {
-        $this->api->info($message);
+        $this->api->info($message ?? '');
     }
 }

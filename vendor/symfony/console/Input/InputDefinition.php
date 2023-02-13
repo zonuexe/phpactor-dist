@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Input;
+namespace PhpactorDist\Symfony\Component\Console\Input;
 
-use Phpactor202301\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Console\Exception\LogicException;
+use PhpactorDist\Symfony\Component\Console\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Console\Exception\LogicException;
 /**
  * A InputDefinition represents a set of valid command line arguments and options.
  *

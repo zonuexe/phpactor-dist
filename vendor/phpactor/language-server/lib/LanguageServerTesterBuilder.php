@@ -43,9 +43,9 @@ use Phpactor\LanguageServer\Core\Service\ServiceProvider;
 use Phpactor\LanguageServer\Middleware\InitializeMiddleware;
 use Phpactor\LanguageServer\Service\DiagnosticsService;
 use Phpactor\LanguageServer\Test\LanguageServerTester;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 final class LanguageServerTesterBuilder
 {
     /**

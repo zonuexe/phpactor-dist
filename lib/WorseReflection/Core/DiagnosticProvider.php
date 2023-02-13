@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Core;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 interface DiagnosticProvider

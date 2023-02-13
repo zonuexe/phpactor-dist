@@ -2,12 +2,12 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassInterfaceClause;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassInterfaceClause;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TraitImport\TraitImports;
 use Phpactor\WorseReflection\Core\ClassHierarchyResolver;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
@@ -116,7 +116,6 @@ class ReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Re
         }
         $baseClass = $this->node->classBaseClause->baseClass;
         // incomplete class
-        /** @phpstan-ignore-next-line */
         if (!$baseClass instanceof QualifiedName) {
             return null;
         }
@@ -209,7 +208,6 @@ class ReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Re
         // do not try and reflect the parents if we can locally see that it is
         // an instance of the given class
         $baseClause = $this->node->classInterfaceClause;
-        /** @phpstan-ignore-next-line */
         if ($baseClause instanceof ClassInterfaceClause) {
             if (NodeUtil::qualifiedNameListContains($baseClause->interfaceNameList, $className->__toString())) {
                 return \true;

@@ -3,7 +3,7 @@
 namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Completion\Core\Suggestion;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;

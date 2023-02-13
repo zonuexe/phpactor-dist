@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\WorkDoneProgress;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 use Phpactor\LanguageServer\Core\Server\Client\WorkDoneProgressClient;
 final class WorkDoneProgressNotifier implements \Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier

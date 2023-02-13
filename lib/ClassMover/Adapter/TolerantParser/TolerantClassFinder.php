@@ -2,17 +2,17 @@
 
 namespace Phpactor\ClassMover\Adapter\TolerantParser;
 
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName as ParserQualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName as ParserQualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\ClassMover\Domain\Reference\ClassReference;
 use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 use Phpactor\ClassMover\Domain\Name\ImportedName;
@@ -27,7 +27,7 @@ use Phpactor\ClassMover\Domain\Name\Namespace_;
 use Phpactor\TextDocument\TextDocument;
 class TolerantClassFinder implements ClassFinder
 {
-    private $parser;
+    private Parser $parser;
     public function __construct(Parser $parser = null)
     {
         $this->parser = $parser ?: new Parser();
@@ -40,7 +40,8 @@ class TolerantClassFinder implements ClassFinder
         $classRefs = $this->resolveClassNames($source, $sourceEnvironment, $ast);
         return NamespacedClassReferences::fromNamespaceAndClassRefs($namespaceRef, $classRefs);
     }
-    private function resolveClassNames($source, NameImportTable $env, $ast) : array
+    /** @return array<ClassReference> */
+    private function resolveClassNames(TextDocument $source, NameImportTable $env, $ast) : array
     {
         $classRefs = [];
         $nodes = $ast->getDescendantNodes();
@@ -90,7 +91,7 @@ class TolerantClassFinder implements ClassFinder
         }
         return $classRefs;
     }
-    private function getClassEnvironment(Namespace_ $namespace, SourceFileNode $node)
+    private function getClassEnvironment(Namespace_ $namespace, SourceFileNode $node) : NameImportTable
     {
         $useImportRefs = [];
         foreach ($node->getChildNodes() as $childNode) {
@@ -101,7 +102,10 @@ class TolerantClassFinder implements ClassFinder
         }
         return NameImportTable::fromImportedNameRefs($namespace, $useImportRefs);
     }
-    private function populateUseImportRefs(NamespaceUseDeclaration $useDeclaration, &$useImportRefs) : void
+    /**
+     * @param array<ImportedNameReference> $useImportRefs
+     */
+    private function populateUseImportRefs(NamespaceUseDeclaration $useDeclaration, array &$useImportRefs) : void
     {
         if (null === $useDeclaration->useClauses) {
             return;

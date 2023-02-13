@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Helper;
+namespace PhpactorDist\Symfony\Component\Console\Helper;
 
-use Phpactor202301\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Console\Exception\RuntimeException;
-use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatter;
-use Phpactor202301\Symfony\Component\Console\Formatter\WrappableOutputFormatterInterface;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleSectionOutput;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Console\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Console\Formatter\OutputFormatter;
+use PhpactorDist\Symfony\Component\Console\Formatter\WrappableOutputFormatterInterface;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleSectionOutput;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 /**
  * Provides helpers to display a table.
  *

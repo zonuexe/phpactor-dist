@@ -12,16 +12,16 @@
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 1.0.0
  */
-namespace Phpactor202301\LibDNS\Examples;
+namespace PhpactorDist\LibDNS\Examples;
 
-use Phpactor202301\LibDNS\Messages\MessageFactory;
-use Phpactor202301\LibDNS\Messages\MessageTypes;
-use Phpactor202301\LibDNS\Records\QuestionFactory;
-use Phpactor202301\LibDNS\Records\ResourceTypes;
-use Phpactor202301\LibDNS\Records\ResourceQTypes;
-use Phpactor202301\LibDNS\Encoder\EncoderFactory;
-use Phpactor202301\LibDNS\Decoder\DecoderFactory;
-use Phpactor202301\LibDNS\Records\TypeDefinitions\TypeDefinitionManagerFactory;
+use PhpactorDist\LibDNS\Messages\MessageFactory;
+use PhpactorDist\LibDNS\Messages\MessageTypes;
+use PhpactorDist\LibDNS\Records\QuestionFactory;
+use PhpactorDist\LibDNS\Records\ResourceTypes;
+use PhpactorDist\LibDNS\Records\ResourceQTypes;
+use PhpactorDist\LibDNS\Encoder\EncoderFactory;
+use PhpactorDist\LibDNS\Decoder\DecoderFactory;
+use PhpactorDist\LibDNS\Records\TypeDefinitions\TypeDefinitionManagerFactory;
 // Config
 $queryName = 'google.com';
 $serverIP = '8.8.8.8';

@@ -1,9 +1,9 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\PackageVersions;
+namespace PhpactorDist\PackageVersions;
 
-use Phpactor202301\Composer\InstalledVersions;
+use PhpactorDist\Composer\InstalledVersions;
 use OutOfBoundsException;
 use UnexpectedValueException;
 \class_exists(InstalledVersions::class);

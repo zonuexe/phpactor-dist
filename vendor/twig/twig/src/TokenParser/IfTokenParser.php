@@ -9,12 +9,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\IfNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\IfNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Token;
 /**
  * Tests a condition.
  *
@@ -86,4 +86,4 @@ final class IfTokenParser extends AbstractTokenParser
         return 'if';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\IfTokenParser', 'Phpactor202301\\Twig_TokenParser_If');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\IfTokenParser', 'PhpactorDist\\Twig_TokenParser_If');

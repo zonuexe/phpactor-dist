@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents a nested "with" scope.
  *
@@ -45,4 +45,4 @@ class WithNode extends Node
         $compiler->subcompile($this->getNode('body'))->write("\$context = \$context['_parent'];\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\WithNode', 'Phpactor202301\\Twig_Node_With');
+\class_alias('PhpactorDist\\Twig\\Node\\WithNode', 'PhpactorDist\\Twig_Node_With');

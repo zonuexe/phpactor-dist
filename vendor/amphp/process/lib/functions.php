@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Process;
+namespace PhpactorDist\Amp\Process;
 
 const BIN_DIR = __DIR__ . \DIRECTORY_SEPARATOR . '..' . \DIRECTORY_SEPARATOR . 'bin';
 const IS_WINDOWS = (\PHP_OS & "\xdf\xdf\xdf") === 'WIN';

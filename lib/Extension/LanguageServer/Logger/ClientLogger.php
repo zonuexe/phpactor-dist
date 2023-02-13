@@ -3,7 +3,7 @@
 namespace Phpactor\Extension\LanguageServer\Logger;
 
 use Phpactor\LanguageServer\Core\Server\ClientApi;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class ClientLogger implements LoggerInterface
 {
     public function __construct(private ClientApi $client, private LoggerInterface $innerLogger)
@@ -47,6 +47,6 @@ class ClientLogger implements LoggerInterface
     }
     public function log($level, $message, array $context = []) : void
     {
-        $this->innerLogger->log($message, $context);
+        $this->innerLogger->log($level, $message, $context);
     }
 }

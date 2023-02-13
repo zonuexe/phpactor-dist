@@ -8,22 +8,22 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\CheckSecurityCallNode;
-use Phpactor202301\Twig\Node\CheckSecurityNode;
-use Phpactor202301\Twig\Node\CheckToStringNode;
-use Phpactor202301\Twig\Node\Expression\Binary\ConcatBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\RangeBinary;
-use Phpactor202301\Twig\Node\Expression\FilterExpression;
-use Phpactor202301\Twig\Node\Expression\FunctionExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\ModuleNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Node\PrintNode;
-use Phpactor202301\Twig\Node\SetNode;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\CheckSecurityCallNode;
+use PhpactorDist\Twig\Node\CheckSecurityNode;
+use PhpactorDist\Twig\Node\CheckToStringNode;
+use PhpactorDist\Twig\Node\Expression\Binary\ConcatBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\RangeBinary;
+use PhpactorDist\Twig\Node\Expression\FilterExpression;
+use PhpactorDist\Twig\Node\Expression\FunctionExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\ModuleNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Node\PrintNode;
+use PhpactorDist\Twig\Node\SetNode;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -115,4 +115,4 @@ final class SandboxNodeVisitor extends AbstractNodeVisitor
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Twig\\NodeVisitor\\SandboxNodeVisitor', 'Phpactor202301\\Twig_NodeVisitor_Sandbox');
+\class_alias('PhpactorDist\\Twig\\NodeVisitor\\SandboxNodeVisitor', 'PhpactorDist\\Twig_NodeVisitor_Sandbox');

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\FlushNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\FlushNode;
+use PhpactorDist\Twig\Token;
 /**
  * Flushes the output to the client.
  *
@@ -32,4 +32,4 @@ final class FlushTokenParser extends AbstractTokenParser
         return 'flush';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\FlushTokenParser', 'Phpactor202301\\Twig_TokenParser_Flush');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\FlushTokenParser', 'PhpactorDist\\Twig_TokenParser_Flush');

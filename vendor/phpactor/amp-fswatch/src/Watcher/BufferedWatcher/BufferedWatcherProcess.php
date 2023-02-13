@@ -2,8 +2,8 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\BufferedWatcher;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\WatcherProcess;
 use Throwable;
@@ -33,7 +33,7 @@ class BufferedWatcherProcess implements WatcherProcess
     {
         $this->innerProcess = $innerProcess;
         $this->interval = $interval;
-        \Phpactor202301\Amp\asyncCall(function () {
+        \PhpactorDist\Amp\asyncCall(function () {
             try {
                 while (null !== ($modifiedFile = (yield $this->innerProcess->wait()))) {
                     \assert($modifiedFile instanceof ModifiedFile);
@@ -55,7 +55,7 @@ class BufferedWatcherProcess implements WatcherProcess
      */
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             while ($this->running || !empty($this->buffer || null !== $this->error)) {
                 if ($this->error) {
                     $error = $this->error;

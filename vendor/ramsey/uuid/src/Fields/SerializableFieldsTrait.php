@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Fields;
+namespace PhpactorDist\Ramsey\Uuid\Fields;
 
 use ValueError;
 use function base64_decode;

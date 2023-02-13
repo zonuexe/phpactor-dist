@@ -2,11 +2,11 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\TypeResolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\QualifiedNameList;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\ClassName;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\TypeFactory;
 use Phpactor\WorseReflection\Core\Util\NodeUtil;
 use Phpactor\WorseReflection\Reflector;

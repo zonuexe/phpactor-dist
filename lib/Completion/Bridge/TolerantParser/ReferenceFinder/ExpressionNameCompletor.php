@@ -3,13 +3,15 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Core\Completor\NameSearcherCompletor as CoreNameSearcherCompletor;
 use Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
 use Phpactor\Completion\Core\Formatter\ObjectFormatter;
+use Phpactor\Name\NameUtil;
 use Phpactor\ReferenceFinder\NameSearcher;
 use Phpactor\ReferenceFinder\Search\NameSearchResult;
 use Phpactor\TextDocument\ByteOffset;
@@ -21,13 +23,19 @@ class ExpressionNameCompletor extends CoreNameSearcherCompletor implements Toler
     {
         parent::__construct($nameSearcher, $prioritizer);
     }
+    // 1. If no namespace separator  - search by short name
+    // 2. If namespace separator - resolve namespace, search by FQN
     public function complete(Node $node, TextDocument $source, ByteOffset $offset) : Generator
     {
         $parent = $node->parent;
         if (!CompletionContext::expression($node)) {
             return \true;
         }
-        $suggestions = $this->completeName($node, $source->uri(), $node);
+        $name = $node->__toString();
+        if ($node instanceof QualifiedName && NameUtil::isQualified($name)) {
+            $name = NameUtil::toFullyQualfiied((string) $node->getResolvedName());
+        }
+        $suggestions = $this->completeName($name, $source->uri(), $node);
         yield from $suggestions;
         return $suggestions->getReturn();
     }

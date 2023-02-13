@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Processor;
+namespace PhpactorDist\Monolog\Processor;
 
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Logger;
 /**
  * Injects Git branch and Git commit SHA in all records
  *

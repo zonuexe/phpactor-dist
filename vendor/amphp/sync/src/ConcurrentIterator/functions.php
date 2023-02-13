@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync\ConcurrentIterator;
+namespace PhpactorDist\Amp\Sync\ConcurrentIterator;
 
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Iterator;
-use Phpactor202301\Amp\Producer;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Sync\Barrier;
-use Phpactor202301\Amp\Sync\Lock;
-use Phpactor202301\Amp\Sync\Semaphore;
-use function Phpactor202301\Amp\asyncCall;
-use function Phpactor202301\Amp\call;
-use function Phpactor202301\Amp\coroutine;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Iterator;
+use PhpactorDist\Amp\Producer;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Sync\Barrier;
+use PhpactorDist\Amp\Sync\Lock;
+use PhpactorDist\Amp\Sync\Semaphore;
+use function PhpactorDist\Amp\asyncCall;
+use function PhpactorDist\Amp\call;
+use function PhpactorDist\Amp\coroutine;
 /**
  * Concurrently act on iterator values using {@code $processor}.
  *

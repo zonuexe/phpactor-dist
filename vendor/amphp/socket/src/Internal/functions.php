@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket\Internal;
+namespace PhpactorDist\Amp\Socket\Internal;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\NullCancellationToken;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Socket\TlsException;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\League\Uri;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\NullCancellationToken;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Socket\TlsException;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\League\Uri;
+use function PhpactorDist\Amp\call;
 /**
  * Parse an URI into [scheme, host, port].
  *

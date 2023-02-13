@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigFunction;
 final class StringLoaderExtension extends AbstractExtension
 {
     public function getFunctions()
@@ -18,11 +18,11 @@ final class StringLoaderExtension extends AbstractExtension
         return [new TwigFunction('template_from_string', 'twig_template_from_string', ['needs_environment' => \true])];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\StringLoaderExtension', 'Phpactor202301\\Twig_Extension_StringLoader');
-namespace Phpactor202301;
+\class_alias('PhpactorDist\\Twig\\Extension\\StringLoaderExtension', 'PhpactorDist\\Twig_Extension_StringLoader');
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\TemplateWrapper;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\TemplateWrapper;
 /**
  * Loads a template from a string.
  *

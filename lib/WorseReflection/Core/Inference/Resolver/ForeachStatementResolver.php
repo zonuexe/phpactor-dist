@@ -2,17 +2,17 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node\ArrayElement;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArrayElementList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrayCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\ForeachKey;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\ArrayElement;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ArrayElementList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArrayCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\ForeachKey;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 use Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ForeachStatement;
-use Phpactor202301\Microsoft\PhpParser\Node\ForeachValue;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ForeachStatement;
+use PhpactorDist\Microsoft\PhpParser\Node\ForeachValue;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Inference\Resolver;
 use Phpactor\WorseReflection\Core\Inference\Symbol;
@@ -62,7 +62,6 @@ class ForeachStatementResolver implements Resolver
         if (!$expression instanceof Variable) {
             return;
         }
-        /** @phpstan-ignore-next-line */
         $itemName = $expression->name->getText($node->getFileContents());
         if (!\is_string($itemName)) {
             return;

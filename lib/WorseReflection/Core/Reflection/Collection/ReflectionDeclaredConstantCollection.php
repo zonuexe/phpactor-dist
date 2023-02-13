@@ -2,9 +2,9 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionDeclaredConstant as PhpactorReflectionDeclaredConstant;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant;
 use Phpactor\WorseReflection\Core\ServiceLocator;
@@ -30,13 +30,9 @@ class ReflectionDeclaredConstantCollection extends \Phpactor\WorseReflection\Cor
                 continue;
             }
             $callable = $descendentNode->callableExpression;
-            /**
-             * @phpstan-ignore-next-line TP lies
-             */
             if (!$callable instanceof QualifiedName) {
                 continue;
             }
-            /** @phpstan-ignore-next-line */
             if ('define' !== NodeUtil::shortName($callable)) {
                 continue;
             }

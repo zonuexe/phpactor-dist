@@ -2,8 +2,8 @@
 
 namespace Phpactor\WorseReflection\Core\DiagnosticProvider;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor\WorseReflection\Core\Diagnostic;
 use Phpactor\WorseReflection\Core\DiagnosticProvider;
 use Phpactor\WorseReflection\Core\Inference\Frame;

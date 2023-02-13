@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
 /**
  * Exposes a template to userland.
@@ -130,4 +130,4 @@ final class TemplateWrapper
         return $this->template;
     }
 }
-\class_alias('Phpactor202301\\Twig\\TemplateWrapper', 'Phpactor202301\\Twig_TemplateWrapper');
+\class_alias('PhpactorDist\\Twig\\TemplateWrapper', 'PhpactorDist\\Twig_TemplateWrapper');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\WindowsRegistry;
+namespace PhpactorDist\Amp\WindowsRegistry;
 
 class KeyNotFoundException extends \Exception
 {

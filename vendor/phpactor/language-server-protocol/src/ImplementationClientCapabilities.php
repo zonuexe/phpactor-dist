@@ -3,11 +3,10 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * Since 3.6.0
  */
 class ImplementationClientCapabilities
 {
@@ -21,8 +20,6 @@ class ImplementationClientCapabilities
     public $dynamicRegistration;
     /**
      * The client supports additional metadata in the form of definition links.
-     * 
-     * Since 3.14.0
      *
      * @var bool|null
      */
@@ -38,7 +35,7 @@ class ImplementationClientCapabilities
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

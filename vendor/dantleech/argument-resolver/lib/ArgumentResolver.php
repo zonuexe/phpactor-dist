@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\DTL\ArgumentResolver;
+namespace PhpactorDist\DTL\ArgumentResolver;
 
-use Phpactor202301\DTL\ArgumentResolver\Exception\InvalidArgumentException;
-use Phpactor202301\DTL\ArgumentResolver\Exception\MissingRequiredArguments;
-use Phpactor202301\DTL\ArgumentResolver\Exception\UnknownArguments;
+use PhpactorDist\DTL\ArgumentResolver\Exception\InvalidArgumentException;
+use PhpactorDist\DTL\ArgumentResolver\Exception\MissingRequiredArguments;
+use PhpactorDist\DTL\ArgumentResolver\Exception\UnknownArguments;
 use ReflectionClass;
 use ReflectionParameter;
 use RuntimeException;

@@ -8,19 +8,19 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Test;
+namespace PhpactorDist\Twig\Node\Expression\Test;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\Expression\ArrayExpression;
-use Phpactor202301\Twig\Node\Expression\BlockReferenceExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\FunctionExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\MethodCallExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\Expression\TestExpression;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\Expression\ArrayExpression;
+use PhpactorDist\Twig\Node\Expression\BlockReferenceExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\FunctionExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\MethodCallExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\Expression\TestExpression;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Checks if a variable is defined in the current context.
  *
@@ -66,4 +66,4 @@ class DefinedTest extends TestExpression
         $compiler->subcompile($this->getNode('node'));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Test\\DefinedTest', 'Phpactor202301\\Twig_Node_Expression_Test_Defined');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Test\\DefinedTest', 'PhpactorDist\\Twig_Node_Expression_Test_Defined');

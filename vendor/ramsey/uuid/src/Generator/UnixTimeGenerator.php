@@ -10,12 +10,12 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Brick\Math\BigInteger;
+use PhpactorDist\Brick\Math\BigInteger;
 use DateTimeImmutable;
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 use function hash;
 use function pack;
 use function str_pad;

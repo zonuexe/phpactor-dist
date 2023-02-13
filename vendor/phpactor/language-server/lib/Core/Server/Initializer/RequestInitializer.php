@@ -17,6 +17,6 @@ final class RequestInitializer implements Initializer
         if ($request->method !== 'initialize') {
             throw new RuntimeException(\sprintf('Method of first request must be "initialize", got "%s"', $request->method));
         }
-        return InitializeParams::fromArray($request->params, \true);
+        return InitializeParams::fromArray($request->params ?? [], \true);
     }
 }

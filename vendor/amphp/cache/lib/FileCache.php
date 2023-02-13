@@ -1,15 +1,15 @@
 <?php
 
 /** @noinspection PhpUndefinedFunctionInspection */
-namespace Phpactor202301\Amp\Cache;
+namespace PhpactorDist\Amp\Cache;
 
-use Phpactor202301\Amp\File;
-use Phpactor202301\Amp\File\Driver;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Sync\KeyedMutex;
-use Phpactor202301\Amp\Sync\Lock;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\File;
+use PhpactorDist\Amp\File\Driver;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Sync\KeyedMutex;
+use PhpactorDist\Amp\Sync\Lock;
+use function PhpactorDist\Amp\call;
 final class FileCache implements Cache
 {
     private static function getFilename(string $key) : string
@@ -31,7 +31,7 @@ final class FileCache implements Cache
         if (!\interface_exists(Driver::class)) {
             throw new \Error(__CLASS__ . ' requires amphp/file to be installed');
         }
-        $this->ampFileVersion2 = $ampFileVersion2 = \function_exists('Phpactor202301\\Amp\\File\\listFiles');
+        $this->ampFileVersion2 = $ampFileVersion2 = \function_exists('PhpactorDist\\Amp\\File\\listFiles');
         $gcWatcher = static function () use($directory, $mutex, $ampFileVersion2) : \Generator {
             try {
                 /** @psalm-suppress UndefinedFunction */

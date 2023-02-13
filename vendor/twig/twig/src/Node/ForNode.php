@@ -9,11 +9,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
-use Phpactor202301\Twig\Node\Expression\AssignNameExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Node\Expression\AssignNameExpression;
 /**
  * Represents a for node.
  *
@@ -60,4 +60,4 @@ class ForNode extends Node
         $compiler->write("\$context = array_intersect_key(\$context, \$_parent) + \$_parent;\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\ForNode', 'Phpactor202301\\Twig_Node_For');
+\class_alias('PhpactorDist\\Twig\\Node\\ForNode', 'PhpactorDist\\Twig_Node_For');

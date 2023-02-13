@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -20,7 +20,7 @@ class WorkspaceClientCapabilities
      */
     public $applyEdit;
     /**
-     * Capabilities specific to `WorkspaceEdit`s
+     * Capabilities specific to `WorkspaceEdit`s.
      *
      * @var WorkspaceEditClientCapabilities|null
      */
@@ -50,14 +50,77 @@ class WorkspaceClientCapabilities
      */
     public $executeCommand;
     /**
+     * The client has support for workspace folders.
+     *
+     * @var bool|null
+     */
+    public $workspaceFolders;
+    /**
+     * The client supports `workspace/configuration` requests.
+     *
+     * @var bool|null
+     */
+    public $configuration;
+    /**
+     * Capabilities specific to the semantic token requests scoped to the
+     * workspace.
+     *
+     * @var mixed|null
+     */
+    public $semanticTokens;
+    /**
+     * Capabilities specific to the code lens requests scoped to the
+     * workspace.
+     *
+     * @var CodeLensWorkspaceClientCapabilities|null
+     */
+    public $codeLens;
+    /**
+     * The client has support for file notifications/requests for user operations on files.
+     * 
+     * Since 3.16.0
+     *
+     * @var FileOperationClientCapabilities|null
+     */
+    public $fileOperations;
+    /**
+     * Capabilities specific to the inline values requests scoped to the
+     * workspace.
+     *
+     * @var mixed|null
+     */
+    public $inlineValue;
+    /**
+     * Capabilities specific to the inlay hint requests scoped to the
+     * workspace.
+     *
+     * @var mixed|null
+     */
+    public $inlayHint;
+    /**
+     * Capabilities specific to the diagnostic requests scoped to the
+     * workspace.
+     *
+     * @var mixed|null
+     */
+    public $diagnostics;
+    /**
      * @param bool|null $applyEdit
      * @param WorkspaceEditClientCapabilities|null $workspaceEdit
      * @param DidChangeConfigurationClientCapabilities|null $didChangeConfiguration
      * @param DidChangeWatchedFilesClientCapabilities|null $didChangeWatchedFiles
      * @param WorkspaceSymbolClientCapabilities|null $symbol
      * @param ExecuteCommandClientCapabilities|null $executeCommand
+     * @param bool|null $workspaceFolders
+     * @param bool|null $configuration
+     * @param mixed|null $semanticTokens
+     * @param CodeLensWorkspaceClientCapabilities|null $codeLens
+     * @param FileOperationClientCapabilities|null $fileOperations
+     * @param mixed|null $inlineValue
+     * @param mixed|null $inlayHint
+     * @param mixed|null $diagnostics
      */
-    public function __construct(?bool $applyEdit = null, ?\Phpactor\LanguageServerProtocol\WorkspaceEditClientCapabilities $workspaceEdit = null, ?\Phpactor\LanguageServerProtocol\DidChangeConfigurationClientCapabilities $didChangeConfiguration = null, ?\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesClientCapabilities $didChangeWatchedFiles = null, ?\Phpactor\LanguageServerProtocol\WorkspaceSymbolClientCapabilities $symbol = null, ?\Phpactor\LanguageServerProtocol\ExecuteCommandClientCapabilities $executeCommand = null)
+    public function __construct(?bool $applyEdit = null, ?\Phpactor\LanguageServerProtocol\WorkspaceEditClientCapabilities $workspaceEdit = null, ?\Phpactor\LanguageServerProtocol\DidChangeConfigurationClientCapabilities $didChangeConfiguration = null, ?\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesClientCapabilities $didChangeWatchedFiles = null, ?\Phpactor\LanguageServerProtocol\WorkspaceSymbolClientCapabilities $symbol = null, ?\Phpactor\LanguageServerProtocol\ExecuteCommandClientCapabilities $executeCommand = null, ?bool $workspaceFolders = null, ?bool $configuration = null, $semanticTokens = null, ?\Phpactor\LanguageServerProtocol\CodeLensWorkspaceClientCapabilities $codeLens = null, ?\Phpactor\LanguageServerProtocol\FileOperationClientCapabilities $fileOperations = null, $inlineValue = null, $inlayHint = null, $diagnostics = null)
     {
         $this->applyEdit = $applyEdit;
         $this->workspaceEdit = $workspaceEdit;
@@ -65,14 +128,22 @@ class WorkspaceClientCapabilities
         $this->didChangeWatchedFiles = $didChangeWatchedFiles;
         $this->symbol = $symbol;
         $this->executeCommand = $executeCommand;
+        $this->workspaceFolders = $workspaceFolders;
+        $this->configuration = $configuration;
+        $this->semanticTokens = $semanticTokens;
+        $this->codeLens = $codeLens;
+        $this->fileOperations = $fileOperations;
+        $this->inlineValue = $inlineValue;
+        $this->inlayHint = $inlayHint;
+        $this->diagnostics = $diagnostics;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['applyEdit' => ['names' => [], 'iterable' => \false], 'workspaceEdit' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceEditClientCapabilities::class], 'iterable' => \false], 'didChangeConfiguration' => ['names' => [\Phpactor\LanguageServerProtocol\DidChangeConfigurationClientCapabilities::class], 'iterable' => \false], 'didChangeWatchedFiles' => ['names' => [\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesClientCapabilities::class], 'iterable' => \false], 'symbol' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceSymbolClientCapabilities::class], 'iterable' => \false], 'executeCommand' => ['names' => [\Phpactor\LanguageServerProtocol\ExecuteCommandClientCapabilities::class], 'iterable' => \false]];
+        $map = ['applyEdit' => ['names' => [], 'iterable' => \false], 'workspaceEdit' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceEditClientCapabilities::class], 'iterable' => \false], 'didChangeConfiguration' => ['names' => [\Phpactor\LanguageServerProtocol\DidChangeConfigurationClientCapabilities::class], 'iterable' => \false], 'didChangeWatchedFiles' => ['names' => [\Phpactor\LanguageServerProtocol\DidChangeWatchedFilesClientCapabilities::class], 'iterable' => \false], 'symbol' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceSymbolClientCapabilities::class], 'iterable' => \false], 'executeCommand' => ['names' => [\Phpactor\LanguageServerProtocol\ExecuteCommandClientCapabilities::class], 'iterable' => \false], 'workspaceFolders' => ['names' => [], 'iterable' => \false], 'configuration' => ['names' => [], 'iterable' => \false], 'semanticTokens' => ['names' => [], 'iterable' => \false], 'codeLens' => ['names' => [\Phpactor\LanguageServerProtocol\CodeLensWorkspaceClientCapabilities::class], 'iterable' => \false], 'fileOperations' => ['names' => [\Phpactor\LanguageServerProtocol\FileOperationClientCapabilities::class], 'iterable' => \false], 'inlineValue' => ['names' => [], 'iterable' => \false], 'inlayHint' => ['names' => [], 'iterable' => \false], 'diagnostics' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

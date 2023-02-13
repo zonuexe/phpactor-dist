@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
-use function Phpactor202301\Amp\Internal\formatStacktrace;
+use function PhpactorDist\Amp\Internal\formatStacktrace;
 final class TracingDriver extends Driver
 {
     /** @var Driver */

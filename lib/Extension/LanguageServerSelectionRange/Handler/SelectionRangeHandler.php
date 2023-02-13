@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerSelectionRange\Handler;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Extension\LanguageServerSelectionRange\Model\RangeProvider;
 use Phpactor\LanguageServerProtocol\Position;

@@ -51,11 +51,11 @@ class TolerantClassReplacer implements ClassReplacer
         }
         return $edits;
     }
-    private function replaceOriginalInstanceNamespace(NamespacedClassReferences $classRefList, FullyQualifiedName $newName)
+    private function replaceOriginalInstanceNamespace(NamespacedClassReferences $classRefList, FullyQualifiedName $newName) : TextEdit
     {
         return TextEdit::create($classRefList->namespaceRef()->position()->start(), $classRefList->namespaceRef()->position()->length(), $newName->parentNamespace()->__toString());
     }
-    private function shouldImportClass(ClassReference $classRef, FullyQualifiedName $originalName)
+    private function shouldImportClass(ClassReference $classRef, FullyQualifiedName $originalName) : bool
     {
         if ($classRef->isImport()) {
             return \false;
@@ -71,7 +71,7 @@ class TolerantClassReplacer implements ClassReplacer
         }
         return $classRef->fullName()->equals($originalName);
     }
-    private function classIsTheOriginalInstance(ClassReference $classRef, $originalName)
+    private function classIsTheOriginalInstance(ClassReference $classRef, FullyQualifiedName $originalName) : bool
     {
         return $classRef->isClassDeclaration() && $classRef->fullName()->equals($originalName);
     }

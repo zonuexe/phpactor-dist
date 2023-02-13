@@ -33,8 +33,8 @@ use Phpactor\Indexer\Model\SearchIndex;
 use Phpactor\Indexer\Model\SearchIndex\FilteredSearchIndex;
 use Phpactor\Indexer\Model\SearchIndex\ValidatingSearchIndex;
 use Phpactor\Indexer\Model\TestIndexAgent;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 final class IndexAgentBuilder
 {
     private RecordReferenceEnhancer $enhancer;

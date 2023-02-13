@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
 abstract class AbstractExtension implements ExtensionInterface
 {
@@ -37,4 +37,4 @@ abstract class AbstractExtension implements ExtensionInterface
         return [];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\AbstractExtension', 'Phpactor202301\\Twig_Extension');
+\class_alias('PhpactorDist\\Twig\\Extension\\AbstractExtension', 'PhpactorDist\\Twig_Extension');

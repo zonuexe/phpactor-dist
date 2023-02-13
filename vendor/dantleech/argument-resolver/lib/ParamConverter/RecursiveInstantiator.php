@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\DTL\ArgumentResolver\ParamConverter;
+namespace PhpactorDist\DTL\ArgumentResolver\ParamConverter;
 
-use Phpactor202301\DTL\ArgumentResolver\ArgumentConverter;
-use Phpactor202301\DTL\ArgumentResolver\ArgumentResolver;
+use PhpactorDist\DTL\ArgumentResolver\ArgumentConverter;
+use PhpactorDist\DTL\ArgumentResolver\ArgumentResolver;
 use ReflectionClass;
 use ReflectionParameter;
 use RuntimeException;

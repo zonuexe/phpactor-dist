@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Formatter\JsonFormatter;
-use Phpactor202301\PhpAmqpLib\Message\AMQPMessage;
-use Phpactor202301\PhpAmqpLib\Channel\AMQPChannel;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\JsonFormatter;
+use PhpactorDist\PhpAmqpLib\Message\AMQPMessage;
+use PhpactorDist\PhpAmqpLib\Channel\AMQPChannel;
 use AMQPExchange;
 class AmqpHandler extends AbstractProcessingHandler
 {

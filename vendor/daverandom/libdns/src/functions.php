@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\LibDNS;
+namespace PhpactorDist\LibDNS;
 
 if (\function_exists('idn_to_ascii')) {
     function normalize_name(string $label) : string

@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp\Cache;
+namespace PhpactorDist\Amp\Cache;
 
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Serialization\SerializationException;
-use Phpactor202301\Amp\Serialization\Serializer;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Serialization\SerializationException;
+use PhpactorDist\Amp\Serialization\Serializer;
+use function PhpactorDist\Amp\call;
 /**
  * @template TValue
  */

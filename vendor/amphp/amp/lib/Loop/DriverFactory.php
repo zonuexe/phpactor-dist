@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
 // @codeCoverageIgnoreStart
 class DriverFactory

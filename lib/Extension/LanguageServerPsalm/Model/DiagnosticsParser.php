@@ -6,7 +6,7 @@ use Phpactor\LanguageServerProtocol\DiagnosticSeverity;
 use Phpactor\LanguageServerProtocol\Position;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\Diagnostic;
-use Phpactor202301\Psalm\Config;
+use PhpactorDist\Psalm\Config;
 use RuntimeException;
 class DiagnosticsParser
 {

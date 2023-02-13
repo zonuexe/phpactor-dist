@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerPhpstan\Model;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Diagnostic;
 interface Linter
 {

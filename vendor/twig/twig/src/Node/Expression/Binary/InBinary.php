@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Binary;
+namespace PhpactorDist\Twig\Node\Expression\Binary;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class InBinary extends AbstractBinary
 {
     public function compile(Compiler $compiler)
@@ -22,4 +22,4 @@ class InBinary extends AbstractBinary
         return $compiler->raw('in');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Binary\\InBinary', 'Phpactor202301\\Twig_Node_Expression_Binary_In');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Binary\\InBinary', 'PhpactorDist\\Twig_Node_Expression_Binary_In');

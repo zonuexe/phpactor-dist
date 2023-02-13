@@ -2,16 +2,16 @@
 
 namespace Phpactor\LanguageServer\Core\Handler;
 
-use Phpactor202301\Amp\CancellationTokenSource;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\CancellationTokenSource;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
 use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver\PassThroughArgumentResolver;
 use Phpactor\LanguageServer\Core\Rpc\Message;
 use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 use RuntimeException;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 final class HandlerMethodRunner implements \Phpactor\LanguageServer\Core\Handler\MethodRunner
@@ -33,7 +33,7 @@ final class HandlerMethodRunner implements \Phpactor\LanguageServer\Core\Handler
      */
     private $logger;
     /**
-     * @var ArgumentResolver|null
+     * @var ArgumentResolver
      */
     private $argumentResolver;
     public function __construct(\Phpactor\LanguageServer\Core\Handler\Handlers $handlers, ?ArgumentResolver $argumentResolver = null, ?LoggerInterface $logger = null, ?\Phpactor\LanguageServer\Core\Handler\HandlerMethodResolver $resolver = null)
@@ -51,7 +51,7 @@ final class HandlerMethodRunner implements \Phpactor\LanguageServer\Core\Handler
         if (!$request instanceof NotificationMessage && !$request instanceof RequestMessage) {
             throw new RuntimeException(\sprintf('Message must either be a Notification or a Request, got "%s"', \get_class($request)));
         }
-        return \Phpactor202301\Amp\call(function () use($request) {
+        return \PhpactorDist\Amp\call(function () use($request) {
             $handler = $this->handlers->get($request->method);
             $method = $this->resolver->resolveHandlerMethod($handler, $request->method);
             $cancellationTokenSource = new CancellationTokenSource();

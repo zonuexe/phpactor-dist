@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Test;
+namespace PhpactorDist\Twig\Test;
 
-use Phpactor202301\PHPUnit\Framework\TestCase;
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Loader\ArrayLoader;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\PHPUnit\Framework\TestCase;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Loader\ArrayLoader;
+use PhpactorDist\Twig\Node\Node;
 abstract class NodeTestCase extends TestCase
 {
     public abstract function getTests();
@@ -53,4 +53,4 @@ abstract class NodeTestCase extends TestCase
         return 'twig_get_attribute($this->env, $this->source, ';
     }
 }
-\class_alias('Phpactor202301\\Twig\\Test\\NodeTestCase', 'Phpactor202301\\Twig_Test_NodeTestCase');
+\class_alias('PhpactorDist\\Twig\\Test\\NodeTestCase', 'PhpactorDist\\Twig_Test_NodeTestCase');

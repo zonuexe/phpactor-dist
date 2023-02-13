@@ -8,15 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
 use Exception;
-use Phpactor202301\Monolog\Formatter\LineFormatter;
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Utils;
-use Phpactor202301\PhpConsole\Connector;
-use Phpactor202301\PhpConsole\Handler;
-use Phpactor202301\PhpConsole\Helper;
+use PhpactorDist\Monolog\Formatter\LineFormatter;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Utils;
+use PhpactorDist\PhpConsole\Connector;
+use PhpactorDist\PhpConsole\Handler;
+use PhpactorDist\PhpConsole\Helper;
 /**
  * Monolog handler for Google Chrome extension "PHP Console"
  *
@@ -90,7 +90,7 @@ class PHPConsoleHandler extends AbstractProcessingHandler
      */
     public function __construct(array $options = array(), Connector $connector = null, $level = Logger::DEBUG, $bubble = \true)
     {
-        if (!\class_exists('Phpactor202301\\PhpConsole\\Connector')) {
+        if (!\class_exists('PhpactorDist\\PhpConsole\\Connector')) {
             throw new Exception('PHP Console library not found. See https://github.com/barbushin/php-console#installation');
         }
         parent::__construct($level, $bubble);

@@ -2,12 +2,12 @@
 
 namespace Phpactor\LanguageServer\Core\Service;
 
-use Phpactor202301\Amp\CancellationTokenSource;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Amp\CancellationTokenSource;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use RuntimeException;
 use Throwable;
-use function Phpactor202301\Amp\asyncCall;
+use function PhpactorDist\Amp\asyncCall;
 class ServiceManager
 {
     /**

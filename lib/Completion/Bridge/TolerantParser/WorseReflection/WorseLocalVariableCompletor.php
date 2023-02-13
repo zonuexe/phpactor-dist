@@ -3,7 +3,7 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Bridge\TolerantParser\WorseReflection\Helper\VariableCompletionHelper;
 use Phpactor\TextDocument\ByteOffset;
@@ -11,9 +11,9 @@ use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Core\Type\ArrayShapeType;
 use Phpactor\Completion\Core\Suggestion;
 use Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable as TolerantVariable;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable as TolerantVariable;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 class WorseLocalVariableCompletor implements TolerantCompletor
 {
     private ObjectFormatter $informationFormatter;

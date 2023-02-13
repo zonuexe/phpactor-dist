@@ -2,14 +2,14 @@
 
 namespace Phpactor\LanguageServer\Core\Server\RpcClient;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 use Phpactor\LanguageServer\Core\Server\RpcClient;
 use Phpactor\LanguageServer\Core\Server\Transmitter\MessageTransmitter;
-use Phpactor202301\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Uuid;
 final class JsonRpcClient implements RpcClient
 {
     /**

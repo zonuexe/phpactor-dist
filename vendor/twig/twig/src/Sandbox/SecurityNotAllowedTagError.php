@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Sandbox;
+namespace PhpactorDist\Twig\Sandbox;
 
 /**
  * Exception thrown when a not allowed tag is used in a template.
@@ -39,4 +39,4 @@ class SecurityNotAllowedTagError extends SecurityError
         return $this->tagName;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Sandbox\\SecurityNotAllowedTagError', 'Phpactor202301\\Twig_Sandbox_SecurityNotAllowedTagError');
+\class_alias('PhpactorDist\\Twig\\Sandbox\\SecurityNotAllowedTagError', 'PhpactorDist\\Twig_Sandbox_SecurityNotAllowedTagError');

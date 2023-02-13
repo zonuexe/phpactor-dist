@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\LibDNS\Records\ResourceQTypes;
-use Phpactor202301\LibDNS\Records\ResourceTypes;
+use PhpactorDist\LibDNS\Records\ResourceQTypes;
+use PhpactorDist\LibDNS\Records\ResourceTypes;
 final class Record
 {
     const A = ResourceTypes::A;

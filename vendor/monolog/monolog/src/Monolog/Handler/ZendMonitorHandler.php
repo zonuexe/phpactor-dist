@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Formatter\NormalizerFormatter;
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\NormalizerFormatter;
+use PhpactorDist\Monolog\Logger;
 /**
  * Handler sending logs to Zend Monitor
  *
@@ -35,7 +35,7 @@ class ZendMonitorHandler extends AbstractProcessingHandler
      */
     public function __construct($level = Logger::DEBUG, $bubble = \true)
     {
-        if (!\function_exists('Phpactor202301\\zend_monitor_custom_event')) {
+        if (!\function_exists('PhpactorDist\\zend_monitor_custom_event')) {
             throw new MissingExtensionException('You must have Zend Server installed with Zend Monitor enabled in order to use this handler');
         }
         //zend monitor constants are not defined if zend monitor is not enabled.

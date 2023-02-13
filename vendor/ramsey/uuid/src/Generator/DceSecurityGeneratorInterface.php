@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidV2;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV2;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 /**
  * A DCE Security generator generates strings of binary data based on a local
  * domain, local identifier, node ID, clock sequence, and the current time

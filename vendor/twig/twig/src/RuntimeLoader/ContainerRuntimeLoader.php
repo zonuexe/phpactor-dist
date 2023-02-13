@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\RuntimeLoader;
+namespace PhpactorDist\Twig\RuntimeLoader;
 
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 /**
  * Lazily loads Twig runtime implementations from a PSR-11 container.
  *
@@ -33,4 +33,4 @@ class ContainerRuntimeLoader implements RuntimeLoaderInterface
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\RuntimeLoader\\ContainerRuntimeLoader', 'Phpactor202301\\Twig_ContainerRuntimeLoader');
+\class_alias('PhpactorDist\\Twig\\RuntimeLoader\\ContainerRuntimeLoader', 'PhpactorDist\\Twig_ContainerRuntimeLoader');

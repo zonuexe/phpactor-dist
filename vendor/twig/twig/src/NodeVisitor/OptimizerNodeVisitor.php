@@ -8,21 +8,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\BlockReferenceNode;
-use Phpactor202301\Twig\Node\Expression\BlockReferenceExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\FilterExpression;
-use Phpactor202301\Twig\Node\Expression\FunctionExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\Expression\ParentExpression;
-use Phpactor202301\Twig\Node\ForNode;
-use Phpactor202301\Twig\Node\IncludeNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Node\PrintNode;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\BlockReferenceNode;
+use PhpactorDist\Twig\Node\Expression\BlockReferenceExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\FilterExpression;
+use PhpactorDist\Twig\Node\Expression\FunctionExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\Expression\ParentExpression;
+use PhpactorDist\Twig\Node\ForNode;
+use PhpactorDist\Twig\Node\IncludeNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Node\PrintNode;
 /**
  * Tries to optimize the AST.
  *
@@ -156,4 +156,4 @@ final class OptimizerNodeVisitor extends AbstractNodeVisitor
         return 255;
     }
 }
-\class_alias('Phpactor202301\\Twig\\NodeVisitor\\OptimizerNodeVisitor', 'Phpactor202301\\Twig_NodeVisitor_Optimizer');
+\class_alias('PhpactorDist\\Twig\\NodeVisitor\\OptimizerNodeVisitor', 'PhpactorDist\\Twig_NodeVisitor_Optimizer');

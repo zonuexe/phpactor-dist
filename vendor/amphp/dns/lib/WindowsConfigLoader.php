@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\WindowsRegistry\KeyNotFoundException;
-use Phpactor202301\Amp\WindowsRegistry\WindowsRegistry;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\WindowsRegistry\KeyNotFoundException;
+use PhpactorDist\Amp\WindowsRegistry\WindowsRegistry;
+use function PhpactorDist\Amp\call;
 final class WindowsConfigLoader implements ConfigLoader
 {
     private $hostLoader;
@@ -16,7 +16,7 @@ final class WindowsConfigLoader implements ConfigLoader
     public function loadConfig() : Promise
     {
         return call(function () {
-            $keys = ["Phpactor202301\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\NameServer", "Phpactor202301\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DhcpNameServer"];
+            $keys = ["PhpactorDist\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\NameServer", "PhpactorDist\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DhcpNameServer"];
             $reader = new WindowsRegistry();
             $nameserver = "";
             while ($nameserver === "" && ($key = \array_shift($keys))) {
@@ -27,7 +27,7 @@ final class WindowsConfigLoader implements ConfigLoader
                 }
             }
             if ($nameserver === "") {
-                $interfaces = "Phpactor202301\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces";
+                $interfaces = "PhpactorDist\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces";
                 $subKeys = (yield $reader->listKeys($interfaces));
                 foreach ($subKeys as $key) {
                     foreach (["NameServer", "DhcpNameServer"] as $property) {

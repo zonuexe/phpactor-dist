@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Psr\Log;
+namespace PhpactorDist\Psr\Log;
 
 /**
  * This Logger can be used to avoid conditional log calls.

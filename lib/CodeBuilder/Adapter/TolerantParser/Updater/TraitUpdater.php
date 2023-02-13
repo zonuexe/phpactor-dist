@@ -2,8 +2,8 @@
 
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
 use Phpactor\CodeBuilder\Domain\Prototype\TraitPrototype;
 class TraitUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassLikeUpdater

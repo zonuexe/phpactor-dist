@@ -2,8 +2,8 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\WorseReflection\Core\ClassHierarchyResolver;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ClassLikeReflectionMemberCollection;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection as PhpactorReflectionTraitCollection;

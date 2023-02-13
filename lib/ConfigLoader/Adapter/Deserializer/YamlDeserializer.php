@@ -4,8 +4,8 @@ namespace Phpactor\ConfigLoader\Adapter\Deserializer;
 
 use Phpactor\ConfigLoader\Core\Deserializer;
 use Phpactor\ConfigLoader\Core\Exception\CouldNotDeserialize;
-use Phpactor202301\Symfony\Component\Yaml\Exception\ParseException;
-use Phpactor202301\Symfony\Component\Yaml\Parser;
+use PhpactorDist\Symfony\Component\Yaml\Exception\ParseException;
+use PhpactorDist\Symfony\Component\Yaml\Parser;
 class YamlDeserializer implements Deserializer
 {
     private Parser $parser;

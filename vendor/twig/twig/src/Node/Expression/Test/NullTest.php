@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Test;
+namespace PhpactorDist\Twig\Node\Expression\Test;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\TestExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\TestExpression;
 /**
  * Checks that a variable is null.
  *
@@ -26,4 +26,4 @@ class NullTest extends TestExpression
         $compiler->raw('(null === ')->subcompile($this->getNode('node'))->raw(')');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Test\\NullTest', 'Phpactor202301\\Twig_Node_Expression_Test_Null');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Test\\NullTest', 'PhpactorDist\\Twig_Node_Expression_Test_Null');

@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\CodeTransform\Domain\Exception\TransformException;
 use Phpactor\CodeTransform\Domain\Refactor\GenerateMethod;
 use Phpactor\CodeTransform\Domain\SourceCode;
@@ -21,7 +21,7 @@ class GenerateMethodCommand implements Command
     {
     }
     /**
-     * @return Promise<?ApplyWorkspaceEditResponse>
+     * @return Promise<?ApplyWorkspaceEditResult>
      */
     public function __invoke(string $uri, int $offset) : Promise
     {

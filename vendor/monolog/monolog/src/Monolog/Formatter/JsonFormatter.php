@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Formatter;
+namespace PhpactorDist\Monolog\Formatter;
 
 use Exception;
-use Phpactor202301\Monolog\Utils;
+use PhpactorDist\Monolog\Utils;
 use Throwable;
 /**
  * Encodes whatever record data is passed to it as json

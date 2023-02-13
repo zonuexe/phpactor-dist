@@ -2,11 +2,11 @@
 
 namespace Phpactor\Extension\LanguageServerPhpstan\Model;
 
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Diagnostic;
-use function Phpactor202301\Amp\ByteStream\buffer;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\ByteStream\buffer;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class PhpstanProcess
 {
     private \Phpactor\Extension\LanguageServerPhpstan\Model\DiagnosticsParser $parser;
@@ -20,7 +20,7 @@ class PhpstanProcess
      */
     public function analyse(string $filename) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($filename) {
+        return \PhpactorDist\Amp\call(function () use($filename) {
             $args = [$this->config->phpstanBin(), 'analyse', '--no-progress', '--error-format=json', $filename];
             if (null !== $this->config->level()) {
                 $args[] = '--level=' . (string) $this->config->level();

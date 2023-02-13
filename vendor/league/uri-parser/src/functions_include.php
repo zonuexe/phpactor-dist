@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 /**
  * League.Uri (http://uri.thephpleague.com/parser).
@@ -13,6 +13,6 @@ namespace Phpactor202301;
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-if (!\function_exists('Phpactor202301\\League\\Uri\\parse')) {
+if (!\function_exists('PhpactorDist\\League\\Uri\\parse')) {
     require __DIR__ . '/functions.php';
 }

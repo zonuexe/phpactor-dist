@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Error\SyntaxError;
 /**
  * Lexes a template string.
  *
@@ -424,4 +424,4 @@ class Lexer
         $this->state = \array_pop($this->states);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Lexer', 'Phpactor202301\\Twig_Lexer');
+\class_alias('PhpactorDist\\Twig\\Lexer', 'PhpactorDist\\Twig_Lexer');

@@ -9,10 +9,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Composer;
+namespace PhpactorDist\Composer;
 
-use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Composer\Semver\VersionParser;
+use PhpactorDist\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Semver\VersionParser;
 /**
  * This class is copied in every Composer installed project and available to all
  *
@@ -277,7 +277,7 @@ class InstalledVersions
     private static function getInstalled()
     {
         if (null === self::$canGetVendors) {
-            self::$canGetVendors = \method_exists('Phpactor202301\\Composer\\Autoload\\ClassLoader', 'getRegisteredLoaders');
+            self::$canGetVendors = \method_exists('PhpactorDist\\Composer\\Autoload\\ClassLoader', 'getRegisteredLoaders');
         }
         $installed = array();
         if (self::$canGetVendors) {

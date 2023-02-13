@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerSelectionRange;
 
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\Container\Container;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\Extension;

@@ -6,11 +6,11 @@
  * @license   https://github.com/phly/phly-event-dispatcher/blob/master/LICENSE.md New BSD License
  */
 declare (strict_types=1);
-namespace Phpactor202301\Phly\EventDispatcher;
+namespace PhpactorDist\Phly\EventDispatcher;
 
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
-use Phpactor202301\Psr\EventDispatcher\StoppableEventInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\StoppableEventInterface;
 class EventDispatcher implements EventDispatcherInterface
 {
     /** @var ListenerProviderInterface */

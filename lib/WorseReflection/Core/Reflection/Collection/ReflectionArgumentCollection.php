@@ -4,7 +4,7 @@ namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 
 use Phpactor\WorseReflection\Core\Reflection\ReflectionArgument as PhpactorReflectionArgument;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\ArgumentExpressionList;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionArgument;
 /**

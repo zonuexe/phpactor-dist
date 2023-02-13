@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
 /**
  * A barrier is a synchronization primitive.
  *

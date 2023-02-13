@@ -12,7 +12,7 @@ use Phpactor\Extension\Php\Model\PhpVersionResolver;
 use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
 use Phpactor\MapResolver\Resolver;
 use RuntimeException;
-use Phpactor202301\Twig\Environment;
+use PhpactorDist\Twig\Environment;
 class ObjectRendererExtension implements Extension
 {
     public const PARAM_TEMPLATE_PATHS = 'object_renderer.template_paths.markdown';

@@ -6,12 +6,15 @@ use Phpactor\CodeBuilder\Domain\Prototype\Type;
 use Phpactor\CodeBuilder\Domain\Prototype\DefaultValue;
 use Phpactor\CodeBuilder\Domain\Prototype\Parameter;
 use Phpactor\CodeBuilder\Domain\Prototype\UpdatePolicy;
+use Phpactor\CodeBuilder\Domain\Prototype\Visibility;
+use Exception;
 class ParameterBuilder extends \Phpactor\CodeBuilder\Domain\Builder\AbstractBuilder
 {
     protected ?Type $type = null;
     protected ?DefaultValue $defaultValue = null;
     protected bool $byReference = \false;
-    private bool $variadic = \false;
+    protected bool $variadic = \false;
+    protected ?Visibility $visibility = null;
     public function __construct(private \Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $parent, protected string $name)
     {
     }
@@ -30,6 +33,15 @@ class ParameterBuilder extends \Phpactor\CodeBuilder\Domain\Builder\AbstractBuil
         $this->type = new Type($type, $originalType);
         return $this;
     }
+    public function visibility(?Visibility $visibility) : \Phpactor\CodeBuilder\Domain\Builder\ParameterBuilder
+    {
+        $methodName = $this->parent->builderName();
+        if ($methodName !== '__construct') {
+            throw new Exception('Only constructors can have parameters with visibility. Current function: ' . $methodName);
+        }
+        $this->visibility = $visibility;
+        return $this;
+    }
     public function defaultValue($value) : \Phpactor\CodeBuilder\Domain\Builder\ParameterBuilder
     {
         $this->defaultValue = DefaultValue::fromValue($value);
@@ -37,7 +49,7 @@ class ParameterBuilder extends \Phpactor\CodeBuilder\Domain\Builder\AbstractBuil
     }
     public function build() : Parameter
     {
-        return new Parameter($this->name, $this->type, $this->defaultValue, $this->byReference, UpdatePolicy::fromModifiedState($this->isModified()), $this->variadic);
+        return new Parameter($this->name, $this->type, $this->defaultValue, $this->byReference, UpdatePolicy::fromModifiedState($this->isModified()), $this->variadic, $this->visibility);
     }
     public function end() : \Phpactor\CodeBuilder\Domain\Builder\MethodBuilder
     {

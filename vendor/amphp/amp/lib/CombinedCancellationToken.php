@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 final class CombinedCancellationToken implements CancellationToken
 {

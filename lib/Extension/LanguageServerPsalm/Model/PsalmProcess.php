@@ -2,11 +2,11 @@
 
 namespace Phpactor\Extension\LanguageServerPsalm\Model;
 
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Diagnostic;
-use function Phpactor202301\Amp\ByteStream\buffer;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\ByteStream\buffer;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class PsalmProcess
 {
     private \Phpactor\Extension\LanguageServerPsalm\Model\DiagnosticsParser $parser;
@@ -19,8 +19,13 @@ class PsalmProcess
      */
     public function analyse(string $filename) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($filename) {
-            $process = new Process([$this->config->psalmBin(), '--no-cache', \sprintf('--show-info=%s', $this->config->shouldShowInfo() ? 'true' : 'false'), '--output-format=json'], $this->cwd);
+        return \PhpactorDist\Amp\call(function () use($filename) {
+            $command = [$this->config->psalmBin(), \sprintf('--show-info=%s', $this->config->shouldShowInfo() ? 'true' : 'false'), '--output-format=json'];
+            if (!$this->config->useCache()) {
+                $command[] = '--no-cache';
+            }
+            $command[] = $filename;
+            $process = new Process($command, $this->cwd);
             $start = \microtime(\true);
             $pid = (yield $process->start());
             $stdout = (yield buffer($process->getStdout()));

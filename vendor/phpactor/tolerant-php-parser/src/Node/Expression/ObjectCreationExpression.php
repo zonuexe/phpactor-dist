@@ -4,16 +4,16 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node\Expression;
+namespace PhpactorDist\Microsoft\PhpParser\Node\Expression;
 
-use Phpactor202301\Microsoft\PhpParser\Node\AttributeGroup;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassInterfaceClause;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassMembersNode;
-use Phpactor202301\Microsoft\PhpParser\Node\DelimitedList;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\AttributeGroup;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassInterfaceClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassMembersNode;
+use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
 class ObjectCreationExpression extends Expression
 {
     /** @var Token */

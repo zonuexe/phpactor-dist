@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy;
-use Phpactor202301\Monolog\Handler\FingersCrossed\ActivationStrategyInterface;
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\ResettableInterface;
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy;
+use PhpactorDist\Monolog\Handler\FingersCrossed\ActivationStrategyInterface;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\ResettableInterface;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
 /**
  * Buffers all records until a certain level is reached
  *

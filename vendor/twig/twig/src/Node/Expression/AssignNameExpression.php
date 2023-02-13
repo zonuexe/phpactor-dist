@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class AssignNameExpression extends NameExpression
 {
     public function compile(Compiler $compiler)
@@ -19,4 +19,4 @@ class AssignNameExpression extends NameExpression
         $compiler->raw('$context[')->string($this->getAttribute('name'))->raw(']');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\AssignNameExpression', 'Phpactor202301\\Twig_Node_Expression_AssignName');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\AssignNameExpression', 'PhpactorDist\\Twig_Node_Expression_AssignName');

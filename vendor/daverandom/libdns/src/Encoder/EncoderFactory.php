@@ -13,9 +13,9 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Encoder;
+namespace PhpactorDist\LibDNS\Encoder;
 
-use Phpactor202301\LibDNS\Packets\PacketFactory;
+use PhpactorDist\LibDNS\Packets\PacketFactory;
 /**
  * Creates Encoder objects
  *

@@ -2,13 +2,13 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Microsoft\PhpParser\FunctionLike;
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\FunctionLike;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AnonymousFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArrowFunctionCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Reflector;
 use RuntimeException;
 final class FrameResolver

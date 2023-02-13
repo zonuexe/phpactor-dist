@@ -8,17 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Process;
+namespace PhpactorDist\Symfony\Component\Process;
 
-use Phpactor202301\Symfony\Component\Process\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Process\Exception\LogicException;
-use Phpactor202301\Symfony\Component\Process\Exception\ProcessFailedException;
-use Phpactor202301\Symfony\Component\Process\Exception\ProcessSignaledException;
-use Phpactor202301\Symfony\Component\Process\Exception\ProcessTimedOutException;
-use Phpactor202301\Symfony\Component\Process\Exception\RuntimeException;
-use Phpactor202301\Symfony\Component\Process\Pipes\PipesInterface;
-use Phpactor202301\Symfony\Component\Process\Pipes\UnixPipes;
-use Phpactor202301\Symfony\Component\Process\Pipes\WindowsPipes;
+use PhpactorDist\Symfony\Component\Process\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Process\Exception\LogicException;
+use PhpactorDist\Symfony\Component\Process\Exception\ProcessFailedException;
+use PhpactorDist\Symfony\Component\Process\Exception\ProcessSignaledException;
+use PhpactorDist\Symfony\Component\Process\Exception\ProcessTimedOutException;
+use PhpactorDist\Symfony\Component\Process\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Process\Pipes\PipesInterface;
+use PhpactorDist\Symfony\Component\Process\Pipes\UnixPipes;
+use PhpactorDist\Symfony\Component\Process\Pipes\WindowsPipes;
 /**
  * Process is a thin wrapper around proc_* functions to easily
  * start independent PHP processes.

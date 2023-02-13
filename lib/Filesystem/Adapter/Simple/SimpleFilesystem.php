@@ -6,12 +6,12 @@ use Phpactor\Filesystem\Domain\Filesystem;
 use Phpactor\Filesystem\Domain\FileList;
 use Phpactor\Filesystem\Domain\FilePath;
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
+use PhpactorDist\Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Phpactor\Filesystem\Domain\FileListProvider;
 use Phpactor\Filesystem\Domain\CopyReport;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class SimpleFilesystem implements Filesystem
 {
     private FilePath $path;

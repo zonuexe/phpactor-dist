@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Position;
@@ -13,7 +13,7 @@ use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionScope as TolerantReflectionScope;
-class ReflectionObjectCreationExpression implements PhpactorReflectionObjectCreationExpression
+class ReflectionObjectCreationExpression implements PhpactorReflectionObjectCreationExpression, \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ClassInvocation
 {
     public function __construct(private ServiceLocator $locator, private Frame $frame, private ObjectCreationExpression $node)
     {

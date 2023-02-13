@@ -3,8 +3,8 @@
 namespace Phpactor\Completion\Bridge\TolerantParser;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\Completion\Core\Completor;
 use Phpactor\Completion\Core\Util\OffsetHelper;
 use Phpactor\TextDocument\ByteOffset;

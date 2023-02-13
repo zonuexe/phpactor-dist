@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
 /**
  * Represents a displayable node in the AST.
@@ -18,4 +18,4 @@ namespace Phpactor202301\Twig\Node;
 interface NodeOutputInterface
 {
 }
-\class_alias('Phpactor202301\\Twig\\Node\\NodeOutputInterface', 'Phpactor202301\\Twig_NodeOutputInterface');
+\class_alias('PhpactorDist\\Twig\\Node\\NodeOutputInterface', 'PhpactorDist\\Twig_NodeOutputInterface');

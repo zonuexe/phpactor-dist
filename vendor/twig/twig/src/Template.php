@@ -9,11 +9,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Error\Error;
-use Phpactor202301\Twig\Error\LoaderError;
-use Phpactor202301\Twig\Error\RuntimeError;
+use PhpactorDist\Twig\Error\Error;
+use PhpactorDist\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Error\RuntimeError;
 /**
  * Default base class for compiled templates.
  *
@@ -383,4 +383,4 @@ abstract class Template
      */
     protected abstract function doDisplay(array $context, array $blocks = []);
 }
-\class_alias('Phpactor202301\\Twig\\Template', 'Phpactor202301\\Twig_Template');
+\class_alias('PhpactorDist\\Twig\\Template', 'PhpactorDist\\Twig_Template');

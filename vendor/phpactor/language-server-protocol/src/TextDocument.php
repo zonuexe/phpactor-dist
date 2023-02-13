@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -47,14 +47,14 @@ class TextDocument
      */
     public function __construct(string $uri, string $languageId, int $version, int $lineCount)
     {
-        $this->uri = $uri;
+        $this->uri = \urldecode($uri);
         $this->languageId = $languageId;
         $this->version = $version;
         $this->lineCount = $lineCount;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

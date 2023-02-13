@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\WorkDoneProgress;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\ClientCapabilities;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 final class ClientCapabilityDependentProgressNotifier implements \Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier
@@ -42,7 +42,7 @@ final class ClientCapabilityDependentProgressNotifier implements \Phpactor\Langu
     }
     private function createNotifier(ClientApi $api, ClientCapabilities $capabilities) : \Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier
     {
-        if ($capabilities->window['workDoneProgress'] ?? \false) {
+        if ($capabilities->window->workDoneProgress ?? \false) {
             return new \Phpactor\LanguageServer\WorkDoneProgress\WorkDoneProgressNotifier($api);
         }
         return new \Phpactor\LanguageServer\WorkDoneProgress\MessageProgressNotifier($api);

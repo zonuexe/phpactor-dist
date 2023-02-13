@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math\Exception;
+namespace PhpactorDist\Brick\Math\Exception;
 
 /**
  * Exception thrown when a number cannot be represented at the requested scale without rounding.

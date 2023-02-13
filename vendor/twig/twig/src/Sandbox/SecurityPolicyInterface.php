@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Sandbox;
+namespace PhpactorDist\Twig\Sandbox;
 
 /**
  * Interface that all security policy classes must implements.
@@ -40,4 +40,4 @@ interface SecurityPolicyInterface
      */
     public function checkPropertyAllowed($obj, $property);
 }
-\class_alias('Phpactor202301\\Twig\\Sandbox\\SecurityPolicyInterface', 'Phpactor202301\\Twig_Sandbox_SecurityPolicyInterface');
+\class_alias('PhpactorDist\\Twig\\Sandbox\\SecurityPolicyInterface', 'PhpactorDist\\Twig_Sandbox_SecurityPolicyInterface');

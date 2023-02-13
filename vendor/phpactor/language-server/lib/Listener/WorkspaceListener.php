@@ -6,7 +6,7 @@ use Phpactor\LanguageServer\Core\Workspace\Workspace;
 use Phpactor\LanguageServer\Event\TextDocumentClosed;
 use Phpactor\LanguageServer\Event\TextDocumentOpened;
 use Phpactor\LanguageServer\Event\TextDocumentUpdated;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class WorkspaceListener implements ListenerProviderInterface
 {
     /**

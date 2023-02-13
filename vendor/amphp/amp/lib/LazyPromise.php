@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 /**
  * Creates a promise that calls $promisor only when the result of the promise is requested (i.e. onResolve() is called

@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\ComposerAutoloader;
 
-use Phpactor202301\Composer\Autoload\ClassLoader;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Composer\Autoload\ClassLoader;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class ClassLoaderFactory
 {
     public function __construct(private string $composerDir, private LoggerInterface $logger)

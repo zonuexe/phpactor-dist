@@ -9,7 +9,7 @@ use Phpactor\Filesystem\Adapter\Simple\SimpleFilesystem;
 use Phpactor\Filesystem\Domain\CopyReport;
 use Phpactor\Filesystem\Domain\Exception\NotSupported;
 use SplFileInfo;
-use Phpactor202301\Symfony\Component\Process\Process;
+use PhpactorDist\Symfony\Component\Process\Process;
 use ArrayIterator;
 use InvalidArgumentException;
 class GitFilesystem extends SimpleFilesystem

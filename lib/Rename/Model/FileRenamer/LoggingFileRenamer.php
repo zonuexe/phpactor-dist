@@ -2,11 +2,11 @@
 
 namespace Phpactor\Rename\Model\FileRenamer;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Rename\Model\FileRenamer;
 use Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\call;
 class LoggingFileRenamer implements FileRenamer
 {
     public function __construct(private FileRenamer $innerRenamer, private LoggerInterface $logger)

@@ -2,7 +2,7 @@
 
 namespace Phpactor\AmpFsWatch;
 
-use Phpactor202301\Webmozart\PathUtil\Path;
+use PhpactorDist\Webmozart\PathUtil\Path;
 class ModifiedFile
 {
     const TYPE_FILE = 'file';

@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 class DidChangeWatchedFilesClientCapabilities
@@ -17,19 +17,28 @@ class DidChangeWatchedFilesClientCapabilities
      */
     public $dynamicRegistration;
     /**
-     * @param bool|null $dynamicRegistration
+     * Whether the client has support for {@link  RelativePattern relative pattern}
+     * or not.
+     *
+     * @var bool|null
      */
-    public function __construct(?bool $dynamicRegistration = null)
+    public $relativePatternSupport;
+    /**
+     * @param bool|null $dynamicRegistration
+     * @param bool|null $relativePatternSupport
+     */
+    public function __construct(?bool $dynamicRegistration = null, ?bool $relativePatternSupport = null)
     {
         $this->dynamicRegistration = $dynamicRegistration;
+        $this->relativePatternSupport = $relativePatternSupport;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['dynamicRegistration' => ['names' => [], 'iterable' => \false]];
+        $map = ['dynamicRegistration' => ['names' => [], 'iterable' => \false], 'relativePatternSupport' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

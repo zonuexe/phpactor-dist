@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Cache;
+namespace PhpactorDist\Amp\Cache;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 /**
  * Cache implementation that just ignores all operations and always resolves to `null`.
  */

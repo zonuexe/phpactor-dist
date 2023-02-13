@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerIndexer\Handler;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerIndexer\Model\WorkspaceSymbolProvider;
 use Phpactor\LanguageServerProtocol\ServerCapabilities;
 use Phpactor\LanguageServerProtocol\SymbolInformation;
@@ -23,7 +23,7 @@ class WorkspaceSymbolHandler implements Handler, CanRegisterCapabilities
      */
     public function symbol(WorkspaceSymbolParams $params) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($params) {
+        return \PhpactorDist\Amp\call(function () use($params) {
             return $this->provider->provideFor($params->query);
         });
     }

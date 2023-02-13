@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Internal;
+namespace PhpactorDist\Amp\Internal;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 /**
  * Wraps a Promise instance that has public methods to resolve and fail the promise into an object that only allows
  * access to the public API methods.

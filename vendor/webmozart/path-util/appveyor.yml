@@ -1,13 +1,13 @@
 build: false
 shallow_clone: true
 platform: x86
-clone_folder: c:\Phpactor202301\projects\webmozart\path-util
+clone_folder: c:\PhpactorDist\projects\webmozart\path-util
 
 cache:
-  - '%LOCALAPPDATA%\Phpactor202301\Composer\files'
+  - '%LOCALAPPDATA%\PhpactorDist\Composer\files'
 
 init:
-  - SET PATH=C:\Program Phpactor202301\Files\OpenSSL;c:\Phpactor202301\tools\php;%PATH%
+  - SET PATH=C:\Program PhpactorDist\Files\OpenSSL;c:\PhpactorDist\tools\php;%PATH%
 
 environment:
   matrix:
@@ -17,7 +17,7 @@ environment:
 install:
   - cinst -y OpenSSL.Light
   - cinst -y php
-  - cd c:\Phpactor202301\tools\php
+  - cd c:\PhpactorDist\tools\php
   - copy php.ini-production php.ini /Y
   - echo date.timezone="UTC" >> php.ini
   - echo extension_dir=ext >> php.ini
@@ -25,10 +25,10 @@ install:
   - echo extension=php_mbstring.dll >> php.ini
   - echo extension=php_fileinfo.dll >> php.ini
   - echo memory_limit=1G >> php.ini
-  - cd c:\Phpactor202301\projects\webmozart\path-util
+  - cd c:\PhpactorDist\projects\webmozart\path-util
   - php -r "readfile('http://getcomposer.org/installer');" | php
   - php composer.phar update %COMPOSER_FLAGS% --no-interaction --no-progress
 
 test_script:
-  - cd c:\Phpactor202301\projects\webmozart\path-util
-  - Phpactor202301\vendor\bin\phpunit.bat --verbose
+  - cd c:\PhpactorDist\projects\webmozart\path-util
+  - PhpactorDist\vendor\bin\phpunit.bat --verbose

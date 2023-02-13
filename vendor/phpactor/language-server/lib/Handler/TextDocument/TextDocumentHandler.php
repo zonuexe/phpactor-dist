@@ -15,7 +15,7 @@ use Phpactor\LanguageServer\Event\TextDocumentClosed;
 use Phpactor\LanguageServer\Event\TextDocumentOpened;
 use Phpactor\LanguageServer\Event\TextDocumentSaved;
 use Phpactor\LanguageServer\Event\TextDocumentUpdated;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
 final class TextDocumentHandler implements Handler, CanRegisterCapabilities
 {
     /**

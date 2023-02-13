@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 final class PrefixedKeyedSemaphore implements KeyedSemaphore
 {
     /** @var KeyedSemaphore */

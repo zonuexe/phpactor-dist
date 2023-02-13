@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\CodeTransform\Domain\Transformer;
 use Phpactor\CodeTransform\Domain\Transformers;

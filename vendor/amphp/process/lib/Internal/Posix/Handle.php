@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Posix;
+namespace PhpactorDist\Amp\Process\Internal\Posix;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Process\Internal\ProcessHandle;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Process\Internal\ProcessHandle;
 /** @internal */
 final class Handle extends ProcessHandle
 {

@@ -7,9 +7,9 @@ use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor\CodeBuilder\Domain\Prototype\Prototype;
 use Phpactor\CodeBuilder\Domain\Renderer;
 use Phpactor\CodeBuilder\Util\TextFormat;
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Loader\FilesystemLoader;
-use Phpactor202301\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Loader\FilesystemLoader;
+use PhpactorDist\Twig\Error\LoaderError;
 final class TwigRenderer implements Renderer
 {
     private Environment $twig;

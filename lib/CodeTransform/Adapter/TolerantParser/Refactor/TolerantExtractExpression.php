@@ -2,12 +2,12 @@
 
 namespace Phpactor\CodeTransform\Adapter\TolerantParser\Refactor;
 
-use Phpactor202301\Microsoft\PhpParser\FunctionLike;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\StatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\FunctionLike;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\StatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\Refactor\ExtractExpression;
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\TextDocument\TextEdit;

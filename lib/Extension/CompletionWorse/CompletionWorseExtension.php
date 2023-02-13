@@ -81,11 +81,9 @@ class CompletionWorseExtension implements Extension
     {
         $completors = \array_merge($this->getOtherCompletors(), $this->getTolerantCompletors());
         $defaults = \array_combine(\array_map(fn(string $key) => $this->completorEnabledKey($key), \array_keys($completors)), \array_map(fn(string $key) => \true, \array_keys($completors)));
-        /** @phpstan-ignore-next-line */
         $defaults['completion_worse.completor.constant.enabled'] = \false;
         $schema->setDefaults(\array_merge($defaults, [self::PARAM_CLASS_COMPLETOR_LIMIT => 100, self::PARAM_NAME_COMPLETION_PRIORITY => self::NAME_SEARCH_STRATEGY_PROXIMITY, self::PARAM_SNIPPETS => \true, self::PARAM_EXPERIMENTAL => \false, self::PARAM_DEBUG => \false]));
         $descriptions = \array_combine(\array_map(fn(string $key) => \sprintf('completion_worse.completor.%s.enabled', $key), \array_keys($completors)), \array_map(fn(string $key, array $pair) => \sprintf("Enable or disable the ``%s`` completor.\n\n%s.", $key, $pair[0]), \array_keys($completors), $completors));
-        /** @phpstan-ignore-next-line */
         $schema->setDescriptions(\array_merge($descriptions, [self::PARAM_DEBUG => 'Include debug info in completion results', self::PARAM_SNIPPETS => 'Enable or disable completion snippets', self::PARAM_EXPERIMENTAL => 'Enable experimental functionality', self::PARAM_CLASS_COMPLETOR_LIMIT => 'Suggestion limit for the filesystem based SCF class_completor', self::PARAM_NAME_COMPLETION_PRIORITY => <<<EOT
 Strategy to use when ordering completion results for classes and functions:
 

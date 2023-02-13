@@ -9,10 +9,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\IncludeNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\IncludeNode;
+use PhpactorDist\Twig\Token;
 /**
  * Includes a template.
  *
@@ -71,4 +71,4 @@ class IncludeTokenParser extends AbstractTokenParser
         return 'include';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\IncludeTokenParser', 'Phpactor202301\\Twig_TokenParser_Include');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\IncludeTokenParser', 'PhpactorDist\\Twig_TokenParser_Include');

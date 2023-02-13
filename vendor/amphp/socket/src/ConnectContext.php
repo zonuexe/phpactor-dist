@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\Dns\Record;
-use function Phpactor202301\Amp\Socket\Internal\normalizeBindToOption;
+use PhpactorDist\Amp\Dns\Record;
+use function PhpactorDist\Amp\Socket\Internal\normalizeBindToOption;
 final class ConnectContext
 {
     /** @var string|null */

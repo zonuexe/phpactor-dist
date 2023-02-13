@@ -8,21 +8,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Command;
+namespace PhpactorDist\Symfony\Component\Console\Command;
 
-use Phpactor202301\Symfony\Component\Console\Application;
-use Phpactor202301\Symfony\Component\Console\Attribute\AsCommand;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionInput;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionSuggestions;
-use Phpactor202301\Symfony\Component\Console\Exception\ExceptionInterface;
-use Phpactor202301\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Console\Exception\LogicException;
-use Phpactor202301\Symfony\Component\Console\Helper\HelperSet;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputDefinition;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Application;
+use PhpactorDist\Symfony\Component\Console\Attribute\AsCommand;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionInput;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionSuggestions;
+use PhpactorDist\Symfony\Component\Console\Exception\ExceptionInterface;
+use PhpactorDist\Symfony\Component\Console\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Console\Exception\LogicException;
+use PhpactorDist\Symfony\Component\Console\Helper\HelperSet;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputDefinition;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 /**
  * Base class for all commands.
  *
@@ -237,7 +237,7 @@ class Command
                         \cli_set_process_title($this->processTitle);
                     }
                 }
-            } elseif (\function_exists('Phpactor202301\\setproctitle')) {
+            } elseif (\function_exists('PhpactorDist\\setproctitle')) {
                 setproctitle($this->processTitle);
             } elseif (OutputInterface::VERBOSITY_VERY_VERBOSE === $output->getVerbosity()) {
                 $output->writeln('<comment>Install the proctitle PECL to be able to change the process title.</comment>');

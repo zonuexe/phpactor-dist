@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
 /**
  * Adds a check for the __toString() method when the variable is an object and the sandbox is activated.
  *
@@ -36,4 +36,4 @@ class SandboxedPrintNode extends PrintNode
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\SandboxedPrintNode', 'Phpactor202301\\Twig_Node_SandboxedPrint');
+\class_alias('PhpactorDist\\Twig\\Node\\SandboxedPrintNode', 'PhpactorDist\\Twig_Node_SandboxedPrint');

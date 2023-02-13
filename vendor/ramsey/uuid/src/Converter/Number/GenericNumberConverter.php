@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Converter\Number;
+namespace PhpactorDist\Ramsey\Uuid\Converter\Number;
 
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Math\CalculatorInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Math\CalculatorInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 /**
  * GenericNumberConverter uses the provided calculator to convert decimal
  * numbers to and from hexadecimal values

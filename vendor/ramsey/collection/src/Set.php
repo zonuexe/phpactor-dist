@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection;
+namespace PhpactorDist\Ramsey\Collection;
 
 /**
  * A set is a collection that contains no duplicate elements.

@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Type;
+namespace PhpactorDist\Ramsey\Uuid\Type;
 
 /**
  * NumberInterface ensures consistency in numeric values returned by ramsey/uuid

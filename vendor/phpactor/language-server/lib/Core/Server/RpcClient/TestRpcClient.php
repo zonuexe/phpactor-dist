@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Server\RpcClient;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Server\ResponseWatcher\TestResponseWatcher;
 use Phpactor\LanguageServer\Core\Server\RpcClient;
 use Phpactor\LanguageServer\Core\Server\Transmitter\TestMessageTransmitter;

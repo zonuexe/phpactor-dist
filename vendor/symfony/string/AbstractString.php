@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\String;
+namespace PhpactorDist\Symfony\Component\String;
 
-use Phpactor202301\Symfony\Component\String\Exception\ExceptionInterface;
-use Phpactor202301\Symfony\Component\String\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\String\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\String\Exception\ExceptionInterface;
+use PhpactorDist\Symfony\Component\String\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\String\Exception\RuntimeException;
 /**
  * Represents a string of abstract characters.
  *

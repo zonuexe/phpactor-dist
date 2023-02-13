@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 class ReflectionMethodCall extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionMethodCall

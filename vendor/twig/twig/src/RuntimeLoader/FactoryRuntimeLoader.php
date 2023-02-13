@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\RuntimeLoader;
+namespace PhpactorDist\Twig\RuntimeLoader;
 
 /**
  * Lazy loads the runtime implementations for a Twig element.
@@ -33,4 +33,4 @@ class FactoryRuntimeLoader implements RuntimeLoaderInterface
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\RuntimeLoader\\FactoryRuntimeLoader', 'Phpactor202301\\Twig_FactoryRuntimeLoader');
+\class_alias('PhpactorDist\\Twig\\RuntimeLoader\\FactoryRuntimeLoader', 'PhpactorDist\\Twig_FactoryRuntimeLoader');

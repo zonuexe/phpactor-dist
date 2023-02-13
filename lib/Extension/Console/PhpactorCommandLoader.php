@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\Console;
 
-use Phpactor202301\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+use PhpactorDist\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 class PhpactorCommandLoader extends ContainerCommandLoader
 {
     public function get(string $name)

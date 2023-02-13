@@ -1,20 +1,20 @@
 <?php
 
-namespace Phpactor202301\Amp\Dns;
+namespace PhpactorDist\Amp\Dns;
 
-use Phpactor202301\Amp\Cache\ArrayCache;
-use Phpactor202301\Amp\Cache\Cache;
-use Phpactor202301\Amp\Dns\Internal\Socket;
-use Phpactor202301\Amp\Dns\Internal\TcpSocket;
-use Phpactor202301\Amp\Dns\Internal\UdpSocket;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\MultiReasonException;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\LibDNS\Messages\Message;
-use Phpactor202301\LibDNS\Records\Question;
-use Phpactor202301\LibDNS\Records\QuestionFactory;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Cache\ArrayCache;
+use PhpactorDist\Amp\Cache\Cache;
+use PhpactorDist\Amp\Dns\Internal\Socket;
+use PhpactorDist\Amp\Dns\Internal\TcpSocket;
+use PhpactorDist\Amp\Dns\Internal\UdpSocket;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\MultiReasonException;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\LibDNS\Messages\Message;
+use PhpactorDist\LibDNS\Records\Question;
+use PhpactorDist\LibDNS\Records\QuestionFactory;
+use function PhpactorDist\Amp\call;
 final class Rfc1035StubResolver implements Resolver
 {
     const CACHE_PREFIX = "amphp.dns.";

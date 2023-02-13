@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Cache;
+namespace PhpactorDist\Amp\Cache;
 
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Struct;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Struct;
+use PhpactorDist\Amp\Success;
 final class ArrayCache implements Cache
 {
     /** @var object */

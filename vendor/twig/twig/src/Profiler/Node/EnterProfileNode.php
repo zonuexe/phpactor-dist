@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler\Node;
+namespace PhpactorDist\Twig\Profiler\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Represents a profile enter node.
  *
@@ -28,4 +28,4 @@ class EnterProfileNode extends Node
         $compiler->write(\sprintf('$%s = $this->extensions[', $this->getAttribute('var_name')))->repr($this->getAttribute('extension_name'))->raw("];\n")->write(\sprintf('$%s->enter($%s = new \\Twig\\Profiler\\Profile($this->getTemplateName(), ', $this->getAttribute('var_name'), $this->getAttribute('var_name') . '_prof'))->repr($this->getAttribute('type'))->raw(', ')->repr($this->getAttribute('name'))->raw("));\n\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\Node\\EnterProfileNode', 'Phpactor202301\\Twig_Profiler_Node_EnterProfile');
+\class_alias('PhpactorDist\\Twig\\Profiler\\Node\\EnterProfileNode', 'PhpactorDist\\Twig_Profiler_Node_EnterProfile');

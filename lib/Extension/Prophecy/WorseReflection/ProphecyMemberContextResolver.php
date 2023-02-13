@@ -16,11 +16,11 @@ use Phpactor\WorseReflection\Core\Virtual\VirtualReflectionMethod;
 use Phpactor\WorseReflection\Reflector;
 class ProphecyMemberContextResolver implements MemberContextResolver
 {
-    const PROPHECY_CLASS = 'Phpactor202301\\Prophecy\\Prophecy\\ProphecyInterface';
+    const PROPHECY_CLASS = 'PhpactorDist\\Prophecy\\Prophecy\\ProphecyInterface';
     public function resolveMemberContext(Reflector $reflector, ReflectionMember $member, ?FunctionArguments $arguments) : ?Type
     {
         $memberType = $member->inferredType();
-        if ($memberType instanceof GenericClassType && $memberType->instanceof(TypeFactory::reflectedClass($reflector, 'Phpactor202301\\Prophecy\\Prophecy\\ObjectProphecy'))->isTrue()) {
+        if ($memberType instanceof GenericClassType && $memberType->instanceof(TypeFactory::reflectedClass($reflector, 'PhpactorDist\\Prophecy\\Prophecy\\ObjectProphecy'))->isTrue()) {
             return $this->fromGeneric($reflector, $memberType);
         }
         return $this->fromProphesize($reflector, $member, $arguments);
@@ -41,7 +41,7 @@ class ProphecyMemberContextResolver implements MemberContextResolver
             return null;
         }
         $innerType = TypeFactory::class($arg->className());
-        $type = new GenericClassType($reflector, ClassName::fromString('Phpactor202301\\Prophecy\\Prophecy\\ObjectProphecy'), [$innerType]);
+        $type = new GenericClassType($reflector, ClassName::fromString('PhpactorDist\\Prophecy\\Prophecy\\ObjectProphecy'), [$innerType]);
         return $this->fromGeneric($reflector, $type);
     }
     private function fromGeneric(Reflector $reflector, GenericClassType $type) : Type
@@ -55,7 +55,7 @@ class ProphecyMemberContextResolver implements MemberContextResolver
             if (!$member instanceof ReflectionMethod) {
                 return $member;
             }
-            return VirtualReflectionMethod::fromReflectionMethod($member)->withInferredType(new GenericClassType($reflector, ClassName::fromString('Phpactor202301\\Prophecy\\Prophecy\\MethodProphecy'), [$member->inferredType()]));
+            return VirtualReflectionMethod::fromReflectionMethod($member)->withInferredType(new GenericClassType($reflector, ClassName::fromString('PhpactorDist\\Prophecy\\Prophecy\\MethodProphecy'), [$member->inferredType()]));
         }));
     }
 }

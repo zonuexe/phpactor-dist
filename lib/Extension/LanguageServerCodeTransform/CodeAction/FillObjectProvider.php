@@ -2,9 +2,9 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\CodeTransform\Domain\Refactor\FillObject;
 use Phpactor\Extension\LanguageServerBridge\Converter\RangeConverter;
 use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
@@ -26,7 +26,7 @@ class FillObjectProvider implements CodeActionProvider
         if (\count($edits) === 0) {
             return new Success([]);
         }
-        return new Success([new CodeAction('Fill object', self::KIND, [], \false, new WorkspaceEdit([$textDocument->uri => TextEditConverter::toLspTextEdits($edits, $textDocument->text)]))]);
+        return new Success([new CodeAction(title: 'Fill object', kind: self::KIND, diagnostics: [], isPreferred: \false, edit: new WorkspaceEdit([$textDocument->uri => TextEditConverter::toLspTextEdits($edits, $textDocument->text)]))]);
     }
     public function kinds() : array
     {

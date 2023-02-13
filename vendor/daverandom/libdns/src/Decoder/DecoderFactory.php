@@ -13,21 +13,21 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Decoder;
+namespace PhpactorDist\LibDNS\Decoder;
 
-use Phpactor202301\LibDNS\Packets\PacketFactory;
-use Phpactor202301\LibDNS\Messages\MessageFactory;
-use Phpactor202301\LibDNS\Records\RecordCollectionFactory;
-use Phpactor202301\LibDNS\Records\QuestionFactory;
-use Phpactor202301\LibDNS\Records\ResourceBuilder;
-use Phpactor202301\LibDNS\Records\ResourceFactory;
-use Phpactor202301\LibDNS\Records\RDataBuilder;
-use Phpactor202301\LibDNS\Records\RDataFactory;
-use Phpactor202301\LibDNS\Records\Types\TypeBuilder;
-use Phpactor202301\LibDNS\Records\Types\TypeFactory;
-use Phpactor202301\LibDNS\Records\TypeDefinitions\TypeDefinitionManager;
-use Phpactor202301\LibDNS\Records\TypeDefinitions\TypeDefinitionFactory;
-use Phpactor202301\LibDNS\Records\TypeDefinitions\FieldDefinitionFactory;
+use PhpactorDist\LibDNS\Packets\PacketFactory;
+use PhpactorDist\LibDNS\Messages\MessageFactory;
+use PhpactorDist\LibDNS\Records\RecordCollectionFactory;
+use PhpactorDist\LibDNS\Records\QuestionFactory;
+use PhpactorDist\LibDNS\Records\ResourceBuilder;
+use PhpactorDist\LibDNS\Records\ResourceFactory;
+use PhpactorDist\LibDNS\Records\RDataBuilder;
+use PhpactorDist\LibDNS\Records\RDataFactory;
+use PhpactorDist\LibDNS\Records\Types\TypeBuilder;
+use PhpactorDist\LibDNS\Records\Types\TypeFactory;
+use PhpactorDist\LibDNS\Records\TypeDefinitions\TypeDefinitionManager;
+use PhpactorDist\LibDNS\Records\TypeDefinitions\TypeDefinitionFactory;
+use PhpactorDist\LibDNS\Records\TypeDefinitions\FieldDefinitionFactory;
 /**
  * Creates Decoder objects
  *

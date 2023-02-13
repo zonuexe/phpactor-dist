@@ -10,15 +10,15 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Generator;
+namespace PhpactorDist\Ramsey\Uuid\Generator;
 
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Exception\RandomSourceException;
-use Phpactor202301\Ramsey\Uuid\Exception\TimeSourceException;
-use Phpactor202301\Ramsey\Uuid\Provider\NodeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Provider\TimeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Exception\RandomSourceException;
+use PhpactorDist\Ramsey\Uuid\Exception\TimeSourceException;
+use PhpactorDist\Ramsey\Uuid\Provider\NodeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Provider\TimeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 use Throwable;
 use function dechex;
 use function hex2bin;

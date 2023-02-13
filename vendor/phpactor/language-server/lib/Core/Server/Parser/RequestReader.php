@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Server\Parser;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Rpc\RawMessage;
 interface RequestReader
 {

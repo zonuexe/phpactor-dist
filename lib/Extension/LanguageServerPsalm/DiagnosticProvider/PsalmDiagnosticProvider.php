@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerPsalm\DiagnosticProvider;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerPsalm\Model\Linter;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider;

@@ -10,16 +10,16 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection;
+namespace PhpactorDist\Ramsey\Collection;
 
 use Closure;
-use Phpactor202301\Ramsey\Collection\Exception\CollectionMismatchException;
-use Phpactor202301\Ramsey\Collection\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Collection\Exception\InvalidSortOrderException;
-use Phpactor202301\Ramsey\Collection\Exception\OutOfBoundsException;
-use Phpactor202301\Ramsey\Collection\Tool\TypeTrait;
-use Phpactor202301\Ramsey\Collection\Tool\ValueExtractorTrait;
-use Phpactor202301\Ramsey\Collection\Tool\ValueToStringTrait;
+use PhpactorDist\Ramsey\Collection\Exception\CollectionMismatchException;
+use PhpactorDist\Ramsey\Collection\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Collection\Exception\InvalidSortOrderException;
+use PhpactorDist\Ramsey\Collection\Exception\OutOfBoundsException;
+use PhpactorDist\Ramsey\Collection\Tool\TypeTrait;
+use PhpactorDist\Ramsey\Collection\Tool\ValueExtractorTrait;
+use PhpactorDist\Ramsey\Collection\Tool\ValueToStringTrait;
 use function array_filter;
 use function array_map;
 use function array_merge;

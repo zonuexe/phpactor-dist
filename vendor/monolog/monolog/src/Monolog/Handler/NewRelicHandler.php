@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Utils;
-use Phpactor202301\Monolog\Formatter\NormalizerFormatter;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Utils;
+use PhpactorDist\Monolog\Formatter\NormalizerFormatter;
 /**
  * Class to record a log on a NewRelic application.
  * Enabling New Relic High Security mode may prevent capture of useful information.

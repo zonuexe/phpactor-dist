@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal;
+namespace PhpactorDist\Amp\Process\Internal;
 
-use Phpactor202301\Amp\Process\ProcessException;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Process\ProcessException;
+use PhpactorDist\Amp\Promise;
 interface ProcessRunner
 {
     /**

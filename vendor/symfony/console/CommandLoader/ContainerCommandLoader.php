@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\CommandLoader;
+namespace PhpactorDist\Symfony\Component\Console\CommandLoader;
 
-use Phpactor202301\Psr\Container\ContainerInterface;
-use Phpactor202301\Symfony\Component\Console\Exception\CommandNotFoundException;
+use PhpactorDist\Psr\Container\ContainerInterface;
+use PhpactorDist\Symfony\Component\Console\Exception\CommandNotFoundException;
 /**
  * Loads commands from a PSR-11 container.
  *

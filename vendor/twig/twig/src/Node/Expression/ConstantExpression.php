@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class ConstantExpression extends AbstractExpression
 {
     public function __construct($value, int $lineno)
@@ -23,4 +23,4 @@ class ConstantExpression extends AbstractExpression
         $compiler->repr($this->getAttribute('value'));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\ConstantExpression', 'Phpactor202301\\Twig_Node_Expression_Constant');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\ConstantExpression', 'PhpactorDist\\Twig_Node_Expression_Constant');

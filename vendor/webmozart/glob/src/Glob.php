@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Webmozart\Glob;
+namespace PhpactorDist\Webmozart\Glob;
 
 use InvalidArgumentException;
-use Phpactor202301\Webmozart\Glob\Iterator\GlobIterator;
+use PhpactorDist\Webmozart\Glob\Iterator\GlobIterator;
 /**
  * Searches and matches file paths using Ant-like globs.
  *

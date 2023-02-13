@@ -2,9 +2,9 @@
 
 namespace Phpactor\Extension\LanguageServerIndexer\Watcher;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\AmpFsWatch\ModifiedFileBuilder;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\WatcherProcess;
@@ -12,8 +12,8 @@ use Phpactor\LanguageServerProtocol\ClientCapabilities;
 use Phpactor\LanguageServerProtocol\FileEvent;
 use Phpactor\LanguageServer\Event\FilesChanged;
 use Phpactor\TextDocument\TextDocumentUri;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
+use function PhpactorDist\Amp\call;
 class LanguageServerWatcher implements Watcher, WatcherProcess, ListenerProviderInterface
 {
     /**
@@ -38,7 +38,7 @@ class LanguageServerWatcher implements Watcher, WatcherProcess, ListenerProvider
         if (!$this->clientCapabilities) {
             return new Success(\false);
         }
-        return new Success((bool) ($this->clientCapabilities->workspace['didChangeWatchedFiles'] ?? \false));
+        return new Success((bool) ($this->clientCapabilities?->workspace?->didChangeWatchedFiles ?? \false));
     }
     public function describe() : string
     {

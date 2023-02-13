@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider;
+namespace PhpactorDist\Ramsey\Uuid\Provider;
 
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 /**
  * A node provider retrieves or generates a node ID
  */

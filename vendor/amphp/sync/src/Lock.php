@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
 /**
  * A handle on an acquired lock from a synchronization object.

@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Server\Stream;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Socket\Socket;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Socket\Socket;
 final class SocketDuplexStream implements \Phpactor\LanguageServer\Core\Server\Stream\DuplexStream
 {
     /**

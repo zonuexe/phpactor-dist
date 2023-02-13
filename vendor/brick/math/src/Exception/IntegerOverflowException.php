@@ -1,9 +1,9 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math\Exception;
+namespace PhpactorDist\Brick\Math\Exception;
 
-use Phpactor202301\Brick\Math\BigInteger;
+use PhpactorDist\Brick\Math\BigInteger;
 /**
  * Exception thrown when an integer overflow occurs.
  */

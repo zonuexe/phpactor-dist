@@ -9,10 +9,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Represents a block call node.
  *
@@ -60,4 +60,4 @@ class BlockReferenceExpression extends AbstractExpression
         return $compiler->raw(')');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\BlockReferenceExpression', 'Phpactor202301\\Twig_Node_Expression_BlockReference');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\BlockReferenceExpression', 'PhpactorDist\\Twig_Node_Expression_BlockReference');

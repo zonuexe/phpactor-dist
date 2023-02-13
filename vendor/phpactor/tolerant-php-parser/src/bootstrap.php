@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 /*---------------------------------------------------------------------------------------------
  * Copyright (c) Microsoft Corporation. All rights reserved.

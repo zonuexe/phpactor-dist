@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Rpc\ErrorCodes;
@@ -12,12 +12,12 @@ use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor\LanguageServer\Core\Rpc\ResponseError;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
-use Phpactor202301\Amp\Delayed;
+use PhpactorDist\Amp\Delayed;
 use Phpactor\LanguageServer\Event\WillShutdown;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 use Phpactor\LanguageServer\Adapter\Psr\NullEventDispatcher;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
 final class ShutdownMiddleware implements Middleware
 {
     const METHOD_SHUTDOWN = 'shutdown';

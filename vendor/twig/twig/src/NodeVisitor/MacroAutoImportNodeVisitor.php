@@ -8,17 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\Expression\AssignNameExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\MethodCallExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\ImportNode;
-use Phpactor202301\Twig\Node\ModuleNode;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\Expression\AssignNameExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\MethodCallExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\ImportNode;
+use PhpactorDist\Twig\Node\ModuleNode;
+use PhpactorDist\Twig\Node\Node;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */

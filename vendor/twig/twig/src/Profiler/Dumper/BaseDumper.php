@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler\Dumper;
+namespace PhpactorDist\Twig\Profiler\Dumper;
 
-use Phpactor202301\Twig\Profiler\Profile;
+use PhpactorDist\Twig\Profiler\Profile;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -50,4 +50,4 @@ abstract class BaseDumper
         return $str;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\Dumper\\BaseDumper', 'Phpactor202301\\Twig_Profiler_Dumper_Base');
+\class_alias('PhpactorDist\\Twig\\Profiler\\Dumper\\BaseDumper', 'PhpactorDist\\Twig_Profiler_Dumper_Base');

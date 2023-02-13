@@ -2,20 +2,20 @@
 
 namespace Phpactor\Extension\Logger;
 
-use Phpactor202301\Monolog\Formatter\JsonFormatter;
-use Phpactor202301\Monolog\Formatter\LineFormatter;
-use Phpactor202301\Monolog\Handler\NullHandler;
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\JsonFormatter;
+use PhpactorDist\Monolog\Formatter\LineFormatter;
+use PhpactorDist\Monolog\Handler\NullHandler;
+use PhpactorDist\Monolog\Logger;
 use Phpactor\Extension\Logger\Formatter\FormatterRegistry;
 use Phpactor\Extension\Logger\Formatter\PrettyFormatter;
-use Phpactor202301\Psr\Log\LogLevel;
-use Phpactor202301\Monolog\Handler\StreamHandler;
-use Phpactor202301\Monolog\Handler\FingersCrossedHandler;
+use PhpactorDist\Psr\Log\LogLevel;
+use PhpactorDist\Monolog\Handler\StreamHandler;
+use PhpactorDist\Monolog\Handler\FingersCrossedHandler;
 use Phpactor\Container\Container;
 use Phpactor\Container\Extension;
 use Phpactor\MapResolver\Resolver;
 use Phpactor\Container\ContainerBuilder;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use RuntimeException;
 class LoggingExtension implements Extension
 {

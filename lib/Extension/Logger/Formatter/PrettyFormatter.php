@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\Logger\Formatter;
 
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
-use Phpactor202301\Psr\Log\LogLevel;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Psr\Log\LogLevel;
 class PrettyFormatter implements FormatterInterface
 {
     public function format(array $record)

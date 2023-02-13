@@ -1,12 +1,12 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math;
+namespace PhpactorDist\Brick\Math;
 
-use Phpactor202301\Brick\Math\Exception\DivisionByZeroException;
-use Phpactor202301\Brick\Math\Exception\MathException;
-use Phpactor202301\Brick\Math\Exception\NumberFormatException;
-use Phpactor202301\Brick\Math\Exception\RoundingNecessaryException;
+use PhpactorDist\Brick\Math\Exception\DivisionByZeroException;
+use PhpactorDist\Brick\Math\Exception\MathException;
+use PhpactorDist\Brick\Math\Exception\NumberFormatException;
+use PhpactorDist\Brick\Math\Exception\RoundingNecessaryException;
 /**
  * An arbitrarily large rational number.
  *

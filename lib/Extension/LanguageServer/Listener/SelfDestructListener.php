@@ -4,9 +4,9 @@ namespace Phpactor\Extension\LanguageServer\Listener;
 
 use Phpactor\LanguageServer\Core\Server\Exception\ExitSession;
 use Phpactor\LanguageServer\Event\WillShutdown;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
-use function Phpactor202301\Amp\asyncCall;
-use function Phpactor202301\Amp\delay;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
+use function PhpactorDist\Amp\asyncCall;
+use function PhpactorDist\Amp\delay;
 class SelfDestructListener implements ListenerProviderInterface
 {
     public function __construct(private int $selfDestructTimeout)
@@ -25,6 +25,7 @@ class SelfDestructListener implements ListenerProviderInterface
     public function handleShutdown(WillShutdown $willShutdown) : void
     {
         asyncCall(function () {
+            /** @phpstan-ignore-next-line */
             (yield delay($this->selfDestructTimeout));
             throw new ExitSession(\sprintf('Waited "%s" seconds after shutdown request for exit notification but did not get one so I\'m self destructing.', $this->selfDestructTimeout));
         });

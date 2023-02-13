@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerSymbolProvider\Handler;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\Extension\LanguageServerSymbolProvider\Model\DocumentSymbolProvider;
 use Phpactor\LanguageServerProtocol\DocumentSymbolParams;
 use Phpactor\LanguageServerProtocol\DocumentSymbolRequest;

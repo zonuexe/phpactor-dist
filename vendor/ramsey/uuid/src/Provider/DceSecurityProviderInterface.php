@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider;
+namespace PhpactorDist\Ramsey\Uuid\Provider;
 
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidV2;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV2;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 /**
  * A DCE provider provides access to local domain identifiers for version 2,
  * DCE Security, UUIDs

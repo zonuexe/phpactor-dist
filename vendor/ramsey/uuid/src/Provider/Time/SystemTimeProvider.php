@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider\Time;
+namespace PhpactorDist\Ramsey\Uuid\Provider\Time;
 
-use Phpactor202301\Ramsey\Uuid\Provider\TimeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Time;
+use PhpactorDist\Ramsey\Uuid\Provider\TimeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Time;
 use function gettimeofday;
 /**
  * SystemTimeProvider retrieves the current time using built-in PHP functions

@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Type;
+namespace PhpactorDist\Ramsey\Uuid\Type;
 
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
 use ValueError;
 use function preg_match;
 use function sprintf;

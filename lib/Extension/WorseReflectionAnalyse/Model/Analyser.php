@@ -10,7 +10,7 @@ use Phpactor\WorseReflection\Core\Diagnostic;
 use Phpactor\WorseReflection\Core\Diagnostics;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use RuntimeException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 use Throwable;
 class Analyser
 {

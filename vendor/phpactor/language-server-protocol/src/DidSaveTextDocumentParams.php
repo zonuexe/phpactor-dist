@@ -3,18 +3,18 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * The parameters send in a save text document notification
+ * The parameters sent in a save text document notification
  */
 class DidSaveTextDocumentParams
 {
     /**
-     * The document that was closed.
+     * The document that was saved.
      *
-     * @var VersionedTextDocumentIdentifier
+     * @var TextDocumentIdentifier
      */
     public $textDocument;
     /**
@@ -25,21 +25,21 @@ class DidSaveTextDocumentParams
      */
     public $text;
     /**
-     * @param VersionedTextDocumentIdentifier $textDocument
+     * @param TextDocumentIdentifier $textDocument
      * @param string|null $text
      */
-    public function __construct(\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier $textDocument, ?string $text = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\TextDocumentIdentifier $textDocument, ?string $text = null)
     {
         $this->textDocument = $textDocument;
         $this->text = $text;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier::class], 'iterable' => \false], 'text' => ['names' => [], 'iterable' => \false]];
+        $map = ['textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentIdentifier::class], 'iterable' => \false], 'text' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

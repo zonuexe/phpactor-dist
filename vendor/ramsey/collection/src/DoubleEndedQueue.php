@@ -10,10 +10,10 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection;
+namespace PhpactorDist\Ramsey\Collection;
 
-use Phpactor202301\Ramsey\Collection\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Collection\Exception\NoSuchElementException;
+use PhpactorDist\Ramsey\Collection\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Collection\Exception\NoSuchElementException;
 /**
  * This class provides a basic implementation of `DoubleEndedQueueInterface`, to
  * minimize the effort required to implement this interface.

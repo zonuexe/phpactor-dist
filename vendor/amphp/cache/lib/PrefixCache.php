@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Cache;
+namespace PhpactorDist\Amp\Cache;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 final class PrefixCache implements Cache
 {
     private $cache;

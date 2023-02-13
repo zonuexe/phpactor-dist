@@ -8,27 +8,27 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Cache\CacheInterface;
-use Phpactor202301\Twig\Cache\FilesystemCache;
-use Phpactor202301\Twig\Cache\NullCache;
-use Phpactor202301\Twig\Error\Error;
-use Phpactor202301\Twig\Error\LoaderError;
-use Phpactor202301\Twig\Error\RuntimeError;
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Extension\CoreExtension;
-use Phpactor202301\Twig\Extension\EscaperExtension;
-use Phpactor202301\Twig\Extension\ExtensionInterface;
-use Phpactor202301\Twig\Extension\OptimizerExtension;
-use Phpactor202301\Twig\Loader\ArrayLoader;
-use Phpactor202301\Twig\Loader\ChainLoader;
-use Phpactor202301\Twig\Loader\LoaderInterface;
-use Phpactor202301\Twig\Node\ModuleNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\NodeVisitor\NodeVisitorInterface;
-use Phpactor202301\Twig\RuntimeLoader\RuntimeLoaderInterface;
-use Phpactor202301\Twig\TokenParser\TokenParserInterface;
+use PhpactorDist\Twig\Cache\CacheInterface;
+use PhpactorDist\Twig\Cache\FilesystemCache;
+use PhpactorDist\Twig\Cache\NullCache;
+use PhpactorDist\Twig\Error\Error;
+use PhpactorDist\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Error\RuntimeError;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Extension\CoreExtension;
+use PhpactorDist\Twig\Extension\EscaperExtension;
+use PhpactorDist\Twig\Extension\ExtensionInterface;
+use PhpactorDist\Twig\Extension\OptimizerExtension;
+use PhpactorDist\Twig\Loader\ArrayLoader;
+use PhpactorDist\Twig\Loader\ChainLoader;
+use PhpactorDist\Twig\Loader\LoaderInterface;
+use PhpactorDist\Twig\Node\ModuleNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\NodeVisitor\NodeVisitorInterface;
+use PhpactorDist\Twig\RuntimeLoader\RuntimeLoaderInterface;
+use PhpactorDist\Twig\TokenParser\TokenParserInterface;
 /**
  * Stores the Twig configuration and renders templates.
  *
@@ -870,4 +870,4 @@ class Environment
         $this->optionsHash = \implode(':', [$this->extensionSet->getSignature(), \PHP_MAJOR_VERSION, \PHP_MINOR_VERSION, self::VERSION, (int) $this->debug, $this->baseTemplateClass, (int) $this->strictVariables]);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Environment', 'Phpactor202301\\Twig_Environment');
+\class_alias('PhpactorDist\\Twig\\Environment', 'PhpactorDist\\Twig_Environment');

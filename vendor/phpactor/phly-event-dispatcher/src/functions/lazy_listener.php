@@ -6,9 +6,9 @@
  * @license   https://github.com/phly/phly-event-dispatcher/blob/master/LICENSE.md New BSD License
  */
 declare (strict_types=1);
-namespace Phpactor202301\Phly\EventDispatcher;
+namespace PhpactorDist\Phly\EventDispatcher;
 
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 function lazyListener(ContainerInterface $container, string $service, string $method = null) : LazyListener
 {
     return new LazyListener($container, $service, $method);

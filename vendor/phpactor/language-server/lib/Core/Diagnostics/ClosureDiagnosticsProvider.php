@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Diagnostics;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Closure;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 class ClosureDiagnosticsProvider implements \Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider

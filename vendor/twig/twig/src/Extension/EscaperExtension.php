@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\FileExtensionEscapingStrategy;
-use Phpactor202301\Twig\NodeVisitor\EscaperNodeVisitor;
-use Phpactor202301\Twig\TokenParser\AutoEscapeTokenParser;
-use Phpactor202301\Twig\TwigFilter;
+use PhpactorDist\Twig\FileExtensionEscapingStrategy;
+use PhpactorDist\Twig\NodeVisitor\EscaperNodeVisitor;
+use PhpactorDist\Twig\TokenParser\AutoEscapeTokenParser;
+use PhpactorDist\Twig\TwigFilter;
 final class EscaperExtension extends AbstractExtension
 {
     private $defaultStrategy;
@@ -113,16 +113,16 @@ final class EscaperExtension extends AbstractExtension
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\EscaperExtension', 'Phpactor202301\\Twig_Extension_Escaper');
-namespace Phpactor202301;
+\class_alias('PhpactorDist\\Twig\\Extension\\EscaperExtension', 'PhpactorDist\\Twig_Extension_Escaper');
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Error\RuntimeError;
-use Phpactor202301\Twig\Extension\CoreExtension;
-use Phpactor202301\Twig\Extension\EscaperExtension;
-use Phpactor202301\Twig\Markup;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Error\RuntimeError;
+use PhpactorDist\Twig\Extension\CoreExtension;
+use PhpactorDist\Twig\Extension\EscaperExtension;
+use PhpactorDist\Twig\Markup;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Marks a variable as being safe.
  *

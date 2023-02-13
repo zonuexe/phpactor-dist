@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Math;
+namespace PhpactorDist\Ramsey\Uuid\Math;
 
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Phpactor202301\Ramsey\Uuid\Type\NumberInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Type\NumberInterface;
 /**
  * A calculator performs arithmetic operations on numbers
  *

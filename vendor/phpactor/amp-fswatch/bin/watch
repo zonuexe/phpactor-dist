@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Loop;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Loop;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\WatcherConfig;
 use Phpactor\AmpFsWatch\Watcher\Fallback\FallbackWatcher;
@@ -13,7 +13,7 @@ use Phpactor\AmpFsWatch\Watcher\Inotify\InotifyWatcher;
 use Phpactor\AmpFsWatch\Watcher\Null\NullWatcher;
 use Phpactor\AmpFsWatch\Watcher\PatternMatching\PatternMatchingWatcher;
 use Phpactor\AmpFsWatch\Watcher\PhpPollWatcher\PhpPollWatcher;
-use Phpactor202301\Psr\Log\AbstractLogger;
+use PhpactorDist\Psr\Log\AbstractLogger;
 require __DIR__ . '/../vendor/autoload.php';
 echo "This is a demo application\n";
 if (!isset($argv[1])) {

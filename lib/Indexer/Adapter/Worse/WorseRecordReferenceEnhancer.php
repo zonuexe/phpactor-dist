@@ -9,7 +9,7 @@ use Phpactor\Indexer\Model\Record\MemberRecord;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use Phpactor\WorseReflection\Core\Type\ClassType;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use Safe\Exceptions\FilesystemException;
 use function Safe\file_get_contents;
 class WorseRecordReferenceEnhancer implements RecordReferenceEnhancer

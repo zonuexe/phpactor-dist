@@ -2,9 +2,9 @@
 
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\CodeBuilder\Util\TextFormat;
 use Phpactor\TextDocument\TextEdit;
 use Phpactor\TextDocument\TextEdits;

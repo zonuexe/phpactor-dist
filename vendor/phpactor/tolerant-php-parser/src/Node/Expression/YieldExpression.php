@@ -4,11 +4,11 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node\Expression;
+namespace PhpactorDist\Microsoft\PhpParser\Node\Expression;
 
-use Phpactor202301\Microsoft\PhpParser\Node\ArrayElement;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\ArrayElement;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Token;
 class YieldExpression extends Expression
 {
     /** @var Token */

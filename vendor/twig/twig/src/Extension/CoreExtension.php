@@ -8,69 +8,69 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\ExpressionParser;
-use Phpactor202301\Twig\Node\Expression\Binary\AddBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\AndBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\BitwiseAndBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\BitwiseOrBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\BitwiseXorBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\ConcatBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\DivBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\EndsWithBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\EqualBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\FloorDivBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\GreaterBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\GreaterEqualBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\InBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\LessBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\LessEqualBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\MatchesBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\ModBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\MulBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\NotEqualBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\NotInBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\OrBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\PowerBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\RangeBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\SpaceshipBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\StartsWithBinary;
-use Phpactor202301\Twig\Node\Expression\Binary\SubBinary;
-use Phpactor202301\Twig\Node\Expression\Filter\DefaultFilter;
-use Phpactor202301\Twig\Node\Expression\NullCoalesceExpression;
-use Phpactor202301\Twig\Node\Expression\Test\ConstantTest;
-use Phpactor202301\Twig\Node\Expression\Test\DefinedTest;
-use Phpactor202301\Twig\Node\Expression\Test\DivisiblebyTest;
-use Phpactor202301\Twig\Node\Expression\Test\EvenTest;
-use Phpactor202301\Twig\Node\Expression\Test\NullTest;
-use Phpactor202301\Twig\Node\Expression\Test\OddTest;
-use Phpactor202301\Twig\Node\Expression\Test\SameasTest;
-use Phpactor202301\Twig\Node\Expression\Unary\NegUnary;
-use Phpactor202301\Twig\Node\Expression\Unary\NotUnary;
-use Phpactor202301\Twig\Node\Expression\Unary\PosUnary;
-use Phpactor202301\Twig\NodeVisitor\MacroAutoImportNodeVisitor;
-use Phpactor202301\Twig\TokenParser\ApplyTokenParser;
-use Phpactor202301\Twig\TokenParser\BlockTokenParser;
-use Phpactor202301\Twig\TokenParser\DeprecatedTokenParser;
-use Phpactor202301\Twig\TokenParser\DoTokenParser;
-use Phpactor202301\Twig\TokenParser\EmbedTokenParser;
-use Phpactor202301\Twig\TokenParser\ExtendsTokenParser;
-use Phpactor202301\Twig\TokenParser\FilterTokenParser;
-use Phpactor202301\Twig\TokenParser\FlushTokenParser;
-use Phpactor202301\Twig\TokenParser\ForTokenParser;
-use Phpactor202301\Twig\TokenParser\FromTokenParser;
-use Phpactor202301\Twig\TokenParser\IfTokenParser;
-use Phpactor202301\Twig\TokenParser\ImportTokenParser;
-use Phpactor202301\Twig\TokenParser\IncludeTokenParser;
-use Phpactor202301\Twig\TokenParser\MacroTokenParser;
-use Phpactor202301\Twig\TokenParser\SetTokenParser;
-use Phpactor202301\Twig\TokenParser\SpacelessTokenParser;
-use Phpactor202301\Twig\TokenParser\UseTokenParser;
-use Phpactor202301\Twig\TokenParser\WithTokenParser;
-use Phpactor202301\Twig\TwigFilter;
-use Phpactor202301\Twig\TwigFunction;
-use Phpactor202301\Twig\TwigTest;
+use PhpactorDist\Twig\ExpressionParser;
+use PhpactorDist\Twig\Node\Expression\Binary\AddBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\AndBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\BitwiseAndBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\BitwiseOrBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\BitwiseXorBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\ConcatBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\DivBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\EndsWithBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\EqualBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\FloorDivBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\GreaterBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\GreaterEqualBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\InBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\LessBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\LessEqualBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\MatchesBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\ModBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\MulBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\NotEqualBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\NotInBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\OrBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\PowerBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\RangeBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\SpaceshipBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\StartsWithBinary;
+use PhpactorDist\Twig\Node\Expression\Binary\SubBinary;
+use PhpactorDist\Twig\Node\Expression\Filter\DefaultFilter;
+use PhpactorDist\Twig\Node\Expression\NullCoalesceExpression;
+use PhpactorDist\Twig\Node\Expression\Test\ConstantTest;
+use PhpactorDist\Twig\Node\Expression\Test\DefinedTest;
+use PhpactorDist\Twig\Node\Expression\Test\DivisiblebyTest;
+use PhpactorDist\Twig\Node\Expression\Test\EvenTest;
+use PhpactorDist\Twig\Node\Expression\Test\NullTest;
+use PhpactorDist\Twig\Node\Expression\Test\OddTest;
+use PhpactorDist\Twig\Node\Expression\Test\SameasTest;
+use PhpactorDist\Twig\Node\Expression\Unary\NegUnary;
+use PhpactorDist\Twig\Node\Expression\Unary\NotUnary;
+use PhpactorDist\Twig\Node\Expression\Unary\PosUnary;
+use PhpactorDist\Twig\NodeVisitor\MacroAutoImportNodeVisitor;
+use PhpactorDist\Twig\TokenParser\ApplyTokenParser;
+use PhpactorDist\Twig\TokenParser\BlockTokenParser;
+use PhpactorDist\Twig\TokenParser\DeprecatedTokenParser;
+use PhpactorDist\Twig\TokenParser\DoTokenParser;
+use PhpactorDist\Twig\TokenParser\EmbedTokenParser;
+use PhpactorDist\Twig\TokenParser\ExtendsTokenParser;
+use PhpactorDist\Twig\TokenParser\FilterTokenParser;
+use PhpactorDist\Twig\TokenParser\FlushTokenParser;
+use PhpactorDist\Twig\TokenParser\ForTokenParser;
+use PhpactorDist\Twig\TokenParser\FromTokenParser;
+use PhpactorDist\Twig\TokenParser\IfTokenParser;
+use PhpactorDist\Twig\TokenParser\ImportTokenParser;
+use PhpactorDist\Twig\TokenParser\IncludeTokenParser;
+use PhpactorDist\Twig\TokenParser\MacroTokenParser;
+use PhpactorDist\Twig\TokenParser\SetTokenParser;
+use PhpactorDist\Twig\TokenParser\SpacelessTokenParser;
+use PhpactorDist\Twig\TokenParser\UseTokenParser;
+use PhpactorDist\Twig\TokenParser\WithTokenParser;
+use PhpactorDist\Twig\TwigFilter;
+use PhpactorDist\Twig\TwigFunction;
+use PhpactorDist\Twig\TwigTest;
 final class CoreExtension extends AbstractExtension
 {
     private $dateFormats = ['F j, Y H:i', '%d days'];
@@ -235,18 +235,18 @@ final class CoreExtension extends AbstractExtension
         return [['not' => ['precedence' => 50, 'class' => NotUnary::class], '-' => ['precedence' => 500, 'class' => NegUnary::class], '+' => ['precedence' => 500, 'class' => PosUnary::class]], ['or' => ['precedence' => 10, 'class' => OrBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'and' => ['precedence' => 15, 'class' => AndBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'b-or' => ['precedence' => 16, 'class' => BitwiseOrBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'b-xor' => ['precedence' => 17, 'class' => BitwiseXorBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'b-and' => ['precedence' => 18, 'class' => BitwiseAndBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '==' => ['precedence' => 20, 'class' => EqualBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '!=' => ['precedence' => 20, 'class' => NotEqualBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '<=>' => ['precedence' => 20, 'class' => SpaceshipBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '<' => ['precedence' => 20, 'class' => LessBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '>' => ['precedence' => 20, 'class' => GreaterBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '>=' => ['precedence' => 20, 'class' => GreaterEqualBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '<=' => ['precedence' => 20, 'class' => LessEqualBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'not in' => ['precedence' => 20, 'class' => NotInBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'in' => ['precedence' => 20, 'class' => InBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'matches' => ['precedence' => 20, 'class' => MatchesBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'starts with' => ['precedence' => 20, 'class' => StartsWithBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'ends with' => ['precedence' => 20, 'class' => EndsWithBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '..' => ['precedence' => 25, 'class' => RangeBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '+' => ['precedence' => 30, 'class' => AddBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '-' => ['precedence' => 30, 'class' => SubBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '~' => ['precedence' => 40, 'class' => ConcatBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '*' => ['precedence' => 60, 'class' => MulBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '/' => ['precedence' => 60, 'class' => DivBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '//' => ['precedence' => 60, 'class' => FloorDivBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], '%' => ['precedence' => 60, 'class' => ModBinary::class, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'is' => ['precedence' => 100, 'associativity' => ExpressionParser::OPERATOR_LEFT], 'is not' => ['precedence' => 100, 'associativity' => ExpressionParser::OPERATOR_LEFT], '**' => ['precedence' => 200, 'class' => PowerBinary::class, 'associativity' => ExpressionParser::OPERATOR_RIGHT], '??' => ['precedence' => 300, 'class' => NullCoalesceExpression::class, 'associativity' => ExpressionParser::OPERATOR_RIGHT]]];
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\CoreExtension', 'Phpactor202301\\Twig_Extension_Core');
-namespace Phpactor202301;
+\class_alias('PhpactorDist\\Twig\\Extension\\CoreExtension', 'PhpactorDist\\Twig_Extension_Core');
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Error\LoaderError;
-use Phpactor202301\Twig\Error\RuntimeError;
-use Phpactor202301\Twig\Extension\CoreExtension;
-use Phpactor202301\Twig\Extension\SandboxExtension;
-use Phpactor202301\Twig\Markup;
-use Phpactor202301\Twig\Source;
-use Phpactor202301\Twig\Template;
-use Phpactor202301\Twig\TemplateWrapper;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Error\RuntimeError;
+use PhpactorDist\Twig\Extension\CoreExtension;
+use PhpactorDist\Twig\Extension\SandboxExtension;
+use PhpactorDist\Twig\Markup;
+use PhpactorDist\Twig\Source;
+use PhpactorDist\Twig\Template;
+use PhpactorDist\Twig\TemplateWrapper;
 /**
  * Cycles over a value.
  *
@@ -1367,7 +1367,7 @@ function twig_array_reduce(Environment $env, $array, $arrow, $initial = null)
 }
 function twig_check_arrow_in_sandbox(Environment $env, $arrow, $thing, $type)
 {
-    if (!$arrow instanceof \Closure && $env->hasExtension('Phpactor202301\\Twig\\Extension\\SandboxExtension') && $env->getExtension('Phpactor202301\\Twig\\Extension\\SandboxExtension')->isSandboxed()) {
+    if (!$arrow instanceof \Closure && $env->hasExtension('PhpactorDist\\Twig\\Extension\\SandboxExtension') && $env->getExtension('PhpactorDist\\Twig\\Extension\\SandboxExtension')->isSandboxed()) {
         throw new RuntimeError(\sprintf('The callable passed to the "%s" %s must be a Closure in sandbox mode.', $thing, $type));
     }
 }

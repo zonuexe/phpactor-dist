@@ -5,7 +5,7 @@ namespace Phpactor\ObjectRenderer\Adapter\Psr;
 use Phpactor\ObjectRenderer\Model\Exception\ObjectRendererNotFound;
 use Phpactor\ObjectRenderer\Model\ObjectRenderer;
 use Phpactor\ObjectRenderer\Model\ObjectRendererRegistry;
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 class ContainerObectRendererRegistry implements ObjectRendererRegistry
 {
     /**

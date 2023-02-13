@@ -4,10 +4,10 @@ namespace Phpactor\ClassMover\Domain\Name;
 
 class Label
 {
-    private function __construct(private $label)
+    private function __construct(private string $label)
     {
     }
-    public function __toString()
+    public function __toString() : string
     {
         return $this->label;
     }

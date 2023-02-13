@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\WorkDoneProgress;
 
-use Phpactor202301\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Uuid;
 final class WorkDoneToken
 {
     /**

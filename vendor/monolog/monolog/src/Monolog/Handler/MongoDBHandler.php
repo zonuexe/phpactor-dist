@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Formatter\NormalizerFormatter;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Formatter\NormalizerFormatter;
 /**
  * Logs to a MongoDB database.
  *
@@ -28,7 +28,7 @@ class MongoDBHandler extends AbstractProcessingHandler
     protected $mongoCollection;
     public function __construct($mongo, $database, $collection, $level = Logger::DEBUG, $bubble = \true)
     {
-        if (!($mongo instanceof \MongoClient || $mongo instanceof \Mongo || $mongo instanceof \Phpactor202301\MongoDB\Client)) {
+        if (!($mongo instanceof \MongoClient || $mongo instanceof \Mongo || $mongo instanceof \PhpactorDist\MongoDB\Client)) {
             throw new \InvalidArgumentException('MongoClient, Mongo or MongoDB\\Client instance required');
         }
         $this->mongoCollection = $mongo->selectCollection($database, $collection);
@@ -36,7 +36,7 @@ class MongoDBHandler extends AbstractProcessingHandler
     }
     protected function write(array $record)
     {
-        if ($this->mongoCollection instanceof \Phpactor202301\MongoDB\Collection) {
+        if ($this->mongoCollection instanceof \PhpactorDist\MongoDB\Collection) {
             $this->mongoCollection->insertOne($record["formatted"]);
         } else {
             $this->mongoCollection->save($record["formatted"]);

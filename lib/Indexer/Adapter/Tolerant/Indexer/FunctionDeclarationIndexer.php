@@ -2,8 +2,8 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor\Indexer\Adapter\Tolerant\TolerantIndexer;
 use Phpactor\Indexer\Model\Index;
 use Phpactor\TextDocument\ByteOffset;

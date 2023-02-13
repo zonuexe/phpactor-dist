@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler\FingersCrossed;
+namespace PhpactorDist\Monolog\Handler\FingersCrossed;
 
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Logger;
 /**
  * Channel and Error level based monolog activation strategy. Allows to trigger activation
  * based on level per channel. e.g. trigger activation on level 'ERROR' by default, except
@@ -42,7 +42,7 @@ class ChannelLevelActivationStrategy implements ActivationStrategyInterface
     public function __construct($defaultActionLevel, $channelToActionLevel = array())
     {
         $this->defaultActionLevel = Logger::toMonologLevel($defaultActionLevel);
-        $this->channelToActionLevel = \array_map('Phpactor202301\\Monolog\\Logger::toMonologLevel', $channelToActionLevel);
+        $this->channelToActionLevel = \array_map('PhpactorDist\\Monolog\\Logger::toMonologLevel', $channelToActionLevel);
     }
     public function isHandlerActivated(array $record)
     {

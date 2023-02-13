@@ -2,7 +2,7 @@
 
 namespace Phpactor\Container;
 
-use Phpactor202301\Psr\Container\ContainerInterface;
+use PhpactorDist\Psr\Container\ContainerInterface;
 interface Container extends ContainerInterface
 {
     /**

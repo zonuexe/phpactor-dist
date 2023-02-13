@@ -9,9 +9,9 @@
  * the LICENSE file that was distributed with this source code.
  */
 declare (strict_types=1);
-namespace Phpactor202301\Composer\XdebugHandler;
+namespace PhpactorDist\Composer\XdebugHandler;
 
-use Phpactor202301\Composer\Pcre\Preg;
+use PhpactorDist\Composer\Pcre\Preg;
 /**
  * Process utility functions
  *

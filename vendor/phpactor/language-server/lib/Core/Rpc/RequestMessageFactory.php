@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Rpc;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Phpactor\LanguageServer\Core\Rpc\Exception\CouldNotCreateMessage;
 use RuntimeException;
 final class RequestMessageFactory

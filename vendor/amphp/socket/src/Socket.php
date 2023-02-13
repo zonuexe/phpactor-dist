@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\ByteStream\InputStream;
-use Phpactor202301\Amp\ByteStream\OutputStream;
+use PhpactorDist\Amp\ByteStream\InputStream;
+use PhpactorDist\Amp\ByteStream\OutputStream;
 interface Socket extends InputStream, OutputStream
 {
     /**

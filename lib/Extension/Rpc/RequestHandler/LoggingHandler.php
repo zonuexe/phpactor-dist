@@ -5,8 +5,8 @@ namespace Phpactor\Extension\Rpc\RequestHandler;
 use Phpactor\Extension\Rpc\RequestHandler;
 use Phpactor\Extension\Rpc\Response;
 use Phpactor\Extension\Rpc\Request;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\LogLevel;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LogLevel;
 use Phpactor\Extension\Rpc\Response\ErrorResponse;
 class LoggingHandler implements RequestHandler
 {

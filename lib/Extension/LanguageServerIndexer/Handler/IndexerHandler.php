@@ -2,10 +2,10 @@
 
 namespace Phpactor\Extension\LanguageServerIndexer\Handler;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Generator;
 use Phpactor\AmpFsWatch\Exception\WatcherDied;
 use Phpactor\AmpFsWatch\Watcher;
@@ -20,9 +20,9 @@ use Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
 use Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
 use Phpactor\TextDocument\Exception\TextDocumentNotFound;
 use Phpactor\TextDocument\TextDocumentBuilder;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use function Phpactor202301\Amp\asyncCall;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\asyncCall;
 class IndexerHandler implements Handler, ServiceProvider
 {
     const SERVICE_INDEXER = 'indexer';
@@ -48,7 +48,7 @@ class IndexerHandler implements Handler, ServiceProvider
      */
     public function indexer(CancellationToken $cancel) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($cancel) {
+        return \PhpactorDist\Amp\call(function () use($cancel) {
             $job = $this->indexer->getJob();
             $size = $job->size();
             $token = WorkDoneToken::generate();
@@ -80,7 +80,7 @@ class IndexerHandler implements Handler, ServiceProvider
      */
     public function reindex(bool $soft = \false) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($soft) : void {
+        return \PhpactorDist\Amp\call(function () use($soft) : void {
             if (\false === $soft) {
                 $this->indexer->reset();
             }

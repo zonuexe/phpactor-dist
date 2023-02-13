@@ -3,11 +3,11 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\ReferenceFinder;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\ClassInterfaceClause;
-use Phpactor202301\Microsoft\PhpParser\Node\InterfaceBaseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\TraitUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\ClassInterfaceClause;
+use PhpactorDist\Microsoft\PhpParser\Node\InterfaceBaseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\TraitUseClause;
 use Phpactor\Completion\Bridge\TolerantParser\CompletionContext;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
 use Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;

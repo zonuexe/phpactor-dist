@@ -3,11 +3,11 @@
 namespace Phpactor\ClassFileConverter\Adapter\Composer;
 
 use Phpactor\ClassFileConverter\Domain\ClassToFile;
-use Phpactor202301\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\ClassFileConverter\Domain\ClassName;
 use Phpactor\ClassFileConverter\Domain\FilePathCandidates;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 class ComposerClassToFile implements ClassToFile
 {
     private ClassLoader $classLoader;

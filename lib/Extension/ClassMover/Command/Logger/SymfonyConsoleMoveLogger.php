@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\ClassMover\Command\Logger;
 
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor\Filesystem\Domain\FilePath;
 use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 use Phpactor\ClassMover\FoundReferences;

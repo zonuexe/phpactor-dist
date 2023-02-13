@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Style;
+namespace PhpactorDist\Symfony\Component\Console\Style;
 
-use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatterInterface;
-use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use PhpactorDist\Symfony\Component\Console\Helper\ProgressBar;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 /**
  * Decorates output to add console style guide helpers.
  *

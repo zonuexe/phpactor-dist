@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\Diagnostic;
 use Phpactor\WorseReflection\Core\DiagnosticProvider;
 use Phpactor\WorseReflection\Core\Diagnostics;

@@ -2,12 +2,12 @@
 
 namespace Phpactor\ClassFileConverter\Adapter\Composer;
 
-use Phpactor202301\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\ClassFileConverter\Domain\FilePath;
 use Phpactor\ClassFileConverter\Domain\FileToClass;
 use Phpactor\ClassFileConverter\Domain\ClassNameCandidates;
 use InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 final class ComposerFileToClass implements FileToClass
 {
     /**

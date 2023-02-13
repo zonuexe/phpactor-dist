@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Windows;
+namespace PhpactorDist\Amp\Process\Internal\Windows;
 
-use Phpactor202301\Amp\Struct;
+use PhpactorDist\Amp\Struct;
 /**
  * @internal
  * @codeCoverageIgnore Windows only.

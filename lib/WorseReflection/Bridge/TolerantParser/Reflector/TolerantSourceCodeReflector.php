@@ -2,7 +2,7 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflector;
 
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
 use Phpactor\WorseReflection\Core\Diagnostic;
@@ -21,7 +21,7 @@ use Phpactor\WorseReflection\Core\Offset;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionOffset as TolerantReflectionOffset;
 use Phpactor\WorseReflection\Core\Inference\NodeReflector;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as CoreReflectionFunctionCollection;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as TolerantReflectionFunctionCollection;
 class TolerantSourceCodeReflector implements SourceCodeReflector

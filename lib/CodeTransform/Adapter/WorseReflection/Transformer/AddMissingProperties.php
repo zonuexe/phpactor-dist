@@ -2,7 +2,7 @@
 
 namespace Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
 
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\Diagnostic;
 use Phpactor\CodeTransform\Domain\Diagnostics;
 use Phpactor\CodeTransform\Domain\Transformer;

@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Sandbox;
+namespace PhpactorDist\Twig\Sandbox;
 
 /**
  * Exception thrown when a not allowed class property is used in a template.
@@ -45,4 +45,4 @@ class SecurityNotAllowedPropertyError extends SecurityError
         return $this->propertyName;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Sandbox\\SecurityNotAllowedPropertyError', 'Phpactor202301\\Twig_Sandbox_SecurityNotAllowedPropertyError');
+\class_alias('PhpactorDist\\Twig\\Sandbox\\SecurityNotAllowedPropertyError', 'PhpactorDist\\Twig_Sandbox_SecurityNotAllowedPropertyError');

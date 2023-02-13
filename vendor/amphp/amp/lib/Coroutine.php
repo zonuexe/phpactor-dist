@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
 /**
  * Creates a promise from a generator function yielding promises.
  *

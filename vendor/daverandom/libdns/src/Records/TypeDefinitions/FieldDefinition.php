@@ -13,19 +13,19 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Records\TypeDefinitions;
+namespace PhpactorDist\LibDNS\Records\TypeDefinitions;
 
-use Phpactor202301\LibDNS\Records\Types\Type;
-use Phpactor202301\LibDNS\Records\Types\Anything;
-use Phpactor202301\LibDNS\Records\Types\BitMap;
-use Phpactor202301\LibDNS\Records\Types\Char;
-use Phpactor202301\LibDNS\Records\Types\CharacterString;
-use Phpactor202301\LibDNS\Records\Types\DomainName;
-use Phpactor202301\LibDNS\Records\Types\IPv4Address;
-use Phpactor202301\LibDNS\Records\Types\IPv6Address;
-use Phpactor202301\LibDNS\Records\Types\Long;
-use Phpactor202301\LibDNS\Records\Types\Short;
-use Phpactor202301\LibDNS\Records\Types\Types;
+use PhpactorDist\LibDNS\Records\Types\Type;
+use PhpactorDist\LibDNS\Records\Types\Anything;
+use PhpactorDist\LibDNS\Records\Types\BitMap;
+use PhpactorDist\LibDNS\Records\Types\Char;
+use PhpactorDist\LibDNS\Records\Types\CharacterString;
+use PhpactorDist\LibDNS\Records\Types\DomainName;
+use PhpactorDist\LibDNS\Records\Types\IPv4Address;
+use PhpactorDist\LibDNS\Records\Types\IPv6Address;
+use PhpactorDist\LibDNS\Records\Types\Long;
+use PhpactorDist\LibDNS\Records\Types\Short;
+use PhpactorDist\LibDNS\Records\Types\Types;
 /**
  * Defines a field in a type
  *

@@ -2,8 +2,8 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
 use Phpactor\Indexer\Model\Record\ClassRecord;
 use Phpactor\Indexer\Model\Index;
 use Phpactor\TextDocument\TextDocument;

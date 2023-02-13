@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\DTL\Invoke\Internal;
+namespace PhpactorDist\DTL\Invoke\Internal;
 
-use Phpactor202301\DTL\Invoke\Exception\InvalidParameterType;
-use Phpactor202301\DTL\Invoke\Exception\RequiredKeysMissing;
-use Phpactor202301\DTL\Invoke\Exception\UnknownKeys;
+use PhpactorDist\DTL\Invoke\Exception\InvalidParameterType;
+use PhpactorDist\DTL\Invoke\Exception\RequiredKeysMissing;
+use PhpactorDist\DTL\Invoke\Exception\UnknownKeys;
 use ReflectionClass;
 class ArgumentAssert
 {

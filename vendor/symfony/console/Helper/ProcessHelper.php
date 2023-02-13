@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Helper;
+namespace PhpactorDist\Symfony\Component\Console\Helper;
 
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Process\Exception\ProcessFailedException;
-use Phpactor202301\Symfony\Component\Process\Process;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Process\Exception\ProcessFailedException;
+use PhpactorDist\Symfony\Component\Process\Process;
 /**
  * The ProcessHelper class provides helpers to run external processes.
  *

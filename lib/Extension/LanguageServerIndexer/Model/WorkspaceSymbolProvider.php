@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerIndexer\Model;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\Indexer\Model\Query\Criteria;
 use Phpactor\Indexer\Model\Record;
@@ -28,7 +28,7 @@ final class WorkspaceSymbolProvider
      */
     public function provideFor(string $query) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($query) {
+        return \PhpactorDist\Amp\call(function () use($query) {
             $infos = [];
             foreach ($this->client->search(Criteria::shortNameContains($query)) as $count => $record) {
                 if ($count >= $this->limit) {
@@ -45,13 +45,13 @@ final class WorkspaceSymbolProvider
     private function informationFromRecord(Record $record) : ?SymbolInformation
     {
         if ($record instanceof ClassRecord) {
-            return new SymbolInformation($record->fqn()->__toString(), SymbolKind::CLASS_, new Location(TextDocumentUri::fromString($record->filePath()), new Range($this->toLspPosition($record->start(), $record->filePath()), $this->toLspPosition($record->start()->add(\mb_strlen($record->shortName())), $record->filePath()))));
+            return new SymbolInformation(name: $record->fqn()->__toString(), kind: SymbolKind::CLASS_, location: new Location(TextDocumentUri::fromString($record->filePath()), new Range($this->toLspPosition($record->start(), $record->filePath()), $this->toLspPosition($record->start()->add(\mb_strlen($record->shortName())), $record->filePath()))));
         }
         if ($record instanceof FunctionRecord) {
-            return new SymbolInformation($record->fqn()->__toString(), SymbolKind::FUNCTION, new Location(TextDocumentUri::fromString($record->filePath()), new Range($this->toLspPosition($record->start(), $record->filePath()), $this->toLspPosition($record->start()->add(\mb_strlen($record->shortName())), $record->filePath()))));
+            return new SymbolInformation(name: $record->fqn()->__toString(), kind: SymbolKind::FUNCTION, location: new Location(TextDocumentUri::fromString($record->filePath()), new Range($this->toLspPosition($record->start(), $record->filePath()), $this->toLspPosition($record->start()->add(\mb_strlen($record->shortName())), $record->filePath()))));
         }
         if ($record instanceof ConstantRecord) {
-            return new SymbolInformation($record->fqn()->__toString(), SymbolKind::CONSTANT, new Location(TextDocumentUri::fromString($record->filePath()), new Range($this->toLspPosition($record->start(), $record->filePath()), $this->toLspPosition($record->start()->add(\mb_strlen($record->shortName())), $record->filePath()))));
+            return new SymbolInformation(name: $record->fqn()->__toString(), kind: SymbolKind::CONSTANT, location: new Location(TextDocumentUri::fromString($record->filePath()), new Range($this->toLspPosition($record->start(), $record->filePath()), $this->toLspPosition($record->start()->add(\mb_strlen($record->shortName())), $record->filePath()))));
         }
         return null;
     }

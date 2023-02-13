@@ -8,22 +8,22 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Yaml\Command;
+namespace PhpactorDist\Symfony\Component\Yaml\Command;
 
-use Phpactor202301\Symfony\Component\Console\CI\GithubActionReporter;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionInput;
-use Phpactor202301\Symfony\Component\Console\Completion\CompletionSuggestions;
-use Phpactor202301\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\Console\Exception\RuntimeException;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Style\SymfonyStyle;
-use Phpactor202301\Symfony\Component\Yaml\Exception\ParseException;
-use Phpactor202301\Symfony\Component\Yaml\Parser;
-use Phpactor202301\Symfony\Component\Yaml\Yaml;
+use PhpactorDist\Symfony\Component\Console\CI\GithubActionReporter;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionInput;
+use PhpactorDist\Symfony\Component\Console\Completion\CompletionSuggestions;
+use PhpactorDist\Symfony\Component\Console\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\Console\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Style\SymfonyStyle;
+use PhpactorDist\Symfony\Component\Yaml\Exception\ParseException;
+use PhpactorDist\Symfony\Component\Yaml\Parser;
+use PhpactorDist\Symfony\Component\Yaml\Yaml;
 /**
  * Validates YAML files syntax and outputs encountered errors.
  *

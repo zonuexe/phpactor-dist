@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console;
+namespace PhpactorDist\Symfony\Component\Console;
 
-use Phpactor202301\Symfony\Component\Console\Event\ConsoleCommandEvent;
-use Phpactor202301\Symfony\Component\Console\Event\ConsoleErrorEvent;
-use Phpactor202301\Symfony\Component\Console\Event\ConsoleSignalEvent;
-use Phpactor202301\Symfony\Component\Console\Event\ConsoleTerminateEvent;
+use PhpactorDist\Symfony\Component\Console\Event\ConsoleCommandEvent;
+use PhpactorDist\Symfony\Component\Console\Event\ConsoleErrorEvent;
+use PhpactorDist\Symfony\Component\Console\Event\ConsoleSignalEvent;
+use PhpactorDist\Symfony\Component\Console\Event\ConsoleTerminateEvent;
 /**
  * Contains all events dispatched by an Application.
  *

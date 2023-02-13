@@ -10,26 +10,26 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid;
+namespace PhpactorDist\Ramsey\Uuid;
 
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Builder\UuidBuilderInterface;
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Generator\DceSecurityGeneratorInterface;
-use Phpactor202301\Ramsey\Uuid\Generator\DefaultTimeGenerator;
-use Phpactor202301\Ramsey\Uuid\Generator\NameGeneratorInterface;
-use Phpactor202301\Ramsey\Uuid\Generator\RandomGeneratorInterface;
-use Phpactor202301\Ramsey\Uuid\Generator\TimeGeneratorInterface;
-use Phpactor202301\Ramsey\Uuid\Generator\UnixTimeGenerator;
-use Phpactor202301\Ramsey\Uuid\Lazy\LazyUuidFromString;
-use Phpactor202301\Ramsey\Uuid\Provider\NodeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Provider\Time\FixedTimeProvider;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Phpactor202301\Ramsey\Uuid\Type\Time;
-use Phpactor202301\Ramsey\Uuid\Validator\ValidatorInterface;
+use PhpactorDist\Ramsey\Uuid\Builder\UuidBuilderInterface;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Generator\DceSecurityGeneratorInterface;
+use PhpactorDist\Ramsey\Uuid\Generator\DefaultTimeGenerator;
+use PhpactorDist\Ramsey\Uuid\Generator\NameGeneratorInterface;
+use PhpactorDist\Ramsey\Uuid\Generator\RandomGeneratorInterface;
+use PhpactorDist\Ramsey\Uuid\Generator\TimeGeneratorInterface;
+use PhpactorDist\Ramsey\Uuid\Generator\UnixTimeGenerator;
+use PhpactorDist\Ramsey\Uuid\Lazy\LazyUuidFromString;
+use PhpactorDist\Ramsey\Uuid\Provider\NodeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Provider\Time\FixedTimeProvider;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Type\Time;
+use PhpactorDist\Ramsey\Uuid\Validator\ValidatorInterface;
 use function bin2hex;
 use function hex2bin;
 use function pack;

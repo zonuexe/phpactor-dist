@@ -5,10 +5,10 @@ namespace Phpactor\Indexer\Extension\Command;
 use Phpactor\Indexer\Model\Query\Criteria;
 use Phpactor\Indexer\Model\Record\ClassRecord;
 use Phpactor\Indexer\Model\SearchClient;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 class IndexSearchCommand extends Command
 {
     const ARG_SEARCH = 'search';

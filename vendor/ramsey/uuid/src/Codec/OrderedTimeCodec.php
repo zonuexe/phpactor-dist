@@ -10,13 +10,13 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Codec;
+namespace PhpactorDist\Ramsey\Uuid\Codec;
 
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Uuid;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use function strlen;
 use function substr;
 /**

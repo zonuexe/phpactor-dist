@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -21,7 +21,7 @@ class SignatureHelpClientCapabilities
      * The client supports the following `SignatureInformation`
      * specific properties.
      *
-     * @var array<mixed>|null
+     * @var array{documentationFormat:array<MarkupKind::*>,parameterInformation:array{labelOffsetSupport:bool},activeParameterSupport:bool}|null
      */
     public $signatureInformation;
     /**
@@ -35,7 +35,7 @@ class SignatureHelpClientCapabilities
     public $contextSupport;
     /**
      * @param bool|null $dynamicRegistration
-     * @param array<mixed>|null $signatureInformation
+     * @param array{documentationFormat:array<MarkupKind::*>,parameterInformation:array{labelOffsetSupport:bool},activeParameterSupport:bool}|null $signatureInformation
      * @param bool|null $contextSupport
      */
     public function __construct(?bool $dynamicRegistration = null, ?array $signatureInformation = null, ?bool $contextSupport = null)
@@ -46,7 +46,7 @@ class SignatureHelpClientCapabilities
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

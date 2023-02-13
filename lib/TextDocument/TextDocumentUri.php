@@ -3,7 +3,7 @@
 namespace Phpactor\TextDocument;
 
 use Phpactor\TextDocument\Exception\InvalidUriException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class TextDocumentUri
 {
     public const SCHEME_FILE = 'file';

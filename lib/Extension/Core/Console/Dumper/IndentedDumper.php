@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\Core\Console\Dumper;
 
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 final class IndentedDumper implements \Phpactor\Extension\Core\Console\Dumper\Dumper
 {
     const PADDING = '  ';

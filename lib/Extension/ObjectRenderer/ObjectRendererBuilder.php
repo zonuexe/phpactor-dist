@@ -11,10 +11,10 @@ use Phpactor\ObjectRenderer\Model\TemplateProvider\AncestoralClassTemplateProvid
 use Phpactor\ObjectRenderer\Model\TemplateProvider\ClassNameTemplateProvider;
 use Phpactor\ObjectRenderer\Model\TemplateProvider\InterfaceTemplateProvider;
 use Phpactor\ObjectRenderer\Model\TemplateProvider\SuffixAppendingTemplateProvider;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Loader\FilesystemLoader;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Loader\FilesystemLoader;
 /**
  * Object Renderer builder.
  *

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
 /**
  * Represents a do node.
  *
@@ -28,4 +28,4 @@ class DoNode extends Node
         $compiler->addDebugInfo($this)->write('')->subcompile($this->getNode('expr'))->raw(";\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\DoNode', 'Phpactor202301\\Twig_Node_Do');
+\class_alias('PhpactorDist\\Twig\\Node\\DoNode', 'PhpactorDist\\Twig_Node_Do');

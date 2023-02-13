@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
-use function Phpactor202301\Amp\Promise\rethrow;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
+use function PhpactorDist\Amp\Promise\rethrow;
 /**
  * A cancellation token source provides a mechanism to cancel operations.
  *

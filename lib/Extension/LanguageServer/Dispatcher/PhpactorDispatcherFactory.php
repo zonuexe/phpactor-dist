@@ -39,6 +39,10 @@ class PhpactorDispatcherFactory implements DispatcherFactory
         $container = $this->buildContainer($extensionClasses, \array_merge($parameters, $params->initializationOptions ?? []), $transmitter, $params);
         return $container;
     }
+    /**
+     * @param list<class-string> $extensionClasses
+     * @param array<string,mixed> $parameters
+     */
     private function buildContainer(array $extensionClasses, array $parameters, MessageTransmitter $transmitter, InitializeParams $params) : Container
     {
         $container = new PhpactorContainer();

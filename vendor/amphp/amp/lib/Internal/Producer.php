@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpactor202301\Amp\Internal;
+namespace PhpactorDist\Amp\Internal;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
 /**
  * Trait used by Iterator implementations. Do not use this trait in your code, instead compose your class from one of
  * the available classes implementing \Amp\Iterator.

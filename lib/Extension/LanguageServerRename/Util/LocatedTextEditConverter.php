@@ -3,11 +3,11 @@
 namespace Phpactor\Extension\LanguageServerRename\Util;
 
 use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
+use Phpactor\LanguageServerProtocol\OptionalVersionedTextDocumentIdentifier;
 use Phpactor\Rename\Model\LocatedTextEditsMap;
 use Phpactor\Rename\Model\RenameResult;
 use Phpactor\LanguageServerProtocol\RenameFile;
 use Phpactor\LanguageServerProtocol\TextDocumentEdit;
-use Phpactor\LanguageServerProtocol\VersionedTextDocumentIdentifier;
 use Phpactor\LanguageServerProtocol\WorkspaceEdit;
 use Phpactor\LanguageServer\Core\Workspace\Workspace;
 use Phpactor\TextDocument\TextDocumentLocator;
@@ -21,7 +21,7 @@ final class LocatedTextEditConverter
         $documentEdits = [];
         foreach ($map->toLocatedTextEdits() as $result) {
             $version = $this->getDocumentVersion((string) $result->documentUri());
-            $documentEdits[] = new TextDocumentEdit(new VersionedTextDocumentIdentifier((string) $result->documentUri(), $version), TextEditConverter::toLspTextEdits($result->textEdits(), (string) $this->locator->get($result->documentUri())));
+            $documentEdits[] = new TextDocumentEdit(new OptionalVersionedTextDocumentIdentifier(uri: (string) $result->documentUri(), version: $version), TextEditConverter::toLspTextEdits($result->textEdits(), (string) $this->locator->get($result->documentUri())));
         }
         // deduplicate the edits: with renaming we currently have multiple
         // references to the declaration.

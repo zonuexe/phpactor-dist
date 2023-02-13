@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\DTL\Invoke\Exception;
+namespace PhpactorDist\DTL\Invoke\Exception;
 
 class InvalidParameterType extends InvokeException
 {

@@ -2,20 +2,20 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Walker;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScriptInclusionExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
-use Phpactor202301\Microsoft\PhpParser\Parser;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScriptInclusionExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ReturnStatement;
+use PhpactorDist\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\FrameResolver;
 use Phpactor\WorseReflection\Core\Inference\Walker;
 use Phpactor\WorseReflection\TypeUtil;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class IncludeWalker implements Walker
 {
     private Parser $parser;

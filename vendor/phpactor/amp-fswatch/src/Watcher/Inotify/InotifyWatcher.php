@@ -2,10 +2,10 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\Inotify;
 
-use Phpactor202301\Amp\ByteStream\LineReader;
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\ByteStream\LineReader;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\AmpFsWatch\Exception\WatcherDied;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\ModifiedFileQueue;
@@ -15,11 +15,11 @@ use Phpactor\AmpFsWatch\ModifiedFileBuilder;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\WatcherConfig;
 use Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 use RuntimeException;
-use function Phpactor202301\Amp\ByteStream\buffer;
-use Phpactor202301\Webmozart\PathUtil\Path;
+use function PhpactorDist\Amp\ByteStream\buffer;
+use PhpactorDist\Webmozart\PathUtil\Path;
 class InotifyWatcher implements Watcher, WatcherProcess
 {
     const INOTIFY_CMD = 'inotifywait';
@@ -69,7 +69,7 @@ class InotifyWatcher implements Watcher, WatcherProcess
     }
     public function watch() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $this->process = (yield $this->startProcess());
             $this->lineReader = new LineReader($this->process->getStdout());
             return $this;
@@ -77,7 +77,7 @@ class InotifyWatcher implements Watcher, WatcherProcess
     }
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             while (null !== ($file = \array_shift($this->directoryBuffer))) {
                 return $file;
             }
@@ -114,7 +114,7 @@ class InotifyWatcher implements Watcher, WatcherProcess
      */
     private function startProcess() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $process = new Process(\array_merge([self::INOTIFY_CMD, '-r', '-emodify,create,delete,move', '--monitor', '--csv'], $this->config->paths()));
             $pid = (yield $process->start());
             $this->logger->debug(\sprintf('Started "%s"', $process->getCommand()));
@@ -136,7 +136,7 @@ class InotifyWatcher implements Watcher, WatcherProcess
      */
     private function enqueueDirectory(string $path) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($path) {
+        return \PhpactorDist\Amp\call(function () use($path) {
             $files = \scandir($path);
             foreach ((array) $files as $file) {
                 if ($file === '.' || $file === '..') {

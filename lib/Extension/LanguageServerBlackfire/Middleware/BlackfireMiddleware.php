@@ -2,12 +2,12 @@
 
 namespace Phpactor\Extension\LanguageServerBlackfire\Middleware;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBlackfire\BlackfireProfiler;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Rpc\Message;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class BlackfireMiddleware implements Middleware
 {
     public function __construct(private BlackfireProfiler $profiler)

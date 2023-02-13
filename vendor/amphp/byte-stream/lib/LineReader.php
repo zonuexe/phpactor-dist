@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 final class LineReader
 {
     /** @var string */

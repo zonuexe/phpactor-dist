@@ -4,17 +4,17 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node;
+namespace PhpactorDist\Microsoft\PhpParser\Node;
 
-use Phpactor202301\Microsoft\PhpParser\Diagnostic;
-use Phpactor202301\Microsoft\PhpParser\DiagnosticKind;
-use Phpactor202301\Microsoft\PhpParser\DiagnosticsProvider;
-use Phpactor202301\Microsoft\PhpParser\FunctionLike;
-use Phpactor202301\Microsoft\PhpParser\ModifiedTypeInterface;
-use Phpactor202301\Microsoft\PhpParser\ModifiedTypeTrait;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Diagnostic;
+use PhpactorDist\Microsoft\PhpParser\DiagnosticKind;
+use PhpactorDist\Microsoft\PhpParser\DiagnosticsProvider;
+use PhpactorDist\Microsoft\PhpParser\FunctionLike;
+use PhpactorDist\Microsoft\PhpParser\ModifiedTypeInterface;
+use PhpactorDist\Microsoft\PhpParser\ModifiedTypeTrait;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 class MethodDeclaration extends Node implements FunctionLike, ModifiedTypeInterface
 {
     use FunctionHeader, FunctionReturnType, FunctionBody, ModifiedTypeTrait;

@@ -2,9 +2,9 @@
 
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\CodeBuilder\Domain\Renderer;
 use Phpactor\CodeBuilder\Domain\Prototype\Method;
 use RuntimeException;

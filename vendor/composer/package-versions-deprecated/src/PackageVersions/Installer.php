@@ -1,19 +1,19 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\PackageVersions;
+namespace PhpactorDist\PackageVersions;
 
-use Phpactor202301\Composer\Composer;
-use Phpactor202301\Composer\Config;
-use Phpactor202301\Composer\EventDispatcher\EventSubscriberInterface;
-use Phpactor202301\Composer\IO\IOInterface;
-use Phpactor202301\Composer\Package\AliasPackage;
-use Phpactor202301\Composer\Package\Locker;
-use Phpactor202301\Composer\Package\PackageInterface;
-use Phpactor202301\Composer\Package\RootPackageInterface;
-use Phpactor202301\Composer\Plugin\PluginInterface;
-use Phpactor202301\Composer\Script\Event;
-use Phpactor202301\Composer\Script\ScriptEvents;
+use PhpactorDist\Composer\Composer;
+use PhpactorDist\Composer\Config;
+use PhpactorDist\Composer\EventDispatcher\EventSubscriberInterface;
+use PhpactorDist\Composer\IO\IOInterface;
+use PhpactorDist\Composer\Package\AliasPackage;
+use PhpactorDist\Composer\Package\Locker;
+use PhpactorDist\Composer\Package\PackageInterface;
+use PhpactorDist\Composer\Package\RootPackageInterface;
+use PhpactorDist\Composer\Plugin\PluginInterface;
+use PhpactorDist\Composer\Script\Event;
+use PhpactorDist\Composer\Script\ScriptEvents;
 use Generator;
 use RuntimeException;
 use function array_key_exists;

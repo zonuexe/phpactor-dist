@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\RuntimeLoader;
+namespace PhpactorDist\Twig\RuntimeLoader;
 
 /**
  * Creates runtime implementations for Twig elements (filters/functions/tests).
@@ -26,4 +26,4 @@ interface RuntimeLoaderInterface
      */
     public function load($class);
 }
-\class_alias('Phpactor202301\\Twig\\RuntimeLoader\\RuntimeLoaderInterface', 'Phpactor202301\\Twig_RuntimeLoaderInterface');
+\class_alias('PhpactorDist\\Twig\\RuntimeLoader\\RuntimeLoaderInterface', 'PhpactorDist\\Twig_RuntimeLoaderInterface');

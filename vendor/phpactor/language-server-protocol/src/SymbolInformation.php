@@ -3,15 +3,37 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
  * Represents information about programming constructs like variables, classes,
  * interfaces etc.
+ *
+ * Mixins (implemented TS interfaces): BaseSymbolInformation
  */
-class SymbolInformation
+class SymbolInformation extends \Phpactor\LanguageServerProtocol\BaseSymbolInformation
 {
+    /**
+     * Indicates if this symbol is deprecated.
+     *
+     * @var bool|null
+     */
+    public $deprecated;
+    /**
+     * The location of this symbol. The location's range is used by a tool
+     * to reveal the location in the editor. If the symbol is selected in the
+     * tool the range's start information is used to position the cursor. So
+     * the range usually spans more than the actual symbol's name and does
+     * normally include things like visibility modifiers.
+     * 
+     * The range doesn't have to denote a node range in the sense of an abstract
+     * syntax tree. It can therefore not be used to re-construct a hierarchy of
+     * the symbols.
+     *
+     * @var Location
+     */
+    public $location;
     /**
      * The name of this symbol.
      *
@@ -25,25 +47,11 @@ class SymbolInformation
      */
     public $kind;
     /**
-     * Indicates if this symbol is deprecated.
+     * Tags for this symbol.
      *
-     * @var bool|null
+     * @var array<SymbolTag::*>|null
      */
-    public $deprecated;
-    /**
-     * The location of this symbol. The location's range is used by a tool
-     * to reveal the location in the editor. If the symbol is selected in the
-     * tool the range's start information is used to position the cursor. So
-     * the range usually spans more than the actual symbol's name and does
-     * normally include thinks like visibility modifiers.
-     * 
-     * The range doesn't have to denote a node range in the sense of a abstract
-     * syntax tree. It can therefore not be used to re-construct a hierarchy of
-     * the symbols.
-     *
-     * @var Location
-     */
-    public $location;
+    public $tags;
     /**
      * The name of the symbol containing this symbol. This information is for
      * user interface purposes (e.g. to render a qualifier in the user interface
@@ -54,27 +62,29 @@ class SymbolInformation
      */
     public $containerName;
     /**
-     * @param string $name
-     * @param SymbolKind::* $kind
      * @param bool|null $deprecated
      * @param Location $location
+     * @param string $name
+     * @param SymbolKind::* $kind
+     * @param array<SymbolTag::*>|null $tags
      * @param string|null $containerName
      */
-    public function __construct(string $name, $kind, \Phpactor\LanguageServerProtocol\Location $location, ?bool $deprecated = null, ?string $containerName = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\Location $location, string $name, $kind, ?bool $deprecated = null, ?array $tags = null, ?string $containerName = null)
     {
-        $this->name = $name;
-        $this->kind = $kind;
         $this->deprecated = $deprecated;
         $this->location = $location;
+        $this->name = $name;
+        $this->kind = $kind;
+        $this->tags = $tags;
         $this->containerName = $containerName;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['name' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'deprecated' => ['names' => [], 'iterable' => \false], 'location' => ['names' => [\Phpactor\LanguageServerProtocol\Location::class], 'iterable' => \false], 'containerName' => ['names' => [], 'iterable' => \false]];
+        $map = ['deprecated' => ['names' => [], 'iterable' => \false], 'location' => ['names' => [\Phpactor\LanguageServerProtocol\Location::class], 'iterable' => \false], 'name' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'tags' => ['names' => [], 'iterable' => \true], 'containerName' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

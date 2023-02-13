@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync;
+namespace PhpactorDist\Amp\Sync;
 
 class SyncException extends \Exception
 {

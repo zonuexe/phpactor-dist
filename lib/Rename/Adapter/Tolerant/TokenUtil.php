@@ -2,8 +2,8 @@
 
 namespace Phpactor\Rename\Adapter\Tolerant;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\TextDocument\ByteOffsetRange;
 final class TokenUtil
 {

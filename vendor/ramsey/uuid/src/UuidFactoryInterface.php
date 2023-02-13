@@ -10,12 +10,12 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid;
+namespace PhpactorDist\Ramsey\Uuid;
 
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Phpactor202301\Ramsey\Uuid\Validator\ValidatorInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Validator\ValidatorInterface;
 /**
  * UuidFactoryInterface defines common functionality all `UuidFactory` instances
  * must implement

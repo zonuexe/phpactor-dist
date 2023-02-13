@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\DTL\Invoke\Internal\ArgumentResolver;
+namespace PhpactorDist\DTL\Invoke\Internal\ArgumentResolver;
 
-use Phpactor202301\DTL\Invoke\Internal\ArgumentResolver;
-use Phpactor202301\DTL\Invoke\Internal\Parameters;
-use Phpactor202301\DTL\Invoke\Internal\ResolvedArguments;
+use PhpactorDist\DTL\Invoke\Internal\ArgumentResolver;
+use PhpactorDist\DTL\Invoke\Internal\Parameters;
+use PhpactorDist\DTL\Invoke\Internal\ResolvedArguments;
 class NamedArgumentResolver implements ArgumentResolver
 {
     /**

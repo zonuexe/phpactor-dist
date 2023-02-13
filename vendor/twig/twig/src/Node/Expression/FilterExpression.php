@@ -9,10 +9,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Node;
 class FilterExpression extends CallExpression
 {
     public function __construct(Node $node, ConstantExpression $filterName, Node $arguments, int $lineno, string $tag = null)
@@ -33,4 +33,4 @@ class FilterExpression extends CallExpression
         $this->compileCallable($compiler);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\FilterExpression', 'Phpactor202301\\Twig_Node_Expression_Filter');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\FilterExpression', 'PhpactorDist\\Twig_Node_Expression_Filter');

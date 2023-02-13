@@ -6,8 +6,8 @@ use Phpactor\Extension\LanguageServerHover\Twig\Functions\TypeShortName;
 use Phpactor\Extension\LanguageServerHover\Twig\Functions\TypeType;
 use Phpactor\Extension\ObjectRenderer\Extension\ObjectRendererTwigExtension;
 use Phpactor\WorseReflection\Core\Type;
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\TwigFunction;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\TwigFunction;
 final class TwigFunctions implements ObjectRendererTwigExtension
 {
     public function configure(Environment $env) : void

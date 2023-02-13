@@ -2,9 +2,9 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\TestWatcher;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Exception;
 use Phpactor\AmpFsWatch\ModifiedFileQueue;
 use Phpactor\AmpFsWatch\Watcher;
@@ -45,7 +45,7 @@ class TestWatcher implements Watcher, WatcherProcess
      */
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             if ($this->delay) {
                 (yield new Delayed($this->delay));
             }

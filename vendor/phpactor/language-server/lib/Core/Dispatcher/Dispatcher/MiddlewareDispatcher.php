@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;

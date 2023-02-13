@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Server;
 
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Promise;
 use Exception;
 use Generator;
 use Phpactor\LanguageServer\Core\Rpc\Exception\CouldNotCreateMessage;
@@ -20,12 +20,12 @@ use Phpactor\LanguageServer\Core\Server\StreamProvider\ResourceStreamProvider;
 use Phpactor\LanguageServer\Core\Server\StreamProvider\SocketStreamProvider;
 use Phpactor\LanguageServer\Core\Server\StreamProvider\StreamProvider;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessageFactory;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
 use RuntimeException;
 use Throwable;
-use function Phpactor202301\Amp\Promise\any;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\Promise\any;
+use function PhpactorDist\Amp\call;
 final class LanguageServer
 {
     /**
@@ -135,7 +135,7 @@ final class LanguageServer
             // create a reference to the connection so that we can later
             // terminate it if necessary
             $this->connections[$connection->id()] = $connection;
-            \Phpactor202301\Amp\asyncCall(function () use($connection) {
+            \PhpactorDist\Amp\asyncCall(function () use($connection) {
                 (yield $this->handle($connection));
                 $this->stats->decConnectionCount();
             });
@@ -146,7 +146,7 @@ final class LanguageServer
      */
     private function handle(Connection $connection) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($connection) {
+        return \PhpactorDist\Amp\call(function () use($connection) {
             $transmitter = new ConnectionMessageTransmitter($connection);
             $reader = new LspMessageReader($connection->stream());
             $dispatcher = null;
@@ -171,7 +171,7 @@ final class LanguageServer
     }
     private function dispatchRequest(MessageTransmitter $transmitter, Dispatcher $dispatcher, Connection $connection, Message $request) : void
     {
-        \Phpactor202301\Amp\asyncCall(function () use($transmitter, $request, $dispatcher, $connection) {
+        \PhpactorDist\Amp\asyncCall(function () use($transmitter, $request, $dispatcher, $connection) {
             try {
                 $response = (yield $dispatcher->dispatch($request));
             } catch (ExitSession $e) {

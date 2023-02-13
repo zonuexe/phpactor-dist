@@ -2,7 +2,7 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\PatternMatching;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\AmpFsWatch\Watcher;
 class PatternMatchingWatcher implements Watcher
 {
@@ -30,7 +30,7 @@ class PatternMatchingWatcher implements Watcher
     }
     public function watch() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $process = (yield $this->innerWatcher->watch());
             return new \Phpactor\AmpFsWatch\Watcher\PatternMatching\PatternWatcherProcess($process, $this->includePatterns, $this->excludePatterns);
         });

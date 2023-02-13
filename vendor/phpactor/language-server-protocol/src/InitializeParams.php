@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -14,6 +14,9 @@ class InitializeParams
     /**
      * The process Id of the parent process that started
      * the server.
+     * 
+     * Is `null` if the process has not been started by another process.
+     * If the parent process is not alive then the server should exit.
      *
      * @var int|null
      */
@@ -21,9 +24,20 @@ class InitializeParams
     /**
      * Information about the client
      *
-     * @var array<mixed>|null
+     * @var array{name:string,version:string}|null
      */
     public $clientInfo;
+    /**
+     * The locale the client is currently showing the user interface
+     * in. This must not necessarily be the locale of the operating
+     * system.
+     * 
+     * Uses IETF language tags as the value's syntax
+     * (See https://en.wikipedia.org/wiki/IETF_language_tag)
+     *
+     * @var string|null
+     */
+    public $locale;
     /**
      * The rootPath of the workspace. Is null
      * if no folder is open.
@@ -54,7 +68,7 @@ class InitializeParams
     /**
      * The initial trace setting. If omitted trace is disabled ('off').
      *
-     * @var 'off'|'messages'|'verbose'|null
+     * @var 'off'|'messages'|'compact'|'verbose'|null
      */
     public $trace;
     /**
@@ -64,26 +78,32 @@ class InitializeParams
      */
     public $workDoneToken;
     /**
-     * The actual configured workspace folders.
+     * The workspace folders configured in the client when the server starts.
+     * 
+     * This property is only available if the client supports workspace folders.
+     * It can be `null` if the client supports workspace folders but none are
+     * configured.
      *
      * @var array<WorkspaceFolder>|null
      */
     public $workspaceFolders;
     /**
      * @param int|null $processId
-     * @param array<mixed>|null $clientInfo
+     * @param array{name:string,version:string}|null $clientInfo
+     * @param string|null $locale
      * @param string|null $rootPath
      * @param string|null $rootUri
      * @param ClientCapabilities $capabilities
      * @param mixed|null $initializationOptions
-     * @param 'off'|'messages'|'verbose'|null $trace
+     * @param 'off'|'messages'|'compact'|'verbose'|null $trace
      * @param int|string|null $workDoneToken
      * @param array<WorkspaceFolder>|null $workspaceFolders
      */
-    public function __construct(\Phpactor\LanguageServerProtocol\ClientCapabilities $capabilities, $processId = null, ?array $clientInfo = null, $rootPath = null, $rootUri = null, $initializationOptions = null, $trace = null, $workDoneToken = null, $workspaceFolders = null)
+    public function __construct(\Phpactor\LanguageServerProtocol\ClientCapabilities $capabilities, $processId = null, ?array $clientInfo = null, ?string $locale = null, $rootPath = null, $rootUri = null, $initializationOptions = null, $trace = null, $workDoneToken = null, $workspaceFolders = null)
     {
         $this->processId = $processId;
         $this->clientInfo = $clientInfo;
+        $this->locale = $locale;
         $this->rootPath = $rootPath;
         $this->rootUri = $rootUri;
         $this->capabilities = $capabilities;
@@ -94,11 +114,11 @@ class InitializeParams
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['processId' => ['names' => [], 'iterable' => \false], 'clientInfo' => ['names' => [], 'iterable' => \false], 'rootPath' => ['names' => [], 'iterable' => \false], 'rootUri' => ['names' => [], 'iterable' => \false], 'capabilities' => ['names' => [\Phpactor\LanguageServerProtocol\ClientCapabilities::class], 'iterable' => \false], 'initializationOptions' => ['names' => [], 'iterable' => \false], 'trace' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'workspaceFolders' => ['names' => [], 'iterable' => \false]];
+        $map = ['processId' => ['names' => [], 'iterable' => \false], 'clientInfo' => ['names' => [], 'iterable' => \false], 'locale' => ['names' => [], 'iterable' => \false], 'rootPath' => ['names' => [], 'iterable' => \false], 'rootUri' => ['names' => [], 'iterable' => \false], 'capabilities' => ['names' => [\Phpactor\LanguageServerProtocol\ClientCapabilities::class], 'iterable' => \false], 'initializationOptions' => ['names' => [], 'iterable' => \false], 'trace' => ['names' => [], 'iterable' => \false], 'workDoneToken' => ['names' => [], 'iterable' => \false], 'workspaceFolders' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

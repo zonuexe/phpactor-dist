@@ -2,11 +2,11 @@
 
 namespace Phpactor\LanguageServer\Core\Diagnostics;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\call;
 use Throwable;
 class AggregateDiagnosticsProvider implements \Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider
 {

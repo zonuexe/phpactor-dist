@@ -9,11 +9,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Extension\SandboxExtension;
-use Phpactor202301\Twig\Template;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Extension\SandboxExtension;
+use PhpactorDist\Twig\Template;
 class GetAttrExpression extends AbstractExpression
 {
     public function __construct(AbstractExpression $node, AbstractExpression $attribute, ?AbstractExpression $arguments, string $type, int $lineno)
@@ -46,4 +46,4 @@ class GetAttrExpression extends AbstractExpression
         $compiler->raw(', ')->repr($this->getAttribute('type'))->raw(', ')->repr($this->getAttribute('is_defined_test'))->raw(', ')->repr($this->getAttribute('ignore_strict_check'))->raw(', ')->repr($env->hasExtension(SandboxExtension::class))->raw(', ')->repr($this->getNode('node')->getTemplateLine())->raw(')');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\GetAttrExpression', 'Phpactor202301\\Twig_Node_Expression_GetAttr');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\GetAttrExpression', 'PhpactorDist\\Twig_Node_Expression_GetAttr');

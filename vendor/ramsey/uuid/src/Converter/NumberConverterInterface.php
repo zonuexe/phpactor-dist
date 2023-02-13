@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Converter;
+namespace PhpactorDist\Ramsey\Uuid\Converter;
 
 /**
  * A number converter converts UUIDs from hexadecimal characters into

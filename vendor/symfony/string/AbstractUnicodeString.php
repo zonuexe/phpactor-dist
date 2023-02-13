@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\String;
+namespace PhpactorDist\Symfony\Component\String;
 
-use Phpactor202301\Symfony\Component\String\Exception\ExceptionInterface;
-use Phpactor202301\Symfony\Component\String\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\String\Exception\RuntimeException;
+use PhpactorDist\Symfony\Component\String\Exception\ExceptionInterface;
+use PhpactorDist\Symfony\Component\String\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\String\Exception\RuntimeException;
 /**
  * Represents a string of abstract Unicode characters.
  *
@@ -299,7 +299,7 @@ abstract class AbstractUnicodeString extends AbstractString
     public function snake() : parent
     {
         $str = $this->camel();
-        $str->string = \mb_strtolower(\preg_replace(['/(\\p{Lu}+)(\\p{Lu}\\p{Ll})/u', '/([\\p{Ll}0-9])(\\p{Lu})/u'], 'Phpactor202301\\1_\\2', $str->string), 'UTF-8');
+        $str->string = \mb_strtolower(\preg_replace(['/(\\p{Lu}+)(\\p{Lu}\\p{Ll})/u', '/([\\p{Ll}0-9])(\\p{Lu})/u'], 'PhpactorDist\\1_\\2', $str->string), 'UTF-8');
         return $str;
     }
     public function title(bool $allWords = \false) : parent

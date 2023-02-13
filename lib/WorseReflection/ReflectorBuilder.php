@@ -19,7 +19,7 @@ use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflector\TolerantFactory;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
 use Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 final class ReflectorBuilder
 {
     /**

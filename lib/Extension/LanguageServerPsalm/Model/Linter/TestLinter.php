@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerPsalm\Model\Linter;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerPsalm\Model\Linter;
 use Phpactor\LanguageServerProtocol\Diagnostic;
 class TestLinter implements Linter
@@ -16,7 +16,7 @@ class TestLinter implements Linter
     }
     public function lint(string $url, ?string $text) : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             (yield new Delayed($this->delay));
             return $this->diagnostics;
         });

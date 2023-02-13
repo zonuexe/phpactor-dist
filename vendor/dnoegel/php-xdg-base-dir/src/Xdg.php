@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\XdgBaseDir;
+namespace PhpactorDist\XdgBaseDir;
 
 /**
  * Simple implementation of the XDG standard http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html

@@ -13,11 +13,11 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Records\TypeDefinitions;
+namespace PhpactorDist\LibDNS\Records\TypeDefinitions;
 
-use Phpactor202301\LibDNS\Records\ResourceTypes;
-use Phpactor202301\LibDNS\Records\Types\Types;
-use Phpactor202301\LibDNS\Records\Types\DomainName;
+use PhpactorDist\LibDNS\Records\ResourceTypes;
+use PhpactorDist\LibDNS\Records\Types\Types;
+use PhpactorDist\LibDNS\Records\Types\DomainName;
 /**
  * Holds data about how the RDATA sections of known resource record types are structured
  *

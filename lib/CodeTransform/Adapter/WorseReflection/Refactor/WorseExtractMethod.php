@@ -2,23 +2,23 @@
 
 namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
-use Phpactor202301\Microsoft\PhpParser\FunctionLike;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\CatchClause;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
+use PhpactorDist\Microsoft\PhpParser\FunctionLike;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\CatchClause;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ReturnStatement;
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\CodeBuilder\Domain\Updater;
 use Phpactor\TextDocument\TextDocumentEdits;
 use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\TextDocument\TextEdit;
 use Phpactor\WorseReflection\Reflector;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeBuilder\Domain\BuilderFactory;
 use Phpactor\CodeBuilder\Domain\Code;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\WorseReflection\Core\Inference\Assignments;
 use Phpactor\WorseReflection\Core\Inference\Variable;
 use Phpactor\CodeTransform\Domain\Refactor\ExtractMethod;
@@ -144,9 +144,8 @@ class WorseExtractMethod implements ExtractMethod
     }
     private function createMethodBuilder(ReflectionMethod $reflectionMethod, SourceCodeBuilder $builder, string $name) : MethodBuilder
     {
-        $methodBuilder = $builder->class($reflectionMethod->class()->name()->short())->method($name);
-        $methodBuilder->visibility('private');
-        return $methodBuilder;
+        $classLikeBuilder = $builder->classLike($reflectionMethod->class()->name()->short());
+        return $classLikeBuilder->method($name)->visibility('private');
     }
     private function reflectMethod(int $offsetEnd, string $source, string $name) : ReflectionMethod
     {
@@ -160,7 +159,7 @@ class WorseExtractMethod implements ExtractMethod
             throw new TransformException('Cannot extract method, not in class scope');
         }
         $className = $type->name();
-        $reflectionClass = $this->reflector->reflectClass((string) $className);
+        $reflectionClass = $this->reflector->reflectClassLike((string) $className);
         $methods = $reflectionClass->methods();
         if ($methods->belongingTo($className)->has($name)) {
             throw new TransformException(\sprintf('Class "%s" already has method "%s"', (string) $className, $name));

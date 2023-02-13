@@ -3,9 +3,9 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\SourceCodeFilesystem;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\ResolvedName;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\ResolvedName;
 use Phpactor\ClassFileConverter\Domain\ClassName;
 use Phpactor\ClassFileConverter\Domain\FilePath;
 use Phpactor\ClassFileConverter\Domain\FileToClass;

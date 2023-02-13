@@ -8,18 +8,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler\NodeVisitor;
+namespace PhpactorDist\Twig\Profiler\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\BlockNode;
-use Phpactor202301\Twig\Node\BodyNode;
-use Phpactor202301\Twig\Node\MacroNode;
-use Phpactor202301\Twig\Node\ModuleNode;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\NodeVisitor\AbstractNodeVisitor;
-use Phpactor202301\Twig\Profiler\Node\EnterProfileNode;
-use Phpactor202301\Twig\Profiler\Node\LeaveProfileNode;
-use Phpactor202301\Twig\Profiler\Profile;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\BlockNode;
+use PhpactorDist\Twig\Node\BodyNode;
+use PhpactorDist\Twig\Node\MacroNode;
+use PhpactorDist\Twig\Node\ModuleNode;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\NodeVisitor\AbstractNodeVisitor;
+use PhpactorDist\Twig\Profiler\Node\EnterProfileNode;
+use PhpactorDist\Twig\Profiler\Node\LeaveProfileNode;
+use PhpactorDist\Twig\Profiler\Profile;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -53,4 +53,4 @@ final class ProfilerNodeVisitor extends AbstractNodeVisitor
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\NodeVisitor\\ProfilerNodeVisitor', 'Phpactor202301\\Twig_Profiler_NodeVisitor_Profiler');
+\class_alias('PhpactorDist\\Twig\\Profiler\\NodeVisitor\\ProfilerNodeVisitor', 'PhpactorDist\\Twig_Profiler_NodeVisitor_Profiler');

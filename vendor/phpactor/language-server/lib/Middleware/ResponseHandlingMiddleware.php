@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Rpc\Message;

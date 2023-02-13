@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Core\Server\ResponseWatcher;
 use RuntimeException;

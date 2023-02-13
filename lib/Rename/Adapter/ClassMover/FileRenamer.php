@@ -2,7 +2,7 @@
 
 namespace Phpactor\Rename\Adapter\ClassMover;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\ClassMover\ClassMover;
 use Phpactor\Rename\Model\Exception\CouldNotConvertUriToClass;
 use Phpactor\Rename\Model\Exception\CouldNotRename;
@@ -15,7 +15,7 @@ use Phpactor\TextDocument\Exception\TextDocumentNotFound;
 use Phpactor\TextDocument\TextDocumentLocator;
 use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\TextDocument\TextEdits;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class FileRenamer implements PhpactorFileRenamer
 {
     public function __construct(private UriToNameConverter $converter, private TextDocumentLocator $locator, private QueryClient $client, private ClassMover $mover)

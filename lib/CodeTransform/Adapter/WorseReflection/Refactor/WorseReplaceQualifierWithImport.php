@@ -2,8 +2,8 @@
 
 namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeBuilder\Domain\BuilderFactory;
 use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor\CodeBuilder\Domain\Updater;

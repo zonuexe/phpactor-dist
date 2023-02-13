@@ -6,8 +6,8 @@ use Phpactor\ObjectRenderer\Adapter\Twig\Extension\ObjectRendererExtension;
 use Phpactor\ObjectRenderer\Model\Exception\CouldNotRenderObject;
 use Phpactor\ObjectRenderer\Model\TemplateCandidateProvider;
 use Phpactor\ObjectRenderer\Model\ObjectRenderer;
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Error\LoaderError;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Error\LoaderError;
 class TwigObjectRenderer implements ObjectRenderer
 {
     /**

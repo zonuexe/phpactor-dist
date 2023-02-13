@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Psr\Container;
+namespace PhpactorDist\Psr\Container;
 
 /**
  * Describes the interface of a container that exposes methods to read its entries.

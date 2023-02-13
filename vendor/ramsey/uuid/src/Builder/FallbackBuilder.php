@@ -10,12 +10,12 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Builder;
+namespace PhpactorDist\Ramsey\Uuid\Builder;
 
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\BuilderNotFoundException;
-use Phpactor202301\Ramsey\Uuid\Exception\UnableToBuildUuidException;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\BuilderNotFoundException;
+use PhpactorDist\Ramsey\Uuid\Exception\UnableToBuildUuidException;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 /**
  * FallbackBuilder builds a UUID by stepping through a list of UUID builders
  * until a UUID can be constructed without exceptions

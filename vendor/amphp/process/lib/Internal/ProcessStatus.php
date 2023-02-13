@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal;
+namespace PhpactorDist\Amp\Process\Internal;
 
 final class ProcessStatus
 {

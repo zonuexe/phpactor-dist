@@ -13,9 +13,9 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Records;
+namespace PhpactorDist\LibDNS\Records;
 
-use Phpactor202301\LibDNS\Records\Types\TypeFactory;
+use PhpactorDist\LibDNS\Records\Types\TypeFactory;
 /**
  * Represents a DNS resource record
  *

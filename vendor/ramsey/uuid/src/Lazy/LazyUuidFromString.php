@@ -10,18 +10,18 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Lazy;
+namespace PhpactorDist\Ramsey\Uuid\Lazy;
 
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Phpactor202301\Ramsey\Uuid\Fields\FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidV1;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidV6;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Phpactor202301\Ramsey\Uuid\UuidFactory;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use PhpactorDist\Ramsey\Uuid\Fields\FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV1;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV6;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\UuidFactory;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use ValueError;
 use function assert;
 use function bin2hex;

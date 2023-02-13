@@ -2,22 +2,22 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node\ElseIfClauseNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\CallExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ExitIntrinsicExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ThrowExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
+use PhpactorDist\Microsoft\PhpParser\Node\ElseIfClauseNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ExitIntrinsicExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ThrowExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ExpressionStatement;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
 use Phpactor\WorseReflection\Core\Inference\Resolver;
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\IfStatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\ReturnStatement;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\BreakOrContinueStatement;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\IfStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ReturnStatement;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\BreakOrContinueStatement;
 use Phpactor\WorseReflection\Core\Type\NeverType;
 class IfStatementResolver implements Resolver
 {

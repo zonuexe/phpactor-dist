@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Psr\Log;
+namespace PhpactorDist\Psr\Log;
 
 /**
  * Describes a logger instance.

@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog;
+namespace PhpactorDist\Monolog;
 
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\LogLevel;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LogLevel;
 use ReflectionExtension;
 /**
  * Monolog POSIX signal handler

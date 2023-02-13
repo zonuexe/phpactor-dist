@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\Expression\AssignNameExpression;
-use Phpactor202301\Twig\Node\ImportNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\Expression\AssignNameExpression;
+use PhpactorDist\Twig\Node\ImportNode;
+use PhpactorDist\Twig\Token;
 /**
  * Imports macros.
  *
@@ -67,4 +67,4 @@ final class FromTokenParser extends AbstractTokenParser
         return 'from';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\FromTokenParser', 'Phpactor202301\\Twig_TokenParser_From');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\FromTokenParser', 'PhpactorDist\\Twig_TokenParser_From');

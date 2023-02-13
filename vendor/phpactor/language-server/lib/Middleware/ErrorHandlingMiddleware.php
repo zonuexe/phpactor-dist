@@ -2,9 +2,9 @@
 
 namespace Phpactor\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Handler\HandlerNotFound;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Rpc\ErrorCodes;
@@ -14,9 +14,9 @@ use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
 use Phpactor\LanguageServer\Core\Rpc\ResponseError;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;
 use Phpactor\LanguageServer\Core\Server\Exception\ServerControl;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use Throwable;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class ErrorHandlingMiddleware implements Middleware
 {
     private LoggerInterface $logger;

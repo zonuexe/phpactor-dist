@@ -13,7 +13,7 @@ declare (strict_types=1);
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace Phpactor202301\LibDNS\Records\Types;
+namespace PhpactorDist\LibDNS\Records\Types;
 
 /**
  * Represents a 16-bit unsigned integer

@@ -3,21 +3,41 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * Mixins (implemented TS interfaces): _ServerCapabilities, WorkspaceFoldersServerCapabilities
+ * Defines the capabilities provided by a language
+ * server.
  */
 class ServerCapabilities
 {
     /**
-     * Defines how text documents are synced. Is either a detailed structure defining each notification or
-     * for backwards compatibility the TextDocumentSyncKind number.
+     * The position encoding the server picked from the encodings offered
+     * by the client via the client capability `general.positionEncodings`.
+     * 
+     * If the client didn't provide any position encodings the only valid
+     * value that a server can return is 'utf-16'.
+     * 
+     * If omitted it defaults to 'utf-16'.
+     *
+     * @var string|null
+     */
+    public $positionEncoding;
+    /**
+     * Defines how text documents are synced. Is either a detailed structure
+     * defining each notification or for backwards compatibility the
+     * TextDocumentSyncKind number.
      *
      * @var TextDocumentSyncOptions|TextDocumentSyncKind::*|null
      */
     public $textDocumentSync;
+    /**
+     * Defines how notebook documents are synced.
+     *
+     * @var mixed|mixed|null
+     */
+    public $notebookDocumentSync;
     /**
      * The server provides completion support.
      *
@@ -155,19 +175,69 @@ class ServerCapabilities
      */
     public $executeCommandProvider;
     /**
+     * The server provides call hierarchy support.
+     *
+     * @var bool|mixed|mixed|null
+     */
+    public $callHierarchyProvider;
+    /**
+     * The server provides linked editing range support.
+     *
+     * @var bool|mixed|mixed|null
+     */
+    public $linkedEditingRangeProvider;
+    /**
+     * The server provides semantic tokens support.
+     *
+     * @var mixed|mixed|null
+     */
+    public $semanticTokensProvider;
+    /**
+     * The server provides moniker support.
+     *
+     * @var bool|mixed|mixed|null
+     */
+    public $monikerProvider;
+    /**
+     * The server provides type hierarchy support.
+     *
+     * @var bool|mixed|mixed|null
+     */
+    public $typeHierarchyProvider;
+    /**
+     * The server provides inline values.
+     *
+     * @var bool|mixed|mixed|null
+     */
+    public $inlineValueProvider;
+    /**
+     * The server provides inlay hints.
+     *
+     * @var bool|mixed|mixed|null
+     */
+    public $inlayHintProvider;
+    /**
+     * The server has support for pull model diagnostics.
+     *
+     * @var mixed|mixed|null
+     */
+    public $diagnosticProvider;
+    /**
+     * Workspace specific server capabilities.
+     *
+     * @var array{workspaceFolders:WorkspaceFoldersServerCapabilities,fileOperations:FileOperationOptions}|null
+     */
+    public $workspace;
+    /**
      * Experimental server capabilities.
      *
      * @var mixed|null
      */
     public $experimental;
     /**
-     * The workspace server capabilities
-     *
-     * @var array<mixed>|null
-     */
-    public $workspace;
-    /**
+     * @param string|null $positionEncoding
      * @param TextDocumentSyncOptions|TextDocumentSyncKind::*|null $textDocumentSync
+     * @param mixed|mixed|null $notebookDocumentSync
      * @param CompletionOptions|null $completionProvider
      * @param bool|HoverOptions|null $hoverProvider
      * @param SignatureHelpOptions|null $signatureHelpProvider
@@ -190,12 +260,22 @@ class ServerCapabilities
      * @param bool|FoldingRangeOptions|FoldingRangeRegistrationOptions|null $foldingRangeProvider
      * @param bool|SelectionRangeOptions|SelectionRangeRegistrationOptions|null $selectionRangeProvider
      * @param ExecuteCommandOptions|null $executeCommandProvider
+     * @param bool|mixed|mixed|null $callHierarchyProvider
+     * @param bool|mixed|mixed|null $linkedEditingRangeProvider
+     * @param mixed|mixed|null $semanticTokensProvider
+     * @param bool|mixed|mixed|null $monikerProvider
+     * @param bool|mixed|mixed|null $typeHierarchyProvider
+     * @param bool|mixed|mixed|null $inlineValueProvider
+     * @param bool|mixed|mixed|null $inlayHintProvider
+     * @param mixed|mixed|null $diagnosticProvider
+     * @param array{workspaceFolders:WorkspaceFoldersServerCapabilities,fileOperations:FileOperationOptions}|null $workspace
      * @param mixed|null $experimental
-     * @param array<mixed>|null $workspace
      */
-    public function __construct($textDocumentSync = null, ?\Phpactor\LanguageServerProtocol\CompletionOptions $completionProvider = null, $hoverProvider = null, ?\Phpactor\LanguageServerProtocol\SignatureHelpOptions $signatureHelpProvider = null, $declarationProvider = null, $definitionProvider = null, $typeDefinitionProvider = null, $implementationProvider = null, $referencesProvider = null, $documentHighlightProvider = null, $documentSymbolProvider = null, $codeActionProvider = null, ?\Phpactor\LanguageServerProtocol\CodeLensOptions $codeLensProvider = null, ?\Phpactor\LanguageServerProtocol\DocumentLinkOptions $documentLinkProvider = null, $colorProvider = null, $workspaceSymbolProvider = null, $documentFormattingProvider = null, $documentRangeFormattingProvider = null, ?\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingOptions $documentOnTypeFormattingProvider = null, $renameProvider = null, $foldingRangeProvider = null, $selectionRangeProvider = null, ?\Phpactor\LanguageServerProtocol\ExecuteCommandOptions $executeCommandProvider = null, $experimental = null, ?array $workspace = null)
+    public function __construct(?string $positionEncoding = null, $textDocumentSync = null, $notebookDocumentSync = null, ?\Phpactor\LanguageServerProtocol\CompletionOptions $completionProvider = null, $hoverProvider = null, ?\Phpactor\LanguageServerProtocol\SignatureHelpOptions $signatureHelpProvider = null, $declarationProvider = null, $definitionProvider = null, $typeDefinitionProvider = null, $implementationProvider = null, $referencesProvider = null, $documentHighlightProvider = null, $documentSymbolProvider = null, $codeActionProvider = null, ?\Phpactor\LanguageServerProtocol\CodeLensOptions $codeLensProvider = null, ?\Phpactor\LanguageServerProtocol\DocumentLinkOptions $documentLinkProvider = null, $colorProvider = null, $workspaceSymbolProvider = null, $documentFormattingProvider = null, $documentRangeFormattingProvider = null, ?\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingOptions $documentOnTypeFormattingProvider = null, $renameProvider = null, $foldingRangeProvider = null, $selectionRangeProvider = null, ?\Phpactor\LanguageServerProtocol\ExecuteCommandOptions $executeCommandProvider = null, $callHierarchyProvider = null, $linkedEditingRangeProvider = null, $semanticTokensProvider = null, $monikerProvider = null, $typeHierarchyProvider = null, $inlineValueProvider = null, $inlayHintProvider = null, $diagnosticProvider = null, ?array $workspace = null, $experimental = null)
     {
+        $this->positionEncoding = $positionEncoding;
         $this->textDocumentSync = $textDocumentSync;
+        $this->notebookDocumentSync = $notebookDocumentSync;
         $this->completionProvider = $completionProvider;
         $this->hoverProvider = $hoverProvider;
         $this->signatureHelpProvider = $signatureHelpProvider;
@@ -218,16 +298,24 @@ class ServerCapabilities
         $this->foldingRangeProvider = $foldingRangeProvider;
         $this->selectionRangeProvider = $selectionRangeProvider;
         $this->executeCommandProvider = $executeCommandProvider;
-        $this->experimental = $experimental;
+        $this->callHierarchyProvider = $callHierarchyProvider;
+        $this->linkedEditingRangeProvider = $linkedEditingRangeProvider;
+        $this->semanticTokensProvider = $semanticTokensProvider;
+        $this->monikerProvider = $monikerProvider;
+        $this->typeHierarchyProvider = $typeHierarchyProvider;
+        $this->inlineValueProvider = $inlineValueProvider;
+        $this->inlayHintProvider = $inlayHintProvider;
+        $this->diagnosticProvider = $diagnosticProvider;
         $this->workspace = $workspace;
+        $this->experimental = $experimental;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['textDocumentSync' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentSyncOptions::class], 'iterable' => \false], 'completionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionOptions::class], 'iterable' => \false], 'hoverProvider' => ['names' => [\Phpactor\LanguageServerProtocol\HoverOptions::class], 'iterable' => \false], 'signatureHelpProvider' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureHelpOptions::class], 'iterable' => \false], 'declarationProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DeclarationOptions::class, \Phpactor\LanguageServerProtocol\DeclarationRegistrationOptions::class], 'iterable' => \false], 'definitionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DefinitionOptions::class], 'iterable' => \false], 'typeDefinitionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\TypeDefinitionOptions::class, \Phpactor\LanguageServerProtocol\TypeDefinitionRegistrationOptions::class], 'iterable' => \false], 'implementationProvider' => ['names' => [\Phpactor\LanguageServerProtocol\ImplementationOptions::class, \Phpactor\LanguageServerProtocol\ImplementationRegistrationOptions::class], 'iterable' => \false], 'referencesProvider' => ['names' => [\Phpactor\LanguageServerProtocol\ReferenceOptions::class], 'iterable' => \false], 'documentHighlightProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentHighlightOptions::class], 'iterable' => \false], 'documentSymbolProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentSymbolOptions::class], 'iterable' => \false], 'codeActionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\CodeActionOptions::class], 'iterable' => \false], 'codeLensProvider' => ['names' => [\Phpactor\LanguageServerProtocol\CodeLensOptions::class], 'iterable' => \false], 'documentLinkProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentLinkOptions::class], 'iterable' => \false], 'colorProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentColorOptions::class, \Phpactor\LanguageServerProtocol\DocumentColorRegistrationOptions::class], 'iterable' => \false], 'workspaceSymbolProvider' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceSymbolOptions::class], 'iterable' => \false], 'documentFormattingProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentFormattingOptions::class], 'iterable' => \false], 'documentRangeFormattingProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentRangeFormattingOptions::class], 'iterable' => \false], 'documentOnTypeFormattingProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingOptions::class], 'iterable' => \false], 'renameProvider' => ['names' => [\Phpactor\LanguageServerProtocol\RenameOptions::class], 'iterable' => \false], 'foldingRangeProvider' => ['names' => [\Phpactor\LanguageServerProtocol\FoldingRangeOptions::class, \Phpactor\LanguageServerProtocol\FoldingRangeRegistrationOptions::class], 'iterable' => \false], 'selectionRangeProvider' => ['names' => [\Phpactor\LanguageServerProtocol\SelectionRangeOptions::class, \Phpactor\LanguageServerProtocol\SelectionRangeRegistrationOptions::class], 'iterable' => \false], 'executeCommandProvider' => ['names' => [\Phpactor\LanguageServerProtocol\ExecuteCommandOptions::class], 'iterable' => \false], 'experimental' => ['names' => [], 'iterable' => \false], 'workspace' => ['names' => [], 'iterable' => \false]];
+        $map = ['positionEncoding' => ['names' => [], 'iterable' => \false], 'textDocumentSync' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentSyncOptions::class], 'iterable' => \false], 'notebookDocumentSync' => ['names' => [], 'iterable' => \false], 'completionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\CompletionOptions::class], 'iterable' => \false], 'hoverProvider' => ['names' => [\Phpactor\LanguageServerProtocol\HoverOptions::class], 'iterable' => \false], 'signatureHelpProvider' => ['names' => [\Phpactor\LanguageServerProtocol\SignatureHelpOptions::class], 'iterable' => \false], 'declarationProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DeclarationOptions::class, \Phpactor\LanguageServerProtocol\DeclarationRegistrationOptions::class], 'iterable' => \false], 'definitionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DefinitionOptions::class], 'iterable' => \false], 'typeDefinitionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\TypeDefinitionOptions::class, \Phpactor\LanguageServerProtocol\TypeDefinitionRegistrationOptions::class], 'iterable' => \false], 'implementationProvider' => ['names' => [\Phpactor\LanguageServerProtocol\ImplementationOptions::class, \Phpactor\LanguageServerProtocol\ImplementationRegistrationOptions::class], 'iterable' => \false], 'referencesProvider' => ['names' => [\Phpactor\LanguageServerProtocol\ReferenceOptions::class], 'iterable' => \false], 'documentHighlightProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentHighlightOptions::class], 'iterable' => \false], 'documentSymbolProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentSymbolOptions::class], 'iterable' => \false], 'codeActionProvider' => ['names' => [\Phpactor\LanguageServerProtocol\CodeActionOptions::class], 'iterable' => \false], 'codeLensProvider' => ['names' => [\Phpactor\LanguageServerProtocol\CodeLensOptions::class], 'iterable' => \false], 'documentLinkProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentLinkOptions::class], 'iterable' => \false], 'colorProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentColorOptions::class, \Phpactor\LanguageServerProtocol\DocumentColorRegistrationOptions::class], 'iterable' => \false], 'workspaceSymbolProvider' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceSymbolOptions::class], 'iterable' => \false], 'documentFormattingProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentFormattingOptions::class], 'iterable' => \false], 'documentRangeFormattingProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentRangeFormattingOptions::class], 'iterable' => \false], 'documentOnTypeFormattingProvider' => ['names' => [\Phpactor\LanguageServerProtocol\DocumentOnTypeFormattingOptions::class], 'iterable' => \false], 'renameProvider' => ['names' => [\Phpactor\LanguageServerProtocol\RenameOptions::class], 'iterable' => \false], 'foldingRangeProvider' => ['names' => [\Phpactor\LanguageServerProtocol\FoldingRangeOptions::class, \Phpactor\LanguageServerProtocol\FoldingRangeRegistrationOptions::class], 'iterable' => \false], 'selectionRangeProvider' => ['names' => [\Phpactor\LanguageServerProtocol\SelectionRangeOptions::class, \Phpactor\LanguageServerProtocol\SelectionRangeRegistrationOptions::class], 'iterable' => \false], 'executeCommandProvider' => ['names' => [\Phpactor\LanguageServerProtocol\ExecuteCommandOptions::class], 'iterable' => \false], 'callHierarchyProvider' => ['names' => [], 'iterable' => \false], 'linkedEditingRangeProvider' => ['names' => [], 'iterable' => \false], 'semanticTokensProvider' => ['names' => [], 'iterable' => \false], 'monikerProvider' => ['names' => [], 'iterable' => \false], 'typeHierarchyProvider' => ['names' => [], 'iterable' => \false], 'inlineValueProvider' => ['names' => [], 'iterable' => \false], 'inlayHintProvider' => ['names' => [], 'iterable' => \false], 'diagnosticProvider' => ['names' => [], 'iterable' => \false], 'workspace' => ['names' => [], 'iterable' => \false], 'experimental' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

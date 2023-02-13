@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp;
+namespace PhpactorDist\Amp;
 
 /**
  * Deferred is a container for a promise that is resolved using the resolve() and fail() methods of this object.

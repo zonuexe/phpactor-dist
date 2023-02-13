@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection\Tool;
+namespace PhpactorDist\Ramsey\Collection\Tool;
 
-use Phpactor202301\Ramsey\Collection\Exception\ValueExtractionException;
+use PhpactorDist\Ramsey\Collection\Exception\ValueExtractionException;
 use function get_class;
 use function is_object;
 use function method_exists;

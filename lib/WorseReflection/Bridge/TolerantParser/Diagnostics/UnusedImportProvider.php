@@ -2,13 +2,13 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceDefinition;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\DocblockParser\Ast\Docblock;
 use Phpactor\DocblockParser\Ast\Type\CallableNode;
 use Phpactor\DocblockParser\Ast\Type\ClassNode;
@@ -53,8 +53,7 @@ class UnusedImportProvider implements DiagnosticProvider
                     if (!$useClause instanceof NamespaceUseClause) {
                         continue;
                     }
-                    $lastPart = $this->lastPart($groupClause->namespaceName->getNamespacedName()->__toString());
-                    $this->imported[$this->prefixedName($groupClause, $lastPart)] = $groupClause;
+                    $this->imported[$this->prefixedName($groupClause, $groupClause->__toString())] = $groupClause;
                 }
                 return [];
             }
@@ -112,10 +111,10 @@ class UnusedImportProvider implements DiagnosticProvider
         $imported = \explode(':', $imported)[1];
         return \str_contains($contents, '@' . $imported);
     }
+    /** @phpstan-ignore-next-line TP lies */
     private function lastPart(string $name) : string
     {
         $parts = \array_filter(\explode('\\', $name));
-        /** @phpstan-ignore-next-line TP lies */
         if (!$parts) {
             return '';
         }

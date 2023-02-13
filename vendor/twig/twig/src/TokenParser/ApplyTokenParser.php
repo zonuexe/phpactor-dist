@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\Expression\TempNameExpression;
-use Phpactor202301\Twig\Node\Node;
-use Phpactor202301\Twig\Node\PrintNode;
-use Phpactor202301\Twig\Node\SetNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\Expression\TempNameExpression;
+use PhpactorDist\Twig\Node\Node;
+use PhpactorDist\Twig\Node\PrintNode;
+use PhpactorDist\Twig\Node\SetNode;
+use PhpactorDist\Twig\Token;
 /**
  * Applies filters on a section of a template.
  *

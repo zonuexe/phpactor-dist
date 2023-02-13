@@ -2,18 +2,18 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\PhpPollWatcher;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use DateTimeImmutable;
 use Phpactor\AmpFsWatch\ModifiedFile;
 use Phpactor\AmpFsWatch\ModifiedFileQueue;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\WatcherConfig;
 use Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
-use Phpactor202301\Webmozart\PathUtil\Path;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
+use PhpactorDist\Webmozart\PathUtil\Path;
 class PhpPollWatcher implements Watcher, WatcherProcess
 {
     /**
@@ -44,18 +44,18 @@ class PhpPollWatcher implements Watcher, WatcherProcess
     }
     public function watch() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $this->logger->info(\sprintf('Polling at interval of "%s" milliseconds for changes paths "%s"', $this->config->pollInterval(), \implode('", "', $this->config->paths())));
             $this->updateDateReference();
             $this->running = \true;
-            \Phpactor202301\Amp\asyncCall(function () {
+            \PhpactorDist\Amp\asyncCall(function () {
                 while ($this->running) {
                     $start = \microtime(\true);
                     $searches = [];
                     foreach ($this->config->paths() as $path) {
                         $searches[] = $this->search($path);
                     }
-                    (yield \Phpactor202301\Amp\Promise\all($searches));
+                    (yield \PhpactorDist\Amp\Promise\all($searches));
                     $this->logger->debug(\sprintf('pid: %s PHP watcher scanned paths "%s" in %s seconds', \getmypid(), \implode('", "', $this->config->paths()), \number_format(\microtime(\true) - $start, 2)));
                     $this->updateDateReference();
                     (yield new Delayed($this->config->pollInterval()));
@@ -66,7 +66,7 @@ class PhpPollWatcher implements Watcher, WatcherProcess
     }
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             while ($this->running) {
                 $this->queue = $this->queue->compress();
                 if ($next = $this->queue->dequeue()) {
@@ -89,7 +89,7 @@ class PhpPollWatcher implements Watcher, WatcherProcess
      */
     private function search(string $path) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($path) {
+        return \PhpactorDist\Amp\call(function () use($path) {
             $files = \scandir($path);
             foreach ((array) $files as $file) {
                 if ($file === '.' || $file === '..') {

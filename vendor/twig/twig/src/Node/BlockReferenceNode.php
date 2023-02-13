@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents a block call node.
  *
@@ -28,4 +28,4 @@ class BlockReferenceNode extends Node implements NodeOutputInterface
         $compiler->addDebugInfo($this)->write(\sprintf("\$this->displayBlock('%s', \$context, \$blocks);\n", $this->getAttribute('name')));
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\BlockReferenceNode', 'Phpactor202301\\Twig_Node_BlockReference');
+\class_alias('PhpactorDist\\Twig\\Node\\BlockReferenceNode', 'PhpactorDist\\Twig_Node_BlockReference');

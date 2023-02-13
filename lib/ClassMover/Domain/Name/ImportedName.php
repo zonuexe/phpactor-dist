@@ -15,7 +15,7 @@ final class ImportedName extends \Phpactor\ClassMover\Domain\Name\Namespace_
         $lastPart = \end($this->parts);
         return $lastPart;
     }
-    public function qualifies(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
+    public function qualifies(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : bool
     {
         $head = $this->alias ?: $this->head();
         $qualifies = $head === $name->base();
@@ -25,13 +25,13 @@ final class ImportedName extends \Phpactor\ClassMover\Domain\Name\Namespace_
     {
         return \Phpactor\ClassMover\Domain\Name\FullyQualifiedName::fromString($this->parentNamespace()->__toString() . '\\' . $name->__toString());
     }
-    public function withAlias(string $alias)
+    public function withAlias(string $alias) : self
     {
         $new = new self($this->parts);
         $new->alias = $alias;
         return $new;
     }
-    public function isAlias()
+    public function isAlias() : bool
     {
         return null !== $this->alias;
     }

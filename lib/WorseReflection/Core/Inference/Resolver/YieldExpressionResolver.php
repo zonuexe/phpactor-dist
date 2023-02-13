@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Core\Inference\Resolver;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\YieldExpression;
-use Phpactor202301\Microsoft\PhpParser\Token;
-use Phpactor202301\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\YieldExpression;
+use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\TokenKind;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Inference\NodeContextFactory;
@@ -26,7 +26,6 @@ class YieldExpressionResolver implements Resolver
         $from = $node->yieldOrYieldFromKeyword;
         $yieldFrom = $from->kind === TokenKind::YieldFromKeyword;
         $returnType = $frame->returnType();
-        /** @phpstan-ignore-next-line No trust */
         if (!$arrayElement) {
             return $context;
         }

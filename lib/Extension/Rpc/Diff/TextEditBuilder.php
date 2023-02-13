@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\Rpc\Diff;
 
-use Phpactor202301\SebastianBergmann\Diff\Differ as BergmannDiffer;
+use PhpactorDist\SebastianBergmann\Diff\Differ as BergmannDiffer;
 /**
  * Build an array of text edits required to transform one source file to another.
  *

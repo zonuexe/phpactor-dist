@@ -5,13 +5,13 @@ namespace Phpactor\Extension\WorseReflectionAnalyse\Command;
 use Phpactor\Extension\WorseReflectionAnalyse\Model\Analyser;
 use Phpactor\WorseReflection\Core\Diagnostic;
 use Phpactor\WorseReflection\Core\Diagnostics;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Helper\ProgressBar;
-use Phpactor202301\Symfony\Component\Console\Helper\Table;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Helper\ProgressBar;
+use PhpactorDist\Symfony\Component\Console\Helper\Table;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 class AnalyseCommand extends Command
 {
     const ARG_PATH = 'path';

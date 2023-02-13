@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\LanguageServer\Core\Handler\MethodRunner;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
@@ -28,7 +28,7 @@ class CancellationMiddleware implements Middleware
     {
         if ($message instanceof NotificationMessage && $message->method === self::METHOD_CANCEL_REQUEST) {
             $id = $message->params['id'] ?? null;
-            if (null === $id) {
+            if (!\is_int($id) && !\is_string($id)) {
                 throw new RuntimeException('ID parameter not present in cancel notification');
             }
             $this->runner->cancelRequest($id);

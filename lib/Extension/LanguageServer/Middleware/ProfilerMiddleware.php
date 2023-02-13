@@ -2,14 +2,14 @@
 
 namespace Phpactor\Extension\LanguageServer\Middleware;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Middleware\Middleware;
 use Phpactor\LanguageServer\Core\Middleware\RequestHandler;
 use Phpactor\LanguageServer\Core\Rpc\Message;
 use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;
 use Phpactor\LanguageServer\Core\Rpc\RequestMessage;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use function PhpactorDist\Amp\call;
 class ProfilerMiddleware implements Middleware
 {
     public function __construct(private LoggerInterface $logger, private bool $trace = \false)
@@ -30,6 +30,7 @@ class ProfilerMiddleware implements Middleware
                 $this->info(\sprintf('PROF        >> request #%d [%s]', $request->id, $request->method), $context);
             }
             $start = \microtime(\true);
+            /** @phpstan-ignore-next-line */
             $response = (yield $handler->handle($request));
             $elapsed = \microtime(\true) - $start;
             if ($this->trace) {
@@ -45,6 +46,9 @@ class ProfilerMiddleware implements Middleware
             return $response;
         });
     }
+    /**
+     * @param array<string,mixed> $context
+     */
     private function info(string $message, array $context) : void
     {
         $this->logger->info($message, $context);

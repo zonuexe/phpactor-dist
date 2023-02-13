@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Adapter\DTL;
 
-use Phpactor202301\DTL\ArgumentResolver\ArgumentResolver as UpstreamArgumentResolver;
-use Phpactor202301\DTL\ArgumentResolver\ParamConverter\RecursiveInstantiator;
+use PhpactorDist\DTL\ArgumentResolver\ArgumentResolver as UpstreamArgumentResolver;
+use PhpactorDist\DTL\ArgumentResolver\ParamConverter\RecursiveInstantiator;
 use Phpactor\LanguageServer\Core\Dispatcher\ArgumentResolver;
 use Phpactor\LanguageServer\Core\Rpc\Message;
 use Phpactor\LanguageServer\Core\Rpc\NotificationMessage;

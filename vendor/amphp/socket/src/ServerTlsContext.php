@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
 final class ServerTlsContext
 {

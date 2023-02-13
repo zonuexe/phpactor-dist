@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\DoNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\DoNode;
+use PhpactorDist\Twig\Token;
 /**
  * Evaluates an expression, discarding the returned value.
  */
@@ -31,4 +31,4 @@ final class DoTokenParser extends AbstractTokenParser
         return 'do';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\DoTokenParser', 'Phpactor202301\\Twig_TokenParser_Do');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\DoTokenParser', 'PhpactorDist\\Twig_TokenParser_Do');

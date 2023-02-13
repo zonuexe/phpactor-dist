@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Extension\GlobalsInterface;
-\class_exists('Phpactor202301\\Twig\\Extension\\GlobalsInterface');
+use PhpactorDist\Twig\Extension\GlobalsInterface;
+\class_exists('PhpactorDist\\Twig\\Extension\\GlobalsInterface');
 @\trigger_error('Using the "Twig_Extension_GlobalsInterface" class is deprecated since Twig version 2.7, use "Twig\\Extension\\GlobalsInterface" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Extension\GlobalsInterface" instead */

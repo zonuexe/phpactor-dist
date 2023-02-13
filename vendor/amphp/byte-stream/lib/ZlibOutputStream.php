@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 /**
  * Allows compression of output streams using Zlib.
  */

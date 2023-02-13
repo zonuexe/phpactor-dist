@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Handler\TextDocument;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\CodeAction;
 use Phpactor\LanguageServerProtocol\CodeActionOptions;
 use Phpactor\LanguageServerProtocol\CodeActionParams;
@@ -13,7 +13,7 @@ use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Workspace\Workspace;
-use function Phpactor202301\Amp\call;
+use function PhpactorDist\Amp\call;
 class CodeActionHandler implements Handler, CanRegisterCapabilities
 {
     /**
@@ -46,6 +46,7 @@ class CodeActionHandler implements Handler, CanRegisterCapabilities
      */
     public function codeAction(CodeActionParams $params, CancellationToken $cancel) : Promise
     {
+        /** @phpstan-ignore-next-line */
         return call(function () use($params, $cancel) {
             $document = $this->workspace->get($params->textDocument->uri);
             return $this->provider->provideActionsFor($document, $params->range, $cancel);

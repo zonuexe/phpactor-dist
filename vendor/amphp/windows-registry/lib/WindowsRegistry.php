@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\WindowsRegistry;
+namespace PhpactorDist\Amp\WindowsRegistry;
 
-use Phpactor202301\Amp\ByteStream;
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\ByteStream;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 class WindowsRegistry
 {
     public function read(string $key) : Promise

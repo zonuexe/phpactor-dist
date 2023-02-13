@@ -2,11 +2,11 @@
 
 namespace Phpactor\Extension\WorseReflectionExtra\Command;
 
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
 use Phpactor\Extension\WorseReflectionExtra\Application\OffsetInfo;
 use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
 use Phpactor\Extension\Core\Console\Handler\FormatHandler;

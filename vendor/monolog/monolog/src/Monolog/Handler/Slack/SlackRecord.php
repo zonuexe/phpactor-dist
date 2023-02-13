@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler\Slack;
+namespace PhpactorDist\Monolog\Handler\Slack;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Monolog\Utils;
-use Phpactor202301\Monolog\Formatter\NormalizerFormatter;
-use Phpactor202301\Monolog\Formatter\FormatterInterface;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Monolog\Utils;
+use PhpactorDist\Monolog\Formatter\NormalizerFormatter;
+use PhpactorDist\Monolog\Formatter\FormatterInterface;
 /**
  * Slack record utility helping to log to Slack webhooks or API.
  *

@@ -2,8 +2,8 @@
 
 namespace Phpactor\LanguageServer\Service;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsEngine;
 use Phpactor\LanguageServer\Core\Service\ServiceProvider;
@@ -11,7 +11,7 @@ use Phpactor\LanguageServer\Core\Workspace\Workspace;
 use Phpactor\LanguageServer\Event\TextDocumentOpened;
 use Phpactor\LanguageServer\Event\TextDocumentSaved;
 use Phpactor\LanguageServer\Event\TextDocumentUpdated;
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 class DiagnosticsService implements ServiceProvider, ListenerProviderInterface
 {
     /**

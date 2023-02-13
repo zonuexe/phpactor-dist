@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Test;
+namespace PhpactorDist\Twig\Node\Expression\Test;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\TestExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\TestExpression;
 /**
  * Checks if a number is even.
  *
@@ -26,4 +26,4 @@ class EvenTest extends TestExpression
         $compiler->raw('(')->subcompile($this->getNode('node'))->raw(' % 2 == 0')->raw(')');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Test\\EvenTest', 'Phpactor202301\\Twig_Node_Expression_Test_Even');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Test\\EvenTest', 'PhpactorDist\\Twig_Node_Expression_Test_Even');

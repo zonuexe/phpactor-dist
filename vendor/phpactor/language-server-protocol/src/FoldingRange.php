@@ -3,16 +3,18 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * Represents a folding range.
+ * Represents a folding range. To be valid, start and end line must be bigger than zero and smaller
+ * than the number of lines in the document. Clients are free to ignore invalid ranges.
  */
 class FoldingRange
 {
     /**
-     * The zero-based line number from where the folded range starts.
+     * The zero-based start line of the range to fold. The folded area starts after the line's last character.
+     * To be valid, the end must be zero or larger and smaller than the number of lines in the document.
      *
      * @var int
      */
@@ -24,7 +26,8 @@ class FoldingRange
      */
     public $startCharacter;
     /**
-     * The zero-based line number where the folded range ends.
+     * The zero-based end line of the range to fold. The folded area ends with the line's last character.
+     * To be valid, the end must be zero or larger and smaller than the number of lines in the document.
      *
      * @var int
      */
@@ -37,34 +40,44 @@ class FoldingRange
     public $endCharacter;
     /**
      * Describes the kind of the folding range such as `comment' or 'region'. The kind
-     * is used to categorize folding ranges and used by commands like 'Fold all comments'. See
-     * [FoldingRangeKind](#FoldingRangeKind) for an enumeration of standardized kinds.
+     * is used to categorize folding ranges and used by commands like 'Fold all comments'.
+     * See [FoldingRangeKind](#FoldingRangeKind) for an enumeration of standardized kinds.
+     *
+     * @var FoldingRangeKind::*|null
+     */
+    public $kind;
+    /**
+     * The text that the client should show when the specified range is
+     * collapsed. If not defined or not supported by the client, a default
+     * will be chosen by the client.
      *
      * @var string|null
      */
-    public $kind;
+    public $collapsedText;
     /**
      * @param int $startLine
      * @param int|null $startCharacter
      * @param int $endLine
      * @param int|null $endCharacter
-     * @param string|null $kind
+     * @param FoldingRangeKind::*|null $kind
+     * @param string|null $collapsedText
      */
-    public function __construct(int $startLine, int $endLine, ?int $startCharacter = null, ?int $endCharacter = null, ?string $kind = null)
+    public function __construct(int $startLine, int $endLine, ?int $startCharacter = null, ?int $endCharacter = null, $kind = null, ?string $collapsedText = null)
     {
         $this->startLine = $startLine;
         $this->startCharacter = $startCharacter;
         $this->endLine = $endLine;
         $this->endCharacter = $endCharacter;
         $this->kind = $kind;
+        $this->collapsedText = $collapsedText;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['startLine' => ['names' => [], 'iterable' => \false], 'startCharacter' => ['names' => [], 'iterable' => \false], 'endLine' => ['names' => [], 'iterable' => \false], 'endCharacter' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false]];
+        $map = ['startLine' => ['names' => [], 'iterable' => \false], 'startCharacter' => ['names' => [], 'iterable' => \false], 'endLine' => ['names' => [], 'iterable' => \false], 'endCharacter' => ['names' => [], 'iterable' => \false], 'kind' => ['names' => [], 'iterable' => \false], 'collapsedText' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

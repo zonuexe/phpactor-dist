@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
 /*
  * This file is part of the Symfony package.
@@ -10,7 +10,7 @@ namespace Phpactor202301;
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-use Phpactor202301\Symfony\Polyfill\Mbstring as p;
+use PhpactorDist\Symfony\Polyfill\Mbstring as p;
 if (!\function_exists('mb_convert_encoding')) {
     function mb_convert_encoding(array|string|null $string, ?string $to_encoding, array|string|null $from_encoding = null) : array|string|false
     {

@@ -3,7 +3,7 @@
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use Phpactor\WorseReflection\Core\Inference\Frame;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 class ReflectionStaticMethodCall extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionMethodCall
 {

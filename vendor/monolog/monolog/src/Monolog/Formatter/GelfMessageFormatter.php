@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Formatter;
+namespace PhpactorDist\Monolog\Formatter;
 
-use Phpactor202301\Monolog\Logger;
-use Phpactor202301\Gelf\Message;
+use PhpactorDist\Monolog\Logger;
+use PhpactorDist\Gelf\Message;
 /**
  * Serializes a log message to GELF
  * @see http://www.graylog2.org/about/gelf

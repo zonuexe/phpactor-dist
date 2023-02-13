@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Node\Node;
 /**
  * Compiles a node to PHP code.
  *
@@ -208,4 +208,4 @@ class Compiler
         return \sprintf('__internal_compile_%d', $this->varNameSalt++);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Compiler', 'Phpactor202301\\Twig_Compiler');
+\class_alias('PhpactorDist\\Twig\\Compiler', 'PhpactorDist\\Twig_Compiler');

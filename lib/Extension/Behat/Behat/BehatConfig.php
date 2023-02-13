@@ -3,7 +3,7 @@
 namespace Phpactor\Extension\Behat\Behat;
 
 use Generator;
-use Phpactor202301\Symfony\Component\Yaml\Yaml;
+use PhpactorDist\Symfony\Component\Yaml\Yaml;
 class BehatConfig
 {
     public function __construct(private string $path)

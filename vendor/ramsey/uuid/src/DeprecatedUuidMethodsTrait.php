@@ -10,13 +10,13 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid;
+namespace PhpactorDist\Ramsey\Uuid;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\DateTimeException;
-use Phpactor202301\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\DateTimeException;
+use PhpactorDist\Ramsey\Uuid\Exception\UnsupportedOperationException;
 use Throwable;
 use function str_pad;
 use function substr;

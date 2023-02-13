@@ -1,16 +1,16 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\CancelledException;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Struct;
-use Phpactor202301\Amp\Success;
-use Phpactor202301\League\Uri;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\CancelledException;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Struct;
+use PhpactorDist\Amp\Success;
+use PhpactorDist\League\Uri;
+use function PhpactorDist\Amp\call;
 /**
  * SocketPool implementation that doesn't impose any limits on concurrent open connections.
  */

@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Formatting;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\LanguageServerProtocol\TextEdit;
 interface Formatter

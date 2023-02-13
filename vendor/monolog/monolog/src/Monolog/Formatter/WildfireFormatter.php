@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Formatter;
+namespace PhpactorDist\Monolog\Formatter;
 
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Logger;
 /**
  * Serializes a log message according to Wildfire's header requirements
  *

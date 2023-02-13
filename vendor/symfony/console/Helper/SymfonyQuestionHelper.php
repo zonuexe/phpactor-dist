@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Helper;
+namespace PhpactorDist\Symfony\Component\Console\Helper;
 
-use Phpactor202301\Symfony\Component\Console\Formatter\OutputFormatter;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Question\ChoiceQuestion;
-use Phpactor202301\Symfony\Component\Console\Question\ConfirmationQuestion;
-use Phpactor202301\Symfony\Component\Console\Question\Question;
-use Phpactor202301\Symfony\Component\Console\Style\SymfonyStyle;
+use PhpactorDist\Symfony\Component\Console\Formatter\OutputFormatter;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Question\ChoiceQuestion;
+use PhpactorDist\Symfony\Component\Console\Question\ConfirmationQuestion;
+use PhpactorDist\Symfony\Component\Console\Question\Question;
+use PhpactorDist\Symfony\Component\Console\Style\SymfonyStyle;
 /**
  * Symfony Style Guide compliant question helper.
  *

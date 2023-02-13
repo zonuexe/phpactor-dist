@@ -3,18 +3,18 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
- * Mixins (implemented TS interfaces): _ClientCapabilities, WorkspaceFoldersClientCapabilities, ConfigurationClientCapabilities, WorkDoneProgressClientCapabilities
+ * Defines the capabilities provided by the client.
  */
 class ClientCapabilities
 {
     /**
-     * The workspace client capabilities
+     * Workspace specific client capabilities.
      *
-     * @var array<mixed>|null
+     * @var WorkspaceClientCapabilities|null
      */
     public $workspace;
     /**
@@ -24,37 +24,53 @@ class ClientCapabilities
      */
     public $textDocument;
     /**
+     * Capabilities specific to the notebook document support.
+     *
+     * @var NotebookDocumentClientCapabilities|null
+     */
+    public $notebookDocument;
+    /**
      * Window specific client capabilities.
      *
-     * @var array<mixed>|null
+     * @var WindowClientCapabilities|null
      */
     public $window;
     /**
+     * General client capabilities.
+     *
+     * @var GeneralClientCapabilities|null
+     */
+    public $general;
+    /**
      * Experimental client capabilities.
      *
-     * @var array<mixed>|null
+     * @var mixed|null
      */
     public $experimental;
     /**
-     * @param array<mixed>|null $workspace
+     * @param WorkspaceClientCapabilities|null $workspace
      * @param TextDocumentClientCapabilities|null $textDocument
-     * @param array<mixed>|null $window
-     * @param array<mixed>|null $experimental
+     * @param NotebookDocumentClientCapabilities|null $notebookDocument
+     * @param WindowClientCapabilities|null $window
+     * @param GeneralClientCapabilities|null $general
+     * @param mixed|null $experimental
      */
-    public function __construct(?array $workspace = null, ?\Phpactor\LanguageServerProtocol\TextDocumentClientCapabilities $textDocument = null, ?array $window = null, ?array $experimental = null)
+    public function __construct(?\Phpactor\LanguageServerProtocol\WorkspaceClientCapabilities $workspace = null, ?\Phpactor\LanguageServerProtocol\TextDocumentClientCapabilities $textDocument = null, ?\Phpactor\LanguageServerProtocol\NotebookDocumentClientCapabilities $notebookDocument = null, ?\Phpactor\LanguageServerProtocol\WindowClientCapabilities $window = null, ?\Phpactor\LanguageServerProtocol\GeneralClientCapabilities $general = null, $experimental = null)
     {
         $this->workspace = $workspace;
         $this->textDocument = $textDocument;
+        $this->notebookDocument = $notebookDocument;
         $this->window = $window;
+        $this->general = $general;
         $this->experimental = $experimental;
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {
-        $map = ['workspace' => ['names' => [], 'iterable' => \false], 'textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentClientCapabilities::class], 'iterable' => \false], 'window' => ['names' => [], 'iterable' => \false], 'experimental' => ['names' => [], 'iterable' => \false]];
+        $map = ['workspace' => ['names' => [\Phpactor\LanguageServerProtocol\WorkspaceClientCapabilities::class], 'iterable' => \false], 'textDocument' => ['names' => [\Phpactor\LanguageServerProtocol\TextDocumentClientCapabilities::class], 'iterable' => \false], 'notebookDocument' => ['names' => [\Phpactor\LanguageServerProtocol\NotebookDocumentClientCapabilities::class], 'iterable' => \false], 'window' => ['names' => [\Phpactor\LanguageServerProtocol\WindowClientCapabilities::class], 'iterable' => \false], 'general' => ['names' => [\Phpactor\LanguageServerProtocol\GeneralClientCapabilities::class], 'iterable' => \false], 'experimental' => ['names' => [], 'iterable' => \false]];
         foreach ($array as $key => &$value) {
             if (!isset($map[$key])) {
                 if ($allowUnknownKeys) {

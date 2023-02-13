@@ -4,7 +4,7 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser;
+namespace PhpactorDist\Microsoft\PhpParser;
 
 /**
  * FilePositionMap can be used to get the line number for a large number of nodes (starting from 1).

@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class MethodCallExpression extends AbstractExpression
 {
     public function __construct(AbstractExpression $node, string $method, ArrayExpression $arguments, int $lineno)
@@ -38,4 +38,4 @@ class MethodCallExpression extends AbstractExpression
         $compiler->raw('], ')->repr($this->getTemplateLine())->raw(', $context, $this->getSourceContext())');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\MethodCallExpression', 'Phpactor202301\\Twig_Node_Expression_MethodCall');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\MethodCallExpression', 'PhpactorDist\\Twig_Node_Expression_MethodCall');

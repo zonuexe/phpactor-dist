@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Process;
+namespace PhpactorDist\Amp\Process;
 
 class ProcessException extends \Exception
 {

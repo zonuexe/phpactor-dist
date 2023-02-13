@@ -4,11 +4,11 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-namespace Phpactor202301\Microsoft\PhpParser\Node\Statement;
+namespace PhpactorDist\Microsoft\PhpParser\Node\Statement;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression;
-use Phpactor202301\Microsoft\PhpParser\Node\StatementNode;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression;
+use PhpactorDist\Microsoft\PhpParser\Node\StatementNode;
+use PhpactorDist\Microsoft\PhpParser\Token;
 class ReturnStatement extends StatementNode
 {
     /** @var Token */

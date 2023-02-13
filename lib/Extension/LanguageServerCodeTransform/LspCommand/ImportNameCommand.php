@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\LspCommand;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameImporter;
 use Phpactor\LanguageServerProtocol\WorkspaceEdit;
 use Phpactor\LanguageServer\Core\Command\Command;

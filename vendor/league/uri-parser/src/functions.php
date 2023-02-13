@@ -12,7 +12,7 @@
  * file that was distributed with this source code.
  */
 declare (strict_types=1);
-namespace Phpactor202301\League\Uri;
+namespace PhpactorDist\League\Uri;
 
 /**
  * Returns whether the URI host component is valid according to RFC3986.

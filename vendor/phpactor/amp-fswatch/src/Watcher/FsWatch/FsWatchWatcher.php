@@ -2,18 +2,18 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\FsWatch;
 
-use Phpactor202301\Amp\ByteStream\LineReader;
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Process\Process;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\ByteStream\LineReader;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Process\Process;
+use PhpactorDist\Amp\Promise;
 use Phpactor\AmpFsWatch\ModifiedFileQueue;
 use Phpactor\AmpFsWatch\SystemDetector\CommandDetector;
 use Phpactor\AmpFsWatch\ModifiedFileBuilder;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\WatcherConfig;
 use Phpactor\AmpFsWatch\WatcherProcess;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
 use RuntimeException;
 class FsWatchWatcher implements Watcher, WatcherProcess
 {
@@ -55,7 +55,7 @@ class FsWatchWatcher implements Watcher, WatcherProcess
      */
     public function watch() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $this->process = (yield $this->startProcess());
             $this->running = \true;
             $this->feedQueue($this->process);
@@ -64,7 +64,7 @@ class FsWatchWatcher implements Watcher, WatcherProcess
     }
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             while (\false === $this->process->isRunning()) {
                 (yield new Delayed(self::POLL_TIME));
             }
@@ -91,7 +91,7 @@ class FsWatchWatcher implements Watcher, WatcherProcess
      */
     private function startProcess() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             $process = new Process(\array_merge([self::CMD], $this->config->paths(), ['-r', '--event=Created', '--event=Updated', '--event=Removed']));
             $pid = (yield $process->start());
             $this->logger->debug(\sprintf('Started "%s"', $process->getCommand()));
@@ -104,7 +104,7 @@ class FsWatchWatcher implements Watcher, WatcherProcess
     private function feedQueue(Process $process) : void
     {
         $reader = new LineReader($process->getStdout());
-        \Phpactor202301\Amp\asyncCall(function () use($reader) {
+        \PhpactorDist\Amp\asyncCall(function () use($reader) {
             while (null !== ($line = (yield $reader->readLine()))) {
                 $builder = ModifiedFileBuilder::fromPath($line);
                 if (\file_exists($line) && !\is_file($line)) {

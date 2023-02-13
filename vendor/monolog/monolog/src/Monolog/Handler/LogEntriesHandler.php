@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Monolog\Logger;
 /**
  * @author Robert Kaufmann III <rok3@rok3.me>
  */

@@ -2,7 +2,7 @@
 
 namespace Phpactor\Indexer\Adapter\Tolerant;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\Indexer\Model\Index;
 interface TolerantIndexer

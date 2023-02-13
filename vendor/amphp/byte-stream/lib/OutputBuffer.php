@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 class OutputBuffer implements OutputStream, Promise
 {
     /** @var Deferred */

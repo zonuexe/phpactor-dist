@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Profiler\Dumper;
+namespace PhpactorDist\Twig\Profiler\Dumper;
 
-use Phpactor202301\Twig\Profiler\Profile;
+use PhpactorDist\Twig\Profiler\Profile;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -34,4 +34,4 @@ final class HtmlDumper extends BaseDumper
         return \sprintf('<span style="color: %s">%.2fms/%.0f%%</span>', $percent > 20 ? self::$colors['big'] : 'auto', $profile->getDuration() * 1000, $percent);
     }
 }
-\class_alias('Phpactor202301\\Twig\\Profiler\\Dumper\\HtmlDumper', 'Phpactor202301\\Twig_Profiler_Dumper_Html');
+\class_alias('PhpactorDist\\Twig\\Profiler\\Dumper\\HtmlDumper', 'PhpactorDist\\Twig_Profiler_Dumper_Html');

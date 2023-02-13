@@ -5,7 +5,7 @@ namespace Phpactor\ClassFileConverter;
 use Phpactor\ClassFileConverter\Adapter\Composer\ComposerFileToClass;
 use Phpactor\ClassFileConverter\Adapter\Composer\ComposerClassToFile;
 use Phpactor\ClassFileConverter\Domain\ClassToFileFileToClass;
-use Phpactor202301\Composer\Autoload\ClassLoader;
+use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\ClassFileConverter\Domain\ChainClassToFile;
 use Phpactor\ClassFileConverter\Domain\ChainFileToClass;
 /**

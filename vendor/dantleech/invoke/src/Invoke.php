@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\DTL\Invoke;
+namespace PhpactorDist\DTL\Invoke;
 
 use Closure;
-use Phpactor202301\DTL\Invoke\Internal\ArgumentResolver\NamedArgumentResolver;
-use Phpactor202301\DTL\Invoke\Internal\ArgumentAssert;
-use Phpactor202301\DTL\Invoke\Exception\ClassHasNoConstructor;
-use Phpactor202301\DTL\Invoke\Exception\ReflectionError;
-use Phpactor202301\DTL\Invoke\Exception\InvokeException;
+use PhpactorDist\DTL\Invoke\Internal\ArgumentResolver\NamedArgumentResolver;
+use PhpactorDist\DTL\Invoke\Internal\ArgumentAssert;
+use PhpactorDist\DTL\Invoke\Exception\ClassHasNoConstructor;
+use PhpactorDist\DTL\Invoke\Exception\ReflectionError;
+use PhpactorDist\DTL\Invoke\Exception\InvokeException;
 use ReflectionClass;
 use ReflectionException;
-use Phpactor202301\DTL\Invoke\Internal\ArgumentResolver;
-use Phpactor202301\DTL\Invoke\Internal\Parameters;
+use PhpactorDist\DTL\Invoke\Internal\ArgumentResolver;
+use PhpactorDist\DTL\Invoke\Internal\Parameters;
 use TypeError;
 class Invoke
 {

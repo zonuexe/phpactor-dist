@@ -4,14 +4,14 @@ namespace Phpactor\Extension\CodeTransformExtra\Command;
 
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\Phpactor;
-use Phpactor202301\SebastianBergmann\Diff\Differ;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Input\InputArgument;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\SebastianBergmann\Diff\Differ;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
 use Phpactor\Extension\CodeTransformExtra\Application\Transformer;
-use Phpactor202301\Webmozart\Glob\Glob;
+use PhpactorDist\Webmozart\Glob\Glob;
 use RuntimeException;
 class ClassTransformCommand extends Command
 {

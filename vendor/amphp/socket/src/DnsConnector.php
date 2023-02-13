@@ -1,15 +1,15 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Dns;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\NullCancellationToken;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\TimeoutException;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Dns;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\NullCancellationToken;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\TimeoutException;
+use function PhpactorDist\Amp\call;
 final class DnsConnector implements Connector
 {
     private $resolver;

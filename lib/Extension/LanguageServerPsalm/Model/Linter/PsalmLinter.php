@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerPsalm\Model\Linter;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Generator;
 use Phpactor\Extension\LanguageServerPsalm\Model\Linter;
 use Phpactor\Extension\LanguageServerPsalm\Model\PsalmProcess;
@@ -15,7 +15,7 @@ class PsalmLinter implements Linter
     }
     public function lint(string $url, ?string $text) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($url, $text) {
+        return \PhpactorDist\Amp\call(function () use($url, $text) {
             $diagnostics = (yield from $this->doLint($url, $text));
             return $diagnostics;
         });

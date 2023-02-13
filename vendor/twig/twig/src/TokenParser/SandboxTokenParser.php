@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Node\IncludeNode;
-use Phpactor202301\Twig\Node\SandboxNode;
-use Phpactor202301\Twig\Node\TextNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Node\IncludeNode;
+use PhpactorDist\Twig\Node\SandboxNode;
+use PhpactorDist\Twig\Node\TextNode;
+use PhpactorDist\Twig\Token;
 /**
  * Marks a section of a template as untrusted code that must be evaluated in the sandbox mode.
  *
@@ -60,4 +60,4 @@ final class SandboxTokenParser extends AbstractTokenParser
         return 'sandbox';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\SandboxTokenParser', 'Phpactor202301\\Twig_TokenParser_Sandbox');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\SandboxTokenParser', 'PhpactorDist\\Twig_TokenParser_Sandbox');

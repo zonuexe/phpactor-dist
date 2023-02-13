@@ -6,7 +6,7 @@
  * @license   https://github.com/phly/phly-event-dispatcher/blob/master/LICENSE.md New BSD License
  */
 declare (strict_types=1);
-namespace Phpactor202301\Phly\EventDispatcher;
+namespace PhpactorDist\Phly\EventDispatcher;
 
 class ConfigProvider
 {

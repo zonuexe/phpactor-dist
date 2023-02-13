@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Webmozart\Assert;
+namespace PhpactorDist\Webmozart\Assert;
 
 use ArrayAccess;
 use Closure;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
 /**
  * Thrown if connecting fails.

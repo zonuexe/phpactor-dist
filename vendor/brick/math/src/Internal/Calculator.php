@@ -1,10 +1,10 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math\Internal;
+namespace PhpactorDist\Brick\Math\Internal;
 
-use Phpactor202301\Brick\Math\Exception\RoundingNecessaryException;
-use Phpactor202301\Brick\Math\RoundingMode;
+use PhpactorDist\Brick\Math\Exception\RoundingNecessaryException;
+use PhpactorDist\Brick\Math\RoundingMode;
 /**
  * Performs basic operations on arbitrary size integers.
  *

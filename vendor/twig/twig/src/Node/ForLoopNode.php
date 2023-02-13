@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Internal node used by the for node.
  *
@@ -35,4 +35,4 @@ class ForLoopNode extends Node
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\ForLoopNode', 'Phpactor202301\\Twig_Node_ForLoop');
+\class_alias('PhpactorDist\\Twig\\Node\\ForLoopNode', 'PhpactorDist\\Twig_Node_ForLoop');

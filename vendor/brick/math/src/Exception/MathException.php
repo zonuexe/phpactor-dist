@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math\Exception;
+namespace PhpactorDist\Brick\Math\Exception;
 
 /**
  * Base class for all math exceptions.

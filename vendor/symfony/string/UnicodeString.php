@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\String;
+namespace PhpactorDist\Symfony\Component\String;
 
-use Phpactor202301\Symfony\Component\String\Exception\ExceptionInterface;
-use Phpactor202301\Symfony\Component\String\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\String\Exception\ExceptionInterface;
+use PhpactorDist\Symfony\Component\String\Exception\InvalidArgumentException;
 /**
  * Represents a string of Unicode grapheme clusters encoded as UTF-8.
  *

@@ -2,7 +2,7 @@
 
 namespace Phpactor\Rename\Model;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\TextDocument\TextDocumentUri;
 interface FileRenamer
 {

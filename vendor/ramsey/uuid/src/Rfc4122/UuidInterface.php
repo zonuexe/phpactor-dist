@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Rfc4122;
+namespace PhpactorDist\Ramsey\Uuid\Rfc4122;
 
-use Phpactor202301\Ramsey\Uuid\UuidInterface as BaseUuidInterface;
+use PhpactorDist\Ramsey\Uuid\UuidInterface as BaseUuidInterface;
 /**
  * Also known as a Leach-Salz variant UUID, an RFC 4122 variant UUID is a
  * universally unique identifier defined by RFC 4122

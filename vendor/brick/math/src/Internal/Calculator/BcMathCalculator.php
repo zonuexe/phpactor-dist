@@ -1,9 +1,9 @@
 <?php
 
 declare (strict_types=1);
-namespace Phpactor202301\Brick\Math\Internal\Calculator;
+namespace PhpactorDist\Brick\Math\Internal\Calculator;
 
-use Phpactor202301\Brick\Math\Internal\Calculator;
+use PhpactorDist\Brick\Math\Internal\Calculator;
 /**
  * Calculator implementation built around the bcmath library.
  *

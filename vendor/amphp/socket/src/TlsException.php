@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
 /**
  * Thrown if TLS can't be properly negotiated or is not supported on the given socket.

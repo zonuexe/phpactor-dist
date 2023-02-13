@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerSymbolProvider;
 
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\Container\Container;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\Extension;

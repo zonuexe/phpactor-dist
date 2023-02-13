@@ -2,8 +2,8 @@
 
 namespace Phpactor\CodeTransform\Adapter\WorseReflection\Refactor;
 
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
 use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor\CodeBuilder\Domain\Updater;

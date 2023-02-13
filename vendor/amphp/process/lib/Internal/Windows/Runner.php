@@ -1,17 +1,17 @@
 <?php
 
-namespace Phpactor202301\Amp\Process\Internal\Windows;
+namespace PhpactorDist\Amp\Process\Internal\Windows;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Loop;
-use Phpactor202301\Amp\Process\Internal\ProcessHandle;
-use Phpactor202301\Amp\Process\Internal\ProcessRunner;
-use Phpactor202301\Amp\Process\Internal\ProcessStatus;
-use Phpactor202301\Amp\Process\ProcessException;
-use Phpactor202301\Amp\Process\ProcessInputStream;
-use Phpactor202301\Amp\Process\ProcessOutputStream;
-use Phpactor202301\Amp\Promise;
-use const Phpactor202301\Amp\Process\BIN_DIR;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Loop;
+use PhpactorDist\Amp\Process\Internal\ProcessHandle;
+use PhpactorDist\Amp\Process\Internal\ProcessRunner;
+use PhpactorDist\Amp\Process\Internal\ProcessStatus;
+use PhpactorDist\Amp\Process\ProcessException;
+use PhpactorDist\Amp\Process\ProcessInputStream;
+use PhpactorDist\Amp\Process\ProcessOutputStream;
+use PhpactorDist\Amp\Promise;
+use const PhpactorDist\Amp\Process\BIN_DIR;
 /**
  * @internal
  * @codeCoverageIgnore Windows only.

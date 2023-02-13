@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\Sync\Internal;
+namespace PhpactorDist\Amp\Sync\Internal;
 
-use Phpactor202301\Amp\Delayed;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Sync\Lock;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Delayed;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Sync\Lock;
+use function PhpactorDist\Amp\call;
 /** @internal */
 final class SemaphoreStorage extends \Threaded
 {

@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Provider\Node;
+namespace PhpactorDist\Ramsey\Uuid\Provider\Node;
 
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Provider\NodeProviderInterface;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Provider\NodeProviderInterface;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 use function dechex;
 use function hexdec;
 use function str_pad;

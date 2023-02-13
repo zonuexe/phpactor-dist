@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Deferred;
-use Phpactor202301\Amp\Failure;
-use Phpactor202301\Amp\Iterator;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Deferred;
+use PhpactorDist\Amp\Failure;
+use PhpactorDist\Amp\Iterator;
+use PhpactorDist\Amp\Promise;
 final class IteratorStream implements InputStream
 {
     /** @var Iterator<string> */

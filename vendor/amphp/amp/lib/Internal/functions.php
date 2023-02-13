@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\Internal;
+namespace PhpactorDist\Amp\Internal;
 
 /**
  * Formats a stacktrace obtained via `debug_backtrace()`.

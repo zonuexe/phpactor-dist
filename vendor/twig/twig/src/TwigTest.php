@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Node\Expression\TestExpression;
+use PhpactorDist\Twig\Node\Expression\TestExpression;
 /**
  * Represents a template test.
  *
@@ -89,5 +89,5 @@ class TwigTest
     }
 }
 // For Twig 1.x compatibility
-\class_alias('Phpactor202301\\Twig\\TwigTest', 'Phpactor202301\\Twig_SimpleTest', \false);
-\class_alias('Phpactor202301\\Twig\\TwigTest', 'Phpactor202301\\Twig_Test');
+\class_alias('PhpactorDist\\Twig\\TwigTest', 'PhpactorDist\\Twig_SimpleTest', \false);
+\class_alias('PhpactorDist\\Twig\\TwigTest', 'PhpactorDist\\Twig_Test');

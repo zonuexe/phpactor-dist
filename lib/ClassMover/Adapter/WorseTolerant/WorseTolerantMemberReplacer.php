@@ -2,7 +2,7 @@
 
 namespace Phpactor\ClassMover\Adapter\WorseTolerant;
 
-use Phpactor202301\Microsoft\PhpParser\TextEdit;
+use PhpactorDist\Microsoft\PhpParser\TextEdit;
 use Phpactor\ClassMover\Domain\MemberReplacer;
 use Phpactor\ClassMover\Domain\Reference\MemberReferences;
 use Phpactor\ClassMover\Domain\SourceCode;

@@ -9,10 +9,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
 /**
  * Represents a node that outputs an expression.
  *
@@ -29,4 +29,4 @@ class PrintNode extends Node implements NodeOutputInterface
         $compiler->addDebugInfo($this)->write('echo ')->subcompile($this->getNode('expr'))->raw(";\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\PrintNode', 'Phpactor202301\\Twig_Node_Print');
+\class_alias('PhpactorDist\\Twig\\Node\\PrintNode', 'PhpactorDist\\Twig_Node_Print');

@@ -2,11 +2,11 @@
 
 namespace Phpactor\CodeTransform\Adapter\WorseReflection\Transformer;
 
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseGroupClause;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\NamespaceUseDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\Diagnostic;
 use Phpactor\CodeTransform\Domain\Diagnostics;
 use Phpactor\CodeTransform\Domain\SourceCode;

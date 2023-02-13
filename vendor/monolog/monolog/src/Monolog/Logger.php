@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog;
+namespace PhpactorDist\Monolog;
 
-use Phpactor202301\Monolog\Handler\HandlerInterface;
-use Phpactor202301\Monolog\Handler\StreamHandler;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\InvalidArgumentException;
+use PhpactorDist\Monolog\Handler\HandlerInterface;
+use PhpactorDist\Monolog\Handler\StreamHandler;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\InvalidArgumentException;
 use Exception;
 /**
  * Monolog log channel

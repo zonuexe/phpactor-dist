@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 /**
  * Represents an if node.
  *
@@ -48,4 +48,4 @@ class IfNode extends Node
         $compiler->outdent()->write("}\n");
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\IfNode', 'Phpactor202301\\Twig_Node_If');
+\class_alias('PhpactorDist\\Twig\\Node\\IfNode', 'PhpactorDist\\Twig_Node_If');

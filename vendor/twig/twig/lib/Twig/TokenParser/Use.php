@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\TokenParser\UseTokenParser;
-\class_exists('Phpactor202301\\Twig\\TokenParser\\UseTokenParser');
+use PhpactorDist\Twig\TokenParser\UseTokenParser;
+\class_exists('PhpactorDist\\Twig\\TokenParser\\UseTokenParser');
 @\trigger_error('Using the "Twig_TokenParser_Use" class is deprecated since Twig version 2.7, use "Twig\\TokenParser\\UseTokenParser" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\TokenParser\UseTokenParser" instead */

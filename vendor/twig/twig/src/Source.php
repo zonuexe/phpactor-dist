@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
 /**
  * Holds information about a non-compiled Twig template.
@@ -44,4 +44,4 @@ final class Source
         return $this->path;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Source', 'Phpactor202301\\Twig_Source');
+\class_alias('PhpactorDist\\Twig\\Source', 'PhpactorDist\\Twig_Source');

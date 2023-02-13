@@ -2,13 +2,13 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\Fallback;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\AmpFsWatch\Watcher;
 use Phpactor\AmpFsWatch\Watcher\Null\NullWatcher;
-use Phpactor202301\Psr\Log\LoggerInterface;
-use Phpactor202301\Psr\Log\NullLogger;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\NullLogger;
+use function PhpactorDist\Amp\call;
 class FallbackWatcher implements Watcher
 {
     /**

@@ -10,7 +10,7 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection\Exception;
+namespace PhpactorDist\Ramsey\Collection\Exception;
 
 use RuntimeException;
 /**

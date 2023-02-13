@@ -1,10 +1,10 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
-use Phpactor202301\Amp\Coroutine;
-use Phpactor202301\Amp\Promise;
-use function Phpactor202301\Amp\call;
+use PhpactorDist\Amp\Coroutine;
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 /**
  * Creates a buffered message from an InputStream. The message can be consumed in chunks using the read() API or it may
  * be buffered and accessed in its entirety by calling buffer(). Once buffering is requested through buffer(), the

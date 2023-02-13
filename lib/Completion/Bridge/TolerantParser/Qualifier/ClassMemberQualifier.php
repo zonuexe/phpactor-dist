@@ -2,9 +2,9 @@
 
 namespace Phpactor\Completion\Bridge\TolerantParser\Qualifier;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantQualifier;
 /**
  * Returns true if either the node or the parent node is

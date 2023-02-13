@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Binary;
+namespace PhpactorDist\Twig\Node\Expression\Binary;
 
-use Phpactor202301\Twig\Compiler;
+use PhpactorDist\Twig\Compiler;
 class EqualBinary extends AbstractBinary
 {
     public function operator(Compiler $compiler)
@@ -18,4 +18,4 @@ class EqualBinary extends AbstractBinary
         return $compiler->raw('==');
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Binary\\EqualBinary', 'Phpactor202301\\Twig_Node_Expression_Binary_Equal');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Binary\\EqualBinary', 'PhpactorDist\\Twig_Node_Expression_Binary_Equal');

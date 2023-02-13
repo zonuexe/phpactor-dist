@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression;
+namespace PhpactorDist\Twig\Node\Expression;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\Binary\AndBinary;
-use Phpactor202301\Twig\Node\Expression\Test\DefinedTest;
-use Phpactor202301\Twig\Node\Expression\Test\NullTest;
-use Phpactor202301\Twig\Node\Expression\Unary\NotUnary;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\Binary\AndBinary;
+use PhpactorDist\Twig\Node\Expression\Test\DefinedTest;
+use PhpactorDist\Twig\Node\Expression\Test\NullTest;
+use PhpactorDist\Twig\Node\Expression\Unary\NotUnary;
+use PhpactorDist\Twig\Node\Node;
 class NullCoalesceExpression extends ConditionalExpression
 {
     public function __construct(Node $left, Node $right, int $lineno)
@@ -44,4 +44,4 @@ class NullCoalesceExpression extends ConditionalExpression
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\NullCoalesceExpression', 'Phpactor202301\\Twig_Node_Expression_NullCoalesce');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\NullCoalesceExpression', 'PhpactorDist\\Twig_Node_Expression_NullCoalesce');

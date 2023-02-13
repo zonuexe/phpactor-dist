@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Tester\Constraint;
+namespace PhpactorDist\Symfony\Component\Console\Tester\Constraint;
 
-use Phpactor202301\PHPUnit\Framework\Constraint\Constraint;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
+use PhpactorDist\PHPUnit\Framework\Constraint\Constraint;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
 final class CommandIsSuccessful extends Constraint
 {
     /**

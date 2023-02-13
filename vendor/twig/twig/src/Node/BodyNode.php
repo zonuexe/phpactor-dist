@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node;
+namespace PhpactorDist\Twig\Node;
 
 /**
  * Represents a body node.
@@ -18,4 +18,4 @@ namespace Phpactor202301\Twig\Node;
 class BodyNode extends Node
 {
 }
-\class_alias('Phpactor202301\\Twig\\Node\\BodyNode', 'Phpactor202301\\Twig_Node_Body');
+\class_alias('PhpactorDist\\Twig\\Node\\BodyNode', 'PhpactorDist\\Twig_Node_Body');

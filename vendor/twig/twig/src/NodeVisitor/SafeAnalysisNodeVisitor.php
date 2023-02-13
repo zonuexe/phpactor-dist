@@ -8,19 +8,19 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\NodeVisitor;
+namespace PhpactorDist\Twig\NodeVisitor;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Node\Expression\BlockReferenceExpression;
-use Phpactor202301\Twig\Node\Expression\ConditionalExpression;
-use Phpactor202301\Twig\Node\Expression\ConstantExpression;
-use Phpactor202301\Twig\Node\Expression\FilterExpression;
-use Phpactor202301\Twig\Node\Expression\FunctionExpression;
-use Phpactor202301\Twig\Node\Expression\GetAttrExpression;
-use Phpactor202301\Twig\Node\Expression\MethodCallExpression;
-use Phpactor202301\Twig\Node\Expression\NameExpression;
-use Phpactor202301\Twig\Node\Expression\ParentExpression;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Node\Expression\BlockReferenceExpression;
+use PhpactorDist\Twig\Node\Expression\ConditionalExpression;
+use PhpactorDist\Twig\Node\Expression\ConstantExpression;
+use PhpactorDist\Twig\Node\Expression\FilterExpression;
+use PhpactorDist\Twig\Node\Expression\FunctionExpression;
+use PhpactorDist\Twig\Node\Expression\GetAttrExpression;
+use PhpactorDist\Twig\Node\Expression\MethodCallExpression;
+use PhpactorDist\Twig\Node\Expression\NameExpression;
+use PhpactorDist\Twig\Node\Expression\ParentExpression;
+use PhpactorDist\Twig\Node\Node;
 final class SafeAnalysisNodeVisitor extends AbstractNodeVisitor
 {
     private $data = [];
@@ -136,4 +136,4 @@ final class SafeAnalysisNodeVisitor extends AbstractNodeVisitor
         return 0;
     }
 }
-\class_alias('Phpactor202301\\Twig\\NodeVisitor\\SafeAnalysisNodeVisitor', 'Phpactor202301\\Twig_NodeVisitor_SafeAnalysis');
+\class_alias('PhpactorDist\\Twig\\NodeVisitor\\SafeAnalysisNodeVisitor', 'PhpactorDist\\Twig_NodeVisitor_SafeAnalysis');

@@ -9,9 +9,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
-use Phpactor202301\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Error\SyntaxError;
 /**
  * Represents a token stream.
  *
@@ -107,4 +107,4 @@ final class TokenStream
         return $this->source;
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenStream', 'Phpactor202301\\Twig_TokenStream');
+\class_alias('PhpactorDist\\Twig\\TokenStream', 'PhpactorDist\\Twig_TokenStream');

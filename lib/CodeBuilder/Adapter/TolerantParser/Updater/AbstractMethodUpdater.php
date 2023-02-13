@@ -3,18 +3,18 @@
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
-use Phpactor202301\Microsoft\PhpParser\Node\PropertyDeclaration;
-use Phpactor202301\Microsoft\PhpParser\Node\MethodDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Util\NodeHelper;
 use Phpactor\CodeBuilder\Domain\Prototype\Parameter as PhpactorParameter;
 use Phpactor\CodeBuilder\Domain\Renderer;
 use Phpactor\CodeBuilder\Domain\Prototype\Method;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\CompoundStatementNode;
 use Phpactor\CodeBuilder\Domain\Prototype\Parameters;
 use Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
-use Phpactor202301\Microsoft\PhpParser\ClassLike;
-use Phpactor202301\Microsoft\PhpParser\Node\Parameter;
+use PhpactorDist\Microsoft\PhpParser\ClassLike;
+use PhpactorDist\Microsoft\PhpParser\Node\Parameter;
 use Phpactor\CodeBuilder\Domain\Prototype\ReturnType;
 use Phpactor\TextDocument\TextEdit;
 use Phpactor\WorseReflection\Core\Util\QualifiedNameListUtil;
@@ -109,13 +109,15 @@ abstract class AbstractMethodUpdater
             return;
         }
         $renderedParameters = [];
+        // Copying over existing parameters
         if ($methodDeclaration->parameters) {
+            $existingParameters = \iterator_to_array($methodDeclaration->parameters->getElements());
+            // This is an array [variableName => 'rendered parameter node as string']
             $renderedParameters = (array) \array_combine(\array_map(function (Parameter $parameter) {
                 return \substr($parameter->variableName ? $parameter->variableName->getText($parameter->getFileContents()) : \false, 1);
-            }, \iterator_to_array($methodDeclaration->parameters->getElements())), \array_map(function (Parameter $parameter) {
-                return $parameter->getText();
-            }, \iterator_to_array($methodDeclaration->parameters->getElements())));
+            }, $existingParameters), \array_map(fn(Parameter $parameter) => $parameter->getText(), $existingParameters));
         }
+        // Adding new parameters to the mix
         foreach ($parameters as $parameter) {
             \assert($parameter instanceof PhpactorParameter);
             if (!isset($renderedParameters[$parameter->name()])) {

@@ -8,18 +8,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\DependencyInjection;
+namespace PhpactorDist\Symfony\Component\Console\DependencyInjection;
 
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Command\LazyCommand;
-use Phpactor202301\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
-use Phpactor202301\Symfony\Component\DependencyInjection\Argument\ServiceClosureArgument;
-use Phpactor202301\Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Phpactor202301\Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
-use Phpactor202301\Symfony\Component\DependencyInjection\ContainerBuilder;
-use Phpactor202301\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Phpactor202301\Symfony\Component\DependencyInjection\Reference;
-use Phpactor202301\Symfony\Component\DependencyInjection\TypedReference;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Command\LazyCommand;
+use PhpactorDist\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+use PhpactorDist\Symfony\Component\DependencyInjection\Argument\ServiceClosureArgument;
+use PhpactorDist\Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use PhpactorDist\Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
+use PhpactorDist\Symfony\Component\DependencyInjection\ContainerBuilder;
+use PhpactorDist\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use PhpactorDist\Symfony\Component\DependencyInjection\Reference;
+use PhpactorDist\Symfony\Component\DependencyInjection\TypedReference;
 /**
  * Registers console commands.
  *

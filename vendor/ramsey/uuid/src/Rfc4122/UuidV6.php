@@ -10,9 +10,9 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Rfc4122;
+namespace PhpactorDist\Ramsey\Uuid\Rfc4122;
 
-use Phpactor202301\Ramsey\Uuid\Nonstandard\UuidV6 as NonstandardUuidV6;
+use PhpactorDist\Ramsey\Uuid\Nonstandard\UuidV6 as NonstandardUuidV6;
 /**
  * Reordered time, or version 6, UUIDs include timestamp, clock sequence, and
  * node values that are combined into a 128-bit unsigned integer

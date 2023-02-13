@@ -8,13 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Monolog\Handler;
+namespace PhpactorDist\Monolog\Handler;
 
-use Phpactor202301\Aws\Sdk;
-use Phpactor202301\Aws\DynamoDb\DynamoDbClient;
-use Phpactor202301\Aws\DynamoDb\Marshaler;
-use Phpactor202301\Monolog\Formatter\ScalarFormatter;
-use Phpactor202301\Monolog\Logger;
+use PhpactorDist\Aws\Sdk;
+use PhpactorDist\Aws\DynamoDb\DynamoDbClient;
+use PhpactorDist\Aws\DynamoDb\Marshaler;
+use PhpactorDist\Monolog\Formatter\ScalarFormatter;
+use PhpactorDist\Monolog\Logger;
 /**
  * Amazon DynamoDB handler (http://aws.amazon.com/dynamodb/)
  *
@@ -48,7 +48,7 @@ class DynamoDbHandler extends AbstractProcessingHandler
      */
     public function __construct(DynamoDbClient $client, $table, $level = Logger::DEBUG, $bubble = \true)
     {
-        if (\defined('Phpactor202301\\Aws\\Sdk::VERSION') && \version_compare(Sdk::VERSION, '3.0', '>=')) {
+        if (\defined('PhpactorDist\\Aws\\Sdk::VERSION') && \version_compare(Sdk::VERSION, '3.0', '>=')) {
             $this->version = 3;
             $this->marshaler = new Marshaler();
         } else {

@@ -8,11 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Util;
+namespace PhpactorDist\Twig\Util;
 
-use Phpactor202301\Twig\Environment;
-use Phpactor202301\Twig\Error\SyntaxError;
-use Phpactor202301\Twig\Source;
+use PhpactorDist\Twig\Environment;
+use PhpactorDist\Twig\Error\SyntaxError;
+use PhpactorDist\Twig\Source;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -62,4 +62,4 @@ final class DeprecationCollector
         return $deprecations;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Util\\DeprecationCollector', 'Phpactor202301\\Twig_Util_DeprecationCollector');
+\class_alias('PhpactorDist\\Twig\\Util\\DeprecationCollector', 'PhpactorDist\\Twig_Util_DeprecationCollector');

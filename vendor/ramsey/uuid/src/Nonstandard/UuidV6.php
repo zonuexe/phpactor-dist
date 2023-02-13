@@ -10,18 +10,18 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Nonstandard;
+namespace PhpactorDist\Ramsey\Uuid\Nonstandard;
 
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Lazy\LazyUuidFromString;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\TimeTrait;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidInterface;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidV1;
-use Phpactor202301\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Lazy\LazyUuidFromString;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\TimeTrait;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV1;
+use PhpactorDist\Ramsey\Uuid\Uuid;
 /**
  * Reordered time, or version 6, UUIDs include timestamp, clock sequence, and
  * node values that are combined into a 128-bit unsigned integer
@@ -68,7 +68,7 @@ class UuidV6 extends Uuid implements UuidInterface
     /**
      * Converts a version 1 UUID into an instance of a version 6 UUID
      */
-    public static function fromUuidV1(UuidV1 $uuidV1) : \Phpactor202301\Ramsey\Uuid\Rfc4122\UuidV6
+    public static function fromUuidV1(UuidV1 $uuidV1) : \PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV6
     {
         $hex = $uuidV1->getHex()->toString();
         $hex = \substr($hex, 13, 3) . \substr($hex, 8, 4) . \substr($hex, 0, 5) . '6' . \substr($hex, 5, 3) . \substr($hex, 16);

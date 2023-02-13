@@ -10,16 +10,16 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Builder;
+namespace PhpactorDist\Ramsey\Uuid\Builder;
 
-use Phpactor202301\Ramsey\Collection\AbstractCollection;
-use Phpactor202301\Ramsey\Uuid\Converter\Number\GenericNumberConverter;
-use Phpactor202301\Ramsey\Uuid\Converter\Time\GenericTimeConverter;
-use Phpactor202301\Ramsey\Uuid\Converter\Time\PhpTimeConverter;
-use Phpactor202301\Ramsey\Uuid\Guid\GuidBuilder;
-use Phpactor202301\Ramsey\Uuid\Math\BrickMathCalculator;
-use Phpactor202301\Ramsey\Uuid\Nonstandard\UuidBuilder as NonstandardUuidBuilder;
-use Phpactor202301\Ramsey\Uuid\Rfc4122\UuidBuilder as Rfc4122UuidBuilder;
+use PhpactorDist\Ramsey\Collection\AbstractCollection;
+use PhpactorDist\Ramsey\Uuid\Converter\Number\GenericNumberConverter;
+use PhpactorDist\Ramsey\Uuid\Converter\Time\GenericTimeConverter;
+use PhpactorDist\Ramsey\Uuid\Converter\Time\PhpTimeConverter;
+use PhpactorDist\Ramsey\Uuid\Guid\GuidBuilder;
+use PhpactorDist\Ramsey\Uuid\Math\BrickMathCalculator;
+use PhpactorDist\Ramsey\Uuid\Nonstandard\UuidBuilder as NonstandardUuidBuilder;
+use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidBuilder as Rfc4122UuidBuilder;
 use Traversable;
 /**
  * A collection of UuidBuilderInterface objects

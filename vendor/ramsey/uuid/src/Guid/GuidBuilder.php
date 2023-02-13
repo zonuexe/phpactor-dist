@@ -10,14 +10,14 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Guid;
+namespace PhpactorDist\Ramsey\Uuid\Guid;
 
-use Phpactor202301\Ramsey\Uuid\Builder\UuidBuilderInterface;
-use Phpactor202301\Ramsey\Uuid\Codec\CodecInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Phpactor202301\Ramsey\Uuid\Exception\UnableToBuildUuidException;
-use Phpactor202301\Ramsey\Uuid\UuidInterface;
+use PhpactorDist\Ramsey\Uuid\Builder\UuidBuilderInterface;
+use PhpactorDist\Ramsey\Uuid\Codec\CodecInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\NumberConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Converter\TimeConverterInterface;
+use PhpactorDist\Ramsey\Uuid\Exception\UnableToBuildUuidException;
+use PhpactorDist\Ramsey\Uuid\UuidInterface;
 use Throwable;
 /**
  * GuidBuilder builds instances of Guid

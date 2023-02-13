@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Extension;
+namespace PhpactorDist\Twig\Extension;
 
-use Phpactor202301\Twig\NodeVisitor\SandboxNodeVisitor;
-use Phpactor202301\Twig\Sandbox\SecurityNotAllowedMethodError;
-use Phpactor202301\Twig\Sandbox\SecurityNotAllowedPropertyError;
-use Phpactor202301\Twig\Sandbox\SecurityPolicyInterface;
-use Phpactor202301\Twig\Source;
-use Phpactor202301\Twig\TokenParser\SandboxTokenParser;
+use PhpactorDist\Twig\NodeVisitor\SandboxNodeVisitor;
+use PhpactorDist\Twig\Sandbox\SecurityNotAllowedMethodError;
+use PhpactorDist\Twig\Sandbox\SecurityNotAllowedPropertyError;
+use PhpactorDist\Twig\Sandbox\SecurityPolicyInterface;
+use PhpactorDist\Twig\Source;
+use PhpactorDist\Twig\TokenParser\SandboxTokenParser;
 final class SandboxExtension extends AbstractExtension
 {
     private $sandboxedGlobally;
@@ -102,4 +102,4 @@ final class SandboxExtension extends AbstractExtension
         return $obj;
     }
 }
-\class_alias('Phpactor202301\\Twig\\Extension\\SandboxExtension', 'Phpactor202301\\Twig_Extension_Sandbox');
+\class_alias('PhpactorDist\\Twig\\Extension\\SandboxExtension', 'PhpactorDist\\Twig_Extension_Sandbox');

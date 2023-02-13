@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Symfony\Component\Console\Helper;
+namespace PhpactorDist\Symfony\Component\Console\Helper;
 
-use Phpactor202301\Symfony\Component\Console\Cursor;
-use Phpactor202301\Symfony\Component\Console\Exception\LogicException;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\ConsoleSectionOutput;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor202301\Symfony\Component\Console\Terminal;
+use PhpactorDist\Symfony\Component\Console\Cursor;
+use PhpactorDist\Symfony\Component\Console\Exception\LogicException;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\ConsoleSectionOutput;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Terminal;
 /**
  * The ProgressBar provides helpers to display progress output.
  *

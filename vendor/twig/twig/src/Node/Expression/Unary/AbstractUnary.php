@@ -9,11 +9,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\Node\Expression\Unary;
+namespace PhpactorDist\Twig\Node\Expression\Unary;
 
-use Phpactor202301\Twig\Compiler;
-use Phpactor202301\Twig\Node\Expression\AbstractExpression;
-use Phpactor202301\Twig\Node\Node;
+use PhpactorDist\Twig\Compiler;
+use PhpactorDist\Twig\Node\Expression\AbstractExpression;
+use PhpactorDist\Twig\Node\Node;
 abstract class AbstractUnary extends AbstractExpression
 {
     public function __construct(Node $node, int $lineno)
@@ -28,4 +28,4 @@ abstract class AbstractUnary extends AbstractExpression
     }
     public abstract function operator(Compiler $compiler);
 }
-\class_alias('Phpactor202301\\Twig\\Node\\Expression\\Unary\\AbstractUnary', 'Phpactor202301\\Twig_Node_Expression_Unary');
+\class_alias('PhpactorDist\\Twig\\Node\\Expression\\Unary\\AbstractUnary', 'PhpactorDist\\Twig_Node_Expression_Unary');

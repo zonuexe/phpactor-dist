@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop;
+namespace PhpactorDist\Amp\Loop;
 
-use Phpactor202301\Amp\CallableMaker;
-use Phpactor202301\Amp\Coroutine;
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\React\Promise\PromiseInterface as ReactPromise;
-use function Phpactor202301\Amp\Internal\getCurrentTime;
-use function Phpactor202301\Amp\Promise\rethrow;
+use PhpactorDist\Amp\CallableMaker;
+use PhpactorDist\Amp\Coroutine;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\React\Promise\PromiseInterface as ReactPromise;
+use function PhpactorDist\Amp\Internal\getCurrentTime;
+use function PhpactorDist\Amp\Promise\rethrow;
 class NativeDriver extends Driver
 {
     use CallableMaker;

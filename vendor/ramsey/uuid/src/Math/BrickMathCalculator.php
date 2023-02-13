@@ -10,17 +10,17 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Uuid\Math;
+namespace PhpactorDist\Ramsey\Uuid\Math;
 
-use Phpactor202301\Brick\Math\BigDecimal;
-use Phpactor202301\Brick\Math\BigInteger;
-use Phpactor202301\Brick\Math\Exception\MathException;
-use Phpactor202301\Brick\Math\RoundingMode as BrickMathRounding;
-use Phpactor202301\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Uuid\Type\Decimal;
-use Phpactor202301\Ramsey\Uuid\Type\Hexadecimal;
-use Phpactor202301\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Phpactor202301\Ramsey\Uuid\Type\NumberInterface;
+use PhpactorDist\Brick\Math\BigDecimal;
+use PhpactorDist\Brick\Math\BigInteger;
+use PhpactorDist\Brick\Math\Exception\MathException;
+use PhpactorDist\Brick\Math\RoundingMode as BrickMathRounding;
+use PhpactorDist\Ramsey\Uuid\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Uuid\Type\Decimal;
+use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
+use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
+use PhpactorDist\Ramsey\Uuid\Type\NumberInterface;
 /**
  * A calculator using the brick/math library for arbitrary-precision arithmetic
  *

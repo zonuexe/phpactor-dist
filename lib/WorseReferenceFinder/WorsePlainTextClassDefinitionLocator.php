@@ -3,11 +3,11 @@
 namespace Phpactor\WorseReferenceFinder;
 
 use Exception;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\NamespaceUseClause;
-use Phpactor202301\Microsoft\PhpParser\Node\QualifiedName;
-use Phpactor202301\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor202301\Microsoft\PhpParser\Parser;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\NamespaceUseClause;
+use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
+use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
+use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\ReferenceFinder\DefinitionLocator;
 use Phpactor\ReferenceFinder\Exception\CouldNotLocateDefinition;
 use Phpactor\ReferenceFinder\TypeLocation;

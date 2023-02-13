@@ -2,7 +2,7 @@
 
 namespace Phpactor\AmpFsWatch\Watcher\PatternMatching;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\AmpFsWatch\WatcherProcess;
 class PatternWatcherProcess implements WatcherProcess
 {
@@ -42,7 +42,7 @@ class PatternWatcherProcess implements WatcherProcess
      */
     public function wait() : Promise
     {
-        return \Phpactor202301\Amp\call(function () {
+        return \PhpactorDist\Amp\call(function () {
             while (null !== ($file = (yield $this->process->wait()))) {
                 foreach ($this->includePatterns as $pattern) {
                     if (\false === $this->matcher->matches($file->path(), $pattern)) {

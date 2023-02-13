@@ -3,7 +3,7 @@
 // Auto-generated from vscode-languageserver-protocol (typescript)
 namespace Phpactor\LanguageServerProtocol;
 
-use Phpactor202301\DTL\Invoke\Invoke;
+use PhpactorDist\DTL\Invoke\Invoke;
 use Exception;
 use RuntimeException;
 /**
@@ -26,7 +26,7 @@ class ParameterInformation
      */
     public $label;
     /**
-     * The human-readable doc-comment of this signature. Will be shown
+     * The human-readable doc-comment of this parameter. Will be shown
      * in the UI but can be omitted.
      *
      * @var string|MarkupContent|null
@@ -43,7 +43,7 @@ class ParameterInformation
     }
     /**
      * @param array<string,mixed> $array
-     * @return static
+     * @return self
      */
     public static function fromArray(array $array, bool $allowUnknownKeys = \false)
     {

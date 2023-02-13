@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Core\Middleware;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServer\Core\Middleware\Exception\MiddlewareTerminated;
 use Phpactor\LanguageServer\Core\Rpc\Message;
 use Phpactor\LanguageServer\Core\Rpc\ResponseMessage;

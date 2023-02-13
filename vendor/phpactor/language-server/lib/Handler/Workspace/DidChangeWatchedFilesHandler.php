@@ -5,7 +5,7 @@ namespace Phpactor\LanguageServer\Handler\Workspace;
 use Phpactor\LanguageServerProtocol\DidChangeWatchedFilesParams;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Event\FilesChanged;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
 class DidChangeWatchedFilesHandler implements Handler
 {
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Psr\Container;
+namespace PhpactorDist\Psr\Container;
 
 use Throwable;
 /**

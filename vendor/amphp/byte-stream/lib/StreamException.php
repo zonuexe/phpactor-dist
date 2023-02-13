@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Amp\ByteStream;
+namespace PhpactorDist\Amp\ByteStream;
 
 class StreamException extends \Exception
 {

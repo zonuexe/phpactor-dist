@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Psr\Log\Test;
+namespace PhpactorDist\Psr\Log\Test;
 
-use Phpactor202301\Psr\Log\AbstractLogger;
+use PhpactorDist\Psr\Log\AbstractLogger;
 /**
  * Used for testing purposes.
  *

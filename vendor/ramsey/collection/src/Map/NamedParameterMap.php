@@ -10,11 +10,11 @@
  * @license http://opensource.org/licenses/MIT MIT
  */
 declare (strict_types=1);
-namespace Phpactor202301\Ramsey\Collection\Map;
+namespace PhpactorDist\Ramsey\Collection\Map;
 
-use Phpactor202301\Ramsey\Collection\Exception\InvalidArgumentException;
-use Phpactor202301\Ramsey\Collection\Tool\TypeTrait;
-use Phpactor202301\Ramsey\Collection\Tool\ValueToStringTrait;
+use PhpactorDist\Ramsey\Collection\Exception\InvalidArgumentException;
+use PhpactorDist\Ramsey\Collection\Tool\TypeTrait;
+use PhpactorDist\Ramsey\Collection\Tool\ValueToStringTrait;
 use function array_combine;
 use function array_key_exists;
 use function is_int;

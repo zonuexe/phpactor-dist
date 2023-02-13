@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Socket;
+namespace PhpactorDist\Amp\Socket;
 
-use Phpactor202301\Kelunik\Certificate\Certificate;
+use PhpactorDist\Kelunik\Certificate\Certificate;
 /**
  * Exposes a connection's negotiated TLS parameters.
  */

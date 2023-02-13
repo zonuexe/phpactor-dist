@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServer\Handler;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\Extension\LanguageServer\Status\StatusProvider;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\Container\Container;

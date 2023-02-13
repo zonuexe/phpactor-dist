@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig\TokenParser;
+namespace PhpactorDist\Twig\TokenParser;
 
-use Phpactor202301\Twig\Node\SpacelessNode;
-use Phpactor202301\Twig\Token;
+use PhpactorDist\Twig\Node\SpacelessNode;
+use PhpactorDist\Twig\Token;
 /**
  * Remove whitespaces between HTML tags.
  *
@@ -51,4 +51,4 @@ final class SpacelessTokenParser extends AbstractTokenParser
         return 'spaceless';
     }
 }
-\class_alias('Phpactor202301\\Twig\\TokenParser\\SpacelessTokenParser', 'Phpactor202301\\Twig_TokenParser_Spaceless');
+\class_alias('PhpactorDist\\Twig\\TokenParser\\SpacelessTokenParser', 'PhpactorDist\\Twig_TokenParser_Spaceless');

@@ -1,9 +1,9 @@
 <?php
 
-namespace Phpactor202301;
+namespace PhpactorDist;
 
-use Phpactor202301\Twig\Parser;
-\class_exists('Phpactor202301\\Twig\\Parser');
+use PhpactorDist\Twig\Parser;
+\class_exists('PhpactorDist\\Twig\\Parser');
 @\trigger_error('Using the "Twig_Parser" class is deprecated since Twig version 2.7, use "Twig\\Parser" instead.', \E_USER_DEPRECATED);
 if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Parser" instead */

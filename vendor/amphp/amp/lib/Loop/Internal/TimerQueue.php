@@ -1,8 +1,8 @@
 <?php
 
-namespace Phpactor202301\Amp\Loop\Internal;
+namespace PhpactorDist\Amp\Loop\Internal;
 
-use Phpactor202301\Amp\Loop\Watcher;
+use PhpactorDist\Amp\Loop\Watcher;
 /**
  * Uses a binary tree stored in an array to implement a heap.
  */

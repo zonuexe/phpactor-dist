@@ -3,9 +3,9 @@
 namespace Phpactor\Completion\Bridge\TolerantParser\WorseReflection;
 
 use Generator;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\Variable;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\Completion\Bridge\ObjectRenderer\ItemDocumentation;
 use Phpactor\Completion\Bridge\TolerantParser\Qualifier\ClassMemberQualifier;
 use Phpactor\Completion\Bridge\TolerantParser\TolerantCompletor;
@@ -25,8 +25,8 @@ use Phpactor\WorseReflection\Reflector;
 use Phpactor\Completion\Core\Suggestion;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
 use Phpactor\Completion\Core\Formatter\ObjectFormatter;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
-use Phpactor202301\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 class WorseClassMemberCompletor implements TolerantCompletor, TolerantQualifiable
 {
     public function __construct(private Reflector $reflector, private ObjectFormatter $formatter, private ObjectFormatter $snippetFormatter, private ObjectRenderer $objectRenderer)

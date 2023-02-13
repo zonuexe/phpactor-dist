@@ -2,15 +2,15 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Microsoft\PhpParser\MissingToken;
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\MissingToken;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Cache;
 use Phpactor\WorseReflection\Core\DocBlock\DocBlockFactory;
 use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
 use Phpactor\WorseReflection\Reflector;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionScope;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 class NodeContextResolver
 {
     /**

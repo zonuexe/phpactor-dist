@@ -12,7 +12,7 @@
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 1.0.0
  */
-namespace Phpactor202301\LibDNS\Tools;
+namespace PhpactorDist\LibDNS\Tools;
 
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;

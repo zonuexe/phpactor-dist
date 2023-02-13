@@ -2,8 +2,8 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-use Phpactor202301\Microsoft\PhpParser\Node;
-use Phpactor202301\Microsoft\PhpParser\Token;
+use PhpactorDist\Microsoft\PhpParser\Node;
+use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Name;
 use Phpactor\WorseReflection\Core\Position;
 use Phpactor\WorseReflection\Core\Type;
@@ -26,19 +26,8 @@ class NodeContextFactory
         }
         $config = \array_merge($defaultConfig, $config);
         $position = Position::fromStartAndEnd($start, $end);
-        $symbol = \Phpactor\WorseReflection\Core\Inference\Symbol::fromTypeNameAndPosition(
-            /** @phpstan-ignore-next-line */
-            $config['symbol_type'],
-            $symbolName,
-            $position
-        );
-        return self::contextFromParameters(
-            $symbol,
-            /** @phpstan-ignore-next-line */
-            $config['type'],
-            /** @phpstan-ignore-next-line */
-            $config['container_type']
-        );
+        $symbol = \Phpactor\WorseReflection\Core\Inference\Symbol::fromTypeNameAndPosition($config['symbol_type'], $symbolName, $position);
+        return self::contextFromParameters($symbol, $config['type'], $config['container_type']);
     }
     public static function forVariableAt(\Phpactor\WorseReflection\Core\Inference\Frame $frame, int $start, int $end, string $name) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {

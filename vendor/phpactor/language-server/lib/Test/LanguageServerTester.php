@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Test;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\InitializeParams;
 use Phpactor\LanguageServerProtocol\InitializeResult;
 use Phpactor\LanguageServer\Core\Dispatcher\Dispatcher;
@@ -18,7 +18,7 @@ use Phpactor\LanguageServer\Test\LanguageServerTester\ServicesTester;
 use Phpactor\LanguageServer\Test\LanguageServerTester\TextDocumentTester;
 use Phpactor\LanguageServer\Test\LanguageServerTester\WorkspaceTester;
 use RuntimeException;
-use function Phpactor202301\Amp\Promise\wait;
+use function PhpactorDist\Amp\Promise\wait;
 final class LanguageServerTester
 {
     /**
@@ -74,6 +74,17 @@ final class LanguageServerTester
         return wait($this->request($method, $this->normalizeParams($params), $id));
     }
     /**
+     * @param array|object $params
+     */
+    public function mustRequestAndWait(string $method, mixed $params, int|string $id = null) : ResponseMessage
+    {
+        $response = $this->requestAndWait($method, $params);
+        if (null === $response) {
+            throw new RuntimeException(\sprintf('Expected request to method "%s" to return a response, but it did not!', $method));
+        }
+        return $response;
+    }
+    /**
      * @param mixed $value
      * @param string|int $id
      * @return Promise<mixed>
@@ -118,10 +129,14 @@ final class LanguageServerTester
      */
     public function initialize() : InitializeResult
     {
-        $response = $this->requestAndWait('initialize', $this->initializeParams);
+        $response = $this->mustRequestAndWait('initialize', $this->initializeParams);
         $this->assertSuccess($response);
         $this->notifyAndWait('initialized', []);
-        return $response->result;
+        $result = $response->result;
+        if (!$result instanceof InitializeResult) {
+            throw new RuntimeException(\sprintf('Initialize did not return an InitializeResult, got "%s"', \is_object($result) ? \get_class($result) : \gettype($result)));
+        }
+        return $result;
     }
     public function services() : ServicesTester
     {
@@ -159,6 +174,10 @@ final class LanguageServerTester
         if (\is_array($params)) {
             return $params;
         }
-        return $this->messageSerializer->normalize($params);
+        $params = $this->messageSerializer->normalize($params);
+        if (!\is_array($params)) {
+            throw new RuntimeException(\sprintf('Could not normalize params, returned as type %s', \gettype($params)));
+        }
+        return $params;
     }
 }

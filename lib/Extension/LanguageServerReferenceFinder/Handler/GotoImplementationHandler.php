@@ -2,7 +2,7 @@
 
 namespace Phpactor\Extension\LanguageServerReferenceFinder\Handler;
 
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
 use Phpactor\LanguageServerProtocol\ImplementationParams;
 use Phpactor\LanguageServerProtocol\ServerCapabilities;
@@ -23,7 +23,7 @@ class GotoImplementationHandler implements Handler, CanRegisterCapabilities
     }
     public function gotoImplementation(ImplementationParams $params) : Promise
     {
-        return \Phpactor202301\Amp\call(function () use($params) {
+        return \PhpactorDist\Amp\call(function () use($params) {
             $textDocument = $this->workspace->get($params->textDocument->uri);
             $phpactorDocument = TextDocumentBuilder::create($textDocument->text)->uri($textDocument->uri)->language($textDocument->languageId ?? 'php')->build();
             $offset = PositionConverter::positionToByteOffset($params->position, $textDocument->text);

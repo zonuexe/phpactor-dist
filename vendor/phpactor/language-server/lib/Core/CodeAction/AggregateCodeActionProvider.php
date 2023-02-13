@@ -2,12 +2,12 @@
 
 namespace Phpactor\LanguageServer\Core\CodeAction;
 
-use Phpactor202301\Amp\CancellationToken;
-use Phpactor202301\Amp\Promise;
+use PhpactorDist\Amp\CancellationToken;
+use PhpactorDist\Amp\Promise;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\LanguageServerProtocol\TextDocumentItem;
-use function Phpactor202301\Amp\call;
-use function Phpactor202301\Amp\delay;
+use function PhpactorDist\Amp\call;
+use function PhpactorDist\Amp\delay;
 class AggregateCodeActionProvider implements \Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider
 {
     /**

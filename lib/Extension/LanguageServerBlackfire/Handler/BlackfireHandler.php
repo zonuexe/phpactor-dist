@@ -2,17 +2,13 @@
 
 namespace Phpactor\Extension\LanguageServerBlackfire\Handler;
 
-use Phpactor202301\Amp\Promise;
-use Phpactor202301\Amp\Success;
+use PhpactorDist\Amp\Promise;
+use PhpactorDist\Amp\Success;
 use Phpactor\Extension\LanguageServerBlackfire\BlackfireProfiler;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Server\ClientApi;
 class BlackfireHandler implements Handler
 {
-    /**
-     * @var null
-     */
-    private $probe;
     public function __construct(private BlackfireProfiler $profiler, private ClientApi $client)
     {
     }

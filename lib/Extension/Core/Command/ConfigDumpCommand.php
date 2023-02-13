@@ -4,12 +4,12 @@ namespace Phpactor\Extension\Core\Command;
 
 use Phpactor\ConfigLoader\Core\PathCandidates;
 use Phpactor\FilePathResolver\Expanders;
-use Phpactor202301\Symfony\Component\Console\Command\Command;
-use Phpactor202301\Symfony\Component\Console\Input\InputInterface;
-use Phpactor202301\Symfony\Component\Console\Output\OutputInterface;
+use PhpactorDist\Symfony\Component\Console\Command\Command;
+use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
+use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
 use Phpactor\Extension\Core\Console\Dumper\DumperRegistry;
-use Phpactor202301\Symfony\Component\Console\Input\InputOption;
-use Phpactor202301\Symfony\Component\Console\Terminal;
+use PhpactorDist\Symfony\Component\Console\Input\InputOption;
+use PhpactorDist\Symfony\Component\Console\Terminal;
 class ConfigDumpCommand extends Command
 {
     public function __construct(private array $config, private DumperRegistry $registry, private PathCandidates $paths, private Expanders $expanders)

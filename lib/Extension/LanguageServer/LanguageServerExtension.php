@@ -2,8 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServer;
 
-use Phpactor202301\Composer\InstalledVersions;
-use Phpactor202301\Phly\EventDispatcher\EventDispatcher;
+use PhpactorDist\Composer\InstalledVersions;
+use PhpactorDist\Phly\EventDispatcher\EventDispatcher;
 use Phpactor\Container\Container;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\Extension;
@@ -60,10 +60,10 @@ use Phpactor\LanguageServer\Middleware\ShutdownMiddleware;
 use Phpactor\LanguageServer\Service\DiagnosticsService;
 use Phpactor\MapResolver\Resolver;
 use Phpactor\MapResolver\ResolverErrors;
-use Phpactor202301\Psr\EventDispatcher\EventDispatcherInterface;
-use Phpactor202301\Psr\Log\LoggerInterface;
+use PhpactorDist\Psr\EventDispatcher\EventDispatcherInterface;
+use PhpactorDist\Psr\Log\LoggerInterface;
 use RuntimeException;
-use Phpactor202301\Webmozart\Assert\Assert;
+use PhpactorDist\Webmozart\Assert\Assert;
 class LanguageServerExtension implements Extension
 {
     public const SERVICE_LANGUAGE_SERVER_BUILDER = 'language_server.builder';
@@ -352,11 +352,11 @@ EOT
         return LoggingExtension::channelLogger($container, $name);
     }
     /**
-     * @return array{name:string,version:string,reference:string,version:string}
+     * @return array{name:string,version:string,version:string}
      */
     private function serverInfo() : array
     {
         $package = InstalledVersions::getRootPackage();
-        return ['name' => $package['name'], 'version' => $package['pretty_version'], 'reference' => $package['reference']];
+        return ['name' => $package['name'], 'version' => $package['pretty_version']];
     }
 }

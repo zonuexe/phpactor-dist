@@ -2,7 +2,7 @@
 
 namespace Phpactor\LanguageServer\Test\ListenerProvider;
 
-use Phpactor202301\Psr\EventDispatcher\ListenerProviderInterface;
+use PhpactorDist\Psr\EventDispatcher\ListenerProviderInterface;
 use RuntimeException;
 class RecordingListenerProvider implements ListenerProviderInterface
 {

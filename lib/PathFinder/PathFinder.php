@@ -3,7 +3,7 @@
 namespace Phpactor\PathFinder;
 
 use Phpactor\PathFinder\Exception\NoMatchingSourceException;
-use Phpactor202301\Symfony\Component\Filesystem\Path;
+use PhpactorDist\Symfony\Component\Filesystem\Path;
 class PathFinder
 {
     /**

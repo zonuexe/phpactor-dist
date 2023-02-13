@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Phpactor202301\Twig;
+namespace PhpactorDist\Twig;
 
 /**
  * Default autoescaping strategy based on file names.
@@ -52,4 +52,4 @@ class FileExtensionEscapingStrategy
         }
     }
 }
-\class_alias('Phpactor202301\\Twig\\FileExtensionEscapingStrategy', 'Phpactor202301\\Twig_FileExtensionEscapingStrategy');
+\class_alias('PhpactorDist\\Twig\\FileExtensionEscapingStrategy', 'PhpactorDist\\Twig_FileExtensionEscapingStrategy');

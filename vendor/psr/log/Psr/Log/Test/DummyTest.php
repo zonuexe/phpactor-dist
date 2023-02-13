@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpactor202301\Psr\Log\Test;
+namespace PhpactorDist\Psr\Log\Test;
 
 /**
  * This class is internal and does not follow the BC promise.
