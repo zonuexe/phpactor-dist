@@ -31,7 +31,7 @@ $autoloaderReal = realpath(__DIR__ . '/vendor/composer/autoload_real.php');
 assert($autoloaderReal !== false);
 
 return [
-    'prefix' => $ns = 'Phpactor' . gmdate('Ym'),
+    'prefix' => $ns = 'PhpactorDist',
 
     // The base output directory for the prefixed files.
     // This will be overridden by the 'output-dir' command line option if present.
