@@ -3,9 +3,9 @@
     "description": "Distribution package builder for Phpactor",
     "license": "MIT",
     "require": {
-        "humbug/php-scoper": "^0.18.2"
+        "humbug/php-scoper": "^0.18.3"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.9"
+        "phpstan/phpstan": "^1.10"
     }
 }
