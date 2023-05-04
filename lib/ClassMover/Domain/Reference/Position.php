@@ -7,7 +7,7 @@ class Position
     private function __construct(private int $start, private int $end)
     {
     }
-    public static function fromStartAndEnd(int $start, int $end)
+    public static function fromStartAndEnd(int $start, int $end) : self
     {
         return new self($start, $end);
     }

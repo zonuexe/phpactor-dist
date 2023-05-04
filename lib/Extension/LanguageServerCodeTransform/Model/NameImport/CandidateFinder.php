@@ -2,8 +2,10 @@
 
 namespace Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport;
 
+use PhpactorDist\Amp\Promise;
 use Generator;
 use Phpactor\CodeTransform\Domain\NameWithByteOffsets;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
 use Phpactor\Indexer\Model\Query\Criteria;
 use Phpactor\Indexer\Model\Record;
 use Phpactor\Indexer\Model\Record\ConstantRecord;
@@ -14,41 +16,51 @@ use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Reflector;
+use function PhpactorDist\Amp\call;
 class CandidateFinder
 {
     public function __construct(private Reflector $reflector, private SearchClient $client)
     {
     }
-    public function unresolved(TextDocumentItem $item) : NameWithByteOffsets
+    /**
+     * @return Promise<NameWithByteOffsets>
+     */
+    public function unresolved(TextDocumentItem $item) : Promise
     {
-        $diagnostics = $this->reflector->diagnostics($item->text)->byClass(UnresolvableNameDiagnostic::class);
-        return new NameWithByteOffsets(...\array_map(function (UnresolvableNameDiagnostic $diagnostic) : NameWithByteOffset {
-            return new NameWithByteOffset($diagnostic->name(), $diagnostic->range()->start(), $diagnostic->type());
-        }, \iterator_to_array($diagnostics)));
+        return call(function () use($item) {
+            $diagnostics = ((yield $this->reflector->diagnostics(TextDocumentConverter::fromLspTextItem($item))))->byClass(UnresolvableNameDiagnostic::class);
+            return new NameWithByteOffsets(...\array_map(function (UnresolvableNameDiagnostic $diagnostic) : NameWithByteOffset {
+                return new NameWithByteOffset($diagnostic->name(), $diagnostic->range()->start(), $diagnostic->type());
+            }, \iterator_to_array($diagnostics)));
+        });
     }
     /**
-     * @return Generator<NameCandidate>
+     * @return Promise<list<NameCandidate>>
      */
-    public function importCandidates(TextDocumentItem $item) : Generator
+    public function importCandidates(TextDocumentItem $item) : Promise
     {
-        $seen = [];
-        foreach ($this->unresolved($item) as $unresolvedName) {
-            \assert($unresolvedName instanceof NameWithByteOffset);
-            $nameString = (string) $unresolvedName->name();
-            if (isset($seen[$nameString])) {
-                continue;
-            }
-            $seen[$nameString] = \true;
-            foreach ($this->candidatesForUnresolvedName($unresolvedName) as $candidate) {
-                \assert($candidate instanceof \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameCandidate);
-                $nameString = (string) $candidate->candidateFqn();
+        return call(function () use($item) {
+            $candidates = [];
+            $seen = [];
+            foreach ((yield $this->unresolved($item)) as $unresolvedName) {
+                \assert($unresolvedName instanceof NameWithByteOffset);
+                $nameString = (string) $unresolvedName->name();
                 if (isset($seen[$nameString])) {
                     continue;
                 }
                 $seen[$nameString] = \true;
-                (yield $candidate);
+                foreach ($this->candidatesForUnresolvedName($unresolvedName) as $candidate) {
+                    \assert($candidate instanceof \Phpactor\Extension\LanguageServerCodeTransform\Model\NameImport\NameCandidate);
+                    $nameString = (string) $candidate->candidateFqn();
+                    if (isset($seen[$nameString])) {
+                        continue;
+                    }
+                    $seen[$nameString] = \true;
+                    $candidates[] = $candidate;
+                }
             }
-        }
+            return $candidates;
+        });
     }
     /**
      * @return Generator<NameCandidate>
@@ -60,8 +72,7 @@ class CandidateFinder
             return;
         }
         \assert($unresolvedName instanceof NameWithByteOffset);
-        $candidates = $this->findCandidates($unresolvedName);
-        foreach ($candidates as $candidate) {
+        foreach ($this->findCandidates($unresolvedName) as $candidate) {
             \assert($candidate instanceof HasFullyQualifiedName);
             // skip constants for now
             if ($candidate instanceof ConstantRecord) {
@@ -84,14 +95,10 @@ class CandidateFinder
         return \false;
     }
     /**
-     * @return array<int,Record>
+     * @return Generator<Record>
      */
-    private function findCandidates(NameWithByteOffset $unresolvedName) : array
+    private function findCandidates(NameWithByteOffset $unresolvedName) : Generator
     {
-        $candidates = [];
-        foreach ($this->client->search(Criteria::and(Criteria::or(Criteria::isConstant(), Criteria::isClass(), Criteria::isFunction()), Criteria::exactShortName($unresolvedName->name()->head()->__toString()))) as $candidate) {
-            $candidates[] = $candidate;
-        }
-        return $candidates;
+        yield from $this->client->search(Criteria::and(Criteria::or(Criteria::isConstant(), Criteria::isClass(), Criteria::isFunction()), Criteria::exactShortName($unresolvedName->name()->head()->__toString())));
     }
 }

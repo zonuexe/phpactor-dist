@@ -5,15 +5,23 @@ namespace Phpactor\ClassMover\Domain\Name;
 use InvalidArgumentException;
 class QualifiedName
 {
+    private bool $fullyQualified = \false;
     /**
-     * @param string[] $parts
+     * @param non-empty-array<string> $parts
      */
     protected function __construct(protected array $parts)
     {
+        if (\count($this->parts) > 1) {
+            $this->fullyQualified = $this->parts[0] === '';
+        }
     }
     public function __toString() : string
     {
         return \implode('\\', $this->parts);
+    }
+    public function wasFullyQualified() : bool
+    {
+        return $this->fullyQualified;
     }
     public static function root() : \Phpactor\ClassMover\Domain\Name\QualifiedName
     {
@@ -23,33 +31,34 @@ class QualifiedName
     {
         return $name->__toString() == $this->__toString();
     }
-    public static function fromString(string $string)
+    public static function fromString(string $string) : static
     {
         if (empty($string)) {
             throw new InvalidArgumentException('Name cannot be empty');
         }
+        /** @var non-empty-array<string> $parts */
         $parts = \explode('\\', \trim($string));
         return new static($parts);
     }
-    public function base()
+    public function base() : string
     {
         return \reset($this->parts);
     }
-    public function parentNamespace() : \Phpactor\ClassMover\Domain\Name\QualifiedName
+    public function parentNamespace() : static
     {
         $parts = $this->parts;
         \array_pop($parts);
         return new static($parts);
     }
-    public function equals(\Phpactor\ClassMover\Domain\Name\QualifiedName $qualifiedName)
+    public function equals(\Phpactor\ClassMover\Domain\Name\QualifiedName $qualifiedName) : bool
     {
         return $qualifiedName->__toString() == $this->__toString();
     }
-    public function head()
+    public function head() : string
     {
         return \end($this->parts);
     }
-    public function transpose(\Phpactor\ClassMover\Domain\Name\QualifiedName $name)
+    public function transpose(\Phpactor\ClassMover\Domain\Name\QualifiedName $name) : self
     {
         // both fully qualified names? great, nothing to see here.
         if ($this instanceof \Phpactor\ClassMover\Domain\Name\FullyQualifiedName && $name instanceof \Phpactor\ClassMover\Domain\Name\FullyQualifiedName) {

@@ -13,6 +13,11 @@ class PhpVersionPathResolver
     public function __construct(private string $phpVersion)
     {
     }
+    /**
+     * @param list<string> $paths
+     *
+     * @return list<string>
+     */
     public function resolve(iterable $paths) : iterable
     {
         $resolvedPaths = [];

@@ -13,7 +13,7 @@ use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterfac
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionClass;
 use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionTrait;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use PhpactorDist\Microsoft\PhpParser\ClassLike;
 use PhpactorDist\Microsoft\PhpParser\Node;
 /**
@@ -24,7 +24,7 @@ final class ReflectionClassLikeCollection extends \Phpactor\WorseReflection\Core
     /**
      * @param array<string,bool> $visited
      */
-    public static function fromNode(ServiceLocator $serviceLocator, SourceCode $source, Node $node, array $visited = []) : self
+    public static function fromNode(ServiceLocator $serviceLocator, TextDocument $source, Node $node, array $visited = []) : self
     {
         $items = [];
         $nodeCollection = $node->getDescendantNodes(function (Node $node) {

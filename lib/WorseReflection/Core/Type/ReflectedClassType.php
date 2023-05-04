@@ -56,6 +56,14 @@ class ReflectedClassType extends \Phpactor\WorseReflection\Core\Type\ClassType
         if ($type->equals($this)) {
             return Trinary::true();
         }
+        if ($type instanceof \Phpactor\WorseReflection\Core\Type\UnionType) {
+            foreach ($type->types as $uType) {
+                if (!$this->accepts($uType)->isTrue()) {
+                    return Trinary::false();
+                }
+            }
+            return Trinary::true();
+        }
         if (!$type instanceof \Phpactor\WorseReflection\Core\Type\ClassType) {
             return Trinary::false();
         }
@@ -88,7 +96,7 @@ class ReflectedClassType extends \Phpactor\WorseReflection\Core\Type\ClassType
     {
         try {
             return $this->reflector->reflectClassLike($this->name());
-        } catch (NotFound) {
+        } catch (NotFound $e) {
         }
         return null;
     }

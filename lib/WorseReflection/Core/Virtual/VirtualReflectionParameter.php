@@ -3,21 +3,21 @@
 namespace Phpactor\WorseReflection\Core\Virtual;
 
 use Phpactor\WorseReflection\Core\DefaultValue;
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionParameter;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
 use Phpactor\WorseReflection\Core\Type;
 class VirtualReflectionParameter implements ReflectionParameter
 {
-    public function __construct(private string $name, private ReflectionFunctionLike $functionLike, private Type $inferredType, private Type $type, private DefaultValue $default, private bool $byReference, private ReflectionScope $scope, private Position $position, private int $index)
+    public function __construct(private string $name, private ReflectionFunctionLike $functionLike, private Type $inferredType, private Type $type, private DefaultValue $default, private bool $byReference, private ReflectionScope $scope, private ByteOffsetRange $position, private int $index)
     {
     }
     public function scope() : ReflectionScope
     {
         return $this->scope;
     }
-    public function position() : Position
+    public function position() : ByteOffsetRange
     {
         return $this->position;
     }

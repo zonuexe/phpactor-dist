@@ -2,6 +2,8 @@
 
 namespace Phpactor\Extension\LanguageServerReferenceFinder\Model;
 
+use PhpactorDist\Amp\CancellationTokenSource;
+use PhpactorDist\Amp\Promise;
 use Generator;
 use PhpactorDist\Microsoft\PhpParser\Node;
 use PhpactorDist\Microsoft\PhpParser\Node\ConstElement;
@@ -25,28 +27,47 @@ use Phpactor\LanguageServerProtocol\Position;
 use Phpactor\LanguageServerProtocol\Range;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\EfficientLineCols;
+use function PhpactorDist\Amp\call;
+use function PhpactorDist\Amp\delay;
 class Highlighter
 {
+    private ?CancellationTokenSource $previousCancellationSource = null;
     public function __construct(private Parser $parser)
     {
     }
-    public function highlightsFor(string $source, ByteOffset $offset) : \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlights
+    /**
+     * @return Promise<Highlights>
+     */
+    public function highlightsFor(string $source, ByteOffset $offset) : Promise
     {
-        $offsets = [];
-        $highlights = [];
-        foreach ($this->generate($source, $offset) as $highlight) {
-            $offsets[] = $highlight->start;
-            $offsets[] = $highlight->end;
-            $highlights[] = $highlight;
+        // ensure we only process one inlay request at a time
+        if ($this->previousCancellationSource) {
+            $this->previousCancellationSource->cancel();
         }
-        $lineCols = EfficientLineCols::fromByteOffsetInts($source, $offsets, \true);
-        $lspHighlights = [];
-        foreach ($highlights as $highlight) {
-            $startPos = $lineCols->get($highlight->start);
-            $endPos = $lineCols->get($highlight->end);
-            $lspHighlights[] = new DocumentHighlight(new Range(new Position($startPos->line() - 1, $startPos->col() - 1), new Position($endPos->line() - 1, $endPos->col() - 1)), $highlight->kind);
-        }
-        return new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlights(...$lspHighlights);
+        $cancellationSource = new CancellationTokenSource();
+        $this->previousCancellationSource = $cancellationSource;
+        $cancellation = $cancellationSource->getToken();
+        return call(function () use($source, $offset, $cancellation) {
+            $offsets = [];
+            $highlights = [];
+            foreach ($this->generate($source, $offset) as $highlight) {
+                (yield delay(1));
+                if ($cancellation->isRequested()) {
+                    return new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlights();
+                }
+                $offsets[] = $highlight->start;
+                $offsets[] = $highlight->end;
+                $highlights[] = $highlight;
+            }
+            $lineCols = EfficientLineCols::fromByteOffsetInts($source, $offsets, \true);
+            $lspHighlights = [];
+            foreach ($highlights as $highlight) {
+                $startPos = $lineCols->get($highlight->start);
+                $endPos = $lineCols->get($highlight->end);
+                $lspHighlights[] = new DocumentHighlight(new Range(new Position($startPos->line() - 1, $startPos->col() - 1), new Position($endPos->line() - 1, $endPos->col() - 1)), $highlight->kind);
+            }
+            return new \Phpactor\Extension\LanguageServerReferenceFinder\Model\Highlights(...$lspHighlights);
+        });
     }
     /**
      * @return Generator<Highlight>

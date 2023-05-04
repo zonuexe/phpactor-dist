@@ -20,4 +20,5 @@ interface TextDocument
      * Return language value object for the text document.
      */
     public function language() : \Phpactor\TextDocument\TextDocumentLanguage;
+    public function uriOrThrow() : \Phpactor\TextDocument\TextDocumentUri;
 }

@@ -33,4 +33,8 @@ class ExtractExpressionProvider implements CodeActionProvider
             return [CodeAction::fromArray(['title' => 'Extract expression', 'kind' => self::KIND, 'diagnostics' => [], 'command' => new Command('Extract method', ExtractExpressionCommand::NAME, [$textDocument->uri, PositionConverter::positionToByteOffset($range->start, $textDocument->text)->toInt(), PositionConverter::positionToByteOffset($range->end, $textDocument->text)->toInt()])])];
         });
     }
+    public function describe() : string
+    {
+        return 'extract expression';
+    }
 }

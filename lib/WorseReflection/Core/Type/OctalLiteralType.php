@@ -13,7 +13,7 @@ final class OctalLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType
     {
         return (string) $this->value;
     }
-    public function value()
+    public function value() : int|float
     {
         return \octdec(\substr($this->value, 1));
     }

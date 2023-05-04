@@ -9,32 +9,45 @@ use Phpactor\Extension\Rpc\Request;
 use InvalidArgumentException;
 abstract class AbstractHandler implements Handler
 {
-    private $requiredArguments = [];
+    /** @var array<string, Input> */
+    private array $requiredArguments = [];
     protected function requireInput(Input $input) : void
     {
         $this->requiredArguments[$input->name()] = $input;
     }
-    protected function hasMissingArguments(array $arguments)
+    /** @param array<mixed> $arguments */
+    protected function hasMissingArguments(array $arguments) : bool
     {
-        if ($this->missingArguments($arguments)) {
+        if (\count($this->missingArguments($arguments)) > 0) {
             return \true;
         }
         return \false;
     }
-    protected function createInputCallback(array $arguments)
+    /** @param array<mixed> $arguments */
+    protected function createInputCallback(array $arguments) : InputCallbackResponse
     {
         return InputCallbackResponse::fromCallbackAndInputs(Request::fromNameAndParameters($this->name(), $arguments), $this->inputsFromMissingArguments($arguments));
     }
+    /**
+     * @param array<mixed> $arguments
+     *
+     * @return array<array-key>
+     */
     private function missingArguments(array $arguments) : array
     {
-        return \array_keys(\array_filter($arguments, function ($argument, $key) {
+        return \array_keys(\array_filter($arguments, function (mixed $argument, string|int $key) {
             if (\false === isset($this->requiredArguments[$key])) {
                 return \false;
             }
             return empty($argument);
         }, \ARRAY_FILTER_USE_BOTH));
     }
-    private function inputsFromMissingArguments(array $arguments)
+    /**
+     * @param array<mixed> $arguments
+     *
+     * @return array<int, mixed>
+     */
+    private function inputsFromMissingArguments(array $arguments) : array
     {
         $inputs = [];
         foreach ($this->missingArguments($arguments) as $argumentName) {

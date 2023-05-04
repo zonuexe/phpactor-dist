@@ -5,7 +5,7 @@ namespace Phpactor\WorseReflection\Core\Reflection\Collection;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionFunction as PhpactorReflectionFunction;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 use PhpactorDist\Microsoft\PhpParser\Node\SourceFileNode;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use PhpactorDist\Microsoft\PhpParser\Node\Statement\FunctionDeclaration;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionFunction;
 /**
@@ -13,7 +13,7 @@ use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionFunction
  */
 class ReflectionFunctionCollection extends \Phpactor\WorseReflection\Core\Reflection\Collection\AbstractReflectionCollection
 {
-    public static function fromNode(ServiceLocator $serviceLocator, SourceCode $sourceCode, SourceFileNode $node) : self
+    public static function fromNode(ServiceLocator $serviceLocator, TextDocument $sourceCode, SourceFileNode $node) : self
     {
         $items = [];
         foreach ($node->getDescendantNodes() as $descendentNode) {

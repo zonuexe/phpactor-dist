@@ -5,31 +5,11 @@ namespace Phpactor\Filesystem\Domain;
 interface Filesystem
 {
     public function fileList() : \Phpactor\Filesystem\Domain\FileList;
-    /**
-     * @param FilePath|string $srcLocation
-     * @param FilePath|string $destLocation
-     */
-    public function move($srcLocation, $destLocation) : void;
-    /**
-     * @param FilePath|string $location
-     */
-    public function remove($location) : void;
-    /**
-     * @param FilePath|string $srcLocation
-     * @param FilePath|string $destLocation
-     */
-    public function copy($srcLocation, $destLocation) : \Phpactor\Filesystem\Domain\CopyReport;
+    public function move(\Phpactor\Filesystem\Domain\FilePath|string $srcLocation, \Phpactor\Filesystem\Domain\FilePath|string $destLocation) : void;
+    public function remove(\Phpactor\Filesystem\Domain\FilePath|string $location) : void;
+    public function copy(\Phpactor\Filesystem\Domain\FilePath|string $srcLocation, \Phpactor\Filesystem\Domain\FilePath|string $destLocation) : \Phpactor\Filesystem\Domain\CopyReport;
     public function createPath(string $path) : \Phpactor\Filesystem\Domain\FilePath;
-    /**
-     * @param FilePath|string $path
-     */
-    public function writeContents($path, string $contents) : void;
-    /**
-     * @param FilePath|string $path
-     */
-    public function getContents($path) : string;
-    /**
-     * @param FilePath|string $path
-     */
-    public function exists($path) : bool;
+    public function writeContents(\Phpactor\Filesystem\Domain\FilePath|string $path, string $contents) : void;
+    public function getContents(\Phpactor\Filesystem\Domain\FilePath|string $path) : string;
+    public function exists(\Phpactor\Filesystem\Domain\FilePath|string $path) : bool;
 }

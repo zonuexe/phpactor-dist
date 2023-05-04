@@ -8,5 +8,5 @@ use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Reflector;
 interface MemberContextResolver
 {
-    public function resolveMemberContext(Reflector $reflector, ReflectionMember $member, ?FunctionArguments $arguments) : ?Type;
+    public function resolveMemberContext(Reflector $reflector, ReflectionMember $member, Type $type, ?FunctionArguments $arguments) : ?Type;
 }

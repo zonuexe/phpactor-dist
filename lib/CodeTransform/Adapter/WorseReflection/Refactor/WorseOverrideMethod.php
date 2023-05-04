@@ -33,7 +33,7 @@ class WorseOverrideMethod implements OverrideMethod
     private function getReflectionClass(SourceCode $source, string $className) : ReflectionClass
     {
         $builder = TextDocumentBuilder::create($source)->language('php');
-        if ($source->path()) {
+        if ($source->uri()->path()) {
             $builder->uri($source->uri());
         }
         $classes = $this->reflector->reflectClassesIn($builder->build())->classes();

@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\ClassName;
 interface ReflectionSourceCode
 {
-    public function position() : Position;
+    public function position() : ByteOffsetRange;
     public function findClass(ClassName $name);
 }

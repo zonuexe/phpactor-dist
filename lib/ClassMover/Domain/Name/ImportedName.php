@@ -4,8 +4,8 @@ namespace Phpactor\ClassMover\Domain\Name;
 
 final class ImportedName extends \Phpactor\ClassMover\Domain\Name\Namespace_
 {
-    private $alias;
-    public function __toString()
+    private ?string $alias = null;
+    public function __toString() : string
     {
         return \implode('\\', $this->parts);
     }
@@ -35,10 +35,8 @@ final class ImportedName extends \Phpactor\ClassMover\Domain\Name\Namespace_
     {
         return null !== $this->alias;
     }
-    public static function fromStringAsAlias(string $string)
+    public static function fromStringAsAlias(string $string) : self
     {
-        $new = parent::fromString($string);
-        $new->isAlias = \true;
-        return $new;
+        return parent::fromString($string);
     }
 }

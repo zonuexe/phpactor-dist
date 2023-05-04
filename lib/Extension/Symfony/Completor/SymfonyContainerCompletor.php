@@ -45,7 +45,7 @@ class SymfonyContainerCompletor implements TolerantCompletor
             return;
         }
         $expression = $memberAccess->dereferencableExpression;
-        $containerType = $this->reflector->reflectOffset($source, $expression->getEndPosition())->symbolContext()->type();
+        $containerType = $this->reflector->reflectOffset($source, $expression->getEndPosition())->nodeContext()->type();
         if ($containerType->instanceof(TypeFactory::class(self::CONTAINER_CLASS))->isFalseOrMaybe()) {
             return;
         }

@@ -35,7 +35,7 @@ class ClassMemberReferences
         }
         return ['references' => $results];
     }
-    public function replaceInSource(string $source, string $class, string $memberName, string $memberType, string $replacement)
+    public function replaceInSource(string $source, string $class, string $memberName, string $memberType, string $replacement) : string
     {
         $className = $class ? $this->classFileNormalizer->normalizeToClass($class) : null;
         $query = $this->createQuery($className, $memberName, $memberType);

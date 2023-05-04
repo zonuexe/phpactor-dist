@@ -11,7 +11,7 @@ class Label
     {
         return $this->label;
     }
-    public static function fromString(string $label) : \Phpactor\ClassMover\Domain\Name\Label
+    public static function fromString(string $label) : static
     {
         return new static($label);
     }

@@ -8,7 +8,7 @@ use Phpactor\Container\Extension;
 use Phpactor\Extension\LanguageServerBridge\Converter\LocationConverter;
 use Phpactor\Extension\LanguageServerBridge\Converter\TextEditConverter;
 use Phpactor\Extension\LanguageServerBridge\Converter\WorkspaceEditConverter;
-use Phpactor\Extension\LanguageServerBridge\TextDocument\FilesystemWorkspaceLocator;
+use Phpactor\TextDocument\FilesystemTextDocumentLocator;
 use Phpactor\Extension\LanguageServerBridge\TextDocument\WorkspaceTextDocumentLocator;
 use Phpactor\Extension\LanguageServer\LanguageServerExtension;
 use Phpactor\MapResolver\Resolver;
@@ -30,14 +30,14 @@ class LanguageServerBridgeExtension implements Extension
         $container->register(WorkspaceEditConverter::class, function (Container $container) {
             return new WorkspaceEditConverter($container->get(TextDocumentLocator::class));
         });
-        $container->register(FilesystemWorkspaceLocator::class, function (Container $container) {
-            return new FilesystemWorkspaceLocator();
+        $container->register(FilesystemTextDocumentLocator::class, function (Container $container) {
+            return new FilesystemTextDocumentLocator();
         });
         $container->register(WorkspaceTextDocumentLocator::class, function (Container $container) {
             return new WorkspaceTextDocumentLocator($container->get(LanguageServerExtension::SERVICE_SESSION_WORKSPACE));
         });
         $container->register(TextDocumentLocator::class, function (Container $container) {
-            return new ChainDocumentLocator([$container->get(WorkspaceTextDocumentLocator::class), $container->get(FilesystemWorkspaceLocator::class)]);
+            return new ChainDocumentLocator([$container->get(WorkspaceTextDocumentLocator::class), $container->get(FilesystemTextDocumentLocator::class)]);
         });
     }
 }

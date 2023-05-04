@@ -10,6 +10,7 @@ use PhpactorDist\Microsoft\PhpParser\ClassLike;
 use PhpactorDist\Microsoft\PhpParser\NamespacedNameInterface;
 use PhpactorDist\Microsoft\PhpParser\NamespacedNameTrait;
 use PhpactorDist\Microsoft\PhpParser\Node\AttributeGroup;
+use PhpactorDist\Microsoft\PhpParser\Node\EnumInterfaceClause;
 use PhpactorDist\Microsoft\PhpParser\Node\StatementNode;
 use PhpactorDist\Microsoft\PhpParser\Node\EnumMembers;
 use PhpactorDist\Microsoft\PhpParser\Token;
@@ -20,6 +21,8 @@ class EnumDeclaration extends StatementNode implements NamespacedNameInterface, 
     public $attributes;
     /** @var Token */
     public $enumKeyword;
+    /** @var EnumInterfaceClause|null */
+    public $enumInterfaceClause;
     /** @var Token */
     public $name;
     /** @var Token|null */
@@ -28,7 +31,7 @@ class EnumDeclaration extends StatementNode implements NamespacedNameInterface, 
     public $enumType;
     /** @var EnumMembers */
     public $enumMembers;
-    const CHILD_NAMES = ['attributes', 'enumKeyword', 'name', 'colonToken', 'enumType', 'enumMembers'];
+    const CHILD_NAMES = ['attributes', 'enumKeyword', 'name', 'colonToken', 'enumType', 'enumInterfaceClause', 'enumMembers'];
     public function getNameParts() : array
     {
         return [$this->name];

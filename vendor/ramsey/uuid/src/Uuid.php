@@ -249,7 +249,7 @@ class Uuid implements UuidInterface
      */
     public function serialize() : string
     {
-        return $this->getFields()->getBytes();
+        return $this->codec->encode($this);
     }
     /**
      * @return array{bytes: string}

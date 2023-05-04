@@ -20,12 +20,12 @@ use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMethodCollecti
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollection;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionTraitCollection;
 use Phpactor\WorseReflection\Core\ClassName;
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass as CoreReflectionClass;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionInterface;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Core\Util\NodeUtil;
 use Phpactor\WorseReflection\Core\Visibility;
 use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
@@ -44,7 +44,7 @@ class ReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Re
     /**
      * @param array<string,bool> $visited
      */
-    public function __construct(private ServiceLocator $serviceLocator, private SourceCode $sourceCode, private ClassDeclaration $node, private array $visited = [])
+    public function __construct(private ServiceLocator $serviceLocator, private TextDocument $sourceCode, private ClassDeclaration $node, private array $visited = [])
     {
     }
     public function isAbstract() : bool
@@ -182,9 +182,9 @@ class ReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Re
         $this->traits = $traits;
         return $traits;
     }
-    public function memberListPosition() : Position
+    public function memberListPosition() : ByteOffsetRange
     {
-        return Position::fromFullStartStartAndEnd($this->node->classMembers->openBrace->fullStart, $this->node->classMembers->openBrace->start, $this->node->classMembers->openBrace->start + $this->node->classMembers->openBrace->length);
+        return ByteOffsetRange::fromInts($this->node->classMembers->openBrace->start, $this->node->classMembers->openBrace->start + $this->node->classMembers->openBrace->length);
     }
     public function name() : ClassName
     {
@@ -218,7 +218,7 @@ class ReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Re
         }
         return $this->interfaces()->has((string) $className);
     }
-    public function sourceCode() : SourceCode
+    public function sourceCode() : TextDocument
     {
         return $this->sourceCode;
     }
@@ -267,6 +267,10 @@ class ReflectionClass extends \Phpactor\WorseReflection\Bridge\TolerantParser\Re
     public function hierarchy() : ReflectionClassLikeCollection
     {
         return ReflectionClassLikeCollection::fromReflections((new ClassHierarchyResolver())->resolve($this));
+    }
+    public function classLikeType() : string
+    {
+        return 'class';
     }
     protected function node() : Node
     {

@@ -4,6 +4,8 @@ namespace Phpactor\CodeTransform\Adapter\DocblockParser;
 
 use Phpactor\CodeBuilder\Util\TextFormat;
 use Phpactor\CodeTransform\Domain\DocBlockUpdater;
+use Phpactor\CodeTransform\Domain\DocBlockUpdater\ExtendsTagPrototype;
+use Phpactor\CodeTransform\Domain\DocBlockUpdater\ImplementsTagPrototype;
 use Phpactor\CodeTransform\Domain\DocBlockUpdater\ParamTagPrototype;
 use Phpactor\CodeTransform\Domain\DocBlockUpdater\ReturnTagPrototype;
 use Phpactor\CodeTransform\Domain\DocBlockUpdater\TagPrototype;
@@ -39,16 +41,22 @@ class ParserDocblockUpdater implements DocBlockUpdater
         if ($prototype instanceof ParamTagPrototype) {
             return $this->updateTag($docblock, $prototype, \sprintf('@param %s $%s', $prototype->type->__toString(), $prototype->name));
         }
+        if ($prototype instanceof ExtendsTagPrototype) {
+            return $this->updateTag($docblock, $prototype, \sprintf('@extends %s', $prototype->type->short()), 0);
+        }
+        if ($prototype instanceof ImplementsTagPrototype) {
+            return $this->updateTag($docblock, $prototype, \sprintf('@implements %s', $prototype->type->short()), 0);
+        }
         throw new RuntimeException(\sprintf('Do not know how to update tag "%s"', \get_class($prototype)));
     }
     /**
      * @return array<int,TextEdit>
      */
-    private function updateTag(Docblock $docblock, TagPrototype $prototype, string $tagText) : array
+    private function updateTag(Docblock $docblock, TagPrototype $prototype, string $tagText, int $indent = 1) : array
     {
         // create
         if (\strlen(\trim($docblock->toString())) === 0) {
-            $indent = $this->textFormat->indent('', 1);
+            $indent = $this->textFormat->indent('', $indent);
             return [TextEdit::create($docblock->start(), 0, \sprintf("\n%s/**\n%s * %s\n%s */\n%s", $indent, $indent, $tagText, $indent, $indent))];
         }
         // update

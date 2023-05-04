@@ -6,14 +6,14 @@ use Phpactor\ClassMover\Domain\Name\QualifiedName;
 use Phpactor\ClassMover\Domain\Name\FullyQualifiedName;
 final class ClassReference
 {
-    private $position;
-    private $fullName;
-    private $name;
-    private $isClassDeclaration;
-    private $importedNameRef;
+    private \Phpactor\ClassMover\Domain\Reference\Position $position;
+    private FullyQualifiedName $fullName;
+    private QualifiedName $name;
+    private bool $isClassDeclaration;
+    private \Phpactor\ClassMover\Domain\Reference\ImportedNameReference $importedNameRef;
     private bool $hasAlias = \false;
     private bool $isImport = \false;
-    public function __toString()
+    public function __toString() : string
     {
         return (string) $this->fullName;
     }

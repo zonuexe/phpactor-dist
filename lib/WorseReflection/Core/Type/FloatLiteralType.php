@@ -30,7 +30,7 @@ final class FloatLiteralType extends \Phpactor\WorseReflection\Core\Type\FloatTy
     {
         return new self(-$this->value());
     }
-    public function withValue($value) : self
+    public function withValue(mixed $value) : self
     {
         $new = clone $this;
         $new->value = $value;

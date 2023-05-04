@@ -2,7 +2,6 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-use Closure;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\Type\MissingType;
 use Phpactor\WorseReflection\Core\Type\VoidType;
@@ -11,14 +10,10 @@ class Frame
     private \Phpactor\WorseReflection\Core\Inference\PropertyAssignments $properties;
     private \Phpactor\WorseReflection\Core\Inference\LocalAssignments $locals;
     private \Phpactor\WorseReflection\Core\Inference\Problems $problems;
-    /**
-     * @var Frame[]
-     */
-    private array $children = [];
     private ?Type $returnType = null;
     private int $version = 1;
     private \Phpactor\WorseReflection\Core\Inference\VarDocBuffer $varDocBuffer;
-    public function __construct(private string $name, \Phpactor\WorseReflection\Core\Inference\LocalAssignments $locals = null, \Phpactor\WorseReflection\Core\Inference\PropertyAssignments $properties = null, \Phpactor\WorseReflection\Core\Inference\Problems $problems = null, private ?\Phpactor\WorseReflection\Core\Inference\Frame $parent = null)
+    public function __construct(\Phpactor\WorseReflection\Core\Inference\LocalAssignments $locals = null, \Phpactor\WorseReflection\Core\Inference\PropertyAssignments $properties = null, \Phpactor\WorseReflection\Core\Inference\Problems $problems = null, private ?\Phpactor\WorseReflection\Core\Inference\Frame $parent = null)
     {
         $this->properties = $properties ?: \Phpactor\WorseReflection\Core\Inference\PropertyAssignments::create();
         $this->locals = $locals ?: \Phpactor\WorseReflection\Core\Inference\LocalAssignments::create();
@@ -31,10 +26,9 @@ class Frame
             return $type . "\n:" . $assignments->__toString();
         }, [$this->properties, $this->locals], ['properties', 'locals']));
     }
-    public function new(string $name) : \Phpactor\WorseReflection\Core\Inference\Frame
+    public function new() : \Phpactor\WorseReflection\Core\Inference\Frame
     {
-        $frame = new self($name, null, null, null, $this);
-        $this->children[] = $frame;
+        $frame = new self(null, null, null, $this);
         return $frame;
     }
     /**
@@ -52,34 +46,18 @@ class Frame
     {
         return $this->problems;
     }
-    public function parent() : \Phpactor\WorseReflection\Core\Inference\Frame
+    public function parent() : ?\Phpactor\WorseReflection\Core\Inference\Frame
     {
         return $this->parent;
     }
-    public function reduce(Closure $closure, $initial = null)
-    {
-        $initial = $closure($this, $initial);
-        foreach ($this->children as $childFrame) {
-            $initial = $childFrame->reduce($closure, $initial);
-        }
-        return $initial;
-    }
-    public function root()
+    public function root() : \Phpactor\WorseReflection\Core\Inference\Frame
     {
         if (null === $this->parent) {
             return $this;
         }
         return $this->parent->root();
     }
-    public function children() : array
-    {
-        return $this->children;
-    }
-    public function name() : string
-    {
-        return $this->name;
-    }
-    public function withReturnType(Type $type) : self
+    public function setReturnType(Type $type) : self
     {
         $this->returnType = $type;
         $this->version++;

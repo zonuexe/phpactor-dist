@@ -10,6 +10,7 @@ use Phpactor\MapResolver\Resolver;
 use Phpactor\Extension\Rpc\Response\UpdateFileSourceResponse;
 use Phpactor\CodeTransform\Domain\SourceCode;
 use Phpactor\Extension\Rpc\Handler\AbstractHandler;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use Phpactor\WorseReflection\Core\Inference\Symbol;
 use Phpactor\WorseReflection\Core\Inference\NodeContext;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
@@ -42,9 +43,9 @@ class PropertyAccessGeneratorHandler extends AbstractHandler
     }
     private function getPropertyContext(array $arguments) : ?NodeContext
     {
-        $offset = $this->reflector->reflectOffset($arguments[self::PARAM_SOURCE], $arguments[self::PARAM_OFFSET]);
-        if ($offset->symbolContext()->symbol()->symbolType() === Symbol::PROPERTY) {
-            return $offset->symbolContext();
+        $offset = $this->reflector->reflectOffset(TextDocumentBuilder::fromUnknown($arguments[self::PARAM_SOURCE]), $arguments[self::PARAM_OFFSET]);
+        if ($offset->nodeContext()->symbol()->symbolType() === Symbol::PROPERTY) {
+            return $offset->nodeContext();
         }
         return null;
     }
@@ -62,7 +63,7 @@ class PropertyAccessGeneratorHandler extends AbstractHandler
     }
     private function class(string $source) : ReflectionClass
     {
-        $classes = $this->reflector->reflectClassesIn($source)->classes();
+        $classes = $this->reflector->reflectClassesIn(TextDocumentBuilder::fromUnknown($source))->classes();
         if ($classes->count() === 0) {
             throw new InvalidArgumentException('No classes in source file');
         }

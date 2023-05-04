@@ -2,6 +2,7 @@
 
 namespace Phpactor\TextDocument;
 
+use RuntimeException;
 class StandardTextDocument implements \Phpactor\TextDocument\TextDocument
 {
     public function __construct(private \Phpactor\TextDocument\TextDocumentLanguage $language, private string $text, private ?\Phpactor\TextDocument\TextDocumentUri $uri = null)
@@ -18,5 +19,12 @@ class StandardTextDocument implements \Phpactor\TextDocument\TextDocument
     public function language() : \Phpactor\TextDocument\TextDocumentLanguage
     {
         return $this->language;
+    }
+    public function uriOrThrow() : \Phpactor\TextDocument\TextDocumentUri
+    {
+        if (null === $this->uri) {
+            throw new RuntimeException('Document has no URI');
+        }
+        return $this->uri;
     }
 }

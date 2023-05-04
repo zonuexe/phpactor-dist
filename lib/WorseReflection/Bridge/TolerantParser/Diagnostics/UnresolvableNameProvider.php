@@ -15,16 +15,22 @@ use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use PhpactorDist\Microsoft\PhpParser\ResolvedName;
 use PhpactorDist\Microsoft\PhpParser\TokenKind;
+use PhpactorDist\PHPUnit\Framework\Assert;
 use Phpactor\Name\FullyQualifiedName as PhpactorFullyQualifiedName;
 use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Patch\TolerantQualifiedNameResolver;
+use Phpactor\WorseReflection\Core\DiagnosticExample;
 use Phpactor\WorseReflection\Core\DiagnosticProvider;
+use Phpactor\WorseReflection\Core\Diagnostics;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 use Phpactor\WorseReflection\Core\Reflector\ClassReflector;
 use Phpactor\WorseReflection\Core\Reflector\FunctionReflector;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
+/**
+ * Report if a name (class, function, constant etc) can not be resolved.
+ */
 class UnresolvableNameProvider implements DiagnosticProvider
 {
     public function __construct(private bool $importGlobals)
@@ -74,6 +80,153 @@ class UnresolvableNameProvider implements DiagnosticProvider
     {
         return [];
     }
+    public function examples() : iterable
+    {
+        (yield new DiagnosticExample(title: 'class name constant unresolvable', source: <<<'PHP'
+<?php
+
+function foo(string $name)
+}
+
+
+foo(Foobar::class);
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'constant', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+__DIR__ . 'foo';
+PHP
+, valid: \true, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(0, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'constants', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+function foo(string $foo)
+{
+}
+foo(__DIR__);
+foo(__CLASS__);
+foo(__NAMESPACE__);
+foo(__FILE__);
+__DIR__;
+__CLASS__;
+__NAMESPACE__;
+__FILE__;
+PHP
+, valid: \true, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(0, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'constnat param', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+class RpcCommand
+{
+    public function __construct($inputStream = \STDIN)
+    {
+    }
+}
+\class_alias('PhpactorDist\\RpcCommand', 'RpcCommand', \false);
+PHP
+, valid: \true, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(0, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'parameter', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+class RpcCommand
+{
+    public function __construct($inputStream = Foo::BAR)
+    {
+    }
+}
+\class_alias('PhpactorDist\\RpcCommand', 'RpcCommand', \false);
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Class "Foo" not found', $diagnostics->at(0)->message());
+        }));
+        (yield new DiagnosticExample(title: 'reserved names', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+class Foo
+{
+    public function foo() : self
+    {
+        parent::foo();
+    }
+    public function foo() : iterable
+    {
+    }
+}
+\class_alias('PhpactorDist\\Foo', 'Foo', \false);
+PHP
+, valid: \true, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(0, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'unresolvable function', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+foobar();
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Function "foobar" not found', $diagnostics->at(0)->message());
+        }));
+        (yield new DiagnosticExample(title: 'instanceof class', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist\Foo;
+
+if ($f instanceof Foobar) {
+}
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Class "Foobar" not found', $diagnostics->at(0)->message());
+        }));
+        (yield new DiagnosticExample(title: 'unresolvable class', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+Foobar::class;
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Class "Foobar" not found', $diagnostics->at(0)->message());
+        }));
+        (yield new DiagnosticExample(title: 'unresolvable namespaced function', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist\Foo;
+
+foobar();
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Function "foobar" not found', $diagnostics->at(0)->message());
+        }));
+    }
+    public function name() : string
+    {
+        return 'unresolvable_name';
+    }
     /**
      * @return iterable<UnresolvableNameDiagnostic>
      */
@@ -100,7 +253,7 @@ class UnresolvableNameProvider implements DiagnosticProvider
             (yield \Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic::forFunction(ByteOffsetRange::fromInts($name->getStartPosition(), $name->getEndPosition()), $fqn));
         }
     }
-    private function nameContainedInSource(string $declarationPattern, SourceCode $source, string $nameText) : bool
+    private function nameContainedInSource(string $declarationPattern, TextDocument $source, string $nameText) : bool
     {
         $lastPart = \explode('\\', $nameText);
         $last = $lastPart[\array_key_last($lastPart)];

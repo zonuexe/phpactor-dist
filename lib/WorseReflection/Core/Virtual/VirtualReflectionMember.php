@@ -2,12 +2,11 @@
 
 namespace Phpactor\WorseReflection\Core\Virtual;
 
-use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Deprecation;
 use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\MemberTypeContextualiser;
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionScope;
@@ -16,11 +15,11 @@ use Phpactor\WorseReflection\Core\Visibility;
 abstract class VirtualReflectionMember implements ReflectionMember
 {
     private MemberTypeContextualiser $contextualizer;
-    public function __construct(private Position $position, private ReflectionClassLike $declaringClass, protected ReflectionClassLike $class, private string $name, private Frame $frame, private DocBlock $docblock, private ReflectionScope $scope, private Visibility $visibility, private Type $inferredType, private Type $type, private Deprecation $deprecation)
+    public function __construct(private ByteOffsetRange $position, private ReflectionClassLike $declaringClass, protected ReflectionClassLike $class, private string $name, private Frame $frame, private DocBlock $docblock, private ReflectionScope $scope, private Visibility $visibility, private Type $inferredType, private Type $type, private Deprecation $deprecation)
     {
         $this->contextualizer = new MemberTypeContextualiser();
     }
-    public function position() : Position
+    public function position() : ByteOffsetRange
     {
         return $this->position;
     }
@@ -56,7 +55,7 @@ abstract class VirtualReflectionMember implements ReflectionMember
     }
     public function nameRange() : ByteOffsetRange
     {
-        return ByteOffsetRange::fromInts($this->position()->start(), $this->position()->end());
+        return ByteOffsetRange::fromInts($this->position()->start()->toInt(), $this->position()->end()->toInt());
     }
     /**
      * @return $this

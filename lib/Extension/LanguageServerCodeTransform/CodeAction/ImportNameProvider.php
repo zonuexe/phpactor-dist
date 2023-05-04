@@ -28,7 +28,7 @@ class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
     {
         return call(function () use($item) {
             $actions = [];
-            foreach ($this->finder->importCandidates($item) as $candidate) {
+            foreach ((yield $this->finder->importCandidates($item)) as $candidate) {
                 $actions[] = $this->codeActionForFqn($candidate->unresolvedName(), $candidate->candidateFqn(), $item);
                 (yield delay(1));
             }
@@ -47,7 +47,7 @@ class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
         return call(function () use($textDocument) {
             $diagnostics = [];
             $hasCandidatesHash = [];
-            foreach ($this->finder->unresolved($textDocument) as $unresolvedName) {
+            foreach ((yield $this->finder->unresolved($textDocument)) as $unresolvedName) {
                 \assert($unresolvedName instanceof NameWithByteOffset);
                 $nameString = (string) $unresolvedName->name();
                 [$hasCandidates, $diagnostic] = $this->diagnosticsFromUnresolvedName($unresolvedName, $textDocument, isset($hasCandidatesHash[$nameString]) ? $hasCandidatesHash[$nameString] : null);
@@ -62,6 +62,10 @@ class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
     public function name() : string
     {
         return 'import-name';
+    }
+    public function describe() : string
+    {
+        return 'import unresolvable class names';
     }
     private function diagnosticsFromUnresolvedName(NameWithByteOffset $unresolvedName, TextDocumentItem $item, ?bool $hasCandidates = null) : array
     {

@@ -7,7 +7,7 @@ class UpdatePolicy
     public function __construct(private bool $doUpdate)
     {
     }
-    public static function fromModifiedState(bool $modified)
+    public static function fromModifiedState(bool $modified) : self
     {
         return new self($modified);
     }

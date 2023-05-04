@@ -15,9 +15,8 @@ use InvalidArgumentException;
 class GitFilesystem extends SimpleFilesystem
 {
     private FilePath $path;
-    public function __construct($path, FileListProvider $fileListProvider = null)
+    public function __construct(FilePath $path, FileListProvider $fileListProvider = null)
     {
-        $path = FilePath::fromUnknown($path);
         parent::__construct($path, $fileListProvider);
         $this->path = $path;
         if (\false === \file_exists($path->__toString() . '/.git')) {
@@ -33,7 +32,7 @@ class GitFilesystem extends SimpleFilesystem
         }
         return FileList::fromIterator(new ArrayIterator($files));
     }
-    public function remove($path) : void
+    public function remove(FilePath|string $path) : void
     {
         $path = FilePath::fromUnknown($path);
         if (\false === $this->trackedByGit($path)) {
@@ -46,7 +45,7 @@ class GitFilesystem extends SimpleFilesystem
         }
         $this->exec(['rm', '-f', $path->path()]);
     }
-    public function move($srcPath, $destPath) : void
+    public function move(FilePath|string $srcPath, FilePath|string $destPath) : void
     {
         $srcPath = FilePath::fromUnknown($srcPath);
         $destPath = FilePath::fromUnknown($destPath);
@@ -56,7 +55,7 @@ class GitFilesystem extends SimpleFilesystem
         }
         $this->exec(['mv', $srcPath->path(), $destPath->path()]);
     }
-    public function copy($srcPath, $destPath) : CopyReport
+    public function copy(FilePath|string $srcPath, FilePath|string $destPath) : CopyReport
     {
         $srcPath = FilePath::fromUnknown($srcPath);
         $destPath = FilePath::fromUnknown($destPath);

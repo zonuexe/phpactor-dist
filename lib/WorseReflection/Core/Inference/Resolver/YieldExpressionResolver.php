@@ -38,7 +38,7 @@ class YieldExpressionResolver implements Resolver
         if ($arrayElement->elementValue) {
             $value = $resolver->resolveNode($frame, $arrayElement->elementValue)->type();
             if ($yieldFrom) {
-                $frame->withReturnType($value);
+                $frame->setReturnType($value);
                 return $context;
             }
             // treat yield values as a seies of array shapes
@@ -53,10 +53,10 @@ class YieldExpressionResolver implements Resolver
             if ($key->isDefined()) {
                 $returnType = $returnType->withKey($returnType->keyType()->addType($key));
             }
-            $frame->withReturnType($returnType);
+            $frame->setReturnType($returnType);
             return $context;
         }
-        $frame->withReturnType(TypeFactory::generator($resolver->reflector(), $key, $value));
+        $frame->setReturnType(TypeFactory::generator($resolver->reflector(), $key, $value));
         return $context;
     }
 }

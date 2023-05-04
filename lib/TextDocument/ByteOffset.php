@@ -17,6 +17,13 @@ class ByteOffset
     {
         return new self($offset);
     }
+    public static function fromUnknown(\Phpactor\TextDocument\ByteOffset|int $value) : self
+    {
+        if ($value instanceof \Phpactor\TextDocument\ByteOffset) {
+            return $value;
+        }
+        return self::fromInt($value);
+    }
     /**
      * @param int|ByteOffset $offset
      */

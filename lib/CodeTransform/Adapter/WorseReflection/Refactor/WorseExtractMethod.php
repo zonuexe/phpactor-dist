@@ -98,6 +98,9 @@ class WorseExtractMethod implements ExtractMethod
         }
         $methodBuilder->body()->line($newMethodBody);
         $locals = $this->scopeLocalVariables($source, $offsetStart, $offsetEnd);
+        if ($reflectionMethod->isStatic()) {
+            $methodBuilder->static();
+        }
         $parameterVariables = $this->parameterVariables($locals->lessThan($offsetStart), $selection, $offsetStart);
         $args = $this->addParametersAndGetArgs($parameterVariables, $methodBuilder, $builder);
         $returnVariables = $this->returnVariables($locals, $reflectionMethod, $source, $offsetStart, $offsetEnd);
@@ -107,8 +110,11 @@ class WorseExtractMethod implements ExtractMethod
         if ($isExpression) {
             $replacement = \rtrim($replacement, ';');
         }
-        return new TextDocumentEdits(TextDocumentUri::fromString($source->path()), $this->updater->textEditsFor($prototype, Code::fromString((string) $source))->add(TextEdit::create($offsetStart, $offsetEnd - $offsetStart, $replacement)));
+        return new TextDocumentEdits(TextDocumentUri::fromString($source->uri()->path()), $this->updater->textEditsFor($prototype, Code::fromString((string) $source))->add(TextEdit::create($offsetStart, $offsetEnd - $offsetStart, $replacement)));
     }
+    /**
+     * @return array<string, Variable>
+     */
     private function parameterVariables(Assignments $locals, string $selection, int $offsetStart) : array
     {
         $variableNames = $this->variableNames($selection);
@@ -121,6 +127,9 @@ class WorseExtractMethod implements ExtractMethod
         }
         return $parameterVariables;
     }
+    /**
+     * @return array<string, Variable>
+     */
     private function returnVariables(Assignments $locals, ReflectionMethod $reflectionMethod, string $source, int $offsetStart, int $offsetEnd) : array
     {
         // variables that are:
@@ -128,7 +137,7 @@ class WorseExtractMethod implements ExtractMethod
         // - defined in the selection
         // - and used in the parent scope
         // - after the end offset
-        $tailDependencies = $this->variableNames($tail = \mb_substr($source, $offsetEnd, $reflectionMethod->position()->end() - $offsetEnd));
+        $tailDependencies = $this->variableNames($tail = \mb_substr($source, $offsetEnd, $reflectionMethod->position()->end()->toInt() - $offsetEnd));
         $returnVariables = [];
         foreach ($tailDependencies as $variable) {
             $variables = $locals->byName($variable)->assignmentsOnly()->lessThanOrEqualTo($offsetEnd)->greaterThanOrEqualTo($offsetStart);
@@ -147,7 +156,7 @@ class WorseExtractMethod implements ExtractMethod
         $classLikeBuilder = $builder->classLike($reflectionMethod->class()->name()->short());
         return $classLikeBuilder->method($name)->visibility('private');
     }
-    private function reflectMethod(int $offsetEnd, string $source, string $name) : ReflectionMethod
+    private function reflectMethod(int $offsetEnd, SourceCode $source, string $name) : ReflectionMethod
     {
         $offset = $this->reflector->reflectOffset($source, $offsetEnd);
         $thisVariable = $offset->frame()->locals()->byName('this');
@@ -171,10 +180,14 @@ class WorseExtractMethod implements ExtractMethod
         }
         return $member;
     }
+    /**
+     * @param array<string, Variable> $freeVariables
+     *
+     * @return list<string>
+     */
     private function addParametersAndGetArgs(array $freeVariables, MethodBuilder $methodBuilder, SourceCodeBuilder $builder) : array
     {
         $args = [];
-        /** @var Variable $freeVariable */
         foreach ($freeVariables as $freeVariable) {
             if (\in_array($freeVariable->name(), ['this', 'self'])) {
                 continue;
@@ -191,21 +204,30 @@ class WorseExtractMethod implements ExtractMethod
         }
         return $args;
     }
+    /**
+     * @return Assignments<Variable>
+     */
     private function scopeLocalVariables(SourceCode $source, int $offsetStart, int $offsetEnd) : Assignments
     {
-        return $this->reflector->reflectOffset((string) $source, $offsetEnd)->frame()->locals();
+        return $this->reflector->reflectOffset($source, $offsetEnd)->frame()->locals();
     }
+    /**
+     * @return list<string>
+     */
     private function variableNames(string $source) : array
     {
         $node = $this->parseSelection($source);
-        $variables = $this->extractVariableNamesFromNode($node, []);
-        return \array_values($variables);
+        return $this->extractVariableNamesFromNode($node, []);
     }
+    /**
+     * @param list<string> $ignoreNames
+     * @return list<string>
+     */
     private function extractVariableNamesFromNode(Node $node, array $ignoreNames) : array
     {
         $fileContents = $node->getFileContents();
         if ($node instanceof CatchClause && $node->variableName !== null) {
-            $ignoreNames[] = $node->variableName->getText($fileContents);
+            $ignoreNames[] = (string) $node->variableName->getText($fileContents);
         }
         $variables = [];
         foreach ($node->getChildNodesAndTokens() as $nodeOrToken) {
@@ -218,14 +240,17 @@ class WorseExtractMethod implements ExtractMethod
             }
             if ($nodeOrToken->kind == TokenKind::VariableName) {
                 $text = $nodeOrToken->getText($fileContents);
-                if (\is_string($text) && !\in_array($text, $ignoreNames)) {
-                    $name = \substr($text, 1);
-                    $variables[$name] = $name;
+                if (\is_string($text) && !\in_array($text, $ignoreNames, \true)) {
+                    $variables[] = \substr($text, 1);
                 }
             }
         }
         return $variables;
     }
+    /**
+     * @param array<string, Variable> $returnVariables
+     * @param list<string> $args
+     */
     private function addReturnAndGetAssignment(array $returnVariables, MethodBuilder $methodBuilder, array $args) : ?string
     {
         $returnVariables = \array_filter($returnVariables, function (Variable $variable) {
@@ -260,6 +285,9 @@ class WorseExtractMethod implements ExtractMethod
         $methodBuilder->returnType('array');
         return 'list(' . $names . ')';
     }
+    /**
+     * @param list<string> $args
+     */
     private function replacement(string $name, array $args, string $selection, ?string $returnAssignment) : string
     {
         $indentation = \str_repeat(' ', TextUtils::stringIndentation($selection));
@@ -304,8 +332,8 @@ class WorseExtractMethod implements ExtractMethod
     private function addExpressionReturn(string $newMethodBody, SourceCode $source, int $offsetEnd, MethodBuilder $methodBuilder) : string
     {
         $newMethodBody = 'return ' . $newMethodBody . ';';
-        $offset = $this->reflector->reflectOffset($source->__toString(), $offsetEnd);
-        $expressionType = $offset->symbolContext()->type();
+        $offset = $this->reflector->reflectOffset($source, $offsetEnd);
+        $expressionType = $offset->nodeContext()->type();
         if ($expressionType->isDefined()) {
             $methodBuilder->returnType($expressionType->short(), $expressionType);
         }

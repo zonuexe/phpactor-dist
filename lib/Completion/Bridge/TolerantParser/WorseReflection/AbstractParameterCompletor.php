@@ -30,6 +30,8 @@ abstract class AbstractParameterCompletor
     }
     /**
      * @param WorseVariable[] $variables
+     *
+     * @return Generator<Suggestion>
      */
     protected function populateResponse(Node $callableExpression, ReflectionFunctionLike $functionLikeReflection, array $variables) : Generator
     {

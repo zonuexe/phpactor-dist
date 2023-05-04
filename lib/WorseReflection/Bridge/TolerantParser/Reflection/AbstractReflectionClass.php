@@ -20,16 +20,10 @@ abstract class AbstractReflectionClass extends \Phpactor\WorseReflection\Bridge\
 {
     public abstract function name() : ClassName;
     public abstract function docblock() : DocBlock;
-    /**
-     * @deprecated Use instanceof instead
-     */
     public function isInterface() : bool
     {
         return $this instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionInterface;
     }
-    /**
-     * @deprecated Use instanceof instead
-     */
     public function isTrait() : bool
     {
         return $this instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionTrait;
@@ -38,9 +32,6 @@ abstract class AbstractReflectionClass extends \Phpactor\WorseReflection\Bridge\
     {
         return $this instanceof ReflectionEnum;
     }
-    /**
-     * @deprecated Use instanceof instead
-     */
     public function isClass() : bool
     {
         return $this instanceof \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionClass;
@@ -61,6 +52,7 @@ abstract class AbstractReflectionClass extends \Phpactor\WorseReflection\Bridge\
     {
         return TypeFactory::reflectedClass($this->serviceLocator()->reflector(), $this->name());
     }
+    public abstract function classLikeType() : string;
     protected function resolveTraitMethods(TraitImports $traitImports, ReflectionClassLike $contextClass, ReflectionTraitCollection $traits) : PhpactorReflectionMethodCollection
     {
         $methods = ReflectionMethodCollection::empty();

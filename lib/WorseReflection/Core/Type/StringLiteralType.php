@@ -9,6 +9,12 @@ class StringLiteralType extends \Phpactor\WorseReflection\Core\Type\StringType i
     use \Phpactor\WorseReflection\Core\Type\LiteralTrait;
     public function __construct(public string $value)
     {
+        $this->value = (function (string $value, int $length) {
+            if (\strlen($value) > $length) {
+                return \substr($value, 0, -3) . '...';
+            }
+            return $value;
+        })($value, 255);
     }
     public function __toString() : string
     {

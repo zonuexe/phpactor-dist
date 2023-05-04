@@ -7,18 +7,25 @@ use Countable;
 use IteratorAggregate;
 use Phpactor\TextDocument\ByteOffsetRange;
 use RuntimeException;
+use Stringable;
 use Traversable;
 /**
  * @template-covariant T of Diagnostic
  * @implements IteratorAggregate<T>
  */
-final class Diagnostics implements IteratorAggregate, Countable
+final class Diagnostics implements IteratorAggregate, Countable, Stringable
 {
     /**
      * @param T[] $diagnostics
      */
     public function __construct(private array $diagnostics)
     {
+    }
+    public function __toString() : string
+    {
+        return \implode("\n", \array_map(function (\Phpactor\WorseReflection\Core\Diagnostic $diagnostic) {
+            return \sprintf('[%s] %s', $diagnostic->severity()->toString(), $diagnostic->message());
+        }, $this->diagnostics));
     }
     public function getIterator() : Traversable
     {

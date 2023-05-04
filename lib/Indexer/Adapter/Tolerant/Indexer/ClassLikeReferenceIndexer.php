@@ -4,6 +4,7 @@ namespace Phpactor\Indexer\Adapter\Tolerant\Indexer;
 
 use PhpactorDist\Microsoft\PhpParser\Node;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
+use PhpactorDist\Microsoft\PhpParser\Node\Expression\ObjectCreationExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\QualifiedName;
 use PhpactorDist\Microsoft\PhpParser\Node\TraitUseClause;
 use Phpactor\Indexer\Model\Index;
@@ -40,7 +41,7 @@ class ClassLikeReferenceIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Index
     public function index(Index $index, TextDocument $document, Node $node) : void
     {
         \assert($node instanceof QualifiedName);
-        $name = $node->parent->parent instanceof TraitUseClause ? TolerantQualifiedNameResolver::getResolvedName($node) : $node->getResolvedName();
+        $name = $node->parent?->parent instanceof TraitUseClause ? TolerantQualifiedNameResolver::getResolvedName($node) : $node->getResolvedName();
         if (empty($name)) {
             return;
         }
@@ -53,7 +54,11 @@ class ClassLikeReferenceIndexer extends \Phpactor\Indexer\Adapter\Tolerant\Index
         $index->write($targetRecord);
         $fileRecord = $index->get(FileRecord::fromPath($document->uri()->path()));
         \assert($fileRecord instanceof FileRecord);
-        $fileRecord->addReference(new RecordReference(ClassRecord::RECORD_TYPE, $targetRecord->identifier(), $node->getStartPosition()));
+        $reference = new RecordReference(ClassRecord::RECORD_TYPE, $targetRecord->identifier(), $node->getStartPosition());
+        if ($node->parent instanceof ObjectCreationExpression) {
+            $reference->addFlag(RecordReference::FLAG_NEW_OBJECT);
+        }
+        $fileRecord->addReference($reference);
         $index->write($fileRecord);
     }
 }

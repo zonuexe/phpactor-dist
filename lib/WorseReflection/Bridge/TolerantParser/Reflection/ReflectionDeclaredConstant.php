@@ -10,14 +10,14 @@ use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Name;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionDeclaredConstant as PhpactorReflectionDeclaredConstant;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 class ReflectionDeclaredConstant extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectedNode implements PhpactorReflectionDeclaredConstant
 {
     private string $name;
     private ArgumentExpression $value;
-    public function __construct(private ServiceLocator $serviceLocator, private SourceCode $sourceCode, private CallExpression $node)
+    public function __construct(private ServiceLocator $serviceLocator, private TextDocument $sourceCode, private CallExpression $node)
     {
         $this->bindArguments();
     }
@@ -27,9 +27,9 @@ class ReflectionDeclaredConstant extends \Phpactor\WorseReflection\Bridge\Tolera
     }
     public function type() : Type
     {
-        return $this->serviceLocator->symbolContextResolver()->resolveNode(new Frame(''), $this->value)->type();
+        return $this->serviceLocator->nodeContextResolver()->resolveNode(new Frame(), $this->value)->type();
     }
-    public function sourceCode() : SourceCode
+    public function sourceCode() : TextDocument
     {
         return $this->sourceCode;
     }

@@ -24,6 +24,7 @@ class BehatExtension implements OptionalExtension
 {
     const PARAM_CONFIG_PATH = 'behat.config_path';
     const PARAM_SYMFONY_XML_PATH = 'behat.symfony.di_xml_path';
+    const PARAM_ENABLED = 'behat.enabled';
     public function load(ContainerBuilder $container) : void
     {
         $container->register('behat.step_factory', function (Container $container) {
@@ -36,7 +37,7 @@ class BehatExtension implements OptionalExtension
             return new StepParser();
         });
         $container->register('behat.config', function (Container $container) {
-            return new BehatConfig($container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->getParameter(self::PARAM_CONFIG_PATH)));
+            return new BehatConfig($container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->parameter(self::PARAM_CONFIG_PATH)->string()));
         });
         $container->register('behat.completion.feature_step_completor', function (Container $container) {
             return new FeatureStepCompletor($container->get('behat.step_generator'), $container->get('behat.step_parser'));

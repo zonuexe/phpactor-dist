@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Core\Reflection;
 
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Core\Name;
 interface ReflectionFunction extends \Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike
 {
-    public function sourceCode() : SourceCode;
+    public function sourceCode() : TextDocument;
     public function name() : Name;
 }

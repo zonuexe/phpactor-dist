@@ -30,9 +30,9 @@ class ReflectionProperty extends \Phpactor\WorseReflection\Bridge\TolerantParser
     }
     public function declaringClass() : ReflectionClassLike
     {
-        /** @var NamespacedNameInterface $classDeclaration */
+        /** @var NamespacedNameInterface|null $classDeclaration */
         $classDeclaration = $this->propertyDeclaration->getFirstAncestor(ClassDeclaration::class, TraitDeclaration::class);
-        $class = $classDeclaration->getNamespacedName();
+        $class = $classDeclaration?->getNamespacedName();
         if (null === $class) {
             throw new InvalidArgumentException(\sprintf('Could not locate class-like ancestor node for method "%s"', $this->name()));
         }

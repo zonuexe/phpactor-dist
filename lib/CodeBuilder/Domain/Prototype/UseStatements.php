@@ -7,7 +7,10 @@ namespace Phpactor\CodeBuilder\Domain\Prototype;
  */
 class UseStatements extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
-    public static function fromUseStatements(array $useStatements)
+    /**
+     * @param list<UseStatement> $useStatements
+     */
+    public static function fromUseStatements(array $useStatements) : self
     {
         return new self($useStatements);
     }

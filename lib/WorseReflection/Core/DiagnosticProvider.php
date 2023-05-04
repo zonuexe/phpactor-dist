@@ -15,4 +15,9 @@ interface DiagnosticProvider
      * @return iterable<Diagnostic>
      */
     public function exit(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable;
+    /**
+     * @return iterable<DiagnosticExample>
+     */
+    public function examples() : iterable;
+    public function name() : string;
 }

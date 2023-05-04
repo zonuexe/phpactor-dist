@@ -7,7 +7,7 @@ class Value
     protected function __construct(protected $value = null)
     {
     }
-    public static function fromValue($value)
+    public static function fromValue($value) : static
     {
         return new static($value);
     }
@@ -15,7 +15,7 @@ class Value
     {
         return $this->value;
     }
-    public function export()
+    public function export() : string
     {
         if ($this->value === null) {
             return 'null';

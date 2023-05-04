@@ -2,12 +2,13 @@
 
 namespace Phpactor\CodeTransform\Domain\Helper;
 
+use PhpactorDist\Amp\Promise;
 use Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder\MissingMethod;
 use Phpactor\TextDocument\TextDocument;
 interface MissingMethodFinder
 {
     /**
-     * @return MissingMethod[]
+     * @return Promise<MissingMethod[]>
      */
-    public function find(TextDocument $sourceCode) : array;
+    public function find(TextDocument $sourceCode) : Promise;
 }

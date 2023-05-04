@@ -33,4 +33,8 @@ class ExtractConstantProvider implements CodeActionProvider
             return [CodeAction::fromArray(['title' => 'Extract constant', 'kind' => self::KIND, 'diagnostics' => [], 'command' => new Command('Extract constant', ExtractConstantCommand::NAME, [$textDocument->uri, PositionConverter::positionToByteOffset($range->start, $textDocument->text)->toInt(), PositionConverter::positionToByteOffset($range->end, $textDocument->text)->toInt()])])];
         });
     }
+    public function describe() : string
+    {
+        return 'extract constant';
+    }
 }

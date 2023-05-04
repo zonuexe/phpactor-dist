@@ -13,7 +13,7 @@ final class HexLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType i
     {
         return (string) $this->value;
     }
-    public function value()
+    public function value() : int|float
     {
         return \hexdec(\substr($this->value, 2));
     }

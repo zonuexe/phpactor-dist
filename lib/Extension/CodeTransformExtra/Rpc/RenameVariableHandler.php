@@ -39,6 +39,6 @@ class RenameVariableHandler extends AbstractHandler
             return $this->createInputCallback($arguments);
         }
         $sourceCode = $this->renameVariable->renameVariable(SourceCode::fromStringAndPath($arguments[self::PARAM_SOURCE], $arguments[self::PARAM_PATH]), $arguments[self::PARAM_OFFSET], $arguments[self::PARAM_NAME], $arguments[self::PARAM_SCOPE]);
-        return UpdateFileSourceResponse::fromPathOldAndNewSource($sourceCode->path(), $arguments[self::PARAM_SOURCE], (string) $sourceCode);
+        return UpdateFileSourceResponse::fromPathOldAndNewSource($sourceCode->uri()->path(), $arguments[self::PARAM_SOURCE], (string) $sourceCode);
     }
 }

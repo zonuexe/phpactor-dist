@@ -8,8 +8,8 @@ use Phpactor\Extension\ContextMenu\Model\ContextMenu;
 use Phpactor\MapResolver\Resolver;
 use Phpactor\Extension\Rpc\Handler;
 use Phpactor\TextDocument\ByteOffset;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use Phpactor\WorseReflection\Reflector;
-use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor\Extension\Rpc\Response\EchoResponse;
 use Phpactor\Extension\Rpc\Request;
 use Phpactor\Extension\Rpc\Response\InputCallbackResponse;
@@ -42,7 +42,7 @@ class ContextMenuHandler implements Handler
     public function handle(array $arguments)
     {
         $offset = $this->offsetFromSourceAndOffset($arguments[self::PARAMETER_SOURCE], $arguments[self::PARAMETER_OFFSET], $arguments[self::PARAMETER_CURRENT_PATH]);
-        $symbol = $offset->symbolContext()->symbol();
+        $symbol = $offset->nodeContext()->symbol();
         return $this->resolveAction($offset, $symbol, $arguments);
     }
     private function resolveAction(ReflectionOffset $offset, Symbol $symbol, array $arguments)
@@ -70,13 +70,13 @@ class ContextMenuHandler implements Handler
     }
     private function offsetFromSourceAndOffset(string $source, int $offset, string $currentPath)
     {
-        $sourceCode = SourceCode::fromPathAndString($currentPath, $source);
+        $sourceCode = TextDocumentBuilder::create($source)->uri($currentPath)->build();
         $interestingOffset = $this->offsetFinder->find($sourceCode, ByteOffset::fromInt($offset));
         return $this->reflector->reflectOffset($sourceCode, $interestingOffset->toInt());
     }
     private function replaceTokens(array $parameters, ReflectionOffset $offset, array $arguments)
     {
-        $symbolContext = $offset->symbolContext();
+        $nodeContext = $offset->nodeContext();
         foreach ($parameters as $parameterName => $parameterValue) {
             switch ($parameterValue) {
                 case '%current_path%':
@@ -87,7 +87,7 @@ class ContextMenuHandler implements Handler
                     // this to be the current path but it is not. It is used
                     // when we want to act on the file in the "type" under the
                     // cursor. this shouldn't be a thing.
-                    $type = $symbolContext->containerType()->isDefined() ? $symbolContext->containerType() : $symbolContext->type();
+                    $type = $nodeContext->containerType()->isDefined() ? $nodeContext->containerType() : $nodeContext->type();
                     $parameterValue = $this->classFileNormalizer->classToFile($type->generalize());
                     break;
                 case '%offset%':
@@ -97,7 +97,7 @@ class ContextMenuHandler implements Handler
                     $parameterValue = $arguments[self::PARAMETER_SOURCE];
                     break;
                 case '%symbol%':
-                    $parameterValue = $symbolContext->symbol()->name();
+                    $parameterValue = $nodeContext->symbol()->name();
                     break;
             }
             $parameters[$parameterName] = $parameterValue;

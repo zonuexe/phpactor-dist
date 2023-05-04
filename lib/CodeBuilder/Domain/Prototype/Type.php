@@ -5,10 +5,7 @@ namespace Phpactor\CodeBuilder\Domain\Prototype;
 final class Type extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
 {
     private bool $none = \false;
-    /**
-     * @param mixed $originalType
-     */
-    public function __construct(private ?string $type = null, private $originalType = null)
+    public function __construct(private ?string $type = null, private mixed $originalType = null)
     {
         parent::__construct();
     }
@@ -16,10 +13,7 @@ final class Type extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
     {
         return $this->type ?? '';
     }
-    /**
-     * @return mixed
-     */
-    public function originalType()
+    public function originalType() : mixed
     {
         return $this->originalType;
     }

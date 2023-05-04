@@ -38,10 +38,10 @@ final class TypeAssertion
     public static function forContext(\Phpactor\WorseReflection\Core\Inference\NodeContext $context, Closure $true, Closure $false) : self
     {
         if ($context->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::PROPERTY) {
-            return \Phpactor\WorseReflection\Core\Inference\TypeAssertion::property($context->symbol()->name(), $context->symbol()->position()->start(), $true, $false, $context->containerType());
+            return \Phpactor\WorseReflection\Core\Inference\TypeAssertion::property($context->symbol()->name(), $context->symbol()->position()->start()->toInt(), $true, $false, $context->containerType());
         }
         if ($context->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::VARIABLE) {
-            return \Phpactor\WorseReflection\Core\Inference\TypeAssertion::variable($context->symbol()->name(), $context->symbol()->position()->start(), $true, $false);
+            return \Phpactor\WorseReflection\Core\Inference\TypeAssertion::variable($context->symbol()->name(), $context->symbol()->position()->start()->toInt(), $true, $false);
         }
         throw new RuntimeException(\sprintf('Do not know how to create type assertion for symbol type: "%s"', $context->type()->__toString()));
     }

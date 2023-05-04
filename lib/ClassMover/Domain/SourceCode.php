@@ -9,7 +9,7 @@ class SourceCode
     public function __construct(private string $source)
     {
     }
-    public function __toString()
+    public function __toString() : string
     {
         return $this->source;
     }
@@ -46,11 +46,11 @@ class SourceCode
         }
         throw new InvalidArgumentException('Could not find <?php start tag');
     }
-    public function replaceSource(string $source)
+    public function replaceSource(string $source) : self
     {
         return new self($source);
     }
-    private function insertAfter(int $lineNb, $text)
+    private function insertAfter(int $lineNb, string $text) : self
     {
         $lines = \explode(\PHP_EOL, $this->source);
         $newLines = [];
@@ -65,7 +65,8 @@ class SourceCode
         }
         return $this->replaceSource(\implode(\PHP_EOL, $newLines));
     }
-    private function significantLineNumbers()
+    /** @return array{int|null, int|null, int|null} */
+    private function significantLineNumbers() : array
     {
         $lines = \explode(\PHP_EOL, $this->source);
         $phpDeclarationLineNb = $namespaceLineNb = $lastUseLineNb = null;

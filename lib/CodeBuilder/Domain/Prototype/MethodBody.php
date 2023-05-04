@@ -8,6 +8,9 @@ final class MethodBody extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
     {
         parent::__construct();
     }
+    /**
+     * @param array<Line> $lines
+     */
     public static function fromLines(array $lines) : \Phpactor\CodeBuilder\Domain\Prototype\MethodBody
     {
         return new self(\Phpactor\CodeBuilder\Domain\Prototype\Lines::fromLines($lines));
@@ -16,7 +19,7 @@ final class MethodBody extends \Phpactor\CodeBuilder\Domain\Prototype\Prototype
     {
         return new self(\Phpactor\CodeBuilder\Domain\Prototype\Lines::empty());
     }
-    public static function none()
+    public static function none() : self
     {
         return new self();
     }

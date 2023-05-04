@@ -43,7 +43,7 @@ class FileRecord implements \Phpactor\Indexer\Model\Record\HasPath, Record
     }
     public function addReference(RecordReference $reference) : self
     {
-        $this->references[] = [$reference->type(), $reference->identifier(), $reference->offset(), $reference->contaninerType()];
+        $this->references[] = [$reference->type(), $reference->identifier(), $reference->offset(), $reference->contaninerType(), $reference->flags()];
         return $this;
     }
     public function references() : RecordReferences

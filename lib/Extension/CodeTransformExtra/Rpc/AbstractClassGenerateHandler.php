@@ -46,7 +46,7 @@ abstract class AbstractClassGenerateHandler extends AbstractHandler
         } catch (FileAlreadyExists) {
             return InputCallbackResponse::fromCallbackAndInputs(Request::fromNameAndParameters($this->name(), [self::PARAM_CURRENT_PATH => $arguments[self::PARAM_CURRENT_PATH], self::PARAM_NEW_PATH => $arguments[self::PARAM_NEW_PATH], self::PARAM_VARIANT => $arguments[self::PARAM_VARIANT], self::PARAM_OVERWRITE => null]), [ConfirmInput::fromNameAndLabel(self::PARAM_OVERWRITE, 'File already exists, overwrite? :')]);
         }
-        return ReplaceFileSourceResponse::fromPathAndSource($code->path(), (string) $code);
+        return ReplaceFileSourceResponse::fromPathAndSource($code->uri()->path(), (string) $code);
     }
     protected abstract function generate(array $arguments) : SourceCode;
     protected abstract function newMessage() : string;

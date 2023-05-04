@@ -12,7 +12,7 @@ final class BinLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType i
     {
         return (string) $this->value;
     }
-    public function value()
+    public function value() : int|float
     {
         return \bindec(\substr($this->value, 2));
     }

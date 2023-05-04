@@ -7,14 +7,20 @@ use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use PhpactorDist\Microsoft\PhpParser\Token;
+use PhpactorDist\PHPUnit\Framework\Assert;
 use Phpactor\TextDocument\ByteOffsetRange;
+use Phpactor\WorseReflection\Core\DiagnosticExample;
 use Phpactor\WorseReflection\Core\DiagnosticProvider;
 use Phpactor\WorseReflection\Core\DiagnosticSeverity;
+use Phpactor\WorseReflection\Core\Diagnostics;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\Type\ReflectedClassType;
+/**
+ * Report if trying to call a class method which does not exist.
+ */
 class MissingMethodProvider implements DiagnosticProvider
 {
     public function exit(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable
@@ -51,5 +57,83 @@ class MissingMethodProvider implements DiagnosticProvider
     public function enter(NodeContextResolver $resolver, Frame $frame, Node $node) : iterable
     {
         return [];
+    }
+    public function examples() : iterable
+    {
+        (yield new DiagnosticExample(title: 'inlined type', source: <<<'PHP'
+<?php
+
+class Type {
+}
+
+class ReflectedClassType extends Type {
+    public function isInvokable(): bool {
+        return true;
+    }
+}
+
+function (Type $type) {
+    if ($type instanceof ReflectedClassType && $type->isInvokable()) {
+    }
+}
+PHP
+, valid: \true, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(0, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'does not report call on type inferred previously in expressio', source: <<<'PHP'
+<?php
+
+class Type {
+}
+
+class ReflectedClassType extends Type {
+    public function isInvokable(): bool {
+        return true;
+    }
+}
+
+function (Type $type) {
+    if ($type instanceof ReflectedClassType && $type->isInvokable()) {
+    }
+}
+PHP
+, valid: \true, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(0, $diagnostics);
+        }));
+        (yield new DiagnosticExample(title: 'missing method on instance ', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+class Foobar
+{
+}
+\class_alias('PhpactorDist\\Foobar', 'Foobar', \false);
+$f = new Foobar();
+$f->bar();
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Method "bar" does not exist on class "Foobar"', $diagnostics->at(0)->message());
+        }));
+        (yield new DiagnosticExample(title: 'missing method for static invocation', source: <<<'PHP'
+<?php
+
+namespace PhpactorDist;
+
+class Foobar
+{
+}
+\class_alias('PhpactorDist\\Foobar', 'Foobar', \false);
+Foobar::bar();
+PHP
+, valid: \false, assertion: function (Diagnostics $diagnostics) : void {
+            Assert::assertCount(1, $diagnostics);
+            Assert::assertEquals('Method "bar" does not exist on class "Foobar"', $diagnostics->at(0)->message());
+        }));
+    }
+    public function name() : string
+    {
+        return 'missing_method';
     }
 }

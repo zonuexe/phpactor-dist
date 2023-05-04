@@ -43,7 +43,7 @@ class ClassSearch
         } catch (NotFound) {
             return;
         }
-        return ['file_path' => (string) $reflectionClass->sourceCode()->path(), 'class' => (string) $reflectionClass->name(), 'class_name' => $reflectionClass->name()->short(), 'class_namespace' => (string) $reflectionClass->name()->namespace()];
+        return ['file_path' => (string) $reflectionClass->sourceCode()->uri()?->path(), 'class' => (string) $reflectionClass->name(), 'class_name' => $reflectionClass->name()->short(), 'class_namespace' => (string) $reflectionClass->name()->namespace()];
     }
     private function builtInResults(array $results, string $name)
     {

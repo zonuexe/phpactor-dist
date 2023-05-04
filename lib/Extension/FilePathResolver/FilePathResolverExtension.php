@@ -21,6 +21,7 @@ use Phpactor\MapResolver\Resolver;
 use Phpactor\TextDocument\TextDocumentUri;
 use PhpactorDist\Psr\Log\LogLevel;
 use RuntimeException;
+use Phpactor\FilePathResolver\Expander;
 class FilePathResolverExtension implements Extension
 {
     const SERVICE_FILE_PATH_RESOLVER = 'file_path_resolver.resolver';
@@ -77,11 +78,13 @@ class FilePathResolverExtension implements Extension
         $container->register(self::SERVICE_EXPANDERS, function (Container $container) {
             $suffix = \DIRECTORY_SEPARATOR . $container->getParameter(self::PARAM_APP_NAME);
             $expanders = [new ValueExpander('project_id', self::calculateProjectId($container->getParameter(self::PARAM_PROJECT_ROOT))), new ValueExpander('project_root', $container->getParameter(self::PARAM_PROJECT_ROOT)), new SuffixExpanderDecorator(new XdgCacheExpander('cache'), $suffix), new SuffixExpanderDecorator(new XdgConfigExpander('config'), $suffix), new SuffixExpanderDecorator(new XdgDataExpander('data'), $suffix)];
-            if (null !== ($applicationRoot = $container->getParameter(self::PARAM_APPLICATION_ROOT))) {
-                $expanders[] = new ValueExpander('application_root', $container->getParameter(self::PARAM_APPLICATION_ROOT));
+            /** @var string|null $applicationRoot */
+            $applicationRoot = $container->getParameter(self::PARAM_APPLICATION_ROOT);
+            if (null !== $applicationRoot) {
+                $expanders[] = new ValueExpander('application_root', $applicationRoot);
             }
             foreach (\array_keys($container->getServiceIdsForTag(self::TAG_EXPANDER)) as $serviceId) {
-                $expanders[] = $container->get($serviceId);
+                $expanders[] = $container->expect($serviceId, Expander::class);
             }
             return new Expanders($expanders);
         });

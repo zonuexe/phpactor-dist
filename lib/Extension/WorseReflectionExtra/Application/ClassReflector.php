@@ -4,10 +4,10 @@ namespace Phpactor\Extension\WorseReflectionExtra\Application;
 
 use Phpactor\Extension\Core\Application\Helper\ClassFileNormalizer;
 use Phpactor\WorseReflection\Core\ClassName;
+use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum;
 use Phpactor\WorseReflection\Reflector;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
-use Phpactor\WorseReflection\Core\Reflection\ReflectionProperty;
 class ClassReflector
 {
     const FOOBAR = 'foo';
@@ -51,7 +51,7 @@ class ClassReflector
             $return['methods'][$method->name()]['synopsis'] = \implode('', $methodInfo);
             $return['methods'][$method->name()]['docblock'] = $method->docblock()->formatted();
         }
-        if (\false === $reflection->isTrait()) {
+        if (!$reflection instanceof ReflectionEnum) {
             foreach ($reflection->constants() as $constant) {
                 $return['constants'][$constant->name()] = ['name' => $constant->name()];
             }
@@ -59,7 +59,6 @@ class ClassReflector
         if (!$reflection instanceof ReflectionClass) {
             return $return;
         }
-        /** @var $property ReflectionProperty */
         foreach ($reflection->properties() as $property) {
             $propertyType = $property->inferredType();
             $return['properties'][$property->name()] = ['name' => $property->name(), 'visibility' => (string) $property->visibility(), 'static' => $property->isStatic() ? 1 : 0, 'info' => \sprintf('%s %s $%s', (string) $property->visibility(), $propertyType->__toString(), $property->name())];

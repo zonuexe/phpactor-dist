@@ -4,7 +4,7 @@ namespace Phpactor\WorseReflection\Core\SourceCodeLocator;
 
 use Phpactor\WorseReflection\Core\Name;
 use Phpactor\WorseReflection\Core\SourceCodeLocator;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Core\Exception\SourceNotFound;
 use PhpactorDist\Psr\Log\LoggerInterface;
 use PhpactorDist\Psr\Log\NullLogger;
@@ -15,6 +15,9 @@ class ChainSourceLocator implements SourceCodeLocator
      */
     private array $locators = [];
     private LoggerInterface $logger;
+    /**
+     * @param SourceCodeLocator[] $sourceLocators
+     */
     public function __construct(array $sourceLocators, ?LoggerInterface $logger = null)
     {
         foreach ($sourceLocators as $sourceLocator) {
@@ -22,7 +25,7 @@ class ChainSourceLocator implements SourceCodeLocator
         }
         $this->logger = $logger ?: new NullLogger();
     }
-    public function locate(Name $name) : SourceCode
+    public function locate(Name $name) : TextDocument
     {
         $exception = new SourceNotFound('No source locators registered with chain loader ' . '(or source locator did not throw SourceNotFound exception');
         foreach ($this->locators as $locator) {

@@ -19,6 +19,7 @@ class ClassUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\
         if (\false === $classPrototype->applyUpdate()) {
             return;
         }
+        $this->updateDocblock($edits, $classPrototype, $classNode);
         $this->updateExtends($edits, $classPrototype, $classNode);
         $this->updateImplements($edits, $classPrototype, $classNode);
         $this->updateConstants($edits, $classPrototype, $classNode->classMembers);
@@ -39,7 +40,6 @@ class ClassUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\
                 $nextMember = $memberNode;
             }
             if ($memberNode instanceof ClassConstDeclaration) {
-                /** @var ConstDeclaration $memberNode */
                 foreach ($memberNode->constElements->getElements() as $variable) {
                     $existingConstantNames[] = $variable->getName();
                 }
@@ -56,9 +56,6 @@ class ClassUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\
             }
         }
     }
-    /**
-     * @return Node[]
-     */
     protected function memberDeclarations(Node $node) : array
     {
         return $node->classMemberDeclarations;

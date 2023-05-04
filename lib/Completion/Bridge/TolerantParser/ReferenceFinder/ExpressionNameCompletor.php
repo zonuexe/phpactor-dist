@@ -33,7 +33,7 @@ class ExpressionNameCompletor extends CoreNameSearcherCompletor implements Toler
         }
         $name = $node->__toString();
         if ($node instanceof QualifiedName && NameUtil::isQualified($name)) {
-            $name = NameUtil::toFullyQualfiied((string) $node->getResolvedName());
+            $name = NameUtil::toFullyQualified((string) $node->getResolvedName());
         }
         $suggestions = $this->completeName($name, $source->uri(), $node);
         yield from $suggestions;

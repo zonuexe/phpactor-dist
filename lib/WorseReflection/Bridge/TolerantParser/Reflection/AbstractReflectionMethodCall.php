@@ -6,13 +6,12 @@ use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
 use PhpactorDist\Microsoft\PhpParser\Node\Statement\ReturnStatement;
-use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Exception\CouldNotResolveNode;
 use Phpactor\WorseReflection\Core\Exception\ItemNotFound;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClass;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionFunctionLike;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMethodCall as CoreReflectionMethodCall;
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use PhpactorDist\Microsoft\PhpParser\Node;
@@ -32,13 +31,13 @@ abstract class AbstractReflectionMethodCall implements CoreReflectionMethodCall
     public function __construct(private ServiceLocator $services, private Frame $frame, private Node $node)
     {
     }
-    public function position() : Position
+    public function position() : ByteOffsetRange
     {
-        return Position::fromFullStartStartAndEnd($this->node->getFullStartPosition(), $this->node->getStartPosition(), $this->node->getEndPosition());
+        return ByteOffsetRange::fromInts($this->node->getStartPosition(), $this->node->getEndPosition());
     }
     public function class() : ReflectionClassLike
     {
-        $info = $this->services->symbolContextResolver()->resolveNode($this->frame, $this->node);
+        $info = $this->services->nodeContextResolver()->resolveNode($this->frame, $this->node);
         $containerType = $info->containerType();
         if (!$containerType instanceof ReflectedClassType) {
             throw new CouldNotResolveNode(\sprintf('Class for member "%s" could not be determined', $this->name()));

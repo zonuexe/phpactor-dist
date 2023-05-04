@@ -30,7 +30,6 @@ class ProfilerMiddleware implements Middleware
                 $this->info(\sprintf('PROF        >> request #%d [%s]', $request->id, $request->method), $context);
             }
             $start = \microtime(\true);
-            /** @phpstan-ignore-next-line */
             $response = (yield $handler->handle($request));
             $elapsed = \microtime(\true) - $start;
             if ($this->trace) {

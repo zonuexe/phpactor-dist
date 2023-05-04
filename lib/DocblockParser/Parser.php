@@ -61,6 +61,7 @@ final class Parser
         $children = [];
         $this->tokens = $tokens;
         while ($tokens->hasCurrent()) {
+            /** @phpstan-ignore-next-line Above ensures it is not null */
             if ($tokens->current->type === Token::T_TAG) {
                 $children[] = $this->parseTag();
                 continue;
@@ -73,6 +74,7 @@ final class Parser
                 return $node;
             }
         }
+        /** @phpstan-ignore-next-line */
         return new Docblock($children);
     }
     private function parseTag() : TagNode
@@ -244,13 +246,12 @@ final class Parser
             }
             return new CallableNode($type, $open, $typeList, $close, $colon, $returnType);
         }
-        if ($this->tokens->current->type === Token::T_LIST) {
-            $list = $this->tokens->chomp();
-            return new ListBracketsNode($this->createTypeFromToken($type), $list);
-        }
         if ($this->tokens->current->type === Token::T_BRACKET_ANGLE_OPEN) {
             $open = $this->tokens->chomp();
             $typeList = null;
+            if ($this->tokens->if(Token::T_VARIABLE)) {
+                $typeList = $this->parseTypeList();
+            }
             if ($this->tokens->if(Token::T_LABEL)) {
                 $typeList = $this->parseTypeList();
             }
@@ -263,7 +264,8 @@ final class Parser
             if (!$typeList) {
                 return null;
             }
-            return new GenericNode($open, $this->createTypeFromToken($type), $typeList, $this->tokens->chomp());
+            $type = new GenericNode($open, $this->createTypeFromToken($type), $typeList, $this->tokens->chomp());
+            return $this->parseDimensions($type);
         }
         if ($this->tokens->current->type === Token::T_BRACKET_CURLY_OPEN) {
             $open = $this->tokens->chomp();
@@ -276,9 +278,18 @@ final class Parser
             if ($this->tokens->if(Token::T_BRACKET_CURLY_CLOSE)) {
                 $close = $this->tokens->chomp();
             }
-            return new ArrayShapeNode($open, new ArrayKeyValueList($keyValues), $close);
+            $type = new ArrayShapeNode($open, new ArrayKeyValueList($keyValues), $close);
+            return $this->parseDimensions($type);
         }
-        return $this->createTypeFromToken($type);
+        return $this->parseDimensions($this->createTypeFromToken($type));
+    }
+    private function parseDimensions(TypeNode $type) : TypeNode
+    {
+        while ($this->tokens->if(Token::T_LIST)) {
+            $list = $this->tokens->chomp();
+            $type = new ListBracketsNode($type, $list);
+        }
+        return $type;
     }
     private function createTypeFromToken(Token $type) : TypeNode
     {
@@ -327,6 +338,8 @@ final class Parser
             if ($this->tokens->if(Token::T_LABEL)) {
                 $types[] = $this->parseTypes();
             } elseif ($this->tokens->if(Token::T_INTEGER)) {
+                $types[] = $this->parseTypes();
+            } elseif ($this->tokens->if(Token::T_VARIABLE)) {
                 $types[] = $this->parseTypes();
             }
             if ($this->tokens->if(Token::T_COMMA)) {

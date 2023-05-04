@@ -5,7 +5,6 @@ namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 use PhpactorDist\Amp\CancellationToken;
 use PhpactorDist\Amp\Promise;
 use PhpactorDist\Amp\Success;
-use PhpactorDist\Microsoft\PhpParser\Parser;
 use Phpactor\CodeTransform\Domain\Generators;
 use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\CreateClassCommand;
 use Phpactor\LanguageServerProtocol\CodeAction;
@@ -21,7 +20,7 @@ use function PhpactorDist\Amp\call;
 class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
 {
     public const KIND = 'quickfix.create_class';
-    public function __construct(private Generators $generators, private Parser $parser)
+    public function __construct(private Generators $generators)
     {
     }
     public function kinds() : array
@@ -51,6 +50,10 @@ class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
     {
         return 'create-class';
     }
+    public function describe() : string
+    {
+        return 'create class in empty file';
+    }
     /**
      * @return array<Diagnostic>
      */
@@ -60,9 +63,5 @@ class CreateClassProvider implements DiagnosticsProvider, CodeActionProvider
             return [];
         }
         return [new Diagnostic(range: new Range(new Position(1, 1), new Position(1, 1)), message: \sprintf('Empty file (use create-class code action to create a new class)'), severity: DiagnosticSeverity::INFORMATION, source: 'phpactor')];
-    }
-    private function kind() : string
-    {
-        return self::KIND;
     }
 }

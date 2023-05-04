@@ -7,7 +7,7 @@ use Phpactor\WorseReflection\Core\Type\MissingType;
 final class Variable
 {
     private string $name;
-    public function __construct(string $name, private int $offset, private Type $type, private ?Type $classType = null, private bool $wasAssigned = \false)
+    public function __construct(string $name, private int $offset, private Type $type, private ?Type $classType = null, private bool $wasAssigned = \false, private bool $wasDefined = \false)
     {
         $this->name = \ltrim($name, '$');
     }
@@ -15,9 +15,9 @@ final class Variable
     {
         return \sprintf('%s#%s %s %s', $this->name, $this->offset, $this->type, $this->classType ? $this->classType->__toString() : '');
     }
-    public static function fromSymbolContext(\Phpactor\WorseReflection\Core\Inference\NodeContext $symbolContext) : \Phpactor\WorseReflection\Core\Inference\Variable
+    public static function fromSymbolContext(\Phpactor\WorseReflection\Core\Inference\NodeContext $nodeContext) : \Phpactor\WorseReflection\Core\Inference\Variable
     {
-        return new self($symbolContext->symbol()->name(), $symbolContext->symbol()->position()->start(), $symbolContext->type(), $symbolContext->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::PROPERTY ? $symbolContext->containerType() : null);
+        return new self($nodeContext->symbol()->name(), $nodeContext->symbol()->position()->start()->toInt(), $nodeContext->type(), $nodeContext->symbol()->symbolType() === \Phpactor\WorseReflection\Core\Inference\Symbol::PROPERTY ? $nodeContext->containerType() : null);
     }
     public function name() : string
     {
@@ -30,15 +30,19 @@ final class Variable
     }
     public function withType(Type $type) : self
     {
-        return new self($this->name, $this->offset, $type, $this->classType, $this->wasAssigned);
+        return new self($this->name, $this->offset, $type, $this->classType, $this->wasAssigned, $this->wasDefined);
     }
     public function withOffset(int $offset) : self
     {
-        return new self($this->name, $offset, $this->type, $this->classType, $this->wasAssigned);
+        return new self($this->name, $offset, $this->type, $this->classType, $this->wasAssigned, $this->wasDefined);
     }
     public function asAssignment() : self
     {
-        return new self($this->name, $this->offset, $this->type, $this->classType, \true);
+        return new self($this->name, $this->offset, $this->type, $this->classType, \true, \true);
+    }
+    public function asDefinition() : self
+    {
+        return new self($this->name, $this->offset, $this->type, $this->classType, \false, \true);
     }
     public function type() : Type
     {
@@ -59,6 +63,10 @@ final class Variable
     public function wasAssigned() : bool
     {
         return $this->wasAssigned;
+    }
+    public function wasDefinition() : bool
+    {
+        return $this->wasDefined;
     }
     public function key() : string
     {

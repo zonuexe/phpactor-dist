@@ -13,18 +13,19 @@ abstract class Assignments implements Countable, IteratorAggregate
 {
     private int $version = 1;
     /**
-     * @var array<string, Variable>-
+     * @var array<string,Variable>
      */
     private array $variables = [];
     /**
-     * @param array<string|int,Variable> $variables
+     * @var array<string,array<string,Variable>>
      */
-    public final function __construct(array $variables)
+    private array $variablesByName = [];
+    /**
+     * @param array<string,Variable> $variables
+     */
+    protected final function __construct(array $variables)
     {
-        foreach ($variables as $variable) {
-            $this->variables[$variable->key()] = $variable;
-        }
-        $this->sort();
+        $this->variables = $variables;
     }
     public function __toString() : string
     {
@@ -36,7 +37,7 @@ abstract class Assignments implements Countable, IteratorAggregate
     {
         $this->version++;
         $this->variables[$variable->key()] = $variable;
-        $this->sort();
+        $this->variablesByName[$variable->name()][$variable->key()] = $variable;
     }
     public function add(\Phpactor\WorseReflection\Core\Inference\Variable $variable, int $offset) : void
     {
@@ -48,9 +49,23 @@ abstract class Assignments implements Countable, IteratorAggregate
         }
         $this->set($variable->withOffset($variable->offset())->withType($original->type()->addType($variable->type())->clean()));
     }
+    /**
+     * Return all variables matching the given name.
+     *
+     * When this method is used on the original frame it will return directly,
+     * if used after other filters it will filter over all variables which can
+     * be slow.
+     *
+     * IMPORTANT: Call this method BEFORE calling greater than / less than etc.
+     */
     public function byName(string $name) : \Phpactor\WorseReflection\Core\Inference\Assignments
     {
         $name = \ltrim($name, '$');
+        // best case
+        if (isset($this->variablesByName[$name])) {
+            return new static($this->variablesByName[$name]);
+        }
+        // worst case
         return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) use($name) {
             return $v->name() === $name;
         }));
@@ -114,22 +129,26 @@ abstract class Assignments implements Countable, IteratorAggregate
     {
         return new ArrayIterator(\array_values($this->variables));
     }
-    public function merge(\Phpactor\WorseReflection\Core\Inference\Assignments $variables) : \Phpactor\WorseReflection\Core\Inference\Assignments
+    public function merge(\Phpactor\WorseReflection\Core\Inference\Assignments $variables) : void
     {
-        foreach ($variables->variables as $offset => $variable) {
-            $this->variables[$offset] = $variable;
+        foreach ($variables->variables as $key => $variable) {
+            $this->variables[$key] = $variable;
         }
-        $this->sort();
-        return $this;
     }
     public function replace(\Phpactor\WorseReflection\Core\Inference\Variable $existing, \Phpactor\WorseReflection\Core\Inference\Variable $replacement) : void
     {
-        foreach ($this->variables as $offset => $variable) {
+        foreach ($this->variables as $key => $variable) {
             if ($variable !== $existing) {
                 continue;
             }
             $this->version++;
-            $this->variables[$offset] = $replacement;
+            $this->variables[$key] = $replacement;
+            foreach ($this->variablesByName[$replacement->name()] ?? [] as $key => $byName) {
+                if ($byName !== $existing) {
+                    continue;
+                }
+                $this->variablesByName[$replacement->name()][$key] = $replacement;
+            }
         }
     }
     public function equalTo(int $offset) : \Phpactor\WorseReflection\Core\Inference\Assignments
@@ -148,6 +167,12 @@ abstract class Assignments implements Countable, IteratorAggregate
     {
         return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) {
             return $v->wasAssigned();
+        }));
+    }
+    public function definitionsOnly() : \Phpactor\WorseReflection\Core\Inference\Assignments
+    {
+        return new static(\array_filter($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $v) {
+            return $v->wasDefinition();
         }));
     }
     public function lastOrNull() : ?\Phpactor\WorseReflection\Core\Inference\Variable
@@ -170,10 +195,11 @@ abstract class Assignments implements Countable, IteratorAggregate
         }
         return new static($mostRecent);
     }
-    private function sort() : void
+    /**
+     * @return Variable[]
+     */
+    public function toArray() : array
     {
-        \uasort($this->variables, function (\Phpactor\WorseReflection\Core\Inference\Variable $one, \Phpactor\WorseReflection\Core\Inference\Variable $two) {
-            return $one->offset() <=> $two->offset();
-        });
+        return $this->variables;
     }
 }

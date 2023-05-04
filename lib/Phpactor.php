@@ -6,9 +6,14 @@ use Phpactor\ClassMover\Extension\ClassMoverExtension as MainClassMoverExtension
 use Phpactor\Container\Container;
 use Phpactor\Container\OptionalExtension;
 use Phpactor\Extension\Behat\BehatExtension;
+use Phpactor\Extension\Behat\BehatSuggestExtension;
+use Phpactor\Extension\ComposerInspector\ComposerInspectorExtension;
+use Phpactor\Extension\Configuration\ConfigurationExtension;
 use Phpactor\Extension\Debug\DebugExtension;
 use Phpactor\Extension\LanguageServerBlackfire\LanguageServerBlackfireExtension;
+use Phpactor\Extension\LanguageServerConfiguration\LanguageServerConfigurationExtension;
 use Phpactor\Extension\LanguageServerPhpCsFixer\LanguageServerPhpCsFixerExtension;
+use Phpactor\Extension\LanguageServerPhpCsFixer\LanguageServerPhpCsFixerSuggestExtension;
 use Phpactor\Extension\LanguageServerPhpstan\LanguageServerPhpstanExtension;
 use Phpactor\Extension\LanguageServerBridge\LanguageServerBridgeExtension;
 use Phpactor\Extension\LanguageServerCodeTransform\LanguageServerCodeTransformExtension;
@@ -16,7 +21,9 @@ use Phpactor\Extension\LanguageServerCompletion\LanguageServerCompletionExtensio
 use Phpactor\Extension\LanguageServerDiagnostics\LanguageServerDiagnosticsExtension;
 use Phpactor\Extension\LanguageServerHover\LanguageServerHoverExtension;
 use Phpactor\Extension\LanguageServerIndexer\LanguageServerIndexerExtension;
+use Phpactor\Extension\LanguageServerPhpstan\LanguageServerPhpstanSuggestExtension;
 use Phpactor\Extension\LanguageServerPsalm\LanguageServerPsalmExtension;
+use Phpactor\Extension\LanguageServerPsalm\LanguageServerPsalmSuggestExtension;
 use Phpactor\Extension\LanguageServerReferenceFinder\LanguageServerReferenceFinderExtension;
 use Phpactor\Extension\LanguageServerRename\LanguageServerRenameExtension;
 use Phpactor\Extension\LanguageServerRename\LanguageServerRenameWorseExtension;
@@ -28,7 +35,9 @@ use Phpactor\Extension\LanguageServer\LanguageServerExtraExtension;
 use Phpactor\Extension\ObjectRenderer\ObjectRendererExtension;
 use Phpactor\Extension\PHPUnit\PHPUnitExtension;
 use Phpactor\Extension\Prophecy\ProphecyExtension;
+use Phpactor\Extension\Prophecy\ProphecySuggestExtension;
 use Phpactor\Extension\Symfony\SymfonyExtension;
+use Phpactor\Extension\Symfony\SymfonySuggestExtension;
 use Phpactor\Extension\WorseReflectionAnalyse\WorseReflectionAnalyseExtension;
 use Phpactor\Indexer\Extension\IndexerExtension;
 use RuntimeException;
@@ -92,7 +101,7 @@ class Phpactor
             $xdebug->check();
             unset($xdebug);
         }
-        $extensionNames = [CoreExtension::class, ClassToFileExtraExtension::class, ClassToFileExtension::class, ClassMoverExtension::class, MainClassMoverExtension::class, CodeTransformExtension::class, CodeTransformExtraExtension::class, CompletionExtraExtension::class, CompletionWorseExtension::class, CompletionExtension::class, CompletionRpcExtension::class, NavigationExtension::class, ContextMenuExtension::class, RpcExtension::class, SourceCodeFilesystemExtraExtension::class, SourceCodeFilesystemExtension::class, WorseReflectionExtension::class, WorseReflectionExtraExtension::class, WorseReflectionAnalyseExtension::class, FilePathResolverExtension::class, LoggingExtension::class, ComposerAutoloaderExtension::class, ConsoleExtension::class, WorseReferenceFinderExtension::class, ReferenceFinderRpcExtension::class, ReferenceFinderExtension::class, PhpExtension::class, LanguageServerExtension::class, LanguageServerCompletionExtension::class, LanguageServerReferenceFinderExtension::class, LanguageServerWorseReflectionExtension::class, LanguageServerIndexerExtension::class, LanguageServerHoverExtension::class, LanguageServerBridgeExtension::class, LanguageServerCodeTransformExtension::class, LanguageServerSymbolProviderExtension::class, LanguageServerSelectionRangeExtension::class, LanguageServerExtraExtension::class, LanguageServerDiagnosticsExtension::class, LanguageServerRenameExtension::class, LanguageServerRenameWorseExtension::class, IndexerExtension::class, ObjectRendererExtension::class, LanguageServerPhpstanExtension::class, LanguageServerPsalmExtension::class, LanguageServerBlackfireExtension::class, LanguageServerPhpCsFixerExtension::class, BehatExtension::class, SymfonyExtension::class, ProphecyExtension::class, PHPUnitExtension::class];
+        $extensionNames = [CoreExtension::class, ClassToFileExtraExtension::class, ClassToFileExtension::class, ClassMoverExtension::class, MainClassMoverExtension::class, CodeTransformExtension::class, CodeTransformExtraExtension::class, CompletionExtraExtension::class, CompletionWorseExtension::class, CompletionExtension::class, CompletionRpcExtension::class, NavigationExtension::class, ContextMenuExtension::class, RpcExtension::class, SourceCodeFilesystemExtraExtension::class, SourceCodeFilesystemExtension::class, WorseReflectionExtension::class, WorseReflectionExtraExtension::class, WorseReflectionAnalyseExtension::class, FilePathResolverExtension::class, LoggingExtension::class, ComposerAutoloaderExtension::class, ConsoleExtension::class, WorseReferenceFinderExtension::class, ReferenceFinderRpcExtension::class, ReferenceFinderExtension::class, PhpExtension::class, ConfigurationExtension::class, ComposerInspectorExtension::class, LanguageServerExtension::class, LanguageServerCompletionExtension::class, LanguageServerReferenceFinderExtension::class, LanguageServerWorseReflectionExtension::class, LanguageServerIndexerExtension::class, LanguageServerHoverExtension::class, LanguageServerBridgeExtension::class, LanguageServerCodeTransformExtension::class, LanguageServerSymbolProviderExtension::class, LanguageServerSelectionRangeExtension::class, LanguageServerExtraExtension::class, LanguageServerDiagnosticsExtension::class, LanguageServerRenameExtension::class, LanguageServerRenameWorseExtension::class, LanguageServerConfigurationExtension::class, IndexerExtension::class, ObjectRendererExtension::class, LanguageServerPhpstanExtension::class, LanguageServerPhpstanSuggestExtension::class, LanguageServerPsalmExtension::class, LanguageServerPsalmSuggestExtension::class, LanguageServerPhpCsFixerExtension::class, LanguageServerPhpCsFixerSuggestExtension::class, LanguageServerBlackfireExtension::class, ProphecyExtension::class, ProphecySuggestExtension::class, BehatExtension::class, BehatSuggestExtension::class, SymfonyExtension::class, SymfonySuggestExtension::class, PHPUnitExtension::class];
         if (\class_exists(DebugExtension::class)) {
             $extensionNames[] = DebugExtension::class;
         }

@@ -62,7 +62,7 @@ class ArrayLiteral extends \Phpactor\WorseReflection\Core\Type\ArrayType impleme
         }
         return new \Phpactor\WorseReflection\Core\Type\MissingType();
     }
-    public function withValue($value) : self
+    public function withValue(mixed $value) : self
     {
         return $this;
     }

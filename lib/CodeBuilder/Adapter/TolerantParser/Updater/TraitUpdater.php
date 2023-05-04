@@ -16,9 +16,7 @@ class TraitUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\
         $this->updateProperties($edits, $classPrototype, $classNode->traitMembers);
         $this->methodUpdater->updateMethods($edits, $classPrototype, $classNode);
     }
-    /**
-     * @return Node[]
-     */
+    /** @return array<Node> */
     protected function memberDeclarations(Node $node) : array
     {
         return $node->traitMemberDeclarations;

@@ -10,6 +10,7 @@ use Phpactor\Completion\Core\DocumentPrioritizer\DocumentPrioritizer;
 use Phpactor\Completion\Core\Suggestion;
 use Phpactor\Name\NameUtil;
 use Phpactor\ReferenceFinder\NameSearcher;
+use Phpactor\ReferenceFinder\NameSearcherType;
 use Phpactor\ReferenceFinder\Search\NameSearchResult;
 use Phpactor\TextDocument\TextDocumentUri;
 abstract class NameSearcherCompletor
@@ -19,11 +20,15 @@ abstract class NameSearcherCompletor
     {
         $this->prioritizer = $prioritizer ?: new DefaultResultPrioritizer();
     }
-    protected function completeName(string $name, ?TextDocumentUri $sourceUri = null, ?Node $node = null) : Generator
+    /**
+     * @return Generator<Suggestion>
+     * @param NameSearcherType::* $type
+     */
+    protected function completeName(string $name, ?TextDocumentUri $sourceUri = null, ?Node $node = null, ?string $type = null) : Generator
     {
         $wasQualified = NameUtil::isQualified($name);
         $visitedChildSegments = [];
-        foreach ($this->nameSearcher->search($name) as $result) {
+        foreach ($this->nameSearcher->search($name, $type) as $result) {
             // if the child segment relative to the search is not the last segment
             // then suggest the child segment only
             [$segment, $isLast] = NameUtil::childSegmentAtSearch($result->name(), $name);
@@ -83,7 +88,7 @@ abstract class NameSearcherCompletor
      * @param array<string,bool> $visitedSegments
      * @return Generator<Suggestion>
      */
-    private function suggestChildSegment(&$visitedSegments, string $search, NameSearchResult $result, TextDocumentUri $sourceUri, string $segment) : Generator
+    private function suggestChildSegment(&$visitedSegments, string $search, NameSearchResult $result, ?TextDocumentUri $sourceUri, string $segment) : Generator
     {
         if (isset($visitedSegments[$segment])) {
             return;

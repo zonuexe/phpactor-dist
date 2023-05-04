@@ -739,29 +739,28 @@
         },
         {
             "name": "brick\/math",
-            "version": "0.10.2",
-            "version_normalized": "0.10.2.0",
+            "version": "0.11.0",
+            "version_normalized": "0.11.0.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/brick\/math.git",
-                "reference": "459f2781e1a08d52ee56b0b1444086e038561e3f"
+                "reference": "0ad82ce168c82ba30d1c01ec86116ab52f589478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/brick\/math\/zipball\/459f2781e1a08d52ee56b0b1444086e038561e3f",
-                "reference": "459f2781e1a08d52ee56b0b1444086e038561e3f",
+                "url": "https:\/\/api.github.com\/repos\/brick\/math\/zipball\/0ad82ce168c82ba30d1c01ec86116ab52f589478",
+                "reference": "0ad82ce168c82ba30d1c01ec86116ab52f589478",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "php": "^7.4 || ^8.0"
+                "php": "^8.0"
             },
             "require-dev": {
                 "php-coveralls\/php-coveralls": "^2.2",
                 "phpunit\/phpunit": "^9.0",
-                "vimeo\/psalm": "4.25.0"
+                "vimeo\/psalm": "5.0.0"
             },
-            "time": "2022-08-10T22:54:19+00:00",
+            "time": "2023-01-15T23:15:59+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -786,7 +785,7 @@
             ],
             "support": {
                 "issues": "https:\/\/github.com\/brick\/math\/issues",
-                "source": "https:\/\/github.com\/brick\/math\/tree\/0.10.2"
+                "source": "https:\/\/github.com\/brick\/math\/tree\/0.11.0"
             },
             "funding": [
                 {
@@ -1268,12 +1267,12 @@
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/JetBrains\/phpstorm-stubs.git",
-                "reference": "de53302780aee15d724360f2ee728946a4527659"
+                "reference": "077d371b23d38d7f6f039994bfb03732d7965fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/JetBrains\/phpstorm-stubs\/zipball\/de53302780aee15d724360f2ee728946a4527659",
-                "reference": "de53302780aee15d724360f2ee728946a4527659",
+                "url": "https:\/\/api.github.com\/repos\/JetBrains\/phpstorm-stubs\/zipball\/077d371b23d38d7f6f039994bfb03732d7965fbc",
+                "reference": "077d371b23d38d7f6f039994bfb03732d7965fbc",
                 "shasum": ""
             },
             "require-dev": {
@@ -1283,7 +1282,7 @@
                 "phpdocumentor\/reflection-docblock": "@stable",
                 "phpunit\/phpunit": "^9.6"
             },
-            "time": "2023-02-11T17:45:35+00:00",
+            "time": "2023-04-18T09:13:06+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -1657,21 +1656,21 @@
         },
         {
             "name": "phpactor\/container",
-            "version": "2.0.2",
-            "version_normalized": "2.0.2.0",
+            "version": "2.2.1",
+            "version_normalized": "2.2.1.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/phpactor\/container.git",
-                "reference": "14e98f4b381a7dd89d5509edb76deacb71d4deae"
+                "reference": "8a9665ec70e654ea100d842f7f77e52ecde5d613"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/phpactor\/container\/zipball\/14e98f4b381a7dd89d5509edb76deacb71d4deae",
-                "reference": "14e98f4b381a7dd89d5509edb76deacb71d4deae",
+                "url": "https:\/\/api.github.com\/repos\/phpactor\/container\/zipball\/8a9665ec70e654ea100d842f7f77e52ecde5d613",
+                "reference": "8a9665ec70e654ea100d842f7f77e52ecde5d613",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3 || ^8.0",
+                "php": "^8.0",
                 "phpactor\/map-resolver": "^1.4",
                 "psr\/container": "^1.0"
             },
@@ -1682,7 +1681,7 @@
                 "phpstan\/phpstan": "^1.0",
                 "phpunit\/phpunit": "^9.0"
             },
-            "time": "2022-10-16T21:03:17+00:00",
+            "time": "2023-03-19T19:13:59+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1708,23 +1707,23 @@
             "description": "Phpactor's DI Container",
             "support": {
                 "issues": "https:\/\/github.com\/phpactor\/container\/issues",
-                "source": "https:\/\/github.com\/phpactor\/container\/tree\/2.0.2"
+                "source": "https:\/\/github.com\/phpactor\/container\/tree\/2.2.1"
             },
             "install-path": "..\/phpactor\/container"
         },
         {
             "name": "phpactor\/language-server",
-            "version": "4.0.2",
-            "version_normalized": "4.0.2.0",
+            "version": "5.1.2",
+            "version_normalized": "5.1.2.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/phpactor\/language-server.git",
-                "reference": "b68058e7b1561d88ddbaad729c861dfa3bb9c2c1"
+                "reference": "051a20e003492cde92be01e54303aeb2fa9ee5f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server\/zipball\/b68058e7b1561d88ddbaad729c861dfa3bb9c2c1",
-                "reference": "b68058e7b1561d88ddbaad729c861dfa3bb9c2c1",
+                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server\/zipball\/051a20e003492cde92be01e54303aeb2fa9ee5f2",
+                "reference": "051a20e003492cde92be01e54303aeb2fa9ee5f2",
                 "shasum": ""
             },
             "require": {
@@ -1751,7 +1750,7 @@
                 "phpunit\/phpunit": "^9.0",
                 "symfony\/var-dumper": "^5.1"
             },
-            "time": "2023-02-12T12:15:43+00:00",
+            "time": "2023-04-10T09:31:10+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1777,23 +1776,23 @@
             "description": "Generic Language Server Platform",
             "support": {
                 "issues": "https:\/\/github.com\/phpactor\/language-server\/issues",
-                "source": "https:\/\/github.com\/phpactor\/language-server\/tree\/4.0.2"
+                "source": "https:\/\/github.com\/phpactor\/language-server\/tree\/5.1.2"
             },
             "install-path": "..\/phpactor\/language-server"
         },
         {
             "name": "phpactor\/language-server-protocol",
-            "version": "3.17.1",
-            "version_normalized": "3.17.1.0",
+            "version": "3.17.3",
+            "version_normalized": "3.17.3.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/phpactor\/language-server-protocol.git",
-                "reference": "15c42028812ac25b487ef405dbfba9bf7c715fa7"
+                "reference": "065fc70b6a26a8d78e034f7db92c8872367356df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server-protocol\/zipball\/15c42028812ac25b487ef405dbfba9bf7c715fa7",
-                "reference": "15c42028812ac25b487ef405dbfba9bf7c715fa7",
+                "url": "https:\/\/api.github.com\/repos\/phpactor\/language-server-protocol\/zipball\/065fc70b6a26a8d78e034f7db92c8872367356df",
+                "reference": "065fc70b6a26a8d78e034f7db92c8872367356df",
                 "shasum": ""
             },
             "require": {
@@ -1806,7 +1805,7 @@
                 "phpstan\/phpstan": "~0.12.0",
                 "phpunit\/phpunit": "^9.2"
             },
-            "time": "2023-02-12T12:13:19+00:00",
+            "time": "2023-03-11T13:19:45+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1832,7 +1831,7 @@
             "description": "Langauge Server Protocol for PHP (transpiled)",
             "support": {
                 "issues": "https:\/\/github.com\/phpactor\/language-server-protocol\/issues",
-                "source": "https:\/\/github.com\/phpactor\/language-server-protocol\/tree\/3.17.1"
+                "source": "https:\/\/github.com\/phpactor\/language-server-protocol\/tree\/3.17.3"
             },
             "install-path": "..\/phpactor\/language-server-protocol"
         },
@@ -1966,12 +1965,12 @@
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/phpactor\/tolerant-php-parser.git",
-                "reference": "0dac21447d916ee3d1c6fc2736b93d5ef0efac57"
+                "reference": "41b24b0ce10dddbf731cdfe5d9242dba165bde88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/phpactor\/tolerant-php-parser\/zipball\/0dac21447d916ee3d1c6fc2736b93d5ef0efac57",
-                "reference": "0dac21447d916ee3d1c6fc2736b93d5ef0efac57",
+                "url": "https:\/\/api.github.com\/repos\/phpactor\/tolerant-php-parser\/zipball\/41b24b0ce10dddbf731cdfe5d9242dba165bde88",
+                "reference": "41b24b0ce10dddbf731cdfe5d9242dba165bde88",
                 "shasum": ""
             },
             "require": {
@@ -1981,7 +1980,7 @@
                 "phpstan\/phpstan": "^1.8",
                 "phpunit\/phpunit": "^8.5.15"
             },
-            "time": "2023-01-07T16:31:32+00:00",
+            "time": "2023-04-20T20:49:26+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -2260,21 +2259,21 @@
         },
         {
             "name": "ramsey\/uuid",
-            "version": "4.7.3",
-            "version_normalized": "4.7.3.0",
+            "version": "4.7.4",
+            "version_normalized": "4.7.4.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/ramsey\/uuid.git",
-                "reference": "433b2014e3979047db08a17a205f410ba3869cf2"
+                "reference": "60a4c63ab724854332900504274f6150ff26d286"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/ramsey\/uuid\/zipball\/433b2014e3979047db08a17a205f410ba3869cf2",
-                "reference": "433b2014e3979047db08a17a205f410ba3869cf2",
+                "url": "https:\/\/api.github.com\/repos\/ramsey\/uuid\/zipball\/60a4c63ab724854332900504274f6150ff26d286",
+                "reference": "60a4c63ab724854332900504274f6150ff26d286",
                 "shasum": ""
             },
             "require": {
-                "brick\/math": "^0.8.8 || ^0.9 || ^0.10",
+                "brick\/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11",
                 "ext-json": "*",
                 "php": "^8.0",
                 "ramsey\/collection": "^1.2 || ^2.0"
@@ -2311,7 +2310,7 @@
                 "paragonie\/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
                 "ramsey\/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
             },
-            "time": "2023-01-12T18:13:24+00:00",
+            "time": "2023-04-15T23:01:58+00:00",
             "type": "library",
             "extra": {
                 "captainhook": {
@@ -2339,7 +2338,7 @@
             ],
             "support": {
                 "issues": "https:\/\/github.com\/ramsey\/uuid\/issues",
-                "source": "https:\/\/github.com\/ramsey\/uuid\/tree\/4.7.3"
+                "source": "https:\/\/github.com\/ramsey\/uuid\/tree\/4.7.4"
             },
             "funding": [
                 {
@@ -2424,17 +2423,17 @@
         },
         {
             "name": "symfony\/console",
-            "version": "v5.4.19",
-            "version_normalized": "5.4.19.0",
+            "version": "v5.4.22",
+            "version_normalized": "5.4.22.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/console.git",
-                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740"
+                "reference": "3cd51fd2e6c461ca678f84d419461281bd87a0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/console\/zipball\/dccb8d251a9017d5994c988b034d3e18aaabf740",
-                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/console\/zipball\/3cd51fd2e6c461ca678f84d419461281bd87a0a8",
+                "reference": "3cd51fd2e6c461ca678f84d419461281bd87a0a8",
                 "shasum": ""
             },
             "require": {
@@ -2472,7 +2471,7 @@
                 "symfony\/lock": "",
                 "symfony\/process": ""
             },
-            "time": "2023-01-01T08:32:19+00:00",
+            "time": "2023-03-25T09:27:28+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2501,12 +2500,12 @@
             "homepage": "https:\/\/symfony.com",
             "keywords": [
                 "cli",
-                "command line",
+                "command-line",
                 "console",
                 "terminal"
             ],
             "support": {
-                "source": "https:\/\/github.com\/symfony\/console\/tree\/v5.4.19"
+                "source": "https:\/\/github.com\/symfony\/console\/tree\/v5.4.22"
             },
             "funding": [
                 {
@@ -2596,17 +2595,17 @@
         },
         {
             "name": "symfony\/filesystem",
-            "version": "v5.4.19",
-            "version_normalized": "5.4.19.0",
+            "version": "v5.4.21",
+            "version_normalized": "5.4.21.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/filesystem.git",
-                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8"
+                "reference": "e75960b1bbfd2b8c9e483e0d74811d555ca3de9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/filesystem\/zipball\/648bfaca6a494f3e22378123bcee2894045dc9d8",
-                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/filesystem\/zipball\/e75960b1bbfd2b8c9e483e0d74811d555ca3de9f",
+                "reference": "e75960b1bbfd2b8c9e483e0d74811d555ca3de9f",
                 "shasum": ""
             },
             "require": {
@@ -2615,7 +2614,7 @@
                 "symfony\/polyfill-mbstring": "~1.8",
                 "symfony\/polyfill-php80": "^1.16"
             },
-            "time": "2023-01-14T19:14:44+00:00",
+            "time": "2023-02-14T08:03:56+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2643,7 +2642,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https:\/\/symfony.com",
             "support": {
-                "source": "https:\/\/github.com\/symfony\/filesystem\/tree\/v5.4.19"
+                "source": "https:\/\/github.com\/symfony\/filesystem\/tree\/v5.4.21"
             },
             "funding": [
                 {
@@ -3334,24 +3333,24 @@
         },
         {
             "name": "symfony\/process",
-            "version": "v5.4.19",
-            "version_normalized": "5.4.19.0",
+            "version": "v5.4.22",
+            "version_normalized": "5.4.22.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/process.git",
-                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
+                "reference": "4b850da0cc3a2a9181c1ed407adbca4733dc839b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/process\/zipball\/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
-                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/process\/zipball\/4b850da0cc3a2a9181c1ed407adbca4733dc839b",
+                "reference": "4b850da0cc3a2a9181c1ed407adbca4733dc839b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony\/polyfill-php80": "^1.16"
             },
-            "time": "2023-01-01T08:32:19+00:00",
+            "time": "2023-03-06T21:29:33+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3379,7 +3378,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https:\/\/symfony.com",
             "support": {
-                "source": "https:\/\/github.com\/symfony\/process\/tree\/v5.4.19"
+                "source": "https:\/\/github.com\/symfony\/process\/tree\/v5.4.22"
             },
             "funding": [
                 {
@@ -3485,17 +3484,17 @@
         },
         {
             "name": "symfony\/string",
-            "version": "v5.4.19",
-            "version_normalized": "5.4.19.0",
+            "version": "v5.4.22",
+            "version_normalized": "5.4.22.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/string.git",
-                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb"
+                "reference": "8036a4c76c0dd29e60b6a7cafcacc50cf088ea62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/string\/zipball\/0a01071610fd861cc160dfb7e2682ceec66064cb",
-                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/string\/zipball\/8036a4c76c0dd29e60b6a7cafcacc50cf088ea62",
+                "reference": "8036a4c76c0dd29e60b6a7cafcacc50cf088ea62",
                 "shasum": ""
             },
             "require": {
@@ -3515,7 +3514,7 @@
                 "symfony\/translation-contracts": "^1.1|^2",
                 "symfony\/var-exporter": "^4.4|^5.0|^6.0"
             },
-            "time": "2023-01-01T08:32:19+00:00",
+            "time": "2023-03-14T06:11:53+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3554,7 +3553,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https:\/\/github.com\/symfony\/string\/tree\/v5.4.19"
+                "source": "https:\/\/github.com\/symfony\/string\/tree\/v5.4.22"
             },
             "funding": [
                 {
@@ -3574,17 +3573,17 @@
         },
         {
             "name": "symfony\/yaml",
-            "version": "v5.4.19",
-            "version_normalized": "5.4.19.0",
+            "version": "v5.4.21",
+            "version_normalized": "5.4.21.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/yaml.git",
-                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5"
+                "reference": "3713e20d93e46e681e51605d213027e48dab3469"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/yaml\/zipball\/71c05db20cb9b54d381a28255f17580e2b7e36a5",
-                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/yaml\/zipball\/3713e20d93e46e681e51605d213027e48dab3469",
+                "reference": "3713e20d93e46e681e51605d213027e48dab3469",
                 "shasum": ""
             },
             "require": {
@@ -3601,7 +3600,7 @@
             "suggest": {
                 "symfony\/console": "For validating YAML files using the lint command"
             },
-            "time": "2023-01-10T18:51:14+00:00",
+            "time": "2023-02-21T19:46:44+00:00",
             "bin": [
                 "Resources\/bin\/yaml-lint"
             ],
@@ -3632,7 +3631,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https:\/\/symfony.com",
             "support": {
-                "source": "https:\/\/github.com\/symfony\/yaml\/tree\/v5.4.19"
+                "source": "https:\/\/github.com\/symfony\/yaml\/tree\/v5.4.21"
             },
             "funding": [
                 {

@@ -21,7 +21,7 @@ class IsSomethingStub implements FunctionStub
         $arg0 = $args->at(0);
         $symbol = $arg0->symbol();
         if ($symbol->symbolType() === Symbol::VARIABLE) {
-            $context = $context->withTypeAssertion(TypeAssertion::variable($symbol->name(), $symbol->position()->start(), fn(Type $type) => TypeCombinator::narrowTo($type, $this->isType), function (Type $type) {
+            $context = $context->withTypeAssertion(TypeAssertion::variable($symbol->name(), $symbol->position()->start()->toInt(), fn(Type $type) => TypeCombinator::narrowTo($type, $this->isType), function (Type $type) {
                 return TypeCombinator::subtract($this->isType, $type);
             }));
         }

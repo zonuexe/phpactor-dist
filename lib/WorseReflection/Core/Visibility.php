@@ -4,8 +4,7 @@ namespace Phpactor\WorseReflection\Core;
 
 final class Visibility
 {
-    private string $visibility;
-    private function __construct()
+    private function __construct(private string $visibility)
     {
     }
     public function __toString() : string
@@ -36,10 +35,8 @@ final class Visibility
     {
         return $this->visibility === 'private';
     }
-    private static function create($visibility) : self
+    private static function create(string $visibility) : self
     {
-        $instance = new self();
-        $instance->visibility = $visibility;
-        return $instance;
+        return new self($visibility);
     }
 }

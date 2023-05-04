@@ -8,7 +8,7 @@ use Phpactor\TextDocument\TextDocumentUri;
 use RuntimeException;
 final class SourceCode implements TextDocument
 {
-    private function __construct(private string $code, private TextDocumentUri $path)
+    private function __construct(private string $code, private TextDocumentUri $uri)
     {
     }
     public function __toString() : string
@@ -25,7 +25,7 @@ final class SourceCode implements TextDocument
     }
     public function withSource(string $code) : \Phpactor\CodeTransform\Domain\SourceCode
     {
-        return new self($code, $this->path);
+        return new self($code, $this->uri);
     }
     public function withPath(string $path) : \Phpactor\CodeTransform\Domain\SourceCode
     {
@@ -33,7 +33,7 @@ final class SourceCode implements TextDocument
     }
     public function path() : string
     {
-        return $this->path->path();
+        return $this->uri->path();
     }
     public function extractSelection(int $offsetStart, int $offsetEnd) : string
     {
@@ -60,7 +60,7 @@ final class SourceCode implements TextDocument
     }
     public function uri() : TextDocumentUri
     {
-        return $this->path;
+        return $this->uri;
     }
     public function language() : TextDocumentLanguage
     {
@@ -73,6 +73,13 @@ final class SourceCode implements TextDocument
      */
     public static function fromTextDocument(TextDocument $textDocument) : self
     {
+        if (null === $textDocument->uri()) {
+            throw new RuntimeException('Cannot create source code from text document with no URI');
+        }
         return new self($textDocument->__toString(), $textDocument->uri());
+    }
+    public function uriOrThrow() : TextDocumentUri
+    {
+        return $this->uri;
     }
 }

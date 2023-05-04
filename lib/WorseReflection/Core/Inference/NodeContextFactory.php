@@ -5,7 +5,7 @@ namespace Phpactor\WorseReflection\Core\Inference;
 use PhpactorDist\Microsoft\PhpParser\Node;
 use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Core\Name;
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\TypeFactory;
 use RuntimeException;
@@ -25,14 +25,14 @@ class NodeContextFactory
             throw new RuntimeException(\sprintf('Invalid keys "%s", valid keys "%s"', \implode('", "', $diff), \implode('", "', \array_keys($defaultConfig))));
         }
         $config = \array_merge($defaultConfig, $config);
-        $position = Position::fromStartAndEnd($start, $end);
+        $position = ByteOffsetRange::fromInts($start, $end);
         $symbol = \Phpactor\WorseReflection\Core\Inference\Symbol::fromTypeNameAndPosition($config['symbol_type'], $symbolName, $position);
         return self::contextFromParameters($symbol, $config['type'], $config['container_type']);
     }
     public static function forVariableAt(\Phpactor\WorseReflection\Core\Inference\Frame $frame, int $start, int $end, string $name) : \Phpactor\WorseReflection\Core\Inference\NodeContext
     {
         $varName = \ltrim($name, '$');
-        $variables = $frame->locals()->lessThanOrEqualTo($end)->byName($varName);
+        $variables = $frame->locals()->byName($varName)->lessThanOrEqualTo($end);
         if (0 === $variables->count()) {
             return \Phpactor\WorseReflection\Core\Inference\NodeContextFactory::create($name, $start, $end, ['symbol_type' => \Phpactor\WorseReflection\Core\Inference\Symbol::VARIABLE]);
         }

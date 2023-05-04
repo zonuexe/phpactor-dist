@@ -20,7 +20,7 @@ final class Problems implements IteratorAggregate, Countable
     {
         $lines = [];
         foreach ($this->problems as $symbolInformation) {
-            $lines[] = \sprintf('%s:%s %s', $symbolInformation->symbol()->position()->start(), $symbolInformation->symbol()->position()->end(), \implode(', ', $symbolInformation->issues()));
+            $lines[] = \sprintf('%s:%s %s', $symbolInformation->symbol()->position()->start()->toInt(), $symbolInformation->symbol()->position()->end()->toInt(), \implode(', ', $symbolInformation->issues()));
         }
         return \implode(\PHP_EOL, $lines);
     }

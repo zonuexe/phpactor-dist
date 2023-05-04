@@ -17,7 +17,7 @@ class ObjectRendererExtension implements Extension
 {
     public const PARAM_TEMPLATE_PATHS = 'object_renderer.template_paths.markdown';
     public const SERVICE_MARKDOWN_RENDERER = 'object_renderer.renderer.markdown';
-    const TAG_TWIG_EXTENSION = 'object_renderer.twig_extension';
+    public const TAG_TWIG_EXTENSION = 'object_renderer.twig_extension';
     public function configure(Resolver $schema) : void
     {
         $schema->setDefaults([self::PARAM_TEMPLATE_PATHS => ['%project_config%/templates/markdown', '%config%/templates/markdown']]);
@@ -27,11 +27,10 @@ class ObjectRendererExtension implements Extension
     {
         $container->register(self::SERVICE_MARKDOWN_RENDERER, function (Container $container) {
             $resolver = $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER);
+            /** @var array<string> $templatePaths */
             $templatePaths = $container->getParameter(self::PARAM_TEMPLATE_PATHS);
             $templatePaths[] = __DIR__ . '/../../../templates/help/markdown';
-            $resolvedTemplatePaths = \array_map(function (string $path) use($resolver) {
-                return $resolver->resolve($path);
-            }, $templatePaths);
+            $resolvedTemplatePaths = \array_map(fn(string $path) => $resolver->resolve($path), $templatePaths);
             $phpVersion = $container->get(PhpVersionResolver::class)->resolve();
             $paths = (new PhpVersionPathResolver($phpVersion))->resolve($resolvedTemplatePaths);
             $builder = \Phpactor\Extension\ObjectRenderer\ObjectRendererBuilder::create()->setLogger(LoggingExtension::channelLogger($container, 'LSP-HOVER'))->enableInterfaceCandidates()->enableAncestoralCandidates()->configureTwig(function (Environment $env) use($container) {

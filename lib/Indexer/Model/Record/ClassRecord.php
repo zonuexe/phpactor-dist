@@ -4,16 +4,18 @@ namespace Phpactor\Indexer\Model\Record;
 
 use Phpactor\Indexer\Model\Name\FullyQualifiedName;
 use Phpactor\Indexer\Model\Record;
-final class ClassRecord implements Record, \Phpactor\Indexer\Model\Record\HasFileReferences, \Phpactor\Indexer\Model\Record\HasPath, \Phpactor\Indexer\Model\Record\HasFullyQualifiedName
+final class ClassRecord implements Record, \Phpactor\Indexer\Model\Record\HasFileReferences, \Phpactor\Indexer\Model\Record\HasFlags, \Phpactor\Indexer\Model\Record\HasPath, \Phpactor\Indexer\Model\Record\HasFullyQualifiedName
 {
     use \Phpactor\Indexer\Model\Record\FullyQualifiedReferenceTrait;
     use \Phpactor\Indexer\Model\Record\HasFileReferencesTrait;
     use \Phpactor\Indexer\Model\Record\HasPathTrait;
+    use \Phpactor\Indexer\Model\Record\HasFlagsTrait;
     public const RECORD_TYPE = 'class';
     public const TYPE_CLASS = 'class';
     public const TYPE_INTERFACE = 'interface';
     public const TYPE_TRAIT = 'trait';
     public const TYPE_ENUM = 'enum';
+    public const FLAG_ATTRIBUTE = 1;
     /**
      * @var array<string>
      */
@@ -23,7 +25,7 @@ final class ClassRecord implements Record, \Phpactor\Indexer\Model\Record\HasFil
      */
     private array $implements = [];
     /**
-     * Type of "class": class, interface or trait
+     * Type of "class": class, interface or trait, etc
      */
     private ?string $type = null;
     public static function fromName(string $name) : self

@@ -27,4 +27,8 @@ class SayHelloCodeActionProvider implements CodeActionProvider
     {
         return [CodeActionKind::QUICK_FIX];
     }
+    public function describe() : string
+    {
+        return 'says hello!';
+    }
 }

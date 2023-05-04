@@ -42,4 +42,8 @@ class AggregateCodeActionProvider implements \Phpactor\LanguageServer\Core\CodeA
             return \array_merge($kinds, (array) \array_combine($provider->kinds(), $provider->kinds()));
         }, []));
     }
+    public function describe() : string
+    {
+        return \sprintf('aggregate code action proivder with %s providers', \count($this->providers));
+    }
 }

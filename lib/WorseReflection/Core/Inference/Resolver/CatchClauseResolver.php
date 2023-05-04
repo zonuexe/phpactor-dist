@@ -29,7 +29,7 @@ class CatchClauseResolver implements Resolver
             return $context;
         }
         $context = NodeContextFactory::create((string) $variableName->getText($node->getFileContents()), $variableName->getStartPosition(), $variableName->getEndPosition(), ['symbol_type' => Symbol::VARIABLE, 'type' => $type]);
-        $frame->locals()->set(Variable::fromSymbolContext($context));
+        $frame->locals()->set(Variable::fromSymbolContext($context)->asDefinition());
         return $context;
     }
 }

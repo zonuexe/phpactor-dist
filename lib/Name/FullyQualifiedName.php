@@ -11,15 +11,15 @@ final class FullyQualifiedName implements \Phpactor\Name\Name
     {
         return $this->qualifiedName->__toString();
     }
-    public static function fromArray(array $parts) : \Phpactor\Name\FullyQualifiedName
+    public static function fromArray(array $parts) : self
     {
         return new self(\Phpactor\Name\QualifiedName::fromArray($parts));
     }
-    public static function fromString(string $string) : \Phpactor\Name\FullyQualifiedName
+    public static function fromString(string $string) : self
     {
         return new self(\Phpactor\Name\QualifiedName::fromString($string));
     }
-    public static function fromQualifiedName(\Phpactor\Name\QualifiedName $qualfifiedName) : \Phpactor\Name\FullyQualifiedName
+    public static function fromQualifiedName(\Phpactor\Name\QualifiedName $qualfifiedName) : self
     {
         return new self($qualfifiedName);
     }

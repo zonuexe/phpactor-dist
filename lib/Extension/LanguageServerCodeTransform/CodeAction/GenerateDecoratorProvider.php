@@ -4,6 +4,7 @@ namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 
 use PhpactorDist\Amp\CancellationToken;
 use PhpactorDist\Amp\Promise;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
 use Phpactor\Extension\LanguageServerCodeTransform\LspCommand\GenerateDecoratorCommand;
 use Phpactor\LanguageServerProtocol\CodeAction;
 use Phpactor\LanguageServerProtocol\Command;
@@ -26,11 +27,11 @@ class GenerateDecoratorProvider implements CodeActionProvider
     public function provideActionsFor(TextDocumentItem $textDocument, Range $range, CancellationToken $cancel) : Promise
     {
         return call(function () use($textDocument) {
-            $classes = $this->reflector->reflectClassesIn($textDocument->text);
-            if (\count($classes) !== 1) {
+            $classes = $this->reflector->reflectClassesIn(TextDocumentConverter::fromLspTextItem($textDocument));
+            if (\count($classes->classes()) !== 1) {
                 return [];
             }
-            $class = $classes->first();
+            $class = $classes->classes()->first();
             if (!$class instanceof ReflectionClass) {
                 return [];
             }
@@ -48,5 +49,9 @@ class GenerateDecoratorProvider implements CodeActionProvider
             $interfaceFQN = (string) $interfaces->first()->type();
             return [CodeAction::fromArray(['title' => \sprintf('Decorate "%s"', $interfaceFQN), 'kind' => self::KIND, 'command' => new Command('Generate decorator', GenerateDecoratorCommand::NAME, [$textDocument->uri, $interfaceFQN])])];
         });
+    }
+    public function describe() : string
+    {
+        return 'convert an empty class that implements an interface into a decorator';
     }
 }

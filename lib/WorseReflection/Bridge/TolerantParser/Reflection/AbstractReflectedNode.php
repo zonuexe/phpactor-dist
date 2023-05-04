@@ -2,15 +2,15 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use PhpactorDist\Microsoft\PhpParser\Node;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionScope as CoreReflectionScope;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 abstract class AbstractReflectedNode
 {
-    public function position() : Position
+    public function position() : ByteOffsetRange
     {
-        return Position::fromFullStartStartAndEnd($this->node()->getFullStartPosition(), $this->node()->getStartPosition(), $this->node()->getEndPosition());
+        return ByteOffsetRange::fromInts($this->node()->getStartPosition(), $this->node()->getEndPosition());
     }
     public function scope() : CoreReflectionScope
     {

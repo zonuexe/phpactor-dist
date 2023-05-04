@@ -151,7 +151,7 @@ class ParsedDocblock implements DocBlock
         foreach ($this->node->tags(PropertyTag::class) as $propertyTag) {
             \assert($propertyTag instanceof PropertyTag);
             $type = $this->convertType($propertyTag->type);
-            $property = new VirtualReflectionProperty($declaringClass->position(), $declaringClass, $declaringClass, \ltrim($propertyTag->propertyName() ?? '', '$'), new Frame('docblock'), $this, $declaringClass->scope(), Visibility::public(), $type, $type, new Deprecation(\false));
+            $property = new VirtualReflectionProperty($declaringClass->position(), $declaringClass, $declaringClass, \ltrim($propertyTag->propertyName() ?? '', '$'), new Frame(), $this, $declaringClass->scope(), Visibility::public(), $type, $type, new Deprecation(\false));
             $properties[] = $property;
         }
         return ReflectionPropertyCollection::fromReflectionProperties($properties);
@@ -162,7 +162,7 @@ class ParsedDocblock implements DocBlock
         foreach ($this->node->tags(MethodTag::class) as $methodTag) {
             \assert($methodTag instanceof MethodTag);
             $params = ReflectionParameterCollection::empty();
-            $method = new VirtualReflectionMethod($declaringClass->position(), $declaringClass, $declaringClass, $methodTag->methodName() ?? '', new Frame('docblock'), $this, $declaringClass->scope(), Visibility::public(), $this->convertType($methodTag->type), $this->convertType($methodTag->type), $params, NodeText::fromString(''), \false, $methodTag->static ? \true : \false, new Deprecation(\false));
+            $method = new VirtualReflectionMethod($declaringClass->position(), $declaringClass, $declaringClass, $methodTag->methodName() ?? '', new Frame(), $this, $declaringClass->scope(), Visibility::public(), $this->convertType($methodTag->type), $this->convertType($methodTag->type), $params, NodeText::fromString(''), \false, $methodTag->static ? \true : \false, new Deprecation(\false));
             $this->addParameters($method, $params, $methodTag->parameters);
             $methods[] = $method;
         }

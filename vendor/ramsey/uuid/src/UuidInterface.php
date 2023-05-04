@@ -17,13 +17,14 @@ use PhpactorDist\Ramsey\Uuid\Fields\FieldsInterface;
 use PhpactorDist\Ramsey\Uuid\Type\Hexadecimal;
 use PhpactorDist\Ramsey\Uuid\Type\Integer as IntegerObject;
 use Serializable;
+use Stringable;
 /**
  * A UUID is a universally unique identifier adhering to an agreed-upon
  * representation format and standard for generation
  *
  * @psalm-immutable
  */
-interface UuidInterface extends DeprecatedUuidInterface, JsonSerializable, Serializable
+interface UuidInterface extends DeprecatedUuidInterface, JsonSerializable, Serializable, Stringable
 {
     /**
      * Returns -1, 0, or 1 if the UUID is less than, equal to, or greater than

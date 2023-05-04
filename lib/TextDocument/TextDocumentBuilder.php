@@ -63,4 +63,22 @@ final class TextDocumentBuilder
     {
         return new \Phpactor\TextDocument\StandardTextDocument($this->language ?? \Phpactor\TextDocument\TextDocumentLanguage::undefined(), $this->text, $this->uri);
     }
+    /**
+     * @deprecated this method encourages the creation of documents without the URI.
+     */
+    public static function fromUnknown(\Phpactor\TextDocument\TextDocument|string $sourceCode) : \Phpactor\TextDocument\TextDocument
+    {
+        if ($sourceCode instanceof \Phpactor\TextDocument\TextDocument) {
+            return $sourceCode;
+        }
+        return self::create($sourceCode)->build();
+    }
+    public static function empty() : \Phpactor\TextDocument\TextDocument
+    {
+        return self::create('')->build();
+    }
+    public static function fromPathAndString(string $path, string $string) : \Phpactor\TextDocument\TextDocument
+    {
+        return self::create($string)->uri($path)->build();
+    }
 }

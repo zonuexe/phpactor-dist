@@ -32,4 +32,8 @@ class GenerateConstructorProvider implements CodeActionProvider
     {
         return [self::KIND];
     }
+    public function describe() : string
+    {
+        return 'generate constructor for new object instantiation';
+    }
 }

@@ -21,7 +21,7 @@ use PhpactorDist\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
 use PhpactorDist\Ramsey\Uuid\Rfc4122\TimeTrait;
 use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidInterface;
 use PhpactorDist\Ramsey\Uuid\Rfc4122\UuidV1;
-use PhpactorDist\Ramsey\Uuid\Uuid;
+use PhpactorDist\Ramsey\Uuid\Uuid as BaseUuid;
 /**
  * Reordered time, or version 6, UUIDs include timestamp, clock sequence, and
  * node values that are combined into a 128-bit unsigned integer
@@ -33,7 +33,7 @@ use PhpactorDist\Ramsey\Uuid\Uuid;
  *
  * @psalm-immutable
  */
-class UuidV6 extends Uuid implements UuidInterface
+class UuidV6 extends BaseUuid implements UuidInterface
 {
     use TimeTrait;
     /**

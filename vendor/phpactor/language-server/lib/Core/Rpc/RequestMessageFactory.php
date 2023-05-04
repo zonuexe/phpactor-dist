@@ -22,6 +22,9 @@ final class RequestMessageFactory
         if (\array_key_exists('result', $body)) {
             return Invoke::new(\Phpactor\LanguageServer\Core\Rpc\ResponseMessage::class, $body);
         }
+        /**
+         * @phpstan-ignore-next-line
+         */
         if (!isset($body['id']) || \is_null($body['id'])) {
             unset($body['id']);
             return Invoke::new(\Phpactor\LanguageServer\Core\Rpc\NotificationMessage::class, $body);

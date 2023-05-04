@@ -165,7 +165,7 @@ final class IndexAgentBuilder
     }
     private function buildFilesystem(string $root) : SimpleFilesystem
     {
-        return new SimpleFilesystem($this->indexRoot, new SimpleFileListProvider(FilePath::fromString($root), $this->followSymlinks));
+        return new SimpleFilesystem(FilePath::fromString($this->indexRoot), new SimpleFileListProvider(FilePath::fromString($root), $this->followSymlinks));
     }
     private function buildRecordSerializer() : RecordSerializer
     {

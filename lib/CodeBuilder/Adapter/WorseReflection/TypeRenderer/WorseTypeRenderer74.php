@@ -7,6 +7,7 @@ use Phpactor\WorseReflection\Core\Type\AggregateType;
 use Phpactor\WorseReflection\Core\Type\ArrayType;
 use Phpactor\WorseReflection\Core\Type\BooleanType;
 use Phpactor\WorseReflection\Core\Type\ClassType;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
 use Phpactor\WorseReflection\Core\Type\InvokeableType;
 use Phpactor\WorseReflection\Core\Type\NullableType;
 use Phpactor\WorseReflection\Core\Type\PseudoIterableType;
@@ -31,6 +32,9 @@ class WorseTypeRenderer74 implements \Phpactor\CodeBuilder\Adapter\WorseReflecti
         }
         if ($type instanceof ScalarType) {
             return $type->toPhpString();
+        }
+        if ($type instanceof GenericClassType) {
+            return $type->name()->short();
         }
         if ($type instanceof ClassType) {
             return $type->short();

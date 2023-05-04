@@ -26,7 +26,10 @@ class TolerantClassReplacer implements ClassReplacer
         $addNamespace = \false;
         $replacedImports = [];
         foreach ($classRefList as $classRef) {
-            \assert($classRef instanceof ClassReference);
+            if ($classRef->name()->wasFullyQualified()) {
+                $edits[] = TextEdit::create($classRef->position()->start(), $classRef->position()->length(), '\\' . $newName->__toString());
+                continue;
+            }
             if (\false === $importClass) {
                 $importClass = $this->shouldImportClass($classRef, $originalName);
             }
@@ -43,6 +46,7 @@ class TolerantClassReplacer implements ClassReplacer
             return $a->start()->toInt() <=> $b->start()->toInt();
         });
         $edits = TextEdits::fromTextEdits($edits);
+        $source = Code::fromString($source);
         if (\true === $importClass) {
             $edits = $edits->merge($this->addUseStatement($source, $newName));
         }
@@ -75,12 +79,12 @@ class TolerantClassReplacer implements ClassReplacer
     {
         return $classRef->isClassDeclaration() && $classRef->fullName()->equals($originalName);
     }
-    private function addUseStatement(TextDocument $source, FullyQualifiedName $newName) : TextEdits
+    private function addUseStatement(Code $source, FullyQualifiedName $newName) : TextEdits
     {
-        return $this->updater->textEditsFor(SourceCodeBuilder::create()->use($newName->__toString())->build(), Code::fromString($source->__toString()));
+        return $this->updater->textEditsFor(SourceCodeBuilder::create()->use($newName->__toString())->build(), $source);
     }
-    private function addNamespace(TextDocument $source, QualifiedName $qualifiedName) : TextEdits
+    private function addNamespace(Code $source, QualifiedName $qualifiedName) : TextEdits
     {
-        return $this->updater->textEditsFor(SourceCodeBuilder::create()->namespace($qualifiedName->__toString())->build(), Code::fromString($source->__toString()));
+        return $this->updater->textEditsFor(SourceCodeBuilder::create()->namespace($qualifiedName->__toString())->build(), $source);
     }
 }

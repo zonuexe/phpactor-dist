@@ -8,12 +8,17 @@ use PhpactorDist\Microsoft\PhpParser\Node\Expression\AssignmentExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\Variable;
 use PhpactorDist\Microsoft\PhpParser\Node\MethodDeclaration;
 use PhpactorDist\Microsoft\PhpParser\Node\PropertyDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\EnumDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\InterfaceDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
 use PhpactorDist\Microsoft\PhpParser\Token;
 use Phpactor\CodeBuilder\Adapter\TolerantParser\Edits;
 use Phpactor\CodeBuilder\Domain\Prototype\ClassLikePrototype;
 use Phpactor\CodeBuilder\Domain\Prototype\Type;
 use Phpactor\CodeBuilder\Domain\Renderer;
 use InvalidArgumentException;
+use Phpactor\TextDocument\TextEdit;
 abstract class ClassLikeUpdater
 {
     protected \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\ClassMethodUpdater $methodUpdater;
@@ -31,6 +36,7 @@ abstract class ClassLikeUpdater
         }
         throw new InvalidArgumentException(\sprintf('Do not know how to resolve property element of type "%s"', \get_class($property)));
     }
+    /** @return array<Node> */
     protected abstract function memberDeclarations(Node $node) : array;
     protected function updateProperties(Edits $edits, ClassLikePrototype $classPrototype, Node $classMembers) : void
     {
@@ -79,5 +85,15 @@ abstract class ClassLikeUpdater
             }
         }
         return $insert;
+    }
+    /**
+     * @param ClassDeclaration|TraitDeclaration|EnumDeclaration|InterfaceDeclaration $classLikeDeclaration
+     */
+    protected function updateDocblock(Edits $edits, ClassLikePrototype $classPrototype, $classLikeDeclaration) : void
+    {
+        if (!$classPrototype->docblock()->notNone()) {
+            return;
+        }
+        $edits->add(TextEdit::create($classLikeDeclaration->getFullStartPosition(), \strlen($classLikeDeclaration->getLeadingCommentAndWhitespaceText()), $classPrototype->docblock()->__toString()));
     }
 }

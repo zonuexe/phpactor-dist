@@ -68,7 +68,7 @@ class ReflectionEnumCase extends \Phpactor\WorseReflection\Bridge\TolerantParser
         if ($this->node->assignment === null) {
             return new MissingType();
         }
-        return $this->serviceLocator()->symbolContextResolver()->resolveNode(new Frame('_'), $this->node->assignment)->type();
+        return $this->serviceLocator()->nodeContextResolver()->resolveNode(new Frame(), $this->node->assignment)->type();
     }
     public function memberType() : string
     {

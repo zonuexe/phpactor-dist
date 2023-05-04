@@ -80,9 +80,6 @@ class NodeContext
         $new->symbol = $this->symbol->withSymbolName($symbolName);
         return $new;
     }
-    /**
-     * @deprecated
-     */
     public function type() : Type
     {
         return $this->type ?? new MissingType();

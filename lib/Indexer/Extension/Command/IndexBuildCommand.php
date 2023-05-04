@@ -12,7 +12,7 @@ use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
 use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
 use PhpactorDist\Symfony\Component\Console\Input\InputOption;
 use PhpactorDist\Symfony\Component\Console\Output\OutputInterface;
-use Phpactor\Indexer\Util\Cast;
+use Phpactor\Cast\Cast;
 use PhpactorDist\Symfony\Component\Filesystem\Path;
 class IndexBuildCommand extends Command
 {

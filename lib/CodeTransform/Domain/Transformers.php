@@ -2,18 +2,25 @@
 
 namespace Phpactor\CodeTransform\Domain;
 
+use PhpactorDist\Amp\Promise;
+use function PhpactorDist\Amp\call;
 /**
  * @extends AbstractCollection<Transformer>
  */
 final class Transformers extends \Phpactor\CodeTransform\Domain\AbstractCollection
 {
-    public function applyTo(\Phpactor\CodeTransform\Domain\SourceCode $code) : \Phpactor\CodeTransform\Domain\SourceCode
+    /**
+     * @return Promise<SourceCode>
+     */
+    public function applyTo(\Phpactor\CodeTransform\Domain\SourceCode $code) : Promise
     {
-        foreach ($this as $transformer) {
-            \assert($transformer instanceof \Phpactor\CodeTransform\Domain\Transformer);
-            $code = \Phpactor\CodeTransform\Domain\SourceCode::fromStringAndPath($transformer->transform($code)->apply($code), $code->uri()->__toString());
-        }
-        return $code;
+        return call(function () use($code) {
+            foreach ($this as $transformer) {
+                \assert($transformer instanceof \Phpactor\CodeTransform\Domain\Transformer);
+                $code = \Phpactor\CodeTransform\Domain\SourceCode::fromStringAndPath(((yield $transformer->transform($code)))->apply($code), $code->uri()->__toString());
+            }
+            return $code;
+        });
     }
     public function in(array $transformerNames) : self
     {

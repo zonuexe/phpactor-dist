@@ -12,6 +12,12 @@ interface Container extends ContainerInterface
      */
     public function get($id);
     /**
+     * @template T of object
+     * @param class-string<T> $expected
+     * @return T
+     */
+    public function expect(string $id, string $expected) : object;
+    /**
      * Return array of serviceId to tag names and attributes
      *
      * @return array<string,array<string,mixed>>
@@ -19,8 +25,10 @@ interface Container extends ContainerInterface
     public function getServiceIdsForTag(string $tag) : array;
     /**
      * @return mixed
+     * @deprecated Use parameter() to return a value object instead.
      */
     public function getParameter(string $name);
+    public function parameter(string $name) : \Phpactor\Container\Parameter;
     /**
      * @return array<string,mixed>
      */

@@ -3,7 +3,7 @@
 namespace Phpactor\Extension\Core\Command;
 
 use JsonException;
-use Phpactor\Extension\Core\Model\ConfigManipulator;
+use Phpactor\Configurator\Model\ConfigManipulator;
 use PhpactorDist\Symfony\Component\Console\Command\Command;
 use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
 use PhpactorDist\Symfony\Component\Console\Input\InputInterface;
@@ -26,7 +26,9 @@ class ConfigSetCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output) : int
     {
         $action = $this->manipulator->initialize();
+        /** @var string $key */
         $key = $input->getArgument(self::ARG_KEY);
+        /** @var string|null $value */
         $value = $input->getArgument(self::ARG_VALUE);
         if ($value !== null) {
             try {

@@ -10,6 +10,7 @@ use Phpactor\Extension\LanguageServerPhpstan\Model\Linter\PhpstanLinter;
 use Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanConfig;
 use Phpactor\Extension\LanguageServerPhpstan\Model\PhpstanProcess;
 use Phpactor\Extension\LanguageServerPhpstan\Provider\PhpstanDiagnosticProvider;
+use Phpactor\Extension\LanguageServer\Container\DiagnosticProviderTag;
 use Phpactor\Extension\LanguageServer\LanguageServerExtension;
 use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\FilePathResolver\FilePathResolverExtension;
@@ -18,11 +19,12 @@ class LanguageServerPhpstanExtension implements OptionalExtension
 {
     public const PARAM_PHPSTAN_BIN = 'language_server_phpstan.bin';
     public const PARAM_LEVEL = 'language_server_phpstan.level';
+    public const PARAM_ENABLED = 'language_server_phpstan.enabled';
     public function load(ContainerBuilder $container) : void
     {
         $container->register(PhpstanDiagnosticProvider::class, function (Container $container) {
             return new PhpstanDiagnosticProvider($container->get(Linter::class));
-        }, [LanguageServerExtension::TAG_DIAGNOSTICS_PROVIDER => ['name' => 'phpstan']]);
+        }, [LanguageServerExtension::TAG_DIAGNOSTICS_PROVIDER => DiagnosticProviderTag::create('phpstan')]);
         $container->register(Linter::class, function (Container $container) {
             return new PhpstanLinter($container->get(PhpstanProcess::class));
         });

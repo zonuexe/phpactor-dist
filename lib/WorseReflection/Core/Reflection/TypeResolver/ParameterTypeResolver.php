@@ -12,7 +12,7 @@ class ParameterTypeResolver
     }
     public function resolve() : Type
     {
-        $docblock = $this->parameter->method()->docblock();
+        $docblock = $this->parameter->functionLike()->docblock();
         $docblockType = $docblock->parameterType($this->parameter->name());
         return TypeUtil::firstDefined($docblockType, $this->parameter->type());
     }

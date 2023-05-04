@@ -36,8 +36,8 @@ class ClassToFileExtension implements Extension
             foreach ($container->get(self::PARAM_CLASS_LOADERS) as $classLoader) {
                 $classToFiles[] = new ComposerClassToFile($classLoader);
             }
-            if ($container->getParameter(self::PARAM_BRUTE_FORCE_CONVERSION) && empty($classToFiles)) {
-                $projectDir = $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->getParameter(self::PARAM_PROJECT_ROOT));
+            if ($container->parameter(self::PARAM_BRUTE_FORCE_CONVERSION)->bool() && empty($classToFiles)) {
+                $projectDir = $container->get(FilePathResolverExtension::SERVICE_FILE_PATH_RESOLVER)->resolve($container->parameter(self::PARAM_PROJECT_ROOT)->string());
                 $classToFiles[] = new SimpleClassToFile($projectDir);
             }
             return new ChainClassToFile($classToFiles);

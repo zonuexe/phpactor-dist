@@ -13,21 +13,16 @@ use Phpactor\LanguageServer\Core\CodeAction\CodeActionProvider;
 use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
+use Phpactor\LanguageServer\WorkDoneProgress\SilentWorkDoneProgressNotifier;
+use Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
 use function PhpactorDist\Amp\call;
 class CodeActionHandler implements Handler, CanRegisterCapabilities
 {
-    /**
-     * @var CodeActionProvider
-     */
-    private $provider;
-    /**
-     * @var Workspace
-     */
-    private $workspace;
-    public function __construct(CodeActionProvider $provider, Workspace $workspace)
+    private ProgressNotifier $notifier;
+    public function __construct(private CodeActionProvider $provider, private Workspace $workspace, ?ProgressNotifier $notifier = null)
     {
-        $this->provider = $provider;
-        $this->workspace = $workspace;
+        $this->notifier = $notifier ?: new SilentWorkDoneProgressNotifier();
     }
     /**
      * {@inheritDoc}
@@ -46,10 +41,17 @@ class CodeActionHandler implements Handler, CanRegisterCapabilities
      */
     public function codeAction(CodeActionParams $params, CancellationToken $cancel) : Promise
     {
-        /** @phpstan-ignore-next-line */
         return call(function () use($params, $cancel) {
+            $token = WorkDoneToken::generate();
+            (yield $this->notifier->create($token));
             $document = $this->workspace->get($params->textDocument->uri);
-            return $this->provider->provideActionsFor($document, $params->range, $cancel);
+            $this->notifier->begin($token, title: 'Resolving code actions');
+            try {
+                $actions = (yield $this->provider->provideActionsFor($document, $params->range, $cancel));
+            } finally {
+                $this->notifier->end($token);
+            }
+            return $actions;
         });
     }
 }

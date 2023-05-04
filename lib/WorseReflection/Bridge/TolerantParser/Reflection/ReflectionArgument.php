@@ -4,7 +4,7 @@ namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflection;
 
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\ArgumentExpression;
 use PhpactorDist\Microsoft\PhpParser\Token;
-use Phpactor\WorseReflection\Core\Position;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 use Phpactor\WorseReflection\Core\Inference\Frame;
@@ -59,13 +59,13 @@ class ReflectionArgument implements CoreReflectionArgument
     {
         return TypeUtil::valueOrNull($this->info()->type());
     }
-    public function position() : Position
+    public function position() : ByteOffsetRange
     {
-        return Position::fromFullStartStartAndEnd($this->node->getFullStartPosition(), $this->node->getStartPosition(), $this->node->getEndPosition());
+        return ByteOffsetRange::fromInts($this->node->getStartPosition(), $this->node->getEndPosition());
     }
     private function info() : NodeContext
     {
-        return $this->services->symbolContextResolver()->resolveNode($this->frame, $this->node);
+        return $this->services->nodeContextResolver()->resolveNode($this->frame, $this->node);
     }
     private function index() : int
     {

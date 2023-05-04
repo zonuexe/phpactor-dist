@@ -95,21 +95,21 @@ class AssignmentExpressionResolver implements Resolver
         $context = NodeContextFactory::create((string) $memberName, $leftOperand->getStartPosition(), $leftOperand->getEndPosition(), ['symbol_type' => Symbol::VARIABLE, 'type' => $typeContext->type()]);
         $frame->properties()->set(WorseVariable::fromSymbolContext($context));
     }
-    private function walkArrayCreation(Frame $frame, ArrayCreationExpression $leftOperand, NodeContext $symbolContext) : void
+    private function walkArrayCreation(Frame $frame, ArrayCreationExpression $leftOperand, NodeContext $nodeContext) : void
     {
         $list = $leftOperand->arrayElements;
         if (!$list instanceof ArrayElementList) {
             return;
         }
-        $this->walkArrayElements($list->children, $leftOperand, $symbolContext->type(), $frame);
+        $this->walkArrayElements($list->children, $leftOperand, $nodeContext->type(), $frame);
     }
-    private function walkList(Frame $frame, ListIntrinsicExpression $leftOperand, NodeContext $symbolContext) : void
+    private function walkList(Frame $frame, ListIntrinsicExpression $leftOperand, NodeContext $nodeContext) : void
     {
         $list = $leftOperand->listElements;
         if (!$list instanceof ListExpressionList) {
             return;
         }
-        $this->walkArrayElements($list->children, $leftOperand, $symbolContext->type(), $frame);
+        $this->walkArrayElements($list->children, $leftOperand, $nodeContext->type(), $frame);
     }
     private function walkSubscriptExpression(NodeContextResolver $resolver, Frame $frame, SubscriptExpression $leftOperand, NodeContext $rightContext) : void
     {
@@ -187,7 +187,7 @@ class AssignmentExpressionResolver implements Resolver
             $varName = NodeUtil::nameFromTokenOrNode($leftOperand, $elementValue->name);
             $variableContext = NodeContextFactory::create((string) $varName, $element->getStartPosition(), $element->getEndPosition(), ['symbol_type' => Symbol::VARIABLE]);
             $variableContext = $variableContext->withType($this->offsetType($type, $index));
-            $frame->locals()->set(WorseVariable::fromSymbolContext($variableContext));
+            $frame->locals()->set(WorseVariable::fromSymbolContext($variableContext)->asAssignment());
         }
     }
     private function offsetType(Type $type, int $index) : Type

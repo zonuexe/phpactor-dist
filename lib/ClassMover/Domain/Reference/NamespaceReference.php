@@ -5,24 +5,22 @@ namespace Phpactor\ClassMover\Domain\Reference;
 use Phpactor\ClassMover\Domain\Name\Namespace_;
 final class NamespaceReference
 {
-    private $position;
-    private $namespace;
-    public function __toString()
+    private function __construct(private Namespace_ $namespace, private \Phpactor\ClassMover\Domain\Reference\Position $position)
+    {
+    }
+    public function __toString() : string
     {
         return (string) $this->namespace;
     }
-    public static function fromNameAndPosition(Namespace_ $namespace, \Phpactor\ClassMover\Domain\Reference\Position $position)
+    public static function fromNameAndPosition(Namespace_ $namespace, \Phpactor\ClassMover\Domain\Reference\Position $position) : self
     {
-        $new = new self();
-        $new->position = $position;
-        $new->namespace = $namespace;
-        return $new;
+        return new self($namespace, $position);
     }
-    public static function forRoot() : \Phpactor\ClassMover\Domain\Reference\NamespaceReference
+    public static function forRoot() : self
     {
-        $new = new self();
-        $new->namespace = Namespace_::root();
-        return $new;
+        /** @var Namespace_ $rootNamespace */
+        $rootNamespace = Namespace_::root();
+        return new self($rootNamespace, \Phpactor\ClassMover\Domain\Reference\Position::fromStartAndEnd(0, 0));
     }
     public function position() : \Phpactor\ClassMover\Domain\Reference\Position
     {

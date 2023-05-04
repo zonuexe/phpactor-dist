@@ -7,7 +7,7 @@ use Phpactor\Indexer\Model\Record\ClassRecord;
 use Phpactor\Indexer\Model\Record\FunctionRecord;
 use Phpactor\Indexer\Model\Record\MemberRecord;
 use Phpactor\Indexer\Model\QueryClient;
-use Phpactor\Indexer\Util\Cast;
+use Phpactor\Cast\Cast;
 use PhpactorDist\Symfony\Component\Console\Command\Command;
 use PhpactorDist\Symfony\Component\Console\Input\InputArgument;
 use PhpactorDist\Symfony\Component\Console\Input\InputInterface;

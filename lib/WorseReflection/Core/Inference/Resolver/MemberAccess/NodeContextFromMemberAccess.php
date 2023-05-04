@@ -7,7 +7,9 @@ use PhpactorDist\Microsoft\PhpParser\Node\DelimitedList\TraitSelectOrAliasClause
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\CallExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\MemberAccessExpression;
 use PhpactorDist\Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
+use Phpactor\TextDocument\ByteOffsetRange;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
+use Phpactor\WorseReflection\Core\Inference\Context\MemberAccessContext;
 use Phpactor\WorseReflection\Core\Inference\Frame;
 use Phpactor\WorseReflection\Core\Inference\FunctionArguments;
 use Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
@@ -48,7 +50,7 @@ class NodeContextFromMemberAccess
         $memberName = NodeUtil::nameFromTokenOrNode($node, $node->memberName);
         $memberTypeName = $node->getParent() instanceof CallExpression ? Symbol::METHOD : Symbol::PROPERTY;
         // support trait method-alias clauses, e.g. use  use A, B {A::foobar insteadof B; B::bigTalk insteadof A;}
-        if ($memberTypeName === Symbol::PROPERTY && $node->parent->parent && $node->parent->parent instanceof TraitSelectOrAliasClauseList) {
+        if ($memberTypeName === Symbol::PROPERTY && $node->parent?->parent && $node->parent->parent instanceof TraitSelectOrAliasClauseList) {
             $memberTypeName = Symbol::METHOD;
         }
         if ($node->memberName instanceof Node) {
@@ -69,19 +71,23 @@ class NodeContextFromMemberAccess
                 return $context->withType(TypeFactory::classString($classType->name()->full()));
             }
         }
-        [$containerType, $memberType] = $this->resolveContainerMemberType($resolver, $frame, $node, $classType, $memberTypeName, $memberName);
+        [$containerType, $memberType, $member] = $this->resolveContainerMemberType($resolver, $frame, $node, $classType, $memberTypeName, $memberName);
         if (!$containerType->isDefined()) {
             $containerType = $classType;
+        }
+        if ($member instanceof ReflectionMember) {
+            return new MemberAccessContext($context->symbol(), $memberType->reduce(), $containerType, ByteOffsetRange::fromInts($node->memberName->getStartPosition(), $node->memberName->getEndPosition()), $member);
         }
         return $context->withContainerType($containerType)->withType($memberType->reduce());
     }
     /**
-     * @return array{Type,Type}
+     * @return array{Type,Type,?ReflectionMember}
      */
     private function resolveContainerMemberType(NodeContextResolver $resolver, Frame $frame, Node $node, Type $classType, string $memberTypeName, string $memberName) : array
     {
         $types = [];
         $memberType = TypeFactory::undefined();
+        $member = null;
         $arguments = $this->resolveArguments($resolver, $frame, $node->parent);
         // this could be a union or a nullable
         foreach ($classType->expandTypes()->classLike() as $subType) {
@@ -110,23 +116,18 @@ class NodeContextFromMemberAccess
             }
         }
         $containerType = UnionType::fromTypes(...$types)->reduce();
-        return [$containerType, $memberType];
+        return [$containerType, $memberType, $member];
     }
     private function resolveMemberType(NodeContextResolver $resolver, Frame $frame, ReflectionMember $member, ?FunctionArguments $arguments, Node $node, Type $subType) : Type
     {
-        foreach ($this->memberResolvers as $memberResolver) {
-            if (null !== ($customType = $memberResolver->resolveMemberContext($resolver->reflector(), $member, $arguments))) {
-                return $customType;
-            }
-        }
         $inferredType = $member->inferredType();
+        $declaringClass = self::declaringClass($member);
         if ($member instanceof ReflectionProperty) {
             $propertyType = self::getFrameTypesForPropertyAtPosition($frame, $member->name(), $subType, $node->getEndPosition());
             if ($propertyType) {
                 $inferredType = $propertyType;
             }
         }
-        $declaringClass = self::declaringClass($member);
         if ($arguments && $member instanceof ReflectionMethod) {
             try {
                 $declaringMember = $declaringClass->members()->byMemberType($member->memberType())->byName($member->name())->first();
@@ -162,6 +163,11 @@ class NodeContextFromMemberAccess
         if ($inferredType instanceof GlobbedConstantUnionType) {
             $inferredType = $inferredType->toUnion();
         }
+        foreach ($this->memberResolvers as $memberResolver) {
+            if (null !== ($customType = $memberResolver->resolveMemberContext($resolver->reflector(), $member, $inferredType, $arguments))) {
+                $inferredType = $customType;
+            }
+        }
         return $inferredType;
     }
     private static function getFrameTypesForPropertyAtPosition(Frame $frame, string $propertyName, Type $classType, int $position) : ?Type
@@ -169,7 +175,7 @@ class NodeContextFromMemberAccess
         if (!$classType instanceof ClassType) {
             return null;
         }
-        $variable = $frame->properties()->lessThanOrEqualTo($position)->byName($propertyName)->lastOrNull();
+        $variable = $frame->properties()->byName($propertyName)->lessThanOrEqualTo($position)->lastOrNull();
         if (null === $variable) {
             return null;
         }

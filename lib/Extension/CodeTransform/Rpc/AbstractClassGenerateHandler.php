@@ -46,7 +46,7 @@ abstract class AbstractClassGenerateHandler extends AbstractHandler
         }
         $code = $this->generate($arguments);
         $this->writeFileContents($arguments, $code);
-        return ReplaceFileSourceResponse::fromPathAndSource($code->uri()->scheme() === 'file' && $code->path() ? $code->uri()->path() : $arguments[self::PARAM_NEW_PATH], (string) $code);
+        return ReplaceFileSourceResponse::fromPathAndSource($code->uri()->scheme() === 'file' && $code->uri()->path() ? $code->uri()->path() : $arguments[self::PARAM_NEW_PATH], (string) $code);
     }
     protected abstract function generate(array $arguments) : SourceCode;
     protected abstract function newMessage() : string;

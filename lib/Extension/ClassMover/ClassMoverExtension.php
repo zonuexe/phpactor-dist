@@ -48,7 +48,7 @@ class ClassMoverExtension implements Extension
             return new ClassCopyHandler($container->get('application.class_copy'));
         }, ['rpc.handler' => ['name' => ClassCopyHandler::NAME]]);
         $container->register('class_mover.handler.move_class', function (Container $container) {
-            return new ClassMoveHandler($container->get('application.class_mover'), SourceCodeFilesystemExtension::FILESYSTEM_GIT);
+            return new ClassMoveHandler($container->get(ClassMoverApp::class), SourceCodeFilesystemExtension::FILESYSTEM_GIT);
         }, [RpcExtension::TAG_RPC_HANDLER => ['name' => ClassMoveHandler::NAME]]);
     }
     private function registerClassMover(ContainerBuilder $container) : void
@@ -65,7 +65,7 @@ class ClassMoverExtension implements Extension
     }
     private function registerApplicationServices(ContainerBuilder $container) : void
     {
-        $container->register('application.class_mover', function (Container $container) {
+        $container->register(ClassMoverApp::class, function (Container $container) {
             return new ClassMoverApp($container->get('application.helper.class_file_normalizer'), $container->get(ClassMover::class), $container->get('source_code_filesystem.registry'), $container->get(NavigationExtension::SERVICE_PATH_FINDER));
         });
         $container->register('application.class_copy', function (Container $container) {
@@ -81,7 +81,7 @@ class ClassMoverExtension implements Extension
     private function registerConsoleCommands(ContainerBuilder $container) : void
     {
         $container->register('command.class_move', function (Container $container) {
-            return new ClassMoveCommand($container->get('application.class_mover'), $container->get('console.prompter'));
+            return new ClassMoveCommand($container->get(ClassMoverApp::class), $container->get('console.prompter'));
         }, [ConsoleExtension::TAG_COMMAND => ['name' => 'class:move']]);
         $container->register('command.class_copy', function (Container $container) {
             return new ClassCopyCommand($container->get('application.class_copy'), $container->get('console.prompter'));

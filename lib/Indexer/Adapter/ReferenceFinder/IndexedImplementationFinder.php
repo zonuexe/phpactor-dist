@@ -32,8 +32,8 @@ class IndexedImplementationFinder implements ClassImplementationFinder
      */
     public function findImplementations(TextDocument $document, ByteOffset $byteOffset, bool $includeDefinition = \false) : Locations
     {
-        $symbolContext = $this->reflector->reflectOffset($document->__toString(), $byteOffset->toInt())->symbolContext();
-        $symbolType = $symbolContext->symbol()->symbolType();
+        $nodeContext = $this->reflector->reflectOffset($document, $byteOffset->toInt())->nodeContext();
+        $symbolType = $nodeContext->symbol()->symbolType();
         if ($symbolType === Symbol::METHOD || $symbolType === Symbol::CONSTANT || $symbolType === Symbol::CASE || $symbolType === Symbol::VARIABLE || $symbolType === Symbol::PROPERTY) {
             if ($symbolType === Symbol::CASE) {
                 $symbolType = 'enum';
@@ -41,10 +41,10 @@ class IndexedImplementationFinder implements ClassImplementationFinder
             if ($symbolType === Symbol::VARIABLE) {
                 $symbolType = Symbol::PROPERTY;
             }
-            return $this->memberImplementations($symbolContext, $symbolType, $includeDefinition);
+            return $this->memberImplementations($nodeContext, $symbolType, $includeDefinition);
         }
         $locations = [];
-        $implementations = $this->resolveImplementations(FullyQualifiedName::fromString($symbolContext->type()->__toString()));
+        $implementations = $this->resolveImplementations(FullyQualifiedName::fromString($nodeContext->type()->__toString()));
         foreach ($implementations as $implementation) {
             $record = $this->query->class()->get($implementation);
             if (null === $record) {
@@ -58,10 +58,10 @@ class IndexedImplementationFinder implements ClassImplementationFinder
      * @return Locations<Location>
      * @param ReflectionMember::TYPE_* $symbolType
      */
-    private function memberImplementations(NodeContext $symbolContext, string $symbolType, bool $includeDefinition) : Locations
+    private function memberImplementations(NodeContext $nodeContext, string $symbolType, bool $includeDefinition) : Locations
     {
-        $container = $symbolContext->containerType();
-        $methodName = $symbolContext->symbol()->name();
+        $container = $nodeContext->containerType();
+        $methodName = $nodeContext->symbol()->name();
         $containerType = $this->containerTypeResolver->resolveDeclaringContainerType($symbolType, $methodName, $container);
         if (!$containerType) {
             return new Locations([]);
@@ -96,7 +96,7 @@ class IndexedImplementationFinder implements ClassImplementationFinder
             if (null === $path) {
                 continue;
             }
-            $locations[] = Location::fromPathAndOffset($path, $member->position()->start());
+            $locations[] = Location::fromPathAndOffset($path, $member->position()->start()->toInt());
         }
         return new Locations($locations);
     }

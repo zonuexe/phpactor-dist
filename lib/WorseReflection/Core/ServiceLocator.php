@@ -44,7 +44,7 @@ class ServiceLocator
      * @param DiagnosticProvider[] $diagnosticProviders
      * @param MemberContextResolver[] $memberContextResolvers
      */
-    public function __construct(\Phpactor\WorseReflection\Core\SourceCodeLocator $sourceLocator, LoggerInterface $logger, SourceCodeReflectorFactory $reflectorFactory, private array $frameWalkers, private array $methodProviders, private array $diagnosticProviders, private array $memberContextResolvers, \Phpactor\WorseReflection\Core\Cache $cache, bool $enableContextualLocation = \false)
+    public function __construct(\Phpactor\WorseReflection\Core\SourceCodeLocator $sourceLocator, LoggerInterface $logger, SourceCodeReflectorFactory $reflectorFactory, private array $frameWalkers, private array $methodProviders, private array $diagnosticProviders, private array $memberContextResolvers, \Phpactor\WorseReflection\Core\Cache $cache, private \Phpactor\WorseReflection\Core\CacheForDocument $cacheForDocument, bool $enableContextualLocation = \false)
     {
         $sourceReflector = $reflectorFactory->create($this);
         if ($enableContextualLocation) {
@@ -82,13 +82,22 @@ class ServiceLocator
     {
         return $this->docblockFactory;
     }
-    public function symbolContextResolver() : NodeContextResolver
+    public function nodeContextResolver() : NodeContextResolver
     {
-        return new NodeContextResolver($this->reflector, $this->docblockFactory, $this->logger, new StaticCache(), (new \Phpactor\WorseReflection\Core\DefaultResolverFactory($this->reflector, $this->nameResolver, new GenericMapResolver($this->reflector), new NodeContextFromMemberAccess(new GenericMapResolver($this->reflector), $this->memberContextResolvers)))->createResolvers());
+        return new NodeContextResolver(
+            $this->reflector,
+            $this->docblockFactory,
+            $this->logger,
+            // use a cache which is local to this resolver instance
+            // this avoids issues with stale cache data while also
+            // providing memoised caching for this resolver instance.
+            new StaticCache(),
+            (new \Phpactor\WorseReflection\Core\DefaultResolverFactory($this->reflector, $this->nameResolver, new GenericMapResolver($this->reflector), new NodeContextFromMemberAccess(new GenericMapResolver($this->reflector), $this->memberContextResolvers)))->createResolvers()
+        );
     }
     public function frameBuilder() : FrameResolver
     {
-        return FrameResolver::create($this->symbolContextResolver(), \array_merge([new FunctionLikeWalker(), new PassThroughWalker(), new VariableWalker($this->docblockFactory), new IncludeWalker($this->logger)], $this->frameWalkers));
+        return FrameResolver::create($this->nodeContextResolver(), \array_merge([new FunctionLikeWalker(), new PassThroughWalker(), new VariableWalker($this->docblockFactory), new IncludeWalker($this->logger)], $this->frameWalkers));
     }
     public function methodProviders() : ReflectionMemberProvider
     {
@@ -97,6 +106,10 @@ class ServiceLocator
     public function cache() : \Phpactor\WorseReflection\Core\Cache
     {
         return $this->cache;
+    }
+    public function cacheForDocument() : \Phpactor\WorseReflection\Core\CacheForDocument
+    {
+        return $this->cacheForDocument;
     }
     public function newDiagnosticsWalker() : DiagnosticsWalker
     {

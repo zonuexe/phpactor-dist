@@ -30,6 +30,6 @@ class ChangeVisiblityHandler implements Handler
         $source = $arguments[self::PARAM_SOURCE];
         $source = SourceCode::fromStringAndPath($source, $arguments[self::PARAM_PATH]);
         $source = $this->changeVisiblity->changeVisiblity($source, $arguments[self::PARAM_OFFSET]);
-        return UpdateFileSourceResponse::fromPathOldAndNewSource($source->path(), $arguments[self::PARAM_SOURCE], (string) $source);
+        return UpdateFileSourceResponse::fromPathOldAndNewSource($source->uri()->path(), $arguments[self::PARAM_SOURCE], (string) $source);
     }
 }

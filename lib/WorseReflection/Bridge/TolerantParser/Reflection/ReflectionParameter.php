@@ -47,19 +47,12 @@ class ReflectionParameter extends \Phpactor\WorseReflection\Bridge\TolerantParse
         if (null === $this->parameter->default) {
             return DefaultValue::undefined();
         }
-        $value = $this->serviceLocator->symbolContextResolver()->resolveNode(new Frame('test'), $this->parameter->default)->type();
+        $value = $this->serviceLocator->nodeContextResolver()->resolveNode(new Frame(), $this->parameter->default)->type();
         return DefaultValue::fromValue(TypeUtil::valueOrNull($value));
     }
     public function byReference() : bool
     {
         return (bool) $this->parameter->byRefToken;
-    }
-    /**
-     * @deprecated use functionLike instead
-     */
-    public function method() : ReflectionFunctionLike
-    {
-        return $this->functionLike;
     }
     public function functionLike() : ReflectionFunctionLike
     {

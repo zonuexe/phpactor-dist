@@ -7,25 +7,30 @@ class Docblock
     private function __construct(private ?string $docblock = null)
     {
     }
-    public function __toString()
+    public function __toString() : string
     {
-        return $this->docblock;
+        return $this->docblock ?? '';
     }
-    public static function fromString(string $string)
+    public static function fromString(string $string) : self
     {
         return new self($string);
     }
-    public static function none()
+    public static function none() : self
     {
         return new self();
     }
-    public function notNone()
+    public function notNone() : bool
     {
         return null !== $this->docblock;
     }
+    /**
+     * @return list<string>
+     */
     public function asLines() : array
     {
-        $lines = \explode(\PHP_EOL, $this->docblock);
-        return $lines;
+        if ($this->docblock === null) {
+            return [];
+        }
+        return \explode(\PHP_EOL, $this->docblock);
     }
 }

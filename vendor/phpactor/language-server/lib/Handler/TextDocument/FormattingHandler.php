@@ -11,15 +11,16 @@ use Phpactor\LanguageServer\Core\Formatting\Formatter;
 use Phpactor\LanguageServer\Core\Handler\CanRegisterCapabilities;
 use Phpactor\LanguageServer\Core\Handler\Handler;
 use Phpactor\LanguageServer\Core\Workspace\Workspace;
+use Phpactor\LanguageServer\WorkDoneProgress\ProgressNotifier;
+use Phpactor\LanguageServer\WorkDoneProgress\SilentWorkDoneProgressNotifier;
+use Phpactor\LanguageServer\WorkDoneProgress\WorkDoneToken;
 use function PhpactorDist\Amp\call;
 class FormattingHandler implements Handler, CanRegisterCapabilities
 {
-    private Workspace $workspace;
-    private Formatter $formatter;
-    public function __construct(Workspace $workspace, Formatter $formatter)
+    private ProgressNotifier $notifier;
+    public function __construct(private Workspace $workspace, private Formatter $formatter, ?ProgressNotifier $notifier = null)
     {
-        $this->workspace = $workspace;
-        $this->formatter = $formatter;
+        $this->notifier = $notifier ?: new SilentWorkDoneProgressNotifier();
     }
     public function methods() : array
     {
@@ -31,8 +32,15 @@ class FormattingHandler implements Handler, CanRegisterCapabilities
     public function formatting(TextDocumentIdentifier $textDocument, FormattingOptions $options) : Promise
     {
         return call(function () use($textDocument) {
+            $token = WorkDoneToken::generate();
+            (yield $this->notifier->create($token));
             $document = $this->workspace->get($textDocument->uri);
-            $formatted = (yield $this->formatter->format($document));
+            $this->notifier->begin($token, 'Formatting document');
+            try {
+                $formatted = (yield $this->formatter->format($document));
+            } finally {
+                $this->notifier->end($token);
+            }
             return $formatted;
         });
     }

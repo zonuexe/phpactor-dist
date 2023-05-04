@@ -12,6 +12,9 @@ class Expanders implements IteratorAggregate
      * @var Expander[]
      */
     private array $expanders = [];
+    /**
+     * @param Expander[] $expanders
+     */
     public function __construct(array $expanders)
     {
         foreach ($expanders as $expander) {

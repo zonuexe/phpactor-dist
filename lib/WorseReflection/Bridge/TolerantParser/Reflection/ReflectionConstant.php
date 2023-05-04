@@ -29,7 +29,7 @@ class ReflectionConstant extends \Phpactor\WorseReflection\Bridge\TolerantParser
     }
     public function type() : Type
     {
-        $value = $this->serviceLocator->symbolContextResolver()->resolveNode(new Frame('test'), $this->node->assignment);
+        $value = $this->serviceLocator->nodeContextResolver()->resolveNode(new Frame(), $this->node->assignment);
         return $value->type();
     }
     public function class() : ReflectionClassLike
@@ -49,7 +49,7 @@ class ReflectionConstant extends \Phpactor\WorseReflection\Bridge\TolerantParser
     }
     public function value()
     {
-        return TypeUtil::valueOrNull($this->serviceLocator()->symbolContextResolver()->resolveNode(new Frame('_'), $this->node->assignment)->type());
+        return TypeUtil::valueOrNull($this->serviceLocator()->nodeContextResolver()->resolveNode(new Frame(), $this->node->assignment)->type());
     }
     public function memberType() : string
     {

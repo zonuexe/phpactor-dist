@@ -46,8 +46,15 @@ class AggregateDiagnosticsProvider implements \Phpactor\LanguageServer\Core\Diag
             return $diagnostics;
         });
     }
+    /**
+     * @return list<string>
+     */
+    public function names() : array
+    {
+        return \array_map(fn(\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider $provider) => $provider->name(), $this->providers);
+    }
     public function name() : string
     {
-        return \implode(', ', \array_map(fn(\Phpactor\LanguageServer\Core\Diagnostics\DiagnosticsProvider $provider) => $provider->name(), $this->providers));
+        return \implode(', ', $this->names());
     }
 }

@@ -4,9 +4,9 @@ namespace Phpactor\Extension\WorseReflectionExtra\Rpc;
 
 use Phpactor\MapResolver\Resolver;
 use Phpactor\Extension\Rpc\Handler;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use Phpactor\WorseReflection\Reflector;
-use Phpactor\WorseReflection\Core\SourceCode;
-use Phpactor\WorseReflection\Core\Offset;
+use Phpactor\TextDocument\ByteOffset;
 use Phpactor\Extension\Rpc\Response\InformationResponse;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionOffset;
 use Phpactor\WorseReflection\TypeUtil;
@@ -26,13 +26,13 @@ class OffsetInfoHandler implements Handler
     }
     public function handle(array $arguments)
     {
-        $offset = $this->reflector->reflectOffset(SourceCode::fromString($arguments['source']), Offset::fromInt($arguments['offset']));
+        $offset = $this->reflector->reflectOffset(TextDocumentBuilder::create($arguments['source'])->build(), ByteOffset::fromInt($arguments['offset']));
         return InformationResponse::fromString(\json_encode($this->serialize($arguments['offset'], $offset), \JSON_PRETTY_PRINT));
     }
     private function serialize(int $offset, ReflectionOffset $reflectionOffset)
     {
-        $symbolContext = $reflectionOffset->symbolContext();
-        $return = ['symbol' => $symbolContext->symbol()->name(), 'symbol_type' => $symbolContext->symbol()->symbolType(), 'start' => $symbolContext->symbol()->position()->start(), 'end' => $symbolContext->symbol()->position()->end(), 'type' => (string) $symbolContext->type(), 'container_type' => (string) $symbolContext->containerType(), 'value' => \var_export(TypeUtil::valueOrNull($symbolContext->type()), \true), 'offset' => $offset, 'type_path' => null];
+        $nodeContext = $reflectionOffset->nodeContext();
+        $return = ['symbol' => $nodeContext->symbol()->name(), 'symbol_type' => $nodeContext->symbol()->symbolType(), 'start' => $nodeContext->symbol()->position()->start()->toInt(), 'end' => $nodeContext->symbol()->position()->end()->toInt(), 'type' => (string) $nodeContext->type(), 'container_type' => (string) $nodeContext->containerType(), 'value' => \var_export(TypeUtil::valueOrNull($nodeContext->type()), \true), 'offset' => $offset, 'type_path' => null];
         $frame = [];
         foreach (['locals', 'properties'] as $assignmentType) {
             $assignments = $reflectionOffset->frame()->{$assignmentType}();
@@ -42,7 +42,7 @@ class OffsetInfoHandler implements Handler
             }
         }
         $return['frame'] = $frame;
-        if (\false === $symbolContext->type()->isDefined()) {
+        if (\false === $nodeContext->type()->isDefined()) {
             return $return;
         }
         return $return;

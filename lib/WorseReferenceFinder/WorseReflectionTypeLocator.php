@@ -10,10 +10,8 @@ use Phpactor\ReferenceFinder\Exception\CouldNotLocateType;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\Location;
 use Phpactor\TextDocument\TextDocument;
-use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\WorseReflection\Core\ClassName;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
-use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\Type\ArrayType;
 use Phpactor\WorseReflection\Core\Type\ClassType;
@@ -23,17 +21,12 @@ class WorseReflectionTypeLocator implements TypeLocator
     public function __construct(private Reflector $reflector)
     {
     }
-    public function locateTypes(TextDocument $document, ByteOffset $byteOffset) : TypeLocations
+    public function locateTypes(TextDocument $textDocument, ByteOffset $byteOffset) : TypeLocations
     {
-        if (\false === $document->language()->isPhp()) {
+        if (\false === $textDocument->language()->isPhp()) {
             throw new UnsupportedDocument('I only work with PHP files');
         }
-        if ($uri = $document->uri()) {
-            $sourceCode = SourceCode::fromPathAndString($uri->__toString(), $document->__toString());
-        } else {
-            $sourceCode = SourceCode::fromString($document->__toString());
-        }
-        $type = $this->reflector->reflectOffset($sourceCode, $byteOffset->toInt())->symbolContext()->type();
+        $type = $this->reflector->reflectOffset($textDocument, $byteOffset->toInt())->nodeContext()->type();
         $typeLocations = [];
         foreach ($type->expandTypes() as $type) {
             if ($type instanceof ArrayType) {
@@ -54,8 +47,8 @@ class WorseReflectionTypeLocator implements TypeLocator
         } catch (NotFound $e) {
             throw new CouldNotLocateType($e->getMessage(), 0, $e);
         }
-        $path = $class->sourceCode()->path();
-        return new Location(TextDocumentUri::fromString($path), ByteOffset::fromInt($class->position()->start()));
+        $textDocument = $class->sourceCode();
+        return new Location($textDocument->uriOrThrow(), ByteOffset::fromInt($class->position()->start()->toInt()));
     }
     private function resolveClassName(Type $type) : ClassName
     {

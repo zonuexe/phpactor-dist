@@ -29,10 +29,10 @@ class WorseExtractConstant implements ExtractConstant
     }
     public function extractConstant(SourceCode $sourceCode, int $offset, string $constantName) : TextDocumentEdits
     {
-        $symbolInformation = $this->reflector->reflectOffset($sourceCode->__toString(), $offset)->symbolContext();
+        $symbolInformation = $this->reflector->reflectOffset($sourceCode, $offset)->nodeContext();
         $textEdits = $this->addConstant($sourceCode, $symbolInformation, $constantName);
         $textEdits = $textEdits->merge($this->replaceValues($sourceCode, $offset, $constantName));
-        return new TextDocumentEdits(TextDocumentUri::fromString($sourceCode->path()), $textEdits);
+        return new TextDocumentEdits(TextDocumentUri::fromString($sourceCode->uri()->path()), $textEdits);
     }
     public function canExtractConstant(SourceCode $source, int $offset) : bool
     {
@@ -51,7 +51,10 @@ class WorseExtractConstant implements ExtractConstant
         $builder = SourceCodeBuilder::create();
         $classType = $symbolInformation->containerType()->expandTypes()->classLike()->firstOrNull();
         if (!$classType) {
-            throw new TransformException(\sprintf('Node does not belong to a class'));
+            throw new TransformException('Node does not belong to a class');
+        }
+        if ($classType->members()->constants()->has($constantName)) {
+            throw new TransformException(\sprintf('Constant with name %s already exists on class %s', $constantName, $classType->name()->short()));
         }
         $builder->namespace($classType->name()->namespace());
         $builder->class($classType->name()->short())->constant($constantName, TypeUtil::valueOrNull($symbolInformation->type()))->end();

@@ -56,6 +56,14 @@ final class TestMessageTransmitter implements \Phpactor\LanguageServer\Core\Serv
         }
         return $message;
     }
+    public function mustShiftRequest() : RequestMessage
+    {
+        $message = $this->shiftRequest();
+        if (null === $message) {
+            throw new RuntimeException('No request messages left to shift!');
+        }
+        return $message;
+    }
     public function clear() : void
     {
         $this->buffer = [];

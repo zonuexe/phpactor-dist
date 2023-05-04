@@ -145,10 +145,7 @@ class UseStatementUpdater
         });
         return $usePrototypes;
     }
-    /**
-     * @param mixed $usePrototype
-     */
-    private function buildEditText($usePrototype) : string
+    private function buildEditText(UseStatement $usePrototype) : string
     {
         $editText = ['use '];
         if ($usePrototype->type() === UseStatement::TYPE_FUNCTION) {

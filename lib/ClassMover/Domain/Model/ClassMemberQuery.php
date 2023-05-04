@@ -9,18 +9,19 @@ final class ClassMemberQuery
     const TYPE_CONSTANT = 'constant';
     const TYPE_METHOD = 'method';
     const TYPE_PROPERTY = 'property';
-    private $validTypes = [self::TYPE_CONSTANT, self::TYPE_METHOD, self::TYPE_PROPERTY];
+    /** @var array<string> */
+    private array $validTypes = [self::TYPE_CONSTANT, self::TYPE_METHOD, self::TYPE_PROPERTY];
     private ?string $type;
-    private function __construct(private ?\Phpactor\ClassMover\Domain\Model\Class_ $class = null, private ?MemberName $memberName = null, string $type = null)
+    private function __construct(private ?\Phpactor\ClassMover\Domain\Model\Class_ $class = null, private ?MemberName $memberName = null, ?string $type = null)
     {
         if (null !== $type && \false === \in_array($type, $this->validTypes)) {
             throw new InvalidArgumentException(\sprintf('Invalid member type "%s", valid types: "%s"', $type, \implode('", "', $this->validTypes)));
         }
         $this->type = $type;
     }
-    public function __toString()
+    public function __toString() : string
     {
-        return $this->class;
+        return (string) $this->class;
     }
     public static function create() : \Phpactor\ClassMover\Domain\Model\ClassMemberQuery
     {
@@ -66,7 +67,7 @@ final class ClassMemberQuery
     {
         return new self($this->class, $this->memberName, $memberType);
     }
-    public function memberName() : MemberName
+    public function memberName() : ?MemberName
     {
         return $this->memberName;
     }
@@ -84,11 +85,11 @@ final class ClassMemberQuery
         }
         return $className == (string) $this->class;
     }
-    public function class() : \Phpactor\ClassMover\Domain\Model\Class_
+    public function class() : ?\Phpactor\ClassMover\Domain\Model\Class_
     {
         return $this->class;
     }
-    public function type() : string
+    public function type() : ?string
     {
         return $this->type;
     }

@@ -4,6 +4,7 @@ namespace Phpactor\Extension\LanguageServerPhpCsFixer\Model;
 
 use PhpactorDist\Amp\Process\Process;
 use PhpactorDist\Amp\Promise;
+use Phpactor\Amp\Process\ProcessBuilder;
 use Phpactor\Extension\LanguageServerPhpCsFixer\Exception\PhpCsFixerError;
 use PhpactorDist\Psr\Log\LoggerInterface;
 use function PhpactorDist\Amp\ByteStream\buffer;
@@ -64,7 +65,7 @@ class PhpCsFixerProcess
     public function run(string ...$args) : Promise
     {
         return call(function () use($args) {
-            $process = new Process([$this->binPath, ...$args], null, $this->env);
+            $process = ProcessBuilder::create([$this->binPath, ...$args])->mergeParentEnv()->env($this->env)->build();
             (yield $process->start());
             $process->join()->onResolve(function (?Throwable $error, $data) use($process) : void {
                 $this->logger->log($error ? 'warning' : 'debug', \sprintf('Executed %s, which exited with %s', $process->getCommand(), $data));

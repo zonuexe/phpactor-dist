@@ -14,7 +14,7 @@ class LanguageServerExtraExtension implements Extension
     public function load(ContainerBuilder $container) : void
     {
         $container->register(OnDevelopWarningService::class, function (Container $container) {
-            return new OnDevelopWarningService($container->get(ClientApi::class), $container->get('application.status'), $container->getParameter(CoreExtension::PARAM_WARN_ON_DEVELOP));
+            return new OnDevelopWarningService($container->get(ClientApi::class), $container->get('application.status'), $container->parameter(CoreExtension::PARAM_WARN_ON_DEVELOP)->bool());
         }, [\Phpactor\Extension\LanguageServer\LanguageServerExtension::TAG_SERVICE_PROVIDER => []]);
     }
     public function configure(Resolver $schema) : void

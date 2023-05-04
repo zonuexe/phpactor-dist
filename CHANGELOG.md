@@ -5,16 +5,61 @@ Changelog
 
 Features:
 
-  - Hierarchical namespace segment completion #2070
-  - Completion for promoted property visiblity #2087
+  - Diagnostics and code action for fixing missing `@implements` and `@extends` #2112
+  - Diagnostic for undefined variables #2209
+  - Code action to suggest fixes for undefined variables (in case of typos) #2209
+  - PHPUnit: code action for adding `setUp` / `tearDown` #2180 @mamazu
 
 Bug fixes:
 
+  - Fix constant declaration indexing with `define` #2249 @mamazu
+  - Fix use of class-string<Foo> variable as static scope resolution qualifier #2238
+  - URL decode root URI - fixes issues with special chars in path #2228
+  - Do not deduplicate suggestions of different types (e.g. prop/method with same name) #2214
+  - Fix list assignment #2226
+  - Support parsing interface clause on enums #2220
+  - Do not make fully qualified name usage relative in class-mover #2208 @mamazu
+  - Fix resolution of `self` type (esp. in relation to traits) #2116
+  - Fix different virtual member types with the same name replacing eachother #2108
+  - Specify maximimum size (255 chars) for string literal types #2144
+  - Fix docblock parser with `$this` when used as generic argument #2092
+
+## 2023.04.10
+
+Features:
+
+  - Show references to new objects when finding references to `__construct` method #2194
+  - Support for inlay hints #2138
+  - Deprecation diagnostics #2120
+  - Auto configuration - automatically suggest and apply configuration #2114
+  - Transform to "promote" unassigned consturctor properties #2106
+  - Hierarchical namespace segment completion #2070
+  - Completion for promoted property visiblity #2087
+  - Option `language_server.diagnostic_outsource` to outsource diagnostics in separate process #2105
+
+Bug fixes:
+
+  - Also use in-memory files when enanching indexed records #2187
+  - Prophecy: Do not crash when used in trait #2129
+  - Prophecy: fixing chaining of methods via. `getObjectProphecy` #2122
   - `new class-string<Foo>` now resolves to `new Foo` #2065
   - Fix extract method within trait #2076 @mamazu
+  - Do not attempt to index classes whose names are reserved words #2098
+  - Fix typo in LanguageServerExtension::PARAM_FILE_EVENTS resulting in typo in documentation
+  - Fix parsing array types in `@param` Tags in doc blocks #2172
 
 Improvements:
 
+  - Only show completion suggestions for real attributes #2183, #2100 @mamazu @przepompownia
+  - Code action and formatting handlers now send progress notifications #2192
+  - Invalidate diagnostics cache only when document changes #2191
+  - Optimize analysis for scopes with many many assignments #2188
+  - Made some heavy blocking operations non-blocking (e.g. diagnostics, code
+    actions).
+  - ⚠ Removed frame sorting which increases radically in some cases, but may
+    also cause regressions #2179
+  - Psalm: Support for overriding the error level #2174
+  - Generating constructor at the top of the file #2113 @mamazu
   - Include (complex) docblock params when generating method
   - Take into account named parameters when "guessing" parameter names #2090
   - Show full FQN for classes in hover #2081

@@ -36,8 +36,8 @@ class WorsePlainTextClassDefinitionLocator implements DefinitionLocator
         } catch (NotFound $notFound) {
             throw new CouldNotLocateDefinition(\sprintf('Word "%s" could not be resolved to a class', $word), 0, $notFound);
         }
-        $path = $reflectionClass->sourceCode()->path();
-        return new TypeLocations([new TypeLocation($reflectionClass->type(), new Location(TextDocumentUri::fromString($path), ByteOffset::fromInt($reflectionClass->position()->start())))]);
+        $path = $reflectionClass->sourceCode()->uri()?->path();
+        return new TypeLocations([new TypeLocation($reflectionClass->type(), new Location(TextDocumentUri::fromString($path), ByteOffset::fromInt($reflectionClass->position()->start()->toInt())))]);
     }
     private function extractWord(TextDocument $document, ByteOffset $byteOffset) : string
     {

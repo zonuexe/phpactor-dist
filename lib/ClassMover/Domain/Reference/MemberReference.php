@@ -9,7 +9,7 @@ class MemberReference
     private function __construct(private MemberName $method, private \Phpactor\ClassMover\Domain\Reference\Position $position, private ?Class_ $class = null)
     {
     }
-    public function __toString()
+    public function __toString() : string
     {
         return \sprintf('[%s:%s] %s', $this->position->start(), $this->position->end(), (string) $this->method);
     }
@@ -37,7 +37,7 @@ class MemberReference
     {
         return new self($this->method, $this->position, $class);
     }
-    public function class() : Class_
+    public function class() : ?Class_
     {
         return $this->class;
     }

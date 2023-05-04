@@ -7,9 +7,12 @@ namespace Phpactor\CodeBuilder\Domain\Prototype;
  */
 class Properties extends \Phpactor\CodeBuilder\Domain\Prototype\Collection
 {
-    public static function fromProperties(array $properties)
+    /**
+     * @param array<Property> $properties
+     */
+    public static function fromProperties(array $properties) : self
     {
-        return new static(\array_reduce($properties, function ($acc, $property) {
+        return new static(\array_reduce($properties, function ($acc, \Phpactor\CodeBuilder\Domain\Prototype\Property $property) {
             $acc[$property->name()] = $property;
             return $acc;
         }, []));

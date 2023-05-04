@@ -139,7 +139,7 @@ final class ClassLikeReflectionMemberCollection extends \Phpactor\WorseReflectio
     public function atOffset(int $offset) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection
     {
         return $this->filter(function (ReflectionMember $member) use($offset) {
-            return $member->position()->start() <= $offset && $member->position()->end() >= $offset;
+            return $member->position()->start()->toInt() <= $offset && $member->position()->end()->toInt() >= $offset;
         });
     }
     public function byName(string $name) : \Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection

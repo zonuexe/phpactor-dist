@@ -48,7 +48,7 @@ class ClassNewCommand extends Command
         } catch (FileAlreadyExists) {
             return ['src' => $src, 'path' => null, 'exists' => \true];
         }
-        return ['src' => $src, 'path' => $sourceCode->path(), 'exists' => \false];
+        return ['src' => $src, 'path' => $sourceCode->uri()->path(), 'exists' => \false];
     }
     private function listGenerators(InputInterface $input, OutputInterface $output) : void
     {

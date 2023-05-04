@@ -10,7 +10,7 @@ class AssertStub implements FunctionStub
 {
     public function resolve(Frame $frame, NodeContext $context, FunctionArguments $args) : NodeContext
     {
-        $frame->applyTypeAssertions($args->at(0)->typeAssertions(), $context->symbol()->position()->end());
+        $frame->applyTypeAssertions($args->at(0)->typeAssertions(), $context->symbol()->position()->end()->toInt());
         return $context;
     }
 }

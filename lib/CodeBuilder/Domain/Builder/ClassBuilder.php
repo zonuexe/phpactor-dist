@@ -68,6 +68,6 @@ class ClassBuilder extends \Phpactor\CodeBuilder\Domain\Builder\ClassLikeBuilder
             return $builder->build();
         }, $this->constants)), Methods::fromMethods(\array_map(function (\Phpactor\CodeBuilder\Domain\Builder\MethodBuilder $builder) {
             return $builder->build();
-        }, $this->methods)), $this->extends, ImplementsInterfaces::fromTypes($this->interfaces), UpdatePolicy::fromModifiedState($this->isModified()));
+        }, $this->methods)), $this->extends, ImplementsInterfaces::fromTypes($this->interfaces), UpdatePolicy::fromModifiedState($this->isModified()), $this->docblock);
     }
 }

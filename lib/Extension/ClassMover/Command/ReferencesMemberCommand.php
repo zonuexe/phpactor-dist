@@ -33,14 +33,14 @@ class ReferencesMemberCommand extends Command
         FormatHandler::configure($this);
         FilesystemHandler::configure($this, SourceCodeFilesystemExtension::FILESYSTEM_GIT);
     }
-    public function execute(InputInterface $input, OutputInterface $output, $bar = null)
+    public function execute(InputInterface $input, OutputInterface $output) : int
     {
         $class = $input->getArgument('class');
         $member = $input->getArgument('member');
         $format = $input->getOption('format');
         $replace = $input->getOption('replace');
-        $dryRun = $input->getOption('dry-run');
-        $risky = $input->getOption('risky');
+        $dryRun = (bool) $input->getOption('dry-run');
+        $risky = (bool) $input->getOption('risky');
         $memberType = $input->getOption('type');
         $filesystem = $input->getOption('filesystem');
         $results = $this->memberReferences->findOrReplaceReferences($filesystem, $class, $member, $memberType, $replace, $dryRun);
@@ -49,7 +49,7 @@ class ReferencesMemberCommand extends Command
         }
         if ($format) {
             $this->dumperRegistry->get($format)->dump($output, $results);
-            return;
+            return 0;
         }
         $output->writeln('<comment># References:</>');
         $count = $this->renderTable($output, $results, 'references', $output->isDecorated());
@@ -73,7 +73,7 @@ class ReferencesMemberCommand extends Command
         $output->writeln(\sprintf('%s reference(s), %s risky references', $count, $riskyCount));
         return 0;
     }
-    private function renderTable(OutputInterface $output, array $results, string $type, bool $ansi)
+    private function renderTable(OutputInterface $output, array $results, string $type, bool $ansi) : int
     {
         $table = new Table($output);
         $table->setHeaders(['Path', 'LN', 'Line', 'OS', 'OE']);

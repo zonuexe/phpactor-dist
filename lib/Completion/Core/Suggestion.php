@@ -136,13 +136,6 @@ class Suggestion
      */
     public function fqn() : ?string
     {
-        return $this->nameImport();
-    }
-    /**
-     * @deprecated Use fqn()
-     */
-    public function nameImport() : ?string
-    {
         return $this->nameImport;
     }
     public function label() : string

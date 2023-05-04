@@ -2126,7 +2126,7 @@ class Redis
      * @param string       $key
      * @param mixed        $value
      *
-     * @return string|mixed||false|Redis A string (mixed, if used serializer), the previous value located at this key or false if it didn't exist or Redis if in multimode
+     * @return string|mixed|false|Redis A string (mixed, if used serializer), the previous value located at this key or false if it didn't exist or Redis if in multimode
      *
      * @throws RedisException
      *
@@ -3988,52 +3988,6 @@ class Redis
      * </pre>
      */
     public function bzPopMin($key_or_keys, $timeout_or_key, ...$extra_args) {}
-
-    /**
-     * Can pop the highest scoring members from one ZSET.
-     *
-     * @param string $key
-     * @param int|null $count
-     *
-     * @return array|Redis Either an array with the key member and score of the highest element or an empty array or Redis if in multimode
-     * if there is no element to pop.
-     *
-     * @throws RedisException
-     *
-     * @since >= 5.0
-     * @link https://redis.io/commands/zpopmax
-     * @example
-     * <pre>
-     * // Pop the *lowest* scoring member from set `zs1`.
-     * $redis->zPopMax('zs1');
-     * // Pop the *lowest* 3 scoring member from set `zs1`.
-     * $redis->zPopMax('zs1', 3);
-     * </pre>
-     */
-    public function zPopMax($key, $count = null) {}
-
-    /**
-     * Can pop the lowest scoring members from one ZSET.
-     *
-     * @param string $key
-     * @param int|null $count
-     *
-     * @return array|Redis Either an array with the key member and score of the lowest element or an empty array or Redis if in multimode
-     * if there is no element to pop.
-     *
-     * @throws RedisException
-     *
-     * @since >= 5.0
-     * @link https://redis.io/commands/zpopmin
-     * @example
-     * <pre>
-     * // Pop the *lowest* scoring member from set `zs1`.
-     * $redis->zPopMin('zs1');
-     * // Pop the *lowest* 3 scoring member from set `zs1`.
-     * $redis->zPopMin('zs1', 3);
-     * </pre>
-     */
-    public function zPopMin($key, $count = null) {}
 
     /**
      * Adds a value to the hash stored at key. If this value is already in the hash, FALSE is returned.

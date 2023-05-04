@@ -22,7 +22,7 @@ final class QualifiedName implements \Phpactor\Name\Name
     {
         return new self($parts);
     }
-    public static function fromString(string $string) : \Phpactor\Name\QualifiedName
+    public static function fromString(string $string) : self
     {
         return new self(\array_filter(\explode(self::NAMESPACE_SEPARATOR, $string)));
     }
@@ -66,7 +66,7 @@ final class QualifiedName implements \Phpactor\Name\Name
     {
         $parts = $this->parts;
         \array_unshift($parts, ...$name->toArray());
-        return new self($parts);
+        return new self($parts ?? []);
     }
     /**
      * @return QualifiedName

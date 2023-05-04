@@ -69,7 +69,7 @@ class WorseGenerateConstructor implements GenerateConstructor
         if ($docblock) {
             $method->docblock(\implode("\n", $docblock));
         }
-        return new WorkspaceEdits(new TextDocumentEdits(TextDocumentUri::fromString($reflectionNode->class()->sourceCode()->mustGetUri()), $this->updater->textEditsFor($builder->build(), Code::fromString($reflectionNode->class()->sourceCode()))));
+        return new WorkspaceEdits(new TextDocumentEdits(TextDocumentUri::fromString($reflectionNode->class()->sourceCode()->uriOrThrow()), $this->updater->textEditsFor($builder->build(), Code::fromString($reflectionNode->class()->sourceCode()))));
     }
     private function reflectionNode(TextDocument $document, ByteOffset $offset) : ?ReflectionNode
     {

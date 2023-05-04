@@ -9,6 +9,7 @@ use Phpactor\WorseReflection\Core\Type\ArrayType;
 use Phpactor\WorseReflection\Core\Type\ClassType;
 use Phpactor\WorseReflection\Core\Type\ClosureType;
 use Phpactor\WorseReflection\Core\Type\Generalizable;
+use Phpactor\WorseReflection\Core\Type\GenericClassType;
 use Phpactor\WorseReflection\Core\Type\IntersectionType;
 use Phpactor\WorseReflection\Core\Type\Literal;
 use Phpactor\WorseReflection\Core\Type\MissingType;
@@ -107,6 +108,9 @@ abstract class Type
         }
         if ($type instanceof NullableType) {
             return '?' . $type->type->short();
+        }
+        if ($type instanceof GenericClassType) {
+            return \sprintf('%s<%s>', $type->name()->short(), \implode(',', \array_map(fn(\Phpactor\WorseReflection\Core\Type $arg) => $arg->short(), $type->arguments())));
         }
         if ($type instanceof ClassType) {
             return $type->name()->short();

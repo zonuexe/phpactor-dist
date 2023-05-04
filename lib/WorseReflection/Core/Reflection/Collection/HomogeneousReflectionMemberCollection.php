@@ -56,7 +56,7 @@ class HomogeneousReflectionMemberCollection extends \Phpactor\WorseReflection\Co
     public function atOffset(int $offset) : \Phpactor\WorseReflection\Core\Reflection\Collection\HomogeneousReflectionMemberCollection
     {
         return new static(\array_filter($this->items, function (ReflectionMember $item) use($offset) {
-            return $item->position()->start() <= $offset && $item->position()->end() >= $offset;
+            return $item->position()->start()->toInt() <= $offset && $item->position()->end()->toInt() >= $offset;
         }));
     }
     /**

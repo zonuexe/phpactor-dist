@@ -33,7 +33,7 @@ class WorseInterestingOffsetFinder implements InterestingOffsetFinder
     private function resolveInterestingOffset(TextDocument $source, ByteOffset $offset) : ?ByteOffset
     {
         $reflectionOffset = $this->reflector->reflectOffset($source, $offset->toInt());
-        $symbolType = $reflectionOffset->symbolContext()->symbol()->symbolType();
+        $symbolType = $reflectionOffset->nodeContext()->symbol()->symbolType();
         if ($symbolType !== Symbol::UNKNOWN) {
             return $offset;
         }

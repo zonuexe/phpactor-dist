@@ -33,4 +33,8 @@ class ReplaceQualifierWithImportProvider implements CodeActionProvider
             return [CodeAction::fromArray(['title' => 'Replace qualifier with import', 'kind' => self::KIND, 'diagnostics' => [], 'command' => new Command('Replace qualifier with import', ReplaceQualifierWithImportCommand::NAME, [$textDocument->uri, PositionConverter::positionToByteOffset($range->start, $textDocument->text)->toInt()])])];
         });
     }
+    public function describe() : string
+    {
+        return 'replace qualifier with importer';
+    }
 }

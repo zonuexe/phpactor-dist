@@ -13,7 +13,7 @@ use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionPropertyCollec
 use Phpactor\WorseReflection\Core\Reflection\ReflectionEnum as CoreReflectionEnum;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMember;
 use Phpactor\WorseReflection\Core\ServiceLocator;
-use Phpactor\WorseReflection\Core\SourceCode;
+use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Core\DocBlock\DocBlock;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollection;
@@ -21,7 +21,7 @@ use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Core\Util\NodeUtil;
 class ReflectionEnum extends \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\AbstractReflectionClass implements CoreReflectionEnum
 {
-    public function __construct(private ServiceLocator $serviceLocator, private SourceCode $sourceCode, private EnumDeclaration $node)
+    public function __construct(private ServiceLocator $serviceLocator, private TextDocument $sourceCode, private EnumDeclaration $node)
     {
     }
     public function methods(ReflectionClassLike $contextClass = null) : CoreReflectionMethodCollection
@@ -61,7 +61,7 @@ class ReflectionEnum extends \Phpactor\WorseReflection\Bridge\TolerantParser\Ref
     {
         return ClassName::fromString((string) $this->node()->getNamespacedName());
     }
-    public function sourceCode() : SourceCode
+    public function sourceCode() : TextDocument
     {
         return $this->sourceCode;
     }
@@ -83,6 +83,10 @@ class ReflectionEnum extends \Phpactor\WorseReflection\Bridge\TolerantParser\Ref
     public function backedType() : Type
     {
         return NodeUtil::typeFromQualfiedNameLike($this->serviceLocator()->reflector(), $this->node, $this->node->enumType);
+    }
+    public function classLikeType() : string
+    {
+        return 'enum';
     }
     /**
      * @return EnumDeclaration

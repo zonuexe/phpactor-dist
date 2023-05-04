@@ -76,6 +76,13 @@ abstract class AbstractReflectionCollection implements \Phpactor\WorseReflection
         return \reset($this->items);
     }
     /**
+     * @return T|null
+     */
+    public function firstOrNull()
+    {
+        return \reset($this->items) ?: null;
+    }
+    /**
      * @return T
      */
     public function last()

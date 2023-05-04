@@ -21,10 +21,10 @@ class ReturnStatementResolver implements Resolver
         $type = $resolver->resolveNode($frame, $node->expression)->type();
         $context = $context->withType($type);
         if ($frame->returnType()->isVoid()) {
-            $frame->withReturnType($type);
+            $frame->setReturnType($type);
             return $context;
         }
-        $frame->withReturnType($frame->returnType()->addType($type));
+        $frame->setReturnType($frame->returnType()->addType($type));
         return $context;
     }
 }

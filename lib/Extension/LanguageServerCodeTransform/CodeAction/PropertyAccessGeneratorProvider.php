@@ -5,6 +5,7 @@ namespace Phpactor\Extension\LanguageServerCodeTransform\CodeAction;
 use PhpactorDist\Amp\CancellationToken;
 use PhpactorDist\Amp\Promise;
 use Phpactor\Extension\LanguageServerBridge\Converter\PositionConverter;
+use Phpactor\Extension\LanguageServerBridge\Converter\TextDocumentConverter;
 use Phpactor\LanguageServerProtocol\CodeAction;
 use Phpactor\LanguageServerProtocol\Command;
 use Phpactor\LanguageServerProtocol\Range;
@@ -32,7 +33,7 @@ class PropertyAccessGeneratorProvider implements CodeActionProvider
             }
             $startOffset = PositionConverter::positionToByteOffset($range->start, $textDocument->text)->toInt();
             $endOffset = PositionConverter::positionToByteOffset($range->end, $textDocument->text)->toInt();
-            $classes = $this->reflector->reflectClassesIn($textDocument->text);
+            $classes = $this->reflector->reflectClassesIn(TextDocumentConverter::fromLspTextItem($textDocument));
             if ($classes->count() === 0) {
                 return [];
             }
@@ -44,7 +45,7 @@ class PropertyAccessGeneratorProvider implements CodeActionProvider
             $propertyNames = [];
             foreach ($reflectionClass->properties() as $property) {
                 \assert($property instanceof ReflectionProperty);
-                if ($property->position()->start() < $startOffset || $property->position()->end() > $endOffset) {
+                if ($property->position()->start()->toInt() < $startOffset || $property->position()->end()->toInt() > $endOffset) {
                     continue;
                 }
                 $propertyNames[] = $property->name();
@@ -55,5 +56,9 @@ class PropertyAccessGeneratorProvider implements CodeActionProvider
             $title = \sprintf('Generate %s %s(s)', \count($propertyNames), $this->generatorRole);
             return [CodeAction::fromArray(['title' => $title, 'kind' => $this->kind, 'command' => new Command($title, $this->command, [$textDocument->uri, $startOffset, $propertyNames])])];
         });
+    }
+    public function describe() : string
+    {
+        return 'add properties that are assigned to but not present';
     }
 }

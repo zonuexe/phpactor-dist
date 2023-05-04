@@ -16,6 +16,7 @@ use PhpactorDist\PackageVersions\Versions;
 use Phpactor\Extension\Logger\LoggingExtension;
 use Phpactor\Extension\Console\ConsoleExtension;
 use Exception;
+use Throwable;
 class Application extends SymfonyApplication
 {
     private Container $container;
@@ -40,7 +41,9 @@ class Application extends SymfonyApplication
             return parent::doRun($input, $output);
         } catch (Exception $e) {
             if ($input->hasArgument('command') && ($command = $input->getArgument('command')) && $command !== 'list' && $input->hasOption('format') && $input->getOption('format')) {
-                return $this->handleException($output, $input->getOption('format'), $e);
+                /** @var string $format */
+                $format = $input->getOption('format');
+                return $this->handleException($output, $format, $e);
             }
             if ($output instanceof ConsoleOutputInterface) {
                 $this->renderThrowable($e, $output->getErrorOutput());
@@ -67,7 +70,7 @@ class Application extends SymfonyApplication
     /**
      * @return array<string, string>
      */
-    private function serializeException(Exception $e) : array
+    private function serializeException(Throwable $e) : array
     {
         return ['class' => \get_class($e), 'code' => $e->getCode(), 'message' => $e->getMessage()];
     }

@@ -29,7 +29,7 @@ class WorseStepFactory implements StepFactory
                     continue;
                 }
                 foreach ($steps as $step) {
-                    (yield new Step($context, $method->name(), $step, $class->sourceCode()->path(), $method->position()->start()));
+                    (yield new Step($context, $method->name(), $step, $class->sourceCode()->uri()?->path(), $method->position()->start()->toInt()));
                 }
             }
         }

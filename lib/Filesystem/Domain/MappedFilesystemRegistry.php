@@ -5,7 +5,9 @@ namespace Phpactor\Filesystem\Domain;
 use Phpactor\Filesystem\Domain\Exception\FilesystemNotFound;
 class MappedFilesystemRegistry implements \Phpactor\Filesystem\Domain\FilesystemRegistry
 {
-    private $filesystems = [];
+    /** @var array<string, Filesystem> */
+    private array $filesystems = [];
+    /** @param array<string, Filesystem> $filesystemMap */
     public function __construct(array $filesystemMap)
     {
         foreach ($filesystemMap as $name => $filesystem) {
@@ -19,10 +21,11 @@ class MappedFilesystemRegistry implements \Phpactor\Filesystem\Domain\Filesystem
         }
         return $this->filesystems[$name];
     }
-    public function has(string $name)
+    public function has(string $name) : bool
     {
         return isset($this->filesystems[$name]);
     }
+    /** @return array<string> */
     public function names() : array
     {
         return \array_keys($this->filesystems);

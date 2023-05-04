@@ -7,9 +7,8 @@ use PhpactorDist\Composer\Autoload\ClassLoader;
 use Phpactor\Filesystem\Domain\FilePath;
 class ComposerFilesystem extends SimpleFilesystem
 {
-    public function __construct($path, ClassLoader $classLoader)
+    public function __construct(FilePath $path, ClassLoader $classLoader)
     {
-        $path = FilePath::fromUnknown($path);
         parent::__construct($path, new \Phpactor\Filesystem\Adapter\Composer\ComposerFileListProvider($path, $classLoader));
     }
 }

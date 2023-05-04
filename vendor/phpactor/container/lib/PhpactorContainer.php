@@ -108,4 +108,12 @@ class PhpactorContainer implements \Phpactor\Container\Container, \Phpactor\Cont
     {
         return $this->tags;
     }
+    public function expect(string $id, string $expected) : object
+    {
+        return $this->get($id);
+    }
+    public function parameter(string $name) : \Phpactor\Container\Parameter
+    {
+        return new \Phpactor\Container\Parameter($this->getParameter($name));
+    }
 }

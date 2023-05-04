@@ -2,14 +2,23 @@
 
 namespace Phpactor\CodeBuilder\Adapter\TolerantParser\Updater;
 
+use PhpactorDist\Microsoft\PhpParser\Node\ClassMembersNode;
 use PhpactorDist\Microsoft\PhpParser\ClassLike;
 use PhpactorDist\Microsoft\PhpParser\Node\Statement\ClassDeclaration;
 use PhpactorDist\Microsoft\PhpParser\Node\Statement\TraitDeclaration;
+use PhpactorDist\Microsoft\PhpParser\Node\TraitMembers;
 use Phpactor\CodeBuilder\Domain\Renderer;
 use Phpactor\CodeBuilder\Domain\Prototype\Method;
 use RuntimeException;
+use PhpactorDist\Microsoft\PhpParser\Node;
+/**
+ * @extends AbstractMethodUpdater<ClassMembersNode|TraitMembers>
+ */
 class ClassMethodUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Updater\AbstractMethodUpdater
 {
+    /**
+     * @return ClassMembersNode|TraitMembers
+     */
     public function memberDeclarationsNode(ClassLike $classNode)
     {
         if ($classNode instanceof ClassDeclaration) {
@@ -18,13 +27,14 @@ class ClassMethodUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Up
         if ($classNode instanceof TraitDeclaration) {
             return $classNode->traitMembers;
         }
-        throw new RuntimeException(\sprintf('Cnanot get member declarations for "%s"', \get_class($classNode)));
+        throw new RuntimeException(\sprintf('Can not get member declarations for "%s"', \get_class($classNode)));
     }
-    public function renderMethod(Renderer $renderer, Method $method)
+    public function renderMethod(Renderer $renderer, Method $method) : string
     {
         return $renderer->render($method) . \PHP_EOL . $renderer->render($method->body());
     }
-    protected function memberDeclarations(ClassLike $classNode)
+    /** @return array<Node> */
+    protected function memberDeclarations(ClassLike $classNode) : array
     {
         if ($classNode instanceof ClassDeclaration) {
             return $classNode->classMembers->classMemberDeclarations;
@@ -32,6 +42,6 @@ class ClassMethodUpdater extends \Phpactor\CodeBuilder\Adapter\TolerantParser\Up
         if ($classNode instanceof TraitDeclaration) {
             return $classNode->traitMembers->traitMemberDeclarations;
         }
-        throw new RuntimeException(\sprintf('Cnanot get member declarations for "%s"', \get_class($classNode)));
+        throw new RuntimeException(\sprintf('Can not get member declarations for "%s"', \get_class($classNode)));
     }
 }

@@ -30,7 +30,7 @@ class IntLiteralType extends \Phpactor\WorseReflection\Core\Type\IntType impleme
     {
         return new self(-$this->value());
     }
-    public function withValue($value) : \Phpactor\WorseReflection\Core\Type\IntLiteralType
+    public function withValue(mixed $value) : \Phpactor\WorseReflection\Core\Type\IntLiteralType
     {
         $new = clone $this;
         $new->value = (int) $value;

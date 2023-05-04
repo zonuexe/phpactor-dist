@@ -2,7 +2,10 @@
 
 namespace Phpactor\WorseReflection;
 
+use Phpactor\TextDocument\TextDocument;
+use Phpactor\TextDocument\TextDocumentBuilder;
 use Phpactor\WorseReflection\Core\Cache;
+use Phpactor\WorseReflection\Core\CacheForDocument;
 use Phpactor\WorseReflection\Core\Cache\NullCache;
 use Phpactor\WorseReflection\Core\Cache\TtlCache;
 use Phpactor\WorseReflection\Core\DiagnosticProvider;
@@ -15,22 +18,17 @@ use Phpactor\WorseReflection\Core\SourceCodeLocator\ChainSourceLocator;
 use Phpactor\WorseReflection\Core\SourceCodeLocator\InternalLocator;
 use Phpactor\WorseReflection\Core\SourceCodeLocator\NullSourceLocator;
 use Phpactor\WorseReflection\Core\SourceCodeLocator\StringSourceLocator;
-use Phpactor\WorseReflection\Core\SourceCode;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflector\TolerantFactory;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflectorFactory;
 use Phpactor\WorseReflection\Core\Virtual\ReflectionMemberProvider;
 use PhpactorDist\Psr\Log\LoggerInterface;
 final class ReflectorBuilder
 {
-    /**
-     * @var LoggerInterface
-     */
     private ?LoggerInterface $logger = null;
     /**
      * @var SourceCodeLocator[]
      */
     private array $locators = [];
-    private bool $contextualSourceLocation = \false;
     private bool $enableCache = \false;
     private bool $enableContextualSourceLocation = \false;
     /**
@@ -55,6 +53,7 @@ final class ReflectorBuilder
      * @var MemberContextResolver[]
      */
     private array $memberContextResolvers = [];
+    private CacheForDocument $cacheForDocument;
     /**
      * Create a new instance of the builder
      */
@@ -86,9 +85,9 @@ final class ReflectorBuilder
     /**
      * Add some source code
      */
-    public function addSource($code) : \Phpactor\WorseReflection\ReflectorBuilder
+    public function addSource(TextDocument|string $code) : \Phpactor\WorseReflection\ReflectorBuilder
     {
-        $source = SourceCode::fromUnknown($code);
+        $source = TextDocumentBuilder::fromUnknown($code);
         $this->addLocator(new StringSourceLocator($source));
         return $this;
     }
@@ -113,7 +112,7 @@ final class ReflectorBuilder
     public function build() : \Phpactor\WorseReflection\Reflector
     {
         $this->addLocator(InternalLocator::forInternalStubs(), 255);
-        return (new ServiceLocator($this->buildLocator(), $this->buildLogger(), $this->buildReflectorFactory(), $this->framewalkers, $this->memberProviders, $this->diagnosticProviders, $this->memberContextResolvers, $this->buildCache(), $this->enableContextualSourceLocation))->reflector();
+        return (new ServiceLocator($this->buildLocator(), $this->buildLogger(), $this->buildReflectorFactory(), $this->framewalkers, $this->memberProviders, $this->diagnosticProviders, $this->memberContextResolvers, $this->buildCache(), $this->cacheForDocument ?? new CacheForDocument(fn() => new NullCache()), $this->enableContextualSourceLocation))->reflector();
     }
     /**
      * Enable contextual source location.
@@ -144,6 +143,11 @@ final class ReflectorBuilder
     public function withCache(Cache $cache) : \Phpactor\WorseReflection\ReflectorBuilder
     {
         $this->cache = $cache;
+        return $this;
+    }
+    public function withCacheForDocument(CacheForDocument $cacheForDocument) : \Phpactor\WorseReflection\ReflectorBuilder
+    {
+        $this->cacheForDocument = $cacheForDocument;
         return $this;
     }
     /**
@@ -182,7 +186,7 @@ final class ReflectorBuilder
     {
         return $this->logger ?: new ArrayLogger();
     }
-    private function buildReflectorFactory()
+    private function buildReflectorFactory() : SourceCodeReflectorFactory
     {
         return $this->sourceReflectorFactory ?: new TolerantFactory();
     }

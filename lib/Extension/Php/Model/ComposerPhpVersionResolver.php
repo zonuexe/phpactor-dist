@@ -15,7 +15,8 @@ class ComposerPhpVersionResolver implements \Phpactor\Extension\Php\Model\PhpVer
         if (!($contents = \file_get_contents($this->composerJsonPath))) {
             return null;
         }
-        if (!($json = \json_decode($contents, \true))) {
+        $json = \json_decode($contents, \true);
+        if (!$json || !\is_array($json)) {
             return null;
         }
         if (isset($json['config']['platform']['php'])) {

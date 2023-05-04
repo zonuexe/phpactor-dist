@@ -26,7 +26,7 @@ class ReflectionNavigation
                 if (!$node->parent instanceof CallExpression) {
                     continue;
                 }
-                $calls[] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionMethodCall($this->locator, new Frame('test'), $node);
+                $calls[] = new \Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionMethodCall($this->locator, new Frame(), $node);
             }
         }
         return new NavigatorElementCollection($calls);
