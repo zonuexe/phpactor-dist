@@ -1,0 +1,6 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+Phar::loadPhar(__DIR__ . '/phpactor.phar', 'phpactor.phar');
+
+require 'phar://phpactor.phar/bin/phpactor';
