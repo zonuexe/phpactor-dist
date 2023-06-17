@@ -1,7 +1,0 @@
-<?php
-
-namespace Phpactor\WorseReflection\Core\Exception;
-
-class CycleDetected extends \Phpactor\WorseReflection\Core\Exception\NotFound
-{
-}
