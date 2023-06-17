@@ -14,7 +14,6 @@ composer global require zonuexe/phpactor-dist
 
 Applications generally avoid reinventing the wheel by relying on many external packages. However, when you install multiple tools at the same time, they often fail to install due to version conflicts or fall back to unintended older versions.
 
-That's because Composer only allows you to depend on a single version per package. [php-scoper] provides namespace isolation by adding a prefix to dependent classes. By bundling "isolated" versions of those libraries, dist packages can remove dependencies.
+That's because Composer only allows you to depend on a single version per package. This Composer package redistributes the PHAR archive and startup scripts to use Phpactor as a CLI tool. This allows users to easily update packages in Composer without conflict.
 
 [Phpactor]: https://github.com/phpactor/phpactor
-[php-scoper]: https://github.com/humbug/php-scoper
