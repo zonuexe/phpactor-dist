@@ -1,7 +1,0 @@
-{{ object.prose|trim }}
-{% for tagType in object.tagTypes() %}
-
-{% for tag in object.tags(tagType) %}
-{{ render(tag)|trim }}
-{% endfor %}
-{% endfor %}

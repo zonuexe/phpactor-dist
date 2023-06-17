@@ -1,3 +1,0 @@
-{% if object.deprecation.isDefined %}{{ render(object.deprecation) }}{% endif %}
-case {{ object.name }}{% if object.class.isBacked and object.value %} = {{ render(object.value) }}{% endif %}{{ ';' -}}
-
