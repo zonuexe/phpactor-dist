@@ -8,7 +8,7 @@ This package is a distribution of the Phpactor CLI executable.
 composer global require zonuexe/phpactor-dist
 ```
 
-**Note:**: This repository is a proof of concept to propose to the Phpactor mainstream. Do not depends on this package as it will be removed without notice.
+**Note**: This repository is a proof of concept to propose to the Phpactor mainstream. Do not depends on this package as it will be removed without notice.
 
 ## Why "dist" package?
 
