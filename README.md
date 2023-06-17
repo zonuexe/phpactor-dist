@@ -1,6 +1,6 @@
 # Phpactor Distribution
 
-This package distributes [Phpactor] and namespace-isolated dependent classes.
+This package is a distribution of the Phpactor CLI executable.
 
 ## How to install
 
@@ -15,5 +15,8 @@ composer global require zonuexe/phpactor-dist
 Applications generally avoid reinventing the wheel by relying on many external packages. However, when you install multiple tools at the same time, they often fail to install due to version conflicts or fall back to unintended older versions.
 
 That's because Composer only allows you to depend on a single version per package. This Composer package redistributes the PHAR archive and startup scripts to use Phpactor as a CLI tool. This allows users to easily update packages in Composer without conflict.
+
+> **Warning**
+> If this package conflicts with the `phpactor/phpactor` package, please run `composer global remove phpactor/phpactor` first.
 
 [Phpactor]: https://github.com/phpactor/phpactor
